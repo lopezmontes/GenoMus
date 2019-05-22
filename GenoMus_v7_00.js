@@ -6,7 +6,7 @@
 var encodedGenotypeCreator = function () {
     var encodedGen = [];
     for (var a=0; a<1000; a++) {
-        encodedGen.push(Math.round(rng()*1000000)/1000000);
+        encodedGen.push(Math.round(rng()*1e6)/1e6);
     }
     return encodedGen;
 }
@@ -27,8 +27,8 @@ const fs = require('fs');
 var seedrandom = require('seedrandom');
 // init seedrandom to be autoseeded, so unpredictable; rng substitutes Math.random() generator
 var rng = seedrandom();
-var currentSeed = Math.round(rng()*100000000000000);
-var evaluationSeed = Math.round(rng()*100000000000000);
+var currentSeed = Math.round(rng()*1e14);
+var evaluationSeed = Math.round(rng()*1e14);
 
 // global parameters controlled from Max patch
 var subexpressions = {}; // stores all created subexpressiones during evaluation of genotypes
@@ -129,7 +129,7 @@ maxAPI.addHandler('mutateEncodedGenotype', (probabilityOfMutation, amountOfMauta
     var alteredValue;
     for (var a=0; a<currentLeavesStructure.length; a++) {
         if (rng() < probabilityOfMutation) {
-            alteredValue = Math.round((currentLeavesStructure[a][1] + (Math.round(Math.random()*100000)/100000 - 0.5) * amountOfMautation)*100000)/100000;
+            alteredValue = Math.round((currentLeavesStructure[a][1] + (Math.round(Math.random()*1e5)/1e5 - 0.5) * amountOfMautation)*1e5)/1e5;
             if (alteredValue < 0) {
                 alteredValue = 0
             } else if (alteredValue > 1) {
@@ -185,7 +185,7 @@ function createGenotype () {
             var decodedGenotype = "";
             var numElegibleFunctions;
             do {
-                encodedGenotype.push(Math.round(rng()*1000000)/1000000);
+                encodedGenotype.push(Math.round(rng()*1e6)/1e6);
                 p++;
                 // new ramification of genotype
                 // maxAPI.post("last written function is " + chosenFunction);
@@ -205,12 +205,12 @@ function createGenotype () {
                 // add a numerical leaf value
                 else {
                     encodedGenotype[p] = 0; // change value to 0 for make genotypes syntax independent from leaf newFunctionThreshold value
-                    newLeaf = Math.round(rng()*1000000)/1000000;
+                    newLeaf = Math.round(rng()*1e6)/1e6;
                     encodedGenotype.push(newLeaf);
                     p++;
                     // add primitive function, leaves of functions tree
                     if (chosenFunction == "cAutoRef" || chosenFunction == "vAutoRef") {
-                        decodedGenotype += parseInt(encodedGenotype[p]*100000); 
+                        decodedGenotype += parseInt(encodedGenotype[p]*1e5); 
                     }
                     else {
                         decodedGenotype += encodedGenotype[p];  
@@ -249,12 +249,12 @@ function createGenotype () {
         // track seed used for genotype creation    
         usedSeed = currentSeed;
         // creates and saves new derived seed value only for evaluations (to be independent of seed for genotype creation)
-        evaluationSeed = Math.round(rng()*100000000000000); 
+        evaluationSeed = Math.round(rng()*1e14); 
         // seeding before genotype evaluation
         rng = seedrandom(evaluationSeed); 
         evaluatedGenotype = evalAndReturnExpression(decodedGenotype);
         // creates new seed for genotype creation before new iteration, if necessary
-        currentSeed = Math.round(rng()*100000000000000); 
+        currentSeed = Math.round(rng()*1e14); 
         rng = seedrandom(currentSeed); 
     } while ((evaluatedGenotype[0].length < phenotypeMinimalLength || evaluatedGenotype[0].length > phenotypeMaximalLength) && iterations < maxIterations)
     var stopdate = new Date();
@@ -326,7 +326,7 @@ function decodeGenotype (encodedGenotype) {
                 p++;
                 // add primitive function, leaves of functions tree
                 if (chosenFunction == "cAutoRef" || chosenFunction == "vAutoRef") {
-                    decodedGenotype += parseInt(encodedGenotype[p]*100000); 
+                    decodedGenotype += parseInt(encodedGenotype[p]*1e5); 
                 }
                 else {
                     decodedGenotype += encodedGenotype[p];  
