@@ -1,8 +1,6 @@
 // desarrollo de la gramática definitiva
 
-// introduce la creación de un genotipo desde la entrada de una serie de valores aleatoria, como en la idea original
-// input y outputs serán vectores de valores normalizados [0, 1]
-// esto es un cambio local en mi máquina
+// test cambio desde carpeta local
 
 
 var encodedGenotypeCreator = function () {
