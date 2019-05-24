@@ -67,8 +67,8 @@ maxAPI.addHandler("text", (...args) => {
 
 // save JSON genotype
 maxAPI.addHandler("saveGen", (...args) => {
-    var currentFileInfo = fs.readFileSync('/Users/mbp-15_touch/Dropbox/tesis/node_max8_tests/v7/genotipo.json');  
-    fs.writeFileSync('/Users/mbp-15_touch/Dropbox/tesis/node_max8_tests/v7/savedGens/' + getFileDateName(args[0]) + '.json', currentFileInfo);
+    var currentFileInfo = fs.readFileSync('/Users/mbp-15_touch/Dropbox/tesis/GenoMus/genotipo.json');  
+    fs.writeFileSync('/Users/mbp-15_touch/Dropbox/tesis/GenoMus/savedGens/' + getFileDateName(args[0]) + '.json', currentFileInfo);
 });
 
 maxAPI.addHandler('minLength', (integ) => {
@@ -162,7 +162,7 @@ function createGenotype () {
     var usedSeed;
     var evaluatedGenotype = [0,"empty"];
     // get library of functions data
-    var functions_index = JSON.parse(fs.readFileSync('/Users/mbp-15_touch/Dropbox/tesis/node_max8_tests/v7/GenoMus_functions_catalogue_06_limited.json'));  
+    var functions_index = JSON.parse(fs.readFileSync('/Users/mbp-15_touch/Dropbox/tesis/GenoMus/GenoMus_functions_catalogue_06_limited.json'));  
     var startdate = new Date();
     var iterations = 0;
     var maxIterations = 4000;
@@ -209,7 +209,7 @@ function createGenotype () {
                     encodedGenotype.push(newLeaf);
                     p++;
                     // add primitive function, leaves of functions tree
-                    if (chosenFunction == "cAutoRef" || chosenFunction == "vAutoRef") {
+                    if (chosenFunction == "pAutoRef" || chosenFunction == "aAutoRef" || chosenFunction == "cAutoRef" || chosenFunction == "vAutoRef") {
                         decodedGenotype += parseInt(encodedGenotype[p]*1e5); 
                     }
                     else {
@@ -285,7 +285,7 @@ function decodeGenotype (encodedGenotype) {
     var usedSeed;
     var evaluatedGenotype = [0,"empty"];
     // get library of functions data
-    var functions_index = JSON.parse(fs.readFileSync('/Users/mbp-15_touch/Dropbox/tesis/node_max8_tests/v7/GenoMus_functions_catalogue_06_limited.json'));  
+    var functions_index = JSON.parse(fs.readFileSync('/Users/mbp-15_touch/Dropbox/tesis/GenoMus/GenoMus_functions_catalogue_06_limited.json'));  
     var startdate = new Date();
     var iterations = 0;
     var maxIterations = 4000;
@@ -325,7 +325,7 @@ function decodeGenotype (encodedGenotype) {
                 encodedGenotype[p] = 0; // change value to 0 for make genotypes syntax independent from leaf newFunctionThreshold value
                 p++;
                 // add primitive function, leaves of functions tree
-                if (chosenFunction == "cAutoRef" || chosenFunction == "vAutoRef") {
+                if (chosenFunction == "pAutoRef" || chosenFunction == "aAutoRef" || chosenFunction == "cAutoRef" || chosenFunction == "vAutoRef") {
                     decodedGenotype += parseInt(encodedGenotype[p]*1e5); 
                 }
                 else {
@@ -402,7 +402,7 @@ function decodeGenotype (encodedGenotype) {
 function evalTextInputGenotype (decodedGenotype) {
     initSubexpressionsArrays();
     // get library of functions data
-    var functions_index = JSON.parse(fs.readFileSync('/Users/mbp-15_touch/Dropbox/tesis/node_max8_tests/v7/GenoMus_functions_catalogue_06_limited.json'));  
+    var functions_index = JSON.parse(fs.readFileSync('/Users/mbp-15_touch/Dropbox/tesis/GenoMus/GenoMus_functions_catalogue_06_limited.json'));  
     var startdate = new Date();
     var iterations = 0; 
     // seeding before genotype evaluation
@@ -695,6 +695,51 @@ var vAutoRef = function (val) {
     encPhenOut = (eval(reusedExpression))[0];
     return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
 };
+   
+var aAutoRef = function (val) {
+    var funcType = "arrayF";
+    var chosenFuncIndex = val;
+    var reusedExpression;
+    var totalEligibleExpressions = subexpressions["arrayF"].length;
+    if (totalEligibleExpressions == 0 || chosenFuncIndex == 0) {
+        reusedExpression = "aRandomArray(pRand())";
+        chosenFuncIndex = 0;
+    }
+    else {
+        chosenFuncIndex = chosenFuncIndex % totalEligibleExpressions;
+        if (chosenFuncIndex == 0) {
+            chosenFuncIndex = totalEligibleExpressions;
+        }
+        reusedExpression = subexpressions["arrayF"][chosenFuncIndex-1];
+    }
+    // maxAPI.post("reusedExpress: " + reusedExpression);
+    var decGenOut = "aAutoRef(" + chosenFuncIndex + ")";
+    encPhenOut = (eval(reusedExpression))[0];
+    return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
+};  
+    
+var pAutoRef = function (val) {
+    var funcType = "paramF";
+    var chosenFuncIndex = val;
+    var reusedExpression;
+    var totalEligibleExpressions = subexpressions["paramF"].length;
+    if (totalEligibleExpressions == 0 || chosenFuncIndex == 0) {
+        reusedExpression = "pRand()";
+        chosenFuncIndex = 0;
+    }
+    else {
+        chosenFuncIndex = chosenFuncIndex % totalEligibleExpressions;
+        if (chosenFuncIndex == 0) {
+            chosenFuncIndex = totalEligibleExpressions;
+        }
+        reusedExpression = subexpressions["paramF"][chosenFuncIndex-1];
+    }
+    // maxAPI.post("reusedExpress: " + reusedExpression);
+    var decGenOut = "pAutoRef(" + chosenFuncIndex + ")";
+    encPhenOut = (eval(reusedExpression))[0];
+    return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
+}; 
+    
     
 ////////////
 
@@ -742,8 +787,69 @@ var cRandomMotif = function (rndArr1, rndArr2, rndArr3, rndArr4) {
         encPhenOut.push(rndArr4[0][a]);
     }
     return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
-}  
+};  
+   
     
+    
+    
+var cTranspose = function (excerpt, interv) {
+    var funcType = "chordF";
+    var decGenOut = "cTranspose(" + excerpt[1] + "," + interv[1] + ")";
+    var transposeInterval = Math.floor((interv[0]-0.5)*100)/100;
+    var encPhenOut = excerpt[0].slice(0);
+    var voiceLength = encPhenOut.length;
+    var pitchesInChord;
+    for (var a = 2; a < voiceLength; a = a + 5) {
+        pitchesInChord = encPhenOut[a-1];
+        for(n=0; n<pitchesInChord; n++) {
+            encPhenOut[a] += transposeInterval;
+            if (encPhenOut[a] < 0  ) encPhenOut[a] = 0;
+            if (encPhenOut[a] > 0  ) encPhenOut[a] = 1;
+        }
+        a+=pitchesInChord-1;
+    }
+    return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);    
+};     
+   
+var cProgression = function (excerpt, interv, iterations) {
+    var funcType = "chordF";
+    var decGenOut = "cProgression(" + excerpt[1] + "," + interv[1] + "," + iterations[1] + ")";
+    var lengthLimit = phenotypeMaximalLength;
+    var transposeInterval = Math.floor((interv[0]*0.2-0.1)*100)/100;
+    var times = Math.floor(iterations[0]*8) + 1;
+    var pitchesInChord;
+    var progression = excerpt[0].slice(0);
+    var encPhenOut = [];
+    var voiceLength = encPhenOut.length;
+    maxAPI.post("progresion de longitud " + voiceLength * times);
+    if (voiceLength * times < lengthLimit) {   
+        maxAPI.post("posible con transinterval " + transposeInterval);
+        for (var t=0; t<times; t++) {
+            for (var a = 2; a < voiceLength; a = a + 5) {
+                pitchesInChord = progression[a-1];
+                maxAPI.post("notas en chord " + pitchesInChord);
+                maxAPI.post("actual pitch" + progression[a]);
+                
+                for(n=0; n<pitchesInChord; n++) {
+                    progression[a] = progression[a] + transposeInterval * t;
+                    if (progression[a] < 0) { progression[a] = 0 };
+                    if (progression[a] > 1) { progression[a] = 1 };
+                    maxAPI.post("pitch: " + progression[a]);
+                }
+                a+=pitchesInChord-1;
+            }
+            encPhenOut = encPhenOut.concat(progression);
+            progression = excerpt[0].slice(0);
+            maxAPI.post("resultdo tiene ahora " + encPhenOut.length + " elementos");
+        }
+    }
+    else {
+        maxAPI.post("no posible");
+        encPhenOut = excerpt[0];
+    } 
+    return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);    
+};
+
 var aRandomArray = function (flo) {
     var funcType = "arrayF";
     var decGenOut = "aRandomArray(" + flo[1] + ")";
@@ -754,7 +860,7 @@ var aRandomArray = function (flo) {
         encPhenOut.push(randn_bm());
     }
     return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
-}
+};
 
 var aRndRangeArray = function (flo, value_1, value_2) {
     var funcType = "arrayF";
@@ -767,7 +873,32 @@ var aRndRangeArray = function (flo, value_1, value_2) {
     }
     return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
 }
+    
+// create a lineal progression, with a minimum of 2 and a maximum of 16 steps
+var aSteps = function (value_1, value_2, value_3) {
+    var funcType = "arrayF";
+    var decGenOut = "aSteps(" + value_1[1] + "," + value_2[1] + "," + value_3[1] + ")";
+    var numSteps = Math.round(value_3[0]*14) + 1; 
+    var lengthLimit = phenotypeMaximalLength;
+    var encPhenOut = [];
+    var step = (value_2[0] - value_1[0]) / numSteps;
+    for ( a=0; a<=numSteps; a++ ) {
+        encPhenOut[a] = step * a + value_1[0];
+    }
+    return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
+};    
 
+var aLoop = function (arr, normFlo) {
+    var funcType = "arrayF";
+    var decGenOut = "aLoop(" + arr[1] + "," + normFlo[1] + ")";
+    var times = Math.floor(normFlo[0]*16) + 1;
+	var encPhenOut = [];
+	for (var n=1; n<=times; n++) {
+        encPhenOut.push.apply(encPhenOut, arr[0]);
+	}
+    return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
+}
+    
 // return modulus m of an integer i
 var modul = function (m, i) {
     return [i[0] % m[0], "modul(" + m[1] + "," + i[1] + ")"];
@@ -1024,6 +1155,24 @@ function cConcate(arr1, arr2) {
     var funcType = "chordF";
     var decGenOut = "cConcate(" + arr1[1] + "," + arr2[1] + ")";    
     if (arr1.length + arr2.length < phenotypeMaximalLength) {
+        var encPhenOut = arr1[0].concat(arr2[0]);
+    }
+    else {
+        var encPhenOut = arr1[0];
+    }
+    return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
+}
+    
+function cConcateDouble(arr1, arr2, arr3, arr4) {
+    var funcType = "chordF";
+    var decGenOut = "cConcateDouble(" + arr1[1] + "," + arr2[1] + "," + arr3[1] + "," + arr4[1] + ")";    
+    if (arr1.length + arr2.length + arr3.length + arr4.length < phenotypeMaximalLength) {
+        var encPhenOut = arr1[0].concat(arr2[0]).concat(arr3[0]).concat(arr4[0]);
+    }
+    else if (arr1.length + arr2.length + arr3.length < phenotypeMaximalLength) {
+        var encPhenOut = arr1[0].concat(arr2[0]).concat(arr3[0]);
+    }
+    else if (arr1.length + arr2.length < phenotypeMaximalLength) {
         var encPhenOut = arr1[0].concat(arr2[0]);
     }
     else {

@@ -95,12 +95,22 @@
                 "index": 11,
                 "arguments": ["chordF","chordF"]                                
             },
+            "cConcateDouble": {
+                "index": 11,
+                "arguments": ["chordF","chordF","chordF","chordF"]                                
+            },
             "cAutoRef": {
                 "index": 12,
                 "arguments": ["leaf"]
             },
             "cDiatonize": {
                 "arguments": ["chordF", "paramF"]                
+            },
+            "cTranspose": {
+                "arguments": ["chordF", "paramF"]                                
+            },
+            "cProgression": {
+                "arguments": ["chordF", "paramF", "paramF"]                                                
             }
         },
         "arrayF": {
@@ -111,6 +121,18 @@
             "aRndRangeArray": {
                 "index": 2,
                 "arguments": ["paramF","paramF","paramF"]                
+            },
+            "aSteps": {
+                "index": 3,
+                "description": "Create a lineal progression, with a minimum of 2 and a maximum of 16 steps.",
+                "arguments": ["paramF","paramF","paramF"]                                
+            },
+            "aAutoRef": {
+                "index": 4,
+                "arguments": ["leaf"]
+            },
+            "aLoop": {
+                "arguments": ["arrayF", "paramF"]                
             }
             
         },
@@ -125,6 +147,10 @@
             },
             "pRand": {
                 "index": 3,
+                "arguments": ["leaf"]
+            },
+            "pAutoRef": {
+                "index": 12,
                 "arguments": ["leaf"]
             },
             "p": {
