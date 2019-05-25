@@ -1,6 +1,6 @@
 // desarrollo de la gramática definitiva
 
-// test cambio desde carpeta local
+// add modeF functiontype for scales, modes and pitch class sets
 
 
 var encodedGenotypeCreator = function () {
@@ -151,6 +151,7 @@ function initSubexpressionsArrays() {
     subexpressions["scoreF"] = [];
     subexpressions["voiceF"] = [];
     subexpressions["chordF"] = [];
+    subexpressions["modeF"] = [];
     subexpressions["arrayF"] = [];
     subexpressions["paramF"] = [];
     encodedLeaves = [];    
@@ -162,7 +163,7 @@ function createGenotype () {
     var usedSeed;
     var evaluatedGenotype = [0,"empty"];
     // get library of functions data
-    var functions_index = JSON.parse(fs.readFileSync('/Users/mbp-15_touch/Dropbox/tesis/GenoMus/GenoMus_functions_catalogue_06_limited.json'));  
+    var functions_index = JSON.parse(fs.readFileSync('/Users/mbp-15_touch/Dropbox/tesis/GenoMus/GenoMus_functions_catalogue_07.json'));  
     var startdate = new Date();
     var iterations = 0;
     var maxIterations = 4000;
@@ -285,7 +286,7 @@ function decodeGenotype (encodedGenotype) {
     var usedSeed;
     var evaluatedGenotype = [0,"empty"];
     // get library of functions data
-    var functions_index = JSON.parse(fs.readFileSync('/Users/mbp-15_touch/Dropbox/tesis/GenoMus/GenoMus_functions_catalogue_06_limited.json'));  
+    var functions_index = JSON.parse(fs.readFileSync('/Users/mbp-15_touch/Dropbox/tesis/GenoMus/GenoMus_functions_catalogue_07.json'));  
     var startdate = new Date();
     var iterations = 0;
     var maxIterations = 4000;
@@ -402,7 +403,7 @@ function decodeGenotype (encodedGenotype) {
 function evalTextInputGenotype (decodedGenotype) {
     initSubexpressionsArrays();
     // get library of functions data
-    var functions_index = JSON.parse(fs.readFileSync('/Users/mbp-15_touch/Dropbox/tesis/GenoMus/GenoMus_functions_catalogue_06_limited.json'));  
+    var functions_index = JSON.parse(fs.readFileSync('/Users/mbp-15_touch/Dropbox/tesis/GenoMus/GenoMus_functions_catalogue_07.json'));  
     var startdate = new Date();
     var iterations = 0; 
     // seeding before genotype evaluation
@@ -1036,58 +1037,36 @@ function cIterExpr(exprToIter, times) {
     return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
 }
 
-// adjust the pitches of a whole voice to a diatonic natural scale
-function vRandomDiatonize(excerpt) {
+    
+function vDiatonize(excerpt, mode) {
     var funcType = "voiceF";
-    var decGenOut = "vRandomDiatonize(" + excerpt[1] + ")";
+    var decGenOut = "vDiatonize(" + excerpt[1] + "," + mode[1] + ")";
     var encPhenOut = excerpt[0].slice(0);
     var voiceLength = encPhenOut.length;
     var pitchesInChord;
-    var randomPCS = randomPCSet(rng());
-    // maxAPI.post("PCSET: " + randomPCS);
+    maxAPI.post("PCSET: " + mode[0]);
     for (var a = 3; a < voiceLength; a = a + 5) {
         pitchesInChord = encPhenOut[a-1];
         for(n=0; n<pitchesInChord; n++) {
-        // maxAPI.post("cojo: " + loadVoice[a]);
-            encPhenOut[a] = diatonize(encPhenOut[a], randomPCS);
-        //maxAPI.post("cambiado a: " + loadVoice[a]);
+            encPhenOut[a] = diatonize(encPhenOut[a], mode[0]);
         }
         a+=pitchesInChord-1;
     }
     return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
-}
+}    
     
-function vDiatonize(excerpt, cardinality) {
-    var funcType = "voiceF";
-    var decGenOut = "vDiatonize(" + excerpt[1] + "," + cardinality[1] + ")";
-    var encPhenOut = excerpt[0].slice(0);
-    var voiceLength = encPhenOut.length;
-    var pitchesInChord;
-    var randomPCS = randomPCSet(cardinality[0]);
-    // maxAPI.post("PCSET: " + randomPCS);
-    for (var a = 3; a < voiceLength-5; a = a + 5) {
-        pitchesInChord = encPhenOut[a-1];
-        for(n=0; n<pitchesInChord; n++) {
-            encPhenOut[a] = diatonize(encPhenOut[a], randomPCS);
-        }
-        a+=pitchesInChord-1;
-    }
-    return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
-}
-    
-function cDiatonize(excerpt, cardinality) {
+function cDiatonize(excerpt, mode) {
     var funcType = "chordF";
-    var decGenOut = "cDiatonize(" + excerpt[1] + "," + cardinality[1] + ")";
+    var decGenOut = "cDiatonize(" + excerpt[1] + "," + mode[1] + ")";
     var encPhenOut = excerpt[0].slice(0);
     var voiceLength = encPhenOut.length;
     var pitchesInChord;
-    var randomPCS = randomPCSet(cardinality[0]);
+    var scale = mode[0];
     // maxAPI.post("PCSET: " + randomPCS);
     for (var a = 2; a < voiceLength-5; a = a + 5) {
-        //maxAPI.post("cojo: " + loadVoice[a]);
         pitchesInChord = encPhenOut[a-1];
         for(n=0; n<pitchesInChord; n++) {
-            encPhenOut[a] = diatonize(encPhenOut[a], randomPCS);
+            encPhenOut[a] = diatonize(encPhenOut[a], scale);
         }
         a+=pitchesInChord-1;
         //maxAPI.post("cambiado a: " + loadVoice[a]);
@@ -1095,7 +1074,36 @@ function cDiatonize(excerpt, cardinality) {
     return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
 }
     
-
+// mode functions for scales
+var mNaturalMode = function (transposition) {
+    var funcType = "modeF";
+    var interval = (Math.round(transposition[0] * 100) % 12)/100;
+    var decGenOut = "mNaturalMode(" + transposition[1] + ")";    
+    var cmajor = [0,.02,.04,.05,.07,.09,.11];
+    var encPhenOut = [];
+    for (var n=0; n<7; n++) {
+        encPhenOut.push((Math.round((cmajor[n] + interval) * 100) % 12)/100);
+    }
+    encPhenOut.sort();
+    maxAPI.post("usaré escala " + encPhenOut);
+    return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);    
+};
+  
+var mMinorMelodicMode = function (transposition) {
+    var funcType = "modeF";
+    var interval = (Math.round(transposition[0] * 100) % 12)/100;
+    var decGenOut = "mMinorMelodicMode(" + transposition[1] + ")";    
+    var cmajor = [0,.02,.03,.05,.07,.09,.11];
+    var encPhenOut = [];
+    for (var n=0; n<7; n++) {
+        encPhenOut.push((Math.round((cmajor[n] + interval) * 100) % 12)/100);
+    }
+    encPhenOut.sort();
+    maxAPI.post("usaré escala " + encPhenOut);
+    return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);    
+};
+    
+    
     
 // AUX functions for diatonize    
 function randomPCSet(normCardinality) {
@@ -1250,6 +1258,9 @@ function sFiveVoices(voice1, voice2, voice3, voice4, voice5) {
     }
     return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);    
 }    
+   
+    
+
     
     
 /////////////////
