@@ -2,7 +2,7 @@
 
 // add modeF functiontype for scales, modes and pitch class sets
 
-
+var version = "0.7.03"
 var encodedGenotypeCreator = function () {
     var encodedGen = [];
     for (var a=0; a<1000; a++) {
@@ -270,7 +270,7 @@ function createGenotype () {
     // first array with metadata: [date, iterations, time ellapsed]
     // second array with encodedGenotype
     // third array with pair [encodedPhenotype, decodedGenotype] 
-    var metadata = [parseInt(getFileDateName()), iterations, Math.abs(stopdate-startdate), evaluatedGenotype[0].length];
+    var metadata = [version, parseInt(getFileDateName()), iterations, Math.abs(stopdate-startdate), evaluatedGenotype[0].length];
     var expandedExpression = expandExpr(evaluatedGenotype[1]);
     var outputData = [metadata, encodedGenotype, evaluatedGenotype, expandedExpression, subexpressions, leaves, encodedLeaves, usedSeed, evaluationSeed];
     // maxAPI.post("out: " + outputData);
@@ -385,7 +385,7 @@ function decodeGenotype (encodedGenotype) {
     // first array with metadata: [date, iterations, time ellapsed]
     // second array with encodedGenotype
     // third array with pair [encodedPhenotype, decodedGenotype] 
-    var metadata = [parseInt(getFileDateName()), iterations, Math.abs(stopdate-startdate), evaluatedGenotype[0].length];
+    var metadata = [version, parseInt(getFileDateName()), iterations, Math.abs(stopdate-startdate), evaluatedGenotype[0].length];
     var expandedExpression = expandExpr(evaluatedGenotype[1]);
         
     var outputData = [metadata, encodedGenotype, evaluatedGenotype, expandedExpression, subexpressions, leaves, encodedLeaves, usedSeed, evaluationSeed];
@@ -418,7 +418,7 @@ function evalTextInputGenotype (decodedGenotype) {
     // first array with metadata: [date, iterations, time ellapsed]
     // second array with encodedGenotype
     // third array with pair [encodedPhenotype, decodedGenotype] 
-    var metadata = [parseInt(getFileDateName()), iterations, Math.abs(stopdate-startdate), evaluatedGenotype[0].length];
+    var metadata = [version, parseInt(getFileDateName()), iterations, Math.abs(stopdate-startdate), evaluatedGenotype[0].length];
     var expandedExpression = expandExpr(evaluatedGenotype[1]);
     var outputData = [metadata, encodedGenotype, evaluatedGenotype, expandedExpression, subexpressions, leaves, encodedLeaves, currentSeed, evaluationSeed];
     currentEncodedGenotype = encodedGenotype;
@@ -462,10 +462,11 @@ var replaceLeaves = function (expr, newValuesArray) {
 function writeJSON(evaluatedData) {
     let genotipo = {
         metadata: {
-            creationTimecode: evaluatedData[0][0],
-            iterations: evaluatedData[0][1],
-            millisecondsEllapsed: evaluatedData[0][2],
-            genotypeLength: evaluatedData[0][3]
+            versionGenoMus: evaluatedData[0][0],
+            creationTimecode: evaluatedData[0][1],
+            iterations: evaluatedData[0][2],
+            millisecondsEllapsed: evaluatedData[0][3],
+            genotypeLength: evaluatedData[0][4]
         },
         genotypeSeed: evaluatedData[7],
         phenotypeSeed: evaluatedData[8],
@@ -822,26 +823,19 @@ var cProgression = function (excerpt, interv, iterations) {
     var progression = excerpt[0].slice(0);
     var encPhenOut = [];
     var voiceLength = excerpt[0].length;
-    maxAPI.post("progresion de longitud " + voiceLength * times);
     if (voiceLength * times < lengthLimit) {   
-        maxAPI.post("posible con transinterval " + transposeInterval);
         for (var t=0; t<times; t++) {
             for (var a = 2; a < voiceLength; a = a + 5) {
-                pitchesInChord = progression[a-1];
-                maxAPI.post("notas en chord " + pitchesInChord);
-                maxAPI.post("actual pitch" + progression[a]);
-                
+                pitchesInChord = progression[a-1];                
                 for(n=0; n<pitchesInChord; n++) {
                     progression[a] = progression[a] + transposeInterval * t;
                     if (progression[a] < 0) { progression[a] = 0 };
                     if (progression[a] > 1) { progression[a] = 1 };
-                    maxAPI.post("pitch: " + progression[a]);
                 }
                 a+=pitchesInChord-1;
             }
             encPhenOut = encPhenOut.concat(progression);
             progression = excerpt[0].slice(0);
-            maxAPI.post("resultado tiene ahora " + encPhenOut.length + " elementos");
         }
     }
     else {
@@ -1044,7 +1038,6 @@ function vDiatonize(excerpt, mode) {
     var encPhenOut = excerpt[0].slice(0);
     var voiceLength = encPhenOut.length;
     var pitchesInChord;
-    maxAPI.post("PCSET: " + mode[0]);
     for (var a = 3; a < voiceLength; a = a + 5) {
         pitchesInChord = encPhenOut[a-1];
         for(n=0; n<pitchesInChord; n++) {
@@ -1085,7 +1078,6 @@ var mNaturalMode = function (transposition) {
         encPhenOut.push((Math.round((cmajor[n] + interval) * 100) % 12)/100);
     }
     encPhenOut.sort();
-    maxAPI.post("usaré escala " + encPhenOut);
     return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);    
 };
   
@@ -1099,10 +1091,34 @@ var mMinorMelodicMode = function (transposition) {
         encPhenOut.push((Math.round((cmajor[n] + interval) * 100) % 12)/100);
     }
     encPhenOut.sort();
-    maxAPI.post("usaré escala " + encPhenOut);
     return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);    
 };
     
+var mHexatonic = function (transposition) {
+    var funcType = "modeF";
+    var interval = (Math.round(transposition[0] * 100) % 12)/100;
+    var decGenOut = "mHexatonic(" + transposition[1] + ")";    
+    var cmajor = [0,.02,.04,.06,.08,.1];
+    var encPhenOut = [];
+    for (var n=0; n<7; n++) {
+        encPhenOut.push((Math.round((cmajor[n] + interval) * 100) % 12)/100);
+    }
+    encPhenOut.sort();
+    return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);    
+};
+    
+var mOctatonic = function (transposition) {
+    var funcType = "modeF";
+    var interval = (Math.round(transposition[0] * 100) % 12)/100;
+    var decGenOut = "mOctatonic(" + transposition[1] + ")";    
+    var cmajor = [0,.01,.03,.04,.06,.07,.09,.1];
+    var encPhenOut = [];
+    for (var n=0; n<7; n++) {
+        encPhenOut.push((Math.round((cmajor[n] + interval) * 100) % 12)/100);
+    }
+    encPhenOut.sort();
+    return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);    
+};
     
     
 // AUX functions for diatonize    

@@ -2,7 +2,7 @@
 
 // test cambio desde carpeta local
 
-
+var version = "0.7.01";
 var encodedGenotypeCreator = function () {
     var encodedGen = [];
     for (var a=0; a<1000; a++) {
@@ -384,10 +384,10 @@ function decodeGenotype (encodedGenotype) {
     // first array with metadata: [date, iterations, time ellapsed]
     // second array with encodedGenotype
     // third array with pair [encodedPhenotype, decodedGenotype] 
-    var metadata = [parseInt(getFileDateName()), iterations, Math.abs(stopdate-startdate), evaluatedGenotype[0].length];
+    var metadata = [parseInt(getFileDateName()), iterations, Math.abs(stopdate-startdate), evaluatedGenotype[0].length, version];
     var expandedExpression = expandExpr(evaluatedGenotype[1]);
         
-    var outputData = [metadata, encodedGenotype, evaluatedGenotype, expandedExpression, subexpressions, leaves, encodedLeaves, usedSeed, evaluationSeed];
+    var outputData = [metadata, encodedGenotype, evaluatedGenotype, expandedExpression, subexpressions, leaves, encodedLeaves, usedSeed, evaluationSeed, version];
     // maxAPI.post("out: " + outputData);
     // maxAPI.post("pair:" + outputData[2]);   
     currentEncodedGenotype = encodedGenotype;
@@ -417,7 +417,7 @@ function evalTextInputGenotype (decodedGenotype) {
     // first array with metadata: [date, iterations, time ellapsed]
     // second array with encodedGenotype
     // third array with pair [encodedPhenotype, decodedGenotype] 
-    var metadata = [parseInt(getFileDateName()), iterations, Math.abs(stopdate-startdate), evaluatedGenotype[0].length];
+    var metadata = [parseInt(getFileDateName()), iterations, Math.abs(stopdate-startdate), evaluatedGenotype[0].length, version];
     var expandedExpression = expandExpr(evaluatedGenotype[1]);
     var outputData = [metadata, encodedGenotype, evaluatedGenotype, expandedExpression, subexpressions, leaves, encodedLeaves, currentSeed, evaluationSeed];
     currentEncodedGenotype = encodedGenotype;
@@ -461,6 +461,7 @@ var replaceLeaves = function (expr, newValuesArray) {
 function writeJSON(evaluatedData) {
     let genotipo = {
         metadata: {
+            versionGenoMus:  evaluatedData[0][4], 
             creationTimecode: evaluatedData[0][0],
             iterations: evaluatedData[0][1],
             millisecondsEllapsed: evaluatedData[0][2],
