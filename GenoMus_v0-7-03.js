@@ -920,11 +920,45 @@ function cRandomNote(foo1, foo2, foo3, foo4) {
     return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
 }
 
-function cRandomThreePitchesChord(foo1, foo2, foo3, foo4) {
+function cRandomTwoPitchesChord(foo1) {
     var funcType = "chordF";  
-    var decGenOut = "cRandomThreePitchesChord(" + foo1[1] + "," + foo2[1] + "," + foo3[1] + "," + foo4[1] + ")";
+    var decGenOut = "cRandomTwoPitchesChord(" + foo1[1]+ ")";
+    var encPhenOut = [randn_bm(),
+            2,
+            randn_bm(),
+            randn_bm(),
+            rng(),
+            randn_bm(),
+            randn_bm(),
+            rng()];
+    return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
+}
+    
+function cRandomThreePitchesChord(foo1) {
+    var funcType = "chordF";  
+    var decGenOut = "cRandomThreePitchesChord(" + foo1[1] + ")";
     var encPhenOut = [randn_bm(),
             3,
+            randn_bm(),
+            randn_bm(),
+            rng(),
+            randn_bm(),
+            randn_bm(),
+            rng(),
+            randn_bm(),
+            randn_bm(),
+            rng()];
+    return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
+}
+    
+function cRandomFourPitchesChord(foo1) {
+    var funcType = "chordF";  
+    var decGenOut = "cRandomFourPitchesChord(" + foo1[1] + ")";
+    var encPhenOut = [randn_bm(),
+            4,
+            randn_bm(),
+            randn_bm(),
+            rng(),
             randn_bm(),
             randn_bm(),
             rng(),
@@ -1098,10 +1132,10 @@ var mHexatonic = function (transposition) {
     var funcType = "modeF";
     var interval = (Math.round(transposition[0] * 100) % 12)/100;
     var decGenOut = "mHexatonic(" + transposition[1] + ")";    
-    var cmajor = [0,.02,.04,.06,.08,.1];
+    var hexa = [0,.02,.04,.06,.08,.1];
     var encPhenOut = [];
-    for (var n=0; n<7; n++) {
-        encPhenOut.push((Math.round((cmajor[n] + interval) * 100) % 12)/100);
+    for (var n=0; n<6; n++) {
+        encPhenOut.push((Math.round((hexa[n] + interval) * 100) % 12)/100);
     }
     encPhenOut.sort();
     return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);    
@@ -1111,15 +1145,26 @@ var mOctatonic = function (transposition) {
     var funcType = "modeF";
     var interval = (Math.round(transposition[0] * 100) % 12)/100;
     var decGenOut = "mOctatonic(" + transposition[1] + ")";    
-    var cmajor = [0,.01,.03,.04,.06,.07,.09,.1];
+    var octatonic = [0,.01,.03,.04,.06,.07,.09,.1];
     var encPhenOut = [];
-    for (var n=0; n<7; n++) {
-        encPhenOut.push((Math.round((cmajor[n] + interval) * 100) % 12)/100);
+    for (var n=0; n<8; n++) {
+        encPhenOut.push((Math.round((octatonic[n] + interval) * 100) % 12)/100);
     }
     encPhenOut.sort();
     return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);    
 };
     
+var mRandomPCSet = function (cardinal) {
+    var funcType = "modeF";
+    var decGenOut = "mRandomPCSet(" + cardinal[1] + ")";    
+    var PCSet = randomPCSet(cardinal);
+    var encPhenOut = [];
+    for (var n=0; n<PCSet.length; n++) {
+        encPhenOut.push((Math.round((PCSet[n]) * 100) % 12)/100);
+    }
+    encPhenOut.sort();
+    return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);    
+};
     
 // AUX functions for diatonize    
 function randomPCSet(normCardinality) {

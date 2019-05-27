@@ -65,9 +65,17 @@
                 "description": "Creates a random note with fool arguments, to test.",
                 "arguments": ["paramF","paramF","paramF","paramF"]
             },
+            "cRandomTwoPitchesChord": {
+                "index": 5,
+                "arguments": ["paramF"]                
+            },
             "cRandomThreePitchesChord": {
                 "index": 5,
-                "arguments": ["paramF","paramF","paramF","paramF"]                
+                "arguments": ["paramF"]                
+            },
+            "cRandomFourPitchesChord": {
+                "index": 5,
+                "arguments": ["paramF"]                
             },
             "cRandomOctavesChord": {
                 "index": 6,
@@ -112,16 +120,19 @@
         },
         "modeF": {
             "mNaturalMode": {
-                "arguments": ["paramF","paramF"]
+                "arguments": ["paramF"]
             },
             "mMinorMelodicMode": {
-                "arguments": ["paramF","paramF"]
+                "arguments": ["paramF"]
             },
             "mHexatonic": {
-                "arguments": ["paramF","paramF"]
+                "arguments": ["paramF"]
             },
             "mOctatonic": {
-                "arguments": ["paramF","paramF"]
+                "arguments": ["paramF"]
+            },
+            "mRandomPCSet": {
+                "arguments": ["paramF"]
             }
         },
         "arrayF": {
