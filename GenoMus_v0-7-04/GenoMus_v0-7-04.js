@@ -1,8 +1,8 @@
-// desarrollo de la gramática definitiva
+// GRAMMAR DEVELOPMENT
 
-// add modeF functiontype for scales, modes and pitch class sets
+// improve portability for other test users
 
-var version = "0.7.03"
+var version = "0.7.04"
 var encodedGenotypeCreator = function () {
     var encodedGen = [];
     for (var a=0; a<1000; a++) {
@@ -67,8 +67,8 @@ maxAPI.addHandler("text", (...args) => {
 
 // save JSON genotype
 maxAPI.addHandler("saveGen", (...args) => {
-    var currentFileInfo = fs.readFileSync('/Users/mbp-15_touch/Dropbox/tesis/GenoMus/genotipo.json');  
-    fs.writeFileSync('/Users/mbp-15_touch/Dropbox/tesis/GenoMus/savedGens/' + getFileDateName(args[0]) + '.json', currentFileInfo);
+    var currentFileInfo = fs.readFileSync('genotipo.json');  
+    fs.writeFileSync('savedGens/' + getFileDateName(args[0]) + '.json', currentFileInfo);
 });
 
 maxAPI.addHandler('minLength', (integ) => {
@@ -163,7 +163,7 @@ function createGenotype () {
     var usedSeed;
     var evaluatedGenotype = [0,"empty"];
     // get library of functions data
-    var functions_index = JSON.parse(fs.readFileSync('/Users/mbp-15_touch/Dropbox/tesis/GenoMus/GenoMus_functions_catalogue_07.json'));  
+    var functions_index = JSON.parse(fs.readFileSync('GenoMus_functions_catalogue_08.json'));  
     var startdate = new Date();
     var iterations = 0;
     var maxIterations = 4000;
@@ -286,7 +286,7 @@ function decodeGenotype (encodedGenotype) {
     var usedSeed;
     var evaluatedGenotype = [0,"empty"];
     // get library of functions data
-    var functions_index = JSON.parse(fs.readFileSync('/Users/mbp-15_touch/Dropbox/tesis/GenoMus/GenoMus_functions_catalogue_07.json'));  
+    var functions_index = JSON.parse(fs.readFileSync('GenoMus_functions_catalogue_08.json'));  
     var startdate = new Date();
     var iterations = 0;
     var maxIterations = 4000;
@@ -403,7 +403,7 @@ function decodeGenotype (encodedGenotype) {
 function evalTextInputGenotype (decodedGenotype) {
     initSubexpressionsArrays();
     // get library of functions data
-    var functions_index = JSON.parse(fs.readFileSync('/Users/mbp-15_touch/Dropbox/tesis/GenoMus/GenoMus_functions_catalogue_07.json'));  
+    var functions_index = JSON.parse(fs.readFileSync('GenoMus_functions_catalogue_08.json'));  
     var startdate = new Date();
     var iterations = 0; 
     // seeding before genotype evaluation
