@@ -1,0 +1,7 @@
+Cambios:
+
+Interfaz:
+· Uso de pentagramas accesorios en registros extremos para mejor visibilidad.
+· Desde ahora el archivo de la interfaz usa la misma numeración de versión de GenoMus por simplicidad.
+
+
