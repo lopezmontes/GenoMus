@@ -2,7 +2,7 @@
 
 // improve portability for other test users
 
-var version = "0.7.4"
+var version = "0.7.5"
 var encodedGenotypeCreator = function () {
     var encodedGen = [];
     for (var a=0; a<1000; a++) {
