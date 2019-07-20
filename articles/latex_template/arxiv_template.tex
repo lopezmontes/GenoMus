@@ -1,0 +1,281 @@
+\documentclass{article}
+
+
+\usepackage{arxiv}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{lipsum}
+
+\title{Representing procedural musical structures with an encoded functional grammar optimized for metaprogramming and machine learning}
+
+
+\author{
+  Jos\'e L\'opez-Montes\thanks{Use footnote for providing further
+    information about author (webpage, alternative
+    address)---\emph{not} for acknowledging funding agencies.} \\
+  University of Granada\\
+  \texttt{lopezmontes@correo.ugr.es} \\
+  %% examples of more authors
+%   \And
+% Elias D.~Striatum \\
+%  Department of Electrical Engineering\\
+%  Mount-Sheikh University\\
+%  Santa Narimana, Levand \\
+%  \texttt{stariate@ee.mount-sheikh.edu} \\
+  %% \AND
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+}
+
+\begin{document}
+\maketitle
+
+
+\begin{abstract}
+El objetivo es disponer de una gramatica que represente estructuras musicales de amplio espectro, que sea lo mas modular posible, y que pueda ser codificada del modo mas simple posible para aplicar tecnicas de machine learning. La representacion trata de capturar los procedimientos compositivos del modo mas abstracto posible, y relacionarlos con la musica originada por estos procedimientos.
+\end{abstract}
+
+
+
+% keywords can be removed
+\keywords{automatic musical composition \and metaprogramming \and procedural representation of music \and artificial creativity \and GenoMus }
+
+
+%\setcounter{tocdepth}{1}
+%\tableofcontents
+%%\bigskip
+
+\section{Introduction}
+
+
+\begin{itemize}
+\item Complejidad del diseno de lenguajes de representacion musical en la composicion asistida por ordenador
+
+\item Muchos analisis automaticos de musica se basan en la partituras, y no tanto en los procedimientos compositivos que la originan.
+Desde la perspectiva procedimental pasamos a un paradigma funcional de representacion, que permite modularidad.
+
+\item El sistema de representacion limita los resultados de la creatividad artificial y son al fin decisiones artisticas y no solo tecnicas, por lo que idear una gramatica que sea lo mas amplia posible respecto de los estilos que pueda representar requiere de un diseno meditado.
+
+\item Necesidad de encontrar un medio de representacion adecuado a la automatizacion de analisis, a la flexibilidad de estilos, y a conjugar la programacion manual con la modularidad necesaria para las tareas automatizadas
+
+\item Reflexiones sobre metacomposicion, el concepto de autoria y consideraciones pedagogicas y humanas de fondo
+
+\end{itemize}
+
+
+%------------------------------------------------
+
+
+\section{Functional framework}
+
+\subsection{Musical genotypes and phenotypes}
+\begin{itemize}
+\item Marco conceptual basico del paradigma genotipo-fenotipo (
+\item Procedimientos compositivos como funciones (referencias a Haskell y LISP en la tradicion)
+\item Similitud con la programacion funcional: la pieza como funcion de funciones
+\end{itemize}
+
+\subsection{Function structure}
+\begin{itemize}
+\item Estructuras musicales (partitura, voz, acorde, note, parametros finales) (figura ilustrativa)
+\item Inputs
+\item Outputs (genotipo, fenotipo, informacion analitica de armonia, ritmica, etc)
+\item Examples of functions (using different input types)
+
+\end{itemize}
+
+
+%------------------------------------------------
+
+
+\section{Encoding of genotypes and phenotypes}
+\begin{itemize}
+\item Proposito de la codificacion en el marco del machine learning
+\item Codificacion como vectores unidimensionales normalizados
+\item Modularidad y posibilidad de manipulacion manual
+\end{itemize}
+
+
+
+%------------------------------------------------
+
+\section{Implementation and seminal examples}
+
+\begin{itemize}
+\item Entorno de trabajo con Max
+\item Ejemplo de pieza completa basado en Clapping music (La importancia de la autorreferencia)
+\item Un ejemplo clasico con varias voces y conteniendo armonia, dinamica y articulacion
+\item Modularidad y posibilidad de manipulacion manual
+\end{itemize}
+
+
+%------------------------------------------------
+
+\section{Integrating traditional and contemporary techniques}
+
+\begin{itemize}
+\item Ejemplos basicos de tecnicas habituales en CAC (movimiento browniano,
+\item Handling of recursive techniques (fibonacci, y extension del modelo a expresiones matematicas complejas)
+\item Puentes entra la notacion tradicional, la sintesis de sonido y la espacializacion
+\item Multimedia
+\end{itemize}
+
+
+%------------------------------------------------
+
+
+\section{Scalability}
+\begin{itemize}
+\item Como conjugar universalidad de las expresiones con optimizacion para tener los vectores codificados con mayores diferencias entre si.
+\item Estrategias de caracterizacion de perfiles estilisticos
+\item El problema del mapeo de funciones y su extensibilidad
+\item Como establecer una base de datos de conocimiento
+\item Metricas automatizadas de ciertos resultados
+\end{itemize}
+
+
+%------------------------------------------------
+
+
+\section{Strategies for evaluation of musical quality}
+
+
+
+%------------------------------------------------
+
+
+\section{Conclusions and future work}
+
+Cuestiones interesantes: 
+\begin{itemize}
+\item ?Cuantas funciones primitivas son necesarias para generar musica en un determinado estilo? Hay innumerables expresiones funcionales diferentes que pueden generar la misma musica. Se puede deducir que la expresion funcional mas breve es el mejor analisis. Se pueden ver diferentes paradigmas de ensenanza/aprendizaje de la musica con estos modelos.
+\item ?Como puede hacerse ingenieria inversa automatizada para extraer estructuras desde la musica?
+\end{itemize}
+
+
+\section{Headings: first level}
+\label{sec:headings}
+
+\lipsum[4] See Section \ref{sec:headings}.
+
+\subsection{Headings: second level}
+\lipsum[5]
+\begin{equation}
+\xi _{ij}(t)=P(x_{t}=i,x_{t+1}=j|y,v,w;\theta)= {\frac {\alpha _{i}(t)a^{w_t}_{ij}\beta _{j}(t+1)b^{v_{t+1}}_{j}(y_{t+1})}{\sum _{i=1}^{N} \sum _{j=1}^{N} \alpha _{i}(t)a^{w_t}_{ij}\beta _{j}(t+1)b^{v_{t+1}}_{j}(y_{t+1})}}
+\end{equation}
+
+\subsubsection{Headings: third level}
+\lipsum[6]
+
+\paragraph{Paragraph}
+\lipsum[7]
+
+\section{Examples of citations, figures, tables, references}
+\label{sec:others}
+\lipsum[8] \cite{kour2014real,kour2014fast} and see \cite{hadash2018estimate}.
+
+The documentation for \verb+natbib+ may be found at
+\begin{center}
+  \url{http://mirrors.ctan.org/macros/latex/contrib/natbib/natnotes.pdf}
+\end{center}
+Of note is the command \verb+\citet+, which produces citations
+appropriate for use in inline text.  For example,
+\begin{verbatim}
+   \citet{hasselmo} investigated\dots
+\end{verbatim}
+produces
+\begin{quote}
+  Hasselmo, et al.\ (1995) investigated\dots
+\end{quote}
+
+\begin{center}
+  \url{https://www.ctan.org/pkg/booktabs}
+\end{center}
+
+
+\subsection{Figures}
+\lipsum[10] 
+See Figure \ref{fig:fig1}. Here is how you add footnotes. \footnote{Sample of the first footnote.}
+\lipsum[11] 
+
+\begin{figure}
+  \centering
+  \fbox{\rule[-.5cm]{4cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
+  \caption{Sample figure caption.}
+  \label{fig:fig1}
+\end{figure}
+
+\subsection{Tables}
+\lipsum[12]
+See awesome Table~\ref{tab:table}.
+
+\begin{table}
+ \caption{Sample table title}
+  \centering
+  \begin{tabular}{lll}
+    \toprule
+    \multicolumn{2}{c}{Part}                   \\
+    \cmidrule(r){1-2}
+    Name     & Description     & Size ($\mu$m) \\
+    \midrule
+    Dendrite & Input terminal  & $\sim$100     \\
+    Axon     & Output terminal & $\sim$10      \\
+    Soma     & Cell body       & up to $10^6$  \\
+    \bottomrule
+  \end{tabular}
+  \label{tab:table}
+\end{table}
+
+
+
+
+\bibliographystyle{unsrt}  
+%\bibliography{references}  %%% Remove comment to use the external .bib file (using bibtex).
+%%% and comment out the ``thebibliography'' section.
+
+
+%%% Comment out this section when you \bibliography{references} is enabled.
+\begin{thebibliography}{1}
+
+\bibitem{kour2014real}
+George Kour and Raid Saabne.
+\newblock Real-time segmentation of on-line handwritten arabic script.
+\newblock In {\em Frontiers in Handwriting Recognition (ICFHR), 2014 14th
+  International Conference on}, pages 417--422. IEEE, 2014.
+
+\bibitem{kour2014fast}
+George Kour and Raid Saabne.
+\newblock Fast classification of handwritten on-line arabic characters.
+\newblock In {\em Soft Computing and Pattern Recognition (SoCPaR), 2014 6th
+  International Conference of}, pages 312--318. IEEE, 2014.
+
+\bibitem{hadash2018estimate}
+Guy Hadash, Einat Kermany, Boaz Carmeli, Ofer Lavi, George Kour, and Alon
+  Jacovi.
+\newblock Estimate and replace: A novel approach to integrating deep neural
+  networks with existing applications.
+\newblock {\em arXiv preprint arXiv:1804.09028}, 2018.
+
+\end{thebibliography}
+
+
+\end{document}
