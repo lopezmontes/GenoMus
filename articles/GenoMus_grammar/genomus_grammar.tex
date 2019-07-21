@@ -17,9 +17,7 @@
 
 
 \author{
-  Jos\'e L\'opez-Montes\thanks{Use footnote for providing further
-    information about author (webpage, alternative
-    address)---\emph{not} for acknowledging funding agencies.} \\
+  Jos\'e L\'opez-Montes\thanks{\url{https://www.lopezmontes.es}} \\
   University of Granada\\
   \texttt{lopezmontes@correo.ugr.es} \\
   %% examples of more authors
@@ -52,7 +50,7 @@
 \begin{abstract}
 
  	
-We present GenoMus, a new model for artificial musical creativity based on a procedural approach, able to capture and learn the compositional techniques behind a musical score. The core of GenoMus is a functional grammar designed to cover a wide range of styles, integrating traditional and contemporary techniques. Musical \emph{genotypes} are defined as functional trees, able to generate musical scores described as \emph{phenotypes}. To enable the maximal variety of outputs, each process use the same generic functional structure, whatever time scale, polyphonic structure or additional characteristics being employed. Genotypes and phenotypes are encoded as normalized numeric vectors. This abstract representation of musical knowledge as pure numeric arrays is convenient for the application of different machine learning paradigms. The user interface developed for GenoMus is oriented for the exploration of augmented creativity, regardless of the user expertise. However, a composer can altered the algorithms to modify automatic results and to explore user-defined processes, which will expand the procedural library of the whole system.
+We present GenoMus, a new model for artificial musical creativity based on a procedural approach, able to represent and learn the compositional techniques behind a musical score. The aim of this model is to build a framework for automatic creativity, easily adaptable to other domains beyond music. The core of GenoMus is a functional grammar designed to cover a wide range of styles, integrating traditional and contemporary composing techniques. Musical \emph{genotypes} are defined as functional trees, able to generate musical scores described as \emph{phenotypes}. To enable the maximal diversity of outputs, each process uses the same generic functional structure, no matter what time scale, polyphonic structure or additional characteristics are being employed. The goal of this highly homogeneous and modular approach is to simplify metaprogramming of genotypes, as well as maximize search space. Genotypes and phenotypes are encoded as normalized numeric vectors. This abstract representation of musical knowledge as pure numeric arrays is convenient for the application of different machine learning paradigms. The user interface developed for GenoMus is oriented to the exploration of augmented creativity, regardless of user expertise. However, a composer can create and alter manually genotypes and algorithms to modify automatic results. The system allows the implementation of user-defined processes, which will expand the procedures library. 
 
 \end{abstract}
 
@@ -87,7 +85,7 @@ Desde la perspectiva procedimental pasamos a un paradigma funcional de represent
 %------------------------------------------------
 
 
-\section{Functional framework}
+\section{A functional grammar to represent musical procedures}
 
 \subsection{Musical genotypes and phenotypes}
 \begin{itemize}
@@ -120,21 +118,13 @@ Desde la perspectiva procedimental pasamos a un paradigma funcional de represent
 
 %------------------------------------------------
 
-\section{Implementation and seminal examples}
+\section{Integrating traditional and contemporary techniques}
 
 \begin{itemize}
 \item Entorno de trabajo con Max
 \item Ejemplo de pieza completa basado en Clapping music (La importancia de la autorreferencia)
 \item Un ejemplo clasico con varias voces y conteniendo armonia, dinamica y articulacion
 \item Modularidad y posibilidad de manipulacion manual
-\end{itemize}
-
-
-%------------------------------------------------
-
-\section{Integrating traditional and contemporary techniques}
-
-\begin{itemize}
 \item Ejemplos basicos de tecnicas habituales en CAC (movimiento browniano,
 \item Handling of recursive techniques (fibonacci, y extension del modelo a expresiones matematicas complejas)
 \item Puentes entra la notacion tradicional, la sintesis de sonido y la espacializacion
@@ -255,33 +245,6 @@ See awesome Table~\ref{tab:table}.
 
 
 \bibliographystyle{unsrt}  
-%\bibliography{references}  %%% Remove comment to use the external .bib file (using bibtex).
-%%% and comment out the ``thebibliography'' section.
-
-
-%%% Comment out this section when you \bibliography{references} is enabled.
-\begin{thebibliography}{1}
-
-\bibitem{kour2014real}
-George Kour and Raid Saabne.
-\newblock Real-time segmentation of on-line handwritten arabic script.
-\newblock In {\em Frontiers in Handwriting Recognition (ICFHR), 2014 14th
-  International Conference on}, pages 417--422. IEEE, 2014.
-
-\bibitem{kour2014fast}
-George Kour and Raid Saabne.
-\newblock Fast classification of handwritten on-line arabic characters.
-\newblock In {\em Soft Computing and Pattern Recognition (SoCPaR), 2014 6th
-  International Conference of}, pages 312--318. IEEE, 2014.
-
-\bibitem{hadash2018estimate}
-Guy Hadash, Einat Kermany, Boaz Carmeli, Ofer Lavi, George Kour, and Alon
-  Jacovi.
-\newblock Estimate and replace: A novel approach to integrating deep neural
-  networks with existing applications.
-\newblock {\em arXiv preprint arXiv:1804.09028}, 2018.
-
-\end{thebibliography}
-
+\bibliography{references}  
 
 \end{document}
