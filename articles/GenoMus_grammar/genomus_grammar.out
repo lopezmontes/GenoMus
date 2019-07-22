@@ -1,16 +1,11 @@
-\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.1}{Introduction: composing composers}{}% 1
 \BOOKMARK [1][-]{section.2}{A functional grammar to represent musical procedures}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{Musical genotypes and phenotypes}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{Function structure}{section.2}% 4
-\BOOKMARK [1][-]{section.3}{Encoding of genotypes and phenotypes}{}% 5
-\BOOKMARK [1][-]{section.4}{Integrating traditional and contemporary techniques}{}% 6
-\BOOKMARK [1][-]{section.5}{Scalability}{}% 7
-\BOOKMARK [1][-]{section.6}{Strategies for evaluation of musical quality}{}% 8
-\BOOKMARK [1][-]{section.7}{Conclusions and future work}{}% 9
-\BOOKMARK [1][-]{section.8}{Headings: first level}{}% 10
-\BOOKMARK [2][-]{subsection.8.1}{Headings: second level}{section.8}% 11
-\BOOKMARK [3][-]{subsubsection.8.1.1}{Headings: third level}{subsection.8.1}% 12
-\BOOKMARK [1][-]{section.9}{Examples of citations, figures, tables, references}{}% 13
-\BOOKMARK [2][-]{subsection.9.1}{Figures}{section.9}% 14
-\BOOKMARK [2][-]{subsection.9.2}{Tables}{section.9}% 15
-\BOOKMARK [2][-]{subsection.9.3}{Lists}{section.9}% 16
+\BOOKMARK [2][-]{subsection.2.1}{Foundations and requirements}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Musical genotypes and phenotypes}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Function structure}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Encoding of genotypes and phenotypes}{}% 6
+\BOOKMARK [1][-]{section.4}{Integrating traditional and contemporary techniques}{}% 7
+\BOOKMARK [1][-]{section.5}{Scalability}{}% 8
+\BOOKMARK [1][-]{section.6}{Evaluation and evolution}{}% 9
+\BOOKMARK [2][-]{subsection.6.1}{Evolutionary paradigm}{section.6}% 10
+\BOOKMARK [1][-]{section.7}{Conclusions and future work}{}% 11

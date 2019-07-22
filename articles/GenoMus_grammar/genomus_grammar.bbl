@@ -1,22 +1,22 @@
 \begin{thebibliography}{1}
 
-\bibitem{kour2014real}
-George Kour and Raid Saabne.
-\newblock Real-time segmentation of on-line handwritten arabic script.
-\newblock In {\em Frontiers in Handwriting Recognition (ICFHR), 2014 14th
-  International Conference on}, pages 417--422. IEEE, 2014.
+\bibitem{compoCombiSimul}
+Eleanor Selfridge-Field.
+\newblock Composition, combinatorics, and simulation: A historical and
+  philosophical enquiry.
+\newblock In David Cope, editor, {\em Virtual Music: Computer Synthesis of
+  Musical Style}, pages 187--220. The MIT Press, Cambridge, 2001.
 
-\bibitem{kour2014fast}
-George Kour and Raid Saabne.
-\newblock Fast classification of handwritten on-line arabic characters.
-\newblock In {\em Soft Computing and Pattern Recognition (SoCPaR), 2014 6th
-  International Conference of}, pages 312--318. IEEE, 2014.
+\bibitem{Schmidhuber95low-complexityart}
+J{\"u}rgen Schmidhuber.
+\newblock Low-complexity art.
+\newblock {\em Leonardo, Journal of the International Society for the Arts,
+  Sciencies and Technology}, 30(2):97--103, 1997.
 
-\bibitem{hadash2018estimate}
-Guy Hadash, Einat Kermany, Boaz Carmeli, Ofer Lavi, George Kour, and Alon
-  Jacovi.
-\newblock Estimate and replace: A novel approach to integrating deep neural
-  networks with existing applications.
-\newblock {\em arXiv preprint arXiv:1804.09028}, 2018.
+\bibitem{Lopez-Montes_TFM}
+Jos{\'e} L{\'o}pez-Montes.
+\newblock Genomus: Prospecci{\'o}n de t{\'e}cnicas de creatividad asistida por
+  computadora mediante la metaprogramaci{\'o}n de genotipos musicales.
+\newblock Master's thesis, Universidad Rey Juan Carlos, Madrid, 2013.
 
 \end{thebibliography}
