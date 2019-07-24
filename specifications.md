@@ -6,7 +6,7 @@
 Note: The chord-voice-score structure is defined after [bach](https://www.bachproject.net/) paradigm, to facilitate the visualization and interactions with phenotypes in Max environment.
 # Function types for genotypes
 #### Used function type identifiers
-a b **c** d e f g h i j k l m n o **p** q r **s** t u **v** w x y z
+**a** b **c** **d** e **f** g h **i** j k l **m** **n** o **p** q r **s** t u **v** w x y z
 ### main structures
 - **paramF** (p) - outputs a parameter
 - **chordF** (c) - outputs a chord
