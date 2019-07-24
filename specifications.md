@@ -42,3 +42,10 @@ Function types created to manage specific types of data.
 - **genotypeF** (g) - output a raw encoded genotype (array of floats from interval [0, 1])
 - **txtF** (t) - output a string with the path to an external txt file with data
 - **waveF** (w) - output an encoded path to read data from an stored audio file
+## Manual function for genotypes
+Functions to be used typing manually on the genotypes to get a more controlled evolution
+- **evolve** (*expr*) - contains the part of a genotype to be transformed, freezing the rest
+- **freeze** (*expr*) - block a part of a genotype to be preserved from transformations
+- **externalGenotype** (*genotype_index*) - import a genotypic expression from an external file
+- **flatten** (*expr*) - render part of a genotype into a simple declarative score (phenotype)
+
