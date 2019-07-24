@@ -10,8 +10,8 @@ Note: The chord-voice-score structure is defined after [bach](https://www.bachpr
 - **function type identifier**: Prefix used to name functions, to ease the identification of their type.
 ## Function types for genotypes
 Functions in GenoMus are classified by their output data. 
-#### Used function type identifiers
-**a** **b** **c** **d** **e** **f** **g** **h** **i** j k **l** **m** **n** **o** **p** **q** **r** **s** **t** u **v** **w** x y z
+### Used function type identifiers
+~~**a** **b** **c** **d** **e** **f** **g** **h** **i**~~ j k ~~**l** **m** **n** **o** **p** **q** **r** **s** **t**~~ u ~~**v** **w**~~ x y z
 The identifiers are 
 ### main structures
 - **paramF** (p) - outputs a parameter
