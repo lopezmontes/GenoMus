@@ -26,11 +26,11 @@ Function types created to allow a more user-friendly handling of decoded genotyp
 - **midipitchF** (m) - output normalized pitch from standard MIDI pitch
 - **frequencyF** (f) - output normalized pitch from frequency in hertzs
 #### Articulation
-- **articulationF** (a) - output normalized relative articulation (1 is whole duration of note, 2 is double duration)
+- **articulationF** (a) - output normalized relative articulation (1 is whole duration of the note, 2 is double duration)
 - **durationF** (d) - output normalized duration, from seconds
 #### Dynamics
 - **intensityF** (i) - output norm. dynamics
-### for arguments for specific format
+### for outputs of an specific format
 Function types created to manage specific types of data.
 - **listF** (l) - output a normalized list of floats from interval [0, 1]
 - **operationF** (o) - output the result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
@@ -41,4 +41,4 @@ Function types created to manage specific types of data.
 - **externalF** (e) - output a reference from the external genotypes library (to be used with function referencing to external data
 - **genotypeF** (g) - output a raw encoded genotype (array of floats from interval [0, 1])
 - **txtF** (t) - output a string with the path to an external txt file with data
-- **waveF** (w) - output an encoded path to read from a stored audio file
+- **waveF** (w) - output an encoded path to read data from an stored audio file
