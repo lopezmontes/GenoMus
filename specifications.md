@@ -1,4 +1,4 @@
-# GenoMus grammar specifications and information
+# GenoMus grammar specifications
 ## Definitions
 - **parameter**: Normalized float from interval [0, 1] used to feed the functions' required arguments. These numeric values are leaves of the functional tree that gives rise to a genotype.
 - **chord**: Simplest sonic event. In traditional music writing, a note. The default atributes of a chord are: [duration, pitch, articulation, intensity]. A chord can contain more than one pitch. Chords with more parameters can be set, for example, for electroacoustic works, where a sonic event could be defined by dozens or features. A note can consist of two or more concatenated pitches together. Voices can be concatenated only sequentially (one after another, without overlapping). A chord can be extended to other domains beyond music, like visuals, lighting, etc., along with musical events, or standalone. 
