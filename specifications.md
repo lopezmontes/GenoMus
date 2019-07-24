@@ -6,8 +6,12 @@ Note: The chord-voice-score structure is defined after [bach](https://www.bachpr
 # Function types for genotypes
 #### Identifiers
 a b **c** d e f g h i j k l m n o p q r **s** t u **v** w x y z
-### for main structures
-- **scoreF** (s) - outputs a score
-- **voiceF** (v) - outputs a voice
+### main structures
+- **paramF** (p) - outputs a normalized parameter (€ [0, 1])
 - **chordF** (c) - outputs a chord
+- **voiceF** (v) - outputs a voice
+- **scoreF** (s) - outputs a score
+### for manual editing of leaf parameters
+Function types created to allow a more user-friendly handling of decoded genotypes.
+- **
 
