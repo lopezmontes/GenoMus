@@ -7,8 +7,9 @@
 
 Note: The chord-voice-score structure is defined after [bach](https://www.bachproject.net/) paradigm, to facilitate the visualization and interactions with phenotypes in Max environment.
 
-- **function type identifier**: Prefix used to name functions, to easy the identification of the function type of a functions, in other worlds, to identify the output type easily.
+- **function type identifier**: Prefix used to name functions, to ease the identification of their type.
 ## Function types for genotypes
+Functions in GenoMus are classified by their output data. 
 #### Used function type identifiers
 **a** **b** **c** **d** **e** **f** **g** **h** **i** j k **l** **m** **n** **o** **p** **q** **r** **s** **t** u **v** **w** x y z
 The identifiers are 
