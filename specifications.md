@@ -12,7 +12,6 @@ Note: The chord-voice-score structure is defined after [bach](https://www.bachpr
 Functions in GenoMus are classified by their output data. 
 ### Used function type identifiers
 ~~**a** **b** **c** **d** **e** **f** **g** **h** **i**~~ j k ~~**l** **m** **n** **o** **p** **q** **r** **s** **t**~~ u ~~**v** **w**~~ x y z
-The identifiers are 
 ### main structures
 - **paramF** (p) - outputs a parameter
 - **chordF** (c) - outputs a chord
@@ -22,13 +21,13 @@ The identifiers are
 Function types created to allow a more user-friendly handling of decoded genotypes.
 #### Time
 - **noteF** (n) - output normalized duration, from usual number used for note figures (1 = whole note)
-- **durationF** (d) - output normalized duration, from milliseconds
+- **durationF** (d) - output normalized duration, from seconds
 #### Pitch
 - **midipitchF** (m) - output normalized pitch from standard MIDI pitch
-- **frequencyF** (f) - output normalized pitch from standard MIDI pitch
+- **frequencyF** (f) - output normalized pitch from frequency in hertzs
 #### Articulation
-- **articulationF** (a) - output norm. relative articulation. 1 is whole duration of note
-- **durationF** (d) - output normalized duration, from milliseconds (same function as for time)
+- **articulationF** (a) - output normalized relative articulation (1 is whole duration of note, 2 is double duration)
+- **durationF** (d) - output normalized duration, from seconds
 #### Dynamics
 - **intensityF** (i) - output norm. dynamics
 ### for arguments for specific format
