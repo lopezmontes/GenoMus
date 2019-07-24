@@ -5,7 +5,7 @@
 - **score**: Excerpt or a whole piece of music. A score is a wrapper for one or more voices. A score can consist of two or more scores together. Scores can be concatenated sequentially (one after another) or simultaneously (sounding together). The product of these concatenations is a new score.
 Note: The chord-voice-score structure is defined after [bach](https://www.bachproject.net/) paradigm, to facilitate the visualization and interactions with phenotypes in Max environment.
 # Function types for genotypes
-#### Identifiers
+#### Used function type identifiers
 a b **c** d e f g h i j k l m n o **p** q r **s** t u **v** w x y z
 ### main structures
 - **paramF** (p) - outputs a parameter
@@ -14,5 +14,15 @@ a b **c** d e f g h i j k l m n o **p** q r **s** t u **v** w x y z
 - **scoreF** (s) - outputs a score
 ### for manual editing of leaf parameters
 Function types created to allow a more user-friendly handling of decoded genotypes.
-- **
+#### Time
+- **noteF** (n) - output normalized duration, from usual number used for note figures (1 = whole note)
+- **durationF** (d) - output normalized duration, from milliseconds
+#### Pitch
+- **midipitchF** (m) - output normalized pitch from standard MIDI pitch
+- **frequencyF** (f) - output normalized pitch from standard MIDI pitch
+#### Articulation
+- **articulationF** (a) - output norm. relative articulation. 1 is whole duration of note.
+- **durationF** (d) - output normalized duration, from milliseconds (same function as for time)
+#### Dynamics
+- **intensityF** (i) - output norm. dynamics
 
