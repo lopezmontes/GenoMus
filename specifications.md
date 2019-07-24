@@ -8,7 +8,7 @@ Note: The chord-voice-score structure is defined after [bach](https://www.bachpr
 - **function type identifier**: Prefix used to name functions, to easy the identification of the function type of a functions, in other worlds, to identify the output type easily.
 ## Function types for genotypes
 #### Used function type identifiers
-**a** b **c** **d** e **f** g h **i** j k l **m** **n** o **p** q r **s** t u **v** w x y z
+**a** **b** **c** **d** **e** **f** **g** **h** **i** j k **l** **m** **n** **o** **p** **q** **r** **s** **t** u **v** **w** x y z
 The identifiers are 
 ### main structures
 - **paramF** (p) - outputs a parameter
@@ -30,13 +30,13 @@ Function types created to allow a more user-friendly handling of decoded genotyp
 - **intensityF** (i) - output norm. dynamics
 ### for arguments for specific format
 Function types created to manage specific types of data.
+- **listF** (l) - output a normalized list of floats from interval [0, 1]
+- **operationF** (o) - output the result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
 - **binaryF** (b) - output a boolean value (only 0 or 1)
 - **harmonyF** (h) - output a pitch class set, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
 - **rhythmF** (r) - output a rythmical patter class set
 - **quantizF** (q) - output a numeric structure for quantization of rhythm
-- **waveF** (w) - output an encoded path to read from a stored audio file
-- **listF** (l) - output a normalized list of floats from interval [0, 1]
-- **operationF** (o) - output the result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
 - **externalF** (e) - output a reference from the external genotypes library (to be used with function referencing to external data
+- **genotypeF** (g) - output a raw encoded genotype (array of floats from interval [0, 1])
 - **txtF** (t) - output a string with the path to an external txt file with data
-- **genotypeF** (g) - output a raw encoded genotype as an array
+- **waveF** (w) - output an encoded path to read from a stored audio file
