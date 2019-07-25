@@ -199,10 +199,10 @@ Articulation can be used in two modes:
 
 - **articulationF** (a)
 
-Conversion formulae ([graph](https://www.desmos.com/calculator/ixocptnpba)]:
+Conversion formulae ([graph](https://www.desmos.com/calculator/attfbeptoe)]:
 ```
-Hz = 20000p^4
-p = \sqrt[4]{\frac{Hz}{20000}}
+p = 3art^e
+art = (p/3)^(1/e)
 ```
 
 | [0, 1] |  fraction of chord duration      | notation
