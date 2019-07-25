@@ -21,7 +21,7 @@ Functions in GenoMus are classified by their output data.
 ### for manual editing of leaf parameters
 Function types created to allow a more user-friendly handling of decoded genotypes.
 #### Time
-- **notefigF** (n) - output normalized duration, from usual number used for note figures (1 = whole note)
+- **notevalueF** (n) - output normalized duration, from usual number used for note figures (1 = whole note)
 - **durationF** (d) - output normalized duration, from seconds
 #### Pitch
 - **midipitchF** (m) - output normalized pitch from standard MIDI pitch
@@ -90,9 +90,10 @@ Human-readable function types uses more user-friendly argument formats. These no
 
 In general, theses mappings are not linear (straight line map). For each type of parameter, a gaussian approach is made, trying to cover a wide range of values for each category, but modeling the conversion in a way that central values, specially the range [0.25, 0.75], map to the musical values that appear more often.
 
-In summary, conversions are used both ways:
+In summary, conversions are used in several ways:
 - from normalized parameter to the values used for rendering phenotypes (scores or soundfiles),
-- and backwards, from arguments entered with user-friendly function-types.
+- backwards, from arguments entered with user-friendly function-types.
+- to display decodedGenopytes in a more human-readable way.
 
 #### Duration
 - **durationF** (d) 
@@ -117,9 +118,21 @@ dur = (log(p) + 6*log(2))/(10*log(2))
 | 0.9    | 8        |
 | 1.0    | 16       |
 
-- **notefigF** (n) 
+- **notevalueF** (n) 
 
-
+| [0, 1] |  note value | ratio | symbol (Am) / (Br)   
+| ------ | ----------- | ----- | ------
+| 0      | 0.00390625  | 1/256 | 256th note / demisemihemidemisemiquaver
+| 0.1    | 0.0078125   | 1/128 | 128th note / semihemidemisemiquaver
+| 0.2    | 0.015625    | 1/64  | 64th note / hemidemisemiquaver
+| 0.3    | 0.03125     | 1/32  | 32th note / demisemiquaver
+| 0.4    | 0.0625      | 1/16  | 16th note / semiquaver
+| 0.5    | 0.125       | 1/8   | 8th note / quaver
+| 0.6    | 0.25        | 1/4   | quarter note / crotchet
+| 0.7    | 0.5         | 1/2   | half note / minim
+| 0.8    | 1           | 1     | whole note / semibreve
+| 0.9    | 2           | 2     | double note / breve
+| 1.0    | 4           | 4     | quadruple note / longa
 
 #### Pitch
 - **midipitchF** (f)
