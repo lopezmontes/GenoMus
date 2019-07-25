@@ -17,11 +17,16 @@ Functions in GenoMus are classified by their output data.
 ### Used function type identifiers
 ~~**a** **b** **c** **d** **e** **f** **g** **h** **i**~~ j k ~~**l** **m** **n** **o** **p** **q** **r** **s** **t**~~ u ~~**v** **w**~~ x y z
 ### main structures
-- **scoreF** (s) - outputs a score
-- **voiceF** (v) - outputs a voice
-- **chordF** (c) - outputs a chord
-- **paramF** (p) - outputs a parameter
-- **leaf** - terminal node; this not really a function type, but a tag to indicate that no new function will be called
+
+| function type | identifier | output
+| ------ | -------- |
+| **scoreF** | **s** | score
+| **voiceF** | **v** | outputs a voice
+| **chordF** | **c** | outputs a chord
+| **paramF** | **p** | outputs a parameter
+| **leaf** | - | terminal node; this not really a function type, but a tag to indicate that no new function will be called
+
+
 ### for manual editing of leaf parameters
 Function types created to allow a more user-friendly handling of decoded genotypes.
 #### Duration
