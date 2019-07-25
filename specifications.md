@@ -55,18 +55,32 @@ A functions must be included into the JSON GenoMus catalogue following this form
 ```
 "functionType": {
     "functionName": {
-         "arguments": ["functionType", "functionType", ...],
-         "description": "String describing what the function does.",
-         "metadata": {
-             "tag1": "Optional information when needed.",
-             "tad2": "Interesting metada could be user, date of inclusion, etc."
-         }
+        "arguments": ["functionType", "functionType", ...],
+        "description": "String describing what the function does.",
+        "metadata": {
+            "tag1": "Optional information when needed.",
+            "tad2": "Interesting metada could be user, date of inclusion, etc."
+        }
     },
 ```
 Where
-- *functionName* should use the corresponding prefix to help a human to know its output type.
-- The *description* and *metadata* fields are optional, but very helpful to understand quicky the processes in a genotype.
+- *functionName* should use the corresponding prefix to help a human to know its output type
+- The *description* and *metadata* fields are optional, but very helpful to understand quicky the processes in a genotype, and to add further informations and documentation about the function or the programmer
 
+Furthermore, each function must be included in the catalogue list of function index numbers:
+```
+"functionIndex": {
+    1: {
+        "functionName": 0.6180339887498949
+    },
+    2: {
+        "functionName": 0.2360679774997898
+    },
+    ...
+}
+```
+The integer index identifies the function. The float is the number to map the function on the normalized [0, 1]. Enconded genotypes uses this float to map all functions optimizing the maximal distance among functions into the interval. To maintain coherence of the catalogue, once numbered, a function can never use a different index. An index number never can be shared with other functions. The floats are generated using a golden angle iteration mapped on the [0, 1] interval using this formula:
+```
+encodedFunctionIndex(n) = (integerFunctionIndex * ((1 + sqrt(5))/2)) % 1
+```
 
-
-The *n* index is an integer identifying the function. To maintain coherence of the catalogue, once numbered, a function can never use a different index. An index number never can be shared with other functions. All functions 
