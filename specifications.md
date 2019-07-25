@@ -90,19 +90,19 @@ All parameters, as functions index number, are mapped to a normalized interval [
 For normalized generic data, duration in seconds of an event is mapped according to these conversion formulae ([graph](https://www.desmos.com/calculator/pn1nbunlcz)):
 ```
 p = 100p + 12
-dur = 2^(10p - 6)
+dur = (log(p) + 6*log(2))/(10*log(2))
 ```
 
 - **durationF** (d) 
 - **notefigF** (n) 
-| [0, 1] |  ratio vs. duration   | figure |
+| [0, 1] |  dur. (s)|   
 | ------ | -------- |
-| 0      | 1/256 = 0.015625 |
-| 0.1    | 1/128 = 0.03125  |
-| 0.2    | 1/64 = 0.0625   |
-| 0.3    | 1/32 = 0.125    |
-| 0.4    | 1/4 = 0.25     |
-| 0.5    | 1/2 = 0.5      | crochet
+| 0      | 0.015625 |
+| 0.1    | 0.03125  |
+| 0.2    | 0.0625   |
+| 0.3    | 0.125    |
+| 0.4    | 0.25     |
+| 0.5    | 0.5      |
 | 0.6    | 1        |
 | 0.7    | 2        |
 | 0.8    | 4        |
