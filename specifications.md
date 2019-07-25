@@ -230,8 +230,8 @@ art = (p/3)^(1/e)
 #### **intensityF** (i)
 Conversion formulae to map the standard MIDI velocity range ([graph](https://www.desmos.com/calculator/cisndyw3gs)]:
 ```
-p = dyn/128
-dyn = 128p
+p = dyn/127
+dyn = 127p
 ```
 | [0, 1] |  MIDI velocity      | notation
 | ------ | -------- | -----
