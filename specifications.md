@@ -91,7 +91,7 @@ All parameters, as functions index number, are mapped to a normalized interval [
 #### Pitch
 - **frequencyF** (f)
 
-Formulas de conversión:
+Formulas de conversión ([graph](https://www.desmos.com/calculator/ixocptnpba)]:
 
 ```
 Hz = 20000p^4
