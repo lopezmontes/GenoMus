@@ -91,8 +91,24 @@ All parameters, as functions index number, are mapped to a normalized interval [
 #### Pitch
 - **frequencyF** (f)
 
-| [0, 1] |  hz      |
+Formulas de conversión:
+
+```
+Hz = 20000p^4
+p = \sqrt[4]{\frac{Hz}{20000}}
+```
+
+| [0, 1] |  Hz      |
 | ------ | -------- |
 | 0      | 0.000001 |
-| 0.1    | 20       |
+| 0.1    | 2        |
+| 0.2    | 32       |
+| 0.3    | 162      |
+| 0.4    | 512      |
+| 0.5    | 1250     |
+| 0.6    | 2592     |
+| 0.7    | 4802     |
+| 0.8    | 8192     |
+| 0.9    | 13122    |
+| 1.0    | 20000    |
 
