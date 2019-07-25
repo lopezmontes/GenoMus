@@ -86,8 +86,8 @@ encodedFunctionIndex(n) = (integerFunctionIndex * ((1 + sqrt(5))/2)) % 1
 ## Parameters mapping
 All parameters, as functions index number, are mapped to a normalized interval [0, 1]. In general, mapping is not linear. For each type of parameter, a gaussian approach is made, trying to cover a wide range of values for each category, but modeling the conversion in a way that central values, specially the range [0.25, 0.75], map to the more usual values of the output. Mapping are done according to these conversions:
 #### Duration
-- **paramF** (p)
-For normalized generic data, duration in seconds of an event is mapped according to these conversion formulae ([graph](https://www.desmos.com/calculator/pn1nbunlcz)):
+- **durationF** (d) 
+Conversion formulae ([graph](https://www.desmos.com/calculator/pn1nbunlcz)):
 ```
 p = 100p + 12
 dur = (log(p) + 6*log(2))/(10*log(2))
@@ -108,7 +108,6 @@ dur = (log(p) + 6*log(2))/(10*log(2))
 | 0.9    | 8        |
 | 1.0    | 16       |
 
-- **durationF** (d) 
 - **notefigF** (n) 
 
 
