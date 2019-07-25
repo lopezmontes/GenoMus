@@ -47,5 +47,25 @@ Functions to be used typing manually on the genotypes to get a more controlled e
 - **evolve** (*expr*) - contains the part of a genotype to be transformed, freezing the rest
 - **freeze** (*expr*) - block a part of a genotype to be preserved from transformations
 - **externalGenotype** (*genotype_index*) - import a genotypic expression from an external file
-- **flatten** (*expr*) - render part of a genotype into a simple declarative score (phenotype)
+- **flatten** (*expr*) - render part of a genotype into a simple declarative score/voice/chord (phenotype)
 
+##Indexing a function into the GenoMus catalogue
+A functions must be included into the JSON GenoMus catalogue following this format:
+```
+"functionType": {
+    "functionName": {
+         "arguments": ["functionType", "functionType", ...],
+         "description": "String describing what the function does.",
+         "metadata": {
+             "tag1": "Optional information when needed.",
+             "tad2": "Interesting metada could be user, date of inclusion, etc."
+         }
+    },
+```
+Where
+- *functionName* should use the corresponding prefix to help a human to know its output type.
+- The *description* and *metadata* fields are optional, but very helpful to understand quicky the processes in a genotype.
+
+
+
+The *n* index is an integer identifying the function. To maintain coherence of the catalogue, once numbered, a function can never use a different index. An index number never can be shared with other functions. All functions 
