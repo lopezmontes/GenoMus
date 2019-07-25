@@ -6,6 +6,10 @@
 - **score**: Excerpt or a whole piece of music. A score is a wrapper for one or more voices. A score can consist of two or more scores together. Scores can be concatenated sequentially (one after another) or simultaneously (sounding together). The product of these concatenations is a new score.
 
 Note: The chord-voice-score structure is defined after [bach](https://www.bachproject.net/) paradigm, to facilitate the visualization and interactions with phenotypes in Max environment.
+- **duration**: Time length from the beginning of a chord to the beginning of the next chord, into the same voice. 
+- **pitch**: Each of the frecuencies in a chord.
+- **articulation**: Length of the sound. It can be different from the event's duration. If articulation matchs the duration, a perfect legato among chords will be played. Shorter or larger values for articulation will sound as staccato or lasciare vibrare effects.
+- **intensity**: Dynamic of a chord.
 
 - **function type identifier**: Prefix used to name functions, to ease the identification of their type.
 ## Function types for genotypes
@@ -95,7 +99,7 @@ In summary, conversions are used in several ways:
 - backwards, from arguments entered with user-friendly function-types.
 - to display decodedGenopytes in a more human-readable way.
 
-#### Duration
+### Duration
 - **durationF** (d) 
 Conversion formulae ([graph](https://www.desmos.com/calculator/pn1nbunlcz)):
 ```
@@ -139,7 +143,7 @@ dur = (log(p) + 8*log(2))/(10*log(2))
 | 0.9    | 2           | 2     | double note / breve
 | 1.0    | 4           | 4     | quadruple note / longa
 
-#### Pitch
+### Pitch
 - **midipitchF** (f)
 
 Linear converstion, but trying to mantain the encoded normalized data easily readable ([graph](https://www.desmos.com/calculator/atupolxw6d)]::
@@ -182,3 +186,6 @@ p = \sqrt[4]{\frac{Hz}{20000}}
 | 0.9    | 13122    |
 | 1.0    | 20000    |
 
+### Articulation
+
+Articulation can use 
