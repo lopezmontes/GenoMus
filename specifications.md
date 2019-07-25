@@ -88,7 +88,8 @@ All parameters, as functions index number, are mapped to a normalized interval [
 #### Duration
 #### Pitch
 - **midipitchF** (f)
-Linear converstion, but trying to mantain the encoded normalized data easily readable:
+
+Linear converstion, but trying to mantain the encoded normalized data easily readable ([graph](https://www.desmos.com/calculator/atupolxw6d)]::
 ```
 midi = 100p + 12
 p = (midi - 12)/100
@@ -107,6 +108,7 @@ p = (midi - 12)/100
 | 1.0     | 112      |
  
 - **frequencyF** (f)
+
 Conversion formulae ([graph](https://www.desmos.com/calculator/ixocptnpba)]:
 ```
 Hz = 20000p^4
