@@ -88,39 +88,18 @@ The integer index identifies the function. The float is the number to map the fu
 encodedFunctionIndex(n) = (integerFunctionIndex * ((1 + sqrt(5))/2)) % 1
 ```
 ## Parameters mapping
-A typical function expect generic parameters from normalized interval [0, 1] as arguments, regardless arguments' domain. When computing phenotypes, these numbers must be converted to the right values to represent duration, pitch, etc.
+A typical function expects generic parameters (floats from normalized interval [0, 1]) as arguments, regardless arguments' domain. When computing phenotypes, these numbers must be mapped to right ranges and scales, to represent duration, pitch, etc.
 
-Human-readable function types uses more user-friendly argument formats. These non-generic parameters are first mapped to a normalized interval [0, 1], to be evaluated and encoded as stardard normalized paramenters.
+Human-readable function types uses more user-friendly argument formats. These non-generic parameters are first mapped to a normalized interval [0, 1] to be later evaluated and encoded as stardard normalized paramenters.
 
-In general, theses mappings are not linear (straight line map). For each type of parameter, a gaussian approach is made, trying to cover a wide range of values for each category, but modeling the conversion in a way that central values, specially the range [0.25, 0.75], map to the musical values that appear more often.
+In general, theses maps are not linear (straight line maps). For each type of parameter, a gaussian approach is made, trying to cover a wide range of values for each category, but at the same time modeling the conversion in such a way that central values (specially the range [0.25, 0.75]) map to the musical values that appear more often.
 
 In summary, conversions are used in several ways:
-- from normalized parameter to the values used for rendering phenotypes (scores or soundfiles),
-- backwards, from arguments entered with user-friendly function-types.
-- to display decodedGenopytes in a more human-readable way.
+- From normalized parameter to domain-specific scales used for rendering phenotypes (scores or soundfiles).
+- Backwards, from arguments entered with user-friendly function-types that will return a normalized parameter.
+- To display decodedGenopytes in a more human-readable way.
 
 ### Duration
-- **durationF** (d) 
-Conversion formulae ([graph](https://www.desmos.com/calculator/pn1nbunlcz)):
-```
-p = 2^(10*dur - 6)
-dur = (log(p) + 6*log(2))/(10*log(2))
-```
-
-
-| [0, 1] |  dur. (s)|   
-| ------ | -------- |
-| 0      | 0.015625 |
-| 0.1    | 0.03125  |
-| 0.2    | 0.0625   |
-| 0.3    | 0.125    |
-| 0.4    | 0.25     |
-| 0.5    | 0.5      |
-| 0.6    | 1        |
-| 0.7    | 2        |
-| 0.8    | 4        |
-| 0.9    | 8        |
-| 1.0    | 16       |
 
 - **notevalueF** (n) 
 
@@ -142,6 +121,28 @@ dur = (log(p) + 8*log(2))/(10*log(2))
 | 0.8    | 1           | 1     | whole note / semibreve
 | 0.9    | 2           | 2     | double note / breve
 | 1.0    | 4           | 4     | quadruple note / longa
+
+- **durationF** (d) 
+
+Conversion formulae ([graph](https://www.desmos.com/calculator/pn1nbunlcz)):
+```
+p = 2^(10*dur - 6)
+dur = (log(p) + 6*log(2))/(10*log(2))
+```
+
+| [0, 1] |  dur. (s)|   
+| ------ | -------- |
+| 0      | 0.015625 |
+| 0.1    | 0.03125  |
+| 0.2    | 0.0625   |
+| 0.3    | 0.125    |
+| 0.4    | 0.25     |
+| 0.5    | 0.5      |
+| 0.6    | 1        |
+| 0.7    | 2        |
+| 0.8    | 4        |
+| 0.9    | 8        |
+| 1.0    | 16       |
 
 ### Pitch
 - **midipitchF** (f)
