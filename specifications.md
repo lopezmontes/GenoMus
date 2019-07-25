@@ -88,6 +88,7 @@ The integer index identifies the function. The float is the number to map the fu
 encodedFunctionIndex(n) = (integerFunctionIndex * ((1 + sqrt(5))/2)) % 1
 ```
 ---------
+---------
 ## Parameters mapping
 A typical function expects generic parameters (floats from normalized interval [0, 1]) as arguments, regardless arguments' domain. When computing phenotypes, these numbers must be mapped to right ranges and scales, to represent duration, pitch, etc.
 
