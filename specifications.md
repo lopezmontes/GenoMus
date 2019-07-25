@@ -79,7 +79,7 @@ Furthermore, each function must be included in the catalogue list of function in
     ...
 }
 ```
-The integer index identifies the function. The float is the number to map the function on the normalized [0, 1]. Enconded genotypes uses this float to map all functions optimizing the maximal distance among functions into the interval. To maintain coherence of the catalogue, once numbered, a function can never use a different index. An index number never can be shared with other functions. The floats are generated using a golden angle iteration mapped on the [0, 1] interval using this formula:
+The integer index identifies the function. The float is the number to map the function on the normalized interval [0, 1]. Encoded genotypes use this float to map all functions optimizing the maximal distance among functions into the interval. That's a critical issue for the automatic characterization of genotypes by machine learning techniques. To maintain coherence of the catalogue, once numbered, a function can never use a different index. An index number never can be shared with other functions. The floats are generated using a golden angle iteration mapped on the [0, 1] interval using this formula:
 ```
 encodedFunctionIndex(n) = (integerFunctionIndex * ((1 + sqrt(5))/2)) % 1
 ```
