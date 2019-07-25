@@ -84,9 +84,16 @@ The integer index identifies the function. The float is the number to map the fu
 encodedFunctionIndex(n) = (integerFunctionIndex * ((1 + sqrt(5))/2)) % 1
 ```
 ## Parameters mapping
-All parameters, as functions index number, are mapped to a normalized interval [0, 1]. In general, mapping is not linear. For each type of parameter, a gaussian approach is made, trying to cover a wide range of values for each category, but modeling the conversion in a way that central values, specially the range [0.25, 0.75], map to the more usual values of the output. The conversions are used both ways: from normalized generic parameter to the values used for rendering phenotypes (scores or soundfiles), and backwards, from arguments entered with user-friendly function-types.
+A typical function expect generic parameters from normalized interval [0, 1] as arguments, regardless arguments' domain. When computing phenotypes, these numbers must be converted to the right values to represent duration, pitch, etc.
 
-Mappings are done according to these conversions:
+Human-readable function types uses more user-friendly argument formats. These non-generic parameters are first mapped to a normalized interval [0, 1], to be evaluated and encoded as stardard normalized paramenters.
+
+In general, theses mappings are not linear (straight line map). For each type of parameter, a gaussian approach is made, trying to cover a wide range of values for each category, but modeling the conversion in a way that central values, specially the range [0.25, 0.75], map to the musical values that appear more often.
+
+In summary, conversions are used both ways:
+- from normalized parameter to the values used for rendering phenotypes (scores or soundfiles),
+- and backwards, from arguments entered with user-friendly function-types.
+
 #### Duration
 - **durationF** (d) 
 Conversion formulae ([graph](https://www.desmos.com/calculator/pn1nbunlcz)):
