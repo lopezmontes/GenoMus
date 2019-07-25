@@ -195,7 +195,7 @@ p = \sqrt[4]{\frac{Hz}{20000}}
 Articulation can be used in two modes:
 
 - absolute articulation: The duration of the sound is measured in seconds, and is independent of tempo and chord duration. The **durationF** function type is used for this articulation. 
-- relative articulation: the duration of the sound is a ratio of the chord's duration. 1 means that the sound will last the whole duration, .5 is the half of the chord duration, and so on. For this proportional articulation the function type **articulationF** must be employed.
+- relative articulation: the duration of the sound is a ratio of the chord duration. 1 means that the sound will last the whole duration, 0.5 is the half of the chord duration, and so on. For this proportional articulation the function type **articulationF** must be employed.
 
 - **articulationF** (a)
 
@@ -205,20 +205,20 @@ Hz = 20000p^4
 p = \sqrt[4]{\frac{Hz}{20000}}
 ```
 
-| [0, 1] |  Hz      | notation
+| [0, 1] |  fraction of chord duration      | notation
 | ------ | -------- | ---
 | 0      | 0 | silence
 | 0.1    | 0.005739         |
-| 0.2    | 0.037768       | staccatissimo
+| 0.2    | 0.037768       | *staccatissimo*
 | 0.3    | 0.113708      |
-| 0.4    | 0.248547      | staccato
+| 0.4    | 0.248547      | *staccato*
 | 0.5.   | 0.455866.      
-| 0.52    | 0.507152     | non legato
+| 0.52    | 0.507152     | *non legato*
 | 0.6    | 0.748296    |
 | 0.66    | 0.969596     |
-| 0.6676    | 1.002468     | legato
+| 0.6676    | 1.002468     | *legato*
 | 0.7    | 1.137769     |
-| 0.8    | 1.6356581     | legatissimo
+| 0.8    | 1.6356581     | *legatissimo*
 | 0.9    | 2.252888    |
-| 1.0    | 3    | lasciare vibrare
+| 1.0    | 3    | *lasciare vibrare*
 
