@@ -146,23 +146,23 @@ dur = (log(p) + 8*log(2))/(10*log(2))
 ### Pitch
 - **midipitchF** (f)
 
-Linear converstion, but trying to mantain the encoded normalized data easily readable ([graph](https://www.desmos.com/calculator/atupolxw6d)]::
+Linear converstion keeping encoded normalized data easily readable ([graph](https://www.desmos.com/calculator/atupolxw6d)]::
 ```
 midi = 100p + 12
 p = (midi - 12)/100
 ```
 
-| [0, 1]  |  MIDI    |
-| ------  | -------- |
-| 0       | 12       |
-| 0.12    | 24       |
-| 0.24    | 36       |
-| 0.36    | 48       |
-| 0.48    | 60       |
-| 0.60    | 72       |
-| 0.72    | 84       |
-| 0.84    | 96       |
-| 1.0     | 112      |
+| [0, 1]  |  MIDI    | Notation
+| ------  | -------- | ----------
+| 0       | 12       | C0
+| 0.12    | 24       | C1
+| 0.24    | 36       | C2
+| 0.36    | 48       | C3
+| 0.48    | 60       | C4 (middle C)
+| 0.60    | 72       | C6
+| 0.72    | 84       | C7
+| 0.84    | 96       | C8
+| 1.0     | 112      | C9
  
 - **frequencyF** (f)
 
