@@ -99,7 +99,7 @@ In summary, conversions are used in several ways:
 - **durationF** (d) 
 Conversion formulae ([graph](https://www.desmos.com/calculator/pn1nbunlcz)):
 ```
-p = 100p + 12
+p = 2^(10*dur - 6)
 dur = (log(p) + 6*log(2))/(10*log(2))
 ```
 
@@ -120,6 +120,11 @@ dur = (log(p) + 6*log(2))/(10*log(2))
 
 - **notevalueF** (n) 
 
+Conversion formulae ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
+```
+p = 2^(10*dur - 8)
+dur = (log(p) + 8*log(2))/(10*log(2))
+```
 | [0, 1] |  note value | ratio | notation (Am) / (Br)   
 | ------ | ----------- | ----- | ------
 | 0      | 0.00390625  | 1/256 | 256th note / demisemihemidemisemiquaver
