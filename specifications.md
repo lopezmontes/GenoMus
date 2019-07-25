@@ -50,7 +50,7 @@ Functions to be used typing manually on the genotypes to get a more controlled e
 - **externalGenotype** (*genotype_index*) - import a genotypic expression from an external file
 - **flatten** (*expr*) - render part of a genotype into a simple declarative score/voice/chord (phenotype)
 
-##Indexing a function into the GenoMus catalogue
+## Indexing a function into the GenoMus catalogue
 A functions must be included into the JSON GenoMus catalogue following this format:
 ```
 "functionType": {
