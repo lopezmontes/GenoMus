@@ -24,7 +24,7 @@ Functions in GenoMus are classified by their output data.
 - **leaf** - terminal node; this not really a function type, but a tag to indicate that no new function will be called
 ### for manual editing of leaf parameters
 Function types created to allow a more user-friendly handling of decoded genotypes.
-#### Time
+#### Duration
 - **notevalueF** (n) - output normalized duration, from usual number used for note figures (1 = whole note)
 - **durationF** (d) - output normalized duration, from seconds
 #### Pitch
@@ -87,7 +87,6 @@ The integer index identifies the function. The float is the number to map the fu
 ```
 encodedFunctionIndex(n) = (integerFunctionIndex * ((1 + sqrt(5))/2)) % 1
 ```
----------
 ---------
 ## Parameters mapping
 A typical function expects generic parameters (floats from normalized interval [0, 1]) as arguments, regardless arguments' domain. When computing phenotypes, these numbers must be mapped to right ranges and scales, to represent duration, pitch, etc.
@@ -226,3 +225,24 @@ art = (p/3)^(1/e)
 | 0.9    | 2.252888    |
 | 1.0    | 3    | *lasciare vibrare*
 
+--------
+### Dynamics
+#### **intensityF** (i)
+Conversion formulae to map the standard MIDI velocity range ([graph](https://www.desmos.com/calculator/i5jiq4k9ah)]:
+```
+p = dyn/128
+dyn = 128p
+```
+| [0, 1] |  MIDI velocity      | notation
+| ------ | -------- | -----
+| 0      | 0 |  silence
+| 0.06    | 7.62        | **_pppp_**
+| 0.15    | 19.05       | **_ppp_**
+| 0.25    | 31.75      | **_pp_**
+| 0.33    | 41.91      | **_p_**
+| 0.4    | 50.8      | **_mp_**
+| 0.5    | 63.5     | **_mf_**
+| 0.66    | 83.82     | **_f_**
+| 0.75    | 95.25     | **_ff_**
+| 0.9    | 114.3    | **_fff_**
+| 1.0    | 127    | *tutta forza*
