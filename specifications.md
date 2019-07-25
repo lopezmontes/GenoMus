@@ -91,8 +91,8 @@ All parameters, as functions index number, are mapped to a normalized interval [
 #### Pitch
 - **frequencyF** (f)
 
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| [0, 1] |  hz      |
+| ------ | -------- |
+| 0      | 0.000001 |
+| 0.1    | 20       |
 
