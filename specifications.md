@@ -158,7 +158,8 @@ p = (midi - 12)/100
 | 0.12    | 24       | C<sub>1</sub>
 | 0.24    | 36       | C<sub>2</sub>
 | 0.36    | 48       | C<sub>3</sub>
-| 0.48    | 60       | C<sub>4</sub> (middle C)
+| 0.48    | 60       | C<sub>4</sub> <sub>(middle C)</sub>
+| 0.5     | 62       | D<sub>4</sub> <sub>(central note between flats and sharps)</sub>
 | 0.60    | 72       | C<sub>5</sub>
 | 0.72    | 84       | C<sub>6</sub>
 | 0.84    | 96       | C<sub>7</sub>
