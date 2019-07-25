@@ -84,7 +84,7 @@ The integer index identifies the function. The float is the number to map the fu
 encodedFunctionIndex(n) = (integerFunctionIndex * ((1 + sqrt(5))/2)) % 1
 ```
 ## Parameters mapping
-All parameters, as functions index number, are mapped to a normalized interval [0, 1]. These values are mapping according to this conversions:
+All parameters, as functions index number, are mapped to a normalized interval [0, 1]. In general, mapping is not linear. For each type of parameter, a gaussian approach is made, trying to cover a wide range of values for each category, but modeling the conversion in a way that central values, specially the range [0.25, 0.75], map to the more usual values of the output. Mapping are done according to these conversions:
 
 #### Duration
 
