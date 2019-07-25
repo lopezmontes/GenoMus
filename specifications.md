@@ -108,7 +108,7 @@ Conversion formulae ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
 p = 2^(10*dur - 8)
 dur = (log(p) + 8*log(2))/(10*log(2))
 ```
-| [0, 1] |  dur (s) <sub>&#9833;=60 BPM</sub> | ratio | notation (Am) / (Br)   
+| [0, 1] |  dur (s) <sub>&#9833;= 60 BPM</sub> | ratio | notation (Am) / (Br)   
 | ------ | ----------- | ----- | ------
 | 0      | 0.00390625  | 1/256 | 256th note / demisemihemidemisemiquaver
 | 0.1    | 0.0078125   | 1/128 | 128th note / semihemidemisemiquaver
@@ -145,7 +145,7 @@ dur = (log(p) + 6*log(2))/(10*log(2))
 | 1.0    | 16       |
 
 ### Pitch
-- **midipitchF** (f)
+- **midipitchF** (m)
 
 Linear converstion keeping encoded normalized data easily readable ([graph](https://www.desmos.com/calculator/atupolxw6d)]::
 ```
@@ -192,4 +192,33 @@ p = \sqrt[4]{\frac{Hz}{20000}}
 
 ### Articulation
 
-Articulation can use 
+Articulation can be used in two modes:
+
+- absolute articulation: The duration of the sound is measured in seconds, and is independent of tempo and chord duration. The **durationF** function type is used for this articulation. 
+- relative articulation: the duration of the sound is a ratio of the chord's duration. 1 means that the sound will last the whole duration, .5 is the half of the chord duration, and so on. For this proportional articulation the function type **articulationF** must be employed.
+
+- **articulationF** (a)
+
+Conversion formulae ([graph](https://www.desmos.com/calculator/ixocptnpba)]:
+```
+Hz = 20000p^4
+p = \sqrt[4]{\frac{Hz}{20000}}
+```
+
+| [0, 1] |  Hz      | notation
+| ------ | -------- | ---
+| 0      | 0 | silence
+| 0.1    | 0.005739         |
+| 0.2    | 0.037768       | staccatissimo
+| 0.3    | 0.113708      |
+| 0.4    | 0.248547      | staccato
+| 0.5.   | 0.455866.      
+| 0.52    | 0.507152     | non legato
+| 0.6    | 0.748296    |
+| 0.66    | 0.969596     |
+| 0.6676    | 1.002468     | legato
+| 0.7    | 1.137769     |
+| 0.8    | 1.6356581     | legatissimo
+| 0.9    | 2.252888    |
+| 1.0    | 3    | lasciare vibrare
+
