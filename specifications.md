@@ -99,6 +99,7 @@ In summary, conversions are used in several ways:
 - Backwards, from arguments entered with user-friendly function-types that will return a normalized parameter.
 - To display decodedGenopytes in a more human-readable way.
 
+--------
 ### Duration
 
 #### **notevalueF** (n) 
@@ -144,6 +145,7 @@ dur = (log(p) + 6*log(2))/(10*log(2))
 | 0.9    | 8        |
 | 1.0    | 16       |
 
+--------
 ### Pitch
 #### **midipitchF** (m)
 
@@ -190,6 +192,7 @@ p = \sqrt[4]{\frac{Hz}{20000}}
 | 0.9    | 13122    |
 | 1.0    | 20000    |
 
+--------
 ### Articulation
 
 Articulation can be used in two modes:
@@ -198,7 +201,6 @@ Articulation can be used in two modes:
 - relative articulation: the duration of the sound is a ratio of the chord duration. 1 means that the sound will last the whole duration, 0.5 is the half of the chord duration, and so on. For this proportional articulation the function type **articulationF** must be employed.
 
 #### **articulationF** (a)
---------
 Conversion formulae ([graph](https://www.desmos.com/calculator/i5jiq4k9ah)]:
 ```
 p = 3art^e
