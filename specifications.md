@@ -50,7 +50,7 @@ Functions to be used typing manually on the genotypes to get a more controlled e
 - **externalGenotype** (*genotype_index*) - import a genotypic expression from an external file
 - **flatten** (*expr*) - render part of a genotype into a simple declarative score/voice/chord (phenotype)
 
-##Indexing a function into the GenoMus catalogue
+## Indexing a function into the GenoMus catalogue
 A functions must be included into the JSON GenoMus catalogue following this format:
 ```
 "functionType": {
@@ -79,8 +79,36 @@ Furthermore, each function must be included in the catalogue list of function in
     ...
 }
 ```
-The integer index identifies the function. The float is the number to map the function on the normalized [0, 1]. Enconded genotypes uses this float to map all functions optimizing the maximal distance among functions into the interval. To maintain coherence of the catalogue, once numbered, a function can never use a different index. An index number never can be shared with other functions. The floats are generated using a golden angle iteration mapped on the [0, 1] interval using this formula:
+The integer index identifies the function. The float is the number to map the function on the normalized interval [0, 1]. Encoded genotypes use this float to map all functions optimizing the maximal distance among functions into the interval. That's a critical issue for the automatic characterization of genotypes by machine learning techniques. To maintain coherence of the catalogue, once numbered, a function can never use a different index. An index number never can be shared with other functions. The floats are generated using a golden angle iteration mapped on the [0, 1] interval using this formula:
 ```
 encodedFunctionIndex(n) = (integerFunctionIndex * ((1 + sqrt(5))/2)) % 1
 ```
+## Parameters mapping
+All parameters, as functions index number, are mapped to a normalized interval [0, 1]. In general, mapping is not linear. For each type of parameter, a gaussian approach is made, trying to cover a wide range of values for each category, but modeling the conversion in a way that central values, specially the range [0.25, 0.75], map to the more usual values of the output. Mapping are done according to these conversions:
+
+#### Duration
+
+#### Pitch
+- **frequencyF** (f)
+
+Formulas de conversión ([graph](https://www.desmos.com/calculator/ixocptnpba)]:
+
+```
+Hz = 20000p^4
+p = \sqrt[4]{\frac{Hz}{20000}}
+```
+
+| [0, 1] |  Hz      |
+| ------ | -------- |
+| 0      | 0.000001 |
+| 0.1    | 2        |
+| 0.2    | 32       |
+| 0.3    | 162      |
+| 0.4    | 512      |
+| 0.5    | 1250     |
+| 0.6    | 2592     |
+| 0.7    | 4802     |
+| 0.8    | 8192     |
+| 0.9    | 13122    |
+| 1.0    | 20000    |
 
