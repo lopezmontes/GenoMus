@@ -226,9 +226,9 @@ art = (p/3)^(1/e)
 | 1.0    | 3    | *lasciare vibrare*
 
 --------
-### Dynamics
+### Intensity
 #### **intensityF** (i)
-Conversion formulae to map the standard MIDI velocity range ([graph](https://www.desmos.com/calculator/i5jiq4k9ah)]:
+Conversion formulae to map the standard MIDI velocity range ([graph](https://www.desmos.com/calculator/cisndyw3gs)]:
 ```
 p = dyn/128
 dyn = 128p
