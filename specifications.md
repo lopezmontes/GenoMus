@@ -155,6 +155,7 @@ p = (midi - 12)/100
 | [0, 1]  |  MIDI    | Notation
 | ------  | -------- | ----------
 | 0       | 12       | C<sub>0</sub>
+| 0.09    | 21       | A<sub>0</sub> <sub>(lowest piano key)</sub>
 | 0.12    | 24       | C<sub>1</sub>
 | 0.24    | 36       | C<sub>2</sub>
 | 0.36    | 48       | C<sub>3</sub>
@@ -163,7 +164,7 @@ p = (midi - 12)/100
 | 0.60    | 72       | C<sub>5</sub>
 | 0.72    | 84       | C<sub>6</sub>
 | 0.84    | 96       | C<sub>7</sub>
-| 0.96    | 108      | C<sub>8</sub>
+| 0.96    | 108      | C<sub>8</sub> <sub>(highest piano key)</sub>
 | 1.0     | 112      | E<sub>8</sub>
  
 - **frequencyF** (f)
