@@ -101,7 +101,7 @@ In summary, conversions are used in several ways:
 
 ### Duration
 
-- **notevalueF** (n) 
+#### **notevalueF** (n) 
 
 Conversion formulae ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
 ```
@@ -122,7 +122,7 @@ dur = (log(p) + 8*log(2))/(10*log(2))
 | 0.9    | 2           | 2     | double note / breve
 | 1.0    | 4           | 4     | quadruple note / longa
 
-- **durationF** (d) 
+#### **durationF** (d) 
 
 Conversion formulae ([graph](https://www.desmos.com/calculator/pn1nbunlcz)):
 ```
@@ -145,7 +145,7 @@ dur = (log(p) + 6*log(2))/(10*log(2))
 | 1.0    | 16       |
 
 ### Pitch
-- **midipitchF** (m)
+#### **midipitchF** (m)
 
 Linear converstion keeping encoded normalized data easily readable ([graph](https://www.desmos.com/calculator/atupolxw6d)]::
 ```
@@ -168,7 +168,7 @@ p = (midi - 12)/100
 | 0.96    | 108      | C<sub>8</sub> <sub>(highest piano key)</sub>
 | 1.0     | 112      | E<sub>8</sub>
  
-- **frequencyF** (f)
+#### **frequencyF** (f)
 
 Conversion formulae ([graph](https://www.desmos.com/calculator/ixocptnpba)]:
 ```
