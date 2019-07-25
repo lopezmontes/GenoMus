@@ -85,14 +85,29 @@ encodedFunctionIndex(n) = (integerFunctionIndex * ((1 + sqrt(5))/2)) % 1
 ```
 ## Parameters mapping
 All parameters, as functions index number, are mapped to a normalized interval [0, 1]. In general, mapping is not linear. For each type of parameter, a gaussian approach is made, trying to cover a wide range of values for each category, but modeling the conversion in a way that central values, specially the range [0.25, 0.75], map to the more usual values of the output. Mapping are done according to these conversions:
-
 #### Duration
-
 #### Pitch
+- **midipitchF** (f)
+Linear converstion, but trying to mantain the encoded normalized data easily readable:
+```
+midi = 100p + 12
+p = (midi - 12)/100
+```
+
+| [0, 1]  |  MIDI    |
+| ------  | -------- |
+| 0       | 12       |
+| 0.12    | 24       |
+| 0.24    | 36       |
+| 0.36    | 48       |
+| 0.48    | 60       |
+| 0.60    | 72       |
+| 0.72    | 84       |
+| 0.84    | 96       |
+| 1.0     | 112      |
+ 
 - **frequencyF** (f)
-
-Formulas de conversión ([graph](https://www.desmos.com/calculator/ixocptnpba)]:
-
+Conversion formulae ([graph](https://www.desmos.com/calculator/ixocptnpba)]:
 ```
 Hz = 20000p^4
 p = \sqrt[4]{\frac{Hz}{20000}}
