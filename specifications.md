@@ -21,7 +21,7 @@ Functions in GenoMus are classified by their output data.
 ### for manual editing of leaf parameters
 Function types created to allow a more user-friendly handling of decoded genotypes.
 #### Time
-- **noteF** (n) - output normalized duration, from usual number used for note figures (1 = whole note)
+- **notefigF** (n) - output normalized duration, from usual number used for note figures (1 = whole note)
 - **durationF** (d) - output normalized duration, from seconds
 #### Pitch
 - **midipitchF** (m) - output normalized pitch from standard MIDI pitch
@@ -86,6 +86,30 @@ encodedFunctionIndex(n) = (integerFunctionIndex * ((1 + sqrt(5))/2)) % 1
 ## Parameters mapping
 All parameters, as functions index number, are mapped to a normalized interval [0, 1]. In general, mapping is not linear. For each type of parameter, a gaussian approach is made, trying to cover a wide range of values for each category, but modeling the conversion in a way that central values, specially the range [0.25, 0.75], map to the more usual values of the output. Mapping are done according to these conversions:
 #### Duration
+- **paramF** (p)
+For normalized generic data, duration in seconds of an event is mapped according to these conversion formulae ([graph](https://www.desmos.com/calculator/pn1nbunlcz)):
+```
+p = 100p + 12
+dur = 2^(10p - 6)
+```
+
+- **durationF** (d) 
+- **notefigF** (n) 
+| [0, 1] |  ratio vs. duration   | figure |
+| ------ | -------- |
+| 0      | 1/256 = 0.015625 |
+| 0.1    | 1/128 = 0.03125  |
+| 0.2    | 1/64 = 0.0625   |
+| 0.3    | 1/32 = 0.125    |
+| 0.4    | 1/4 = 0.25     |
+| 0.5    | 1/2 = 0.5      | crochet
+| 0.6    | 1        |
+| 0.7    | 2        |
+| 0.8    | 4        |
+| 0.9    | 8        |
+| 1.0    | 16       |
+
+
 #### Pitch
 - **midipitchF** (f)
 
