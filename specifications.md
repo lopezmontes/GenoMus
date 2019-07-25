@@ -199,7 +199,7 @@ Articulation can be used in two modes:
 
 - **articulationF** (a)
 
-Conversion formulae ([graph](https://www.desmos.com/calculator/attfbeptoe)]:
+Conversion formulae ([graph](https://www.desmos.com/calculator/i5jiq4k9ah)]:
 ```
 p = 3art^e
 art = (p/3)^(1/e)
