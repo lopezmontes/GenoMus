@@ -197,7 +197,7 @@ Articulation can be used in two modes:
 - absolute articulation: The duration of the sound is measured in seconds, and is independent of tempo and chord duration. The **durationF** function type is used for this articulation. 
 - relative articulation: the duration of the sound is a ratio of the chord duration. 1 means that the sound will last the whole duration, 0.5 is the half of the chord duration, and so on. For this proportional articulation the function type **articulationF** must be employed.
 
-- **articulationF** (a)
+#### **articulationF** (a)
 
 Conversion formulae ([graph](https://www.desmos.com/calculator/i5jiq4k9ah)]:
 ```
