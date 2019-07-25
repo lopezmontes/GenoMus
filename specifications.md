@@ -83,4 +83,15 @@ The integer index identifies the function. The float is the number to map the fu
 ```
 encodedFunctionIndex(n) = (integerFunctionIndex * ((1 + sqrt(5))/2)) % 1
 ```
+## Parameters mapping
+All parameters, as functions index number, are mapped to a normalized interval [0, 1]. These values are mapping according to this conversions:
+
+#### Duration
+
+#### Pitch
+- **frequencyF** (f)
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
 
