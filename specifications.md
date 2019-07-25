@@ -120,7 +120,7 @@ dur = (log(p) + 6*log(2))/(10*log(2))
 
 - **notevalueF** (n) 
 
-| [0, 1] |  note value | ratio | symbol (Am) / (Br)   
+| [0, 1] |  note value | ratio | notation (Am) / (Br)   
 | ------ | ----------- | ----- | ------
 | 0      | 0.00390625  | 1/256 | 256th note / demisemihemidemisemiquaver
 | 0.1    | 0.0078125   | 1/128 | 128th note / semihemidemisemiquaver
