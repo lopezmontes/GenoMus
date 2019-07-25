@@ -108,7 +108,7 @@ Conversion formulae ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
 p = 2^(10*dur - 8)
 dur = (log(p) + 8*log(2))/(10*log(2))
 ```
-| [0, 1] |  note value | ratio | notation (Am) / (Br)   
+| [0, 1] |  dur (s) if crotchet = 60 BPM | ratio | notation (Am) / (Br)   
 | ------ | ----------- | ----- | ------
 | 0      | 0.00390625  | 1/256 | 256th note / demisemihemidemisemiquaver
 | 0.1    | 0.0078125   | 1/128 | 128th note / semihemidemisemiquaver
