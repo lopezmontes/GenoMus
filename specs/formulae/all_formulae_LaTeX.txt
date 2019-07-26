@@ -3,12 +3,12 @@ p = \sqrt[4]{\frac{Hz}{20000}}
 Hz = 20000p^4
 
 norm2notevalue:
-p = 2^{(10*v - 8)}
-v = \frac{log(p) + 8*log(2)}{10*log(2)}
+p = 2^{(10v - 8)}
+v = \frac{log(p) + 8log(2)}{10log(2)}
 
 norm2seconds:
-p = 2^{(10*v - 8)}
-v = \frac{log(p) + 6*log(2)}{10*log(2)}
+p = 2^{(10v - 6)}
+v = \frac{log(p) + 6log(2)}{10log(2)}
 
 norm2midipitch:
 p = \frac{m - 12}{100}
