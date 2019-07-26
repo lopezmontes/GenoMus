@@ -10,8 +10,7 @@ Note: The chord-voice-score structure is defined after [bach](https://www.bachpr
 - **pitch**: Each of the frecuencies in a chord.
 - **articulation**: Length of the sound. It can be different from the event's duration. If articulation matchs the duration, a perfect legato among chords will be played. Shorter or larger values for articulation will sound as staccato or lasciare vibrare effects.
 - **intensity**: Dynamic of a chord.
-
-- **function type identifier**: Prefix used to name functions, to ease the identification of their type.
+- **function type identifier**: Prefix used to name functions, to ease the function type identification.
 ## Function types for genotypes
 Functions in GenoMus are classified by their output data. 
 ### Used function type identifiers
@@ -24,13 +23,14 @@ Functions in GenoMus are classified by their output data.
 | **scoreF** | **s** | score |
 | **voiceF** | **v** | voice |
 | **chordF** | **c** | chord |
+| **listF** | **l** | list of normalized floats from interval [0, 1]
 | **paramF** | **p** | normalized parameter |
 | **leaf** | - | norm. parameter or specific format parameter |
 
 
 **leaf** type is a flag for terminal nodes. This not really a function type, but a tag to indicate that no new function will be called.
 
-### for manual editing of leaf parameters
+### human-readable leaf parameters
 Function types created to allow a more user-friendly handling of decoded genotypes.
 #### Duration
 
@@ -59,12 +59,11 @@ Function types created to allow a more user-friendly handling of decoded genotyp
 | ------ | -------- | ---- |
 | **intensityF** | **i** | normalized intensity from standard MIDI velocity
 
-### for outputs of an specific format
+### special formats
 Function types created to manage specific types of data (some of them are still purely theoretical)
 
 | *function type* | *identifier* | *output* |
 | ------ | -------- | ---- |
-| **listF** | **l** | list of normalized floats from interval [0, 1]
 | **operationF** | **o** | result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
 | **binaryF** | **b** | boolean value (only 0 or 1)
 | **harmonyF** | **h** | pitch class set, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
