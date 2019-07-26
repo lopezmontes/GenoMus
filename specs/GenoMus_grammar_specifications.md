@@ -14,7 +14,7 @@
 - **score**: Excerpt or a whole piece of music. A score is a wrapper for one or more voices. A score can consist of two or more scores together. Scores can be concatenated sequentially (one after another) or simultaneously (sounding together). The product of these concatenations is a new score. The chord-voice-score structure is defined after [bach](https://www.bachproject.net/) paradigm, to facilitate the visualization and interactions with phenotypes in Max environment.
 - **duration**: Time length from the beginning of a chord to the beginning of the next chord, into the same voice. 
 - **pitch**: Each of the frecuencies in a chord.
-- **articulation**: Length of the sound. It can be different from the event's duration. If articulation matchs the duration, a perfect legato among chords will be played. Shorter or larger values for articulation will sound as staccato or lasciare vibrare effects.
+- **articulation**: Length of the chord sound. It can be different from the chord duration. If articulation matchs the duration, a perfect legato among chords will be played. Shorter or larger values for articulation will sound as staccato or lasciare vibrare effects.
 - **intensity**: Dynamic of a chord.
 - **function type identifier**: Prefix used to name functions, to ease the function type identification. The use of indentifiers is not compulsory, but very convenient for readability of decoded genotypes.
 ## Function types for genotypes
@@ -138,11 +138,11 @@ In summary, conversions are used in several ways:
 
 #### **notevalueF** (n) 
 
-([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
-```
-p = 2^(10*dur - 8)
-dur = (log(p) + 8*log(2))/(10*log(2))
-```
+Conversion formulae: normalized parameter *p* to note value ratio and inverse ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
+<img src="formulae/norm2notevalue.svg" width="100">
+<img src="formulae/hertz2norm.svg" width="110">
+<img src="formulae/norm2notevalue_graph.png" width="300">
+
 | [0, 1] |  dur (s) <sub>&#9833;= 60 BPM</sub> | ratio | notation (Am) / (Br)   
 | ------ | ----------- | ----- | ------
 | 0      | 0.00390625  | 1/256 | 256th note / demisemihemidemisemiquaver
@@ -183,7 +183,7 @@ dur = (log(p) + 6*log(2))/(10*log(2))
 ### Pitch
 #### **midipitchF** (m)
 
-Linear converstion keeping encoded normalized data easily readable ([graph](https://www.desmos.com/calculator/atupolxw6d)]::
+Linear converstion keeping encoded normalized data easily readable ([graph](https://www.desmos.com/calculator/atupolxw6d))::
 ```
 midi = 100p + 12
 p = (midi - 12)/100
@@ -206,7 +206,7 @@ p = (midi - 12)/100
  
 #### **frequencyF** (f)
 
-Conversion formulae normalized parameter *p* to frequency in hertz *Hz* ([graph](https://www.desmos.com/calculator/ixocptnpba)]:
+Conversion formulae: normalized parameter *p* to frequency in hertz *Hz* and inverse ([graph](https://www.desmos.com/calculator/ixocptnpba)):
 
 <img src="formulae/norm2hertz.svg" width="100">
 <img src="formulae/hertz2norm.svg" width="110">
