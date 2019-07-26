@@ -141,7 +141,7 @@ In summary, conversions are used in several ways:
 Conversion formulae ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
 
 
-<img src="https://github.com/favicon.ico" width="48">
+<img src="formulae/formula.png" width="48">
 
 
 ![Formula from LaTeXiT](/formulae/formula.png)
