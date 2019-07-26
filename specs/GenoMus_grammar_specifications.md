@@ -142,6 +142,7 @@ Conversion formulae ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
 
 ![Formula from LaTeXiT](/formulae/formula.png)
 Format: ![test image](formulae/formula.png)
+![](formulae/formula.png =150x)
 
 ```
 p = 2^(10*dur - 8)
