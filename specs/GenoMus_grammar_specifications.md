@@ -138,11 +138,7 @@ In summary, conversions are used in several ways:
 
 #### **notevalueF** (n) 
 
-Conversion formulae ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
-
-
-<img src="formulae/norm2hertz.svg" width="100">
-
+([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
 ```
 p = 2^(10*dur - 8)
 dur = (log(p) + 8*log(2))/(10*log(2))
@@ -210,7 +206,10 @@ p = (midi - 12)/100
  
 #### **frequencyF** (f)
 
-Conversion formulae ([graph](https://www.desmos.com/calculator/ixocptnpba)]:
+Conversion formulae normalized parameter *p* to frequency in hertz *Hz* ([graph](https://www.desmos.com/calculator/ixocptnpba)]:
+
+<img src="formulae/norm2hertz.svg" width="100">
+
 ```
 Hz = 20000p^4
 p = \sqrt[4]{\frac{Hz}{20000}}
