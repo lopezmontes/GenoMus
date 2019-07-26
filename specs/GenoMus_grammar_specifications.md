@@ -140,8 +140,8 @@ In summary, conversions are used in several ways:
 
 Conversion formulae: normalized parameter *p* to note value ratio and inverse ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
 
-<img src="formulae/norm2notevalue.svg" width="100">
-<img src="formulae/notevalue2norm.svg" width="110">
+<img src="formulae/norm2notevalue.svg" width="110">
+<img src="formulae/notevalue2norm.svg" width="200">
 <img src="formulae/norm2notevalue_graph.png" width="300">
 
 | [0, 1] |  dur (s) <sub>&#9833;= 60 BPM</sub> | ratio | notation (Am) / (Br)   
