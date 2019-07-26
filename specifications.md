@@ -18,14 +18,17 @@ Functions in GenoMus are classified by their output data.
 ~~**a** **b** **c** **d** **e** **f** **g** **h** **i**~~ j k ~~**l** **m** **n** **o** **p** **q** **r** **s** **t**~~ u ~~**v** **w**~~ x y z
 ### main structures
 
-| function type | identifier | output
-| ------ | -------- |
-| **scoreF** | **s** | score
-| **voiceF** | **v** | outputs a voice
-| **chordF** | **c** | outputs a chord
-| **paramF** | **p** | outputs a parameter
-| **leaf** | - | terminal node; this not really a function type, but a tag to indicate that no new function will be called
 
+| function type | identifier | output |
+| ------ | -------- | ---- |
+| **scoreF** | **s** | score |
+| **voiceF** | **v** | voice |
+| **chordF** | **c** | chord |
+| **paramF** | **p** | normalized parameter |
+| **leaf** | - | norm. parameter or specific format parameter |
+
+
+**leaf** type is a flag for terminal nodes. This not really a function type, but a tag to indicate that no new function will be called.
 
 ### for manual editing of leaf parameters
 Function types created to allow a more user-friendly handling of decoded genotypes.
