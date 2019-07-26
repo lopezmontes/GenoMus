@@ -19,7 +19,7 @@ Functions in GenoMus are classified by their output data.
 ### main structures
 
 
-| function type | identifier | output |
+| *function type* | *identifier* | *output* |
 | ------ | -------- | ---- |
 | **scoreF** | **s** | score |
 | **voiceF** | **v** | voice |
@@ -34,35 +34,35 @@ Functions in GenoMus are classified by their output data.
 Function types created to allow a more user-friendly handling of decoded genotypes.
 #### Duration
 
-| function type | identifier | output |
+| *function type* | *identifier* | *output* |
 | ------ | -------- | ---- |
 | **notevalueF** | **n** | normalized duration, from usual number used for note values (1 = whole note)
 | **durationF** | **d** | normalized duration, from time in seconds
 
 #### Pitch
 
-| function type | identifier | output |
+| *function type* | *identifier* | *output* |
 | ------ | -------- | ---- |
 | **midipitchF** | **m** | normalized pitch from standard MIDI pitch
 | **frequencyF** | **f** | normalized pitch from frequency in Hz
 
 #### Articulation
 
-| function type | identifier | output |
+| *function type* | *identifier* | *output* |
 | ------ | -------- | ---- |
 | **articulationF** | **a** | normalized relative articulation (1 is whole duration of the note, 2 is double duration)
 | **durationF** | **d** | normalized duration, from time in seconds
 
 #### Intensity
 
-| function type | identifier | output |
+| *function type* | *identifier* | *output* |
 | ------ | -------- | ---- |
 | **intensityF** | **i** | normalized intensity from standard MIDI velocity
 
 ### for outputs of an specific format
 Function types created to manage specific types of data (some of them are still purely theoretical)
 
-| function type | identifier | output |
+| *function type* | *identifier* | *output* |
 | ------ | -------- | ---- |
 | **listF** | **l** | list of normalized floats from interval [0, 1]
 | **operationF** | **o** | result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
