@@ -8,7 +8,7 @@ v = \frac{\log(p) + 8\log(2)}{10\log(2)}
 
 norm2seconds:
 p = 2^{(10v - 6)}
-v = \frac{\log(p) + 6\log(2)}{10\log(2)}
+s = \frac{\log(p) + 6\log(2)}{10\log(2)}
 
 norm2midipitch:
 p = \frac{m - 12}{100}

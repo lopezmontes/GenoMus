@@ -138,7 +138,7 @@ In summary, conversions are used in several ways:
 
 #### **notevalueF** (n) 
 
-Conversion formulae: normalized parameter *p* to note value ratio and inverse ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
+Conversion formulae: normalized parameter *p* to note value ratio *v* and inverse ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
 
 <img src="formulae/norm2notevalue.svg" width="110">
 <img src="formulae/notevalue2norm.svg" width="190">
@@ -160,11 +160,11 @@ Conversion formulae: normalized parameter *p* to note value ratio and inverse ([
 
 #### **durationF** (d) 
 
-Conversion formulae ([graph](https://www.desmos.com/calculator/pn1nbunlcz)):
-```
-p = 2^(10*dur - 6)
-dur = (log(p) + 6*log(2))/(10*log(2))
-```
+Conversion formulae: normalized parameter *p* to seconts *s* and inverse ([graph](https://www.desmos.com/calculator/pn1nbunlcz)):
+
+<img src="formulae/norm2seconds.svg" width="110">
+<img src="formulae/seconds2norm.svg" width="190">
+<img src="formulae/norm2seconds_graph.png" width="300">
 
 | [0, 1] |  dur. (s)|   
 | ------ | -------- |
