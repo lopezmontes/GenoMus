@@ -6,43 +6,74 @@
 - **score**: Excerpt or a whole piece of music. A score is a wrapper for one or more voices. A score can consist of two or more scores together. Scores can be concatenated sequentially (one after another) or simultaneously (sounding together). The product of these concatenations is a new score.
 
 Note: The chord-voice-score structure is defined after [bach](https://www.bachproject.net/) paradigm, to facilitate the visualization and interactions with phenotypes in Max environment.
-
-- **function type identifier**: Prefix used to name functions, to ease the identification of their type.
+- **duration**: Time length from the beginning of a chord to the beginning of the next chord, into the same voice. 
+- **pitch**: Each of the frecuencies in a chord.
+- **articulation**: Length of the sound. It can be different from the event's duration. If articulation matchs the duration, a perfect legato among chords will be played. Shorter or larger values for articulation will sound as staccato or lasciare vibrare effects.
+- **intensity**: Dynamic of a chord.
+- **function type identifier**: Prefix used to name functions, to ease the function type identification.
 ## Function types for genotypes
 Functions in GenoMus are classified by their output data. 
 ### Used function type identifiers
 ~~**a** **b** **c** **d** **e** **f** **g** **h** **i**~~ j k ~~**l** **m** **n** **o** **p** **q** **r** **s** **t**~~ u ~~**v** **w**~~ x y z
 ### main structures
-- **scoreF** (s) - outputs a score
-- **voiceF** (v) - outputs a voice
-- **chordF** (c) - outputs a chord
-- **paramF** (p) - outputs a parameter
-- **leaf** - terminal node; this not really a function type, but a tag to indicate that no new function will be called
-### for manual editing of leaf parameters
+
+
+| *function type* | *identifier* | *output* |
+| ------ | -------- | ---- |
+| **scoreF** | **s** | score |
+| **voiceF** | **v** | voice |
+| **chordF** | **c** | chord |
+| **listF** | **l** | list of normalized floats from interval [0, 1]
+| **paramF** | **p** | normalized parameter |
+| **leaf** | - | norm. parameter or specific format parameter |
+
+
+**leaf** type is a flag for terminal nodes. This not really a function type, but a tag to indicate that no new function will be called.
+
+### human-readable leaf parameters
 Function types created to allow a more user-friendly handling of decoded genotypes.
-#### Time
-- **notefigF** (n) - output normalized duration, from usual number used for note figures (1 = whole note)
-- **durationF** (d) - output normalized duration, from seconds
+#### Duration
+
+| *function type* | *identifier* | *output* |
+| ------ | -------- | ---- |
+| **notevalueF** | **n** | normalized duration, from usual number used for note values (1 = whole note)
+| **durationF** | **d** | normalized duration, from time in seconds
+
 #### Pitch
-- **midipitchF** (m) - output normalized pitch from standard MIDI pitch
-- **frequencyF** (f) - output normalized pitch from frequency in hertzs
+
+| *function type* | *identifier* | *output* |
+| ------ | -------- | ---- |
+| **midipitchF** | **m** | normalized pitch from standard MIDI pitch
+| **frequencyF** | **f** | normalized pitch from frequency in Hz
+
 #### Articulation
-- **articulationF** (a) - output normalized relative articulation (1 is whole duration of the note, 2 is double duration)
-- **durationF** (d) - output normalized duration, from seconds
-#### Dynamics
-- **intensityF** (i) - output norm. dynamics
-### for outputs of an specific format
-Function types created to manage specific types of data.
-- **listF** (l) - output a normalized list of floats from interval [0, 1]
-- **operationF** (o) - output the result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
-- **binaryF** (b) - output a boolean value (only 0 or 1)
-- **harmonyF** (h) - output a pitch class set, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
-- **rhythmF** (r) - output a rythmical patter class set
-- **quantizF** (q) - output a numeric structure for quantization of rhythm
-- **externalF** (e) - output a reference from the external genotypes library (to be used with function referencing to external data
-- **genotypeF** (g) - output a raw encoded genotype (array of floats from interval [0, 1])
-- **txtF** (t) - output a string with the path to an external txt file with data
-- **waveF** (w) - output an encoded path to read data from an stored audio file
+
+| *function type* | *identifier* | *output* |
+| ------ | -------- | ---- |
+| **articulationF** | **a** | normalized relative articulation (1 is whole duration of the note, 2 is double duration)
+| **durationF** | **d** | normalized duration, from time in seconds
+
+#### Intensity
+
+| *function type* | *identifier* | *output* |
+| ------ | -------- | ---- |
+| **intensityF** | **i** | normalized intensity from standard MIDI velocity
+
+### special formats
+Function types created to manage specific types of data (some of them are still purely theoretical)
+
+| *function type* | *identifier* | *output* |
+| ------ | -------- | ---- |
+| **operationF** | **o** | result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
+| **binaryF** | **b** | boolean value (only 0 or 1)
+| **harmonyF** | **h** | pitch class set, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
+| **rhythmF** | **r** | rythmical patter class set
+| **quantizF** | **q** | numeric structure for quantization of rhythm
+| **externalF** | **e** | reference of an external genotype from a library (to be used with function referencing to external data)
+| **genotypeF** | **g** | raw encoded genotype (array of floats from interval [0, 1])
+| **txtF** | **t** | string
+| **waveF** | **w** | encoded path to read data from an stored audio file
+
 ## Manual function for genotypes
 Functions to be used typing manually on the genotypes to get a more controlled evolution
 - **evolve** (*expr*) - contains the part of a genotype to be transformed, freezing the rest
@@ -83,25 +114,50 @@ The integer index identifies the function. The float is the number to map the fu
 ```
 encodedFunctionIndex(n) = (integerFunctionIndex * ((1 + sqrt(5))/2)) % 1
 ```
+---------
 ## Parameters mapping
-A typical function expect generic parameters from normalized interval [0, 1] as arguments, regardless arguments' domain. When computing phenotypes, these numbers must be converted to the right values to represent duration, pitch, etc.
+A typical function expects generic parameters (floats from normalized interval [0, 1]) as arguments, regardless arguments' domain. When computing phenotypes, these numbers must be mapped to right ranges and scales, to represent duration, pitch, etc.
 
-Human-readable function types uses more user-friendly argument formats. These non-generic parameters are first mapped to a normalized interval [0, 1], to be evaluated and encoded as stardard normalized paramenters.
+Human-readable function types uses more user-friendly argument formats. These non-generic parameters are first mapped to a normalized interval [0, 1] to be later evaluated and encoded as stardard normalized paramenters.
 
-In general, theses mappings are not linear (straight line map). For each type of parameter, a gaussian approach is made, trying to cover a wide range of values for each category, but modeling the conversion in a way that central values, specially the range [0.25, 0.75], map to the musical values that appear more often.
+In general, theses maps are not linear (straight line maps). For each type of parameter, a gaussian approach is made, trying to cover a wide range of values for each category, but at the same time modeling the conversion in such a way that central values (specially the range [0.25, 0.75]) map to the musical values that appear more often.
 
-In summary, conversions are used both ways:
-- from normalized parameter to the values used for rendering phenotypes (scores or soundfiles),
-- and backwards, from arguments entered with user-friendly function-types.
+In summary, conversions are used in several ways:
+- From normalized parameter to domain-specific scales used for rendering phenotypes (scores or soundfiles).
+- Backwards, from arguments entered with user-friendly function-types that will return a normalized parameter.
+- To display decodedGenopytes in a more human-readable way.
 
-#### Duration
-- **durationF** (d) 
+--------
+### Duration
+
+#### **notevalueF** (n) 
+
+Conversion formulae ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
+```
+p = 2^(10*dur - 8)
+dur = (log(p) + 8*log(2))/(10*log(2))
+```
+| [0, 1] |  dur (s) <sub>&#9833;= 60 BPM</sub> | ratio | notation (Am) / (Br)   
+| ------ | ----------- | ----- | ------
+| 0      | 0.00390625  | 1/256 | 256th note / demisemihemidemisemiquaver
+| 0.1    | 0.0078125   | 1/128 | 128th note / semihemidemisemiquaver
+| 0.2    | 0.015625    | 1/64  | 64th note / hemidemisemiquaver
+| 0.3    | 0.03125     | 1/32  | 32th note / demisemiquaver
+| 0.4    | 0.0625      | 1/16  | 16th note / semiquaver
+| 0.5    | 0.125       | 1/8   | 8th note / quaver
+| 0.6    | 0.25        | 1/4   | quarter note / crotchet
+| 0.7    | 0.5         | 1/2   | half note / minim
+| 0.8    | 1           | 1     | whole note / semibreve
+| 0.9    | 2           | 2     | double note / breve
+| 1.0    | 4           | 4     | quadruple note / longa
+
+#### **durationF** (d) 
+
 Conversion formulae ([graph](https://www.desmos.com/calculator/pn1nbunlcz)):
 ```
-p = 100p + 12
+p = 2^(10*dur - 6)
 dur = (log(p) + 6*log(2))/(10*log(2))
 ```
-
 
 | [0, 1] |  dur. (s)|   
 | ------ | -------- |
@@ -117,32 +173,32 @@ dur = (log(p) + 6*log(2))/(10*log(2))
 | 0.9    | 8        |
 | 1.0    | 16       |
 
-- **notefigF** (n) 
+--------
+### Pitch
+#### **midipitchF** (m)
 
-
-
-#### Pitch
-- **midipitchF** (f)
-
-Linear converstion, but trying to mantain the encoded normalized data easily readable ([graph](https://www.desmos.com/calculator/atupolxw6d)]::
+Linear converstion keeping encoded normalized data easily readable ([graph](https://www.desmos.com/calculator/atupolxw6d)]::
 ```
 midi = 100p + 12
 p = (midi - 12)/100
 ```
 
-| [0, 1]  |  MIDI    |
-| ------  | -------- |
-| 0       | 12       |
-| 0.12    | 24       |
-| 0.24    | 36       |
-| 0.36    | 48       |
-| 0.48    | 60       |
-| 0.60    | 72       |
-| 0.72    | 84       |
-| 0.84    | 96       |
-| 1.0     | 112      |
+| [0, 1]  |  MIDI    | Notation
+| ------  | -------- | ----------
+| 0       | 12       | C<sub>0</sub>
+| 0.09    | 21       | A<sub>0</sub> <sub>(lowest piano key)</sub>
+| 0.12    | 24       | C<sub>1</sub>
+| 0.24    | 36       | C<sub>2</sub>
+| 0.36    | 48       | C<sub>3</sub>
+| 0.48    | 60       | C<sub>4</sub> <sub>(middle C)</sub>
+| 0.5     | 62       | D<sub>4</sub> <sub>(central note between flats and sharps)</sub>
+| 0.60    | 72       | C<sub>5</sub>
+| 0.72    | 84       | C<sub>6</sub>
+| 0.84    | 96       | C<sub>7</sub>
+| 0.96    | 108      | C<sub>8</sub> <sub>(highest piano key)</sub>
+| 1.0     | 112      | E<sub>8</sub>
  
-- **frequencyF** (f)
+#### **frequencyF** (f)
 
 Conversion formulae ([graph](https://www.desmos.com/calculator/ixocptnpba)]:
 ```
@@ -164,3 +220,56 @@ p = \sqrt[4]{\frac{Hz}{20000}}
 | 0.9    | 13122    |
 | 1.0    | 20000    |
 
+--------
+### Articulation
+
+Articulation can be used in two modes:
+
+- absolute articulation: The duration of the sound is measured in seconds, and is independent of tempo and chord duration. The **durationF** function type is used for this articulation. 
+- relative articulation: the duration of the sound is a ratio of the chord duration. 1 means that the sound will last the whole duration, 0.5 is the half of the chord duration, and so on. For this proportional articulation the function type **articulationF** must be employed.
+
+#### **articulationF** (a)
+Conversion formulae ([graph](https://www.desmos.com/calculator/i5jiq4k9ah)]:
+```
+p = 3art^e
+art = (p/3)^(1/e)
+```
+
+| [0, 1] |  fraction of chord duration      | notation
+| ------ | -------- | ---
+| 0      | 0 | silence
+| 0.1    | 0.005739         |
+| 0.2    | 0.037768       | *staccatissimo*
+| 0.3    | 0.113708      |
+| 0.4    | 0.248547      | *staccato*
+| 0.5.   | 0.455866.      
+| 0.52    | 0.507152     | *non legato*
+| 0.6    | 0.748296    |
+| 0.66    | 0.969596     |
+| 0.6676    | 1.002468     | *legato*
+| 0.7    | 1.137769     |
+| 0.8    | 1.6356581     | *legatissimo*
+| 0.9    | 2.252888    |
+| 1.0    | 3    | *lasciare vibrare*
+
+--------
+### Intensity
+#### **intensityF** (i)
+Conversion formulae to map the standard MIDI velocity range ([graph](https://www.desmos.com/calculator/cisndyw3gs)]:
+```
+p = dyn/127
+dyn = 127p
+```
+| [0, 1] |  MIDI velocity      | notation
+| ------ | -------- | -----
+| 0      | 0 |  silence
+| 0.06    | 7.62        | **_pppp_**
+| 0.15    | 19.05       | **_ppp_**
+| 0.25    | 31.75      | **_pp_**
+| 0.33    | 41.91      | **_p_**
+| 0.4    | 50.8      | **_mp_**
+| 0.5    | 63.5     | **_mf_**
+| 0.66    | 83.82     | **_f_**
+| 0.75    | 95.25     | **_ff_**
+| 0.9    | 114.3    | **_fff_**
+| 1.0    | 127    | *tutta forza*
