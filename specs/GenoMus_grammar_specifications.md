@@ -141,13 +141,7 @@ In summary, conversions are used in several ways:
 Conversion formulae ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
 
 
-<img src="formulae/formula.png" width="48">
-
-
-![Formula from LaTeXiT](/formulae/formula.png)
-Format: ![test image](formulae/formula.png =50x)
-
-![](formulae/formula.png =150x)
+<img src="formulae/formula.png" width="128">
 
 ```
 p = 2^(10*dur - 8)
