@@ -139,6 +139,10 @@ In summary, conversions are used in several ways:
 #### **notevalueF** (n) 
 
 Conversion formulae ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
+
+![GitHub Logo](/images/logo.png)
+Format: ![Alt Text](url)
+
 ```
 p = 2^(10*dur - 8)
 dur = (log(p) + 8*log(2))/(10*log(2))
