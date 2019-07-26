@@ -141,7 +141,7 @@ In summary, conversions are used in several ways:
 Conversion formulae ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
 
 
-<img src="formulae/formula.png" width="128">
+<img src="formulae/formula.eps" width="128">
 
 ```
 p = 2^(10*dur - 8)
