@@ -140,6 +140,9 @@ In summary, conversions are used in several ways:
 
 Conversion formulae ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
 
+**p** is a normalized parameter
+**Hz**: pitch in Hertz
+
 ![Formula from LaTeXiT](/formulae/formula.png)
 Format: ![test image](formulae/formula.png)
 
