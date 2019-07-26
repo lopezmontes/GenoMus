@@ -33,8 +33,12 @@ Functions in GenoMus are classified by their output data.
 ### for manual editing of leaf parameters
 Function types created to allow a more user-friendly handling of decoded genotypes.
 #### Duration
-- **notevalueF** (n) - output normalized duration, from usual number used for note figures (1 = whole note)
-- **durationF** (d) - output normalized duration, from seconds
+
+| function type | identifier | output |
+| ------ | -------- | ---- |
+| **notevalueF** | **n** | normalized duration, from usual number used for note values (1 = whole note)
+| **durationF** | **d** | normalized duration, from time in seconds
+
 #### Pitch
 - **midipitchF** (m) - output normalized pitch from standard MIDI pitch
 - **frequencyF** (f) - output normalized pitch from frequency in hertzs
