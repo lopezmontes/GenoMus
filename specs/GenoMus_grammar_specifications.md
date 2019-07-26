@@ -141,7 +141,7 @@ In summary, conversions are used in several ways:
 Conversion formulae ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
 
 
-<img src="formulae/norm2hertz.svg" width="96">
+<img src="formulae/norm2hertz.svg" width="100">
 
 ```
 p = 2^(10*dur - 8)
