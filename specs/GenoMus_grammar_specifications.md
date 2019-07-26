@@ -16,7 +16,7 @@
 - **pitch**: Each of the frecuencies in a chord.
 - **articulation**: Length of the sound. It can be different from the event's duration. If articulation matchs the duration, a perfect legato among chords will be played. Shorter or larger values for articulation will sound as staccato or lasciare vibrare effects.
 - **intensity**: Dynamic of a chord.
-- **function type identifier**: Prefix used to name functions, to ease the function type identification.
+- **function type identifier**: Prefix used to name functions, to ease the function type identification. The use of indentifiers is not compulsory, but very convenient for readability of decoded genotypes.
 ## Function types for genotypes
 Functions in GenoMus are classified by their output data. 
 ### Used function type identifiers
@@ -248,7 +248,7 @@ art = (p/3)^(1/e)
 | 0.2    | 0.037768       | *staccatissimo*
 | 0.3    | 0.113708      |
 | 0.4    | 0.248547      | *staccato*
-| 0.5.   | 0.455866.      
+| 0.5.   | 0.455866       
 | 0.52    | 0.507152     | *non legato*
 | 0.6    | 0.748296    |
 | 0.66    | 0.969596     |
