@@ -209,11 +209,7 @@ p = (midi - 12)/100
 Conversion formulae normalized parameter *p* to frequency in hertz *Hz* ([graph](https://www.desmos.com/calculator/ixocptnpba)]:
 
 <img src="formulae/norm2hertz.svg" width="100">
-
-```
-Hz = 20000p^4
-p = \sqrt[4]{\frac{Hz}{20000}}
-```
+<img src="formulae/hertz2norm.svg" width="100">
 
 | [0, 1] |  Hz      |
 | ------ | -------- |
