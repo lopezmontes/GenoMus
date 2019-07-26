@@ -40,25 +40,41 @@ Function types created to allow a more user-friendly handling of decoded genotyp
 | **durationF** | **d** | normalized duration, from time in seconds
 
 #### Pitch
-- **midipitchF** (m) - output normalized pitch from standard MIDI pitch
-- **frequencyF** (f) - output normalized pitch from frequency in hertzs
+
+| function type | identifier | output |
+| ------ | -------- | ---- |
+| **midipitchF** | **m** | normalized pitch from standard MIDI pitch
+| **frequencyF** | **f** | normalized pitch from frequency in Hz
+
 #### Articulation
-- **articulationF** (a) - output normalized relative articulation (1 is whole duration of the note, 2 is double duration)
-- **durationF** (d) - output normalized duration, from seconds
-#### Dynamics
-- **intensityF** (i) - output norm. dynamics
+
+| function type | identifier | output |
+| ------ | -------- | ---- |
+| **articulationF** | **a** | normalized relative articulation (1 is whole duration of the note, 2 is double duration)
+| **durationF** | **d** | normalized duration, from time in seconds
+
+#### Intensity
+
+| function type | identifier | output |
+| ------ | -------- | ---- |
+| **intensityF** | **i** | normalized intensity from standard MIDI velocity
+
 ### for outputs of an specific format
-Function types created to manage specific types of data.
-- **listF** (l) - output a normalized list of floats from interval [0, 1]
-- **operationF** (o) - output the result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
-- **binaryF** (b) - output a boolean value (only 0 or 1)
-- **harmonyF** (h) - output a pitch class set, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
-- **rhythmF** (r) - output a rythmical patter class set
-- **quantizF** (q) - output a numeric structure for quantization of rhythm
-- **externalF** (e) - output a reference from the external genotypes library (to be used with function referencing to external data
-- **genotypeF** (g) - output a raw encoded genotype (array of floats from interval [0, 1])
-- **txtF** (t) - output a string with the path to an external txt file with data
-- **waveF** (w) - output an encoded path to read data from an stored audio file
+Function types created to manage specific types of data (some of them are still purely theoretical)
+
+| function type | identifier | output |
+| ------ | -------- | ---- |
+| **listF** | **l** | list of normalized floats from interval [0, 1]
+| **operationF** | **o** | result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
+| **binaryF** | **b** | boolean value (only 0 or 1)
+| **harmonyF** | **h** | pitch class set, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
+| **rhythmF** | **r** | rythmical patter class set
+| **quantizF** | **q** | numeric structure for quantization of rhythm
+| **externalF** | **e** | reference of an external genotype from a library (to be used with function referencing to external data)
+| **genotypeF** | **g** | raw encoded genotype (array of floats from interval [0, 1])
+| **txtF** | **t** | string
+| **waveF** | **w** | encoded path to read data from an stored audio file
+
 ## Manual function for genotypes
 Functions to be used typing manually on the genotypes to get a more controlled evolution
 - **evolve** (*expr*) - contains the part of a genotype to be transformed, freezing the rest
