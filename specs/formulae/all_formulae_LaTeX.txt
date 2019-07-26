@@ -1,0 +1,2 @@
+norm2hertz:
+p = \sqrt[4]{\frac{Hz}{20000}}
