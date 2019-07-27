@@ -32,10 +32,10 @@ In progress...
   - [Encoded genotype](#encoded-genotype)
   - [Decoded phenotype](#decoded-phenotype)
   - [Encoded phenotype](#encoded-phenotype)
-- [Specimen format](#specimen-format)
 - [Specimen characterization](#specimen-characterization)
   - [Automatic analisys of features](#automatic-analisys-of-features)
   - [Human aesthetic evaluation](#human-aesthetic-evaluation)
+- [Specimen format](#specimen-format)
 - [Indexing specimens](#indexing-specimens)
 - [Initial conditions for generation of genotypes](#initial-conditions-for-generation-of-genotypes)
 
@@ -333,7 +333,7 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 | 0.9    | 114.3               | **_fff_**
 | 1.0    | 127                 | *tutta forza*
 
-
+---------
 ## Encoding-decoding
 ### Decoded genotype
 ### Encoded genotype
