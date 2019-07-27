@@ -146,7 +146,7 @@ Conversion formulae: normalized parameter *p* to note value ratio *v* and invers
 <img src="formulae/norm2notevalue_graph.png" width="300">
 
 | [0, 1] | ratio (as float)  | ratio (as fraction) | notation (Am) / (Br) | dur (s) <sub>&#9833;= 60 BPM</sub> 
-| ------ | ----------- | ----- | ------
+| ------ | ----------- | ----- | ------ | ----- |
 | 0      | 0.00390625  | 1/256 | 256th note / demisemihemidemisemiquaver | 0.015625
 | 0.1    | 0.0078125   | 1/128 | 128th note / semihemidemisemiquaver | 0.03125
 | 0.2    | 0.015625    | 1/64  | 64th note / hemidemisemiquaver | 0.0625
