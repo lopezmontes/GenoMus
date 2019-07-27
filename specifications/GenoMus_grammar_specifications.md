@@ -155,7 +155,7 @@ Conversion formulae: normalized parameter _**p**_ to note value ratio _**v**_ an
 <img src="formulae/notevalue2norm.svg" width="170">
 <img src="formulae/norm2notevalue_graph.png" width="250">
 
-| [0, 1] | *v* (float)  | *v* (ratio) | notation (Am) / (Br) | seconds <sub>&#9833;= 60</sub> 
+| [0, 1] | *v* (float)  | *v* (ratio) | notation (Am) / (Br) | seconds if &#9833;= 60 
 | ------ | ----------- | ----- | ------ | ----- |
 | 0      | 0.00390625  | 1/256 | 256th note / demisemihemidemisemiquaver | 0.015625
 | 0.1    | 0.0078125   | 1/128 | 128th note / semihemidemisemiquaver | 0.03125
