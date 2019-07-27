@@ -1,7 +1,7 @@
 # GenoMus grammar specifications
 
 # Table of Contents
-1.[Definitions](md#definitions)
+1.[Definitions](#definitions)
 
 
 In progress...
