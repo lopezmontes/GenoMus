@@ -144,7 +144,7 @@ Conversion formulae: normalized parameter _**p**_ to note value ratio _**v**_ an
 
 <img src="formulae/norm2notevalue.svg" width="100">
 <img src="formulae/notevalue2norm.svg" width="170">
-<img src="formulae/norm2notevalue_graph.png" width="300">
+<img src="formulae/norm2notevalue_graph.png" width="250">
 
 | [0, 1] | *v* (float)  | *v* (ratio) | notation (Am) / (Br) | seconds <sub>&#9833;= 60</sub> 
 | ------ | ----------- | ----- | ------ | ----- |
@@ -166,7 +166,7 @@ Conversion formulae: normalized parameter _**p**_ to seconts _**s**_ and inverse
 
 <img src="formulae/norm2seconds.svg" width="100">
 <img src="formulae/seconds2norm.svg" width="170">
-<img src="formulae/norm2seconds_graph.png" width="300">
+<img src="formulae/norm2seconds_graph.png" width="250">
 
 | [0, 1] |  dur. (s)|   
 | ------ | -------- |
@@ -192,7 +192,7 @@ Conversion formulae: normalized parameter _**p**_ to MIDI pitch _**m**_ and inve
 
 <img src="formulae/norm2midipitch.svg" width="100">
 <img src="formulae/midipitch2norm.svg" width="125">
-<img src="formulae/norm2midipitch_graph.png" width="300">s
+<img src="formulae/norm2midipitch_graph.png" width="250">s
 
 | [0, 1]  |  MIDI    | Notation
 | ------  | -------- | ----------
@@ -215,7 +215,7 @@ Conversion formulae: normalized parameter *p* to frequency in hertz *Hz* and inv
 
 <img src="formulae/norm2hertz.svg" width="110">
 <img src="formulae/hertz2norm.svg" width="120">
-<img src="formulae/norm2hertz_graph.png" width="300">
+<img src="formulae/norm2hertz_graph.png" width="250">
 
 | [0, 1] |  Hz      |
 | ------ | -------- |
@@ -244,7 +244,7 @@ Conversion formulae: normalized parameter _**p**_ to relative articulation _**a*
 
 <img src="formulae/norm2articulation.svg" width="60">
 <img src="formulae/articulation2norm.svg" width="80">
-<img src="formulae/norm2articulation_graph.png" width="300">
+<img src="formulae/norm2articulation_graph.png" width="250">
 
 | [0, 1] |  fraction of chord duration      | notation
 | ------ | -------- | ---
@@ -270,7 +270,7 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 
 <img src="formulae/norm2intensity.svg" width="63">
 <img src="formulae/intensity2norm.svg" width="70">
-<img src="formulae/norm2intensity_graph.png" width="300">
+<img src="formulae/norm2intensity_graph.png" width="250">
 
 | [0, 1] |  MIDI velocity      | notation
 | ------ | -------- | -----
