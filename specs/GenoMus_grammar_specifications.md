@@ -141,8 +141,8 @@ In summary, conversions are used in several ways:
 Input can be as the usual ratio for each note value or as a float. This value is relative, and its actual duration will depend on the current tempo mark. 
 Conversion formulae: normalized parameter *p* to note value ratio *v* and inverse ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
 
-<img src="formulae/norm2notevalue.svg" width="110">
-<img src="formulae/notevalue2norm.svg" width="190">
+<img src="formulae/norm2notevalue.svg" width="100">
+<img src="formulae/notevalue2norm.svg" width="180">
 <img src="formulae/norm2notevalue_graph.png" width="300">
 
 | [0, 1] | notevalue (as float)  | notevalue (as ratio) | notation (Am) / (Br) | dur (s) <sub>&#9833;= 60 BPM</sub> 
@@ -163,8 +163,8 @@ Conversion formulae: normalized parameter *p* to note value ratio *v* and invers
 
 Conversion formulae: normalized parameter *p* to seconts *s* and inverse ([graph](https://www.desmos.com/calculator/pn1nbunlcz)):
 
-<img src="formulae/norm2seconds.svg" width="110">
-<img src="formulae/seconds2norm.svg" width="190">
+<img src="formulae/norm2seconds.svg" width="100">
+<img src="formulae/seconds2norm.svg" width="180">
 <img src="formulae/norm2seconds_graph.png" width="300">
 
 | [0, 1] |  dur. (s)|   
