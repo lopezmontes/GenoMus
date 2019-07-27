@@ -11,7 +11,9 @@ In progress...
 - [Human-readable leaf parameters](#human-readable-leaf-parameters) 
   - [Duration](#duration)
   - [Pitch](#pitch)
-  
+  - [Special formats](#special-formats)
+  - [Manual manipulation of genotypes](#manual-manipulation-of-genotypes)
+  - [Including a function in the GenoMus catalogue](#including-a-function-in-the-genomus-catalogue)
   
 ## Definitions
 - **genotype**: Function tree representing compositional procedures.
@@ -108,7 +110,7 @@ User functions use uppercase letters to be easily found during manual editing pr
 - **uFREEZE** (*expr*) - block a part of a genotype to be preserved from transformations
 - **uFLATTEN** (*expr*) - render part of a genotype into a simple declarative score/voice/chord (phenotype)
 ---------
-## Indexing a function into the GenoMus catalogue
+## Including a function in the GenoMus catalogue
 A functions must be included into the JSON GenoMus catalogue following this format:
 ```
 "functionType": {
