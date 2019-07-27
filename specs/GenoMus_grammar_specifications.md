@@ -242,8 +242,8 @@ Articulation can be used in two modes:
 #### **articulationF** (a)
 Conversion formulae: normalized parameter _**p**_ to relative articulation _**a**_, as a proportion of chord duration ([graph](https://www.desmos.com/calculator/i5jiq4k9ah)):
 
-<img src="formulae/norm2articulation.svg" width="70">
-<img src="formulae/articulation2norm.svg" width="90">
+<img src="formulae/norm2articulation.svg" width="60">
+<img src="formulae/articulation2norm.svg" width="80">
 <img src="formulae/norm2articulation_graph.png" width="300">
 
 | [0, 1] |  fraction of chord duration      | notation
