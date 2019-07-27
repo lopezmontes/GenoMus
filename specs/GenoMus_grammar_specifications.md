@@ -259,14 +259,14 @@ Conversion formulae: normalized parameter _**p**_ to relative articulation _**a*
 | 0.66    | 0.969596     |
 | 0.6676    | 1.002468     | *legato*
 | 0.7    | 1.137769     |
-| 0.8    | 1.6356581     | *legatissimo*
+| 0.8    | 1.635658     | *legatissimo*
 | 0.9    | 2.252888    |
 | 1.0    | 3    | *lasciare vibrare*
 
 --------
 ### Intensity
 #### **intensityF** (i)
-Conversion formulae: normalized parameter _**p**_ to intensity in standard MIDI velocity _**m**_ and inverse ( ([graph](https://www.desmos.com/calculator/cisndyw3gs)]:
+Conversion formulae: normalized parameter _**p**_ to intensity _**M<sub>v</sub>**_ in standard MIDI velocity  and inverse ( ([graph](https://www.desmos.com/calculator/cisndyw3gs)]:
 ```
 p = dyn/127
 dyn = 127p
