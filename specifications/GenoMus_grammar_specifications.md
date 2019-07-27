@@ -37,6 +37,9 @@ In progress...
   - [Human aesthetic evaluation](#human-aesthetic-evaluation)
 - [Specimen data structure](#specimen-data-structure)
 - [Catalogue of specimens](#catalogue-of-specimens)
+  - [Naming](#naming)
+  - [Classification](#classification)
+  - [Catalogue access](#catalogue-access)
 - [Initial conditions for generation of genotypes](#initial-conditions-for-generation-of-genotypes)
   - [Vector of desired musical characteristics](#vector-of-desired-musical-characteristics)
     - [Weighted measurement of Euclidean distance](#weighted-measurement-of-euclidean-distance)
@@ -348,6 +351,9 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 ## Specimen data structure
 
 ## Catalogue of specimens
+### Naming
+### Classification
+### Catalogue access
 
 ## Initial conditions for generation of genotypes
 ### Vector of desired musical characteristics
