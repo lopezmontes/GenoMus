@@ -21,9 +21,9 @@ In progress...
   - [Pitch](#pitch-1)
     - [midipitchF (m)](#midipitchf-m)
     - [frequencyF (f)](#frequencyf-f)
-  - [Articulation](#articulation)
+  - [Articulation](#articulation-1)
     - [articulationF (a)](#articulationf-a)
-  - [Intensity](#intensity)
+  - [Intensity](#intensity-1)
     - [intensityF (i)](#intensityf-i)
   
 ## Definitions
