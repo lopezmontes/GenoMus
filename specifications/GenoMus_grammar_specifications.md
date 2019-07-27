@@ -255,7 +255,7 @@ Conversion formulae: normalized parameter _**p**_ to relative articulation _**a*
 <img src="formulae/articulation2norm.svg" width="80">
 <img src="formulae/norm2articulation_graph.png" width="250">
 
-| [0, 1] |  fraction of chord duration      | notation
+| [0, 1] |  proportion of chord duration      | notation
 | ------ | -------- | ---
 | 0      | 0 | silence
 | 0.1    | 0.005739         |

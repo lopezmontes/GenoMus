@@ -16,7 +16,7 @@ m = 100p+12
 
 norm2articulation:
 p = 3a^e
-a = \Big(\frac{x}{3}\Big)^\frac{1}{e}
+a = \Big(\frac{p}{3}\Big)^\frac{1}{e}
 
 norm2intensity
 p = \frac{i}{127}
