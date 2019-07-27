@@ -138,7 +138,7 @@ In summary, conversions are used in several ways:
 
 #### **notevalueF** (n) 
 
-Input can be as the usual ratio for each note value or as a float. This value is relative, and its actual duration will depend on the current tempo mark. 
+Input can be the usual ratio for each note value or a float. This value is relative, and its actual duration will depend on the current tempo mark. 
 
 Conversion formulae: normalized parameter _**p**_ to note value ratio _**v**_ and inverse ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
 
@@ -186,11 +186,13 @@ Conversion formulae: normalized parameter _**p**_ to seconts _**s**_ and inverse
 ### Pitch
 #### **midipitchF** (m)
 
-Linear converstion keeping encoded normalized data easily readable ([graph](https://www.desmos.com/calculator/atupolxw6d))::
-```
-midi = 100p + 12
-p = (midi - 12)/100
-```
+Linear conversion keeping encoded normalized data easily readable.
+
+Conversion formulae: normalized parameter _**p**_ to MIDI pitch _**m**_ and inverse ([graph](https://www.desmos.com/calculator/atupolxw6d)):
+
+<img src="formulae/norm2midipitch.svg" width="100">
+<img src="formulae/midipitch2norm.svg" width="170">
+<img src="formulae/norm2midipitch_graph.png" width="300">s
 
 | [0, 1]  |  MIDI    | Notation
 | ------  | -------- | ----------
