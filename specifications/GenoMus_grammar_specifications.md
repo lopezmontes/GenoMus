@@ -320,3 +320,23 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 | 0.75   | 95.25               | **_ff_**
 | 0.9    | 114.3               | **_fff_**
 | 1.0    | 127                 | *tutta forza*
+
+
+## Encoding-decoding
+### Decoded genotype
+### Encoded genotype
+### Decoded phenotype
+### Encoded phenotype
+
+## Specimen format
+
+## Specimen characterization
+### Automatic analisys of features
+### Human aesthetic evaluation
+
+## Indexing specimens
+
+## Initial conditions for generation of genotypes
+
+
+
