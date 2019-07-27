@@ -138,25 +138,26 @@ In summary, conversions are used in several ways:
 
 #### **notevalueF** (n) 
 
+Input can be as the usual ratio for each note value or as a float. This value is relative, and its actual duration will depend on the current tempo mark. 
 Conversion formulae: normalized parameter *p* to note value ratio *v* and inverse ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
 
 <img src="formulae/norm2notevalue.svg" width="110">
 <img src="formulae/notevalue2norm.svg" width="190">
 <img src="formulae/norm2notevalue_graph.png" width="300">
 
-| [0, 1] |  dur (s) <sub>&#9833;= 60 BPM</sub> | ratio | notation (Am) / (Br)   
+| [0, 1] | ratio (as float)  | ratio (as fraction) | notation (Am) / (Br) | dur (s) <sub>&#9833;= 60 BPM</sub> 
 | ------ | ----------- | ----- | ------
-| 0      | 0.00390625  | 1/256 | 256th note / demisemihemidemisemiquaver
-| 0.1    | 0.0078125   | 1/128 | 128th note / semihemidemisemiquaver
-| 0.2    | 0.015625    | 1/64  | 64th note / hemidemisemiquaver
-| 0.3    | 0.03125     | 1/32  | 32th note / demisemiquaver
-| 0.4    | 0.0625      | 1/16  | 16th note / semiquaver
-| 0.5    | 0.125       | 1/8   | 8th note / quaver
-| 0.6    | 0.25        | 1/4   | quarter note / crotchet
-| 0.7    | 0.5         | 1/2   | half note / minim
-| 0.8    | 1           | 1     | whole note / semibreve
-| 0.9    | 2           | 2     | double note / breve
-| 1.0    | 4           | 4     | quadruple note / longa
+| 0      | 0.00390625  | 1/256 | 256th note / demisemihemidemisemiquaver | 0.015625
+| 0.1    | 0.0078125   | 1/128 | 128th note / semihemidemisemiquaver | 0.03125
+| 0.2    | 0.015625    | 1/64  | 64th note / hemidemisemiquaver | 0.0625
+| 0.3    | 0.03125     | 1/32  | 32th note / demisemiquaver | 0.125
+| 0.4    | 0.0625      | 1/16  | 16th note / semiquaver | 0.25
+| 0.5    | 0.125       | 1/8   | 8th note / quaver | 0.5
+| 0.6    | 0.25        | 1/4   | quarter note / crotchet | 1
+| 0.7    | 0.5         | 1/2   | half note / minim | 2
+| 0.8    | 1           | 1     | whole note / semibreve | 4
+| 0.9    | 2           | 2     | double note / breve | 8
+| 1.0    | 4           | 4     | quadruple note / longa | 16
 
 #### **durationF** (d) 
 
