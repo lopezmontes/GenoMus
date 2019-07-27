@@ -139,13 +139,14 @@ In summary, conversions are used in several ways:
 #### **notevalueF** (n) 
 
 Input can be as the usual ratio for each note value or as a float. This value is relative, and its actual duration will depend on the current tempo mark. 
+
 Conversion formulae: normalized parameter *p* to note value ratio *v* and inverse ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
 
 <img src="formulae/norm2notevalue.svg" width="100">
 <img src="formulae/notevalue2norm.svg" width="170">
 <img src="formulae/norm2notevalue_graph.png" width="300">
 
-| [0, 1] | notevalue (as float)  | notevalue (as ratio) | notation (Am) / (Br) | dur (s) <sub>&#9833;= 60 BPM</sub> 
+| [0, 1] | v (float)  | v (ratio) | notation (Am) / (Br) | seconds <sub>&#9833;= 60</sub> 
 | ------ | ----------- | ----- | ------ | ----- |
 | 0      | 0.00390625  | 1/256 | 256th note / demisemihemidemisemiquaver | 0.015625
 | 0.1    | 0.0078125   | 1/128 | 128th note / semihemidemisemiquaver | 0.03125
