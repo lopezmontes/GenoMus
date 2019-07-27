@@ -1,7 +1,8 @@
 # GenoMus grammar specifications
 
 # Table of Contents
-1.[Definitions](#definitions)
+- [Definitions](#definitions)
+- [Function types for genotypes](#function-types-for-genotypes)
 
 
 In progress...
