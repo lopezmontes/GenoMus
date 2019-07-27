@@ -89,7 +89,7 @@ Functions to be used typing manually on the genotypes to get a more controlled e
 | ------ | -------- | ---- |
 | **userF** | **u** | these functions perform very different manipulations on part of a genotype, acting as a metalevel of functional control
 
-User functions use capital letters to be easily founded during manual editing procesees. Some examples of this type:
+User functions use uppercase letters to be easily found during manual editing processes. Some examples of this type:
 - **uEVOLVE** (*expr*) - contains the part of a genotype to be transformed, freezing the rest
 - **uFREEZE** (*expr*) - block a part of a genotype to be preserved from transformations
 - **uFLATTEN** (*expr*) - render part of a genotype into a simple declarative score/voice/chord (phenotype)
