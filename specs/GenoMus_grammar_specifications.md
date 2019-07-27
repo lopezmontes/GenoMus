@@ -87,7 +87,7 @@ Functions to be used typing manually on the genotypes to get a more controlled e
 
 | *function type* | *identifier* | *output* |
 | ------ | -------- | ---- |
-| **operationF** | **o** | result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
+| **userF** | **u** | these functions perform very different manipulations on part of a genotype, acting as a metalevel of functional control
 
 User functions use capital letters to be easily founded during manual editing procesees. Some examples of this type:
 - **uEVOLVE** (*expr*) - contains the part of a genotype to be transformed, freezing the rest
