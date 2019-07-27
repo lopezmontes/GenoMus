@@ -39,7 +39,7 @@ In progress...
 - [Catalogue of specimens](#catalogue-of-specimens)
 - [Initial conditions for generation of genotypes](#initial-conditions-for-generation-of-genotypes)
   - [Vector of desired musical characteristics](#vector-of-desired-musical-characteristics)
-    - [Measurement of Euclidean distance](#measurement-of-euclidean-distance)
+    - [Weighted measurement of Euclidean distance](#weighted-measurement-of-euclidean-distance)
 ----------  
 ## Definitions
 - **genotype**: Function tree representing compositional procedures.
@@ -351,7 +351,7 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 
 ## Initial conditions for generation of genotypes
 ### Vector of desired musical characteristics
-#### Measurement of Euclidean distance
+#### Weighted measurement of Euclidean distance
 
 
 
