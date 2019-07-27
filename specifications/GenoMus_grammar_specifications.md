@@ -35,8 +35,8 @@ In progress...
 - [Specimen characterization](#specimen-characterization)
   - [Automatic analisys of features](#automatic-analisys-of-features)
   - [Human aesthetic evaluation](#human-aesthetic-evaluation)
-- [Specimen format](#specimen-format)
-- [Indexing specimens](#indexing-specimens)
+- [Specimen data structure](#specimen-data-structure)
+- [Catalogue of specimens](#catalogue-of-specimens)
 - [Initial conditions for generation of genotypes](#initial-conditions-for-generation-of-genotypes)
 
 ----------  
@@ -344,9 +344,9 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 ### Automatic analisys of features
 ### Human aesthetic evaluation
 
-## Specimen format
+## Specimen data structure
 
-## Indexing specimens
+## Catalogue of specimens
 
 ## Initial conditions for generation of genotypes
 
