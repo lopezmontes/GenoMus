@@ -340,11 +340,11 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 ### Decoded phenotype
 ### Encoded phenotype
 
-## Specimen format
-
 ## Specimen characterization
 ### Automatic analisys of features
 ### Human aesthetic evaluation
+
+## Specimen format
 
 ## Indexing specimens
 
