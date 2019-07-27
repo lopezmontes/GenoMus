@@ -6,6 +6,7 @@
 - **decoded genotype**: Genotype coded as a string containing an executable tree of functions.
 - **encoded phenotype**: Phenotype coded as an array of normalized floats from interval [0, 1].
 - **decoded phenotype**: Phenotype coded as a readable score for music software, such as Max, Csound, Lilypond, etc.
+- **specimen**: Genotype/phenotype pair, saved as JSON file containing encoded and decoded versions of its code, metadata, and other useful analytical informations.
 - **parameter**: Normalized float from interval [0, 1] used to feed the functions' required arguments. These numeric values are leaves of the functional tree that gives rise to a genotype.
 - **leaf**: Terminal node of a genotype functional tree, containing a parameter.
 - **list**: Array of parameters.
