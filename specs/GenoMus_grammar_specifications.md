@@ -191,7 +191,7 @@ Linear conversion keeping encoded normalized data easily readable.
 Conversion formulae: normalized parameter _**p**_ to MIDI pitch _**m**_ and inverse ([graph](https://www.desmos.com/calculator/atupolxw6d)):
 
 <img src="formulae/norm2midipitch.svg" width="100">
-<img src="formulae/midipitch2norm.svg" width="115">
+<img src="formulae/midipitch2norm.svg" width="125">
 <img src="formulae/norm2midipitch_graph.png" width="300">s
 
 | [0, 1]  |  MIDI    | Notation
