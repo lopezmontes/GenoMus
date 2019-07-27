@@ -13,7 +13,7 @@ In progress...
   - [Pitch](#pitch)
   - [Special formats](#special-formats)
   - [Manual manipulation of genotypes](#manual-manipulation-of-genotypes)
-  - [Including a function in the GenoMus catalogue](#including-a-function-in-the-genomus-catalogue)
+- [Including a function in the GenoMus catalogue](#including-a-function-in-the-genomus-catalogue)
   
 ## Definitions
 - **genotype**: Function tree representing compositional procedures.
