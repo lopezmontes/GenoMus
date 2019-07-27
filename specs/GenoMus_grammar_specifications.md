@@ -65,7 +65,7 @@ Function types created to allow a more user-friendly handling of decoded genotyp
 | ------ | -------- | ---- |
 | **intensityF** | **i** | normalized intensity from standard MIDI velocity
 
-### special formats
+### Special formats
 Function types created to manage specific types of data (some of them are still purely theoretical)
 
 | *function type* | *identifier* | *output* |
@@ -80,12 +80,19 @@ Function types created to manage specific types of data (some of them are still 
 | **txtF** | **t** | string
 | **waveF** | **w** | encoded path to read data from an stored audio file
 
-## Manual function for genotypes
-Functions to be used typing manually on the genotypes to get a more controlled evolution
-- **evolve** (*expr*) - contains the part of a genotype to be transformed, freezing the rest
-- **freeze** (*expr*) - block a part of a genotype to be preserved from transformations
-- **externalGenotype** (*genotype_index*) - import a genotypic expression from an external file
-- **flatten** (*expr*) - render part of a genotype into a simple declarative score/voice/chord (phenotype)
+
+
+### Manual manipulation of genotypes
+Functions to be used typing manually on the genotypes to get a more controlled evolution.
+
+| *function type* | *identifier* | *output* |
+| ------ | -------- | ---- |
+| **operationF** | **o** | result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
+
+User functions use capital letters to be easily founded during manual editing procesees. Some examples of this type:
+- **uEVOLVE** (*expr*) - contains the part of a genotype to be transformed, freezing the rest
+- **uFREEZE** (*expr*) - block a part of a genotype to be preserved from transformations
+- **uFLATTEN** (*expr*) - render part of a genotype into a simple declarative score/voice/chord (phenotype)
 
 ## Indexing a function into the GenoMus catalogue
 A functions must be included into the JSON GenoMus catalogue following this format:
