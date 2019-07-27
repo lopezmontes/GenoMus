@@ -1,5 +1,9 @@
 # GenoMus grammar specifications
 
+# Table of Contents
+1.[Definitions](md#definitions)
+
+
 In progress...
 
 ## Definitions
