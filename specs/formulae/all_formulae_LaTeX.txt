@@ -13,3 +13,7 @@ s = \frac{\log(p) + 6\log(2)}{10\log(2)}
 norm2midipitch:
 p = \frac{m - 12}{100}
 m = 100p+12
+
+norm2articulation:
+p = 3a^e
+a = \Big(\frac{x}{3}\Big)^\frac{1}{e}

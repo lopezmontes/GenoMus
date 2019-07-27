@@ -240,11 +240,11 @@ Articulation can be used in two modes:
 - relative articulation: the duration of the sound is a ratio of the chord duration. 1 means that the sound will last the whole duration, 0.5 is the half of the chord duration, and so on. For this proportional articulation the function type **articulationF** must be employed.
 
 #### **articulationF** (a)
-Conversion formulae ([graph](https://www.desmos.com/calculator/i5jiq4k9ah)]:
-```
-p = 3art^e
-art = (p/3)^(1/e)
-```
+Conversion formulae: normalized parameter _**p**_ to relative articulation _**a**_, as a proportion of chord duration ([graph](https://www.desmos.com/calculator/i5jiq4k9ah)):
+
+<img src="formulae/norm2articulation.svg" width="110">
+<img src="formulae/articulation2norm.svg" width="120">
+<img src="formulae/norm2articulation_graph.png" width="300">
 
 | [0, 1] |  fraction of chord duration      | notation
 | ------ | -------- | ---
@@ -266,7 +266,7 @@ art = (p/3)^(1/e)
 --------
 ### Intensity
 #### **intensityF** (i)
-Conversion formulae to map the standard MIDI velocity range ([graph](https://www.desmos.com/calculator/cisndyw3gs)]:
+Conversion formulae: normalized parameter _**p**_ to intensity in standard MIDI velocity _**m**_ and inverse ( ([graph](https://www.desmos.com/calculator/cisndyw3gs)]:
 ```
 p = dyn/127
 dyn = 127p
