@@ -21,7 +21,7 @@
 Functions in GenoMus are classified by their output data. 
 ### Used function type identifiers
 ~~**a** **b** **c** **d** **e** **f** **g** **h** **i**~~ j k ~~**l** **m** **n** **o** **p** **q** **r** **s** **t** **u** **v** **w**~~ x y z
-### main structures
+### Main structures
 
 
 | *function type* | *identifier* | *output* |
@@ -34,10 +34,10 @@ Functions in GenoMus are classified by their output data.
 | **leaf** | - | norm. parameter or specific format parameter |
 
 
-**leaf** type is a flag for terminal nodes. This not really a function type, but a tag to indicate that no new function will be called.
+The **leaf** type is a flag for terminal nodes. This is not really a type of function, but a label to indicate that a new function will not be called.
 
-### human-readable leaf parameters
-Function types created to allow a more user-friendly handling of decoded genotypes.
+### Human-readable leaf parameters
+Function types created to allow a more user-friendly handling of decoded genotypes. All these functions are intended to replace a **paramF** in a leaf position of function tree.
 #### Duration
 
 | *function type* | *identifier* | *output* |
