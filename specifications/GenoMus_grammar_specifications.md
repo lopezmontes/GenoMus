@@ -30,7 +30,7 @@ In progress...
 - **voice**: Line of music (usually for an only instrument). A voice is a wrapper for a sequence of one or more chords. A voice can consist of two or more voices sequentially concatenated  together (one after another, without overlapping). Each chord inside a voice can contain more than one pitch. For instance, a sequence of major chords can be a single voice.
 - **score**: Excerpt or a whole piece of music. A score is a wrapper for one or more voices. A score can consist of two or more scores together. Scores can be concatenated sequentially (one after another) or simultaneously (sounding together). The product of these concatenations is a new score. The chord-voice-score structure is defined after [bach](https://www.bachproject.net/) paradigm, to facilitate the visualization and interactions with phenotypes in Max environment.
 - **duration**: Time length from the beginning of a chord to the beginning of the next chord, into the same voice. 
-- **pitch**: Each of the frecuencies in a chord.
+- **pitch**: Each of the root frecuencies in a chord.
 - **articulation**: Length of the chord sound. It can be different from the chord duration. If articulation matchs the duration, a perfect legato among chords will be played. Shorter or larger values for articulation will sound as staccato or lasciare vibrare effects.
 - **intensity**: Dynamic of a chord.
 - **function type identifier**: Prefix used to name functions, to ease the function type identification. The use of indentifiers is not compulsory, but very convenient for readability of decoded genotypes.
@@ -123,7 +123,6 @@ A functions must be included into the JSON GenoMus catalogue following this form
         }
     },
 ```
-Where
 - *functionName* should use the corresponding prefix to help a human to know its output type
 - The *description* and *metadata* fields are optional, but very helpful to understand quicky the processes in a genotype, and to add further informations and documentation about the function or the programmer
 
