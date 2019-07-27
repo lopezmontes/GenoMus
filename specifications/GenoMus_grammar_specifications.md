@@ -18,6 +18,7 @@
 - **articulation**: Length of the chord sound. It can be different from the chord duration. If articulation matchs the duration, a perfect legato among chords will be played. Shorter or larger values for articulation will sound as staccato or lasciare vibrare effects.
 - **intensity**: Dynamic of a chord.
 - **function type identifier**: Prefix used to name functions, to ease the function type identification. The use of indentifiers is not compulsory, but very convenient for readability of decoded genotypes.
+---------
 ## Function types for genotypes
 Functions in GenoMus are classified by their output data. 
 ### Used function type identifiers
@@ -94,7 +95,7 @@ User functions use uppercase letters to be easily found during manual editing pr
 - **uEVOLVE** (*expr*) - contains the part of a genotype to be transformed, freezing the rest
 - **uFREEZE** (*expr*) - block a part of a genotype to be preserved from transformations
 - **uFLATTEN** (*expr*) - render part of a genotype into a simple declarative score/voice/chord (phenotype)
-
+---------
 ## Indexing a function into the GenoMus catalogue
 A functions must be included into the JSON GenoMus catalogue following this format:
 ```
