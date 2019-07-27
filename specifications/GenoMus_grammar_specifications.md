@@ -25,16 +25,14 @@ Functions in GenoMus are classified by their output data.
 ~~**a** **b** **c** **d** **e** **f** **g** **h** **i**~~ j k ~~**l** **m** **n** **o** **p** **q** **r** **s** **t** **u** **v** **w**~~ x y z
 ### Main structures
 
-
-| *function type* | *identifier* | *output* |
-| ------ | -------- | ---- |
-| **scoreF** | **s** | score |
-| **voiceF** | **v** | voice |
-| **chordF** | **c** | chord |
-| **listF** | **l** | list of normalized floats from interval [0, 1]
-| **paramF** | **p** | normalized parameter |
-| **leaf** | - | norm. parameter or specific format parameter |
-
+| *function type* | *identifier* | *output*
+| --------------- | ------------ | --------
+| **scoreF**      | **s**        | score
+| **voiceF**      | **v**        | voice
+| **chordF**      | **c**        | chord
+| **listF**       | **l**        | list of normalized floats from interval [0, 1]
+| **paramF**      | **p**        | normalized parameter
+| **leaf**        | -            | norm. parameter or specific format parameter
 
 The **leaf** type is a flag for terminal nodes. This is not really a type of function, but a label to indicate that a new function will not be called.
 
@@ -42,45 +40,45 @@ The **leaf** type is a flag for terminal nodes. This is not really a type of fun
 Function types created to allow a more user-friendly handling of decoded genotypes. All these functions are intended to replace a **paramF** in a leaf position of function tree.
 #### Duration
 
-| *function type* | *identifier* | *output* |
-| ------ | -------- | ---- |
-| **notevalueF** | **n** | normalized duration, from usual number used for note values (1 = whole note)
-| **durationF** | **d** | normalized duration, from time in seconds
+| *function type* | *identifier* | *output*
+| --------------- | ------------ | --------
+| **notevalueF**  | **n**        | normalized duration, from usual number used for note values (1 = whole note)
+| **durationF**   | **d**        | normalized duration, from time in seconds
 
 #### Pitch
 
-| *function type* | *identifier* | *output* |
-| ------ | -------- | ---- |
-| **midipitchF** | **m** | normalized pitch from standard MIDI pitch
-| **frequencyF** | **f** | normalized pitch from frequency in Hz
+| *function type* | *identifier* | *output*
+| --------------- | ------------ | --------
+| **midipitchF**  | **m**        | normalized pitch from standard MIDI pitch
+| **frequencyF**  | **f**        | normalized pitch from frequency in Hz
 
 #### Articulation
 
-| *function type* | *identifier* | *output* |
-| ------ | -------- | ---- |
-| **articulationF** | **a** | normalized relative articulation (1 is whole duration of the note, 2 is double duration)
-| **durationF** | **d** | normalized duration, from time in seconds
+| *function type*   | *identifier* | *output*
+| ----------------- | ------------ | --------
+| **articulationF** | **a**        | normalized relative articulation (1 is whole duration of the note, 2 is double duration)
+| **durationF**     | **d**        | normalized duration, from time in seconds
 
 #### Intensity
 
-| *function type* | *identifier* | *output* |
-| ------ | -------- | ---- |
-| **intensityF** | **i** | normalized intensity from standard MIDI velocity
+| *function type* | *identifier* | *output*
+| --------------- | ------------ | --------
+| **intensityF**  | **i**        | normalized intensity from standard MIDI velocity
 
 ### Special formats
 Function types created to manage specific types of data (some of them are still purely theoretical)
 
-| *function type* | *identifier* | *output* |
-| ------ | -------- | ---- |
-| **operationF** | **o** | result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
-| **binaryF** | **b** | boolean value (only 0 or 1)
-| **harmonyF** | **h** | pitch class set, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
-| **rhythmF** | **r** | rythmical patter class set
-| **quantizF** | **q** | numeric structure for quantization of rhythm
-| **externalF** | **e** | reference of an external genotype from a library (to be used with function referencing to external data)
-| **genotypeF** | **g** | raw encoded genotype (array of floats from interval [0, 1])
-| **txtF** | **t** | string
-| **waveF** | **w** | encoded path to read data from an stored audio file
+| *function type* | *identifier* | *output*
+| --------------- | ------------ | --------
+| **operationF**  | **o**        | result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
+| **binaryF**     | **b**        | boolean value (only 0 or 1)
+| **harmonyF**    | **h**        | pitch class set, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
+| **rhythmF**     | **r**        | rythmical patter class set
+| **quantizF**    | **q**        | numeric structure for quantization of rhythm
+| **externalF**   | **e**        | reference of an external genotype from a library (to be used with function referencing to external data)
+| **genotypeF**   | **g**        | raw encoded genotype (array of floats from interval [0, 1])
+| **txtF**        | **t**        | string
+| **waveF**       | **w**        | encoded path to read data from an stored audio file
 
 
 
@@ -88,8 +86,8 @@ Function types created to manage specific types of data (some of them are still 
 Functions to be used typing manually on the genotypes to get a more controlled evolution.
 
 | *function type* | *identifier* | *output* |
-| ------ | -------- | ---- |
-| **userF** | **u** | these functions perform very different manipulations on part of a genotype, acting as a metalevel of functional control
+| --------------- | ------------ | --------
+| **userF**       | **u**        | these functions perform very different manipulations on part of a genotype, acting as a metalevel of functional control
 
 User functions use uppercase letters to be easily found during manual editing processes. Some examples of this type:
 - **uEVOLVE** (*expr*) - contains the part of a genotype to be transformed, freezing the rest
@@ -155,19 +153,19 @@ Conversion formulae: normalized parameter _**p**_ to note value ratio _**v**_ an
 <img src="formulae/notevalue2norm.svg" width="170">
 <img src="formulae/norm2notevalue_graph.png" width="250">
 
-| [0, 1] | *v* (float)  | *v* (ratio) | notation (Am) / (Br) | seconds **if &#9833;= 60** 
-| ------ | ----------- | ----- | ------ | ----- |
-| 0      | 0.00390625  | 1/256 | 256th note / demisemihemidemisemiquaver | 0.015625
-| 0.1    | 0.0078125   | 1/128 | 128th note / semihemidemisemiquaver | 0.03125
-| 0.2    | 0.015625    | 1/64  | 64th note / hemidemisemiquaver | 0.0625
-| 0.3    | 0.03125     | 1/32  | 32th note / demisemiquaver | 0.125
-| 0.4    | 0.0625      | 1/16  | 16th note / semiquaver | 0.25
-| 0.5    | 0.125       | 1/8   | 8th note / quaver | 0.5
-| 0.6    | 0.25        | 1/4   | quarter note / crotchet | 1
-| 0.7    | 0.5         | 1/2   | half note / minim | 2
-| 0.8    | 1           | 1     | whole note / semibreve | 4
-| 0.9    | 2           | 2     | double note / breve | 8
-| 1.0    | 4           | 4     | quadruple note / longa | 16
+| [0, 1] | *v* (float)  | *v* (ratio) | notation (Am) / (Br)                    | seconds if &#9833;= 60 
+| ------ | ------------ | ----------- | --------------------------------------- | ---------------------- 
+| 0      | 0.00390625   | 1/256       | 256th note / demisemihemidemisemiquaver | 0.015625               
+| 0.1    | 0.0078125    | 1/128       | 128th note / semihemidemisemiquaver     | 0.03125                
+| 0.2    | 0.015625     | 1/64        | 64th note / hemidemisemiquaver          | 0.0625                 
+| 0.3    | 0.03125      | 1/32        | 32th note / demisemiquaver              | 0.125                  
+| 0.4    | 0.0625       | 1/16        | 16th note / semiquaver                  | 0.25                   
+| 0.5    | 0.125        | 1/8         | 8th note / quaver                       | 0.5                    
+| 0.6    | 0.25         | 1/4         | quarter note / crotchet                 | 1                      
+| 0.7    | 0.5          | 1/2         | half note / minim                       | 2                      
+| 0.8    | 1            | 1           | whole note / semibreve                  | 4                      
+| 0.9    | 2            | 2           | double note / breve                     | 8                      
+| 1.0    | 4            | 4           | quadruple note / longa                  | 16                     
 
 #### **durationF** (d) 
 
@@ -177,19 +175,19 @@ Conversion formulae: normalized parameter _**p**_ to seconts _**s**_ and inverse
 <img src="formulae/seconds2norm.svg" width="170">
 <img src="formulae/norm2seconds_graph.png" width="250">
 
-| [0, 1] |  dur. (s)|   
-| ------ | -------- |
-| 0      | 0.015625 |
-| 0.1    | 0.03125  |
-| 0.2    | 0.0625   |
-| 0.3    | 0.125    |
-| 0.4    | 0.25     |
-| 0.5    | 0.5      |
-| 0.6    | 1        |
-| 0.7    | 2        |
-| 0.8    | 4        |
-| 0.9    | 8        |
-| 1.0    | 16       |
+| [0, 1] |  dur. (s)   
+| ------ | -------- 
+| 0      | 0.015625 
+| 0.1    | 0.03125  
+| 0.2    | 0.0625   
+| 0.3    | 0.125    
+| 0.4    | 0.25     
+| 0.5    | 0.5      
+| 0.6    | 1        
+| 0.7    | 2        
+| 0.8    | 4        
+| 0.9    | 8        
+| 1.0    | 16       
 
 --------
 ### Pitch
@@ -226,19 +224,19 @@ Conversion formulae: normalized parameter *p* to frequency in hertz *Hz* and inv
 <img src="formulae/hertz2norm.svg" width="120">
 <img src="formulae/norm2hertz_graph.png" width="250">
 
-| [0, 1] |  Hz      |
-| ------ | -------- |
-| 0      | 0.000001 |
-| 0.1    | 2        |
-| 0.2    | 32       |
-| 0.3    | 162      |
-| 0.4    | 512      |
-| 0.5    | 1250     |
-| 0.6    | 2592     |
-| 0.7    | 4802     |
-| 0.8    | 8192     |
-| 0.9    | 13122    |
-| 1.0    | 20000    |
+| [0, 1] |  Hz      
+| ------ | -------- 
+| 0      | 0.000001 
+| 0.1    | 2        
+| 0.2    | 32       
+| 0.3    | 162      
+| 0.4    | 512      
+| 0.5    | 1250     
+| 0.6    | 2592     
+| 0.7    | 4802     
+| 0.8    | 8192     
+| 0.9    | 13122    
+| 1.0    | 20000    
 
 --------
 ### Articulation
@@ -255,22 +253,22 @@ Conversion formulae: normalized parameter _**p**_ to relative articulation _**a*
 <img src="formulae/articulation2norm.svg" width="80">
 <img src="formulae/norm2articulation_graph.png" width="250">
 
-| [0, 1] |  proportion of chord duration      | notation
-| ------ | -------- | ---
-| 0      | 0 | silence
-| 0.1    | 0.005739         |
-| 0.2    | 0.037768       | *staccatissimo*
-| 0.3    | 0.113708      |
-| 0.4    | 0.248547      | *staccato*
-| 0.5.   | 0.455866       
-| 0.52    | 0.507152     | *non legato*
-| 0.6    | 0.748296    |
-| 0.66    | 0.969596     |
-| 0.6676    | 1.002468     | *legato*
-| 0.7    | 1.137769     |
-| 0.8    | 1.635658     | *legatissimo*
-| 0.9    | 2.252888    |
-| 1.0    | 3    | *lasciare vibrare*
+| [0, 1] |  proportion of chord duration | notation
+| ------ | ----------------------------- | --------
+| 0      | 0                             | silence
+| 0.1    | 0.005739                      |
+| 0.2    | 0.037768                      | *staccatissimo*
+| 0.3    | 0.113708                      |
+| 0.4    | 0.248547                      | *staccato*
+| 0.5.   | 0.455866                      |    
+| 0.52   | 0.507152                      | *non legato*
+| 0.6    | 0.748296                      |
+| 0.66   | 0.969596                      |
+| 0.6676 | 1.002468                      | *legato*
+| 0.7    | 1.137769                      |
+| 0.8    | 1.635658                      | *legatissimo*
+| 0.9    | 2.252888                      |
+| 1.0    | 3                             | *lasciare vibrare*
 
 --------
 ### Intensity
@@ -282,15 +280,15 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 <img src="formulae/norm2intensity_graph.png" width="250">
 
 | [0, 1] |  MIDI velocity      | notation
-| ------ | -------- | -----
-| 0      | 0 |  silence
-| 0.06    | 7.62        | **_pppp_**
-| 0.15    | 19.05       | **_ppp_**
-| 0.25    | 31.75      | **_pp_**
-| 0.33    | 41.91      | **_p_**
-| 0.4    | 50.8      | **_mp_**
-| 0.5    | 63.5     | **_mf_**
-| 0.66    | 83.82     | **_f_**
-| 0.75    | 95.25     | **_ff_**
-| 0.9    | 114.3    | **_fff_**
-| 1.0    | 127    | *tutta forza*
+| ------ | ------------------- | --------
+| 0      | 0                   |  silence
+| 0.06   | 7.62                | **_pppp_**
+| 0.15   | 19.05               | **_ppp_**
+| 0.25   | 31.75               | **_pp_**
+| 0.33   | 41.91               | **_p_**
+| 0.4    | 50.8                | **_mp_**
+| 0.5    | 63.5                | **_mf_**
+| 0.66   | 83.82               | **_f_**
+| 0.75   | 95.25               | **_ff_**
+| 0.9    | 114.3               | **_fff_**
+| 1.0    | 127                 | *tutta forza*
