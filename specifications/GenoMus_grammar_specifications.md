@@ -195,7 +195,7 @@ Input can be the usual ratio for each note value or a float. This value is relat
 Conversion formulae: normalized parameter _**p**_ to note value ratio _**v**_ and inverse ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
 
 <img src="formulae/norm2notevalue.svg" width="100">
-<img src="formulae/notevalue2norm.svg" width="170">
+<img src="formulae/notevalue2norm.svg" width="175">
 <img src="formulae/norm2notevalue_graph.png" width="250">
 
 | [0, 1] | *v* (float)  | *v* (ratio) | notation (Am) / (Br)                    | seconds if &#9833;= 60 
