@@ -217,7 +217,7 @@ Conversion formulae: normalized parameter _**p**_ to note value ratio _**v**_ an
 Conversion formulae: normalized parameter _**p**_ to seconts _**s**_ and inverse ([graph](https://www.desmos.com/calculator/pn1nbunlcz)):
 
 <img src="formulae/norm2seconds.svg" width="100">
-<img src="formulae/seconds2norm.svg" width="170">
+<img src="formulae/seconds2norm.svg" width="175">
 <img src="formulae/norm2seconds_graph.png" width="250">
 
 | [0, 1] |  dur. (s)   
@@ -265,8 +265,8 @@ Conversion formulae: normalized parameter _**p**_ to MIDI pitch _**m**_ and inve
 
 Conversion formulae: normalized parameter _**p**_ to frequency in hertz _**h**_ and inverse ([graph](https://www.desmos.com/calculator/ixocptnpba)):
 
-<img src="formulae/norm2hertz.svg" width="110">
-<img src="formulae/hertz2norm.svg" width="120">
+<img src="formulae/norm2hertz.svg" width="105">
+<img src="formulae/hertz2norm.svg" width="97">
 <img src="formulae/norm2hertz_graph.png" width="250">
 
 | [0, 1] |  Hz      
@@ -294,8 +294,8 @@ Articulation can be used in two modes:
 #### **articulationF** (a)
 Conversion formulae: normalized parameter _**p**_ to relative articulation _**a**_, as a proportion of chord duration ([graph](https://www.desmos.com/calculator/i5jiq4k9ah)):
 
-<img src="formulae/norm2articulation.svg" width="60">
-<img src="formulae/articulation2norm.svg" width="80">
+<img src="formulae/norm2articulation.svg" width="70">
+<img src="formulae/articulation2norm.svg" width="85">
 <img src="formulae/norm2articulation_graph.png" width="250">
 
 | [0, 1] |  proportion of chord duration | notation
@@ -320,7 +320,7 @@ Conversion formulae: normalized parameter _**p**_ to relative articulation _**a*
 #### **intensityF** (i)
 Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standard MIDI velocity  and inverse ([graph](https://www.desmos.com/calculator/cisndyw3gs)):
 
-<img src="formulae/norm2intensity.svg" width="63">
+<img src="formulae/norm2intensity.svg" width="72">
 <img src="formulae/intensity2norm.svg" width="70">
 <img src="formulae/norm2intensity_graph.png" width="250">
 
