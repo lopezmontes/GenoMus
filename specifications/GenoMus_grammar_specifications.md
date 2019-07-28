@@ -352,13 +352,14 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 ### Decoded phenotype
 ### Encoded phenotype
 
-## Specimen characterization
+## Specimen characterization and evaluation
 ### Automatic analisys of features
 - Duration
 - Genotype length
 - Phenotype length
 - Deepest functional level
 - Number of different functions used  
+- Polyphonic complexity
 - Diatonicity (measured at different time scales)
 - Consonance
 - Intervalic disjunctivity
@@ -366,14 +367,23 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 - Tessitura dispersion
 - Temperament
 - "Tonicity" (how many changes in terms of root notes)
-- Rhythmical quantization
-- Repetitivity
+- Rhythmical complexity
+- Variability
 - Articulation homogeneity
 - Dynamic homogeneity
 - Level of self-reference (reuse of internal substructures)
 
-### Human aesthetic evaluation
-
+### Human aesthetic global assessment
+Intended to be highly subjective, with the aim of modeling personal styles.
+- Personal aesthetic interest
+- Originality
+- Complexity
+- Emotional axes valoration
+  - Sadness - Joy
+  - Nervousness - Tranquility
+  - Simple - Complex
+  
+ 
 ## Specimen data structure
 
 ## Catalogue of specimens
