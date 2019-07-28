@@ -33,8 +33,8 @@ In progress...
   - [Encoded genotype](#encoded-genotype)
   - [Decoded phenotype](#decoded-phenotype)
   - [Encoded phenotype](#encoded-phenotype)
-- [Specimen characterization](#specimen-characterization)
-  - [Automatic analisys of features](#automatic-analisys-of-features)
+- [Specimen characterization and evaluation](#specimen-characterization-and-evaluation)
+  - [Automatic analisys](#automatic-analisys)
   - [Human aesthetic evaluation](#human-aesthetic-evaluation)
 - [Specimen data structure](#specimen-data-structure)
 - [Catalogue of specimens](#catalogue-of-specimens)
@@ -353,7 +353,7 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 ### Encoded phenotype
 
 ## Specimen characterization and evaluation
-### Automatic analisys of features
+### Automatic analisys
 - Duration
 - Genotype length
 - Phenotype length
@@ -373,12 +373,12 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 - Dynamic homogeneity
 - Level of self-reference (reuse of internal substructures)
 
-### Human aesthetic global assessment
+### Human aesthetic evaluation
 Intended to be highly subjective, with the aim of modeling personal styles.
 - Personal aesthetic interest
 - Originality
 - Complexity
-- Emotional axes valoration
+- Emotional axes
   - Sadness - Joy
   - Nervousness - Tranquility
   - Simple - Complex
