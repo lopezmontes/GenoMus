@@ -1,6 +1,6 @@
 norm2hertz:
-p = \sqrt[4]{\frac{Hz}{20000}}
-Hz = 20000p^4
+p = \sqrt[4]{\frac{h}{20000}}
+h = 20000p^4
 
 norm2notevalue:
 p = 2^{(10v - 8)}
