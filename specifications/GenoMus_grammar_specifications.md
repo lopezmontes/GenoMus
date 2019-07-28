@@ -27,6 +27,7 @@ In progress...
     - [articulationF (a)](#articulationf-a)
   - [Intensity](#intensity-1)
     - [intensityF (i)](#intensityf-i)
+    
 - [Encoding-decoding](#encoding-decoding)
   - [Decoded genotype](#decoded-genotype)
   - [Encoded genotype](#encoded-genotype)
@@ -338,6 +339,13 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 | 1.0    | 127                 | *tutta forza*
 
 ---------
+## Genotype operations
+### Creation
+#### Self-references
+### Mutation
+### 
+
+
 ## Encoding-decoding
 ### Decoded genotype
 ### Encoded genotype
@@ -346,6 +354,24 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 
 ## Specimen characterization
 ### Automatic analisys of features
+- Duration
+- Genotype length
+- Phenotype length
+- Deepest functional level
+- Number of different functions used  
+- Diatonicity (measured at different time scales)
+- Consonance
+- Intervalic disjunctivity
+- Modal chroma
+- Tessitura dispersion
+- Temperament
+- "Tonicity" (how many changes in terms of root notes)
+- Rhythmical quantization
+- Repetitivity
+- Articulation homogeneity
+- Dynamic homogeneity
+- Level of self-reference (reuse of internal substructures)
+
 ### Human aesthetic evaluation
 
 ## Specimen data structure
