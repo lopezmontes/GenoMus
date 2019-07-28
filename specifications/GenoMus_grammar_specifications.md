@@ -263,7 +263,7 @@ Conversion formulae: normalized parameter _**p**_ to MIDI pitch _**m**_ and inve
  
 #### **frequencyF** (f)
 
-Conversion formulae: normalized parameter _**p**_ to frequency in hertz _**Hz**_ and inverse ([graph](https://www.desmos.com/calculator/ixocptnpba)):
+Conversion formulae: normalized parameter _**p**_ to frequency in hertz _**h**_ and inverse ([graph](https://www.desmos.com/calculator/ixocptnpba)):
 
 <img src="formulae/norm2hertz.svg" width="110">
 <img src="formulae/hertz2norm.svg" width="120">
