@@ -183,6 +183,9 @@ var encodedFunctionIndexes = {
     ...
 }
 ```
+
+This is an useful lookup table for different automatic and manual processes.
+
 ---------
 ## Parameters mapping
 A typical function expects generic parameters (floats from normalized interval [0, 1]) as arguments, regardless arguments' domain. When computing phenotypes, these numbers must be mapped to right ranges and scales, to represent duration, pitch, etc.
