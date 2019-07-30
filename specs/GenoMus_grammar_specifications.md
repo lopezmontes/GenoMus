@@ -174,6 +174,15 @@ The integer index identifies the function. The float is the number to map the fu
 
 where f<sub>e</sub> is the index to identify the function in encoded genotypes and f<sub>d</sub> is the correspondent decoded index, which is asigned incrementally in the catalogue.
 
+From the functionIndex dictionary, an inverse dictionary is automatically created reordering the functions according to their encoded index, following this format:
+
+```
+var encodedFunctionIndexes = {
+    "0.2360679774997898": "functionNameX",
+    "0.6180339887498949": "functionNameY",
+    ...
+}
+```
 ---------
 ## Parameters mapping
 A typical function expects generic parameters (floats from normalized interval [0, 1]) as arguments, regardless arguments' domain. When computing phenotypes, these numbers must be mapped to right ranges and scales, to represent duration, pitch, etc.
