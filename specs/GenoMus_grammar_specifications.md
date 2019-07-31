@@ -75,6 +75,8 @@ In progress...
 Functions in GenoMus are classified by their output data. 
 ### Used function type identifiers
 ~~**a** **b** **c** **d** **e** **f** **g** **h** **i**~~ j k ~~**l** **m** **n** **o** **p** **q** **r** **s** **t** **u** **v** **w** **x**~~ y z
+
+---------
 ### Main structures
 
 | *function type* | *identifier* | *output*
@@ -88,6 +90,7 @@ Functions in GenoMus are classified by their output data.
 
 The **leaf** type is a flag for terminal nodes. This is not really a type of function, but a label to indicate that a new function will not be called.
 
+---------
 ### Human-readable leaf parameters
 Function types created to allow a more user-friendly handling of decoded genotypes. All these functions are intended to replace a **paramF** in a leaf position of function tree.
 #### Duration
@@ -123,7 +126,7 @@ Function types created to allow a more user-friendly handling of decoded genotyp
 | --------------- | ------------ | --------
 | **xstepsF**     | **x**        | normalized values from integer numbers within interval [-36, 36]
 
-
+---------
 ### Special formats
 Function types created to manage specific types of data (some of them are still purely theoretical)
 
@@ -139,8 +142,7 @@ Function types created to manage specific types of data (some of them are still 
 | **txtF**        | **t**        | string
 | **waveF**       | **w**        | encoded path to read data from an stored audio file
 
-
-
+---------
 ### Manual manipulation of genotypes
 Functions to be used typing manually on the genotypes to get a more controlled evolution.
 
@@ -152,6 +154,7 @@ User functions use uppercase letters to be easily found during manual editing pr
 - **uEVOLVE** (*expr*) - contains the part of a genotype to be transformed, freezing the rest
 - **uFREEZE** (*expr*) - block a part of a genotype to be preserved from transformations
 - **uFLATTEN** (*expr*) - render part of a genotype into a simple declarative score/voice/chord (phenotype)
+
 ---------
 ## GenoMus function catalogue
 ### Indexing a new function in the GenoMus function catalogue
@@ -485,13 +488,14 @@ An encoded genotype is an unidimensional array of normalized values from interva
 | \)                                   | 0.8        | -                      | `[0.8]` &rightarrow; `"\)"`
 | function name + \(                   | 1          | encoded function index | `[1, 0.61803]` &rightarrow; `"functionName("`
 
+---------
 ### Examples
 #### Minimal genotype
 `"s(v(c(p(0.5),p(0.5),p(0.5),p(0.5))))"` &rightarrow; 
 
 ## Encoding-decoding phenotypes
 
-
+---------
 ## Specimen characterization and evaluation
 ### Automatic analisys
 - Duration
@@ -513,6 +517,7 @@ An encoded genotype is an unidimensional array of normalized values from interva
 - Dynamic homogeneity
 - Level of self-reference (reuse of internal substructures)
 
+---------
 ### Human aesthetic evaluation
 Intended to be highly subjective, with the aim of modeling personal styles.
 - Personal aesthetic interest
@@ -523,9 +528,10 @@ Intended to be highly subjective, with the aim of modeling personal styles.
   - Nervousness - Tranquility
   - Simple - Complex
   
- 
+--------- 
 ## Specimen data structure
 
+---------
 ## Catalogue of specimens
 ### Naming
 ### Classification
