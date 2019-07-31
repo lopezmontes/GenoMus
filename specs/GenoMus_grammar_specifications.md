@@ -35,6 +35,7 @@ In progress...
     - [xstepsF (x)](#xstepsf-x)    
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
 - [Encoding-decoding phenotypes](#encoding-decoding-phenotypes)
+- [Genotype substructures](#genotype-substructures)
 - [Specimen characterization and evaluation](#specimen-characterization-and-evaluation)
   - [Automatic analisys](#automatic-analisys)
   - [Human aesthetic evaluation](#human-aesthetic-evaluation)
@@ -191,9 +192,12 @@ The integer index identifies the function. The float is the number to map the fu
 ### Encoded function index generation
 Encoded function indexes are generated using a golden angle iteration mapped on the [0, 1] interval using this formula:
 
-<img src="formulae/functions_encoded_index.svg" width="180">
+<img src="formulae/encoded_function_index.svg" width="180">
 
 where *&#981;* is the golden ratio, _**f<sub>e</sub>**_ is the index to identify the function in encoded genotypes and _**f<sub>d</sub>**_ is the correspondent decoded index, which is asigned incrementally in the catalogue. Encoded index numbers are rounded to have only six digits after the decimal point. Using this truncated format there are 514263 different indexes available until a recurrence occurs.
+
+This graph shows the distribution of the first 100 encoded function indexes:
+<img src="formulae/norm2notevalue_graph.png" width="250">
 
 From the *functionIndex* dictionary, an inverse dictionary is automatically created by rearranging the functions according to their ascending encoded index, following this format:
 
@@ -474,7 +478,7 @@ An encoded genotype is an unidimensional array of normalized values from interva
 
 |  type                                | identifier | value                  | example encoded &#x21C6; decoded 
 | ------------------------------------ | ---------- | ---------------------- | ------------------------------------
-| leaf <sub>normalized parameter</sub> | 0          | parameter              | `[0, 0.3]` **&#x21C6;** `"0.3"` 
+| leaf <sub>normalized parameter</sub> | 0          | parameter              | `[0, 0.3]` &#x21C6; `"0.3"` 
 | leaf <sub>notevalueF</sub>           | 0.01       | normalized parameter   | `[0.01, 0.3]` &#x21C6; `"1/32"` 
 | leaf <sub>durationF</sub>            | 0.02       | normalized parameter   | `[0.01, 0.3]` &#x21C6; `"0.125"` 
 | leaf <sub>midipitchF</sub>           | 0.03       | normalized parameter   | `[0.01, 0.3]` &#x21C6; `"42"` 
@@ -499,6 +503,9 @@ An encoded genotype is an unidimensional array of normalized values from interva
 `[1, 0.618034, 1, 0.236068, 1, 0.854102, 1, 0.472136, 0, 0.5, 0.8, 0.2, 1, 0.472136, 0, 0.5, 0.8, 0.2, 1, 0.472136, 0, 0.5, 0.8, 0.2, 1, 0.472136, 0, 0.5, 0.8, 0.8, 0.8, 0.8]`
 
 ## Encoding-decoding phenotypes
+
+---------
+## Genotype substructures
 
 ---------
 ## Specimen characterization and evaluation
