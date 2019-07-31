@@ -364,8 +364,8 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 ### Decoded genotype
 ### Encoded genotype
 |  type    | subtype     | identifyer   | example
-| -------- | ----------------------------- | --------
-| leaf <small>(normalized parameter)</small> |
+| -------- | ---------------------------- | --------
+| leaf <sub>(normalized parameter)</sub> |
 | leaf (notevalueF)
 
 |       
