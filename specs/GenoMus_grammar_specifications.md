@@ -161,10 +161,10 @@ Furthermore, each function must be included in the catalogue list of function in
 ```
 "functionIndex": {
     1: {
-        "functionName": 0.6180339887498949
+        "functionName": 0.618034
     },
     2: {
-        "functionName": 0.2360679774997898
+        "functionName": 0.236068
     },
     ...
 }
@@ -173,14 +173,14 @@ The integer index identifies the function. The float is the number to map the fu
 
 <img src="formulae/functions_encoded_index.svg" width="180">
 
-where f<sub>e</sub> is the index to identify the function in encoded genotypes and f<sub>d</sub> is the correspondent decoded index, which is asigned incrementally in the catalogue.
+where f<sub>e</sub> is the index to identify the function in encoded genotypes and f<sub>d</sub> is the correspondent decoded index, which is asigned incrementally in the catalogue. Encoded index numbers are rounded to have only six digits after the decimal point. Using this truncated format there are 514263 different indexes available until a recurrence occurs.
 
 From the functionIndex dictionary, an inverse dictionary is automatically created reordering the functions according to their encoded index, following this format:
 
 ```
 var encodedFunctionIndexes = {
-    "0.2360679774997898": "functionNameX",
-    "0.6180339887498949": "functionNameY",
+    "0.236068": "functionNameX",
+    "0.618034": "functionNameY",
     ...
 }
 ```
@@ -383,7 +383,7 @@ An encoded genotype is an unidimensional array of normalized values from interva
 
 ### Examples
 #### Minimal genotype
-`"s(v(c(p(0.5),p(0.5),p(0.5),p(0.5))))"` &rightarrow; `
+`"s(v(c(p(0.5),p(0.5),p(0.5),p(0.5))))"` &rightarrow; 
 
 ## Encoding-decoding phenotypes
 

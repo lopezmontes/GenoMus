@@ -1452,18 +1452,21 @@ var encodedFunctionIndexGenerator = function (n) {
 // function to test how many encoded indexes can be generated without recurrences
 var testRepetitions = function (n) {
     var usedNumbers = [];
-    var new = 0;
+    var newValue = 0;
     for (var a=0; a<n; a++) {
-        new = encodedFunctionIndexGenerator(a);
+        newValue = encodedFunctionIndexGenerator(a);
         for (var b=0; b<usedNumbers.length; b++) {
-            if (new == usedNumbers[b]) {
-                console.log("Repetition found at iteration " + a + ". Founded the same number at index " + b);
+            if (newValue == usedNumbers[b]) {
+                console.log("Repetition of " + newValue + " found at iteration " + a + ". Founded the same number at index " + b ".");
                 return -1;
             }
         }
-        usedNumbers.push(new); 
+        if (a % 10000 == 0) {
+            // console.log("Tested " + b + " indexes. Recurrences not found so far.");
+        }
+        usedNumbers.push(newValue); 
     }
-    return usedNumbers;                        
+    return 1;                        
 }
                          
                          
