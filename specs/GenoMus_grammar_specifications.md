@@ -378,7 +378,7 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 #### **xstepsF** (x)
 
 This manual format is useful for different contexts where integer numbers can be much more readable. A possible application may be, for instance, to write a sequence of melodic intervals using a diatonic scale as the step basis.  
-Conversion formulae: normalized parameter _**p**_ to x-steps _**x**_ in  and inverse ([graph](https://www.desmos.com/calculator/3vy4gwjxcu)):
+Conversion formulae: normalized parameter _**p**_ to x-steps _**x**_ ([graph](https://www.desmos.com/calculator/3vy4gwjxcu)):
 
 <img src="formulae/norm2xsteps.svg" width="440">
 The inversion is made with a lookup table.
