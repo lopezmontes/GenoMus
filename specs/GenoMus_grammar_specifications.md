@@ -509,7 +509,7 @@ An encoded genotype is an unidimensional array of normalized values from interva
 `[1, 0.618034, 1, 0.236068, 1, 0.854102, 1, 0.472136, 0, 0.5, 0.8, 0.2, 1, 0.472136, 0, 0.5, 0.8, 0.2, 1, 0.472136, 0, 0.5, 0.8, 0.2, 1, 0.472136, 0, 0.5, 0.8, 0.8, 0.8, 0.8]`
 
 #### Minimal genotype with human-readable leaf parameters
-`"s(c(n(1/16),m(69),a(0.4),i(80))))"`
+`"s(v(c(n(1/16),m(69),a(0.4),i(80))))"`
 
 &#x21C5;
 
@@ -519,8 +519,13 @@ This table shows the encoding/decoding of lexical tokens in this example:
 
 | decoded | encoded
 | ------- | -------
-| `s(`    | `1, 0.618034`
-| `c(`    | `1, 0.236068`
+| `s(`    | `[1, 0.618034]`
+| `v(`    | `[1, 0.236068]`
+| `c(`    | `[1, 0.854102]`
+| `n(`    | `[1, 0.09017]`
+| `1/16`  | `[0.01, 0.4]`
+
+
 
 
 ## Encoding-decoding phenotypes
