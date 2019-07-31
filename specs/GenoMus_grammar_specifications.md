@@ -472,22 +472,22 @@ The inversion is made with a lookup table.
 
 An encoded genotype is an unidimensional array of normalized values from interval [0, 1]. This encoded form is intended to be an abstract numeric equivalent to the decoded genotype. The purpose of encoding is to provide a representation of compositional procedures, suitable for different machine learning techniques such as evolutionary algorithms or neural networks.
 
-|  type                                | identifier | value                  | example encoded &rightarrow; decoded 
+|  type                                | identifier | value                  | example encoded &#x21C6; decoded 
 | ------------------------------------ | ---------- | ---------------------- | ------------------------------------
-| leaf <sub>normalized parameter</sub> | 0          | parameter              | `[0, 0.3]` &#x27F7; `"0.3"` 
-| leaf <sub>notevalueF</sub>           | 0.01       | normalized parameter   | `[0.01, 0.3]` &#x2194; `"1/32"` 
+| leaf <sub>normalized parameter</sub> | 0          | parameter              | `[0, 0.3]` **&#x21C6;** `"0.3"` 
+| leaf <sub>notevalueF</sub>           | 0.01       | normalized parameter   | `[0.01, 0.3]` &#x21C6; `"1/32"` 
 | leaf <sub>durationF</sub>            | 0.02       | normalized parameter   | `[0.01, 0.3]` &#x21C6; `"0.125"` 
-| leaf <sub>midipitchF</sub>           | 0.03       | normalized parameter   | `[0.01, 0.3]` &rightarrow; `"42"` 
-| leaf <sub>frequencyF</sub>           | 0.04       | normalized parameter   | `[0.01, 0.3]` &rightarrow; `"162"` 
-| leaf <sub>articulationF</sub>        | 0.05       | normalized parameter   | `[0.01, 0.3]` &rightarrow; `"0.113708"` 
-| leaf <sub>intensityF</sub>           | 0.06       | normalized parameter   | `[0.01, 0.3]` &rightarrow; `"38.1"` 
-| leaf <sub>xstepsF</sub>              | 0.07       | normalized parameter   | `[0.01, 0.3]` &rightarrow; `"-6"` 
-| leaf <sub>*newtypeF*</sub>           | < 0.2      | normalized parameter   | `[0.01, 0.3]` &rightarrow; *normalized converted value* 
-| ,                                    | 0.2        | -                      | `[0.2]` &rightarrow; `","` 
-| \[                                   | 0.4        | -                      | `[0.4]` &rightarrow; `"\["` 
-| \]                                   | 0.6        | -                      | `[0.6]` &rightarrow; `"\]"` 
-| \)                                   | 0.8        | -                      | `[0.8]` &rightarrow; `"\)"`
-| function name + \(                   | 1          | encoded function index | `[1, 0.61803]` &rightarrow; `"functionName("`
+| leaf <sub>midipitchF</sub>           | 0.03       | normalized parameter   | `[0.01, 0.3]` &#x21C6; `"42"` 
+| leaf <sub>frequencyF</sub>           | 0.04       | normalized parameter   | `[0.01, 0.3]` &#x21C6; `"162"` 
+| leaf <sub>articulationF</sub>        | 0.05       | normalized parameter   | `[0.01, 0.3]` &#x21C6; `"0.113708"` 
+| leaf <sub>intensityF</sub>           | 0.06       | normalized parameter   | `[0.01, 0.3]` &#x21C6; `"38.1"` 
+| leaf <sub>xstepsF</sub>              | 0.07       | normalized parameter   | `[0.01, 0.3]` &#x21C6; `"-6"` 
+| leaf <sub>*newtypeF*</sub>           | < 0.2      | normalized parameter   | `[0.01, 0.3]` &#x21C6; *normalized converted value* 
+| ,                                    | 0.2        | -                      | `[0.2]` &#x21C6; `","` 
+| \[                                   | 0.4        | -                      | `[0.4]` &#x21C6; `"\["` 
+| \]                                   | 0.6        | -                      | `[0.6]` &#x21C6; `"\]"` 
+| \)                                   | 0.8        | -                      | `[0.8]` &#x21C6; `"\)"`
+| function name + \(                   | 1          | encoded function index | `[1, 0.61803]` &#x21C6; `"functionName("`
 
 ---------
 ### Examples
