@@ -16,7 +16,10 @@ In progress...
     - [Integer x steps](#integer-x-steps)
   - [Special formats](#special-formats)
   - [Manual manipulation of genotypes](#manual-manipulation-of-genotypes)
-- [Including a function in the GenoMus catalogue](#including-a-function-in-the-genomus-catalogue)
+- [GenoMus function catalogue](#genomus-function-catalogue)  
+  - [Indexing a new function in the GenoMus function catalogue](#indexing-a-new-function-in-the-genomus-function-catalogue)
+  - [Encoded function index generation](#encoded-function-index-generation)
+
 - [Parameter mapping](#parameter-mapping)
   - [Duration](#duration-1)
     - [notevalueF (n)](#notevaluef-n)
@@ -118,7 +121,7 @@ Function types created to allow a more user-friendly handling of decoded genotyp
 
 | *function type* | *identifier* | *output*
 | --------------- | ------------ | --------
-| **xstepsF**     | **x**        | normalized values from natural numbers within interval [-36, 36]
+| **xstepsF**     | **x**        | normalized values from integer numbers within interval [-36, 36]
 
 
 ### Special formats
@@ -150,7 +153,8 @@ User functions use uppercase letters to be easily found during manual editing pr
 - **uFREEZE** (*expr*) - block a part of a genotype to be preserved from transformations
 - **uFLATTEN** (*expr*) - render part of a genotype into a simple declarative score/voice/chord (phenotype)
 ---------
-## Including a function in the GenoMus catalogue
+## GenoMus function catalogue
+### Indexing a new function in the GenoMus function catalogue
 A functions must be included into the JSON GenoMus catalogue following this format:
 ```
 "functionType": {
@@ -178,7 +182,10 @@ Furthermore, each function must be included in the catalogue list of function in
     ...
 }
 ```
-The integer index identifies the function. The float is the number to map the function within the normalized interval [0, 1]. Encoded genotypes use this float to map all functions optimizing the maximal distance among functions into the interval. That's a critical issue for the automatic characterization of genotypes by machine learning techniques. To maintain coherence of the catalogue, once numbered, a function can never use a different index. Index numbers never can be shared with other functions. The floats are generated using a golden angle iteration mapped on the [0, 1] interval using this formula:
+The integer index identifies the function. The float is the number to map the function within the normalized interval [0, 1]. Encoded genotypes use this float to map all functions optimizing the maximal distance among functions into the interval. That's a critical issue for the automatic characterization of genotypes by machine learning techniques. To maintain coherence of the catalogue, once numbered, a function can never use a different index. Index numbers never can be shared with other functions. 
+
+### Enconded function index generation
+Encoded function indexes are generated using a golden angle iteration mapped on the [0, 1] interval using this formula:
 
 <img src="formulae/functions_encoded_index.svg" width="180">
 
