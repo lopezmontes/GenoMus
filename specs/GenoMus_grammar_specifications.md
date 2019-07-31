@@ -184,6 +184,7 @@ Furthermore, each function must be included in the catalogue list of function in
 ```
 The integer index identifies the function. The float is the number to map the function within the normalized interval [0, 1]. Encoded genotypes use this float to map all functions optimizing the maximal distance among functions into the interval. That's a critical issue for the automatic characterization of genotypes by machine learning techniques. To maintain coherence of the catalogue, once numbered, a function can never use a different index. Index numbers never can be shared with other functions. 
 
+---------
 ### Encoded function index generation
 Encoded function indexes are generated using a golden angle iteration mapped on the [0, 1] interval using this formula:
 
