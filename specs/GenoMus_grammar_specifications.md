@@ -481,6 +481,7 @@ An encoded genotype is an unidimensional array of normalized values from interva
 | leaf <sub>frequencyF</sub>           | 0.04       | normalized parameter   | `[0.01, 0.3]` &rightarrow; `"162"` 
 | leaf <sub>articulationF</sub>        | 0.05       | normalized parameter   | `[0.01, 0.3]` &rightarrow; `"0.113708"` 
 | leaf <sub>intensityF</sub>           | 0.06       | normalized parameter   | `[0.01, 0.3]` &rightarrow; `"38.1"` 
+| leaf <sub>xstepsF</sub>              | 0.07       | normalized parameter   | `[0.01, 0.3]` &rightarrow; `"-6"` 
 | leaf <sub>*newtypeF*</sub>           | ...        | normalized parameter   | `[0.01, 0.3]` &rightarrow; *normalized converted value* 
 | ,                                    | 0.2        | -                      | `[0.2]` &rightarrow; `","` 
 | \[                                   | 0.4        | -                      | `[0.4]` &rightarrow; `"\["` 
