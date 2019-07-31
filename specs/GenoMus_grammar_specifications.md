@@ -69,7 +69,7 @@ In progress...
 ## Function types for genotypes
 Functions in GenoMus are classified by their output data. 
 ### Used function type identifiers
-~~**a** **b** **c** **d** **e** **f** **g** **h** **i**~~ j k ~~**l** **m** **n** **o** **p** **q** **r** **s** **t** **u** **v** **w**~~ x y z
+~~**a** **b** **c** **d** **e** **f** **g** **h** **i**~~ j k ~~**l** **m** **n** **o** **p** **q** **r** **s** **t** **u** **v** **w** **x**~~ y z
 ### Main structures
 
 | *function type* | *identifier* | *output*
@@ -111,6 +111,13 @@ Function types created to allow a more user-friendly handling of decoded genotyp
 | *function type* | *identifier* | *output*
 | --------------- | ------------ | --------
 | **intensityF**  | **i**        | normalized intensity from standard MIDI velocity
+
+#### Natural x steps
+
+| *function type* | *identifier* | *output*
+| --------------- | ------------ | --------
+| **xstepsF**     | **x**        | normalized values from natural numbers within interval [-36, 36]
+
 
 ### Special formats
 Function types created to manage specific types of data (some of them are still purely theoretical)
@@ -352,6 +359,29 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 | 0.75   | 95.25               | **_ff_**
 | 0.9    | 114.3               | **_fff_**
 | 1.0    | 127                 | *tutta forza*
+
+---------
+### Natural x steps
+#### **xstepsF** (x)
+Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standard MIDI velocity  and inverse ([graph](https://www.desmos.com/calculator/cisndyw3gs)):
+
+<img src="formulae/norm2xsteps.svg" width="167">
+The inversion is made with a lookup table.
+<img src="formulae/norm2xsteps_graph.png" width="250">
+
+| [0, 1] |  natural steps      
+| ------ | -------------------
+| 0      | 0                   
+| 0.06   | 7.62                
+| 0.15   | 19.05               
+| 0.25   | 31.75               
+| 0.33   | 41.91               
+| 0.4    | 50.8                
+| 0.5    | 63.5                
+| 0.66   | 83.82               
+| 0.75   | 95.25               
+| 0.9    | 114.3               
+| 1.0    | 127                 
 
 ---------
 ## Genotype operations
