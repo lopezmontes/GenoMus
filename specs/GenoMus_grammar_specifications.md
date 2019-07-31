@@ -494,7 +494,7 @@ An encoded genotype is an unidimensional array of normalized values from interva
 #### Minimal genotype
 `"s(v(c(p(0.5),p(0.5),p(0.5),p(0.5))))"`
 
-&#x2195;
+&#x21f5;
 
 `[1, 0.618034, 1, 0.236068, 1, 0.854102, 1, 0.472136, 0, 0.5, 0.8, 0.2, 1, 0.472136, 0, 0.5, 0.8, 0.2, 1, 0.472136, 0, 0.5, 0.8, 0.2, 1, 0.472136, 0, 0.5, 0.8, 0.8, 0.8, 0.8]`
 
