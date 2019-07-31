@@ -482,7 +482,7 @@ An encoded genotype is an unidimensional array of normalized values from interva
 | leaf <sub>articulationF</sub>        | 0.05       | normalized parameter   | `[0.01, 0.3]` &rightarrow; `"0.113708"` 
 | leaf <sub>intensityF</sub>           | 0.06       | normalized parameter   | `[0.01, 0.3]` &rightarrow; `"38.1"` 
 | leaf <sub>xstepsF</sub>              | 0.07       | normalized parameter   | `[0.01, 0.3]` &rightarrow; `"-6"` 
-| leaf <sub>*newtypeF*</sub>           | ...        | normalized parameter   | `[0.01, 0.3]` &rightarrow; *normalized converted value* 
+| leaf <sub>*newtypeF*</sub>           | < 0.2      | normalized parameter   | `[0.01, 0.3]` &rightarrow; *normalized converted value* 
 | ,                                    | 0.2        | -                      | `[0.2]` &rightarrow; `","` 
 | \[                                   | 0.4        | -                      | `[0.4]` &rightarrow; `"\["` 
 | \]                                   | 0.6        | -                      | `[0.6]` &rightarrow; `"\]"` 
@@ -492,7 +492,7 @@ An encoded genotype is an unidimensional array of normalized values from interva
 ---------
 ### Examples
 #### Minimal genotype
-`"s(v(c(p(0.5),p(0.5),p(0.5),p(0.5))))"` &rightarrow; 
+`"s(v(c(p(0.5),p(0.5),p(0.5),p(0.5))))"` &rightarrow; `[1, 0.618034, 1, 0.236068, 1, 0.854102, 1, 0.472136, 0, 0.5, 0.8, 0.2, 1, 0.472136, 0, 0.5, 0.8, 0.2, 1, 0.472136, 0, 0.5, 0.8, 0.2, 1, 0.472136, 0, 0.5, 0.8, 0.8, 0.8, 0.8] `
 
 ## Encoding-decoding phenotypes
 
