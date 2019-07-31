@@ -228,7 +228,7 @@ Conversion formulae: normalized parameter _**p**_ to note value ratio _**v**_ an
 
 #### **durationF** (d) 
 
-Conversion formulae: normalized parameter _**p**_ to seconts _**s**_ and inverse ([graph](https://www.desmos.com/calculator/pn1nbunlcz)):
+Conversion formulae: normalized parameter _**p**_ to seconds _**s**_ and inverse ([graph](https://www.desmos.com/calculator/pn1nbunlcz)):
 
 <img src="formulae/norm2seconds.svg" width="100">
 <img src="formulae/seconds2norm.svg" width="175">
@@ -363,6 +363,20 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 ## Encoding-decoding
 ### Decoded genotype
 ### Encoded genotype
+|  type    | subtype     | identifyer   | example
+| -------- | ----------------------------- | --------
+| leaf <small>(normalized parameter)</small> |
+| leaf (notevalueF)
+
+|       
+| ,        |
+| \)       |
+| \[       |
+| \]       |
+| function | 
+    
+
+
 ### Decoded phenotype
 ### Encoded phenotype
 
