@@ -197,7 +197,8 @@ Encoded function indexes are generated using a golden angle iteration mapped on 
 where *&#981;* is the golden ratio, _**f<sub>e</sub>**_ is the index to identify the function in encoded genotypes and _**f<sub>d</sub>**_ is the correspondent decoded index, which is asigned incrementally in the catalogue. Encoded index numbers are rounded to have only six digits after the decimal point. Using this truncated format there are 514263 different indexes available until a recurrence occurs.
 
 This graph shows the distribution of the first 100 encoded function indexes:
-<img src="formulae/norm2notevalue_graph.png" width="250">
+
+<img src="formulae/encoded_function_index_graph.png" width="450">
 
 From the *functionIndex* dictionary, an inverse dictionary is automatically created by rearranging the functions according to their ascending encoded index, following this format:
 
