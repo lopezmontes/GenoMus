@@ -365,7 +365,7 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 #### **xstepsF** (x)
 Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standard MIDI velocity  and inverse ([graph](https://www.desmos.com/calculator/cisndyw3gs)):
 
-<img src="formulae/norm2xsteps.svg" width="450">
+<img src="formulae/norm2xsteps.svg" width="440">
 The inversion is made with a lookup table.
 <img src="formulae/norm2xsteps_graph.png" width="450">
 
