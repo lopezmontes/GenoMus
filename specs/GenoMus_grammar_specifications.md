@@ -476,7 +476,7 @@ An encoded genotype is an unidimensional array of normalized values from interva
 | ------------------------------------ | ---------- | ---------------------- | ------------------------------------
 | leaf <sub>normalized parameter</sub> | 0          | parameter              | `[0, 0.3]` &#x27F7; `"0.3"` 
 | leaf <sub>notevalueF</sub>           | 0.01       | normalized parameter   | `[0.01, 0.3]` &#x2194; `"1/32"` 
-| leaf <sub>durationF</sub>            | 0.02       | normalized parameter   | `[0.01, 0.3]` &#21C6; `"0.125"` 
+| leaf <sub>durationF</sub>            | 0.02       | normalized parameter   | `[0.01, 0.3]` &#x21C6; `"0.125"` 
 | leaf <sub>midipitchF</sub>           | 0.03       | normalized parameter   | `[0.01, 0.3]` &rightarrow; `"42"` 
 | leaf <sub>frequencyF</sub>           | 0.04       | normalized parameter   | `[0.01, 0.3]` &rightarrow; `"162"` 
 | leaf <sub>articulationF</sub>        | 0.05       | normalized parameter   | `[0.01, 0.3]` &rightarrow; `"0.113708"` 
