@@ -366,18 +366,18 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 |  type                                | identifier | value                  | example encoded &rightarrow; decoded 
 | ------------------------------------ | ---------- | ---------------------- | ------------------------------------
 | leaf <sub>normalized parameter</sub> | 0          | parameter              | `[0, 0.3451]` &rightarrow; `"0.3451"` 
-| leaf <sub>notevalueF</sub>           | 0.01       | normalized parameter   | [0.01, 0.3] &rightarrow; "1/32" 
-| leaf <sub>durationF</sub>            | 0.02       | normalized parameter   | [0.01, 0.3] &rightarrow; "0.125" 
-| leaf <sub>midipitchF</sub>           | 0.03       | normalized parameter   | [0.01, 0.3] &rightarrow; "42" 
-| leaf <sub>frequencyF</sub>           | 0.04       | normalized parameter   | [0.01, 0.3] &rightarrow; "162" 
-| leaf <sub>articulationF</sub>        | 0.05       | normalized parameter   | [0.01, 0.3] &rightarrow; "0.113708" 
-| leaf <sub>intensityF</sub>           | 0.06       | normalized parameter   | [0.01, 0.3] &rightarrow; "38.1" 
-| leaf <sub>*newtypeF*</sub>           | ...        | normalized parameter   | [0.01, 0.3] &rightarrow; *normalized converted value* 
-| ,                                    | 0.2        | -                      | [0.2] &rightarrow; "," 
-| \[                                   | 0.4        | -                      | [0.4] &rightarrow; "\[" 
-| \]                                   | 0.6        | -                      | [0.6] &rightarrow; "\]" 
-| \)                                   | 0.8        | -                      | [0.8] &rightarrow; "\)"
-| function name + \(                   | 1          | encoded function index | [1, 0.61803] &rightarrow; "*functionName*("
+| leaf <sub>notevalueF</sub>           | 0.01       | normalized parameter   | `[0.01, 0.3]` &rightarrow; `"1/32"` 
+| leaf <sub>durationF</sub>            | 0.02       | normalized parameter   | `[0.01, 0.3]` &rightarrow; `"0.125"` 
+| leaf <sub>midipitchF</sub>           | 0.03       | normalized parameter   | `[0.01, 0.3]` &rightarrow; `"42"` 
+| leaf <sub>frequencyF</sub>           | 0.04       | normalized parameter   | `[0.01, 0.3]` &rightarrow; `"162"` 
+| leaf <sub>articulationF</sub>        | 0.05       | normalized parameter   | `[0.01, 0.3]` &rightarrow; `"0.113708"` 
+| leaf <sub>intensityF</sub>           | 0.06       | normalized parameter   | `[0.01, 0.3]` &rightarrow; `"38.1"` 
+| leaf <sub>*newtypeF*</sub>           | ...        | normalized parameter   | `[0.01, 0.3]` &rightarrow; *normalized converted value* 
+| ,                                    | 0.2        | -                      | `[0.2]` &rightarrow; `","` 
+| \[                                   | 0.4        | -                      | `[0.4]` &rightarrow; `"\["` 
+| \]                                   | 0.6        | -                      | `[0.6]` &rightarrow; `"\]"` 
+| \)                                   | 0.8        | -                      | `[0.8]` &rightarrow; `"\)"`
+| function name + \(                   | 1          | encoded function index | `[1, 0.61803]` &rightarrow; `"*functionName*("`
 
 ### Decoded phenotype
 ### Encoded phenotype
