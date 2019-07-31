@@ -479,6 +479,9 @@ The inversion is made with a lookup table.
 
 An encoded genotype is an unidimensional array of normalized values from interval [0, 1]. This encoded form is intended to be an abstract numeric equivalent to the decoded genotype. The purpose of encoding is to provide a representation of compositional procedures, suitable for different machine learning techniques such as evolutionary algorithms or neural networks.
 
+---------
+### Conversion table for genotypes
+
 |  type                                | identifier | value                  | example encoded &#x21C6; decoded 
 | ------------------------------------ | ---------- | ---------------------- | ------------------------------------
 | leaf <sub>normalized parameter</sub> | 0          | parameter              | `[0, 0.3]` &#x21C6; `"0.3"` 
