@@ -198,7 +198,7 @@ where *&#981;* is the golden ratio, _**f<sub>e</sub>**_ is the index to identify
 
 This graph shows the distribution of the first 100 encoded function indexes:
 
-<img src="formulae/encoded_function_index_graph.png" width="450">
+<img src="formulae/encoded_function_index_graph.png" width="750">
 
 From the *functionIndex* dictionary, an inverse dictionary is automatically created by rearranging the functions according to their ascending encoded index, following this format:
 
