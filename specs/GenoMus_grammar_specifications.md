@@ -29,8 +29,7 @@ In progress...
     - [intensityF (i)](#intensityf-i)
     
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
-  - [Decoded phenotype](#decoded-phenotype)
-  - [Encoded phenotype](#encoded-phenotype)
+- [Encoding-decoding phenotypes](#encoding-decoding-phenotypes)
 - [Specimen characterization and evaluation](#specimen-characterization-and-evaluation)
   - [Automatic analisys](#automatic-analisys)
   - [Human aesthetic evaluation](#human-aesthetic-evaluation)
@@ -378,8 +377,8 @@ An encoded genotype is an unidimensional array of normalized values from interva
 | \)                                   | 0.8        | -                      | `[0.8]` &rightarrow; `"\)"`
 | function name + \(                   | 1          | encoded function index | `[1, 0.61803]` &rightarrow; `"functionName("`
 
-### Decoded phenotype
-### Encoded phenotype
+## Encoding-decoding phenotypes
+
 
 ## Specimen characterization and evaluation
 ### Automatic analisys
