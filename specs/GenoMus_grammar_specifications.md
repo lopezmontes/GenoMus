@@ -62,7 +62,7 @@ In progress...
 - **intensity**: Dynamic of a chord.
 - **function type identifier**: Prefix used to name functions, to ease the function type identification. The use of indentifiers is not compulsory, but very convenient for readability of decoded genotypes.
 - **function index**: Integer assigned incrementally to identify each function with an unique number in the GenoMus functions catalogue. 
-- **encoded function index**: Float within interval [0, 1] generated to identify each function with an unique number. These numbers are chosen using the function index as input for an algorithm designed to get an optimized distribution of these normalized intentifiers.   
+- **encoded function index**: Float generated to identify each function with an unique number. These numbers are chosen using the function index as input for an algorithm designed to obtain an optimized distribution of these normalized identifiers within the interval [0, 1].    
 ---------
 ## Function types for genotypes
 Functions in GenoMus are classified by their output data. 
