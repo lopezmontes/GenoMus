@@ -379,17 +379,6 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 | \)                                   | 0.8        | -                      | [0.8] &rightarrow; "\)"
 | function name + \(                   | 1          | encoded function index | [1, 0.61803] &rightarrow; "*functionName*("
 
-
-
-|       
-| ,        |
-| \)       |
-| \[       |
-| \]       |
-| function | 
-    
-
-
 ### Decoded phenotype
 ### Encoded phenotype
 
