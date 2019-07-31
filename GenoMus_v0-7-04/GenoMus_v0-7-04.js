@@ -1444,8 +1444,17 @@ function getFileDateName (optionalName) {
 }
     
     
-// automated codenumber mapping assignation for functions identification, based on golden angle ratio
-	
+// automated codenumber mapping assignation for functions identification in encoded genotypes, based on golden angle ratio and phyllotaxis applied to the interval [0, 1]
+var encodedFunctionIndexGenerator = function (n) {
+    var phi = (1+Math.sqrt(5))/2;
+    var a = 1;
+    var normGoldenAngle = phi;
+    while (a<n) {
+        normGoldenAngle += phi;
+        a++;
+    }
+    return normGoldenAngle % 1;
+}	
     
 // RANDOM GENERATORS
 

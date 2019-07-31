@@ -61,6 +61,8 @@ In progress...
 - **articulation**: Length of the chord sound. It can be different from the chord duration. If articulation matchs the duration, a perfect legato among chords will be played. Shorter or larger values for articulation will sound as staccato or lasciare vibrare effects.
 - **intensity**: Dynamic of a chord.
 - **function type identifier**: Prefix used to name functions, to ease the function type identification. The use of indentifiers is not compulsory, but very convenient for readability of decoded genotypes.
+- **function index**: Integer assigned incrementally to identify each function with an unique number in the GenoMus functions catalogue. 
+- **encoded function index**: Float within interval [0, 1] generated to identify each function with an unique number. These numbers are chosen using the function index as input for an algorithm designed to get an optimized distribution of these normalized intentifiers.   
 ---------
 ## Function types for genotypes
 Functions in GenoMus are classified by their output data. 
@@ -376,6 +378,10 @@ An encoded genotype is an unidimensional array of normalized values from interva
 | \]                                   | 0.6        | -                      | `[0.6]` &rightarrow; `"\]"` 
 | \)                                   | 0.8        | -                      | `[0.8]` &rightarrow; `"\)"`
 | function name + \(                   | 1          | encoded function index | `[1, 0.61803]` &rightarrow; `"functionName("`
+
+### Examples
+#### Minimal genotype
+`s(v(c(p(0.5),p(0.5),p(0.5),p(0.5))))` &rightarrow; `
 
 ## Encoding-decoding phenotypes
 
