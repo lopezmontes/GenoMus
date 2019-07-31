@@ -210,7 +210,7 @@ var encodedFunctionIndexes = {
 }
 ```
 
-This is an useful lookup table for different automatic and manual processes.
+This works as a useful lookup table for some automatic and manual processes.
 
 ---------
 ## Parameters mapping
