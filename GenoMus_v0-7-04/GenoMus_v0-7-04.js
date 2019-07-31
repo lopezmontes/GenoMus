@@ -1448,7 +1448,7 @@ function getFileDateName (optionalName) {
 var encodedFunctionIndexGenerator = function (n) {
     return Math.round(((n*((1+Math.sqrt(5))/2)) % 1)*1000000)/1000000;
 }
-
+                         
 // RANDOM GENERATORS
 
 // normal distribution

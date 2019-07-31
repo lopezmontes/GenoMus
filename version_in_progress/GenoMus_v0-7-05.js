@@ -1445,17 +1445,30 @@ function getFileDateName (optionalName) {
     
     
 // automated codenumber mapping assignation for functions identification, based on golden angle ratio
-var functionsIdCodenumberGenerator = function (n) {
-    var phi = (1+Math.sqrt(5))/2;
-    var a = 1;
-    var normGoldenAngle = phi;
-    while (a<n) {
-        normGoldenAngle += phi;
-        a++;
-    }
-    return normGoldenAngle % 1;
+var encodedFunctionIndexGenerator = function (n) {
+    return Math.round(((n*((1+Math.sqrt(5))/2)) % 1)*1000000)/1000000;
 }
     
+// function to test how many encoded indexes can be generated without recurrences
+var testRepetitions = function (n) {
+    var usedNumbers = [];
+    var new = 0;
+    for (var a=0; a<n; a++) {
+        new = encodedFunctionIndexGenerator(a);
+        for (var b=0; b<usedNumbers.length; b++) {
+            if (new == usedNumbers[b]) {
+                console.log("Repetition found at iteration " + a + ". Founded the same number at index " + b);
+                return -1;
+            }
+        }
+        usedNumbers.push(new); 
+    }
+    return usedNumbers;                        
+}
+                         
+                         
+
+
 // RANDOM GENERATORS
 
 // normal distribution
