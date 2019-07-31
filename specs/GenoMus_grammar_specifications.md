@@ -28,9 +28,7 @@ In progress...
   - [Intensity](#intensity-1)
     - [intensityF (i)](#intensityf-i)
     
-- [Encoding-decoding](#encoding-decoding)
-  - [Decoded genotype](#decoded-genotype)
-  - [Encoded genotype](#encoded-genotype)
+- [Encoding-decoding genotypes](#encoding-decoding-genotypes)
   - [Decoded phenotype](#decoded-phenotype)
   - [Encoded phenotype](#encoded-phenotype)
 - [Specimen characterization and evaluation](#specimen-characterization-and-evaluation)
@@ -360,12 +358,9 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 ### 
 
 
-## Encoding-decoding
+## Encoding-decoding genotypes
 
-### Decoded genotype
-### Encoded genotype
-
-An encoded genotype is an unidimensional array of normalized values from interval [0, 1]. This encoded form is intended to be an abstract numeric equivalent to the decoded genotype. The purpose of encoding is to provide a representation of compositional procedures, suitable for different machine learning techniques, such as evolutionary algorithms or neural networks.
+An encoded genotype is an unidimensional array of normalized values from interval [0, 1]. This encoded form is intended to be an abstract numeric equivalent to the decoded genotype. The purpose of encoding is to provide a representation of compositional procedures, suitable for different machine learning techniques such as evolutionary algorithms or neural networks.
 
 |  type                                | identifier | value                  | example encoded &rightarrow; decoded 
 | ------------------------------------ | ---------- | ---------------------- | ------------------------------------
