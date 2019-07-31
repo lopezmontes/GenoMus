@@ -365,7 +365,7 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 ### Encoded genotype
 |  type                                | identifier | value                  | example encoded &rightarrow; decoded 
 | ------------------------------------ | ---------- | ---------------------- | ------------------------------------
-| leaf <sub>normalized parameter</sub> | 0          | parameter              | [0, 0.3451] &rightarrow; "0.3451" 
+| leaf <sub>normalized parameter</sub> | 0          | parameter              | `[0, 0.3451]` &rightarrow; `"0.3451"` 
 | leaf <sub>notevalueF</sub>           | 0.01       | normalized parameter   | [0.01, 0.3] &rightarrow; "1/32" 
 | leaf <sub>durationF</sub>            | 0.02       | normalized parameter   | [0.01, 0.3] &rightarrow; "0.125" 
 | leaf <sub>midipitchF</sub>           | 0.03       | normalized parameter   | [0.01, 0.3] &rightarrow; "42" 
