@@ -21,3 +21,6 @@ a = \Big(\frac{p}{3}\Big)^\frac{1}{e}
 norm2intensity
 p = \frac{i}{127}
 i = 127p
+
+encodedFunctionIndexGenerator
+f_{e}\equiv\big(f_{d}\cdot\phi\big)\mod 1 
