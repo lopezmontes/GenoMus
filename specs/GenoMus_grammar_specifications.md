@@ -518,6 +518,7 @@ An encoded genotype is an unidimensional array of normalized values from interva
 This table shows the encoding/decoding of lexical tokens in this example:
 
 | decoded | encoded
+| ------- | -------
 | `s(`    | `1, 0.618034`
 | `c(`    | `1, 0.236068`
 
