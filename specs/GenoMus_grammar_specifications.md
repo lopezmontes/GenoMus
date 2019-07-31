@@ -173,6 +173,10 @@ The integer index identifies the function. The float is the number to map the fu
 
 <img src="formulae/functions_encoded_index.svg" width="180">
 
+
+
+$$I = \int \rho R^{2} dV$$
+
 where $\phi$ is the golden ratio, f<sub>e</sub> is the index to identify the function in encoded genotypes and f<sub>d</sub> is the correspondent decoded index, which is asigned incrementally in the catalogue. Encoded index numbers are rounded to have only six digits after the decimal point. Using this truncated format there are 514263 different indexes available until a recurrence occurs.
 
 From the functionIndex dictionary, an inverse dictionary is automatically created reordering the functions according to their encoded index, following this format:
