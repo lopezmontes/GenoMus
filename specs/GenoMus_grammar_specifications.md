@@ -13,6 +13,7 @@ In progress...
     - [Pitch](#pitch)
     - [Articulation](#articulation)
     - [Intensity](#intensity)
+    - [Integer x steps](#integer-x-steps)
   - [Special formats](#special-formats)
   - [Manual manipulation of genotypes](#manual-manipulation-of-genotypes)
 - [Including a function in the GenoMus catalogue](#including-a-function-in-the-genomus-catalogue)
@@ -26,8 +27,9 @@ In progress...
   - [Articulation](#articulation-1)
     - [articulationF (a)](#articulationf-a)
   - [Intensity](#intensity-1)
-    - [intensityF (i)](#intensityf-i)
-    
+    - [intensityF (x)](#intensityf-i)
+  - [Integer x steps](#integer-x-steps-1)
+    - [xstepsF (x)](#xstepsf-x)    
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
 - [Encoding-decoding phenotypes](#encoding-decoding-phenotypes)
 - [Specimen characterization and evaluation](#specimen-characterization-and-evaluation)
@@ -112,7 +114,7 @@ Function types created to allow a more user-friendly handling of decoded genotyp
 | --------------- | ------------ | --------
 | **intensityF**  | **i**        | normalized intensity from standard MIDI velocity
 
-#### Natural x steps
+#### Integer x steps
 
 | *function type* | *identifier* | *output*
 | --------------- | ------------ | --------
@@ -361,17 +363,17 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 | 1.0    | 127                 | *tutta forza*
 
 ---------
-### Natural x steps
+### Integer x steps
 #### **xstepsF** (x)
 
-This manual format is useful for different context where natural numbers can be much more readable. For instance, to write a sequence of melodic intervals using a diatonic scale as the step basis.  
+This manual format is useful for different context where integer numbers can be much more readable. For instance, to write a sequence of melodic intervals using a diatonic scale as the step basis.  
 Conversion formulae: normalized parameter _**p**_ to x-steps _**x**_ in  and inverse ([graph](https://www.desmos.com/calculator/3vy4gwjxcu)):
 
 <img src="formulae/norm2xsteps.svg" width="440">
 The inversion is made with a lookup table.
 <img src="formulae/norm2xsteps_graph.png" width="450">
 
-| [0, 1] |  natural steps      
+| [0, 1] |  integer steps      
 | ------ | -------------------
 | 0      | -36                   
 | 0.0005 | -35                
