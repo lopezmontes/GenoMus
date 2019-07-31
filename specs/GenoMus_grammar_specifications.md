@@ -175,7 +175,7 @@ The integer index identifies the function. The float is the number to map the fu
 
 where *&#981;* is the golden ratio, _**f<sub>e</sub>**_ is the index to identify the function in encoded genotypes and _**f<sub>d</sub>**_ is the correspondent decoded index, which is asigned incrementally in the catalogue. Encoded index numbers are rounded to have only six digits after the decimal point. Using this truncated format there are 514263 different indexes available until a recurrence occurs.
 
-From the functionIndex dictionary, an inverse dictionary is automatically created reordering the functions according to their encoded index, following this format:
+From the *functionIndex* dictionary, an inverse dictionary is automatically created by rearranging the functions according to their ascending encoded index, following this format:
 
 ```
 var encodedFunctionIndexes = {
