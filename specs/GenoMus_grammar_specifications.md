@@ -356,7 +356,7 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 ### Mutation
 ### 
 
-
+---------
 ## Encoding-decoding genotypes
 
 An encoded genotype is an unidimensional array of normalized values from interval [0, 1]. This encoded form is intended to be an abstract numeric equivalent to the decoded genotype. The purpose of encoding is to provide a representation of compositional procedures, suitable for different machine learning techniques such as evolutionary algorithms or neural networks.
