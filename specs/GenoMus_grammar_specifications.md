@@ -34,6 +34,8 @@ In progress...
   - [Integer x steps](#integer-x-steps-1)
     - [xstepsF (x)](#xstepsf-x)    
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
+  - [Conversion table for genotypes](#conversion-table-for-genotypes)
+  - [Examples](#examples)
 - [Encoding-decoding phenotypes](#encoding-decoding-phenotypes)
 - [Genotype substructures](#genotype-substructures)
 - [Specimen characterization and evaluation](#specimen-characterization-and-evaluation)
@@ -502,6 +504,14 @@ An encoded genotype is an unidimensional array of normalized values from interva
 &#x21C5;
 
 `[1, 0.618034, 1, 0.236068, 1, 0.854102, 1, 0.472136, 0, 0.5, 0.8, 0.2, 1, 0.472136, 0, 0.5, 0.8, 0.2, 1, 0.472136, 0, 0.5, 0.8, 0.2, 1, 0.472136, 0, 0.5, 0.8, 0.8, 0.8, 0.8]`
+
+#### Minimal genotype
+`"s(v(c(p(0.5),p(0.5),p(0.5),p(0.5))))"`
+
+&#x21C5;
+
+`[1, 0.618034, 1, 0.236068, 1, 0.854102, 1, 0.472136, 0, 0.5, 0.8, 0.2, 1, 0.472136, 0, 0.5, 0.8, 0.2, 1, 0.472136, 0, 0.5, 0.8, 0.2, 1, 0.472136, 0, 0.5, 0.8, 0.8, 0.8, 0.8]`
+
 
 ## Encoding-decoding phenotypes
 
