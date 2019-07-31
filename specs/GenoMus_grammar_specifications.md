@@ -363,7 +363,7 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 ---------
 ### Natural x steps
 #### **xstepsF** (x)
-Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standard MIDI velocity  and inverse ([graph](https://www.desmos.com/calculator/cisndyw3gs)):
+Conversion formulae: normalized parameter _**p**_ to x-steps _**x**_ in  and inverse ([graph](https://www.desmos.com/calculator/3vy4gwjxcu)):
 
 <img src="formulae/norm2xsteps.svg" width="440">
 The inversion is made with a lookup table.
@@ -371,17 +371,79 @@ The inversion is made with a lookup table.
 
 | [0, 1] |  natural steps      
 | ------ | -------------------
-| 0      | 0                   
-| 0.06   | 7.62                
-| 0.15   | 19.05               
-| 0.25   | 31.75               
-| 0.33   | 41.91               
-| 0.4    | 50.8                
-| 0.5    | 63.5                
-| 0.66   | 83.82               
-| 0.75   | 95.25               
-| 0.9    | 114.3               
-| 1.0    | 127                 
+| 0      | -36                   
+| 0.0005 | -35                
+| 0.001  | -34               
+| 0.003  | -33               
+| 0.006  | -32               
+| 0.008  | -31                
+| 0.01   | -30                
+| 0.015  | -29               
+| 0.02   | -28               
+| 0.025  | -27               
+| 0.03   | -26                 
+| 0.04   | -25                 
+| 0.045  | -24                 
+| 0.05   | -23                 
+| 0.06   | -22                 
+| 0.07   | -21
+| 0.08   | -20                 
+| 0.09   | -19               
+| 0.1    | -18               
+| 0.11   | -17               
+| 0.12   | -16                 
+| 0.14   | -15                 
+| 0.15   | -14                 
+| 0.16   | -13                 
+| 0.18   | -12                 
+| 0.2    | -11
+| 0.21   | -10
+| 0.23   | -9               
+| 0.25   | -8               
+| 0.27   | -7               
+| 0.3    | -6                 
+| 0.32   | -5                 
+| 0.33   | -4                 
+| 0.36   | -3                 
+| 0.4    | -2                 
+| 0.45   | -1
+| 0.5    | 0
+| 0.55   | 1
+| 0.6    | 2
+| 0.64   | 3
+| 0.67   | 4
+| 0.68   | 5
+| 0.7    | 6
+| 0.73   | 7
+| 0.75   | 8
+| 0.77   | 9
+| 0.79   | 10
+| 0.8    | 11
+| 0.82   | 12
+| 0.84   | 13
+| 0.85   | 14
+| 0.86   | 15
+| 0.88   | 16
+| 0.89   | 17
+| 0.9    | 18
+| 0.91   | 19
+| 0.92   | 20
+| 0.93   | 21
+| 0.94   | 22
+| 0.95   | 23
+| 0.955  | 24
+| 0.96   | 25
+| 0.97   | 26
+| 0.975  | 27
+| 0.98   | 28
+| 0.985  | 29
+| 0.99   | 30
+| 0.992  | 31
+| 0.994  | 32
+| 0.997  | 33
+| 0.999  | 34
+| 0.9995 | 35
+| 1      | 36
 
 ---------
 ## Genotype operations
