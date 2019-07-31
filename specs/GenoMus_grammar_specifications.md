@@ -363,10 +363,17 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 ## Encoding-decoding
 ### Decoded genotype
 ### Encoded genotype
-|  type                                | identifier | value                | example
-| ------------------------------------ | ---------- | -------------------- | ---------------------------------
-| leaf <sub>normalized parameter</sub> | 0          | parameter            | [0, 0.3451] &rightarrow; "0.3451" 
-| leaf <sub>notevalueF</sub>           | 0.01       | normalized parameter | [0.01, 0.3] &rightarrow; "1/32" 
+|  type                                | identifier | value                  | example encoded &rightarrow; decoded 
+| ------------------------------------ | ---------- | ---------------------- | ---------------------------------
+| leaf <sub>normalized parameter</sub> | 0          | parameter              | [0, 0.3451] &rightarrow; "0.3451" 
+| leaf <sub>notevalueF</sub>           | 0.01       | normalized parameter   | [0.01, 0.3] &rightarrow; "1/32" 
+| ,                                    | 0.2        | -                      | [0.2] &rightarrow; "," 
+| \[                                   | 0.4        | -                      | [0.4] &rightarrow; "\[" 
+| \]                                   | 0.6        | -                      | [0.6] &rightarrow; "\]" 
+| \)                                   | 0.8        | -                      | [0.8] &rightarrow; "\)"
+| function name + \(                   | 1          | encoded function index | [1 .61803] &rightarrow; "*functionName*("
+
+
 
 |       
 | ,        |
