@@ -152,7 +152,7 @@ Function types created to allow a more user-friendly handling of decoded genotyp
 
 | *function type* | *identifier* | *output*
 | --------------- | ------------ | --------
-| **xstepsF**     | **x**        | normalized value from integer within interval [-36, 36]
+| **xstepsF**     | **x**        | normalized value from integer &isinv; [-36, 36]
 
 ---------
 ### Human-readable lists
@@ -167,7 +167,7 @@ These functions receive a list of human-readable leaf parameters and return a no
 | **lfrequencyF**    | **lf**       | list of normalized pitches from frequencies in Hz
 | **larticulationF** | **la**       | list of normalized relative articulations from list of relative articulations
 | **lintensityF**     | **li**       | list of normalized intensities from MIDI velocities
-| **lxstepsF**       | **lx**       | list of normalized values from list of integer within interval [-36, 36]
+| **lxstepsF**       | **lx**       | list of normalized values from list of integer &isinv; [-36, 36]
 
 ---------
 ### Manual manipulation of genotypes
@@ -649,7 +649,7 @@ Phenotype:
   - **"genotypeSeed"**
   - **"phenotypeSeed"**
 - **"encodedGenotype"**: array of floats &isinv; [0, 1].
-- **"automaticAnalysis"**: automatic analysis of many different musical characteristics of the specimen, all expressed as an normalized value within interval [0, 1]. A higher number means more complexity.
+- **"automaticAnalysis"**: automatic analysis of many different musical characteristics of the specimen, all expressed as an normalized value &isinv; [0, 1]. A higher number means more complexity.
   - **"polyphony"**
   - **"rhythmicalComplexity"**
   - **"chromatism"**
