@@ -573,6 +573,10 @@ The arrays in this genotype have encoded as follows:
 | `[1/2,1/4,1/2,1/4]` | `[0.4, 0.01, 0.7, 0.2, 0.01, 0.6, 0.2, 0.01, 0.7, 0.2, 0.01, 0.6, 0.6]`
 | `[63,67,63,58]`     | `[0.4, 0.03, 0.51, 0.2, 0.03, 0.55, 0.2, 0.03, 0.51, 0.2, 0.03, 0.46, 0.6]`
 
+Visualization:
+
+<img src="figures/example_3_visualization.png" width="500">
+
 ## Encoding-decoding phenotypes
 
 ---------
