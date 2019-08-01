@@ -1,4 +1,4 @@
-# GenoMus grammar specifications
+# GenoMus specifications
 
 In progress...
 
