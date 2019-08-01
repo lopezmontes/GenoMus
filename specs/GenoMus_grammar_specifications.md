@@ -645,13 +645,13 @@ Phenotype:
   - **"eligibleFunction"**
 - **"automaticAnalysis"**: Automatic analysis of many different musical characteristics of the specimen, all expressed as an normalized value within interval [0, 1]. A higher number means more complexity.
   - **"polyphony"**
+  - **"rhythmicalComplexity"**
   - **"chromatism"**
   - **"disonance"**
   - **"disjunctivity"**
   - **"modalChroma"**
-  - **"tessituraDispersion"**
   - **"tonalStability"**
-  - **"rhythmicalComplexity"**
+  - **"tessituraDispersion"**
   - **"variability"**: measures how much use of repetition is made.
   - **"articulationHomogeneity"**
   - **"dynamicHomogeneity"**
