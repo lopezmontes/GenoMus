@@ -46,14 +46,15 @@ In progress...
     - [Function network](#function-network)
     - [Leaves vector](#leaves-vector)
     - [Subexpressions](#subexpressions)
+- [Initial conditions for generation of genotypes](#initial-conditions-for-generation-of-genotypes)
+  - [Vector of desired musical characteristics](#vector-of-desired-musical-characteristics)
+    - [Weighted measurement of Euclidean distance](#weighted-measurement-of-euclidean-distance)
 - [Specimen data structure](#specimen-data-structure)
 - [Specimen catalogue](#specimen-catalogue)
   - [Naming](#naming)
   - [Classification](#classification)
   - [Catalogue access](#catalogue-access)
-- [Initial conditions for generation of genotypes](#initial-conditions-for-generation-of-genotypes)
-  - [Vector of desired musical characteristics](#vector-of-desired-musical-characteristics)
-    - [Weighted measurement of Euclidean distance](#weighted-measurement-of-euclidean-distance)
+- [Max user interface](#max-user-interface)
 ----------  
 ## Definitions
 - **genotype**: Function tree representing compositional procedures.
@@ -494,6 +495,12 @@ The inversion is made with a lookup table.
 | 1      | 36
 
 ---------
+---------
+
+
+
+
+
 ## Genotype operations
 ### Creation
 #### Self-references
@@ -626,7 +633,11 @@ Phenotype:
 ### Subexpressions
 
 ---------
-  
+ 
+## Initial conditions for generation of genotypes
+### Vector of desired musical characteristics
+#### Weighted measurement of Euclidean distance
+
 --------- 
 ## Specimen data structure
 
@@ -690,9 +701,5 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
 ### Classification
 ### Catalogue access
 
-## Initial conditions for generation of genotypes
-### Vector of desired musical characteristics
-#### Weighted measurement of Euclidean distance
 
-
-
+## Max user interface
