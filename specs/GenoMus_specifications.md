@@ -645,7 +645,7 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
 
 - **"metadata"**: data to identify and classify the specimen within the catalogue.
   - **"specimenID"**: unique specimen identificator base on date of creation compressed as a unique number and usersname.
-  - **"permalink**: permanent link to the JSON file of the specimen.
+  - **"permalink**: permanent link to the JSON file of the specimen (only for selected specimens, not for temporary ones).
   - **"GenoMusVersion"**: GenoMus version that generated the specimen.
   - **"creationTimecode"**: creation date compressed as a unique number.
   - **"user"**: username.
