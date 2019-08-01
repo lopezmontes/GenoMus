@@ -158,7 +158,7 @@ These functions receive a list of human-readable leaf parameters and return a no
 | **lmidipitchF**    | **lm**       | list of normalized pitches from list of MIDI pitches
 | **lfrequencyF**    | **lf**       | list of normalized pitches from frequencies in Hz
 | **larticulationF** | **la**       | list of normalized relative articulations from list of relative articulations
-| **intensityF**     | **li**       | list of normalized intensities from MIDI velocities
+| **lintensityF**     | **li**       | list of normalized intensities from MIDI velocities
 | **lxstepsF**       | **lx**       | list of normalized values from list of integer within interval [-36, 36]
 
 ---------
