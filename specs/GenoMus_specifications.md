@@ -185,7 +185,7 @@ The GenoMus function catalogue is a JSON file containing all available functions
 [*\<duration\>*, *\<pitch\>*, *\<articulation\>*, *\<intensity\>*]
  
 
-This file contained this parts:
+The GenoMus function catalogue contains these blocks:
 - **"metadata"**: 
   - **"species"**: basic event parameter structure.   
   - **"version"**: version number of the catalogue.
