@@ -8,13 +8,14 @@ In progress...
 - [Definitions](#definitions)
 - [Function types for genotypes](#function-types-for-genotypes)
   - [Main structures](#main-structures)
+  - [Special formats](#special-formats)
   - [Human-readable leaf parameters](#human-readable-leaf-parameters) 
     - [Duration](#duration)
     - [Pitch](#pitch)
     - [Articulation](#articulation)
     - [Intensity](#intensity)
     - [Integer x steps](#integer-x-steps)
-  - [Special formats](#special-formats)
+  - [Human-readable lists](#human-readable-lists) 
   - [Manual manipulation of genotypes](#manual-manipulation-of-genotypes)
 - [GenoMus function catalogue](#genomus-function-catalogue)  
   - [Indexing a new function in the GenoMus function catalogue](#indexing-a-new-function-in-the-genomus-function-catalogue)
@@ -94,6 +95,22 @@ Functions in GenoMus are classified by their output data.
 The **leaf** type is a flag for terminal nodes. This is not really a type of function, but a label to indicate that a new function will not be called.
 
 ---------
+### Special formats
+Function types created to manage specific types of data (some of them are still purely theoretical)
+
+| *function type* | *identifier* | *output*
+| --------------- | ------------ | --------
+| **operationF**  | **o**        | result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
+| **binaryF**     | **b**        | boolean value (only 0 or 1)
+| **harmonyF**    | **h**        | pitch class set, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
+| **rhythmF**     | **r**        | rythmical patter class set
+| **quantizF**    | **q**        | numeric structure for quantization of rhythm
+| **externalF**   | **e**        | reference of an external genotype from a library (to be used with function referencing to external data)
+| **genotypeF**   | **g**        | raw encoded genotype (array of floats from interval [0, 1])
+| **txtF**        | **t**        | string
+| **waveF**       | **w**        | encoded path to read data from an stored audio file
+
+---------
 ### Human-readable leaf parameters
 Function types created to allow a more user-friendly handling of decoded genotypes. All these functions are intended to replace a **paramF** in a leaf position of function tree.
 #### Duration
@@ -130,20 +147,11 @@ Function types created to allow a more user-friendly handling of decoded genotyp
 | **xstepsF**     | **x**        | normalized values from integer numbers within interval [-36, 36]
 
 ---------
-### Special formats
-Function types created to manage specific types of data (some of them are still purely theoretical)
+### Human-readable lists
 
-| *function type* | *identifier* | *output*
-| --------------- | ------------ | --------
-| **operationF**  | **o**        | result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
-| **binaryF**     | **b**        | boolean value (only 0 or 1)
-| **harmonyF**    | **h**        | pitch class set, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
-| **rhythmF**     | **r**        | rythmical patter class set
-| **quantizF**    | **q**        | numeric structure for quantization of rhythm
-| **externalF**   | **e**        | reference of an external genotype from a library (to be used with function referencing to external data)
-| **genotypeF**   | **g**        | raw encoded genotype (array of floats from interval [0, 1])
-| **txtF**        | **t**        | string
-| **waveF**       | **w**        | encoded path to read data from an stored audio file
+These functions receive a list of human-readable leaf parameters and return a normalized list, which can be seamlessly integrated into automatic processes.
+
+
 
 ---------
 ### Manual manipulation of genotypes
@@ -541,6 +549,8 @@ Visualization:
 
 <img src="figures/example_2_visualization.png" width="500">
 
+#### Encoding of arrays
+`"s(v(cMotif(l,l    ([]),a(0.4),i(80))))"`
 
 
 
