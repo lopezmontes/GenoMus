@@ -658,7 +658,13 @@ Intended to be highly subjective, with the aim of modeling personal styles.
   
 --------- 
 ## Specimen data structure
-
+- **"metadata"**: Data to identify and classify the specimen within the catalogue.
+  - **"versionGenoMus"**: version of GenoMus algorithm that generated the specimen. 
+  - **"user"**: unique username.
+  - **"creationTimecode"**: date of creation compressed as a unique number.
+- **initialConditions**
+- **automaticAnalysis**
+- **humanEvaluation**
 ---------
 ## Specimen catalogue
 ### Naming
