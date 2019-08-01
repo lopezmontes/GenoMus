@@ -180,18 +180,40 @@ User functions use uppercase letters to be easily found during manual editing pr
 
 ---------
 ## GenoMus function catalogue
+The GenoMus function catalogue is a JSON file containing all available functions for genotype generation. The concept of species is crucial. Each species is determined by the basic event parameter structure. The whole functional arquitecture depends on this format. Specimens belonging to different species can't be mixed. So, an indenpendent catalogue must be created for each new species. The default species of GenoMus, called *piano*, uses this parameters for each basic event:
+
+[duration, pitch, articulation, intensity]
+ 
+
+This file contained this parts:
+- **"metadata"**: 
+  - **"species"**: basic event parameter structure.   
+  - **"version"**: version number of the catalogue.
+  - **"updated"**: date of last update.
+- **"outputType"**: all functions for genotype generation, grouped according to their output type.
+- **"functionIndex"**: all function for genotype generation, 
 ### Indexing a new function in the GenoMus function catalogue
-A functions must be included into the JSON GenoMus catalogue following this format:
+Functions must be included into the JSON GenoMus catalogue following this format:
 ```
-"functionType": {
-    "functionName": {
-        "arguments": ["functionType", "functionType", ...],
-        "description": "String describing what the function does.",
-        "metadata": {
-            "tag1": "Optional information when needed.",
-            "tad2": "Interesting metada could be user, date of inclusion, etc."
-        }
+{
+    "outputType": {
+        "scoreF": {
+            "sFunctionName": {
+                "arguments": ["functionType", "functionType", ...],
+                "description": "String describing what the function does.",
+            "metadata": {
+                "date": (date of creation, in compressed style),
+                "creator": (username of programmer),
+                (optional information when needed.)
+            },
+            ...
+        },
+        "voiceF": {
+            ...
+        },
+        ...
     },
+    
 ```
 - _**functionName**_ should use the corresponding prefix to help a human to know its output type
 - The _**description**_ and _**metadata**_ fields are optional, but very helpful to understand quicky the processes in a genotype, and to add further informations and documentation about the function or the programmer
