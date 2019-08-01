@@ -659,11 +659,34 @@ Intended to be highly subjective, with the aim of modeling personal styles.
 --------- 
 ## Specimen data structure
 - **"metadata"**: Data to identify and classify the specimen within the catalogue.
-  - **"GenoMusVersion"**: GenoMus version that generated the specimen. 
-  - **"user"**: unique username.
-  - **"creationTimecode"**: date of creation compressed as a unique number.
+  - **"specimenID"**: unique specimen identificator base on date of creation compressed as a unique number and username.
+  - **"GenoMusVersion"**: GenoMus version that generated the specimen.
+  - **"creationTimecode"**: creation date compressed as a unique number.
+  - **"user"**: username.
+  - **"globalRating"**: 
+  - **"permalink**: permanent link to the JSON file of the specimen
+  - **"encGenotypeLength"**: length of the float array contaning the encoded genotype. 
+  - **"encPhenotypeLength"**: length of the float array contaning the encoded phenotype.
+  - **"decPhenotypeDuration"**: total duration of the generated piece in seconds.
+  - **"depth"**: deepest level of ramification of the decoded genotype function tree.
+  - **"totalFunctions""**: Total of different functions used.    
 - **"initialConditions"**: Set of initial conditions to satisfy by the generative process.
+  - **"eligibleFunction"**
 - **"automaticAnalysis"**: Automatic analysis of many different musical characteristics of the specimen.
+
+  - Polyphonic complexity
+  - Diatonicity (measured at different time scales)
+  - Consonance
+  - Intervalic disjunctivity
+  - Modal chroma
+  - Tessitura dispersion
+  - Temperament
+  - "Tonicity" (how many changes in terms of root notes)
+  - Rhythmical complexity
+  - Variability
+  - Articulation homogeneity
+  - Dynamic homogeneity
+  - Level of self-reference (reuse of internal substructures)
 - **"humanEvaluation"**: Human assessment of different musical, aesthetic and emotional aspects of the specimen. This item can store the evaluation of many different users. 
 ---------
 ## Specimen catalogue
