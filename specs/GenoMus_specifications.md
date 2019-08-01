@@ -661,6 +661,12 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"selfReference"**: measures reuse of internal substructures.  
 - **"initialConditions"**: set of initial conditions to satisfy by the generative process.
   - **"eligibleFunctions"**: numeric array containing the eligible functions for genotype generation.
+  - **"constraints"**: features required for a genotype to be acceptable for the generative algorithm.
+    - **"maxGenotypeDepth"**
+    - **"minPhenotypeLength"**
+    - **"maxPhenotypeLength"**
+    - **"maxIterations"**: maximal number of attempts before the generative process stops 
+  - **"heuristics"**: weigthed list of desired features, similar to those in "automaticAnalysis" (see below).
   - **"genotypeSeed"**
   - **"phenotypeSeed"**
 - **"encodedGenotype"**: array of floats &isinv; [0, 1].
