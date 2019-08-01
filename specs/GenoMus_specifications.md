@@ -629,6 +629,9 @@ Phenotype:
   
 --------- 
 ## Specimen data structure
+
+All generated specimens are stored as temporary JSON files. Selected specimens are saved permanently as JSON files in the Specimen catalogue. This JSON have the following data structure:
+
 - **"metadata"**: data to identify and classify the specimen within the catalogue.
   - **"specimenID"**: unique specimen identificator base on date of creation compressed as a unique number and usersname.
   - **"permalink**: permanent link to the JSON file of the specimen.
