@@ -528,6 +528,7 @@ Visualization of this encoded genotype as a matrix of grayscale colors:
 
 <img src="figures/example_1_visualization.png" width="500">
 
+---------
 #### Minimal genotype with human-readable leaf parameters
 `"s(v(c(n(1/16),m(69),a(0.4),i(80))))"`
 
@@ -557,6 +558,7 @@ Visualization:
 
 <img src="figures/example_2_visualization.png" width="500">
 
+---------
 #### Encoding of arrays
 `"s(v(cMotif(ln([1/2,1/4,1/2,1/4]),lm([63,67,63,58]),a(1),i(64))))"`
 
@@ -564,7 +566,7 @@ Visualization:
 
 `[1, 0.618034, 1, 0.236068, 1, 0.304952, 1, 0.652476, 0.4, 0.01, 0.7, 0.2, 0.01, 0.6, 0.2, 0.01, 0.7, 0.2, 0.01, 0.6, 0.6, 0.8, 1, 0.888544, 0.4, 0.03, 0.51, 0.2, 0.03, 0.55, 0.2, 0.03, 0.51, 0.2, 0.03, 0.46, 0.6, 0.8, 0.2, 1, 0.326238, 0.05, 0.667539, 1, 0.944272, 0.06, 0,503937, 0.8, 0.8, 0.8, 0.8]` 
 
-Encoding of arrays:
+The arrays in this genotype have encoded as follows:
 
 | decoded | encoded
 | ------------------- | -------
