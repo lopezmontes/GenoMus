@@ -42,9 +42,9 @@ In progress...
     - [List encoding](#list-encoding)
 - [Encoding-decoding phenotypes](#encoding-decoding-phenotypes)
 - [Genotype substructures](#genotype-substructures)
+    - [Genotype scaffolding](#genotype-scaffolding)
     - [Function network](#function-network)
     - [Leaves vector](#leaves-vector)
-    - [Genotype scaffolding](#genotype-scaffolding)
     - [Subexpressions](#subexpressions)
 - [Specimen data structure](#specimen-data-structure)
 - [Specimen catalogue](#specimen-catalogue)
@@ -612,14 +612,15 @@ Phenotype:
 
 ---------
 ## Genotype substructures
+### Genotype scaffolding
 
+---------
 ### Function network
 
 ---------
 ### Leaves vector
 
----------
-### Genotype scaffolding
+
 
 ---------
 ### Subexpressions
@@ -649,7 +650,20 @@ Phenotype:
   - **"genotypeSeed"**
   - **"phenotypeSeed"**
 - **"encodedGenotype"**: array of floats &isinv; [0, 1].
-- **"automaticAnalysis"**: automatic analysis of many different musical characteristics of the specimen, all expressed as an normalized value &isinv; [0, 1]. A higher number means more complexity.
+- **"decodedGenotype"**: string containing the genotype function tree.
+- **"expandedGenotype"**: string containing the decoded genotype, formatted with blanks and line breaks to clearly display the function tree.
+- **"genotypeScaffolding"**: dictionary with pointers, length and output type of each substructure inside the encoded genotype.
+- **"functionNetwork"**: dictionary with all used functions and their corresponding position in the encoded genotype.
+- **"leavesVector"**: dictionary with all leaf values and their corresponding position in the encoded genotype. 
+- **"subexpressions"**: list of all functional substructures within a genotype, enumerated by output type and order of appearance.
+  - **"scoreF"**: whose output is of type score.
+  - **"voiceF"**: ...
+  - **"chordF"**
+  - **"listF"**
+  - **"paramF"**
+  - **"harmonyF"**
+  - ...
+- **"automaticAnalysis"**: automatic analysis of many different musical characteristics of the specimen, all expressed as an normalized value &isinv; [0, 1]. A higher number means more complexity.  
   - **"polyphony"**
   - **"rhythmicalComplexity"**
   - **"chromatism"**
