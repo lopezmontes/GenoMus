@@ -1,9 +1,4 @@
 # GenoMus specifications
-
-In progress...
-
--------------
-
 ## Table of Contents
 - [Definitions](#definitions)
 - [Function types for genotypes](#function-types-for-genotypes)
