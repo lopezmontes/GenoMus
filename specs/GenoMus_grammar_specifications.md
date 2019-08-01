@@ -659,12 +659,12 @@ Intended to be highly subjective, with the aim of modeling personal styles.
 --------- 
 ## Specimen data structure
 - **"metadata"**: Data to identify and classify the specimen within the catalogue.
-  - **"versionGenoMus"**: version of GenoMus algorithm that generated the specimen. 
+  - **"GenoMusVersion"**: GenoMus version that generated the specimen. 
   - **"user"**: unique username.
   - **"creationTimecode"**: date of creation compressed as a unique number.
-- **initialConditions**
-- **automaticAnalysis**
-- **humanEvaluation**
+- **"initialConditions"**: Set of initial conditions to satisfy by the generative process.
+- **"automaticAnalysis"**: Automatic analysis of many different musical characteristics of the specimen.
+- **"humanEvaluation"**: Human assessment of different musical, aesthetic and emotional aspects of the specimen. This item can store the evaluation of many different users. 
 ---------
 ## Specimen catalogue
 ### Naming
