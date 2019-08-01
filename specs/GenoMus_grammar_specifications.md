@@ -588,7 +588,7 @@ Visualization:
 
 Phenotype:
 
-<img src="figures/ex2_score.svg" width="130">
+<img src="figures/ex3_score.svg" width="130">
 
 ## Encoding-decoding phenotypes
 
