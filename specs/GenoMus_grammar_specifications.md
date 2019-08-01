@@ -407,7 +407,9 @@ This manual format is useful for different contexts where integer numbers can be
 Conversion formulae: normalized parameter _**p**_ to x-steps _**x**_ ([graph](https://www.desmos.com/calculator/3vy4gwjxcu)):
 
 <img src="formulae/norm2xsteps.svg" width="440">
+
 The inversion is made with a lookup table.
+
 <img src="formulae/norm2xsteps_graph.png" width="450">
 
 | [0, 1] |  integer steps      
