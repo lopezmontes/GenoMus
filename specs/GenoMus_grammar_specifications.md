@@ -595,10 +595,27 @@ Phenotype:
 
 <img src="figures/ex3_score.svg" width="140">
 
+---------
+#### Complex example
+
+
+
+
+
 ## Encoding-decoding phenotypes
+
 
 ---------
 ## Genotype substructures
+
+---------
+### Leaves vector
+
+---------
+### Function scaffolding
+
+---------
+### Subexpressions
 
 ---------
 ## Specimen characterization and evaluation
