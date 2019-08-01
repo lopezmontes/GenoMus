@@ -659,7 +659,7 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
 - **"functionNetwork"**: dictionary with all used functions and their corresponding position in the encoded genotype.
 - **"leavesVector"**: dictionary with all leaf values and their corresponding position in the encoded genotype. 
 - **"subexpressions"**: list of all functional substructures within a genotype, enumerated by output type and order of appearance.
-  - **"scoreF"**: whose output is of type score.
+  - **"scoreF"**: subexpressions whose output is of type score.
   - **"voiceF"**: ...
   - **"chordF"**
   - **"listF"**
