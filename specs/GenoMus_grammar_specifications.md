@@ -530,7 +530,7 @@ Visualization of this encoded genotype as a matrix of grayscale colors:
 
 Phenotype:
 
-<img src="figures/ex1_score.svg" width="60">
+<img src="figures/ex1_score.svg" width="57">
 
 
 ---------
@@ -565,7 +565,7 @@ Visualization:
 
 Phenotype:
 
-<img src="figures/ex2_score.svg" width="60">
+<img src="figures/ex2_score.svg" width="57">
 
 ---------
 #### Encoding of arrays
