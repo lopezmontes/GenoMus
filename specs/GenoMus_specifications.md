@@ -13,9 +13,8 @@
   - [Human-readable lists](#human-readable-lists) 
   - [Manual manipulation of genotypes](#manual-manipulation-of-genotypes)
 - [GenoMus function catalogue](#genomus-function-catalogue)  
-  - [Indexing a new function in the GenoMus function catalogue](#indexing-a-new-function-in-the-genomus-function-catalogue)
+  - [Indexing a function in the GenoMus function catalogue](#indexing-a-function-in-the-genomus-function-catalogue)
   - [Encoded function index generation](#encoded-function-index-generation)
-
 - [Parameter mapping](#parameter-mapping)
   - [Duration](#duration-1)
     - [notevalueF (n)](#notevaluef-n)
@@ -190,9 +189,10 @@ The GenoMus function catalogue contains these blocks:
   - **"species"**: basic event parameter structure.   
   - **"version"**: version number of the catalogue.
   - **"updated"**: date of last update.
+  - ...
 - **"outputType"**: all functions for genotype generation, grouped according to their output type.
 - **"functionIndex"**: all function for genotype generation, 
-### Indexing a new function in the GenoMus function catalogue
+### Indexing a function in the GenoMus function catalogue
 Functions must be included into the JSON GenoMus catalogue following this format:
 ```
 {
@@ -262,12 +262,14 @@ A typical function expects generic parameters (floats &isinv; [0, 1]) as argumen
 
 Human-readable function types uses more user-friendly argument formats. These non-generic parameters are first mapped to a normalized interval [0, 1] to be later evaluated and encoded as stardard normalized paramenters.
 
-In general, theses maps are not linear (straight line maps). For each type of parameter, a gaussian approach is made, trying to cover a wide range of values for each category, but at the same time modeling the conversion in such a way that central values (specially the range [0.25, 0.75]) map to the musical values that appear more often.
+In general, these maps are not linear (straight line maps). For each type of parameter, a gaussian approach is made, trying to cover a wide range of values for each category, but at the same time modeling the conversion in such a way that central values (specially the range [0.25, 0.75]) map to the musical values that appear more often.
 
 In summary, conversions are used in several ways:
 - From normalized parameter to domain-specific scales used for rendering phenotypes (scores or soundfiles).
 - Backwards, from arguments entered with user-friendly function-types that will return a normalized parameter.
 - To display decodedGenopytes in a more human-readable way.
+
+Since each species can use different parameters, for each new parameter a mapping similar to those presented below must be defined.
 
 --------
 ### Duration
