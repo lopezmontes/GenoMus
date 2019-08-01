@@ -528,6 +528,11 @@ Visualization of this encoded genotype as a matrix of grayscale colors:
 
 <img src="figures/example_1_visualization.png" width="500">
 
+Phenotype:
+
+<img src="figures/ex1_score.svg" width="100">
+
+
 ---------
 #### Minimal genotype with human-readable leaf parameters
 `"s(v(c(n(1/16),m(69),a(0.4),i(80))))"`
