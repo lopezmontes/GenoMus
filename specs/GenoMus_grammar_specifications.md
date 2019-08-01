@@ -510,7 +510,7 @@ An encoded genotype is an unidimensional array of normalized values from interva
 
 Visualization of this encoded genotype as a matrix of grayscale colors:
 
-<img src="figures/example_1_visualization.png" width="450">
+<img src="figures/example_1_visualization.png" width="500">
 
 #### Minimal genotype with human-readable leaf parameters
 `"s(v(c(n(1/16),m(69),a(0.4),i(80))))"`
@@ -539,7 +539,7 @@ This table shows the encoding/decoding of lexical tokens in this example:
 
 Visualization:
 
-<img src="figures/example_2_visualization.png" width="450">
+<img src="figures/example_2_visualization.png" width="500">
 
 
 
