@@ -643,7 +643,7 @@ Phenotype:
 
 All generated specimens are stored as temporary JSON files. Selected specimens are permanently saved as JSON files in the Specimen catalogue. These JSON files are created according to the following data structure:
 
-- **"metadata"**: data to identify and classify the specimen within the catalogue.
+- `**"metadata"**`: data to identify and classify the specimen within the catalogue.
   - **"specimenID"**: unique specimen identificator base on date of creation compressed as a unique number and usersname.
   - **"permalink**: permanent link to the JSON file of the specimen.
   - **"GenoMusVersion"**: GenoMus version that generated the specimen.
