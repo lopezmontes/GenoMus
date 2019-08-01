@@ -14,7 +14,7 @@ global = {
 violin = \relative c'' {
   \global
   % \override Stem.length = #0
-  a16-.\f
+  es,2\(\p g4 es2 bes4\)
 
 }
 
