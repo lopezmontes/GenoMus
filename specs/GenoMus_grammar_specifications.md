@@ -631,6 +631,7 @@ Phenotype:
   - **"GenoMusVersion"**: GenoMus version that generated the specimen.
   - **"creationTimecode"**: creation date compressed as a unique number.
   - **"user"**: username.
+  - **"species"**: chord parameters structure defining the basic sonic events.
   - **"globalRating"**: average of aesthetic ratings obtained.
   - **"iterations"**: number of iterations of the algorithm until finding this specimen.
   - **"millisecondsElapsed"**: time elapsed until finding this specimen.
@@ -638,7 +639,7 @@ Phenotype:
   - **"encPhenotypeLength"**: length of the float array contaning the encoded phenotype.
   - **"decPhenotypeDuration"**: total duration of the generated piece in seconds.
   - **"depth"**: deepest level of ramification of the decoded genotype function tree.
-  - **"totalFunctions""**: total of different functions used.    
+  - **"totalFunctions**: total of different functions used.    
   - **"selfReference"**: measures reuse of internal substructures.  
 - **"initialConditions"**: Set of initial conditions to satisfy by the generative process.
   - **"eligibleFunction"**
