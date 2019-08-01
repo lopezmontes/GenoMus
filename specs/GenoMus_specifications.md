@@ -182,7 +182,7 @@ User functions use uppercase letters to be easily found during manual editing pr
 ## GenoMus function catalogue
 The GenoMus function catalogue is a JSON file containing all available functions for genotype generation. The concept of species is crucial. Each species is determined by the parameter structure of a basic sonic event. The functional arquitecture depends on this specification. Specimens belonging to different species cannot be mixed. Consequently, an independent catalogue must be created for each new species. The default species of GenoMus, called *piano*, uses this parameters structure for each basic event:
 
-[duration, pitch, articulation, intensity]
+[*\<duration\>*, *\<pitch\>*, *\<articulation\>*, *\<intensity\>*]
  
 
 This file contained this parts:
