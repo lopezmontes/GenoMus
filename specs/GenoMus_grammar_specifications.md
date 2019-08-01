@@ -46,9 +46,6 @@ In progress...
     - [Leaves vector](#leaves-vector)
     - [Genotype scaffolding](#genotype-scaffolding)
     - [Subexpressions](#subexpressions)
-- [Specimen characterization and evaluation](#specimen-characterization-and-evaluation)
-  - [Automatic analisys](#automatic-analisys)
-  - [Human aesthetic evaluation](#human-aesthetic-evaluation)
 - [Specimen data structure](#specimen-data-structure)
 - [Specimen catalogue](#specimen-catalogue)
   - [Naming](#naming)
@@ -66,6 +63,7 @@ In progress...
 - **encoded phenotype**: Phenotype coded as an array of normalized floats within the closed interval [0, 1].
 - **decoded phenotype**: Phenotype coded as a readable score for music software, such as Max, Csound, Lilypond, etc.
 - **specimen**: Genotype/phenotype pair, saved as JSON file containing encoded and decoded versions of its code, metadata and many other useful analytical informations.
+- **species**: Group of specimens that share the same parameter structure of their simplest musical events.
 - **parameter**: Normalized float from interval [0, 1] used to feed the functions' required arguments. These numeric values are leaves of the functional tree that gives rise to a genotype.
 - **leaf**: Terminal node of a genotype functional tree, containing a parameter.
 - **list**: Array of parameters.
@@ -624,43 +622,24 @@ Phenotype:
 ### Subexpressions
 
 ---------
-## Specimen characterization and evaluation
-### Automatic analisys
-- Duration
-- Genotype length
-- Phenotype length
-- Deepest functional level
-- Number of different functions used  
-- Polyphonic complexity
-- Diatonicity (measured at different time scales)
-- Consonance
-- Intervalic disjunctivity
-- Modal chroma
-- Tessitura dispersion
-- Temperament
-- "Tonicity" (how many changes in terms of root notes)
-- Rhythmical complexity
-- Variability
-- Articulation homogeneity
-- Dynamic homogeneity
-- Level of self-reference (reuse of internal substructures)
-
-
   
 --------- 
 ## Specimen data structure
 - **"metadata"**: Data to identify and classify the specimen within the catalogue.
   - **"specimenID"**: unique specimen identificator base on date of creation compressed as a unique number and usersname.
+  - **"permalink**: permanent link to the JSON file of the specimen.
   - **"GenoMusVersion"**: GenoMus version that generated the specimen.
   - **"creationTimecode"**: creation date compressed as a unique number.
   - **"user"**: username.
-  - **"globalRating"**: Media de todas las calificaciones estéticas de todos los usuarios que han valorado el especímen.
-  - **"permalink**: permanent link to the JSON file of the specimen
+  - **"globalRating"**: average of aesthetic ratings obtained.
+  - **"iterations"**: number of iterations of the algorithm until finding this specimen.
+  - **"millisecondsElapsed"**: time elapsed until finding this specimen.
   - **"encGenotypeLength"**: length of the float array contaning the encoded genotype. 
   - **"encPhenotypeLength"**: length of the float array contaning the encoded phenotype.
   - **"decPhenotypeDuration"**: total duration of the generated piece in seconds.
   - **"depth"**: deepest level of ramification of the decoded genotype function tree.
-  - **"totalFunctions""**: Total of different functions used.    
+  - **"totalFunctions""**: total of different functions used.    
+  - **"selfReference"**: measures reuse of internal substructures.  
 - **"initialConditions"**: Set of initial conditions to satisfy by the generative process.
   - **"eligibleFunction"**
 - **"automaticAnalysis"**: Automatic analysis of many different musical characteristics of the specimen, all expressed as an normalized value within interval [0, 1]. A higher number means more complexity.
@@ -675,7 +654,6 @@ Phenotype:
   - **"variability"**: measures how much use of repetition is made.
   - **"articulationHomogeneity"**
   - **"dynamicHomogeneity"**
-  - **"selfReference"**: measures reuse of internal substructures.  
 - **"humanEvaluation"**: human evaluation of different musical, aesthetic and emotional aspects of the specimen. This item can store the assessment of many different users. 
   - **"aestheticValue"**
   - **"mood"**: emotional resonances, expressed as a vector of different axes (to be defined).
