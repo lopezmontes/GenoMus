@@ -18,6 +18,9 @@ norm2articulation:
 p = 3a^e
 a = \Big(\frac{p}{3}\Big)^\frac{1}{e}
 
+a = 3p^e
+p = \Big(\frac{a}{3}\Big)^\frac{1}{e}
+
 norm2intensity
 p = \frac{i}{127}
 i = 127p
