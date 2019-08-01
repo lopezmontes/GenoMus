@@ -117,8 +117,8 @@ Function types created to allow a more user-friendly handling of decoded genotyp
 
 | *function type* | *identifier* | *output*
 | --------------- | ------------ | --------
-| **notevalueF**  | **n**        | normalized duration, from usual number used for note values (1 = whole note)
-| **durationF**   | **d**        | normalized duration, from time in seconds
+| **notevalueF**  | **n**        | normalized duration from usual number used for note values (1 = whole note)
+| **durationF**   | **d**        | normalized duration from duration in seconds
 
 #### Pitch
 
@@ -132,7 +132,7 @@ Function types created to allow a more user-friendly handling of decoded genotyp
 | *function type*   | *identifier* | *output*
 | ----------------- | ------------ | --------
 | **articulationF** | **a**        | normalized relative articulation (1 is whole duration of the note, 2 is double duration)
-| **durationF**     | **d**        | normalized duration, from time in seconds
+| **durationF**     | **d**        | normalized duration from time in seconds
 
 #### Intensity
 
@@ -144,14 +144,22 @@ Function types created to allow a more user-friendly handling of decoded genotyp
 
 | *function type* | *identifier* | *output*
 | --------------- | ------------ | --------
-| **xstepsF**     | **x**        | normalized values from integer numbers within interval [-36, 36]
+| **xstepsF**     | **x**        | normalized value from integer within interval [-36, 36]
 
 ---------
 ### Human-readable lists
 
 These functions receive a list of human-readable leaf parameters and return a normalized list, which can be seamlessly integrated into automatic processes.
 
-
+| *function type*    | *identifier* | *output*
+| ------------------ | ------------ | --------
+| **lnotevalueF**    | **ln**       | list of normalized durations from list of note values (1 = whole note)
+| **ldurationF**     | **ld**       | list of normalized durations from list of duration in seconds
+| **lmidipitchF**    | **lm**       | list of normalized pitches from list of MIDI pitches
+| **lfrequencyF**    | **lf**       | list of normalized pitches from frequencies in Hz
+| **larticulationF** | **la**       | list of normalized relative articulations from list of relative articulations
+| **intensityF**     | **li**       | list of normalized intensities from MIDI velocities
+| **lxstepsF**       | **lx**       | list of normalized values from list of integer within interval [-36, 36]
 
 ---------
 ### Manual manipulation of genotypes
