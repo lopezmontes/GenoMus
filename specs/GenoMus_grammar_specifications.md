@@ -535,11 +535,11 @@ Phenotype:
 
 ---------
 #### Minimal genotype with human-readable leaf parameters
-`"s(v(c(n(1/16),m(69),a(0.4),i(80))))"`
+`"s(v(c(n(1/16),m(69),a(0.4),i(84))))"`
 
 &#x21C5;
 
-`[1, 0.618034, 1, 0.236068, 1, 0.854102, 1, 0.09017, 0.01, 0.4, 0.8, 0.2, 1, 0.708204, 0.03, 0.57, 0.8, 0.2, 1, 0.326238, 0.05, 0.248547, 0.8, 0.2, 1, 0.944272, 0.06, 0,629921, 0.8, 0.8, 0.8, 0.8]`
+`[1, 0.618034, 1, 0.236068, 1, 0.854102, 1, 0.09017, 0.01, 0.4, 0.8, 0.2, 1, 0.708204, 0.03, 0.57, 0.8, 0.2, 1, 0.326238, 0.05, 0.248547, 0.8, 0.2, 1, 0.944272, 0.06, 0,661417, 0.8, 0.8, 0.8, 0.8]`
 
 This table shows the encoding/decoding of lexical tokens in this example:
 
@@ -562,6 +562,10 @@ This table shows the encoding/decoding of lexical tokens in this example:
 Visualization:
 
 <img src="figures/example_2_visualization.png" width="500">
+
+Phenotype:
+
+<img src="figures/ex2_score.svg" width="60">
 
 ---------
 #### Encoding of arrays

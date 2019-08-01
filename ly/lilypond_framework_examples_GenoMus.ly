@@ -1,4 +1,4 @@
-\include "lilypond-book-preamble.ly"
+% \include "lilypond-book-preamble.ly"
 
 \paper { oddFooterMarkup = ##f }
 
@@ -7,17 +7,17 @@
 global = {
   \key c \major
   \time 16/4
-     \override Staff.TimeSignature #'stencil = ##f
+  \override Staff.TimeSignature #'stencil = ##f
 
 }
 
 violin = \relative c'' {
   \global
   % \override Stem.length = #0
-  es,4--\mp ges'16.\ff-. aes,2..\mf
+  a16-.\f
 
 }
-q
+
 \score {
   \new Staff \with {
     instrumentName = ""
