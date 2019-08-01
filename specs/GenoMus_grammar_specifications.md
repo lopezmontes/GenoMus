@@ -645,16 +645,7 @@ Phenotype:
 - Dynamic homogeneity
 - Level of self-reference (reuse of internal substructures)
 
----------
-### Human aesthetic evaluation
-Intended to be highly subjective, with the aim of modeling personal styles.
-- Personal aesthetic interest
-- Originality
-- Complexity
-- Emotional axes
-  - Sadness - Joy
-  - Nervousness - Tranquility
-  - Simple - Complex
+
   
 --------- 
 ## Specimen data structure
@@ -672,22 +663,25 @@ Intended to be highly subjective, with the aim of modeling personal styles.
   - **"totalFunctions""**: Total of different functions used.    
 - **"initialConditions"**: Set of initial conditions to satisfy by the generative process.
   - **"eligibleFunction"**
-- **"automaticAnalysis"**: Automatic analysis of many different musical characteristics of the specimen.
+- **"automaticAnalysis"**: Automatic analysis of many different musical characteristics of the specimen, all expressed as an normalized value within interval [0, 1]. A higher number means more complexity.
+  - **"polyphony"**
+  - **"chromatism"**
+  - **"disonance"**
+  - **"disjunctivity"**
+  - **"modalChroma"**
+  - **"tessituraDispersion"**
+  - **"tonalStability"**
+  - **"rhythmicalComplexity"**
+  - **"variability"**: measures how much use of repetition is made.
+  - **"articulationHomogeneity"**
+  - **"dynamicHomogeneity"**
+  - **"selfReference"**: measures reuse of internal substructures.  
+- **"humanEvaluation"**: human evaluation of different musical, aesthetic and emotional aspects of the specimen. This item can store the assessment of many different users. 
+  - **"aestheticValue"**
+  - **"mood"**: emotional resonances, expressed as a vector of different axes (to be defined).
+  - **"originality"**
+  - **"predictability"**
 
-  - Polyphonic complexity
-  - Diatonicity (measured at different time scales)
-  - Consonance
-  - Intervalic disjunctivity
-  - Modal chroma
-  - Tessitura dispersion
-  - Temperament
-  - "Tonicity" (how many changes in terms of root notes)
-  - Rhythmical complexity
-  - Variability
-  - Articulation homogeneity
-  - Dynamic homogeneity
-  - Level of self-reference (reuse of internal substructures)
-- **"humanEvaluation"**: Human assessment of different musical, aesthetic and emotional aspects of the specimen. This item can store the evaluation of many different users. 
 ---------
 ## Specimen catalogue
 ### Naming
