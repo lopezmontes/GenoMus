@@ -64,7 +64,7 @@ In progress...
 - **decoded phenotype**: Phenotype coded as a readable score for music software, such as Max, Csound, Lilypond, etc.
 - **specimen**: Genotype/phenotype pair, saved as JSON file containing encoded and decoded versions of its code, metadata and many other useful analytical informations.
 - **species**: Group of specimens that share the same parameter structure of their simplest musical events.
-- **parameter**: Normalized float from interval [0, 1] used to feed the functions' required arguments. These numeric values are leaves of the functional tree that gives rise to a genotype.
+- **parameter**: Normalized float &isinv; [0, 1] used to feed the functions' required arguments. These numeric values are leaves of the functional tree that gives rise to a genotype.
 - **leaf**: Terminal node of a genotype functional tree, containing a parameter.
 - **list**: Array of parameters.
 - **chord**: Simplest sonic event. In traditional music writing, a note. The default atributes of a chord are: [duration, pitch, articulation, intensity]. A chord can contain more than one pitch. Chords with more parameters can be set, for example, for electroacoustic works, where a sonic event could be defined by dozens or features. A note can consist of two or more concatenated pitches together. Chords can be concatenated only sequentially (one after another, without overlapping). Overlapping effect among chords inside the same voice can be achieved by means of articulation. A chord can be extended to other domains beyond music, like visuals, lighting, etc., along with musical events, or standalone. 
@@ -77,7 +77,7 @@ In progress...
 - **GenoMus function catalog**: JSON file that lists and characterizes all the functions used for genotype generation.
 - **function type identifier**: Prefix used to name functions, to ease the function type identification. The use of indentifiers is not compulsory, but very convenient for readability of decoded genotypes.
 - **function index**: Integer assigned incrementally to identify each function with an unique number in the GenoMus functions catalogue. 
-- **encoded function index**: Float generated to identify each function with an unique number. These numbers are chosen using the function index as input for an algorithm designed to obtain an optimized distribution of these normalized identifiers within the interval [0, 1].
+- **encoded function index**: Float generated to identify each function with an unique number. These numbers are chosen using the function index as input for an algorithm designed to obtain an optimized distribution of these normalized identifiers &isinv; [0, 1].
 - **eligible functions**: set of functions that determine which ones can be chosen during the genotype generation process. Somehow, this set can characterize a composer or a style.
 - **genotype seed**: Number used to initialize the pseudorandom number generator before the genotype generation process starts. It allows repeatable results. Ultimately, a genotype can be identified only by this number, since it determines the entire decision tree that generates it.
 - **phenotype seed**: Number used to initialize the pseudorandom number generator before the genotype evaluation process starts, which allows producing repeatable phenotypes. When a genotype includes random processes, many different phenotypes from the same genotype can arise. In this case, each different result can be indentified with a phenotype seed. So, given specific initial conditions, a single specimen can be identified only by two integers: genotype and phenotype seeds.
@@ -96,7 +96,7 @@ Functions in GenoMus are classified by their output data.
 | **scoreF**      | **s**        | score
 | **voiceF**      | **v**        | voice
 | **chordF**      | **c**        | chord
-| **listF**       | **l**        | list of normalized floats from interval [0, 1]
+| **listF**       | **l**        | list of normalized floats &isinv; [0, 1]
 | **paramF**      | **p**        | normalized parameter
 | **leaf**        | -            | norm. parameter or specific format parameter
 
@@ -114,7 +114,7 @@ Function types created to manage specific types of data (some of them are still 
 | **rhythmF**     | **r**        | rythmical patter class set
 | **quantizF**    | **q**        | numeric structure for quantization of rhythm
 | **externalF**   | **e**        | reference of an external genotype from a library (to be used with function referencing to external data)
-| **genotypeF**   | **g**        | raw encoded genotype (array of floats from interval [0, 1])
+| **genotypeF**   | **g**        | raw encoded genotype (array of floats &isinv; [0, 1])
 | **txtF**        | **t**        | string
 | **waveF**       | **w**        | encoded path to read data from an stored audio file
 
@@ -240,7 +240,7 @@ This works as a useful lookup table for some automatic and manual processes.
 
 ---------
 ## Parameters mapping
-A typical function expects generic parameters (floats from normalized interval [0, 1]) as arguments, regardless arguments' domain. When computing phenotypes, these numbers must be mapped to right ranges and scales, to represent duration, pitch, etc.
+A typical function expects generic parameters (floats &isinv; [0, 1]) as arguments, regardless arguments' domain. When computing phenotypes, these numbers must be mapped to right ranges and scales, to represent duration, pitch, etc.
 
 Human-readable function types uses more user-friendly argument formats. These non-generic parameters are first mapped to a normalized interval [0, 1] to be later evaluated and encoded as stardard normalized paramenters.
 
@@ -503,7 +503,7 @@ The inversion is made with a lookup table.
 ---------
 ## Encoding-decoding genotypes
 
-An encoded genotype is an unidimensional array of normalized values from interval [0, 1]. This encoded form is intended to be an abstract numeric equivalent to the decoded genotype. The purpose of encoding is to provide a representation of compositional procedures, suitable for different machine learning techniques such as evolutionary algorithms or neural networks.
+An encoded genotype is an unidimensional array of normalized values &isinv; [0, 1]. This encoded form is intended to be an abstract numeric equivalent to the decoded genotype. The purpose of encoding is to provide a representation of compositional procedures, suitable for different machine learning techniques such as evolutionary algorithms or neural networks.
 
 ---------
 ### Conversion table for genotypes
