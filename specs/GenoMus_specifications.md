@@ -192,6 +192,7 @@ The GenoMus function catalogue contains these blocks:
   - ...
 - **"outputType"**: all functions for genotype generation, grouped according to their output type.
 - **"functionIndex"**: all function for genotype generation, 
+
 ### Indexing a function in the GenoMus function catalogue
 Functions are listed into the JSON GenoMus catalogue following this format:
 ```
@@ -209,7 +210,7 @@ Functions are listed into the JSON GenoMus catalogue following this format:
     },
     "voiceF": {
     ...
-} 
+} s
 ```
 - _**functionName**_ should use the corresponding prefix to help a human to know its output type
 - The _**description**_ and _**metadata**_ fields are optional, but very helpful to understand quicky the processes in a genotype, and to add further informations and documentation about the function or the programmer
@@ -243,7 +244,7 @@ This graph shows the distribution of the first 100 encoded function indexes:
 From the *functionIndex* dictionary, an inverse dictionary is automatically created by rearranging the functions according to their ascending encoded index, following this format:
 
 ```
-var encodedFunctionIndexes = {
+"encodedFunctionIndexes": {
     "0.236068": "functionNameX",
     "0.618034": "functionNameY",
     ...
