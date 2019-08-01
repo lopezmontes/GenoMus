@@ -42,6 +42,10 @@ In progress...
     - [List encoding](#list-encoding)
 - [Encoding-decoding phenotypes](#encoding-decoding-phenotypes)
 - [Genotype substructures](#genotype-substructures)
+    - [Function network](#function-network)
+    - [Leaves vector](#leaves-vector)
+    - [Genotype scaffolding](#genotype-scaffolding)
+    - [Subexpressions](#subexpressions)
 - [Specimen characterization and evaluation](#specimen-characterization-and-evaluation)
   - [Automatic analisys](#automatic-analisys)
   - [Human aesthetic evaluation](#human-aesthetic-evaluation)
@@ -608,11 +612,13 @@ Phenotype:
 ---------
 ## Genotype substructures
 
+### Function network
+
 ---------
 ### Leaves vector
 
 ---------
-### Function scaffolding
+### Genotype scaffolding
 
 ---------
 ### Subexpressions
