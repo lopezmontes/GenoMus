@@ -77,7 +77,9 @@ In progress...
 - **GenoMus function catalog**: JSON file that lists and characterizes all the functions used for genotype generation.
 - **function type identifier**: Prefix used to name functions, to ease the function type identification. The use of indentifiers is not compulsory, but very convenient for readability of decoded genotypes.
 - **function index**: Integer assigned incrementally to identify each function with an unique number in the GenoMus functions catalogue. 
-- **encoded function index**: Float generated to identify each function with an unique number. These numbers are chosen using the function index as input for an algorithm designed to obtain an optimized distribution of these normalized identifiers within the interval [0, 1]. 
+- **encoded function index**: Float generated to identify each function with an unique number. These numbers are chosen using the function index as input for an algorithm designed to obtain an optimized distribution of these normalized identifiers within the interval [0, 1].
+- **"genotype seed"**: Number used to initialize the pseudorandom number generator before the genotype generation process starts. It allows repeatable results. Ultimately, a genotype can be identified only by this number, since it determines the entire decision tree that generates it.
+- **"phenotype seed"**: Number used to initialize the pseudorandom number generator before the genotype evaluation process starts, which allows producing repeatable phenotypes. When a genotype includes random processes, many different phenotypes from the same genotype can arise. In this case, each different result can be indentified with a phenotype seed. So, given a specific initial conditions, a single specimen can be identified only by two integers: genotype and phenotype seeds.
 
 ---------
 ## Function types for genotypes
@@ -625,7 +627,7 @@ Phenotype:
   
 --------- 
 ## Specimen data structure
-- **"metadata"**: Data to identify and classify the specimen within the catalogue.
+- **"metadata"**: data to identify and classify the specimen within the catalogue.
   - **"specimenID"**: unique specimen identificator base on date of creation compressed as a unique number and usersname.
   - **"permalink**: permanent link to the JSON file of the specimen.
   - **"GenoMusVersion"**: GenoMus version that generated the specimen.
@@ -641,9 +643,11 @@ Phenotype:
   - **"depth"**: deepest level of ramification of the decoded genotype function tree.
   - **"totalFunctions**: total of different functions used.    
   - **"selfReference"**: measures reuse of internal substructures.  
-- **"initialConditions"**: Set of initial conditions to satisfy by the generative process.
-  - **"eligibleFunction"**
-- **"automaticAnalysis"**: Automatic analysis of many different musical characteristics of the specimen, all expressed as an normalized value within interval [0, 1]. A higher number means more complexity.
+- **"initialConditions"**: set of initial conditions to satisfy by the generative process.
+  - **"eligibleFunction"**: numeric array containing the eligible functions for genotype generation.
+  - **"genotypeSeed"**: seed initialized before the genotype generation process begins.
+  - **"phenotypeSeed"**: seed employed to evaluate a decoded genotype; this seed affects only its random functions.
+- **"automaticAnalysis"**: automatic analysis of many different musical characteristics of the specimen, all expressed as an normalized value within interval [0, 1]. A higher number means more complexity.
   - **"polyphony"**
   - **"rhythmicalComplexity"**
   - **"chromatism"**
