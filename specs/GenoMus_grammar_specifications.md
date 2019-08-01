@@ -37,6 +37,9 @@ In progress...
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
   - [Conversion table for genotypes](#conversion-table-for-genotypes)
   - [Examples](#examples)
+    - [Minimal genotype](#minimal-genotype)
+    - [Minimal genotype with human-readable leaf parameters](#minimal-genotype-with-human-readable-leaf-parameters)
+    - [List encoding](#list-encoding)
 - [Encoding-decoding phenotypes](#encoding-decoding-phenotypes)
 - [Genotype substructures](#genotype-substructures)
 - [Specimen characterization and evaluation](#specimen-characterization-and-evaluation)
@@ -568,14 +571,14 @@ Phenotype:
 <img src="figures/ex2_score.svg" width="57">
 
 ---------
-#### Encoding of arrays
+#### List encoding
 `"s(v(cMotif(ln([1/2,1/4,1/2,1/4]),lm([63,67,63,58]),a(1),i(42))))"`
 
 &#x21C5;
 
 `[1, 0.618034, 1, 0.236068, 1, 0.304952, 1, 0.652476, 0.4, 0.01, 0.7, 0.2, 0.01, 0.6, 0.2, 0.01, 0.7, 0.2, 0.01, 0.6, 0.6, 0.8, 1, 0.888544, 0.4, 0.03, 0.51, 0.2, 0.03, 0.55, 0.2, 0.03, 0.51, 0.2, 0.03, 0.46, 0.6, 0.8, 0.2, 1, 0.326238, 0.05, 0.667539, 1, 0.944272, 0.06, 0,330709, 0.8, 0.8, 0.8, 0.8]` 
 
-The arrays in this genotype have encoded as follows:
+The lists in this genotype have encoded as follows:
 
 | decoded | encoded
 | ------------------- | -------
