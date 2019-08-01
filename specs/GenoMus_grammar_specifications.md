@@ -533,7 +533,9 @@ This table shows the encoding/decoding of lexical tokens in this example:
 | `i(`    | `[1, 0.944272]`
 | `80`    | `[0.06, 0,629921]`
 
+Visualization of this encoded genotype as a matrix of grayscale colors:
 
+<img src="figures/example_2_visualization.png" width="450">
 
 
 
