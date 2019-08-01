@@ -648,6 +648,7 @@ Phenotype:
   - **"eligibleFunctions"**: numeric array containing the eligible functions for genotype generation.
   - **"genotypeSeed"**
   - **"phenotypeSeed"**
+- **"encodedGenotype"**: array of floats &isinv; [0, 1].
 - **"automaticAnalysis"**: automatic analysis of many different musical characteristics of the specimen, all expressed as an normalized value within interval [0, 1]. A higher number means more complexity.
   - **"polyphony"**
   - **"rhythmicalComplexity"**
