@@ -678,7 +678,7 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"harmonyF"**
   - ...
 - **"encondedPhenotype"**: array of floats &isinv; [0, 1].
-- **"decodedPhenotype"**: phenotype converted to the desired formats (bach roll, bach score, lilypond, MusicXML, etc.)
+- **"decodedPhenotype"**: phenotype converted to the desired formats (bach roll, bach score, lilypond, MusicXML, Csound, multimedia outputs, etc.)
 - **"automaticAnalysis"**: automatic analysis of many different musical characteristics of the specimen, all expressed as an normalized value &isinv; [0, 1]. A higher number means more complexity.  
   - **"polyphony"**
   - **"rhythmicalComplexity"**
