@@ -352,8 +352,8 @@ Articulation can be used in two modes:
 #### **articulationF** (a)
 Conversion formulae: normalized parameter _**p**_ to relative articulation _**a**_, as a proportion of chord duration ([graph](https://www.desmos.com/calculator/i5jiq4k9ah)):
 
-<img src="formulae/norm2articulation.svg" width="63">
-<img src="formulae/articulation2norm.svg" width="82">
+<img src="formulae/norm2articulation.svg" width="82">
+<img src="formulae/articulation2norm.svg" width="63">
 <img src="formulae/norm2articulation_graph.png" width="250">
 
 | [0, 1] |  proportion of chord duration | notation
@@ -558,8 +558,11 @@ Visualization:
 <img src="figures/example_2_visualization.png" width="500">
 
 #### Encoding of arrays
-`"s(v(cMotif(l,l    ([]),a(0.4),i(80))))"`
+`"s(v(cMotif(ln([1/2,1/4,1/2,1/4]),lm([63,67,63,58]),a(1),i(64))))"`
 
+&#x21C5;
+
+`[1, 0.618034, 1, 0.236068, 1, 0.304952, 1, 0.652476, 0.4, 0.01, 0.7, 0.2, 0.01, 0.6, 0.2, 0.01, 0.7, 0.2, 0.01, 0.6, 0.6, 0.8, 1, 0.888544, 0.4, 0.03, 0.51, 0.2, 0.03, 0.55, 0.2, 0.03, 0.51, 0.2, 0.03, 0.46, 0.6, 0.8, 0.2, 1, 0.326238, 0.05, 0.667539,  
 
 
 ## Encoding-decoding phenotypes
