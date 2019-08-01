@@ -659,11 +659,11 @@ Intended to be highly subjective, with the aim of modeling personal styles.
 --------- 
 ## Specimen data structure
 - **"metadata"**: Data to identify and classify the specimen within the catalogue.
-  - **"specimenID"**: unique specimen identificator base on date of creation compressed as a unique number and username.
+  - **"specimenID"**: unique specimen identificator base on date of creation compressed as a unique number and usersname.
   - **"GenoMusVersion"**: GenoMus version that generated the specimen.
   - **"creationTimecode"**: creation date compressed as a unique number.
   - **"user"**: username.
-  - **"globalRating"**: 
+  - **"globalRating"**: Media de todas las calificaciones estéticas de todos los usuarios que han valorado el especímen.
   - **"permalink**: permanent link to the JSON file of the specimen
   - **"encGenotypeLength"**: length of the float array contaning the encoded genotype. 
   - **"encPhenotypeLength"**: length of the float array contaning the encoded phenotype.
