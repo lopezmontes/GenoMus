@@ -43,7 +43,7 @@ In progress...
   - [Automatic analisys](#automatic-analisys)
   - [Human aesthetic evaluation](#human-aesthetic-evaluation)
 - [Specimen data structure](#specimen-data-structure)
-- [Catalogue of specimens](#catalogue-of-specimens)
+- [Specimen catalogue](#specimen-catalogue)
   - [Naming](#naming)
   - [Classification](#classification)
   - [Catalogue access](#catalogue-access)
@@ -569,11 +569,11 @@ Phenotype:
 
 ---------
 #### Encoding of arrays
-`"s(v(cMotif(ln([1/2,1/4,1/2,1/4]),lm([63,67,63,58]),a(1),i(64))))"`
+`"s(v(cMotif(ln([1/2,1/4,1/2,1/4]),lm([63,67,63,58]),a(1),i(42))))"`
 
 &#x21C5;
 
-`[1, 0.618034, 1, 0.236068, 1, 0.304952, 1, 0.652476, 0.4, 0.01, 0.7, 0.2, 0.01, 0.6, 0.2, 0.01, 0.7, 0.2, 0.01, 0.6, 0.6, 0.8, 1, 0.888544, 0.4, 0.03, 0.51, 0.2, 0.03, 0.55, 0.2, 0.03, 0.51, 0.2, 0.03, 0.46, 0.6, 0.8, 0.2, 1, 0.326238, 0.05, 0.667539, 1, 0.944272, 0.06, 0,503937, 0.8, 0.8, 0.8, 0.8]` 
+`[1, 0.618034, 1, 0.236068, 1, 0.304952, 1, 0.652476, 0.4, 0.01, 0.7, 0.2, 0.01, 0.6, 0.2, 0.01, 0.7, 0.2, 0.01, 0.6, 0.6, 0.8, 1, 0.888544, 0.4, 0.03, 0.51, 0.2, 0.03, 0.55, 0.2, 0.03, 0.51, 0.2, 0.03, 0.46, 0.6, 0.8, 0.2, 1, 0.326238, 0.05, 0.667539, 1, 0.944272, 0.06, 0,330709, 0.8, 0.8, 0.8, 0.8]` 
 
 The arrays in this genotype have encoded as follows:
 
@@ -585,6 +585,10 @@ The arrays in this genotype have encoded as follows:
 Visualization:
 
 <img src="figures/example_3_visualization.png" width="500">
+
+Phenotype:
+
+<img src="figures/ex2_score.svg" width="130">
 
 ## Encoding-decoding phenotypes
 
@@ -628,7 +632,7 @@ Intended to be highly subjective, with the aim of modeling personal styles.
 ## Specimen data structure
 
 ---------
-## Catalogue of specimens
+## Specimen catalogue
 ### Naming
 ### Classification
 ### Catalogue access
