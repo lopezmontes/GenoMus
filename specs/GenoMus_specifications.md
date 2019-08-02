@@ -184,7 +184,7 @@ A GenoMus function catalogue is a JSON file that contains all available function
 [*\<duration\>*, *\<pitch\>*, *\<articulation\>*, *\<intensity\>*]
  
 
-The GenoMus function catalogue contains these blocks:
+A GenoMus function catalogue contains these blocks:
 - **"metadata"**: 
   - **"species"**: name of the species.   
   - **"parametersStructure"**: basic event parameter structure. 
@@ -193,7 +193,7 @@ The GenoMus function catalogue contains these blocks:
   - **"updated"**: date of last update.
   - ...
 - **"outputType"**: all functions for genotype generation, grouped according to their output type.
-- **"functionIndex"**: all function for genotype generation, enumerated by their order of inclusion, along with their encoded function index.
+- **"functionIndex"**: all functions for genotype generation, enumerated by their order of inclusion, along with their encoded function index.
 
 ### Indexing a function in a GenoMus function catalogue
 Functions are listed into the JSON GenoMus catalogue following this format:
@@ -257,18 +257,18 @@ This works as a useful lookup table for some automatic and manual processes.
 
 ---------
 ## Parameters mapping
-A typical function expects generic parameters (floats &isinv; [0, 1]) as arguments, regardless arguments' domain. When computing phenotypes, these numbers must be mapped to right ranges and scales, to represent duration, pitch, etc.
+GenoMus function trees expect generic parameters (floats &isinv; [0, 1]) as leaves, regardless arguments' domain. When computing phenotypes, these numbers must be mapped to right ranges and scales, to represent duration, pitch, etc.
 
-Human-readable function types uses more user-friendly argument formats. These non-generic parameters are first mapped to a normalized interval [0, 1] to be later evaluated and encoded as stardard normalized paramenters.
+Human-readable function types use specific user-friendly argument formats. These non-generic parameters are first mapped to a normalized interval [0, 1] to be later evaluated and encoded as stardard normalized paramenters.
 
 In general, these maps are not linear (straight line maps). For each type of parameter, a gaussian approach is made, trying to cover a wide range of values for each category, but at the same time modeling the conversion in such a way that central values (specially the range [0.25, 0.75]) map to the musical values that appear more often.
 
-In summary, conversions are used in several ways:
-- From normalized parameter to domain-specific scales used for rendering phenotypes (scores or soundfiles).
-- Backwards, from arguments entered with user-friendly function-types that will return a normalized parameter.
-- To display decodedGenopytes in a more human-readable way.
+Since each species could require new domain-specific parameters, for each new parameter a mapping similar to those presented below must be defined.
 
-Since each species can use different parameters, for each new parameter a mapping similar to those presented below must be defined.
+In summary, conversions are used in several ways:
+- From normalized parameters to domain-specific scales used for rendering phenotypes (scores or soundfiles).
+- Backwards, from arguments entered with user-friendly function-types that will return a normalized parameter.
+- To display decoded genotypes in a more human-readable way.
 
 --------
 ### Duration
