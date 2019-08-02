@@ -5,6 +5,19 @@ function r6d(f){
 
 
 
+function norm2duration (s) {
+    return Math.pow(2,10*s-6);
+}
+
+
+function norm2midipitch(p) {
+    return 100*p+12;
+}
+
+function midipitch2norm(m) {
+    return (m-12)/100;
+}
+
 function norm2frequency(p) {
     if (p<0.003) { return 0.000001 }
     else { return 20000*Math.pow(p,4)};

@@ -299,8 +299,8 @@ Conversion formulae: normalized parameter _**p**_ to note value ratio _**v**_ an
 
 Conversion formulae: normalized parameter _**p**_ to seconds _**s**_ and inverse ([graph](https://www.desmos.com/calculator/pn1nbunlcz)):
 
-<img src="formulae/norm2seconds.svg" width="175">
-<img src="formulae/seconds2norm.svg" width="100">
+<img src="formulae/duration2norm.svg" width="175">
+<img src="formulae/norm2duration.svg" width="100">
 <img src="formulae/norm2seconds_graph.png" width="250">
 
 | [0, 1] |  dur. (s)   
