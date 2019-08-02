@@ -381,22 +381,22 @@ Conversion formulae: normalized parameter _**p**_ to relative articulation _**a*
 <img src="formulae/articulation2norm.svg" width="63">
 <img src="formulae/norm2articulation_graph.png" width="250">
 
-| [0, 1] |  proportion of chord duration | notation
-| ------ | ----------------------------- | --------
-| 0      | 0                             | silence
-| 0.1    | 0.005739                      |
-| 0.2    | 0.037768                      | *staccatissimo*
-| 0.3    | 0.113708                      |
-| 0.4    | 0.248547                      | *staccato*
-| 0.5.   | 0.455866                      |    
-| 0.52   | 0.507152                      | *non legato*
-| 0.6    | 0.748296                      |
-| 0.66   | 0.969596                      |
-| 0.6676 | 1.002468                      | *legato*
-| 0.7    | 1.137769                      |
-| 0.8    | 1.635658                      | *legatissimo*
-| 0.9    | 2.252888                      |
-| 1.0    | 3                             | *lasciare vibrare*
+| [0, 1]   |  proportion of chord duration | notation
+| -------- | ----------------------------- | --------
+| 0        | 0                             | silence
+| 0.1      | 0.005739                      |
+| 0.2      | 0.037768                      | *staccatissimo*
+| 0.3      | 0.113708                      |
+| 0.4      | 0.248547                      | *staccato*
+| 0.5.     | 0.455866                      |    
+| 0.51729  | 0.5                           | *non legato*
+| 0.6      | 0.748296                      |
+| 0.66     | 0.969596                      |
+| 0.667539 | 1                             | *legato*
+| 0.7      | 1.137769                      |
+| 0.8      | 1.635658                      | *legatissimo*
+| 0.9      | 2.252888                      |
+| 1.0      | 3                             | *lasciare vibrare*
 
 --------
 ### Intensity
