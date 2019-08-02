@@ -73,7 +73,7 @@
 - **function type identifier**: Prefix used to name functions, to ease the function type identification. The use of identifiers is not compulsory, but very convenient for readability of decoded genotypes.
 - **function index**: Integer assigned incrementally to identify each function with a unique number in the GenoMus functions catalogue. 
 - **encoded function index**: Float generated to identify each function with a unique number. These numbers are chosen using the function index as input for an algorithm designed to obtain an optimized distribution of these normalized identifiers &isinv; [0, 1].
-- **eligible functions**: set of functions that determine which ones can be chosen during the genotype generation process. Somehow, this set can characterize a composer or a style.
+- **eligible functions**: Set of functions that determine which ones can be chosen during the genotype generation process. Somehow, this set can characterize a composer or a style.
 - **genotype seed**: Number used to initialize the pseudorandom number generator before the genotype generation process starts. It allows repeatable results. Ultimately, a genotype can be identified only by this number, since it determines the entire decision tree that generates it.
 - **phenotype seed**: Number used to initialize the pseudorandom number generator before the genotype evaluation process starts, which allows producing repeatable phenotypes. When a genotype includes random processes, many different phenotypes from the same genotype can arise. In this case, each different result can be indentified with a phenotype seed. So, given specific initial conditions, a single specimen can be identified only by two integers: genotype and phenotype seeds.
 
@@ -106,7 +106,7 @@ Function types created to manage specific types of data (some of them are still 
 | **operationF**  | **o**        | result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
 | **binaryF**     | **b**        | boolean value (only 0 or 1)
 | **harmonyF**    | **h**        | pitch class set, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
-| **rhythmF**     | **r**        | rythmical patter class set
+| **rhythmF**     | **r**        | rhythmical patter class set
 | **quantizF**    | **q**        | numeric structure for quantization of rhythm
 | **externalF**   | **e**        | reference of an external genotype from a library (to be used with function referencing to external data)
 | **genotypeF**   | **g**        | raw encoded genotype (array of floats &isinv; [0, 1])
