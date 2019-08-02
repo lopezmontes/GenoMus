@@ -12,8 +12,8 @@
     - [Integer x steps](#integer-x-steps)
   - [Human-readable lists](#human-readable-lists) 
   - [Manual manipulation of genotypes](#manual-manipulation-of-genotypes)
-- [GenoMus function catalogue](#genomus-function-catalogue)  
-  - [Indexing a function in the GenoMus function catalogue](#indexing-a-function-in-the-genomus-function-catalogue)
+- [GenoMus function catalogues](#genomus-function-catalogues)  
+  - [Indexing a function in a GenoMus function catalogue](#indexing-a-function-in-a-genomus-function-catalogue)
   - [Encoded function index generation](#encoded-function-index-generation)
 - [Parameter mapping](#parameter-mapping)
   - [Duration](#duration-1)
@@ -69,7 +69,7 @@
 - **pitch**: Each of the root frecuencies in a chord.
 - **articulation**: Length of the chord sound. It can be different from the chord duration. If articulation matchs the duration, a perfect legato among chords will be played. Shorter or larger values for articulation will sound as staccato or lasciare vibrare effects.
 - **intensity**: Dynamic of a chord.
-- **GenoMus function catalog**: JSON file that lists and characterizes all the available functions for genotype generation.
+- **GenoMus function catalog**: JSON file that lists and characterizes all the available functions for genotype generation of a species.
 - **function type identifier**: Prefix used to name functions, to ease the function type identification. The use of identifiers is not compulsory, but very convenient for readability of decoded genotypes.
 - **function index**: Integer assigned incrementally to identify each function with a unique number in the GenoMus functions catalogue. 
 - **encoded function index**: Float generated to identify each function with a unique number. These numbers are chosen using the function index as input for an algorithm designed to obtain an optimized distribution of these normalized identifiers &isinv; [0, 1].
@@ -178,8 +178,8 @@ User functions use uppercase letters to be easily found during manual editing pr
 - **uFLATTEN** (*expr*) - render part of a genotype into a simple declarative score/voice/chord (phenotype)
 
 ---------
-## GenoMus function catalogue
-The GenoMus function catalogue is a JSON file that contains all available functions for genotype generation. The concept of species is crucial. Each species is determined by the parameter structure of a basic sonic event. The functional arquitecture depends on this specification. Specimens belonging to different species cannot be mixed. Consequently, an independent catalogue must be created for each new species. The default species of GenoMus, called *piano*, uses this parameters structure for each basic event:
+## GenoMus function catalogues
+A GenoMus function catalogue is a JSON file that contains all available functions for genotype generation. The concept of species is crucial. Each species is determined by the parameter structure of a basic sonic event. The functional arquitecture depends on this specification. Specimens belonging to different species cannot be mixed. Consequently, an independent catalogue must be created for each new species. The default species of GenoMus, called *piano*, uses this parameters structure for each basic event:
 
 [*\<duration\>*, *\<pitch\>*, *\<articulation\>*, *\<intensity\>*]
  
@@ -193,7 +193,7 @@ The GenoMus function catalogue contains these blocks:
 - **"outputType"**: all functions for genotype generation, grouped according to their output type.
 - **"functionIndex"**: all function for genotype generation, 
 
-### Indexing a function in the GenoMus function catalogue
+### Indexing a function in a GenoMus function catalogue
 Functions are listed into the JSON GenoMus catalogue following this format:
 ```
 "outputType": {
