@@ -108,10 +108,13 @@ To enable effective chaining of functions, all functions inside a genotype share
 | **3** | **phenLength** | integer | Number of phenotype chords generated so far. Useful for subsequent functions to avoid overly large processes.
 | **4** | **tempo** | float | Tempo of the phenotype. The float uses the [durationF](#durationf-d) format to indicate the duration of a quarter note. Default value: 0.6 (equivalent to &#9833;= 60)
 | **5** | **rhythm** | array of floats &isinv; [0, 1] | Time quantization and internal structures of rhythm according to this [encoding format](#rhythm).
-| **6** | **harmony** | array of floats &isinv; [0, 1] | Tonal centers and other  internal structures of harmony according to this [encoding format](#rhythm).
+| **6** | **harmony** | array of floats &isinv; [0, 1] | Tonal center and other  internal structures of harmony according to this [encoding format](#rhythm).
 
+First 5 elements are compulsory for every function of a genotype. Informations about rhythm and harmony can be useful for some specific functions, but they are optional. 
 
 Variable names inside each genotype function are not compulsory, but is highly recommended to maintain the same nomenclature to improve code readability and reusability.
+
+More fields can be added if needed, but always after the first 7 preset items.
 
 ---------
 ## Function types for genotypes
