@@ -6,6 +6,10 @@ norm2seconds:
 p = 2^{(10v - 6)}
 s = \frac{\log(p) + 6\log(2)}{10\log(2)}
 
+s = 2^{(10p - 6)}
+p = \frac{\log(s) + 6\log(2)}{10\log(2)}
+
+
 norm2hertz:
 p = \sqrt[4]{\frac{h}{20000}}
 h = 20000p^4
