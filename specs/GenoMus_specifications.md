@@ -388,13 +388,14 @@ Conversion formulae: normalized parameter _**p**_ to relative articulation _**a*
 | 0.2      | 0.037768                      | *staccatissimo*
 | 0.3      | 0.113708                      |
 | 0.4      | 0.248547                      | *staccato*
-| 0.5.     | 0.455866                      |    
+| 0.5      | 0.455866                      |    
 | 0.51729  | 0.5                           | *non legato*
 | 0.6      | 0.748296                      |
 | 0.66     | 0.969596                      |
 | 0.667539 | 1                             | *legato*
 | 0.7      | 1.137769                      |
 | 0.8      | 1.635658                      | *legatissimo*
+| 0.861429 | 2.                            |
 | 0.9      | 2.252888                      |
 | 1.0      | 3                             | *lasciare vibrare*
 
