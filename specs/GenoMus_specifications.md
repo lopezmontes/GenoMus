@@ -97,8 +97,8 @@ To enable effective chaining of functions, all functions inside a genotype share
 | index | variable name | format | description
 | ----- | -------------- | ----- | ----------
 | **0** | **funcType**  | string | Function type according to its output (see [reference](#function-types-for-genotypes))
-| **1** | **decGenOut** | string <sub>(decoded genotype excerpt)</sub> | Functional expression of the genotype branch computed until that node, including the function itself.
-| **2** | **encPhenOut** | array of floats&isinv;[0, 1]<sub>(encoded phenotype excerpt)</sub> | Result of the transformation of the input data made with the compositional procedures of the function itself.
+| **1** | **decGenOut** | string  | **Decoded genotype** excerpt. Functional expression of the genotype branch computed until that node, including the function itself.
+| **2** | **encPhenOut** | array of float s&isinv; [0, 1] | **Encoded phenotype** excerpt. Transformation of the input data made with the compositional procedures of the function itself.
 
 ---------
 ## Function types for genotypes
