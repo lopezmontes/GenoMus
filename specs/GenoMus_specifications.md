@@ -99,6 +99,9 @@ To enable effective chaining of functions, all functions inside a genotype share
 | **0** | **funcType**  | string | **Function type** according to its output (see [reference](#function-types-for-genotypes))
 | **1** | **decGenOut** | string  | **Decoded genotype** excerpt. Functional expression of the genotype branch computed until that node, including the function itself.
 | **2** | **encPhenOut** | array of floats &isinv; [0, 1] | **Encoded phenotype** excerpt. Transformation of the input data made with the compositional procedures of the function itself.
+| **3** | **phenLength** | integer | Number of phenotype chords generated so far. Useful for subsequent functions to avoid overly large processes.
+
+Variable names inside each genotype function are not compulsory, but is highly recommended to maintain the same nomenclature to improve code readability and reusability.
 
 ---------
 ## Function types for genotypes
