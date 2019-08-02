@@ -95,8 +95,10 @@
 To enable effective chaining of functions, all functions inside a genotype share the same output data structure. This output data is returned within an array according to the following order of elements:
 
 | index | variable name | format | description
-| ------ | -------------- | ----- | ----------
-| 0      | funcType | string | Function type according to its output (see [reference](#function-types-for-genotypes))
+| ----- | -------------- | ----- | ----------
+| **0** | **funcType**  | string | Function type according to its output (see [reference](#function-types-for-genotypes))
+| **1** | **decGenOut** | string | Functional expression of the genotype branch computed until that node, including the function itself.
+
 
 ---------
 ## Function types for genotypes
