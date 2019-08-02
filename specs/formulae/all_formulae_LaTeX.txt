@@ -28,5 +28,8 @@ i = 127p
 norm2xsteps
 p=\operatorname{round}\left(\Bigg(\frac{\arcsin\left(\left(2x-1\right)^{\frac{17}{11}}\right)}{\pi}+\frac{1}{2}\Bigg)\cdot72\ -\ 36\right)
 
+s=\operatorname{round}\left(\Bigg(\frac{\arcsin\left(\left(2p-1\right)^{\frac{17}{11}}\right)}{\pi}+\frac{1}{2}\Bigg)\cdot72\ -\ 36\right)
+
+
 encodedFunctionIndexGenerator
 f_{e}\equiv\big(f_{d}\cdot\phi\big)\mod 1 
