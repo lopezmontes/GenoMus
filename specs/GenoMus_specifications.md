@@ -106,16 +106,16 @@ Function types created to manage specific types of data (some of them are still 
 | **operationF**  | **o**        | result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
 | **binaryF**     | **b**        | boolean value (only 0 or 1)
 | **harmonyF**    | **h**        | pitch class set, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
-| **rhythmF**     | **r**        | rhythmical patter class set
+| **rhythmF**     | **r**        | rhythmical pattern class set
 | **quantizF**    | **q**        | numeric structure for quantization of rhythm
-| **externalF**   | **e**        | reference of an external genotype from a library (to be used with function referencing to external data)
+| **externalF**   | **e**        | pointer to an external genotype from a library (to be used with functions referencing external data)
 | **genotypeF**   | **g**        | raw encoded genotype (array of floats &isinv; [0, 1])
 | **txtF**        | **t**        | string
 | **waveF**       | **w**        | encoded path to read data from an stored audio file
 
 ---------
 ### Human-readable leaf parameters
-Function types created to allow a more user-friendly handling of decoded genotypes. All these functions are intended to replace a **paramF** in a leaf position of function tree.
+Function types created to improve manual handling of decoded genotypes. These functions can replace a **paramF** in a leaf position of function tree.
 #### Duration
 
 | *function type* | *identifier* | *output*
