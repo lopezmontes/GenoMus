@@ -110,7 +110,7 @@ To enable effective chaining of functions, all functions inside a genotype share
 | **5** | **rhythm** | array of floats &isinv; [0, 1] | Time quantization and internal structures of rhythm according to this [encoding format](#rhythm).
 | **6** | **harmony** | array of floats &isinv; [0, 1] | Tonal center and other  internal structures of harmony according to this [encoding format](#rhythm).
 
-First 5 elements are compulsory for every function of a genotype. Informations about rhythm and harmony can be useful for some specific functions, but they are optional. 
+First 5 elements are compulsory for every function of a genotype. Informations about rhythm and harmony can be useful for subsequent functions, but they are optional. 
 
 Variable names inside each genotype function are not compulsory, but is highly recommended to maintain the same nomenclature to improve code readability and reusability.
 
