@@ -94,7 +94,9 @@
 ### Output data structure 
 To enable effective chaining of functions, all functions inside a genotype share the same output data structure. This output data is returned within an array according to the following order of elements:
 
-
+| index | variable name | format | description
+| ------ | -------------- | ----- | ----------
+| 0      | funcType | string | Function type according to its output (see [reference](#function-types-for-genotypes))
 
 ---------
 ## Function types for genotypes
