@@ -2,6 +2,7 @@
 
 <img src="figures/GenoMus_figura_6-3.svg" width="160">
 
+--------
 ## Table of Contents
 - [Definitions](#definitions)
 - [Anatomy of a genotype function](#anatomy-of-a-genotype-function)
