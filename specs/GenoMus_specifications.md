@@ -257,18 +257,18 @@ This works as a useful lookup table for some automatic and manual processes.
 
 ---------
 ## Parameters mapping
-GenoMus function trees expect generic parameters (floats &isinv; [0, 1]) as leaves, regardless arguments' domain. When computing phenotypes, these numbers must be mapped to right ranges and scales, to represent duration, pitch, etc.
+GenoMus function trees expect generic parameters (floats &isinv; [0, 1]) as leaves, regardless arguments' domain. When computing phenotypes, these numbers must be mapped to correct ranges and scales to represent duration, pitch, etc.
 
-Human-readable function types use specific user-friendly argument formats. These non-generic parameters are first mapped to a normalized interval [0, 1] to be later evaluated and encoded as stardard normalized paramenters.
+Human-readable function types use specific user-friendly formats for each argument. These non generic parameters are first mapped to a normalized interval [0, 1] to be later evaluated and encoded as stardard normalized paramenters.
 
-In general, these maps are not linear (straight line maps). For each type of parameter, a gaussian approach is made, trying to cover a wide range of values for each category, but at the same time modeling the conversion in such a way that central values (specially the range [0.25, 0.75]) map to the musical values that appear more often.
+In general, these maps are not linear (straight line maps). For each type of parameter, a Gaussian approach is employed, trying to cover a wide range of values for each category, but at the same time modeling the conversion so that central values (specially the range [0.25, 0.75]) map to the musical values that appear more frequently.
 
 Since each species could require new domain-specific parameters, for each new parameter a mapping similar to those presented below must be defined.
 
-In summary, conversions are used in several ways:
-- From normalized parameters to domain-specific scales used for rendering phenotypes (scores or soundfiles).
-- Backwards, from arguments entered with user-friendly function-types that will return a normalized parameter.
-- To display decoded genotypes in a more human-readable way.
+Parameters mapping is used in several contexts:
+- **To display decoded genotypes** in a more human-readable way, converting normalized values to domain-specific ranges when possible.
+- **To encode genotypes**, converting arguments entered manually using user-friendly function types to normalized values.
+- **To render phenotypes** (scores or soundfiles), converting normalized values to domain-specific ranges.
 
 --------
 ### Duration
