@@ -179,19 +179,21 @@ User functions use uppercase letters to be easily found during manual editing pr
 
 ---------
 ## GenoMus function catalogues
-A GenoMus function catalogue is a JSON file that contains all available functions for genotype generation. The concept of species is crucial. Each species is determined by the parameter structure of a basic sonic event. The functional arquitecture depends on this specification. Specimens belonging to different species cannot be mixed. Consequently, an independent catalogue must be created for each new species. The default species of GenoMus, called *piano*, uses this parameters structure for each basic event:
+A GenoMus function catalogue is a JSON file that contains all available functions for genotype generation of a specific species. The concept of species is crucial, because each species is determined by the parameter structure of a basic sonic event. The functional arquitecture depends on this specification. Specimens belonging to different species cannot be mixed without some kind of ad hoc adaptation. Consequently, an independent catalogue must be created for each new species. The default species of GenoMus, called *piano*, uses this parameters structure for each basic event:
 
 [*\<duration\>*, *\<pitch\>*, *\<articulation\>*, *\<intensity\>*]
  
 
 The GenoMus function catalogue contains these blocks:
 - **"metadata"**: 
-  - **"species"**: basic event parameter structure.   
+  - **"species"**: name of the species.   
+  - **"parametersStructure"**: basic event parameter structure. 
+  - **"user"**: username
   - **"version"**: version number of the catalogue.
   - **"updated"**: date of last update.
   - ...
 - **"outputType"**: all functions for genotype generation, grouped according to their output type.
-- **"functionIndex"**: all function for genotype generation, 
+- **"functionIndex"**: all function for genotype generation, enumerated by their order of inclusion, along with their encoded function index.
 
 ### Indexing a function in a GenoMus function catalogue
 Functions are listed into the JSON GenoMus catalogue following this format:
