@@ -39,7 +39,7 @@
   - [Rhythm](#rhythm)
     - [Time grids](#time-grids)
     - [Quantization](#quantization)
-  - [Pitch](#pitch)
+  - [Pitch](#pitch-2)
     - [Harmonic grids](#harmonic-grids)
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
   - [Conversion table for genotypes](#conversion-table-for-genotypes)
