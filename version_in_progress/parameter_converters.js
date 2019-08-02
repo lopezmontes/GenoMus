@@ -1,7 +1,4 @@
-// round fractional part to 6 digits
-function r6d(f){
-    return Math.round(f*1000000)/1000000;
-}
+// parameters mapping functions
 
 function norm2notevalue (p) {
     return decimalToFraction(Math.pow(2,10*p-8));
@@ -57,7 +54,6 @@ var xstepsLookupTable = [0, 0.0005, 0.001, 0.003, 0.006, 0.008, 0.01, 0.015, 0.0
 function norm2xsteps(p) {
     if (p>1) { p = 1 };
     if (p<0) { p =0 };    
-//    return Math.round(((((Math.asin(Math.pow((2*p-1),(17/11))))/Math.PI))+0.5)*72-36);
     var s = -1*Math.round(((((Math.asin(Math.pow(Math.abs((2*p-1)),(17/11))))/Math.PI))+0.5)*72-36);
     if (p<.5) {
         return s;
@@ -71,6 +67,14 @@ function xsteps2norm(x) {
     if (x>36) { x = 36 };
     if (x<-36) { x =-36 };
     return xstepsLookupTable[Math.round(x)+36];
+}
+
+
+//////// aux functions
+
+// round fractional part to 6 digits
+function r6d(f){
+    return Math.round(f*1000000)/1000000;
 }
 
 // taken and adapted from https://gist.github.com/redteam-snippets/3934258; still to refine to avoid too weird numbers
