@@ -352,19 +352,20 @@ Conversion formulae: normalized parameter _**p**_ to frequency in hertz _**h**_ 
 <img src="formulae/hertz2norm.svg" width="101">
 <img src="formulae/norm2hertz_graph.png" width="250">
 
-| [0, 1] |  Hz      
-| ------ | -------- 
-| 0      | 0.000001 
-| 0.1    | 2        
-| 0.2    | 32       
-| 0.3    | 162      
-| 0.4    | 512      
-| 0.5    | 1250     
-| 0.6    | 2592     
-| 0.7    | 4802     
-| 0.8    | 8192     
-| 0.9    | 13122    
-| 1.0    | 20000    
+| [0, 1]   |  Hz      
+| -------- | -------- 
+| 0        | 0.000001 
+| 0.1      | 2        
+| 0.2      | 32       
+| 0.3      | 162 
+| 0.385129 | 440 
+| 0.4      | 512      
+| 0.5      | 1250     
+| 0.6      | 2592     
+| 0.7      | 4802     
+| 0.8      | 8192     
+| 0.9      | 13122    
+| 1.0      | 20000    
 
 --------
 ### Articulation
@@ -395,7 +396,7 @@ Conversion formulae: normalized parameter _**p**_ to relative articulation _**a*
 | 0.667539 | 1                             | *legato*
 | 0.7      | 1.137769                      |
 | 0.8      | 1.635658                      | *legatissimo*
-| 0.861429 | 2.                            |
+| 0.861429 | 2                             |
 | 0.9      | 2.252888                      |
 | 1.0      | 3                             | *lasciare vibrare*
 

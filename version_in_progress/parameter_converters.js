@@ -3,18 +3,30 @@ function r6d(f){
     return Math.round(f*1000000)/1000000;
 }
 
+
+
+function norm2frequency(p) {
+    if (p<0.003) { return 0.000001 }
+    else { return 20000*Math.pow(p,4)};
+}
+
+function frequency2norm(h) {
+    return Math.pow((h/20000),(1/4));
+}
+
 function norm2articulation(p) {
-    return r6d(3*Math.pow(p,Math.E));
+    return 3*Math.pow(p,Math.E);
 }
 
 function articulation2norm(a) {
-    return r6d(Math.pow((a/3),(1/Math.E)));
+    return Math.pow((a/3),(1/Math.E));
 }
 
 function norm2intensity(p) {
-    return r6d(127*p); 
+    return 127*p; 
 }
 
 function intensity2norm(i){
-    return r6d(i/127);
+    return i/127;
 } 
+
