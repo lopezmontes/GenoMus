@@ -554,7 +554,7 @@ The inversion is made with a lookup table.
 #### Time grids
 #### Quantization
 ### Pitch
-#### Harmonic gridss
+#### Harmonic grids
 
 
 ---------
