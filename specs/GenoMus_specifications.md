@@ -1,6 +1,9 @@
 # GenoMus specifications
 ## Table of Contents
 - [Definitions](#definitions)
+- [Anatomy of a genotype function](#anatomy-of-a-genotype-function)
+  - [Input arguments](#input-arguments)
+  - [Output data structure](#output-data-structure)
 - [Function types for genotypes](#function-types-for-genotypes)
   - [Main structures](#main-structures)
   - [Special formats](#special-formats)
@@ -76,6 +79,17 @@
 - **eligible functions**: Set of functions that determine which ones can be chosen during the genotype generation process. Somehow, this set can characterize a composer or a style.
 - **genotype seed**: Number used to initialize the pseudorandom number generator before the genotype generation process starts. It allows repeatable results. Ultimately, a genotype can be identified only by this number, since it determines the entire decision tree that generates it.
 - **phenotype seed**: Number used to initialize the pseudorandom number generator before the genotype evaluation process starts, which allows producing repeatable phenotypes. When a genotype includes random processes, many different phenotypes from the same genotype can arise. In this case, each different result can be indentified with a phenotype seed. So, given specific initial conditions, a single specimen can be identified only by two integers: genotype and phenotype seeds.
+
+---------
+## Anatomy of a genotype function
+
+### Input arguments
+
+
+### Output data structure 
+To enable effective chaining of functions, all functions inside a genotype share the same output data structure. This output data is returned within an array according to the following order of elements:
+
+
 
 ---------
 ## Function types for genotypes
