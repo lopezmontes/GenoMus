@@ -405,8 +405,8 @@ Conversion formulae: normalized parameter _**p**_ to relative articulation _**a*
 #### **intensityF** (i)
 Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standard MIDI velocity  and inverse ([graph](https://www.desmos.com/calculator/cisndyw3gs)):
 
-<img src="formulae/norm2intensity.svg" width="67">
-<img src="formulae/intensity2norm.svg" width="72">
+<img src="formulae/norm2intensity.svg" width="72">
+<img src="formulae/intensity2norm.svg" width="67">
 <img src="formulae/norm2intensity_graph.png" width="250">
 
 | [0, 1] |  MIDI velocity      | notation
