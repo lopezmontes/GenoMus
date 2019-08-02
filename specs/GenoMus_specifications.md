@@ -1,6 +1,6 @@
 # GenoMus specifications
 
-<img src="figures/GenoMus_figura_6-3.svg" width="220">
+<img src="figures/GenoMus_figura_6-3.svg" width="160">
 
 ## Table of Contents
 - [Definitions](#definitions)
