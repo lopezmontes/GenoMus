@@ -1,4 +1,5 @@
 # GenoMus specifications
+<img src="figures/genomus_figure.png" width="180">
 ## Table of Contents
 - [Definitions](#definitions)
 - [Anatomy of a genotype function](#anatomy-of-a-genotype-function)
