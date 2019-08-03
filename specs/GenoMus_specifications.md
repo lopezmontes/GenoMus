@@ -94,8 +94,13 @@
 ---------
 ## Anatomy of a genotype function
 
+### Function naming
+As a convenient convention to improve the understanding of the function tree, genotype functions are named beginning with the type identifier, a letter that identifies their type of output (see [types of genotype function](#function-types-for-genotypes).
+
 ### Input arguments
-All genotype functions, except leaf functions, expect arguments received from other genotype function. The input arguments can only come from one of the [predefined types of functions](#function-types-for-genotypes). 
+All genotype functions, except leaf functions, expect arguments received from another genotype function. The input arguments can only come from one of the predefined types of genotype function.
+
+The names of the input arguments are of free choice.
 
 ### Output data structure 
 To enable effective chaining of functions, all functions inside a genotype share the same output data structure. This output data is returned within an array according to the following order of elements:
@@ -115,6 +120,18 @@ First 5 elements are compulsory for every function of a genotype. Informations a
 Variable names inside each genotype function are not compulsory, but is highly recommended to maintain the same nomenclature to improve code readability and reusability.
 
 More fields can be added if needed, but always after the first seven preset items.
+
+### Genotype function template
+
+```
+var iFunctionName
+
+
+
+
+```
+
+
 
 ---------
 ## Function types for genotypes
