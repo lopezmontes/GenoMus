@@ -6,7 +6,7 @@
 ## Table of Contents
 - [Definitions](#definitions)
 - [Anatomy of a genotype function](#anatomy-of-a-genotype-function)
-  - [Function naming](#function-naming)
+  - [Function name](#function-name)
   - [Input arguments](#input-argumentss)
   - [Output data structure](#output-data-structure)
 - [Function types for genotypes](#function-types-for-genotypes)
@@ -95,7 +95,7 @@
 ---------
 ## Anatomy of a genotype function
 
-### Function naming
+### Function name
 As a convenient convention to improve the understanding of the function tree, genotype functions are named beginning with the type identifier, a letter that identifies their type of output (see [function types for genotypes](#function-types-for-genotypes)).
 
 ### Input arguments
