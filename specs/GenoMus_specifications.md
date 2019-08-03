@@ -95,7 +95,7 @@
 ## Anatomy of a genotype function
 
 ### Input arguments
-
+All genotype functions, except leaf functions, expect arguments received from other genotype function. The input arguments can only come from one of the [predefined types of functions](#function-types-for-genotypes). 
 
 ### Output data structure 
 To enable effective chaining of functions, all functions inside a genotype share the same output data structure. This output data is returned within an array according to the following order of elements:
@@ -114,11 +114,13 @@ First 5 elements are compulsory for every function of a genotype. Informations a
 
 Variable names inside each genotype function are not compulsory, but is highly recommended to maintain the same nomenclature to improve code readability and reusability.
 
-More fields can be added if needed, but always after the first 7 preset items.
+More fields can be added if needed, but always after the first seven preset items.
 
 ---------
 ## Function types for genotypes
 Functions in GenoMus are classified by their output data. 
+
+---------
 ### Used function type identifiers
 ~~**a** **b** **c** **d** **e** **f** **g** **h** **i**~~ j k ~~**l** **m** **n** **o** **p** **q** **r** **s** **t** **u** **v** **w** **x**~~ y z
 
