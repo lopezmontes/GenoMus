@@ -598,7 +598,7 @@ A harmony vector is coded into an array as follows:
 
 | index     | feature          | data format          | description
 | --------- | ---------------- | -------------------- | ----------- 
-| **0**     | **tonalCenter**  | midipitchF           | main reference pitch (usually a chord' root)
+| **0**     | **tonalCenter**  | midipitchF           | main reference pitch (usually a chord's root)
 | **1**     | **pitchSet**     | harmonyF             | pitch class set with the harmony pitches (regardless of tonal center)
 | **2**     | **mode**         | harmonyF             | superset of MIDI pitches containing the harmony (usually, a scale)
 | **3**     | **chromaticity** | float &isinv; [0, 1] | tolerance to chromatic notes (higher means more chromatic results)
