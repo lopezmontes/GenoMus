@@ -93,6 +93,7 @@
 - **eligible functions**: Set of functions that determine which ones can be chosen during the genotype generation process. Somehow, this set can characterize a composer or a style.
 - **genotype seed**: Number used to initialize the pseudorandom number generator before the genotype generation process starts. It allows repeatable results. Ultimately, a genotype can be identified only by this number, since it determines the entire decision tree that generates it.
 - **phenotype seed**: Number used to initialize the pseudorandom number generator before the genotype evaluation process starts, which allows producing repeatable phenotypes. When a genotype includes random processes, many different phenotypes from the same genotype can arise. In this case, each different result can be indentified with a phenotype seed. So, given specific initial conditions, a single specimen can be identified only by two integers: genotype and phenotype seeds.
+- **harmony vector**: Series of values ​​that characterize a harmony by specifying tonal center, pitch class set and other features.
 
 ---------
 ## Anatomy of a genotype function
@@ -589,7 +590,7 @@ The inversion is made with a lookup table.
 #### Quantization
 --------
 ### Harmony
-#### Harmonic vector
+#### Harmony vector
 
 Each harmony can be expressed as a vector containing informations to be used by other functions to map pitches. This vector is an abstract representation of a set of pitches and their relationship with a mode and with the level of general chromatism. Using the information, certain functions adjust their values to the grid of pitches that fits this harmony.
 
