@@ -42,7 +42,8 @@
     - [Time grids](#time-grids)
     - [Quantization](#quantization)
   - [Harmony](#harmony)
-    - [Harmonic grids](#harmonic-grids)
+    - [Harmonic grid](#harmonic-grids)
+    - [Chromaticity degree](#chromaticity-degree)
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
   - [Conversion table for genotypes](#conversion-table-for-genotypes)
   - [Examples](#examples)
@@ -586,7 +587,9 @@ The inversion is made with a lookup table.
 ### Rhythm
 #### Time grids
 #### Quantization
+--------
 ### Harmony
+#### Harmonic grid
 
 Each harmony can be represented as a vector containing informations to be used by other functions to map pitches. This vector is coded into an array as follows:
 
@@ -597,11 +600,10 @@ Each harmony can be represented as a vector containing informations to be used b
 | 2     | mode         | harmonyF             | superset of MIDI pitches containing the harmony
 | 3     | chromaticity | float &isinv; [0, 1] | tolerance to chromatic notes (higher leads to more chromatic results)
 
-#### Chromaticity scale
+#### Chromaticity degree
 
 
 
-#### Harmonic grids
 
 ---------
 ## Genotype operations
