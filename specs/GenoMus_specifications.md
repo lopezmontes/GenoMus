@@ -593,12 +593,12 @@ The inversion is made with a lookup table.
 
 Each harmony can be represented as a vector containing informations to be used by other functions to map pitches. This vector is coded into an array as follows:
 
-| index | feature      | data format          | description
-| ----- | ------------ | -------------------- | ----------- 
-| 0     | tonalCenter  | midipitchF           | main reference pitch (usually a chords' root)
-| 1     | pitchSet     | harmonyF             | pitch class set with the harmony pitches (regardless of tonal center)
-| 2     | mode         | harmonyF             | superset of MIDI pitches containing the harmony
-| 3     | chromaticity | float &isinv; [0, 1] | tolerance to chromatic notes (higher leads to more chromatic results)
+| index     | feature          | data format          | description
+| --------- | ---------------- | -------------------- | ----------- 
+| **0**     | **tonalCenter**  | midipitchF           | main reference pitch (usually a chords' root)
+| **1**     | **pitchSet**     | harmonyF             | pitch class set with the harmony pitches (regardless of tonal center)
+| **2**     | **mode**         | harmonyF             | superset of MIDI pitches containing the harmony
+| **3**     | **chromaticity** | float &isinv; [0, 1] | tolerance to chromatic notes (higher leads to more chromatic results)
 
 #### Chromaticity degree
 
