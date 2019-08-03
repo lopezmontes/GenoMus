@@ -125,13 +125,19 @@ More fields can be added if needed, but always after the first seven preset item
 ### Genotype function template
 
 ```
-var <iFunctionName> (argument1, argument2, ... argumentN) {
+var <iFunctionName> (argument1, argument2, ..., argumentN) {
+    ////
+        < check block > // checks that the execution of the function will produce a phenotype that satisfies the constraints of the 
+    predetermined initial conditions
+    ////
     var funcType = "<functionType>"; // describes the type of the function itself
+    var encPhenOut = []; // this array will contain the produced encoded phenotype
+    ////
+        < core block > // executes the musical transformations of the function, writing the results in the variable encPhenOut, and calculating at the end of the process the updated values of phenLength, tempo, rhythm and harmony.
+    ////
     
-
-
     var decGenOut = "<iFunctionName>(" + argument[1] + "," + + argument[2] + "," + ... argument[2] + ")";    
-    return writeSubexpressionAndReturnData(funcType, decGenOut, encPhenOut, phenLength, tempo, rhythm, harmony);
+    return writeSubexprAndReturnsData(funcType, decGenOut, encPhenOut, phenLength, tempo, rhythm, harmony);
 }
 
 
