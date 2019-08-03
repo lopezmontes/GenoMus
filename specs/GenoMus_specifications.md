@@ -591,17 +591,30 @@ The inversion is made with a lookup table.
 ### Harmony
 #### Harmonic grid
 
-Each harmony can be represented as a vector containing informations to be used by other functions to map pitches. This vector is coded into an array as follows:
+Each harmony can be expressed as a vector containing informations to be used by other functions to map pitches. This vector is an abstract representation of a set of pitches and their relationship with a mode and with the level of general chromatism. Using the information in this vector, certain functions adjust their values to the grid of pitches that fits this harmony.
+
+A harmonic grid is coded into an array as follows:
 
 | index     | feature          | data format          | description
 | --------- | ---------------- | -------------------- | ----------- 
 | **0**     | **tonalCenter**  | midipitchF           | main reference pitch (usually a chords' root)
 | **1**     | **pitchSet**     | harmonyF             | pitch class set with the harmony pitches (regardless of tonal center)
-| **2**     | **mode**         | harmonyF             | superset of MIDI pitches containing the harmony
-| **3**     | **chromaticity** | float &isinv; [0, 1] | tolerance to chromatic notes (higher leads to more chromatic results)
+| **2**     | **mode**         | harmonyF             | superset of MIDI pitches containing the harmony (usually, a scale)
+| **3**     | **chromaticity** | float &isinv; [0, 1] | tolerance to chromatic notes (higher means more chromatic results)
+
+The pitchSet is not a pitch class set prime form. The order of pitches determine how important is each interval 
 
 #### Chromaticity degree
 
+Chromaticity degree is denoted with a normalized value. This is the meaning of different levels of chromatism:
+
+| Chromaticity degree | result
+| ------------------- | ------
+| 0                   | Only tonal center 
+| .25
+| .5
+| .75
+| 1
 
 
 
