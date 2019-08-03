@@ -42,7 +42,7 @@
     - [Time grids](#time-grids)
     - [Quantization](#quantization)
   - [Harmony](#harmony)
-    - [Harmonic grid](#harmonic-grids)
+    - [Harmonic grid](#harmonic-grid)
     - [Chromaticity degree](#chromaticity-degree)
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
   - [Conversion table for genotypes](#conversion-table-for-genotypes)
