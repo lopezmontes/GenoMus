@@ -10,6 +10,7 @@
   - [Input arguments](#input-argumentss)
   - [Output data structure](#output-data-structure)
 - [Function types for genotypes](#function-types-for-genotypes)
+  - [Used function type identifiers](#used-function-type-identifiers)
   - [Main structures](#main-structures)
   - [Special formats](#special-formats)
   - [Human-readable leaf parameters](#human-readable-leaf-parameters) 
