@@ -588,7 +588,6 @@ The inversion is made with a lookup table.
 ### Harmony
 #### Harmonic grids
 
-
 ---------
 ## Genotype operations
 ### Creation
@@ -724,6 +723,9 @@ Phenotype:
 ---------
  
 ## Initial conditions for generation of genotypes
+### Constraints
+### Eligible functions
+### Mandatory functions
 ### Vector of desired musical characteristics
 #### Weighted measurement of Euclidean distance
 
