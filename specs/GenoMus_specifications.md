@@ -134,13 +134,12 @@ var <iFunctionName> = function (argument1, argument2, ..., argumentN) {
     ////
         < core block > // executes the musical transformations of the function, writing the results in the variable encPhenOut, and calculating at the end of the process the updated values of phenLength, tempo, rhythm and harmony.
     ////
-    
     var decGenOut = "<iFunctionName>(" + argument1[1] + "," + + argument2[1] + "," + ... argumentN[1] + ")"; // creates a string as a self-reference of the functional expression that has been evaluated.
     return writeSubexprReturnData(funcType, decGenOut, encPhenOut, phenLength, tempo, rhythm, harmony);
 };
 ```
 
-The last line uses the auxiliary function **writeSubexprReturnData**, which writes all the subexpressions generated during the evaluation of the function tree, and return the array with the [output data structure](#output-data-structure) described above.
+The last line uses the auxiliary function **writeSubexprReturnData**, which stores all the subexpressions generated during the evaluation of the function tree so far, and returns the array with the [output data structure](#output-data-structure) described above.
 
 ---------
 ## Function types for genotypes
