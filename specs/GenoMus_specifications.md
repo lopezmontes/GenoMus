@@ -42,7 +42,7 @@
     - [Time grids](#time-grids)
     - [Quantization](#quantization)
   - [Harmony](#harmony)
-    - [Harmonic grid](#harmonic-grid)
+    - [Harmonic vector](#harmonic-vector)
     - [Chromaticity degree](#chromaticity-degree)
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
   - [Conversion table for genotypes](#conversion-table-for-genotypes)
@@ -589,11 +589,11 @@ The inversion is made with a lookup table.
 #### Quantization
 --------
 ### Harmony
-#### Harmonic grid
+#### Harmonic vector
 
-Each harmony can be expressed as a vector containing informations to be used by other functions to map pitches. This vector is an abstract representation of a set of pitches and their relationship with a mode and with the level of general chromatism. Using the information in this vector, certain functions adjust their values to the grid of pitches that fits this harmony.
+Each harmony can be expressed as a vector containing informations to be used by other functions to map pitches. This vector is an abstract representation of a set of pitches and their relationship with a mode and with the level of general chromatism. Using the information, certain functions adjust their values to the grid of pitches that fits this harmony.
 
-A harmonic grid is coded into an array as follows:
+A harmonic vector is coded into an array as follows:
 
 | index     | feature          | data format          | description
 | --------- | ---------------- | -------------------- | ----------- 
