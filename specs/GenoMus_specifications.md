@@ -592,9 +592,9 @@ The inversion is made with a lookup table.
 ### Harmony
 #### Harmony vector
 
-Each harmony can be expressed as a vector containing informations to be used by other functions to map pitches. This vector is an abstract representation of a set of pitches and their relationship with a mode and with the level of general chromatism. Using the information, certain functions adjust their values to the grid of pitches that fits this harmony.
+Each harmony can be expressed as a vector containing informations to be used by other functions to map pitches. This vector is an abstract representation of a set of pitches and their relationship with a mode and with the level of general chromatism. Using this information, certain functions adjust their values to the grid of pitches that fits this harmony.
 
-A harmonic vector is coded into an array as follows:
+A harmony vector is coded into an array as follows:
 
 | index     | feature          | data format          | description
 | --------- | ---------------- | -------------------- | ----------- 
