@@ -95,7 +95,7 @@
 ## Anatomy of a genotype function
 
 ### Function naming
-As a convenient convention to improve the understanding of the function tree, genotype functions are named beginning with the type identifier, a letter that identifies their type of output (see [types of genotype function](#function-types-for-genotypes).
+As a convenient convention to improve the understanding of the function tree, genotype functions are named beginning with the type identifier, a letter that identifies their type of output (see [function types for genotypes](#function-types-for-genotypes)).
 
 ### Input arguments
 All genotype functions, except leaf functions, expect arguments received from another genotype function. The input arguments can only come from one of the predefined types of genotype function.
