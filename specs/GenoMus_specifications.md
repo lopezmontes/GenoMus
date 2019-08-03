@@ -6,7 +6,8 @@
 ## Table of Contents
 - [Definitions](#definitions)
 - [Anatomy of a genotype function](#anatomy-of-a-genotype-function)
-  - [Input arguments](#input-arguments)
+  - [Function naming](#function-naming)
+  - [Input arguments](#input-argumentss)
   - [Output data structure](#output-data-structure)
 - [Function types for genotypes](#function-types-for-genotypes)
   - [Main structures](#main-structures)
