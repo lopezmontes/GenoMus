@@ -614,7 +614,7 @@ Chromaticity degree is denoted with a normalized value. This is the meaning of d
 | 0                   | Only the tonal center and its octaves are used.
 | .25                 | Only the first half of pitch set is used.
 | .5                  | All the pitch set is used, with no extra pitches. 
-| .75                 | All the mode pitches are used, with no extra pitches.
+| .75                 | All the pitches of the mode are used, with no extra pitches.
 | 1                   | All notes of the chromatic scale are used, so mode can no longer be distinguished.
 
 
