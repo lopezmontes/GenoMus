@@ -125,7 +125,14 @@ More fields can be added if needed, but always after the first seven preset item
 ### Genotype function template
 
 ```
-var iFunctionName
+var <iFunctionName> (argument1, argument2, ... argumentN) {
+    var funcType = "<functionType>"; // describes the type of the function itself
+    
+
+
+    var decGenOut = "<iFunctionName>(" + argument[1] + "," + + argument[2] + "," + ... argument[2] + ")";    
+    return writeSubexpressionAndReturnData(funcType, decGenOut, encPhenOut, phenLength, tempo, rhythm, harmony);
+}
 
 
 
