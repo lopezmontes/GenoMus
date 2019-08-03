@@ -598,12 +598,12 @@ A harmony vector is coded into an array as follows:
 
 | index     | feature          | data format          | description
 | --------- | ---------------- | -------------------- | ----------- 
-| **0**     | **tonalCenter**  | midipitchF           | main reference pitch (usually a chords' root)
+| **0**     | **tonalCenter**  | midipitchF           | main reference pitch (usually a chord' root)
 | **1**     | **pitchSet**     | harmonyF             | pitch class set with the harmony pitches (regardless of tonal center)
 | **2**     | **mode**         | harmonyF             | superset of MIDI pitches containing the harmony (usually, a scale)
 | **3**     | **chromaticity** | float &isinv; [0, 1] | tolerance to chromatic notes (higher means more chromatic results)
 
-The pitchSet is not a pitch class set prime form. The order of pitches determine how important is each interval 
+The pitchSet is not a pitch class set prime form. The order of pitches determine how important is each one. That order of priority affects the way pitches are chosen for low degrees of chromaticity. 
 
 #### Chromaticity degree
 
