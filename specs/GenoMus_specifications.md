@@ -369,8 +369,11 @@ Conversion formulae: normalized parameter _**p**_ to note value ratio _**v**_ an
 
 #### Reference table for main noteValues
 
+
+
 <img src="figures/all_noteValues.svg" width="800">
 
+<sub>The numbers below the figures indicate note values as part of triplets and quintuplets.</sub>
 
 ### **durationF** (d) 
 
