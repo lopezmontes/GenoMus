@@ -588,24 +588,24 @@ The inversion is made with a lookup table.
 ### Rhythm
 #### Rhythm vector
 
-| index     | feature             | data format          | description
-| --------- | ------------------- | -------------------- | ----------- 
-| **0**     | **centralValue**    | notevalueF           | main reference notevalue
-| **1**     | **valueSet**        | rhythmF              | rhythmical pattern (regardless of central value)
-| **2**     | **quantization**    | quantizF             | set different modes of time divisions and rhythmical grouping
+| index     | feature          | data format          | description
+| --------- | ---------------- | -------------------- | ----------- 
+| **0**     | **centralValue** | notevalueF           | main reference notevalue
+| **1**     | **valueSet**     | rhythmF              | rhythmical pattern (regardless of central value)
+| **2**     | **prolation**    | quantizF             | set different modes of time divisions and rhythmical grouping
 | **3**     | **quantization*  | float &isinv; [0, 1] | degree of adjustment to quantization scheme (higher means more rhythmical complexity)
 
-The order of values in rhythmical pattern matters, because it is a sequence.
+The order of values in valueSet rhythmical pattern matters, because it affects the priority of taken values for low degrees of quantization.
 
 #### Quantization
 
 | quantization value | result
-| ------------------- | ------
-| 0                   | Only the centralValue is used (simplest rhythmical pattern).
-| .25                 | Only three binary noteValues (for example, \{ &#119135; , &#119136; , &#119137; \})
-| .5                  | All the elements of the rhythmical pattern are used.
-| .75                 | More note values are added, according to the quantization scheme. 
-| 1                   | No quantization applied. Values are mapped with maximal time resolution.
+| ------------------ | ------
+| 0                  | Only the centralValue is used (simplest rhythmical pattern).
+| .25                | Only three binary noteValues (for example, \{ &#119135; , &#119136; , &#119137; \})
+| .5                 | All the elements of the rhythmical pattern are used.
+| .75                | More note values are added, according to the quantization scheme. 
+| 1                  | No quantization applied. Values are mapped with maximal time resolution.
 
 <img src="figures/all_noteValues.svg" width="800">
 
