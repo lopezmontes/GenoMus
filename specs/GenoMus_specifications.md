@@ -586,8 +586,27 @@ The inversion is made with a lookup table.
 ---------
 ## Characterization of underlying musical patterns
 ### Rhythm
-#### Time grids
+#### Rhythm vector
+
+| index     | feature          | data format          | description
+| --------- | ---------------- | -------------------- | ----------- 
+| **0**     | **centralValue** | notevalueF           | main reference notevalue
+| **1**     | **pitchSet**     | harmonyF             | pitch class set with the harmony pitches (regardless of tonal center)
+| **2**     | **prolatio**     | ?                    | superset of MIDI pitches containing the harmony (usually, a scale)
+| **3**     | **quantization** | float &isinv; [0, 1] | limit to quantization values (higher means more rhythmical complexity)
+
 #### Quantization
+
+| Quantization degree | result
+| ------------------- | ------
+| 0                   | Only the centeralue is used (simplest rhythmical pattern).
+| .25                 | Only the first half of pitch set is used.
+| .5                  | All the pitch set is used, with no extra pitches. 
+| .75                 | All the pitches of the mode are used, with no extra pitches.
+| 1                   | No quantization applied. Values are mapped with maximal time resolution.
+
+<img src="figures/all_noteValues.svg" width="560">
+
 --------
 ### Harmony
 #### Harmony vector
