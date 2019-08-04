@@ -627,7 +627,7 @@ A harmony vector is coded into an array as follows:
 | **2**     | **mode**         | harmonyF             | pitch class set containing the chord pitches (usually, a scale)
 | **3**     | **chromaticity** | float &isinv; [0, 1] | tolerance to chromatic notes (higher means more chromatic results)
 
-The **chord** is not a pitch class set because order matters. The position within the sequence determines the priority is each one for low degrees of chromaticity (the first, the most important). 
+The **chord** is not a pitch class set because order matters. The position within the sequence determines the priority of each pitch for low degrees of chromaticity (the first, the most important). 
 
 The **mode** is a pitch class set using C (pitch class 0) as tonal center. 
 
