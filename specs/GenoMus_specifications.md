@@ -592,7 +592,7 @@ The inversion is made with a lookup table.
 | --------- | ---------------- | -------------------- | ----------- 
 | **0**     | **centralValue** | notevalueF           | main reference notevalue
 | **1**     | **talea**        | rhythmF              | rhythmic pattern (regardless of central value)
-| **2**     | **prolatio**     | integers array       | successive levels of divisions in the temporal grid to which the rhythmic values will be adjusted.
+| **2**     | **prolatio**     | integers array       | successive levels of divisions in the temporal grid to which the rhythmic values will be adjusted
 | **3**     | **quantization** | float &isinv; [0, 1] | degree of adjustment to quantization scheme (higher means more rhythmic complexity)
 
 The order of values in **talea** matters, because the position within the sequence determines the priority of taken values for low degrees of quantization (the first, the most important).
@@ -601,11 +601,11 @@ The order of values in **talea** matters, because the position within the sequen
 
 | quantization value | result
 | ------------------ | ------
-| 0                  | Only the centralValue is used (simplest rhythmic pattern).
-| .25                | Only three binary noteValues (for example, \{ &#119135; , &#119136; , &#119137; \})
-| .5                 | All the elements of the rhythmic pattern are used.
-| .75                | More note values are added, according to the quantization scheme. 
-| 1                  | No quantization applied. Values are mapped with maximal time resolution.
+| 0                  | only the centralValue is used (simplest rhythmic pattern)
+| .25                | only three binary noteValues (for example, \{ &#119135; , &#119136; , &#119137; \})
+| .5                 | all the elements of the rhythmic pattern are used
+| .75                | more note values are added, according to the quantization scheme 
+| 1                  | no quantization applied. Values are mapped with maximal time resolution
 
 <img src="figures/all_noteValues.svg" width="800">
 
@@ -634,11 +634,11 @@ The **mode** is a pitch class set using C (pitch class 0) as tonal center.
 
 | Chromaticity value | result
 | ------------------ | ------
-| 0                  | Only the tonal center and its octaves are used.
-| .25                | Only the first half of pitch set is used.
-| .5                 | All the pitch set is used, with no extra pitches. 
-| .75                | All the pitches of the mode are used, with no extra pitches.
-| 1                  | All notes of the chromatic scale are used, so the mode can no longer be distinguished.
+| 0                  | only the tonal center and its octaves are used
+| .25                | only the first half of pitch set is used
+| .5                 | all the pitch set is used, with no extra pitches
+| .75                | all the pitches of the mode are used, with no extra pitches
+| 1                  | all notes of the chromatic scale are used, so the mode can no longer be distinguished
 
 
 
