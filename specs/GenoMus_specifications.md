@@ -594,6 +594,10 @@ The inversion is made with a lookup table.
 
 ---------
 # Characterization of underlying musical patterns
+
+
+
+---------
 ## Rhythm
 
 Each rhythmic pattern can be expressed as a vector containing informations to be used by other functions to map durations. This vector is an abstract representation of a rhythmic pattern and its interrelation with a time grid and with the level of general quantization. Using this data, certain functions adjust their values to get different rhythmic structures and analytical information.
@@ -633,13 +637,11 @@ A harmony pattern vector is coded into an array as follows:
 | index     | feature          | data format          | description
 | --------- | ---------------- | -------------------- | ----------- 
 | **0**     | **tonalCenter**  | midipitchF           | main reference pitch (usually a chord's root)
-| **1**     | **chord**        | harmonyF             | pitch class sequence with the harmony pitches (regardless of tonal center)s
-| **2**     | **mode**         | harmonyF             | pitch class set containing the chord pitches (usually, a scale)
+| **1**     | **chord**        | harmonyF             | pitch class sequence with the harmony pitches (regardless of tonal center)
+| **2**     | **mode**         | harmonyF             | pitch class set (usually, a scale) containing the chord pitches using C (pitch class 0) as root 
 | **3**     | **chromaticity** | float &isinv; [0, 1] | tolerance to chromatic notes (higher means more chromatic results)
 
 The **chord** is not a pitch class set because order matters. The position within the sequence determines the priority of each pitch for low degrees of chromaticity (the first, the most important). 
-
-The **mode** is a pitch class set using C (pitch class 0) as tonal center. 
 
 ### Chromaticity degree
 
