@@ -175,7 +175,7 @@ Function types created to manage specific types of data (some of them are still 
 | **operationF**  | **o**        | result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
 | **binaryF**     | **b**        | boolean value (only 0 or 1)
 | **harmonyF**    | **h**        | pitch class set, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
-| **rhythmF**     | **r**        | rhythmical pattern
+| **rhythmF**     | **r**        | rhythmic pattern
 | **quantizF**    | **q**        | numeric structure for quantization of rhythm
 | **catalogueF**   | **c**       | pointer to an external genotype from a specimen catalogue (to be used with functions referencing external data)
 | **genotypeF**   | **g**        | raw encoded genotype (array of floats &isinv; [0, 1])
@@ -591,9 +591,9 @@ The inversion is made with a lookup table.
 | index     | feature          | data format          | description
 | --------- | ---------------- | -------------------- | ----------- 
 | **0**     | **centralValue** | notevalueF           | main reference notevalue
-| **1**     | **talea**        | rhythmF              | rhythmical pattern (regardless of central value)
-| **2**     | **prolatio**     | integers array       | set different modes of time divisions and rhythmical grouping
-| **3**     | **quantization** | float &isinv; [0, 1] | degree of adjustment to quantization scheme (higher means more rhythmical complexity)
+| **1**     | **talea**        | rhythmF              | rhythmic pattern (regardless of central value)
+| **2**     | **prolatio**     | integers array       | set different modes of time divisions and rhythmic grouping
+| **3**     | **quantization** | float &isinv; [0, 1] | degree of adjustment to quantization scheme (higher means more rhythmic complexity)
 
 The order of values in **talea** matters, because the position within the sequence determines the priority of taken values for low degrees of quantization (the first, the most important).
 
@@ -604,9 +604,9 @@ The **prolatio** array determines successive levels of divisions in the temporal
 
 | quantization value | result
 | ------------------ | ------
-| 0                  | Only the centralValue is used (simplest rhythmical pattern).
+| 0                  | Only the centralValue is used (simplest rhythmic pattern).
 | .25                | Only three binary noteValues (for example, \{ &#119135; , &#119136; , &#119137; \})
-| .5                 | All the elements of the rhythmical pattern are used.
+| .5                 | All the elements of the rhythmic pattern are used.
 | .75                | More note values are added, according to the quantization scheme. 
 | 1                  | No quantization applied. Values are mapped with maximal time resolution.
 
@@ -835,7 +835,7 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
 - **"decodedPhenotype"**: phenotype converted to the desired formats (bach roll, bach score, lilypond, MusicXML, Csound, multimedia outputs, etc.)
 - **"automaticAnalysis"**: automatic analysis of many different musical characteristics of the specimen, all expressed as an normalized value &isinv; [0, 1]. A higher number means more complexity.  
   - **"polyphony"**
-  - **"rhythmicalComplexity"**
+  - **"rhythmicComplexity"**
   - **"chromatism"**
   - **"disonance"**
   - **"disjunctivity"**
