@@ -620,9 +620,9 @@ The order of values in **talea** matters, because the position within the sequen
 | quantization value | result
 | ------------------ | ------
 | 0                  | only the centralValue is used (simplest rhythmic pattern)
-| .25                | only the first half of talea values is used
-| .5                 | all the talea values are used
-| .75                | more note values are added, with a quantization according to the prolatio scheme 
+| 0.25                | only the first half of talea values is used
+| 0.5                 | all the talea values are used
+| 0.75                | more note values are added, with a quantization according to the prolatio scheme 
 | 1                  | no quantization applied, values are mapped with full time resolution
 
 --------
@@ -650,9 +650,9 @@ The **chord** is not a pitch class set because order matters. The position withi
 | Chromaticity value | result
 | ------------------ | ------
 | 0                  | only the tonal center and its octaves are used
-| .25                | only the first half of chord pitches sequence is used
-| .5                 | all the chord pitches are used, with no extra pitches
-| .75                | all the pitches of the mode are used, with no extra pitches
+| 0.25                | only the first half of chord pitches sequence is used
+| 0.5                 | all the chord pitches are used, with no extra pitches
+| 0.75                | all the pitches of the mode are used, with no extra pitches
 | 1                  | all notes of the chromatic scale are used, so the mode can no longer be distinguished
 
 
