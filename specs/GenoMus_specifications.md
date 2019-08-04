@@ -27,6 +27,7 @@
 - [Parameter mapping](#parameter-mapping)
   - [Duration](#duration-1)
     - [notevalueF (n)](#notevaluef-n)
+      - [Reference table for main noteValues](#Reference-table-for-main-notevalues)
     - [durationF (d)](#durationf-d)
   - [Pitch](#pitch-1)
     - [midipitchF (m)](#midipitchf-m)
