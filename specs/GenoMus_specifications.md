@@ -593,15 +593,15 @@ The inversion is made with a lookup table.
 | **0**     | **centralValue**    | notevalueF           | main reference notevalue
 | **1**     | **valueSet**        | rhythmF              | rhythmical pattern (regardless of central value)
 | **2**     | **quantization**    | quantizF             | set different modes of time divisions and rhythmical grouping
-| **3**     | **rythmComplexity*  | float &isinv; [0, 1] | degree of adjustment to quantization scheme (higher means more rhythmical complexity)
+| **3**     | **quantization*  | float &isinv; [0, 1] | degree of adjustment to quantization scheme (higher means more rhythmical complexity)
 
 The order of values in rhythmical pattern matters, because it is a sequence.
 
-#### Rhythmical complexity
+#### Quantization
 
-| rythmComplexity value | result
+| quantization value | result
 | ------------------- | ------
-| 0                   | Only the centerValue is used (simplest rhythmical pattern).
+| 0                   | Only the centralValue is used (simplest rhythmical pattern).
 | .25                 | Only three binary noteValues (for example, \{ &#119135; , &#119136; , &#119137; \})
 | .5                  | All the elements of the rhythmical pattern are used.
 | .75                 | More note values are added, according to the quantization scheme. 
