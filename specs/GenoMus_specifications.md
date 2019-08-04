@@ -592,13 +592,10 @@ The inversion is made with a lookup table.
 | --------- | ---------------- | -------------------- | ----------- 
 | **0**     | **centralValue** | notevalueF           | main reference notevalue
 | **1**     | **talea**        | rhythmF              | rhythmic pattern (regardless of central value)
-| **2**     | **prolatio**     | integers array       | set different modes of time divisions and rhythmic grouping
+| **2**     | **prolatio**     | integers array       | successive levels of divisions in the temporal grid to which the rhythmic values will be adjusted.
 | **3**     | **quantization** | float &isinv; [0, 1] | degree of adjustment to quantization scheme (higher means more rhythmic complexity)
 
 The order of values in **talea** matters, because the position within the sequence determines the priority of taken values for low degrees of quantization (the first, the most important).
-
-The **prolatio** array determines successive levels of divisions in the temporal grid to which the rhythmic values will be adjusted.
-
 
 #### Quantization
 
