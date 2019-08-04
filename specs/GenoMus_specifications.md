@@ -591,11 +591,11 @@ The inversion is made with a lookup table.
 | index     | feature          | data format          | description
 | --------- | ---------------- | -------------------- | ----------- 
 | **0**     | **centralValue** | notevalueF           | main reference notevalue
-| **1**     | **valueVector**  | rhythmF              | rhythmical pattern (regardless of central value)
+| **1**     | **valueSeq**     | rhythmF              | rhythmical pattern (regardless of central value)
 | **2**     | **prolation**    | quantizF             | set different modes of time divisions and rhythmical grouping
 | **3**     | **quantization*  | float &isinv; [0, 1] | degree of adjustment to quantization scheme (higher means more rhythmical complexity)
 
-The order of values in valueSet rhythmical pattern matters, because it affects the priority of taken values for low degrees of quantization (the first, the most important).
+The order of values in valueSeq matters, because the position within the sequence determines the priority of taken values for low degrees of quantization (the first, the most important).
 
 #### Quantization
 
@@ -620,11 +620,11 @@ A harmony vector is coded into an array as follows:
 | index     | feature          | data format          | description
 | --------- | ---------------- | -------------------- | ----------- 
 | **0**     | **tonalCenter**  | midipitchF           | main reference pitch (usually a chord's root)
-| **1**     | **pitchVector**  | harmonyF             | pitch class vector with the harmony pitches (regardless of tonal center)
+| **1**     | **pitchSeq**     | harmonyF             | pitch class vector with the harmony pitches (regardless of tonal center)
 | **2**     | **mode**         | harmonyF             | superset of MIDI pitches containing the harmony (usually, a scale)
 | **3**     | **chromaticity** | float &isinv; [0, 1] | tolerance to chromatic notes (higher means more chromatic results)
 
-The pitchVector is not a pitch class set because order matters. The order of pitches determines the priority is each one for low degrees of chromaticity (the first, the most important). 
+The pitchSeq is not a pitch class set because order matters. The position within the sequence determines the priority is each one for low degrees of chromaticity (the first, the most important). 
 
 #### Chromaticity degree
 
