@@ -605,7 +605,7 @@ The inversion is made with a lookup table.
 | .75                 | All the pitches of the mode are used, with no extra pitches.
 | 1                   | No quantization applied. Values are mapped with maximal time resolution.
 
-<img src="figures/all_noteValues.svg" width="560">
+<img src="figures/all_noteValues.svg" width="800">
 
 --------
 ### Harmony
