@@ -675,7 +675,7 @@ An encoded genotype is an unidimensional array of normalized values &isinv; [0, 
 ---------
 ### Examples
 #### Minimal genotype
-`"s(v(c(p(0.5),p(0.5),p(0.5),p(0.5))))"`
+`"s(v(e(p(0.5),p(0.5),p(0.5),p(0.5))))"`
 
 &#x21C5;
 
@@ -692,7 +692,7 @@ Phenotype:
 
 ---------
 #### Minimal genotype with human-readable leaf parameters
-`"s(v(c(n(1/16),m(69),a(0.4),i(84))))"`
+`"s(v(e(n(1/16),m(69),a(0.4),i(84))))"`
 
 &#x21C5;
 
@@ -726,7 +726,7 @@ Phenotype:
 
 ---------
 #### List encoding
-`"s(v(cMotif(ln([1/2,1/4,1/2,1/4]),lm([63,67,63,58]),a(1),i(42))))"`
+`"s(v(eMotif(ln([1/2,1/4,1/2,1/4]),lm([63,67,63,58]),a(1),i(42))))"`
 
 &#x21C5;
 
