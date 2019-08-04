@@ -175,7 +175,7 @@ Function types created to manage specific types of data (some of them are still 
 | **operationF**  | **o**        | result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
 | **binaryF**     | **b**        | boolean value (only 0 or 1)
 | **harmonyF**    | **h**        | pitch class set, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
-| **rhythmF**     | **r**        | rhythmical pattern class set
+| **rhythmF**     | **r**        | rhythmical pattern
 | **quantizF**    | **q**        | numeric structure for quantization of rhythm
 | **externalF**   | **e**        | pointer to an external genotype from a library (to be used with functions referencing external data)
 | **genotypeF**   | **g**        | raw encoded genotype (array of floats &isinv; [0, 1])
@@ -588,21 +588,23 @@ The inversion is made with a lookup table.
 ### Rhythm
 #### Rhythm vector
 
-| index     | feature          | data format          | description
-| --------- | ---------------- | -------------------- | ----------- 
-| **0**     | **centralValue** | notevalueF           | main reference notevalue
-| **1**     | **pitchSet**     | harmonyF             | pitch class set with the harmony pitches (regardless of tonal center)
-| **2**     | **prolatio**     | ?                    | superset of MIDI pitches containing the harmony (usually, a scale)
-| **3**     | **quantization** | float &isinv; [0, 1] | limit to quantization values (higher means more rhythmical complexity)
+| index     | feature             | data format          | description
+| --------- | ------------------- | -------------------- | ----------- 
+| **0**     | **centralValue**    | notevalueF           | main reference notevalue
+| **1**     | **valueSet**        | rhythmF              | rhythmical pattern (regardless of central value)
+| **2**     | **quantization**    | quantizF             | set different modes of time divisions and rhythmical grouping
+| **3**     | **rythmComplexity*  | float &isinv; [0, 1] | degree of adjustment to quantization scheme (higher means more rhythmical complexity)
 
-#### Quantization
+The order of values in rhythmical pattern matters, because it is a sequence.
 
-| Quantization degree | result
+#### Rhythmical complexity
+
+| rythmComplexity value | result
 | ------------------- | ------
-| 0                   | Only the centeralue is used (simplest rhythmical pattern).
+| 0                   | Only the centerValue is used (simplest rhythmical pattern).
 | .25                 | Only three binary noteValues (for example, \{ &#119135; , &#119136; , &#119137; \})
-| .5                  | All the pitch set is used, with no extra pitches. 
-| .75                 | All the pitches of the mode are used, with no extra pitches.
+| .5                  | All the elements of the rhythmical pattern are used.
+| .75                 | More note values are added, according to the quantization scheme. 
 | 1                   | No quantization applied. Values are mapped with maximal time resolution.
 
 <img src="figures/all_noteValues.svg" width="800">
@@ -628,13 +630,13 @@ The pitchSet is not a pitch class set prime form. The order of pitches determine
 
 Chromaticity degree is denoted with a normalized value. This is the meaning of different levels of chromatism:
 
-| Chromaticity degree | result
-| ------------------- | ------
-| 0                   | Only the tonal center and its octaves are used.
-| .25                 | Only the first half of pitch set is used.
-| .5                  | All the pitch set is used, with no extra pitches. 
-| .75                 | All the pitches of the mode are used, with no extra pitches.
-| 1                   | All notes of the chromatic scale are used, so the mode can no longer be distinguished.
+| Chromaticity value | result
+| ------------------ | ------
+| 0                  | Only the tonal center and its octaves are used.
+| .25                | Only the first half of pitch set is used.
+| .5                 | All the pitch set is used, with no extra pitches. 
+| .75                | All the pitches of the mode are used, with no extra pitches.
+| 1                  | All notes of the chromatic scale are used, so the mode can no longer be distinguished.
 
 
 
