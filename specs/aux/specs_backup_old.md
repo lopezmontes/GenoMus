@@ -79,13 +79,13 @@
 - **parameter**: Normalized float &isinv; [0, 1] used to feed the functions' required arguments. These numeric values are leaves of the functional tree that gives rise to a genotype.
 - **leaf**: Terminal node of a genotype functional tree, containing a parameter.
 - **list**: Array of parameters.
-- **event**: Simplest sonic event. In traditional music writing, a note. The default atributes of an event are: [duration, pitch, articulation, intensity]. An event can contain more than one pitch. events with more parameters can be set, for example, for electroacoustic works, where a sonic event could be defined by dozens of features. A note can consist of two or more concatenated pitches. events can be concatenated only sequentially (one after another, without overlapping). Overlapping effect among events inside the same voice can be achieved by means of articulation. An event can be extended to other domains beyond music, like visuals, lighting, etc., along with musical events, or standalone. 
-- **voice**: Line of music (usually for an only instrument). A voice is a wrapper for a sequence of one or more events. A voice can consist of two or more voices sequentially concatenated  together (one after another, without overlapping). Each event inside a voice can contain more than one pitch. For instance, a sequence of major chords can be a single voice.
-- **score**: Excerpt or a whole piece of music. A score is a wrapper for one or more voices. A score can consist of two or more scores together. Scores can be concatenated sequentially (one after another) or simultaneously (sounding together). The product of these concatenations is a new score. The event-voice-score structure is defined after [bach](https://www.bachproject.net/) paradigm, to facilitate the visualization and interactions with phenotypes in Max environment.
-- **duration**: Time length from the beginning of an event to the beginning of the next event, into the same voice. 
-- **pitch**: Each of the root frecuencies in an event.
-- **articulation**: Length of the event sound. It can be different from the event duration. If articulation matchs the duration, a perfect legato among events will be played. Shorter or larger values for articulation will sound as staccato or lasciare vibrare effects.
-- **intensity**: Dynamic of an event.
+- **chord**: Simplest sonic event. In traditional music writing, a note. The default atributes of a chord are: [duration, pitch, articulation, intensity]. A chord can contain more than one pitch. Chords with more parameters can be set, for example, for electroacoustic works, where a sonic event could be defined by dozens of features. A note can consist of two or more concatenated pitches. Chords can be concatenated only sequentially (one after another, without overlapping). Overlapping effect among chords inside the same voice can be achieved by means of articulation. A chord can be extended to other domains beyond music, like visuals, lighting, etc., along with musical events, or standalone. 
+- **voice**: Line of music (usually for an only instrument). A voice is a wrapper for a sequence of one or more chords. A voice can consist of two or more voices sequentially concatenated  together (one after another, without overlapping). Each chord inside a voice can contain more than one pitch. For instance, a sequence of major chords can be a single voice.
+- **score**: Excerpt or a whole piece of music. A score is a wrapper for one or more voices. A score can consist of two or more scores together. Scores can be concatenated sequentially (one after another) or simultaneously (sounding together). The product of these concatenations is a new score. The chord-voice-score structure is defined after [bach](https://www.bachproject.net/) paradigm, to facilitate the visualization and interactions with phenotypes in Max environment.
+- **duration**: Time length from the beginning of a chord to the beginning of the next chord, into the same voice. 
+- **pitch**: Each of the root frecuencies in a chord.
+- **articulation**: Length of the chord sound. It can be different from the chord duration. If articulation matchs the duration, a perfect legato among chords will be played. Shorter or larger values for articulation will sound as staccato or lasciare vibrare effects.
+- **intensity**: Dynamic of a chord.
 - **GenoMus function catalog**: JSON file that lists and characterizes all the available functions for genotype generation of a species.
 - **function type identifier**: Prefix used to name functions, to ease the function type identification. The use of identifiers is not compulsory, but very convenient for readability of decoded genotypes.
 - **function index**: Integer assigned incrementally to identify each function with a unique number in the GenoMus functions catalogue. 
@@ -114,7 +114,7 @@ To enable effective chaining of functions, all functions inside a genotype share
 | **0** | **funcType**  | string | **Function type** according to its output (see [reference](#function-types-for-genotypes))
 | **1** | **decGenOut** | string  | **Decoded genotype** excerpt. Functional expression of the genotype branch computed until that node, including the function itself.
 | **2** | **encPhenOut** | array of floats &isinv; [0, 1] | **Encoded phenotype** excerpt. Transformation of the input data made with the compositional procedures of the function itself.
-| **3** | **phenLength** | integer | Number of phenotype events generated so far. Useful for subsequent functions to avoid overly large processes.
+| **3** | **phenLength** | integer | Number of phenotype chords generated so far. Useful for subsequent functions to avoid overly large processes.
 | **4** | **tempo** | float | Tempo of the phenotype. The float uses the [durationF](#durationf-d) format to indicate the duration of a quarter note. Default value: 0.6 (equivalent to &#9833;= 60)
 | **5** | **rhythm** | array of floats &isinv; [0, 1] | Time quantization and internal structures of rhythm according to this [encoding format](#rhythm).
 | **6** | **harmony** | array of floats &isinv; [0, 1] | Tonal center and other  internal structures of harmony according to this [encoding format](#rhythm).
@@ -159,7 +159,7 @@ Functions in GenoMus are classified by their output data.
 | --------------- | ------------ | --------
 | **scoreF**      | **s**        | score
 | **voiceF**      | **v**        | voice
-| **eventF**      | **c**        | event
+| **chordF**      | **c**        | chord
 | **listF**       | **l**        | list of normalized floats &isinv; [0, 1]
 | **paramF**      | **p**        | normalized parameter
 | **leaf**        | -            | norm. parameter or specific format parameter
@@ -177,7 +177,7 @@ Function types created to manage specific types of data (some of them are still 
 | **harmonyF**    | **h**        | pitch class set, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
 | **rhythmF**     | **r**        | rhythmical pattern
 | **quantizF**    | **q**        | numeric structure for quantization of rhythm
-| **catalogueF**   | **c**       | pointer to an external genotype from a specimen catalogue (to be used with functions referencing external data)
+| **externalF**   | **e**        | pointer to an external genotype from a library (to be used with functions referencing external data)
 | **genotypeF**   | **g**        | raw encoded genotype (array of floats &isinv; [0, 1])
 | **txtF**        | **t**        | string
 | **waveF**       | **w**        | encoded path to read data from an stored audio file
@@ -244,7 +244,7 @@ Functions to be used typing manually on the genotypes to get a more controlled e
 User functions use uppercase letters to be easily found during manual editing processes. Some examples of this type:
 - **uEVOLVE** (*expr*) - contains the part of a genotype to be transformed, freezing the rest
 - **uFREEZE** (*expr*) - block a part of a genotype to be preserved from transformations
-- **uFLATTEN** (*expr*) - render part of a genotype into a simple declarative score/voice/event (phenotype)
+- **uFLATTEN** (*expr*) - render part of a genotype into a simple declarative score/voice/chord (phenotype)
 
 ---------
 ## GenoMus function catalogues
@@ -443,17 +443,17 @@ Conversion formulae: normalized parameter _**p**_ to frequency in hertz _**h**_ 
 
 Articulation can be used in two modes:
 
-- absolute articulation: The duration of the sound is measured in seconds, and is independent of tempo and event duration. The **durationF** function type is used for this articulation. 
-- relative articulation: the duration of the sound is a ratio of the event duration. 1 means that the sound will last the whole duration, 0.5 is the half of the event duration, and so on. For this proportional articulation the function type **articulationF** must be employed.
+- absolute articulation: The duration of the sound is measured in seconds, and is independent of tempo and chord duration. The **durationF** function type is used for this articulation. 
+- relative articulation: the duration of the sound is a ratio of the chord duration. 1 means that the sound will last the whole duration, 0.5 is the half of the chord duration, and so on. For this proportional articulation the function type **articulationF** must be employed.
 
 #### **articulationF** (a)
-Conversion formulae: normalized parameter _**p**_ to relative articulation _**a**_, as a proportion of event duration ([graph](https://www.desmos.com/calculator/i5jiq4k9ah)):
+Conversion formulae: normalized parameter _**p**_ to relative articulation _**a**_, as a proportion of chord duration ([graph](https://www.desmos.com/calculator/i5jiq4k9ah)):
 
 <img src="formulae/norm2articulation.svg" width="63">
 <img src="formulae/articulation2norm.svg" width="82">
 <img src="formulae/norm2articulation_graph.png" width="250">
 
-| [0, 1]   |  proportion of event duration | notation
+| [0, 1]   |  proportion of chord duration | notation
 | -------- | ----------------------------- | --------
 | 0        | 0                             | silence
 | 0.1      | 0.005739                      |
@@ -792,7 +792,7 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"GenoMusVersion"**: GenoMus version that generated the specimen.
   - **"creationTimecode"**: creation date compressed as a unique number.
   - **"user"**: username.
-  - **"species"**: event parameters structure defining the basic sonic events.
+  - **"species"**: chord parameters structure defining the basic sonic events.
   - **"globalRating"**: average of aesthetic ratings obtained.
   - **"iterations"**: number of iterations of the algorithm until finding this specimen.
   - **"millisecondsElapsed"**: time elapsed until finding this specimen.
@@ -821,7 +821,7 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
 - **"subexpressions"**: list of all functional substructures within a genotype, enumerated by output type and order of appearance.
   - **"scoreF"**: subexpressions whose output is of type score.
   - **"voiceF"**: ...
-  - **"eventF"**
+  - **"chordF"**
   - **"listF"**
   - **"paramF"**
   - **"harmonyF"**
