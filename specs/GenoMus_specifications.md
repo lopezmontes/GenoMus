@@ -366,6 +366,11 @@ Conversion formulae: normalized parameter _**p**_ to note value ratio _**v**_ an
 | 0.9    | 2            | 2           | double note / breve                     | 8                      
 | 1.0    | 4            | 4           | quadruple note / longa                  | 16                     
 
+##### Reference table for main noteValues
+
+<img src="figures/all_noteValues.svg" width="800">
+
+
 #### **durationF** (d) 
 
 Conversion formulae: normalized parameter _**p**_ to seconds _**s**_ and inverse ([graph](https://www.desmos.com/calculator/pn1nbunlcz)):
@@ -606,8 +611,6 @@ The order of values in **talea** matters, because the position within the sequen
 | .5                 | all the elements of the rhythmic pattern are used
 | .75                | more note values are added, according to the quantization scheme 
 | 1                  | no quantization applied. Values are mapped with maximal time resolution
-
-<img src="figures/all_noteValues.svg" width="800">
 
 --------
 ### Harmony
