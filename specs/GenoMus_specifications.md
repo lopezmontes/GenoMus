@@ -159,7 +159,7 @@ Functions in GenoMus are classified by their output data.
 | --------------- | ------------ | --------
 | **scoreF**      | **s**        | score
 | **voiceF**      | **v**        | voice
-| **eventF**      | **c**        | event
+| **eventF**      | **e**        | event
 | **listF**       | **l**        | list of normalized floats &isinv; [0, 1]
 | **paramF**      | **p**        | normalized parameter
 | **leaf**        | -            | norm. parameter or specific format parameter
