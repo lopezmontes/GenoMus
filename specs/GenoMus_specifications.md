@@ -600,7 +600,7 @@ The inversion is made with a lookup table.
 | Quantization degree | result
 | ------------------- | ------
 | 0                   | Only the centeralue is used (simplest rhythmical pattern).
-| .25                 | Only three binary noteValues (for example, &#119135;, &#119135; and &#119137;)
+| .25                 | Only three binary noteValues (for example, \{&#119135;, &#119136;, &#119137;\})
 | .5                  | All the pitch set is used, with no extra pitches. 
 | .75                 | All the pitches of the mode are used, with no extra pitches.
 | 1                   | No quantization applied. Values are mapped with maximal time resolution.
