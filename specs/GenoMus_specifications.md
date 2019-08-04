@@ -595,13 +595,18 @@ The inversion is made with a lookup table.
 ---------
 # Characterization of underlying musical patterns
 ## Rhythm
+
+Each rhythmic pattern can be expressed as a vector containing informations to be used by other functions to map durations. This vector is an abstract representation of a rhythmic pattern and its interrelation with a time grid and with the level of general quantization. Using this data, certain functions adjust their values to get different rhythmic structures and analytical information.
+
 ### Rhythm vector
+
+A rhythm pattern vector is coded into an array as follows:
 
 | index     | feature          | data format          | description
 | --------- | ---------------- | -------------------- | ----------- 
 | **0**     | **centralValue** | notevalueF           | main reference notevalue
 | **1**     | **talea**        | rhythmF              | rhythmic pattern (regardless of central value)
-| **2**     | **prolatio**     | integers array       | successive levels of divisions in the temporal grid to which the rhythmic values will be adjusted
+| **2**     | **prolatio**     | integers array       | successive levels of divisions in the time grid to which the rhythmic values will be adjusted
 | **3**     | **quantization** | float &isinv; [0, 1] | degree of adjustment to quantization scheme (higher means more rhythmic complexity)
 
 The order of values in **talea** matters, because the position within the sequence determines the priority of taken values for low degrees of quantization (the first, the most important).
@@ -618,11 +623,12 @@ The order of values in **talea** matters, because the position within the sequen
 
 --------
 ## Harmony
+
+Each harmony can be expressed as a vector containing informations to be used by other functions to map pitches. This vector is an abstract representation of a chord and its interrelation with a mode and with the level of general chromatism. Using this information, certain functions adjust their values to the grid of pitches that fits this harmony and extract analytical information.
+
 ### Harmony vector
 
-Each harmony can be expressed as a vector containing informations to be used by other functions to map pitches. This vector is an abstract representation of a set of pitches and their relationship with a mode and with the level of general chromatism. Using this information, certain functions adjust their values to the grid of pitches that fits this harmony.
-
-A harmony vector is coded into an array as follows:
+A harmony pattern vector is coded into an array as follows:
 
 | index     | feature          | data format          | description
 | --------- | ---------------- | -------------------- | ----------- 
