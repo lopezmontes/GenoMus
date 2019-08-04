@@ -39,7 +39,7 @@
     - [xstepsF (x)](#xstepsf-x)    
 - [Characterization of underlying musical patterns](#characterization-of-underlying-musical-patterns)
   - [Rhythm](#rhythm)
-    - [Time grids](#time-grids)
+    - [Rhythm vector](#rhythm-vector)
     - [Quantization](#quantization)
   - [Harmony](#harmony)
     - [Harmonic vector](#harmonic-vector)
