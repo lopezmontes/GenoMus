@@ -97,7 +97,7 @@
 - **phenotype seed**: Number used to initialize the pseudorandom number generator before the genotype evaluation process starts, which allows producing repeatable phenotypes. When a genotype includes random processes, many different phenotypes from the same genotype can arise. In this case, each different result can be indentified with a phenotype seed. So, given specific initial conditions, a single specimen can be identified only by two integers: genotype and phenotype seeds.
 - **rhythm vector**: Data structure that characterizes a rhythmic pattern by specifying length, talea and other features.
 - **harmony vector**: Data structure that characterizes a harmony by specifying tonal center, pitch class set and other features.
-- **talea**: Array of values that represents a sequence of relative durations.
+- **talea**: Array of values that represents a sequence of relative durations (updated concept taken from ancient music).
 - **prolatio**: Hierarchical time grid structure.
 - **quantization**: Adjustment of relatives durations of a talea to a prolatio.
 
@@ -191,17 +191,12 @@ Function types created to manage specific types of data (some of them are still 
 
 ### rhythmF
 
-The output of **rhythmF** functions is a rhythmic patterns represented as a nested array with relative durations. This pattern is called **talea** (an updated concept taken from ancient music). 
+The output of **rhythmF** functions is a time grid determined by a nested array with relative durations. This grid is called **prolatio**, and is used to quantize values, adjusting them to the rhythmic pattern. 
 
 
 <img src="figures/prolatio_tree.svg" width="140">
 
 `[<totalValue>,[a,[d,e],b,c,[f,g,[i,j],h]]]`
-
-
-
-`[2,[3,[2,1],1,4,[1,1,[4,1],2]]]`
-
 
 `[1]`
 
@@ -211,7 +206,7 @@ The output of **rhythmF** functions is a rhythmic patterns represented as a nest
 
 <img src="figures/prolatio_ex1.svg" width="130">
 
-`[1, [2, [1, 1, 1] 4, 1, [2, 1, 1], 1, [2, 1]]]`
+`[1, [2, [1, 1, 1], 4, 1, [2, 1, 1], 1, [2, 1]]]`
 
 <img src="figures/prolatio_ex2.svg" width="270">
 
