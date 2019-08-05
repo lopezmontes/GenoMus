@@ -97,6 +97,9 @@
 - **rhythm vector**: Data structure that characterize a rhythmic pattern by specifying length, talea and other features.
 - **harmony vector**: Data structure that characterize a harmony by specifying tonal center, pitch class set and other features.
 - **talea**: Array of values that represent a sequence of relative durations.
+- **prolatio**: Time grid to which the values of a talea will be adjusted.
+- **quantization**: Adjustment of relatives durations of a talea to a prolatio.
+
 ---------
 # Anatomy of a genotype function
 
