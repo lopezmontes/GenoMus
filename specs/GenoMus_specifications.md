@@ -203,12 +203,10 @@ Each value of a prolatio can in turn be subdivided into another prolatio using a
 
 <img src="figures/prolatio_basic_2.svg" width="170">
 
-
-
+Obviously, each subarray must have at least two values to produce a subdivision at the next depth level of the prolatio. A prolatio with the scheme `[a,[d,e],b,c,[f,g,[i,j],h]]` has three level of depth:
 
 <img src="figures/prolatio_tree.svg" width="140">
 
-`[a,[d,e],b,c,[f,g,[i,j],h]]`
 
 
 
