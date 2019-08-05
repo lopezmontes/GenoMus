@@ -196,6 +196,10 @@ Rhythmic patterns are represented as a nested array with relative durations. Thi
 
 <img src="figures/prolatio_tree.svg" width="140">
 
+```
+[<totalValue>,[a,[d,e],b,c,[f,g,[i,j,h]]]]
+```
+
 
 ---------
 ## Human-readable leaf parameters
