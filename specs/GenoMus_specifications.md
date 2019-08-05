@@ -195,7 +195,7 @@ The output of **rhythmF** functions is an abstract time grid determined by a nes
 
 The values inside a prolatio array are not absolute duration, but only proportions among themselves. So, *prolationes* `[3,1,4]` and `[0.63,0.21,0.84]` are equivalent. A prolatio need a reference value to be rendered as durations. Application of this prolatio to a half note (1/2):
 
-<img src="figures/prolatio_basic.svg" width="114">
+<img src="figures/prolatio_basic.svg" width="117">
 
 
 
