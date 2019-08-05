@@ -13,6 +13,7 @@
   - [Used function type identifiers](#used-function-type-identifiers)
   - [Main structures](#main-structures)
   - [Special formats](#special-formats)
+    -[rhythmF](#rhythmf)
   - [Human-readable leaf parameters](#human-readable-leaf-parameters) 
     - [Duration](#duration)
     - [Pitch](#pitch)
