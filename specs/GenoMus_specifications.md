@@ -193,6 +193,10 @@ Function types created to manage specific types of data (some of them are still 
 
 Rhythmic patterns are represented as a nested array with relative durations. This pattern is called **talea** (as an updated concept taken from ancient music). 
 
+
+<img src="figures/prolatio_tree.svg" width="180">
+
+
 ---------
 ## Human-readable leaf parameters
 Function types created to improve manual handling of decoded genotypes. These functions can replace a **paramF** functions in a leaf position of function tree.
