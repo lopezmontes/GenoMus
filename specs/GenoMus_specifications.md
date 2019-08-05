@@ -12,7 +12,6 @@
 - [Function types for genotypes](#function-types-for-genotypes)
   - [Used function type identifiers](#used-function-type-identifiers)
   - [Main structures](#main-structures)
-  - [Special formats](#special-formats)
     - [rhythmF](#rhythmf)
   - [Human-readable leaf parameters](#human-readable-leaf-parameters) 
     - [Duration](#duration)
@@ -21,6 +20,7 @@
     - [Intensity](#intensity)
     - [Integer x steps](#integer-x-steps)
   - [Human-readable lists](#human-readable-lists) 
+  - [Special formats](#special-formats)
   - [Manual manipulation of genotypes](#manual-manipulation-of-genotypes)
 - [GenoMus function catalogues](#genomus-function-catalogues)  
   - [Indexing a function in a GenoMus function catalogue](#indexing-a-function-in-a-genomus-function-catalogue)
@@ -173,67 +173,6 @@ Functions in GenoMus are classified by their output data.
 The **leaf** type is a flag for terminal nodes. This is not really a type of function, but a label to indicate that a new function will not be called.
 
 ---------
-## Special formats
-Function types created to manage specific types of data (some of them are still purely theoretical)
-
-| *function type* | *identifier* | *output*
-| --------------- | ------------ | --------
-| **operationF**  | **o**        | result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
-| **binaryF**     | **b**        | boolean value (only 0 or 1)
-| **harmonyF**    | **h**        | pitch class set, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
-| **rhythmF**     | **r**        | rhythmic pattern
-| **quantizF**    | **q**        | numeric structure for quantization of rhythm
-| **catalogueF**   | **c**       | pointer to an external genotype from a specimen catalogue (to be used with functions referencing external data)
-| **genotypeF**   | **g**        | raw encoded genotype (array of floats &isinv; [0, 1])
-| **txtF**        | **t**        | string
-| **waveF**       | **w**        | encoded path to read data from an stored audio file
-
-
-### rhythmF
-
-The output of **rhythmF** functions is an abstract time grid determined by a nested array with relative durations. This grid is called **prolatio**, and is used to quantize values, adjusting them to the rhythmic pattern. 
-
-The values inside a prolatio array are not absolute duration, but only proportions among themselves. So, *prolationes* `[3,1,4]` and `[0.63,0.21,0.84]` are equivalent. A prolatio need a reference value to be rendered as durations. Application of this prolatio to a half note (1/2):
-
-<img src="figures/prolatio_basic.svg" width="117">
-
-Each value of a prolatio can in turn be subdivided into another prolatio using a subarray in the next position. The last value in this prolatio can be subdivided in this way:
-
-`[3,1,4,[1,1,1,1,1]]`, with this result:
-
-<img src="figures/prolatio_basic_2.svg" width="170">
-
-Obviously, each subarray must have at least two values to produce a subdivision at the next depth level of the prolatio. A prolatio with the scheme `[a,[d,e],b,c,[f,g,[i,j],h]]` has three level of subdivisions of the duration set by the variable **totalValue**:
-
-<img src="figures/prolatio_tree.svg" width="140">
-
-Prolationes can be arbitrarily complex. A simple array like `[1,[2,3],1,[1,[1,4],4,2],1,[2,2,[3,4,4]]]` produce nested tuplets:
-
-
-
-
-
-
-
-
-
-
-
-`[1]`
-
-<img src="figures/prolatio_ex0.svg" width="78">
-
-`[2,4,1,1]`
-
-<img src="figures/prolatio_ex1.svg" width="130">
-
-`[2,[1,1,1],4,1,[2,1,1],1,[2,1]]`
-
-<img src="figures/prolatio_ex2.svg" width="270">
-
-
-
----------
 ## Human-readable leaf parameters
 Function types created to improve manual handling of decoded genotypes. These functions can replace a **paramF** functions in a leaf position of function tree.
 ### Duration
@@ -283,6 +222,67 @@ These functions receive a list of human-readable leaf parameters and return a no
 | **larticulationF** | **la**       | list of normalized relative articulations from list of relative articulations
 | **lintensityF**     | **li**       | list of normalized intensities from MIDI velocities
 | **lxstepsF**       | **lx**       | list of normalized values from list of integer &isinv; [-36, 36]
+
+---------
+## Special formats
+Function types created to manage specific types of data (some of them are still purely theoretical)
+
+| *function type* | *identifier* | *output*
+| --------------- | ------------ | --------
+| **operationF**  | **o**        | result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
+| **binaryF**     | **b**        | boolean value (only 0 or 1)
+| **harmonyF**    | **h**        | pitch class set, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
+| **rhythmF**     | **r**        | rhythmic pattern
+| **quantizF**    | **q**        | numeric structure for quantization of rhythm
+| **catalogueF**   | **c**       | pointer to an external genotype from a specimen catalogue (to be used with functions referencing external data)
+| **genotypeF**   | **g**        | raw encoded genotype (array of floats &isinv; [0, 1])
+| **txtF**        | **t**        | string
+| **waveF**       | **w**        | encoded path to read data from an stored audio file
+
+
+### rhythmF
+
+The output of **rhythmF** functions is an abstract time grid determined by a nested array with relative durations. This grid is called **prolatio**, and is used to quantize values, adjusting them to the rhythmic pattern. 
+
+The values inside a prolatio array are not absolute duration, but only proportions among themselves. So, *prolationes* `[3,1,4]` and `[0.63,0.21,0.84]` are equivalent. A prolatio need a reference value to be rendered as durations. Application of this prolatio to a half note (1/2):
+
+<img src="figures/prolatio_basic.svg" width="117">
+
+Each value of a prolatio can in turn be subdivided into another prolatio using a subarray in the next position. The last value in this prolatio can be subdivided in this way:
+
+`[3,1,4,[1,1,1,1,1]]`, with this result:
+
+<img src="figures/prolatio_basic_2.svg" width="170">
+
+Obviously, each subarray must have at least two values to produce a subdivision at the next depth level of the prolatio. A prolatio with the scheme `[a,[d,e],b,c,[f,g,[i,j],h]]` has three level of subdivisions of the duration set by the variable **totalValue**:
+
+<img src="figures/prolatio_tree.svg" width="140">
+
+Prolationes can be arbitrarily complex. A simple array like `[1,[2,3],1,[1,[1,4],4,2],1,[2,2,[3,4,4]]]` produce nested tuplets:
+
+
+
+When more levels of subdivision are required but not specified, simple binary subdivisions are made by default.
+
+
+
+
+
+
+
+
+`[1]`
+
+<img src="figures/prolatio_ex0.svg" width="78">
+
+`[2,4,1,1]`
+
+<img src="figures/prolatio_ex1.svg" width="130">
+
+`[2,[1,1,1],4,1,[2,1,1],1,[2,1]]`
+
+<img src="figures/prolatio_ex2.svg" width="270">
+
 
 ---------
 ## Manual manipulation of genotypes
