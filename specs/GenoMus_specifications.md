@@ -194,7 +194,7 @@ Function types created to manage specific types of data (some of them are still 
 Rhythmic patterns are represented as a nested array with relative durations. This pattern is called **talea** (as an updated concept taken from ancient music). 
 
 
-<img src="figures/prolatio_tree.svg" width="180">
+<img src="figures/prolatio_tree.svg" width="140">
 
 
 ---------
