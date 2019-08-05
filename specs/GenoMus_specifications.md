@@ -258,31 +258,11 @@ Obviously, each subarray must have at least two values to produce a subdivision 
 
 <img src="figures/prolatio_tree.svg" width="140">
 
-Prolationes can be arbitrarily complex. A simple array like `[1,[2,3],1,[1,[1,4],4,2],1,[1,1,[3,4,4]]]` produce nested tuplets (total reference note value is a whole note):
+Prolationes can be arbitrarily complex. A simple array like `[1,[2,3],1,[1,[1,4],4,2],1,[1,1,[3,4,4]]]` produce nested tuplets (reference note value for total duration is a whole note):
 
 <img src="figures/prolatio_complex.svg" width="500">
 
 When more levels of subdivision are required but not specified, simple binary subdivisions are made by default.
-
-
-
-
-
-
-
-
-`[1]`
-
-<img src="figures/prolatio_ex0.svg" width="78">
-
-`[2,4,1,1]`
-
-<img src="figures/prolatio_ex1.svg" width="130">
-
-`[2,[1,1,1],4,1,[2,1,1],1,[2,1]]`
-
-<img src="figures/prolatio_ex2.svg" width="270">
-
 
 ---------
 ## Manual manipulation of genotypes
@@ -674,6 +654,20 @@ The order of values in **talea** matters, because the position within the sequen
 | 0.5                | all the talea values are used
 | 0.75               | more note values are added, with a quantization according to the prolatio scheme 
 | 1                  | no quantization applied, values are mapped with full time resolution
+
+
+
+`[1]`
+
+<img src="figures/prolatio_ex0.svg" width="78">
+
+`[2,4,1,1]`
+
+<img src="figures/prolatio_ex1.svg" width="130">
+
+`[2,[1,1,1],4,1,[2,1,1],1,[2,1]]`
+
+<img src="figures/prolatio_ex2.svg" width="270">
 
 --------
 ## Harmony
