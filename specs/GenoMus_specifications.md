@@ -197,6 +197,13 @@ The values inside a prolatio array are not absolute duration, but only proportio
 
 <img src="figures/prolatio_basic.svg" width="117">
 
+Each value of a prolatio can in turn be subdivided into another prolatio using a subarray in the next position. The last value in this prolatio can be subdivided in this way:
+
+`[3,1,4,[1,1,1,1,1]]`, with this result:
+
+<img src="figures/prolatio_basic_2.svg" width="117">
+
+
 
 
 <img src="figures/prolatio_tree.svg" width="140">
