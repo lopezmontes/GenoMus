@@ -94,10 +94,10 @@
 - **eligible functions**: Set of functions that determine which ones can be chosen during the genotype generation process. Somehow, this set can characterize a composer or a style.
 - **genotype seed**: Number used to initialize the pseudorandom number generator before the genotype generation process starts. It allows repeatable results. Ultimately, a genotype can be identified only by this number, since it determines the entire decision tree that generates it.
 - **phenotype seed**: Number used to initialize the pseudorandom number generator before the genotype evaluation process starts, which allows producing repeatable phenotypes. When a genotype includes random processes, many different phenotypes from the same genotype can arise. In this case, each different result can be indentified with a phenotype seed. So, given specific initial conditions, a single specimen can be identified only by two integers: genotype and phenotype seeds.
-- **rhythm vector**: Data structure that characterize a rhythmic pattern by specifying length, talea and other features.
-- **harmony vector**: Data structure that characterize a harmony by specifying tonal center, pitch class set and other features.
-- **talea**: Array of values that represent a sequence of relative durations.
-- **prolatio**: Time grid to which the values of a talea will be adjusted.
+- **rhythm vector**: Data structure that characterizes a rhythmic pattern by specifying length, talea and other features.
+- **harmony vector**: Data structure that characterizes a harmony by specifying tonal center, pitch class set and other features.
+- **talea**: Array of values that represents a sequence of relative durations.
+- **prolatio**: Hierarchical time grid structure.
 - **quantization**: Adjustment of relatives durations of a talea to a prolatio.
 
 ---------
