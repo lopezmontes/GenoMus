@@ -203,6 +203,19 @@ The output of **rhythmF** functions is a rhythmic patterns represented as a nest
 `[2,[3,[2,1],1,4,[1,1,[4,1],2]]]`
 
 
+`[1]`
+
+<img src="figures/prolatio_ex1.svg" width="100">
+
+`[1, [2, 4, 1, 1]]`
+
+<img src="figures/p" width="100">
+
+`[1, [2, 4, 1, 1]]`
+
+
+
+
 ---------
 ## Human-readable leaf parameters
 Function types created to improve manual handling of decoded genotypes. These functions can replace a **paramF** functions in a leaf position of function tree.
