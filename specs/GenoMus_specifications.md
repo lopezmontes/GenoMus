@@ -193,7 +193,10 @@ Function types created to manage specific types of data (some of them are still 
 
 The output of **rhythmF** functions is an abstract time grid determined by a nested array with relative durations. This grid is called **prolatio**, and is used to quantize values, adjusting them to the rhythmic pattern. 
 
-The values inside a prolatio array are not absolute duration, but only proportions among themselves. So, *prolationes* `[2,1,4]` and `[0.42,0.21,0.84]` are equivalent. A prolatio need a reference value to be rendered as durations.  
+The values inside a prolatio array are not absolute duration, but only proportions among themselves. So, *prolationes* `[3,1,4]` and `[0.63,0.21,0.84]` are equivalent. A prolatio need a reference value to be rendered as durations. Application of this prolatio to a half note (1/2):
+
+<img src="figures/prolatio_basic.svg" width="78">
+
 
 
 <img src="figures/prolatio_tree.svg" width="140">
