@@ -209,7 +209,7 @@ The output of **rhythmF** functions is a rhythmic patterns represented as a nest
 
 `[1, [2, 4, 1, 1]]`
 
-<img src="figures/prolatio_ex1.svg" width="134">
+<img src="figures/prolatio_ex1.svg" width="130">
 
 `[1, [2, 4, 1, 1]]`
 
