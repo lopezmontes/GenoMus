@@ -201,7 +201,7 @@ Each value of a prolatio can in turn be subdivided into another prolatio using a
 
 `[3,1,4,[1,1,1,1,1]]`, with this result:
 
-<img src="figures/prolatio_basic_2.svg" width="117">
+<img src="figures/prolatio_basic_2.svg" width="200">
 
 
 
