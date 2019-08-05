@@ -96,7 +96,7 @@
 - **phenotype seed**: Number used to initialize the pseudorandom number generator before the genotype evaluation process starts, which allows producing repeatable phenotypes. When a genotype includes random processes, many different phenotypes from the same genotype can arise. In this case, each different result can be indentified with a phenotype seed. So, given specific initial conditions, a single specimen can be identified only by two integers: genotype and phenotype seeds.
 - **rhythm vector**: Data structure that characterize a rhythmic pattern by specifying length, talea and other features.
 - **harmony vector**: Data structure that characterize a harmony by specifying tonal center, pitch class set and other features.
-
+- **talea**: Array of values that represent a sequence of relative durations.
 ---------
 # Anatomy of a genotype function
 
