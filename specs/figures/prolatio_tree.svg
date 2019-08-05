@@ -293,13 +293,13 @@
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend-9-2-9)" />
     <text
        id="text6946"
-       y="219.7915"
-       x="327.7211"
-       style="font-style:normal;font-weight:normal;font-size:19.77193069px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       y="224.28481"
+       x="311.10217"
+       style="font-style:normal;font-weight:normal;font-size:25.28867722px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Menlo;-inkscape-font-specification:Menlo"
-         y="219.7915"
-         x="327.7211"
+         y="224.28481"
+         x="311.10217"
          id="tspan6948">totalValue</tspan></text>
   </g>
 </svg>
