@@ -191,12 +191,16 @@ Function types created to manage specific types of data (some of them are still 
 
 ### rhythmF
 
-Rhythmic patterns are represented as a nested array with relative durations. This pattern is called **talea** (as an updated concept taken from ancient music). 
+The output of **rhythmF** functions is a rhythmic patterns represented as a nested array with relative durations. This pattern is called **talea** (an updated concept taken from ancient music). 
 
 
 <img src="figures/prolatio_tree.svg" width="140">
 
 `[<totalValue>,[a,[d,e],b,c,[f,g,[i,j],h]]]`
+
+
+
+`[2,[3,[2,1],1,4,[1,1,[4,1],2]]]`
 
 
 ---------
