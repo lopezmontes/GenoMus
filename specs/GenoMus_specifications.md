@@ -207,6 +207,12 @@ Obviously, each subarray must have at least two values to produce a subdivision 
 
 <img src="figures/prolatio_tree.svg" width="140">
 
+Prolationes can be arbitrarily complex. A simple array like `[1,[2,3],1,[1,[1,4],4,2],1,[2,2,[3,4,4]]]` produce nested tuplets:
+
+
+
+
+
 
 
 
