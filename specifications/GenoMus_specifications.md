@@ -636,12 +636,12 @@ A rhythmic pattern can be expressed as a dictionary containing informations to b
 
 A **rhythmic motif** is coded into an array following this data structure:
 
-| index     | feature          | data format            | description
-| --------- | ---------------- | ---------------------- | ----------- 
-| **0**     | **totalValue**   | notevalueF             | pattern length
-| **1**     | **talea**        | rhythmF                | rhythmic pattern (regardless of central value)
-| **2**     | **prolatio**     | rhythmF                | successive levels of divisions in the time grid to which the rhythmic values will be adjusted
-| **3**     | **quantization** | float &isinv; [0, 1] | degree of adjustment to quantization scheme (higher means more rhythmic complexity)
+| index | feature          | data format          | description
+| ----- | ---------------- | -------------------- | ----------- 
+| 0     | **totalValue**   | notevalueF           | pattern length
+| 1     | **talea**        | rhythmF              | rhythmic pattern (regardless of central value)
+| 2     | **prolatio**     | rhythmF              | successive levels of divisions in the time grid to which the rhythmic values will be adjusted
+| 3     | **quantization** | float &isinv; [0, 1] | degree of adjustment to quantization scheme (higher means more rhythmic complexity)
 
 ---------
 ### totalValue
@@ -714,7 +714,7 @@ The next step is to determine quantization thresholds based on the prolatio dept
 | **prolatio** depth = 2 (code)                      | `[2,[1,1,1],4,1,[2,1,1],1,[2,1]]`
 | **prolatio** depth = 2 (score)                     | <img src="figures/prolatio_ex2.svg" width="270">
 | **talea to prolatio quantization** (visualization) | <img src="figures/q2-3.svg" width="500">
-| **quantized talea**                                | `[0.833, 0.167, 0.5, 0.062, 0.188]`
+| **quantized talea**                                | `[0.083, 0.167, 0.5, 0.062, 0.188]`
 | **final result** (score)                           | <img src="figures/final_quant_ex2.svg" width="169">
 
 
@@ -761,9 +761,9 @@ The **chord** is not a pitch class set because order matters. The position withi
 | Chromaticity value | result
 | ------------------ | ------
 | 0                  | only the tonal center and its octaves are used
-| 0.25                | only the first half of chord pitches sequence is used
-| 0.5                 | all the chord pitches are used, with no extra pitches
-| 0.75                | all the pitches of the mode are used, with no extra pitches
+| 0.25               | only the first half of chord pitches sequence is used
+| 0.5                | all the chord pitches are used, with no extra pitches
+| 0.75               | all the pitches of the mode are used, with no extra pitches
 | 1                  | all notes of the chromatic scale are used, so the mode can no longer be distinguished
 
 
