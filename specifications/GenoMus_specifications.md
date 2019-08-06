@@ -703,6 +703,7 @@ A **prolatio** is a nested time grid used to adjust the raw values received from
 
 `[1,[1,1,1],2,[2,2,1,1,1,1],1,[3,1]]`
 
+It is important to note that some of the rendered values could be rests. Rest are produced when event atributes as articulation or intensity are set to 0. 
 
 --------
 ## Harmony vector
