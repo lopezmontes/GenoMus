@@ -40,11 +40,12 @@
   - [Integer x steps](#integer-x-steps-1)
     - [xstepsF (x)](#xstepsf-x)    
 - [Characterization of underlying musical patterns](#characterization-of-underlying-musical-patterns)
-  - [Rhythm](#rhythm)
-    - [Rhythm vector](#rhythm-vector)
-    - [Quantization](#quantization)
-  - [Harmony](#harmony)
-    - [Harmony vector](#harmony-vector)
+  - [Rhythm vector](#rhythm-vector)
+    - [totalValue](#totalvalue)
+    - [talea](#talea)
+    - [prolatio](#prolatio)
+    - [quantization](#quantization)
+  - [Harmony vector](#harmony-vector)
     - [Chromaticity degree](#chromaticity-degree)
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
   - [Conversion table for genotypes](#conversion-table-for-genotypes)
@@ -628,11 +629,9 @@ The inversion is made with a lookup table.
 
 
 ---------
-## Rhythm
+## Rhythm vector
 
 Each rhythmic pattern can be expressed as a vector containing informations to be used by other functions to map durations. This vector is an abstract representation of a rhythmic pattern and its interrelation with a time grid and with the level of general quantization. Using this data, certain functions adjust their values to get different rhythmic structures and analytical information.
-
-### Rhythm vector
 
 A rhythm pattern vector is coded into an array as follows:
 
@@ -645,7 +644,7 @@ A rhythm pattern vector is coded into an array as follows:
 
 ### Talea
 
-A **talea** is a rhythmic pattern, a sequence of numbers representing relative durations. Its format is a nested array as output of a rhythmF function (see [reference](#rhythmf))  
+A **talea** is a rhythmic pattern, a sequence of numbers representing relative durations. Its format is a nested array as output of a rhythmF function (see [reference](#rhythmf)).  
 
 
 The order of values in **talea** matters, because the position within the sequence determines the priority of taken values for low degrees of quantization (the first, the most important).
@@ -675,11 +674,9 @@ The order of values in **talea** matters, because the position within the sequen
 <img src="figures/prolatio_ex2.svg" width="270">
 
 --------
-## Harmony
+## Harmony vector
 
 Each harmony can be expressed as a vector containing informations to be used by other functions to map pitches. This vector is an abstract representation of a chord and its interrelation with a mode and with the level of general chromatism. Using this information, certain functions adjust their values to the grid of pitches that fits this harmony and extract analytical information.
-
-### Harmony vector
 
 A harmony pattern vector is coded into an array as follows:
 
