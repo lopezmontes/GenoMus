@@ -669,17 +669,20 @@ A **prolatio** is a nested time grid used to adjust the raw values received from
 | (0, 1)             | gradual quantization using progressive levels of prolatio depth
 | 1                  | no quantization applied, values mapped with full rhythmic resolution (prolatio is not taken into account)
 
----
+---------
 ### Examples of rhythm vectors
 
 ```
 {
     "totalValue": 1,
-    "talea": [0.1,0.1,0.4,0.8,0.4,0,5],
-    "prolatio": [1,[1,1,1],2,[2,2,1,1,1,1],1,[3,1]],
-    "quantization": [.7]
+    "talea": [0.1,0.1,0.4,0.8,0.4,0.5],
+    "prolatio": [2,[1,1,1],4,1,[2,1,1],1,[2,1]],
+    "quantization": .8
 }
 ```
+
+<img src="figures/ex_rhythm_vector_1.svg" width="300">
+
 
 
 `[1]`
@@ -693,6 +696,9 @@ A **prolatio** is a nested time grid used to adjust the raw values received from
 `[2,[1,1,1],4,1,[2,1,1],1,[2,1]]`
 
 <img src="figures/prolatio_ex2.svg" width="270">
+
+[1,[1,1,1],2,[2,2,1,1,1,1],1,[3,1]]
+
 
 --------
 ## Harmony vector
