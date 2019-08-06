@@ -46,7 +46,7 @@
     - [prolatio](#prolatio)
     - [quantization](#quantization)
     - [Examples of rhythm vectors](#examples-of-rhythm-vectors)
-  - [Harmony vector](#harmony-vector)
+  - [Harmonic motif](#harmonic-motif)
     - [Chromaticity degree](#chromaticity-degree)
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
   - [Conversion table for genotypes](#conversion-table-for-genotypes)
@@ -97,8 +97,8 @@
 - **eligible functions**: Set of functions that determine which ones can be chosen during the genotype generation process. Somehow, this set can characterize a composer or a style.
 - **genotype seed**: Number used to initialize the pseudorandom number generator before the genotype generation process starts. It allows repeatable results. Ultimately, a genotype can be identified only by this number, since it determines the entire decision tree that generates it.
 - **phenotype seed**: Number used to initialize the pseudorandom number generator before the genotype evaluation process starts, which allows producing repeatable phenotypes. When a genotype includes random processes, many different phenotypes from the same genotype can arise. In this case, each different result can be indentified with a phenotype seed. So, given specific initial conditions, a single specimen can be identified only by two integers: genotype and phenotype seeds.
-- **rhythm vector**: Data structure that characterizes a rhythmic pattern by specifying length, talea and other features.
-- **harmony vector**: Data structure that characterizes a harmony by specifying tonal center, pitch class set and other features.
+- **rhythmic motif**: Data structure that characterizes a rhythmic pattern by specifying length, talea and other features.
+- **harmonic motif**: Data structure that characterizes a harmony by specifying tonal center, pitch class set and other features.
 - **talea**: Array of values that represents a sequence of relative durations (updated concept taken from ancient music).
 - **prolatio**: Hierarchical time grid structure.
 - **quantization**: Adjustment of relatives durations of a talea to a prolatio.
@@ -634,7 +634,7 @@ The inversion is made with a lookup table.
 
 A rhythmic pattern can be expressed as a dictionary containing informations to be used by other functions to map durations. These data represent a rhythmic pattern and its interrelations with a time grid and with the level of general quantization. Using this dictionary, certain functions adjust their values to get different rhythmic structures and analytical information.
 
-A **rhythm vector** is coded into an array following this data structure:
+A **rhythmic motif** is coded into an array following this data structure:
 
 | index     | feature          | data format            | description
 | --------- | ---------------- | ---------------------- | ----------- 
@@ -672,7 +672,7 @@ A **prolatio** is a nested time grid used to adjust the raw values received from
 ---------
 ### Examples of rhythm vectors
 
-The following tables show results of different degrees of quantization applied to this rhythm pattern: 
+The following tables show how different degrees of quantization affect to this motif: 
 
 ```
 {
@@ -719,11 +719,11 @@ First of all, the talea `[0.1,0.1,0.4,0.8,0.4,0.5]` is rescaled to `[0.044,0.044
 It is important to note that some of the rendered values could be rests. Rest are produced when event atributes as articulation or intensity are set to 0. 
 
 --------
-## Harmonic vector
+## Harmonic motif
 
-A harmony can be expressed as a vector containing informations to be used by other functions to map pitches. This vector is an abstract representation of a chord and its interrelations with a mode and with the level of general chromatism. Using this information, certain functions adjust their values to the grid of pitches that fits this harmony and extract analytical information.
+A harmony can be expressed as a dictionary containing informations to be used by other functions to map pitches. These data is a representation of a group of pitches (usually a chord) and its interrelations with a pitch class set (usually a mode) and with the level of general chromatism. Using this information, certain functions adjust their values to the grid of pitches that fits this harmony and extract analytical information.
 
-A **harmony vector** is coded into an array following this data structure:
+A **harmonic motif** is coded into an array following this data structure:
 
 | index     | feature          | data format          | description
 | --------- | ---------------- | -------------------- | ----------- 
