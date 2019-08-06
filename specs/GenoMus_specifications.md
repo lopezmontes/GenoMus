@@ -626,7 +626,7 @@ The inversion is made with a lookup table.
 ---------
 # Characterization of underlying musical patterns
 
-
+*\[introduction\]*
 
 ---------
 ## Rhythm vector
