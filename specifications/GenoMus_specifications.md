@@ -699,7 +699,7 @@ The next step is to determine quantization thresholds based on the prolatio dept
 | **quantized talea**                                | `[1]`
 | **final result** (score)                           | <img src="figures/prolatio_ex0.svg" width="78">
 
-| 0 < **quantization** &#8804; &#8531;                   | totalValue = 1 <sub>(whole note)</sub>
+| 0 < **quantization** &#8804; &#8531;               | totalValue = 1 <sub>(whole note)</sub>
 | -------------------------------------------------- | -----
 | **raw talea** (rescaled)                           | `[0.044,0.044,0.174,0.348,0.174,0.216]`
 | **prolatio** depth = 1 (code)                      | `[2,4,1,1]`
@@ -708,7 +708,7 @@ The next step is to determine quantization thresholds based on the prolatio dept
 | **quantized talea**                                | `[0.25,0.5,0.25]`
 | **final result** (score)                           | <img src="figures/final_quant_ex1.svg" width="108">
 
-| &#8531; < **quantization** &#8804; &#8532;                 | totalValue = 1 <sub>(whole note)</sub>
+| &#8531; < **quantization** &#8804; &#8532;         | totalValue = 1 <sub>(whole note)</sub>
 | -------------------------------------------------- | -----
 | **raw talea** (rescaled)                           | `[0.044,0.044,0.174,0.348,0.174,0.216]`
 | **prolatio** depth = 2 (code)                      | `[2,[1,1,1],4,1,[2,1,1],1,[2,1]]`
@@ -725,6 +725,15 @@ The next step is to determine quantization thresholds based on the prolatio dept
 | **talea to prolatio quantization** (visualization) | <img src="figures/q3-3.svg" width="500">
 | **quantized talea**                                | `[0.042, 0.042, 0.168, 0.5, 0.048, 0.2]`
 | **final result** (score)                           | <img src="figures/final_quant_ex3.svg" width="280">
+
+| **quantization** = 1                               | totalValue = 1 <sub>(whole note)</sub>
+| -------------------------------------------------- | -----
+| **raw talea** (rescaled)                           | `[0.044,0.044,0.174,0.348,0.174,0.216]`
+| **prolatio** depth = 3 (code)                      | `[2,[1,[1,1],1,[1,1],1],4,1,[2,[3,1],1,1],1,[2,1]]`
+| **prolatio** depth = 3 (score)                     | Prolatio is not used because there is no quantization
+| **quantized talea** (no quantization is done)      | `[0.044,0.044,0.174,0.348,0.174,0.216]`
+| **final result** (score)                           | <img src="figures/final_quant_ex3.svg" width="280">
+
 
 
 
