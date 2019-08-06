@@ -681,7 +681,7 @@ A **prolatio** is a nested time grid used to adjust the raw values received from
 }
 ```
 
-<img src="figures/ex_rhythm_vector_1.svg" width="300">
+<img src="figures/ex_rhythm_vector_1.svg" width="500">
 
 
 
