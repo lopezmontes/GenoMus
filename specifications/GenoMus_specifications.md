@@ -649,11 +649,13 @@ The duration of reference to perform all rhythmic pattern transformations is det
 
 ### talea
 
-A **talea** is a rhythmic pattern, a sequence of numbers representing relative durations. Its format is a nested array as output of a [**rhythmF**](#rhythmf) function.  
+A **talea** is a rhythmic pattern, a sequence of numbers representing relative durations. Its format can be nested array as output of a [**rhythmF**](#rhythmf) function, or simply an array of floats (no normalization is needed).
 
-The order of values in **talea** matters, because the position within the sequence determines the priority of taken values for low degrees of quantization (the first, the most important).
+The order of values in a **talea** matters, because the position within the sequence determines the priority of taken values for low degrees of quantization (the first, the most important).
 
 ### prolatio
+
+A **prolatio** is a nested time grid used to adjust the raw values received from a talea. A prolatio follow the format of [**rhythmF**](#rhythmf) functions output. 
 
 ### quantization
 
