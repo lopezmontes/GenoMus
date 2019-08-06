@@ -699,7 +699,7 @@ A **prolatio** is a nested time grid used to adjust the raw values received from
 
 `[2,[1,[1,1],1,[1,1],1],4,1,[2,[3,1],1,1],1,[2,1]]`
 
-<img src="figures/prolatio_ex3.svg" width="350">
+<img src="figures/prolatio_ex3.svg" width="390">
 
 
 
