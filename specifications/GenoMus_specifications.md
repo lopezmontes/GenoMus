@@ -262,7 +262,7 @@ Obviously, each subarray must have at least two values to produce a subdivision 
 
 Prolationes can be arbitrarily complex. A simple array like `[1,[2,3],1,[1,[1,4],4,2],1,[1,1,[3,4,4]]]` produce nested tuplets (reference note value for total duration is a whole note):
 
-<img src="figures/prolatio_complex.svg" width="500">
+<img src="figures/prolatio_complex.svg" width="4820">
 
 When more levels of subdivision are required but not specified, simple binary subdivisions are made by default.
 
@@ -694,7 +694,7 @@ The next step is to determine quantization thresholds based on the prolatio dept
 | **raw talea** (rescaled)                           | `[0.044,0.044,0.174,0.348,0.174,0.216]`
 | **prolatio** depth = 0 (code)                      | Prolatio is not used, all values converge to **totalValue**
 | **prolatio** depth = 0 (score)                     | <img src="figures/prolatio_ex0.svg" width="78">
-| **talea to prolatio quantization** (visualization) | <img src="figures/q0.svg" width="500">
+| **talea to prolatio quantization** (visualization) | <img src="figures/q.svg" width="500">
 | **quantized talea**                                | `[1]`
 | **final result** (score)                           | <img src="figures/prolatio_ex0.svg" width="78">
 
@@ -729,7 +729,7 @@ The next step is to determine quantization thresholds based on the prolatio dept
 | -------------------------------------------------- | -----
 | **raw talea** (rescaled)                           | `[0.044,0.044,0.174,0.348,0.174,0.216]`
 | **prolatio**                                       | Prolatio is not needed because there is no quantization
-| **talea to prolatio quantization** (visualization) | <img src="figures/q1.svg" width="500">
+| **talea to prolatio** (visualization)              | <img src="figures/q1.svg" width="500">
 | **quantized talea** (no quantization is done)      | `[0.044,0.044,0.174,0.348,0.174,0.216]`
 | **final result** (score)                           | <img src="figures/prolatio_Q1-0.svg" width="230">
 
