@@ -642,14 +642,19 @@ A rhythm pattern vector is coded into an array as follows:
 | **2**     | **prolatio**     | rhythmF                | successive levels of divisions in the time grid to which the rhythmic values will be adjusted
 | **3**     | **quantization** | float &isinv; [0, 1] | degree of adjustment to quantization scheme (higher means more rhythmic complexity)
 
-### Talea
+### totalValue
 
-A **talea** is a rhythmic pattern, a sequence of numbers representing relative durations. Its format is a nested array as output of a rhythmF function (see [reference](#rhythmf)).  
+
+
+
+### talea
+
+A **talea** is a rhythmic pattern, a sequence of numbers representing relative durations. Its format is a nested array as output of a [rhythmF function](#rhythmf).  
 
 
 The order of values in **talea** matters, because the position within the sequence determines the priority of taken values for low degrees of quantization (the first, the most important).
 
-### Quantization
+### quantization
 
 | quantization value | result
 | ------------------ | ------
@@ -689,7 +694,7 @@ A harmony pattern vector is coded into an array as follows:
 
 The **chord** is not a pitch class set because order matters. The position within the sequence determines the priority of each pitch for low degrees of chromaticity (the first, the most important). 
 
-### Chromaticity degree
+### chromaticity
 
 **Chromaticity** degree is denoted with a normalized value. This is the meaning of different levels of chromatism:
 
