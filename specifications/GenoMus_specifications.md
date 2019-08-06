@@ -672,23 +672,24 @@ A **prolatio** is a nested time grid used to adjust the raw values received from
 ---------
 ### Examples of rhythm vectors
 
-First of all, the talea `[0.1,0.1,0.4,0.8,0.4,0.5]` is rescaled to . Now, the sum of all the numbers in the sequence must be 1.  
+First of all, the talea `[0.1,0.1,0.4,0.8,0.4,0.5]` is rescaled to `[0.044,0.044,0.174,0.348,0.174,0.216]` Now, the sum of all the numbers in the sequence must be 1.  
 
 ```
 {
     "totalValue": 1,
     "talea": [0.1,0.1,0.4,0.8,0.4,0.5],
     "prolatio": [2,[1,[1,1],1,[1,1],1],4,1,[2,[3,1],1,1],1,[2,1]],
-    "quantization": .8
+    "quantization": <float within interval [0, 1]>
 }
 ```
 
+| **quantization** degree                            | **0**
+| **talea** (rescaled)                               | `[0.044,0.044,0.174,0.348,0.174,0.216]`
+| **prolatio** (code)                                | Prolatio is not used, all values converge to **totalValue**
+| **prolatio** (score)                               | <img src="figures/q0-0.svg" width="500">
+| **talea to prolatio quantization** (visualization) | <img src="figures/q0-0.svg" width="500">
+| final result (score)                               | <img src="figures/prolatio_ex0.svg" width="78">
 
-`[1]`
-
-<img src="figures/q0-0.svg" width="500">
-
-<img src="figures/prolatio_ex0.svg" width="78">
 
 `[2,4,1,1]`
 
