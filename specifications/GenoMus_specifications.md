@@ -668,14 +668,12 @@ A **prolatio** is a nested time grid used to adjust the raw values received from
 
 ### Examples of rhythm vectors
 
-```
-{
+```{
     "totalValue": 1,
     "talea": [0.1,0.1,0.4,0.8,0.4,0,5],
     "prolatio": [1,[1,1,1],2,[2,2,1,1,1,1],1,[3,1]],
     "quantization": [.7]
-}
-```
+}```
 
 
 `[1]`
