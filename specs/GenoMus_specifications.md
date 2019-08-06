@@ -639,9 +639,14 @@ A rhythm pattern vector is coded into an array as follows:
 | index     | feature          | data format            | description
 | --------- | ---------------- | ---------------------- | ----------- 
 | **0**     | **totalValue**   | notevalueF / durationF | pattern length
-| **1**     | **talea**        | float array            | rhythmic pattern (regardless of central value)
+| **1**     | **talea**        | rhythmF                | rhythmic pattern (regardless of central value)
 | **2**     | **prolatio**     | rhythmF                | successive levels of divisions in the time grid to which the rhythmic values will be adjusted
 | **3**     | **quantization** | float &isinv; [0, 1] | degree of adjustment to quantization scheme (higher means more rhythmic complexity)
+
+### Talea
+
+A **talea** is a rhythmic pattern, a sequence of numbers representing relative durations. Its format is a nested array as output of a rhythmF function (see [reference](#rhythmf))  
+
 
 The order of values in **talea** matters, because the position within the sequence determines the priority of taken values for low degrees of quantization (the first, the most important).
 
