@@ -676,7 +676,7 @@ A **prolatio** is a nested time grid used to adjust the raw values received from
 {
     "totalValue": 1,
     "talea": [0.1,0.1,0.4,0.8,0.4,0.5],
-    "prolatio": [2,[1,1,1],4,1,[2,1,1],1,[2,1]],
+    "prolatio": [2,[1,[1,1],1,[1,1],1],4,1,[2,[3,1],1,1],1,[2,1]],
     "quantization": .8
 }
 ```
@@ -697,7 +697,11 @@ A **prolatio** is a nested time grid used to adjust the raw values received from
 
 <img src="figures/prolatio_ex2.svg" width="270">
 
-[1,[1,1,1],2,[2,2,1,1,1,1],1,[3,1]]
+`[2,[1,[1,1],1,[1,1],1],4,1,[2,[3,1],1,1],1,[2,1]]`
+
+
+
+`[1,[1,1,1],2,[2,2,1,1,1,1],1,[3,1]]`
 
 
 --------
