@@ -672,6 +672,8 @@ A **prolatio** is a nested time grid used to adjust the raw values received from
 ---------
 ### Examples of rhythm vectors
 
+First of all, the talea `[0.1,0.1,0.4,0.8,0.4,0.5]` is rescaled to . Now, the sum of all the numbers in the sequence must be 1.  
+
 ```
 {
     "totalValue": 1,
@@ -704,6 +706,9 @@ A **prolatio** is a nested time grid used to adjust the raw values received from
 
 
 `[1,[1,1,1],2,[2,2,1,1,1,1],1,[3,1]]`
+
+
+<img src="figures/prolatio_Q1-0.svg" width="200">
 
 It is important to note that some of the rendered values could be rests. Rest are produced when event atributes as articulation or intensity are set to 0. 
 
