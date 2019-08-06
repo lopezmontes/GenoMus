@@ -644,7 +644,7 @@ A rhythm pattern vector is coded into an array as follows:
 
 ### totalValue
 
-The duration of reference to perform all rhythmic pattern transformations is determined by **totalValue**, a normalized float formatted according to the mapping of [notevalueF](#notevaluef-n) or [durationF](#durationf-d) functions.
+The duration of reference to perform all rhythmic pattern transformations is determined by **totalValue**, a normalized float formatted according to the mapping of [**notevalueF**](#notevaluef-n) or [**durationF**](#durationf-d) functions.
 
 
 ### talea
