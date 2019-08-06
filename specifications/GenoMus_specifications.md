@@ -649,7 +649,7 @@ The duration of reference to perform all rhythmic pattern transformations is det
 
 ### talea
 
-A **talea** is a rhythmic pattern, a sequence of numbers representing relative durations. Its format can be derived from a nested array as output of a [**rhythmF**](#rhythmf) function, or simply an float array (no normalization is required).
+A **talea** is a rhythmic pattern, a sequence of numbers representing relative durations. Its format can be a simple float array (no normalization is required), or can be derived from a nested array as output of a [**rhythmF**](#rhythmf) function.
 
 The order of values in a **talea** matters, because the position within the sequence determines the priority of taken values for low degrees of quantization (the first, the most important).
 
