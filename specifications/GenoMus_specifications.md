@@ -689,7 +689,6 @@ First of all, the talea `[0.1,0.1,0.4,0.8,0.4,0.5]` is rescaled to `[0.044,0.044
 
 The next step is to determine quantization thresholds based on the prolatio depth levels. In this example, the prolatio has three levels that are mapped to the intervals (0, &#8531;], (&#8531;, &#8532;] and (&#8532;, 1).
 
-
 | **quantization** = 0                               | totalValue = 1 <sub>(whole note)</sub>
 | -------------------------------------------------- | -----
 | **raw talea** (rescaled)                           | `[0.044,0.044,0.174,0.348,0.174,0.216]`
@@ -729,30 +728,9 @@ The next step is to determine quantization thresholds based on the prolatio dept
 | **quantization** = 1                               | totalValue = 1 <sub>(whole note)</sub>
 | -------------------------------------------------- | -----
 | **raw talea** (rescaled)                           | `[0.044,0.044,0.174,0.348,0.174,0.216]`
-| **prolatio** depth = 3 (code)                      | `[2,[1,[1,1],1,[1,1],1],4,1,[2,[3,1],1,1],1,[2,1]]`
-| **prolatio** depth = 3 (score)                     | Prolatio is not used because there is no quantization
+| **prolatio**                                       | Prolatio is not needed because there is no quantization
 | **quantized talea** (no quantization is done)      | `[0.044,0.044,0.174,0.348,0.174,0.216]`
-| **final result** (score)                           | <img src="figures/final_quant_ex3.svg" width="280">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-`[1,[1,1,1],2,[2,2,1,1,1,1],1,[3,1]]`
-
-
-<img src="figures/prolatio_Q1-0.svg" width="230">
+| **final result** (score)                           | <img src="figures/prolatio_Q1-0.svg" width="230">
 
 It is important to note that some of the rendered values could be rests. Rest are produced when event atributes as articulation or intensity are set to 0. 
 
@@ -783,8 +761,6 @@ The **chord** is not a pitch class set because order matters. The position withi
 | 0.5                | all the chord pitches are used, with no extra pitches
 | 0.75               | all the pitches of the mode are used, with no extra pitches
 | 1                  | all notes of the chromatic scale are used, so the mode can no longer be distinguished
-
-
 
 ---------
 # Genotype operations
