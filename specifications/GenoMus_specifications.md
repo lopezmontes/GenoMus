@@ -643,21 +643,24 @@ A **rhythm vector** is coded into an array following this data structure:
 | **2**     | **prolatio**     | rhythmF                | successive levels of divisions in the time grid to which the rhythmic values will be adjusted
 | **3**     | **quantization** | float &isinv; [0, 1] | degree of adjustment to quantization scheme (higher means more rhythmic complexity)
 
+---------
 ### totalValue
 
 The duration of reference to perform all rhythmic pattern transformations is determined by **totalValue**, formatted according to the mapping of [**notevalueF**](#notevaluef-n) functions.
 
-
+---------
 ### talea
 
 A **talea** is a rhythmic pattern, a sequence of numbers representing relative durations. Its format can be a simple float array (no normalization is required), or can be derived from a nested array as output of a [**rhythmF**](#rhythmf) function.
 
 The order of values in a **talea** matters, because the position within the sequence determines the priority of taken values for low degrees of quantization (the first, the most important).
 
+---------
 ### prolatio
 
 A **prolatio** is a nested time grid used to adjust the raw values received from a talea. A prolatio follow the format of [**rhythmF**](#rhythmf) functions output. 
 
+---------
 ### quantization
 
 | quantization value | result
@@ -666,6 +669,7 @@ A **prolatio** is a nested time grid used to adjust the raw values received from
 | (0, 1)             | gradual quantization using progressive levels of prolatio depth
 | 1                  | no quantization applied, values mapped with full rhythmic resolution (prolatio is not taken into account)
 
+---------
 ### Examples of rhythm vectors
 
 ```
