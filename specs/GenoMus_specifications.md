@@ -649,7 +649,7 @@ A rhythm pattern vector is coded into an array as follows:
 
 ### talea
 
-A **talea** is a rhythmic pattern, a sequence of numbers representing relative durations. Its format is a nested array as output of a [rhythmF function](#rhythmf).  
+A **talea** is a rhythmic pattern, a sequence of numbers representing relative durations. Its format is a nested array as output of a [**rhythmF**](#rhythmf) function.  
 
 
 The order of values in **talea** matters, because the position within the sequence determines the priority of taken values for low degrees of quantization (the first, the most important).
