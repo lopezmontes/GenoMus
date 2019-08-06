@@ -45,7 +45,7 @@
     - [talea](#talea)
     - [prolatio](#prolatio)
     - [quantization](#quantization)
-    - [Examples of rhythmic motives](#examples-of-rhythmic-motives)
+    - [Examples of rhythmic motives](#examples-of-rhythmic-motives  )
   - [Harmonic motif](#harmonic-motif)
     - [Chromaticity degree](#chromaticity-degree)
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
@@ -693,8 +693,8 @@ First of all, the talea `[0.1,0.1,0.4,0.8,0.4,0.5]` is rescaled to `[0.044,0.044
 | **prolatio** (code)                                | Prolatio is not used, all values converge to **totalValue**
 | **prolatio** (score)                               | <img src="figures/prolatio_ex0.svg" width="78">
 | **talea to prolatio quantization** (visualization) | <img src="figures/q0-0.svg" width="500">
-| **quantized tale**                                 | `[1]`
-| final result (score)                               | <img src="figures/prolatio_ex0.svg" width="78">
+| **quantized talea**                                | `[1]`
+| **final result** (score)                           | <img src="figures/prolatio_ex0.svg" width="78">
 
 
 `[2,4,1,1]`
