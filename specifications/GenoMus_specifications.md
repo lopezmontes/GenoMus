@@ -633,7 +633,7 @@ The inversion is made with a lookup table.
 
 A rhythmic pattern can be expressed as a vector containing informations to be used by other functions to map durations. This vector is an abstract representation of a rhythmic pattern and its interrelations with a time grid and with the level of general quantization. Using this data, certain functions adjust their values to get different rhythmic structures and analytical information.
 
-A **rhythm vector** is coded into an array as follows:
+A **rhythm vector** is coded into an array following this data structure:
 
 | index     | feature          | data format            | description
 | --------- | ---------------- | ---------------------- | ----------- 
@@ -684,7 +684,7 @@ The order of values in **talea** matters, because the position within the sequen
 
 A harmony can be expressed as a vector containing informations to be used by other functions to map pitches. This vector is an abstract representation of a chord and its interrelations with a mode and with the level of general chromatism. Using this information, certain functions adjust their values to the grid of pitches that fits this harmony and extract analytical information.
 
-A **harmony vector** is coded into an array as follows:
+A **harmony vector** is coded into an array following this data structure:
 
 | index     | feature          | data format          | description
 | --------- | ---------------- | -------------------- | ----------- 
