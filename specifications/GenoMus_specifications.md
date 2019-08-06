@@ -691,7 +691,7 @@ A **harmony vector** is coded into an array following this data structure:
 | --------- | ---------------- | -------------------- | ----------- 
 | **0**     | **tonalCenter**  | midipitchF           | main reference pitch (usually a chord's root)
 | **1**     | **chord**        | harmonyF             | pitch class sequence with the harmony pitches (regardless of tonal center)
-| **2**     | **mode**         | harmonyF             | pitch class set (usually, a scale) containing the chord pitches using C (pitch class 0) as root 
+| **2**     | **mode**         | <img src="figures/prolatio_ex2.svg" width="270">             | pitch class set (usually, a scale) containing the chord pitches using C (pitch class 0) as root 
 | **3**     | **chromaticity** | float &isinv; [0, 1] | tolerance to chromatic notes (higher means more chromatic results)
 
 The **chord** is not a pitch class set because order matters. The position within the sequence determines the priority of each pitch for low degrees of chromaticity (the first, the most important). 
