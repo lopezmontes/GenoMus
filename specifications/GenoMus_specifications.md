@@ -45,7 +45,7 @@
     - [talea](#talea)
     - [prolatio](#prolatio)
     - [quantization](#quantization)
-    - [Examples of rhythm vectors](#examples-of-rhythm-vectors)
+    - [Examples of rhythmic motives](#examples-of-rhythmic-motives)
   - [Harmonic motif](#harmonic-motif)
     - [Chromaticity degree](#chromaticity-degree)
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
@@ -670,7 +670,7 @@ A **prolatio** is a nested time grid used to adjust the raw values received from
 | 1                  | no quantization applied, values mapped with full rhythmic resolution (prolatio is not taken into account)
 
 ---------
-### Examples of rhythm vectors
+### Examples of rhythmic motives
 
 The following tables show how different degrees of quantization affect to this motif: 
 
