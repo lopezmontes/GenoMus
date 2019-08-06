@@ -6,22 +6,22 @@
 
 global = {
   \key c \major
-  \time 56/4
+  \time 8/4
   \override Staff.TimeSignature #'stencil = ##f
 }
 
 
 
-violin = \relative c'' {
+violin = \relative c' {
   \override Staff.StaffSymbol.line-count = #1
   \global
-  \autoBeamOff
+  % \autoBeamOff
   \cadenzaOn
   \clef percussion
   % \override Staff.NoteHead.style = #'baroque
   % \once \override Stem.length = #0
-  c,4
- 
+  \tuplet 6/4 {c16[ 16 16 16 8]} 2 32.[ 64 32 32 \tuplet 3/2 {8 16]} 
+  %\tuplet 3/2 {\tuplet 5/4 {c8[ 8.]} \tuplet 7/8 { \tuplet 5/4 {128[ 32} 8 16]} 8[ \tuplet 11/8 {32. 16 16]}}
 }
 
 \score {
