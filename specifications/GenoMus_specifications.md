@@ -262,7 +262,7 @@ Obviously, each subarray must have at least two values to produce a subdivision 
 
 Prolationes can be arbitrarily complex. A simple array like `[1,[2,3],1,[1,[1,4],4,2],1,[1,1,[3,4,4]]]` produce nested tuplets (reference note value for total duration is a whole note):
 
-<img src="figures/prolatio_complex.svg" width="4820">
+<img src="figures/prolatio_complex.svg" width="482">
 
 When more levels of subdivision are required but not specified, simple binary subdivisions are made by default.
 
