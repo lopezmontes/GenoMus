@@ -690,16 +690,25 @@ First of all, the talea `[0.1,0.1,0.4,0.8,0.4,0.5]` is rescaled to `[0.044,0.044
 | **quantization** = 0                               | totalValue = 1 (whole note)
 | -------------------------------------------------- | -----
 | **raw talea** (rescaled)                           | `[0.044,0.044,0.174,0.348,0.174,0.216]`
-| **prolatio** (code)                                | Prolatio is not used, all values converge to **totalValue**
-| **prolatio** (score)                               | <img src="figures/prolatio_ex0.svg" width="78">
+| **prolatio** depth = 0 (code)                      | Prolatio is not used, all values converge to **totalValue**
+| **prolatio** depth = 0 (score)                     | <img src="figures/prolatio_ex0.svg" width="78">
 | **talea to prolatio quantization** (visualization) | <img src="figures/q0-0.svg" width="500">
 | **quantized talea**                                | `[1]`
 | **final result** (score)                           | <img src="figures/prolatio_ex0.svg" width="78">
 
 
-`[2,4,1,1]`
+| 0 < **quantization** < 1/3                         | totalValue = 1 (whole note)
+| -------------------------------------------------- | -----
+| **raw talea** (rescaled)                           | `[0.044,0.044,0.174,0.348,0.174,0.216]`
+| **prolatio** depth = 1 (code)                      | `[2,4,1,1]`
+| **prolatio** depth = 1 (score)                     | <img src="figures/prolatio_ex1.svg" width="130">
+| **talea to prolatio quantization** (visualization) | <img src="figures/q0-0.svg" width="500">
+| **quantized talea**                                | `[0.25,0.5,0.25]`
+| **final result** (score)                           | <img src="figures/prolatio_ex0.svg" width="78">
 
-<img src="figures/prolatio_ex1.svg" width="130">
+
+
+
 
 `[2,[1,1,1],4,1,[2,1,1],1,[2,1]]`
 
