@@ -6,11 +6,15 @@
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:xlink="http://www.w3.org/1999/xlink"
-   id="svg2"
-   viewBox="0 0 34.204024 6.5242372"
-   height="11.465034mm"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.2"
    width="60.106686mm"
-   version="1.2">
+   height="11.465034mm"
+   viewBox="0 0 34.204024 6.5242372"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="prolatio_Q1-0.svg">
   <metadata
      id="metadata92">
     <rdf:RDF>
@@ -25,257 +29,285 @@
   </metadata>
   <defs
      id="defs90" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1410"
+     inkscape:window-height="971"
+     id="namedview88"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="14.352473"
+     inkscape:cx="63.494645"
+     inkscape:cy="28.8881"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2" />
   <!-- Page: 1/1 -->
   <text
-     y="-0.99902499"
-     x="0.00071212446"
-     style="font-size:2.20009995px;font-family:serif;text-anchor:start;fill:currentColor"
+     font-size="2.2001"
      id="text4"
-     font-size="2.2001">
+     style="font-size:2.20009995px;font-family:serif;text-anchor:start;fill:currentColor"
+     x="0.00071212446"
+     y="-0.99902499">
     <tspan
        id="tspan6" />
   </text>
   <line
-     style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round"
-     id="line8"
-     y2="1.393375"
-     x2="34.153313"
+     x1="0.050712124"
      y1="1.393375"
-     x1="0.050712124" />
+     x2="34.153313"
+     y2="1.393375"
+     id="line8"
+     style="stroke:currentColor;stroke-width:0.1;stroke-linecap:round;stroke-linejoin:round" />
   <rect
-     style="fill:currentColor"
+     x="26.794811"
+     y="1.579475"
+     width="0.13"
+     height="3.0039001"
+     ry="0.039999999"
      id="rect10"
-     ry="0.039999999"
-     height="3.0039001"
-     width="0.13"
-     y="1.579475"
-     x="26.794811" />
+     style="fill:currentColor" />
   <rect
-     style="fill:currentColor"
-     id="rect12"
-     ry="0.039999999"
-     height="3.0039001"
-     width="0.13"
+     x="8.3049126"
      y="1.579475"
-     x="8.3049126" />
+     width="0.13"
+     height="3.0039001"
+     ry="0.039999999"
+     id="rect12"
+     style="fill:currentColor" />
   <a
-     transform="translate(-5.6898879,-3.844325)"
-     id="a14"
+     style="color:inherit"
      xlink:href="textedit:///var/folders/_g/5m8jwnh13xl4zfc1dyffj2bw0000gn/T/frescobaldi-lqr3xi8w/tmp0enc4osn/prolatio_examples.ly:26:24:25"
-     style="color:inherit">
+     id="a14"
+     transform="translate(-5.6898879,-3.844325)">
     <path
-       style="fill:currentColor"
-       id="path16"
+       transform="matrix(0.004,0,0,-0.004,13.9948,5.2377)"
        d="m 218,136 c 55,0 108,-28 108,-89 0,-71 -55,-121 -102,-149 -35,-21 -75,-34 -116,-34 -55,0 -108,28 -108,89 0,71 55,121 102,149 35,21 75,34 116,34 z"
-       transform="matrix(0.004,0,0,-0.004,13.9948,5.2377)" />
+       id="path16"
+       inkscape:connector-curvature="0"
+       style="fill:currentColor" />
   </a>
   <path
-     style="fill:currentColor"
+     d="m 31.829112,3.908375 c 0.364,-0.204 0.844,-0.524 0.844,-0.932 0,-0.096 -0.02,-0.192 -0.056,-0.28 -0.316,0.356 -0.788,0.64 -0.788,1.132 l 0,0.08 z m 1.068,-1.832 c 0,0.176 -0.064,0.328 -0.156,0.464 0.064,0.14 0.1,0.284 0.1,0.436 0,0.724 -1.012,1.028 -1.012,1.752 l -0.064,0 0,-2 0.064,0 0,0.28 c 0.388,-0.196 0.896,-0.512 0.896,-0.932 0,-0.084 -0.02,-0.168 -0.052,-0.248 -0.012,-0.064 0.04,-0.108 0.092,-0.108 0.12,0 0.132,0.252 0.132,0.356 z"
      id="path18"
-     d="m 31.829112,3.908375 c 0.364,-0.204 0.844,-0.524 0.844,-0.932 0,-0.096 -0.02,-0.192 -0.056,-0.28 -0.316,0.356 -0.788,0.64 -0.788,1.132 l 0,0.08 z m 1.068,-1.832 c 0,0.176 -0.064,0.328 -0.156,0.464 0.064,0.14 0.1,0.284 0.1,0.436 0,0.724 -1.012,1.028 -1.012,1.752 l -0.064,0 0,-2 0.064,0 0,0.28 c 0.388,-0.196 0.896,-0.512 0.896,-0.932 0,-0.084 -0.02,-0.168 -0.052,-0.248 -0.012,-0.064 0.04,-0.108 0.092,-0.108 0.12,0 0.132,0.252 0.132,0.356 z" />
+     inkscape:connector-curvature="0"
+     style="fill:currentColor" />
   <rect
-     style="fill:currentColor"
-     id="rect20"
-     ry="0.039999999"
+     x="31.699112"
+     y="1.579475"
+     width="0.13"
      height="3.1889"
-     width="0.13"
-     y="1.579475"
-     x="31.699112" />
+     ry="0.039999999"
+     id="rect20"
+     style="fill:currentColor" />
   <a
-     transform="translate(-5.6898879,-3.844325)"
-     id="a22"
+     style="color:inherit"
      xlink:href="textedit:///var/folders/_g/5m8jwnh13xl4zfc1dyffj2bw0000gn/T/frescobaldi-lqr3xi8w/tmp0enc4osn/prolatio_examples.ly:26:37:38"
-     style="color:inherit">
+     id="a22"
+     transform="translate(-5.6898879,-3.844325)">
     <path
-       style="fill:currentColor"
+       transform="matrix(0.004,0,0,-0.004,37.389,5.2377)"
+       d="m 218,136 c 55,0 108,-28 108,-89 0,-71 -55,-121 -102,-149 -35,-21 -75,-34 -116,-34 -55,0 -108,28 -108,89 0,71 55,121 102,149 35,21 75,34 116,34 z"
        id="path24"
-       d="m 218,136 c 55,0 108,-28 108,-89 0,-71 -55,-121 -102,-149 -35,-21 -75,-34 -116,-34 -55,0 -108,28 -108,89 0,71 55,121 102,149 35,21 75,34 116,34 z"
-       transform="matrix(0.004,0,0,-0.004,37.389,5.2377)" />
+       inkscape:connector-curvature="0"
+       style="fill:currentColor" />
   </a>
+  <polygon
+     style="fill:currentColor;stroke:currentColor;stroke-width:0.08;stroke-linecap:round;stroke-linejoin:round"
+     id="polygon28"
+     points="2.5942,0.2 0.04,0.2 0.04,-0.2 2.5942,-0.2 "
+     transform="translate(5.8007121,3.773375)" />
+  <polygon
+     style="fill:currentColor;stroke:currentColor;stroke-width:0.08;stroke-linecap:round;stroke-linejoin:round"
+     id="polygon30"
+     points="5.0984,-0.2 5.0984,0.2 0.04,0.2 0.04,-0.2 "
+     transform="matrix(0.51313295,0,0,1.0530186,5.798323,4.583375)" />
   <a
-     transform="translate(-5.6898879,-3.844325)"
-     id="a26"
-     xlink:href="textedit:///var/folders/_g/5m8jwnh13xl4zfc1dyffj2bw0000gn/T/frescobaldi-lqr3xi8w/tmp0enc4osn/prolatio_examples.ly:26:22:23"
-     style="color:inherit">
-    <polygon
-       style="fill:currentColor;stroke:currentColor;stroke-width:0.08;stroke-linecap:round;stroke-linejoin:round"
-       id="polygon28"
-       points="0.04,-0.2 2.5942,-0.2 2.5942,0.2 0.04,0.2 "
-       transform="translate(11.4906,7.6177)" />
-    <polygon
-       style="fill:currentColor;stroke:currentColor;stroke-width:0.08;stroke-linecap:round;stroke-linejoin:round"
-       id="polygon30"
-       points="0.04,-0.2 5.0984,-0.2 5.0984,0.2 0.04,0.2 "
-       transform="translate(11.4906,8.4277)" />
-  </a>
-  <a
-     transform="translate(-5.6898879,-3.844325)"
-     id="a32"
+     style="color:inherit"
      xlink:href="textedit:///var/folders/_g/5m8jwnh13xl4zfc1dyffj2bw0000gn/T/frescobaldi-lqr3xi8w/tmp0enc4osn/prolatio_examples.ly:26:27:28"
-     style="color:inherit">
+     id="a32"
+     transform="translate(-5.6898879,-3.844325)">
     <path
-       style="fill:currentColor"
-       id="path34"
+       transform="matrix(0.004,0,0,-0.004,16.499,5.2377)"
        d="m 218,136 c 55,0 108,-28 108,-89 0,-71 -55,-121 -102,-149 -35,-21 -75,-34 -116,-34 -55,0 -108,28 -108,89 0,71 55,121 102,149 35,21 75,34 116,34 z"
-       transform="matrix(0.004,0,0,-0.004,16.499,5.2377)" />
+       id="path34"
+       inkscape:connector-curvature="0"
+       style="fill:currentColor" />
   </a>
   <rect
-     style="fill:currentColor"
-     id="rect36"
-     ry="0.039999999"
-     height="3.0039001"
-     width="0.13"
+     x="10.809113"
      y="1.579475"
-     x="10.809113" />
+     width="0.13"
+     height="3.0039001"
+     ry="0.039999999"
+     id="rect36"
+     style="fill:currentColor" />
   <a
-     transform="translate(-5.6898879,-3.844325)"
-     id="a38"
+     style="color:inherit"
      xlink:href="textedit:///var/folders/_g/5m8jwnh13xl4zfc1dyffj2bw0000gn/T/frescobaldi-lqr3xi8w/tmp0enc4osn/prolatio_examples.ly:26:29:30"
-     style="color:inherit">
+     id="a38"
+     transform="translate(-5.6898879,-3.844325)">
     <path
-       style="fill:currentColor"
-       id="path40"
+       transform="matrix(0.004,0,0,-0.004,21.4032,5.2377)"
        d="m 314,65 c 0,24 -21,41 -42,41 -4,0 -8,0 -12,-1 C 229,96 182,65 145,41 108,17 61,-12 41,-37 34,-45 31,-55 31,-65 c 0,-24 21,-41 42,-41 4,0 8,0 12,1 31,9 77,40 114,64 37,24 84,53 104,78 7,8 11,18 11,28 z m -52,71 c 46,0 82,-21 82,-71 0,-19 -4,-39 -10,-57 -12,-37 -32,-72 -64,-94 -53,-36 -113,-50 -187,-50 -46,0 -83,21 -83,71 0,19 5,39 11,57 12,37 31,72 63,94 53,36 114,50 188,50 z"
-       transform="matrix(0.004,0,0,-0.004,21.4032,5.2377)" />
+       id="path40"
+       inkscape:connector-curvature="0"
+       style="fill:currentColor" />
   </a>
   <rect
-     style="fill:currentColor"
-     id="rect42"
-     ry="0.039999999"
-     height="2.931"
-     width="0.13"
+     x="15.713312"
      y="1.652375"
-     x="15.713312" />
+     width="0.13"
+     height="2.931"
+     ry="0.039999999"
+     id="rect42"
+     style="fill:currentColor" />
   <a
-     transform="translate(-5.6898879,-3.844325)"
-     id="a44"
+     style="color:inherit"
      xlink:href="textedit:///var/folders/_g/5m8jwnh13xl4zfc1dyffj2bw0000gn/T/frescobaldi-lqr3xi8w/tmp0enc4osn/prolatio_examples.ly:26:35:36"
-     style="color:inherit">
+     id="a44"
+     transform="translate(-5.6898879,-3.844325)">
     <path
-       style="fill:currentColor;stroke:currentColor;stroke-width:0.08;stroke-linecap:round;stroke-linejoin:round"
-       id="path46"
+       transform="translate(32.4847,5.2377)"
        d="m 0.8521,-0.75 c 0.8416,-0.8045 3.6626,-0.8045 4.5042,0 l 0,0 c -0.8416,-0.6845 -3.6626,-0.6845 -4.5042,0 z"
-       transform="translate(32.4847,5.2377)" />
+       id="path46"
+       inkscape:connector-curvature="0"
+       style="fill:currentColor;stroke:currentColor;stroke-width:0.08;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <a
-     transform="translate(-5.6898879,-3.844325)"
-     id="a48"
+     style="color:inherit"
      xlink:href="textedit:///var/folders/_g/5m8jwnh13xl4zfc1dyffj2bw0000gn/T/frescobaldi-lqr3xi8w/tmp0enc4osn/prolatio_examples.ly:26:4:5"
-     style="color:inherit">
+     id="a48"
+     transform="translate(-5.6898879,-3.844325)">
     <text
-       style="font-style:italic;font-size:1.74609995px;font-family:serif;text-anchor:start;fill:currentColor"
-       id="text50"
-       font-size="1.7461"
+       transform="translate(23.617,10.3481)"
        font-style="italic"
-       transform="translate(23.617,10.3481)">
+       font-size="1.7461"
+       id="text50"
+       style="font-style:italic;font-size:1.74609995px;font-family:serif;text-anchor:start;fill:currentColor">
       <tspan
-         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic'"
-         id="tspan52">23</tspan>
+         id="tspan52"
+         style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman,  Italic'">23</tspan>
     </text>
   </a>
   <a
-     transform="translate(-5.6898879,-3.844325)"
-     id="a54"
+     style="color:inherit"
      xlink:href="textedit:///var/folders/_g/5m8jwnh13xl4zfc1dyffj2bw0000gn/T/frescobaldi-lqr3xi8w/tmp0enc4osn/prolatio_examples.ly:26:4:5"
-     style="color:inherit">
+     id="a54"
+     transform="translate(-5.6898879,-3.844325)">
     <line
-       style="stroke:currentColor;stroke-width:0.16;stroke-linecap:round;stroke-linejoin:round"
-       id="line56"
-       y2="-0.69999999"
+       transform="translate(11.4906,9.7677)"
+       x1="26.228399"
+       y1="0"
        x2="26.228399"
-       y1="0"
-       x1="26.228399"
-       transform="translate(11.4906,9.7677)" />
-    <line
-       style="stroke:currentColor;stroke-width:0.16;stroke-linecap:round;stroke-linejoin:round"
-       id="line58"
        y2="-0.69999999"
+       id="line56"
+       style="stroke:currentColor;stroke-width:0.16;stroke-linecap:round;stroke-linejoin:round" />
+    <line
+       transform="translate(11.4906,9.7677)"
+       x1="-0.2"
+       y1="0"
        x2="-0.2"
-       y1="0"
-       x1="-0.2"
-       transform="translate(11.4906,9.7677)" />
+       y2="-0.69999999"
+       id="line58"
+       style="stroke:currentColor;stroke-width:0.16;stroke-linecap:round;stroke-linejoin:round" />
     <line
-       style="stroke:currentColor;stroke-width:0.16;stroke-linecap:round;stroke-linejoin:round"
-       id="line60"
-       y2="0"
-       x2="14.5019"
-       y1="0"
+       transform="translate(11.4906,9.7677)"
        x1="26.228399"
-       transform="translate(11.4906,9.7677)" />
-    <line
-       style="stroke:currentColor;stroke-width:0.16;stroke-linecap:round;stroke-linejoin:round"
-       id="line62"
-       y2="0"
-       x2="11.7265"
        y1="0"
+       x2="14.5019"
+       y2="0"
+       id="line60"
+       style="stroke:currentColor;stroke-width:0.16;stroke-linecap:round;stroke-linejoin:round" />
+    <line
+       transform="translate(11.4906,9.7677)"
        x1="-0.2"
-       transform="translate(11.4906,9.7677)" />
+       y1="0"
+       x2="11.7265"
+       y2="0"
+       id="line62"
+       style="stroke:currentColor;stroke-width:0.16;stroke-linecap:round;stroke-linejoin:round" />
   </a>
   <path
-     style="fill:currentColor"
+     d="m 2.0907121,2.393375 -0.368,0 c -0.024,0 -0.04,-0.016 -0.04,-0.04 l 0,-1.92 c 0,-0.024 0.016,-0.04 0.04,-0.04 l 0.368,0 c 0.024,0 0.04,0.016 0.04,0.04 l 0,1.92 c 0,0.024 -0.016,0.04 -0.04,0.04 z m -0.88,0 -0.37199998,0 c -0.024,0 -0.04,-0.016 -0.04,-0.04 l 0,-1.92 c 0,-0.024 0.016,-0.04 0.04,-0.04 l 0.37199998,0 c 0.024,0 0.04,0.016 0.04,0.04 l 0,1.92 c 0,0.024 -0.016,0.04 -0.04,0.04 z"
      id="path64"
-     d="m 2.0907121,2.393375 -0.368,0 c -0.024,0 -0.04,-0.016 -0.04,-0.04 l 0,-1.92 c 0,-0.024 0.016,-0.04 0.04,-0.04 l 0.368,0 c 0.024,0 0.04,0.016 0.04,0.04 l 0,1.92 c 0,0.024 -0.016,0.04 -0.04,0.04 z m -0.88,0 -0.37199998,0 c -0.024,0 -0.04,-0.016 -0.04,-0.04 l 0,-1.92 c 0,-0.024 0.016,-0.04 0.04,-0.04 l 0.37199998,0 c 0.024,0 0.04,0.016 0.04,0.04 l 0,1.92 c 0,0.024 -0.016,0.04 -0.04,0.04 z" />
+     inkscape:connector-curvature="0"
+     style="fill:currentColor" />
   <a
-     transform="translate(-5.6898879,-3.844325)"
-     id="a66"
+     style="color:inherit"
      xlink:href="textedit:///var/folders/_g/5m8jwnh13xl4zfc1dyffj2bw0000gn/T/frescobaldi-lqr3xi8w/tmp0enc4osn/prolatio_examples.ly:26:33:34"
-     style="color:inherit">
+     id="a66"
+     transform="translate(-5.6898879,-3.844325)">
     <path
-       style="fill:currentColor"
-       id="path68"
+       transform="matrix(0.004,0,0,-0.004,32.4847,5.2377)"
        d="m 218,136 c 55,0 108,-28 108,-89 0,-71 -55,-121 -102,-149 -35,-21 -75,-34 -116,-34 -55,0 -108,28 -108,89 0,71 55,121 102,149 35,21 75,34 116,34 z"
-       transform="matrix(0.004,0,0,-0.004,32.4847,5.2377)" />
+       id="path68"
+       inkscape:connector-curvature="0"
+       style="fill:currentColor" />
   </a>
   <rect
-     style="fill:currentColor"
-     id="rect70"
-     ry="0.039999999"
-     height="3.0039001"
-     width="0.13"
+     x="5.8007121"
      y="1.579475"
-     x="5.8007121" />
+     width="0.13"
+     height="3.0039001"
+     ry="0.039999999"
+     id="rect70"
+     style="fill:currentColor" />
   <a
-     transform="translate(-5.6898879,-3.844325)"
-     id="a72"
+     style="color:inherit"
      xlink:href="textedit:///var/folders/_g/5m8jwnh13xl4zfc1dyffj2bw0000gn/T/frescobaldi-lqr3xi8w/tmp0enc4osn/prolatio_examples.ly:8:2:3"
-     style="color:inherit" />
+     id="a72"
+     transform="translate(-5.6898879,-3.844325)" />
   <a
-     transform="translate(-5.6898879,-3.844325)"
-     id="a74"
+     style="color:inherit"
      xlink:href="textedit:///var/folders/_g/5m8jwnh13xl4zfc1dyffj2bw0000gn/T/frescobaldi-lqr3xi8w/tmp0enc4osn/prolatio_examples.ly:26:19:20"
-     style="color:inherit">
+     id="a74"
+     transform="translate(-5.6898879,-3.844325)">
     <path
-       style="fill:currentColor"
-       id="path76"
+       transform="matrix(0.004,0,0,-0.004,11.4906,5.2377)"
        d="m 218,136 c 55,0 108,-28 108,-89 0,-71 -55,-121 -102,-149 -35,-21 -75,-34 -116,-34 -55,0 -108,28 -108,89 0,71 55,121 102,149 35,21 75,34 116,34 z"
-       transform="matrix(0.004,0,0,-0.004,11.4906,5.2377)" />
+       id="path76"
+       inkscape:connector-curvature="0"
+       style="fill:currentColor" />
   </a>
   <text
-     y="1.393375"
-     x="-0.29928789"
-     style="font-size:2.20009995px;font-family:serif;text-anchor:start;fill:currentColor"
+     font-size="2.2001"
      id="text78"
-     font-size="2.2001">
+     style="font-size:2.20009995px;font-family:serif;text-anchor:start;fill:currentColor"
+     x="-0.29928789"
+     y="1.393375">
     <tspan
        id="tspan80" />
   </text>
   <rect
-     style="fill:currentColor"
-     id="rect82"
-     ry="0.039999999"
-     height="3.0039001"
-     width="0.13"
+     x="21.890612"
      y="1.579475"
-     x="21.890612" />
+     width="0.13"
+     height="3.0039001"
+     ry="0.039999999"
+     id="rect82"
+     style="fill:currentColor" />
   <a
-     transform="translate(-5.6898879,-3.844325)"
-     id="a84"
+     style="color:inherit"
      xlink:href="textedit:///var/folders/_g/5m8jwnh13xl4zfc1dyffj2bw0000gn/T/frescobaldi-lqr3xi8w/tmp0enc4osn/prolatio_examples.ly:26:31:32"
-     style="color:inherit">
+     id="a84"
+     transform="translate(-5.6898879,-3.844325)">
     <path
-       style="fill:currentColor"
-       id="path86"
+       transform="matrix(0.004,0,0,-0.004,27.5805,5.2377)"
        d="m 218,136 c 55,0 108,-28 108,-89 0,-71 -55,-121 -102,-149 -35,-21 -75,-34 -116,-34 -55,0 -108,28 -108,89 0,71 55,121 102,149 35,21 75,34 116,34 z"
-       transform="matrix(0.004,0,0,-0.004,27.5805,5.2377)" />
+       id="path86"
+       inkscape:connector-curvature="0"
+       style="fill:currentColor" />
   </a>
 </svg>
