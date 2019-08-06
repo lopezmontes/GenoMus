@@ -683,9 +683,6 @@ First of all, the talea `[0.1,0.1,0.4,0.8,0.4,0.5]` is rescaled to . Now, the su
 }
 ```
 
-<img src="figures/ex_rhythm_vector_1.svg" width="500">
-
-
 
 `[1]`
 
