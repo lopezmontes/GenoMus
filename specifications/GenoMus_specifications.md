@@ -76,7 +76,7 @@
 - **encoded genotype**: Genotype coded as an array of normalized floats within the closed interval [0, 1].
 - **decoded genotype**: Genotype coded as a string that contains a function tree, executable in JavaScript.
 - **encoded phenotype**: Phenotype coded as an array of normalized floats within the closed interval [0, 1].
-- **decoded phenotype**: Phenotype coded as a readable score for music software, such as Max, Csound, Lilypond, etc.
+- **decoded phenotype**: Phenotype converted to a format for notation or audio software, such as Max, Csound, Lilypond, etc.
 - **specimen**: Genotype/phenotype pair, saved as JSON file containing encoded and decoded versions of its code, metadata and many other useful analytical informations.
 - **species**: Group of specimens that share the same parameter structure of their simplest musical events.
 - **genotype function**: Minimum computable unit of a genotype. It is designed in a modular way to easily take other genotype functions as arguments.
@@ -132,6 +132,8 @@ First 5 elements are compulsory for every function of a genotype. Informations a
 Variable names inside each genotype function are not compulsory, but is highly recommended to maintain the same nomenclature to improve code readability and reusability.
 
 More fields can be added if needed, but always after the first seven preset items.
+
+The **decoded genotype** is created only when the specimen is sent to another music software.
 
 ## Genotype function template
 
