@@ -45,6 +45,7 @@
     - [talea](#talea)
     - [prolatio](#prolatio)
     - [quantization](#quantization)
+    - [Examples of rhythm vectors](#examples-of-rhythm-vectors)
   - [Harmony vector](#harmony-vector)
     - [Chromaticity degree](#chromaticity-degree)
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
@@ -661,13 +662,11 @@ A **prolatio** is a nested time grid used to adjust the raw values received from
 
 | quantization value | result
 | ------------------ | ------
-| 0                  | only the centralValue is used (simplest rhythmic pattern)
-| 0.25               | only the first half of talea values is used
-| 0.5                | all the talea values are used
-| 0.75               | more note values are added, with a quantization according to the prolatio scheme 
-| 1                  | no quantization applied, values are mapped with full time resolution
+| 0                  | all values are quantized to the totalValue duration (all events are played simultaneously, prolatio is not taken into account)
+| (0, 1)             | gradual quantization using progressive levels of prolatio depth
+| 1                  | no quantization applied, values mapped with full rhythmic resolution (prolatio is not taken into account)
 
-
+### Examples of rhythm vectors
 
 `[1]`
 
