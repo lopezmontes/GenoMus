@@ -684,6 +684,7 @@ First of all, the talea `[0.1,0.1,0.4,0.8,0.4,0.5]` is rescaled to `[0.044,0.044
 ```
 
 | **quantization** degree                            | **0**
+| -------------------------------------------------- | -----
 | **talea** (rescaled)                               | `[0.044,0.044,0.174,0.348,0.174,0.216]`
 | **prolatio** (code)                                | Prolatio is not used, all values converge to **totalValue**
 | **prolatio** (score)                               | <img src="figures/q0-0.svg" width="500">
