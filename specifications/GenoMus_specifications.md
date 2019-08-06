@@ -713,7 +713,7 @@ The next step is to determine quantization thresholds based on the prolatio dept
 | **prolatio** depth = 2 (score)                     | <img src="figures/prolatio_ex2.svg" width="270">
 | **talea to prolatio quantization** (visualization) | <img src="figures/q2-3.svg" width="500">
 | **quantized talea**                                | `[0.25,0.5,0.25]`
-| **final result** (score)                           | <img src="figures/final_quant_ex1.svg" width="108">
+| **final result** (score)                           | <img src="figures/final_quant_ex2.svg" width="108">
 
 
 
