@@ -689,6 +689,8 @@ First of all, the talea `[0.1,0.1,0.4,0.8,0.4,0.5]` is rescaled to . Now, the su
 
 `[1]`
 
+<img src="figures/Q0-0.svg" width="200">
+
 <img src="figures/prolatio_ex0.svg" width="78">
 
 `[2,4,1,1]`
