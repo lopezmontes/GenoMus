@@ -735,6 +735,9 @@ The next step is to determine quantization thresholds based on the prolatio dept
 
 It is important to note that some of the rendered values could be rests. Rest are produced when event atributes as articulation or intensity are set to 0. 
 
+The final result of a rhythmic motif is a sequence of floats. Consequently, a processed rhythmic motif can be a talea for a new 
+motif.
+
 --------
 ## Harmonic motif
 
