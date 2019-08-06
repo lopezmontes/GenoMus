@@ -685,7 +685,7 @@ The following tables show how increasing degrees of quantization affect to this 
 
 First of all, the talea `[0.1,0.1,0.4,0.8,0.4,0.5]` is rescaled to `[0.044,0.044,0.174,0.348,0.174,0.216]` Now, the sum of all the numbers in the sequence is 1.  
 
-The next step is to determine quantization thresholds based on the prolatio depth levels. In this example, the prolatio has three levels that are mapped to the intervals (0, 1/3], (1/3, 2/3] amd (2/3, 1).
+The next step is to determine quantization thresholds based on the prolatio depth levels. In this example, the prolatio has three levels that are mapped to the intervals (0, &#8531;], (&#8531;, &#8532;] and (&#8532;, 1).
 
 
 | **quantization** = 0                               | totalValue = 1 <sub>(whole note)</sub>
@@ -697,7 +697,7 @@ The next step is to determine quantization thresholds based on the prolatio dept
 | **quantized talea**                                | `[1]`
 | **final result** (score)                           | <img src="figures/prolatio_ex0.svg" width="78">
 
-| 0 < **quantization** &#8804; 1/3                   | totalValue = 1 <sub>(whole note)</sub>
+| 0 < **quantization** &#8804; &#8531;                   | totalValue = 1 <sub>(whole note)</sub>
 | -------------------------------------------------- | -----
 | **raw talea** (rescaled)                           | `[0.044,0.044,0.174,0.348,0.174,0.216]`
 | **prolatio** depth = 1 (code)                      | `[2,4,1,1]`
@@ -706,7 +706,7 @@ The next step is to determine quantization thresholds based on the prolatio dept
 | **quantized talea**                                | `[0.25,0.5,0.25]`
 | **final result** (score)                           | <img src="figures/final_quant_ex1.svg" width="108">
 
-| 1/3 < **quantization** &#8804; 2/3                 | totalValue = 1 <sub>(whole note)</sub>
+| &#8531; < **quantization** &#8804; &#8532;                 | totalValue = 1 <sub>(whole note)</sub>
 | -------------------------------------------------- | -----
 | **raw talea** (rescaled)                           | `[0.044,0.044,0.174,0.348,0.174,0.216]`
 | **prolatio** depth = 1 (code)                      | `[2,4,1,1]`
