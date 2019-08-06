@@ -683,12 +683,13 @@ First of all, the talea `[0.1,0.1,0.4,0.8,0.4,0.5]` is rescaled to `[0.044,0.044
 }
 ```
 
-| **quantization** = 0                               | bla
+| **quantization** = 0                               | totalValue = 1 (whole note)
 | -------------------------------------------------- | -----
-| **talea** (rescaled)                               | `[0.044,0.044,0.174,0.348,0.174,0.216]`
+| **raw talea** (rescaled)                           | `[0.044,0.044,0.174,0.348,0.174,0.216]`
 | **prolatio** (code)                                | Prolatio is not used, all values converge to **totalValue**
 | **prolatio** (score)                               | <img src="figures/prolatio_ex0.svg" width="78">
 | **talea to prolatio quantization** (visualization) | <img src="figures/q0-0.svg" width="500">
+| **quantized tale**                                 | `[1]`
 | final result (score)                               | <img src="figures/prolatio_ex0.svg" width="78">
 
 
