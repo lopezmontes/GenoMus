@@ -119,13 +119,13 @@ To enable effective chaining of functions, all functions inside a genotype share
 
 | index | variable name | data type | description
 | ----- | -------------- | ----- | ----------
-| **0** | **funcType**  | string | **Function type** according to its output (see [reference](#function-types-for-genotypes))
-| **1** | **decGenOut** | string  | **Decoded genotype** excerpt. Functional expression of the genotype branch computed until that node, including the function itself.
-| **2** | **encPhenOut** | array of floats &isinv; [0, 1] | **Encoded phenotype** excerpt. Transformation of the input data made with the compositional procedures of the function itself.
-| **3** | **phenLength** | integer | Number of phenotype events generated so far. Useful for subsequent functions to avoid overly large processes.
-| **4** | **tempo** | float | Tempo of the phenotype. The float uses the [durationF](#durationf-d) format to indicate the duration of a quarter note. Default value: 0.6 (equivalent to &#9833;= 60)
-| **5** | **rhythm** | array of floats &isinv; [0, 1] | Time quantization and internal structures of rhythm according to this [encoding format](#rhythm).
-| **6** | **harmony** | array of floats &isinv; [0, 1] | Tonal center and other  internal structures of harmony according to this [encoding format](#rhythm).
+| 0 | **funcType**  | string | **Function type** according to its output (see [reference](#function-types-for-genotypes))
+| 1 | **decGenOut** | string  | **Decoded genotype** excerpt. Functional expression of the genotype branch computed until that node, including the function itself.
+| 2 | **encPhenOut** | array of floats &isinv; [0, 1] | **Encoded phenotype** excerpt. Transformation of the input data made with the compositional procedures of the function itself.
+| 3 | **phenLength** | integer | Number of phenotype events generated so far. Useful for subsequent functions to avoid overly large processes.
+| 4 | **tempo** | float | Tempo of the phenotype. The float uses the [durationF](#durationf-d) format to indicate the duration of a quarter note. Default value: 0.6 (equivalent to &#9833;= 60)
+| 5 | **rhythm** | JSON dictionary | Rhythmic motif characterized with this [data structure](#rhythmic-motif).
+| 6 | **harmony** | JSON dictionary | Harmonic motif characterized with this [data structure](#harmonic-motif).
 
 First 5 elements are compulsory for every function of a genotype. Informations about rhythm and harmony can be useful for subsequent functions, but they are optional. 
 
