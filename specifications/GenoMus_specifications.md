@@ -77,7 +77,7 @@
 - **decoded genotype**: Genotype coded as a string that contains a function tree, executable in JavaScript.
 - **encoded phenotype**: Phenotype coded as an array of normalized floats within the closed interval [0, 1].
 - **decoded phenotype**: Phenotype converted to a format for notation or audio software, such as Max, Csound, Lilypond, etc.
-- **specimen**: Genotype/phenotype pair, saved as JSON file containing encoded and decoded versions of its code, metadata and many other useful analytical informations.
+- **specimen**: Genotype/phenotype pair, saved as a JSON file containing encoded and decoded versions of its code, metadata and many other useful analytical informations.
 - **species**: Group of specimens that share the same parameter structure of their simplest musical events.
 - **genotype function**: Minimum computable unit of a genotype. It is designed in a modular way to easily take other genotype functions as arguments.
 - **parameter**: Normalized float &isinv; [0, 1] used to feed the functions' required arguments. These numeric values are leaves of the functional tree that gives rise to a genotype.
@@ -117,15 +117,15 @@ The names of the input arguments are of free choice.
 ## Output data structure 
 To enable effective chaining of functions, all functions inside a genotype share the same output data structure. This output data is returned within an array according to the following order of elements:
 
-| index | variable name | data type | description
-| ----- | -------------- | ----- | ----------
-| 0 | **funcType**  | string | **Function type** according to its output (see [reference](#function-types-for-genotypes))
-| 1 | **decGenOut** | string  | **Decoded genotype** excerpt. Functional expression of the genotype branch computed until that node, including the function itself.
-| 2 | **encPhenOut** | array of floats &isinv; [0, 1] | **Encoded phenotype** excerpt. Transformation of the input data made with the compositional procedures of the function itself.
-| 3 | **phenLength** | integer | Number of phenotype events generated so far. Useful for subsequent functions to avoid overly large processes.
-| 4 | **tempo** | float | Tempo of the phenotype. The float uses the [durationF](#durationf-d) format to indicate the duration of a quarter note. Default value: 0.6 (equivalent to &#9833;= 60)
-| 5 | **rhythm** | JSON dictionary | Rhythmic motif characterized with this [data structure](#rhythmic-motif).
-| 6 | **harmony** | JSON dictionary | Harmonic motif characterized with this [data structure](#harmonic-motif).
+| index | variable name  | data type                      | description
+| ----- | -------------- | ------------------------------ | -----------
+| 0     | **funcType**   | string                         | Function type according to its output (see [reference](#function-types-for-genotypes)).
+| 1     | **decGenOut**  | string                         | Decoded genotype excerpt. Functional expression of the genotype branch computed until that node, including the function itself.
+| 2     | **encPhenOut** | array of floats &isinv; [0, 1] | **Encoded phenotype** excerpt. Transformation of the input data made with the compositional procedures of the function itself.
+| 3     | **phenLength** | integer                        | Number of phenotype events generated so far. Useful for subsequent functions to avoid overly large processes.
+| 4     | **tempo**      | float                          | Tempo of the phenotype. The float uses the [durationF](#durationf-d) format to indicate the duration of a quarter note. Default value: 0.6 (equivalent to &#9833;= 60)
+| 5     | **rhythm**     | dictionary                     | Rhythmic motif characterized with this [data structure](#rhythmic-motif).
+| 6     | **harmony**    | dictionary                     | Harmonic motif characterized with this [data structure](#harmonic-motif).
 
 First 5 elements are compulsory for every function of a genotype. Informations about rhythm and harmony can be useful for subsequent functions, but they are optional. 
 
