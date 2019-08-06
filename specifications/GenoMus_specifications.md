@@ -40,7 +40,7 @@
   - [Integer x steps](#integer-x-steps-1)
     - [xstepsF (x)](#xstepsf-x)    
 - [Characterization of underlying musical patterns](#characterization-of-underlying-musical-patterns)
-  - [Rhythm vector](#rhythm-vector)
+  - [Rhythmic motif](#rhythmic-motif)
     - [totalValue](#totalvalue)
     - [talea](#talea)
     - [prolatio](#prolatio)
@@ -630,9 +630,9 @@ The inversion is made with a lookup table.
 *\[introduction\]*
 
 ---------
-## Rhythm vector
+## Rhythmic motif
 
-A rhythmic pattern can be expressed as a vector containing informations to be used by other functions to map durations. This vector is an abstract representation of a rhythmic pattern and its interrelations with a time grid and with the level of general quantization. Using this data, certain functions adjust their values to get different rhythmic structures and analytical information.
+A rhythmic pattern can be expressed as a dictionary containing informations to be used by other functions to map durations. These data represent a rhythmic pattern and its interrelations with a time grid and with the level of general quantization. Using this dictionary, certain functions adjust their values to get different rhythmic structures and analytical information.
 
 A **rhythm vector** is coded into an array following this data structure:
 
@@ -672,7 +672,7 @@ A **prolatio** is a nested time grid used to adjust the raw values received from
 ---------
 ### Examples of rhythm vectors
 
-First of all, the talea `[0.1,0.1,0.4,0.8,0.4,0.5]` is rescaled to `[0.044,0.044,0.174,0.348,0.174,0.216]` Now, the sum of all the numbers in the sequence must be 1.  
+The following tables show results of different degrees of quantization applied to this rhythm pattern: 
 
 ```
 {
@@ -682,6 +682,10 @@ First of all, the talea `[0.1,0.1,0.4,0.8,0.4,0.5]` is rescaled to `[0.044,0.044
     "quantization": <float within interval [0, 1]>
 }
 ```
+
+First of all, the talea `[0.1,0.1,0.4,0.8,0.4,0.5]` is rescaled to `[0.044,0.044,0.174,0.348,0.174,0.216]` Now, the sum of all the numbers in the sequence is 1.  
+
+
 
 | **quantization** = 0                               | totalValue = 1 (whole note)
 | -------------------------------------------------- | -----
@@ -715,7 +719,7 @@ First of all, the talea `[0.1,0.1,0.4,0.8,0.4,0.5]` is rescaled to `[0.044,0.044
 It is important to note that some of the rendered values could be rests. Rest are produced when event atributes as articulation or intensity are set to 0. 
 
 --------
-## Harmony vector
+## Harmonic vector
 
 A harmony can be expressed as a vector containing informations to be used by other functions to map pitches. This vector is an abstract representation of a chord and its interrelations with a mode and with the level of general chromatism. Using this information, certain functions adjust their values to the grid of pitches that fits this harmony and extract analytical information.
 
