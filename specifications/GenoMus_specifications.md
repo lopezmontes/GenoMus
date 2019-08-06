@@ -708,7 +708,7 @@ First of all, the talea `[0.1,0.1,0.4,0.8,0.4,0.5]` is rescaled to . Now, the su
 `[1,[1,1,1],2,[2,2,1,1,1,1],1,[3,1]]`
 
 
-<img src="figures/prolatio_Q1-0.svg" width="200">
+<img src="figures/prolatio_Q1-0.svg" width="230">
 
 It is important to note that some of the rendered values could be rests. Rest are produced when event atributes as articulation or intensity are set to 0. 
 
