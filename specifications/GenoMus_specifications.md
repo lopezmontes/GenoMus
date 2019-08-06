@@ -669,7 +669,7 @@ A **prolatio** is a nested time grid used to adjust the raw values received from
 | (0, 1)             | gradual quantization using progressive levels of prolatio depth
 | 1                  | no quantization applied, values mapped with full rhythmic resolution (prolatio is not taken into account)
 
----------
+---
 ### Examples of rhythm vectors
 
 ```
