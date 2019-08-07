@@ -233,7 +233,7 @@ From the *functionIndex* dictionary, an inverse dictionary is automatically crea
 This works as a useful lookup table for some automatic and manual processes.
 
 ---------
-# Genotype function typess
+# Genotype function types
 Genotype functions are classified by their output data. 
 
 ---------
