@@ -273,7 +273,6 @@ When more levels of subdivision are required but not specified, simple binary su
 ### harmonyF
 
 
-
 ---------
 ## Manual manipulation of genotypes
 Functions to be used typing manually on the genotypes to get a more controlled evolution.
