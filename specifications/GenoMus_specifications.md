@@ -771,7 +771,8 @@ The **chord** is not a pitch class set because order matters. The position withi
 ### Examples of harmonic motives
 
 <img src="figures/excerpt-chromat-1.svg" width="270">
-[MP3 file](https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/cromaticity-1.mp3?token=ABGBHAKL54KKYJNUNCJQKXK5KNNDY)
+
+<a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/cromaticity-1.mp3?token=ABGBHAKL54KKYJNUNCJQKXK5KNNDY">MP3 file</a>
 
 ---------
 # Genotype operations
