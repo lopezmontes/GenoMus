@@ -270,7 +270,7 @@ Prolationes can be arbitrarily complex. A simple array like `[1,[2,3],1,[1,[1,4]
 
 When more levels of subdivision are required but not specified, simple binary subdivisions are made by default.
 
-These examples use integers for simplicity, but the output of a rhythmF function is always a nested array including only floats &isinv; [0, 1]). For instance, the last example of prolatio would be rescaled so that the maximum value was 1, returning this normalized nested array:
+These examples use integers for simplicity, but the output of a rhythmF function is always a nested array including only floats &isinv; [0, 1]. For instance, the last example of prolatio would be rescaled so that the maximum value was 1, returning this normalized nested array:
 
 `[0.25,[0.5,0.75],0.25,[0.25,[0.25,1],1,0.5],0.25,[0.25,0.25,[0.75,1,1]]]`
 
@@ -281,7 +281,7 @@ All the functions working with a prolatio perform a normalization before process
 
 The output of **harmonyF** functions is a sequence of floats within interval \[0, 12\). 
 
-This array is not a pitch class set but a pitch class sequence, because in some contexts the order determines certain algorithmic operations. 
+This array is not a pitch class set but a pitch class sequence, because in some contexts the order determines certain algorithmic operations. However, this format can also serve as a pitch class set when needed.
 
 Numbers represent pitches with the usual pitch class notation (0 = C, 1 = C#, etc), but in many occasions these pitches are transposed. So it is better to contemplate this sequence as an abstract series of intervals, in which C is used as baseline by default. Values can include a decimal part to denotate microtonal intervals.
 
