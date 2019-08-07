@@ -782,15 +782,15 @@ Enharmonic differences are not relevant.
 <img src="figures/mode.svg" width="400"> 
 
 
-| chromaticity | eligible pitches | result
+| chromaticity | eligible pitch classes | result
 | ------- | --------- | ----
-| 0 | `[7]` | <img src="figures/excerpt-chromat-0.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-0.mp3?token=ABGBHAOXMMAFCMANWGCQGCC5KNY3E"><img src="aux/speaker.svg" width="15"></a>
-| .2 | `[7,8]` | <img src="figures/excerpt-chromat-0-1.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-0-1.mp3?token=ABGBHALG4KWLPJJZRSQ65RC5KNY6A"><img src="aux/speaker.svg" width="15"></a>
-| .3 | `[7,8,1]` | <img src="figures/excerpt-chromat-0-2.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chormaticity-0-2.mp3?token=ABGBHAIL7FTHGBZZS46G6MC5KNZA4"><img src="aux/speaker.svg" width="15"></a>
-| .4 | `[7,8,1,4]` | <img src="figures/excerpt-chromat-0-3.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-0-3.mp3?token=ABGBHAPRWZJCKOCP6AI6WGC5KNZCY"><img src="aux/speaker.svg" width="15"></a>
-| .5 | `[7,8,1,4,11]` | <img src="figures/excerpt-chromat-0-4.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-0-4.mp3?token=ABGBHANIMBOSBJIZ4B7YX2C5KNZEC"><img src="aux/speaker.svg" width="15"></a>
-| .75 | `[0,1,3,5,6,8,10,11]` | <img src="figures/excerpt-chromat-0-5.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-0-5.mp3?token=ABGBHALZFR55IOHDLCA5W5C5KNZFC"><img src="aux/speaker.svg" width="15"></a>
-| 1 | `[0,1,2,3,4,5,6,7,8,9,10,11]` | <img src="figures/excerpt-chromat-1.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-1.mp3?token=ABGBHAM7TC75RGD6VSPBKKC5KNY4W"><img src="aux/speaker.svg" width="15"></a>
+| 0 &#8804; < 0.1 | `[7]` | <img src="figures/excerpt-chromat-0.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-0.mp3?token=ABGBHAOXMMAFCMANWGCQGCC5KNY3E"><img src="aux/speaker.svg" width="15"></a> 
+| 0.1 &#8804; < 0.2 | `[7,8]` | <img src="figures/excerpt-chromat-0-1.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-0-1.mp3?token=ABGBHALG4KWLPJJZRSQ65RC5KNY6A"><img src="aux/speaker.svg" width="15"></a>
+| 0.2 &#8804; < 0.3 | `[7,8,1]` | <img src="figures/excerpt-chromat-0-2.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chormaticity-0-2.mp3?token=ABGBHAIL7FTHGBZZS46G6MC5KNZA4"><img src="aux/speaker.svg" width="15"></a>
+| 0.3 &#8804; < 0.4 | `[7,8,1,4]` | <img src="figures/excerpt-chromat-0-3.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-0-3.mp3?token=ABGBHAPRWZJCKOCP6AI6WGC5KNZCY"><img src="aux/speaker.svg" width="15"></a>
+| 0.5 &#8804; < 0.5 | `[7,8,1,4,11]` | <img src="figures/excerpt-chromat-0-4.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-0-4.mp3?token=ABGBHANIMBOSBJIZ4B7YX2C5KNZEC"><img src="aux/speaker.svg" width="15"></a>
+| 0.5 &#8804; < 0.8 | `[0,1,3,5,6,8,10,11]` | <img src="figures/excerpt-chromat-0-5.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-0-5.mp3?token=ABGBHALZFR55IOHDLCA5W5C5KNZFC"><img src="aux/speaker.svg" width="15"></a>
+| 0.8 &#8804; < 1 | `[0,1,2,3,4,5,6,7,8,9,10,11]` | <img src="figures/excerpt-chromat-1.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-1.mp3?token=ABGBHAM7TC75RGD6VSPBKKC5KNY4W"><img src="aux/speaker.svg" width="15"></a>
 
 ---------
 # Encoding-decoding genotypes
