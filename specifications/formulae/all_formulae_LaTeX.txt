@@ -26,8 +26,6 @@ p = \frac{i}{127}
 i = 127p
 
 norm2quantized:
-p=\operatorname{round}\left(\Bigg(\frac{\arcsin\left(\left(2q-1\right)^{\frac{17}{11}}\right)}{\pi}+\frac{1}{2}\Bigg)\cdot72\ -\ 36\right)
-
 q=\operatorname{round}\left(\Bigg(\frac{\arcsin\left(\left(2p-1\right)^{\frac{17}{11}}\right)}{\pi}+\frac{1}{2}\Bigg)\cdot72\ -\ 36\right)
 
 
