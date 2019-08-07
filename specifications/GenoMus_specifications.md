@@ -254,20 +254,20 @@ A GenoMus function catalogue contains these blocks:
 Functions are listed into the JSON GenoMus catalogue following this format:
 ```
 "outputType": {
-    "scoreF": {
-        "sFunctionName": {
-            "arguments": ["functionType", "functionType", ...],
+    "<functionType>": {
+        "<functionName>": {
+            "arguments": ["<functionType>", "<functionType>", ...],
             "description": "String describing what the function does.",
         "metadata": {
             "date": (date of creation, in compressed style),
-            "creator": (username of programmer),
-            (optional information when needed.)
+            "creator": "<username>",
+            ... (optional information if needed.)
         },
         ...
     },
-    "voiceF": {
+    "<functionType>": {
     ...
-} s
+}
 ```
 - _**functionName**_ should use the corresponding prefix to help a human to know its output type
 - The _**description**_ and _**metadata**_ fields are optional, but very helpful to understand quicky the processes in a genotype, and to add further informations and documentation about the function or the programmer
