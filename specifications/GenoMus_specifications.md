@@ -33,9 +33,8 @@
     - [intensityF (x)](#intensityf-i)
   - [Integer x steps](#integer-x-steps)
     - [xstepsF (x)](#xstepsf-x)   
-  - [Special formats](#special-formats)    
-    - [rhythmF](#rhythmf)
-    - [harmonyF](#harmonyf)
+  - [rhythmF](#rhythmf)
+  - [harmonyF](#harmonyf)
 - [Characterization of underlying musical patterns](#characterization-of-underlying-musical-patterns)
   - [Rhythmic motif](#rhythmic-motif)
     - [totalValue](#totalvalue)
@@ -580,8 +579,7 @@ The inversion is made with a lookup table.
 
 
 ---------
-## Special formats
-### rhythmF
+## rhythmF
 
 The output of a **rhythmF** function is an abstract time grid determined by a nested array with relative durations. This grid is called **prolatio**, and is used to quantize the values of a rhythmic pattern. 
 
@@ -612,7 +610,7 @@ These examples use integers for simplicity, but the output of a rhythmF function
 All the functions working with a prolatio perform a normalization before processing or returning data, so simple proportions of integers as in the previous examples can be manually introduced in a decoded genotype. 
 
 ---------
-### harmonyF
+## harmonyF
 
 The output of a **harmonyF** function is a sequence of floats within interval \[0, 12\). 
 
