@@ -35,7 +35,7 @@
   - [Intensity](#intensity)
     - [intensityF (i)](#intensityf-i)
   - [Quantized steps](#quantized-steps)
-    - [quantizedF (q)](#quantized-q)   
+    - [quantizedF (q)](#quantizedf-q)   
   - [rhythmF](#rhythmf)
   - [harmonyF](#harmonyf)
 - [Characterization of underlying musical patterns](#characterization-of-underlying-musical-patterns)
