@@ -1,2 +1,0 @@
-@image{lilypond_framework_examples_GenoMus-1}
-@c eof
