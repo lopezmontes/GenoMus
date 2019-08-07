@@ -13,11 +13,6 @@
   - [Used function type identifiers](#used-function-type-identifiers)
   - [Main structures](#main-structures)
   - [Human-readable leaf parameters](#human-readable-leaf-parameters) 
-    - [Duration](#duration)
-    - [Pitch](#pitch)
-    - [Articulation](#articulation)
-    - [Intensity](#intensity)
-    - [Integer x steps](#integer-x-steps)
   - [Human-readable lists](#human-readable-lists) 
   - [Special formats](#special-formats)
   - [Manual manipulation of genotypes](#manual-manipulation-of-genotypes)
@@ -25,20 +20,20 @@
   - [Indexing a function in a GenoMus function catalogue](#indexing-a-function-in-a-genomus-function-catalogue)
   - [Encoded function index generation](#encoded-function-index-generation)
 - [Parameter mapping](#parameter-mapping)
-  - [Duration](#duration-1)
+  - [Duration](#duration)
     - [notevalueF (n)](#notevaluef-n)
       - [Reference table for main noteValues](#Reference-table-for-main-notevalues)
     - [durationF (d)](#durationf-d)
-  - [Pitch](#pitch-1)
+  - [Pitch](#pitch)
     - [midipitchF (m)](#midipitchf-m)
     - [frequencyF (f)](#frequencyf-f)
-  - [Articulation](#articulation-1)
+  - [Articulation](#articulation)
     - [articulationF (a)](#articulationf-a)
-  - [Intensity](#intensity-1)
+  - [Intensity](#intensity)
     - [intensityF (x)](#intensityf-i)
-  - [Integer x steps](#integer-x-steps-1)
+  - [Integer x steps](#integer-x-steps)
     - [xstepsF (x)](#xstepsf-x)   
-  - [Special formats](#special-formats-1)    
+  - [Special formats](#special-formats)    
     - [rhythmF](#rhythmf)
     - [harmonyF](#harmonyf)
 - [Characterization of underlying musical patterns](#characterization-of-underlying-musical-patterns)
@@ -47,10 +42,10 @@
     - [talea](#talea)
     - [prolatio](#prolatio)
     - [quantization](#quantization)
-    - [Examples of rhythmic motives](#examples-of-rhythmic-motives  )
+    - [Examples of rhythmic motives](#examples-of-rhythmic-motives)
   - [Harmonic motif](#harmonic-motif)
     - [Chromaticity degree](#chromaticity-degree)
-    - [Examples of harmonic motives](#examples-of-harmonic-motives  )
+    - [Examples of harmonic motives](#examples-of-harmonic-motives)
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
   - [Conversion table for genotypes](#conversion-table-for-genotypes)
   - [Examples](#examples)
@@ -182,38 +177,17 @@ The **leaf** type is a flag for terminal nodes. This is not really a type of fun
 ---------
 ## Human-readable leaf parameters
 Function types created to improve manual handling of decoded genotypes. These functions can replace a **paramF** functions in a leaf position of function tree.
-### Duration
-
-| *function type* | *identifier* | *output*
-| --------------- | ------------ | --------
-| **notevalueF**  | **n**        | normalized duration from usual number used for note values (1 = whole note)
-| **durationF**   | **d**        | normalized duration from duration in seconds
-
-### Pitch
-
-| *function type* | *identifier* | *output*
-| --------------- | ------------ | --------
-| **midipitchF**  | **m**        | normalized pitch from standard MIDI pitch
-| **frequencyF**  | **f**        | normalized pitch from frequency in Hz
-
-### Articulation
 
 | *function type*   | *identifier* | *output*
 | ----------------- | ------------ | --------
+| **notevalueF**    | **n**        | normalized duration from usual number used for note values (1 = whole note)
+| **durationF**     | **d**        | normalized duration from duration in seconds
+| **midipitchF**    | **m**        | normalized pitch from standard MIDI pitch
+| **frequencyF**    | **f**        | normalized pitch from frequency in Hz
 | **articulationF** | **a**        | normalized relative articulation (1 is whole duration of the note, 2 is double duration)
 | **durationF**     | **d**        | normalized duration from time in seconds
-
-### Intensity
-
-| *function type* | *identifier* | *output*
-| --------------- | ------------ | --------
-| **intensityF**  | **i**        | normalized intensity from standard MIDI velocity
-
-### Integer x steps
-
-| *function type* | *identifier* | *output*
-| --------------- | ------------ | --------
-| **xstepsF**     | **x**        | normalized value from integer &isinv; [-36, 36]
+| **intensityF**    | **i**        | normalized intensity from standard MIDI velocity
+| **xstepsF**       | **x**        | normalized value from integer &isinv; [-36, 36]
 
 ---------
 ## Human-readable lists
