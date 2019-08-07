@@ -4,7 +4,8 @@
 
 --------
 ## Table of Contents
-- [Introduction and overall view]
+- [Introduction](#Introduction)
+- [GenoMus arquitecture overall view](#genomus-arquitecture-overall-view)
 - [Definitions](#definitions)
 - [Anatomy of a genotype function](#anatomy-of-a-genotype-function)
   - [Function name](#function-name)
