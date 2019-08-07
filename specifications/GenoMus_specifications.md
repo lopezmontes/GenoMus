@@ -783,7 +783,7 @@ Enharmonic differences are not relevant.
 
 
 | chromaticity | eligible pitches | result
-| ------- | ---------
+| ------- | --------- | ----
 | 0 | `[7]` | <img src="figures/excerpt-chromat-0.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-0.mp3?token=ABGBHAOXMMAFCMANWGCQGCC5KNY3E"><img src="aux/speaker.svg" width="15"></a>
 | .2 | `[7,8]` | <img src="figures/excerpt-chromat-0-1.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-0-1.mp3?token=ABGBHALG4KWLPJJZRSQ65RC5KNY6A"><img src="aux/speaker.svg" width="15"></a>
 | .3 | `[7,8,1]` | <img src="figures/excerpt-chromat-0-2.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chormaticity-0-2.mp3?token=ABGBHAIL7FTHGBZZS46G6MC5KNZA4"><img src="aux/speaker.svg" width="15"></a>
