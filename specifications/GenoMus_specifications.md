@@ -786,31 +786,31 @@ Enharmonic differences are not relevant.
 
 <img src="figures/excerpt-chromat-1.svg" width="250">
 
-<a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/cromaticity-1.mp3?token=ABGBHAKL54KKYJNUNCJQKXK5KNNDY">&#128264; MP3</a>
+<a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-1.mp3?token=ABGBHAM7TC75RGD6VSPBKKC5KNY4W">&#128264; MP3</a>
 
 <img src="figures/excerpt-chromat-0.svg" width="250">
 
-<a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/cromaticity-0.mp3?token=ABGBHAI7GYX67IYQDZALTYS5KNTQE">&#128264; MP3</a>
+<a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-0.mp3?token=ABGBHAOXMMAFCMANWGCQGCC5KNY3E">&#128264; MP3</a>
 
 <img src="figures/excerpt-chromat-0-1.svg" width="250">
 
-<a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chormaticity-0-1.mp3?token=ABGBHAMGUXH2NGMGB6NRDUK5KNUUO">&#128264; MP3</a>
+<a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-0-1.mp3?token=ABGBHALG4KWLPJJZRSQ65RC5KNY6A">&#128264; MP3</a>
 
 <img src="figures/excerpt-chromat-0-2.svg" width="250">
 
-<a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chormaticity-0-2.mp3?token=ABGBHALVJJNK2TZ27LM5QAC5KNVUW">&#128264; MP3</a>
+<a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chormaticity-0-2.mp3?token=ABGBHAIL7FTHGBZZS46G6MC5KNZA4">&#128264; MP3</a>
 
 <img src="figures/excerpt-chromat-0-3.svg" width="250">
 
-<a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chormaticity-0-3.mp3?token=ABGBHANXT7FM3R2T6ZJX72S5KNWRS">&#128264; MP3</a>
+<a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-0-3.mp3?token=ABGBHAPRWZJCKOCP6AI6WGC5KNZCY">&#128264; MP3</a>
 
 <img src="figures/excerpt-chromat-0-4.svg" width="250">
 
-<a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chormaticity-0-4.mp3?token=ABGBHAJIK5SLZSNNPDX22RS5KNXRQ">&#128264; MP3</a>
+<a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-0-4.mp3?token=ABGBHANIMBOSBJIZ4B7YX2C5KNZEC">&#128264; MP3</a>
 
 <img src="figures/excerpt-chromat-0-5.svg" width="250">
 
-<a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chormaticity-0-4.mp3?token=ABGBHAJIK5SLZSNNPDX22RS5KNXRQ">&#128264; MP3</a>
+<a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-0-5.mp3?token=ABGBHALZFR55IOHDLCA5W5C5KNZFC">&#128264; MP3</a>
 
 
 ---------
