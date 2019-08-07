@@ -270,9 +270,11 @@ Prolationes can be arbitrarily complex. A simple array like `[1,[2,3],1,[1,[1,4]
 
 When more levels of subdivision are required but not specified, simple binary subdivisions are made by default.
 
-These examples uses integers for simplicity, but the output of a rhythmF function is always nested array including only floats &isinv; [0, 1]). All the functions working with a prolatio perform a normalization before returning data, so simple proportion of integers as in the previous examples can be manually introduced in the genotype. For instance, the last example of prolatio would be rescaled so that the maximum value was 1, returning this normalized nested array:
+These examples use integers for simplicity, but the output of a rhythmF function is always a nested array including only floats &isinv; [0, 1]). For instance, the last example of prolatio would be rescaled so that the maximum value was 1, returning this normalized nested array:
 
 `[0.25,[0.5,0.75],0.25,[0.25,[0.25,1],1,0.5],0.25,[0.25,0.25,[0.75,1,1]]]`
+
+All the functions working with a prolatio perform a normalization before processing or returning data, so simple proportions of integers as in the previous examples can be manually introduced in the genotype. 
 
 ---------
 ### harmonyF
