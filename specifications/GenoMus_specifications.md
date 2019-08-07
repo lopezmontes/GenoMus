@@ -9,7 +9,7 @@
   - [Function name](#function-name)
   - [Input arguments](#input-argumentss)
   - [Output data structure](#output-data-structure)
-- [Function libraries](#function-catalogues)  
+- [Function libraries](#function-libraries)  
   - [Indexing a function in a GenoMus Function Library](#indexing-a-function-in-a-genomus-function-library)
   - [Encoded function index generation](#encoded-function-index-generation)
 - [Function types for genotypes](#function-types-for-genotypes)
