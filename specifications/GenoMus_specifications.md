@@ -20,7 +20,7 @@
   - [Main structures](#main-structures)
   - [Human-readable leaf parameters](#human-readable-leaf-parameters) 
   - [Human-readable lists](#human-readable-lists) 
-  - [Special formats](#special-formats)
+  - [Domain-specific formats](#domain-specific-formats)
   - [Manual manipulation of genotypes](#manual-manipulation-of-genotypes)
 - [Parameter mapping](#parameter-mapping)
   - [Duration](#duration)
@@ -240,7 +240,7 @@ Genotype functions are classified by their output data.
 
 ---------
 ## Used function type identifiers
-~~**a** **b** **c** **d** **e** **f** **g** **h** **i**~~ j k ~~**l** **m** **n** **o** **p** **q** **r** **s** **t** **u** **v** **w** **x**~~ y z
+~~**a** **b** **c** **d** **e** **f** **g** **h** **i**~~ j k ~~**l** **m** **n** **o** **p**~~ q ~~**r** **s** **t** **u** **v** **w** **x**~~ y z
 
 ---------
 ## Main structures
@@ -287,7 +287,7 @@ These functions receive a list of human-readable leaf parameters and return a no
 | **lxstepsF**       | **lx**       | list of normalized values from list of integer &isinv; [-36, 36]
 
 ---------
-## Special formats
+## Domain-specific formats
 Function types created to manage specific types of data (some of them are still purely theoretical)
 
 | *function type* | *identifier* | *output*
@@ -296,7 +296,6 @@ Function types created to manage specific types of data (some of them are still 
 | **binaryF**     | **b**        | boolean value (only 0 or 1)
 | **rhythmF**     | **r**        | rhythmic pattern (nested array of floats &isinv; [0, 1])
 | **harmonyF**    | **h**        | pitch class sequence, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
-| **quantizF**    | **q**        | numeric structure for quantization of rhythm
 | **catalogueF**   | **c**       | pointer to an external genotype from a specimen catalogue (to be used with functions referencing external data)
 | **genotypeF**   | **g**        | raw encoded genotype (array of floats &isinv; [0, 1])
 | **txtF**        | **t**        | string
