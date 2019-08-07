@@ -250,7 +250,7 @@ Function types created to manage specific types of data (some of them are still 
 
 The output of **rhythmF** functions is an abstract time grid determined by a nested array with relative durations. This grid is called **prolatio**, and is used to quantize values, adjusting them to the rhythmic pattern. 
 
-The values inside a prolatio array are not absolute duration, but only proportions among themselves. So, *prolationes* `[3,1,4]` and `[0.63,0.21,0.84]` are equivalent. A prolatio need a reference value to be rendered as durations. Application of this prolatio to a half note (1/2):
+The values inside a prolatio array are not absolute durations, but only proportions among themselves. So, *prolationes* `[3,1,4]` and `[0.63,0.21,0.84]` are equivalent. A prolatio need a reference value to be rendered as durations. Application of this prolatio to a half note (1/2):
 
 <img src="figures/prolatio_basic.svg" width="117">
 
@@ -273,6 +273,7 @@ When more levels of subdivision are required but not specified, simple binary su
 ---------
 ### harmonyF
 
+Tne output of **harmontF** functions is an array of floats within interval \[0, 12\), 
 
 ---------
 ## Manual manipulation of genotypes
