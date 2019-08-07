@@ -9,6 +9,7 @@
   - [Function name](#function-name)
   - [Input arguments](#input-argumentss)
   - [Output data structure](#output-data-structure)
+- [Function catalogues](#function-catalogues)  
 - [Function types for genotypes](#function-types-for-genotypes)
   - [Used function type identifiers](#used-function-type-identifiers)
   - [Main structures](#main-structures)
@@ -16,7 +17,6 @@
   - [Human-readable lists](#human-readable-lists) 
   - [Special formats](#special-formats)
   - [Manual manipulation of genotypes](#manual-manipulation-of-genotypes)
-- [GenoMus function catalogues](#genomus-function-catalogues)  
   - [Indexing a function in a GenoMus function catalogue](#indexing-a-function-in-a-genomus-function-catalogue)
   - [Encoded function index generation](#encoded-function-index-generation)
 - [Parameter mapping](#parameter-mapping)
@@ -152,6 +152,84 @@ var <iFunctionName> = function (argument1, argument2, ..., argumentN) {
 The last line uses the auxiliary function **writeSubexprReturnData**, which stores all the subexpressions generated during the evaluation of the function tree so far, and returns the array with the [output data structure](#output-data-structure) described above.
 
 ---------
+# Function catalogues
+A GenoMus function catalogue is a JSON file that contains all available functions for genotype generation of a specific species. The concept of species is crucial, because each species is determined by the parameter structure of a basic sonic event. The functional arquitecture depends on this specification. Specimens belonging to different species cannot be mixed without some kind of ad hoc adaptation. Consequently, an independent catalogue must be created for each new species. The default species of GenoMus, called *piano*, uses this parameters structure for each basic event:
+
+[*\<duration\>*, *\<pitch\>*, *\<articulation\>*, *\<intensity\>*]
+ 
+
+A GenoMus function catalogue contains these blocks:
+- **"metadata"**: 
+  - **"species"**: name of the species.   
+  - **"parametersStructure"**: basic event parameter structure. 
+  - **"user"**: username
+  - **"version"**: version number of the catalogue.
+  - **"updated"**: date of last update.
+  - ...
+- **"outputType"**: all functions for genotype generation, grouped according to their output type.
+- **"functionIndex"**: all functions for genotype generation, enumerated by their order of inclusion, along with their encoded function index.
+
+## Indexing a function in a GenoMus function catalogue
+Functions are listed into the JSON GenoMus catalogue following this format:
+```
+"outputType": {
+    "<functionType>": {
+        "<functionName>": {
+            "arguments": ["<functionType>", "<functionType>", ...],
+            "description": "String describing what the function does.",
+        "metadata": {
+            "date": (date of creation, in compressed style),
+            "creator": "<username>",
+            ... (optional information if needed.)
+        },
+        ...
+    },
+    "<functionType>": {
+    ...
+}
+```
+- _**functionName**_ should use the corresponding prefix to help a human to know its output type
+- The _**description**_ and _**metadata**_ fields are optional, but very helpful to understand quicky the processes in a genotype, and to add further informations and documentation about the function or the programmer
+
+Furthermore, each function must be included in the catalogue list of function index numbers:
+```
+"functionIndex": {
+    1: {
+        "functionName": 0.618034
+    },
+    2: {
+        "functionName": 0.236068
+    },
+    ...
+}
+```
+The integer index identifies the function. The float is the *encoded function index*. It is a number to map the function within the normalized interval [0, 1]. Encoded genotypes use this float to map all functions optimizing the maximal distance among functions into the interval. That's a critical issue for the automatic characterization of genotypes by machine learning techniques. To maintain coherence of the catalogue, once numbered, a function can never use a different index. Index numbers never can be shared with other functions. 
+
+---------
+## Encoded function index generation
+Encoded function indexes are generated using a golden angle iteration mapped on the [0, 1] interval using this formula:
+
+<img src="formulae/encoded_function_index.svg" width="180">
+
+where *&#981;* is the golden ratio, _**f<sub>e</sub>**_ is the index to identify the function in encoded genotypes and _**f<sub>d</sub>**_ is the correspondent decoded index, which is asigned incrementally in the catalogue. Encoded index numbers are rounded to have only six digits after the decimal point. Using this truncated format there are 514263 different indexes available until a recurrence occurs.
+
+This graph shows the distribution of the first 100 encoded function indexes:
+
+<img src="formulae/encoded_function_index_graph.png" width="750">
+
+From the *functionIndex* dictionary, an inverse dictionary is automatically created by rearranging the functions according to their ascending encoded index, following this format:
+
+```
+"encodedFunctionIndexes": {
+    "0.236068": "functionNameX",
+    "0.618034": "functionNameY",
+    ...
+}
+```
+
+This works as a useful lookup table for some automatic and manual processes.
+
+---------
 # Function types for genotypes
 Functions in GenoMus are classified by their output data. 
 
@@ -231,84 +309,6 @@ User functions use uppercase letters to be easily found during manual editing pr
 - **uEVOLVE** (*expr*) - contains the part of a genotype to be transformed, freezing the rest
 - **uFREEZE** (*expr*) - block a part of a genotype to be preserved from transformations
 - **uFLATTEN** (*expr*) - render part of a genotype into a simple declarative score/voice/event (phenotype)
-
----------
-# GenoMus function catalogues
-A GenoMus function catalogue is a JSON file that contains all available functions for genotype generation of a specific species. The concept of species is crucial, because each species is determined by the parameter structure of a basic sonic event. The functional arquitecture depends on this specification. Specimens belonging to different species cannot be mixed without some kind of ad hoc adaptation. Consequently, an independent catalogue must be created for each new species. The default species of GenoMus, called *piano*, uses this parameters structure for each basic event:
-
-[*\<duration\>*, *\<pitch\>*, *\<articulation\>*, *\<intensity\>*]
- 
-
-A GenoMus function catalogue contains these blocks:
-- **"metadata"**: 
-  - **"species"**: name of the species.   
-  - **"parametersStructure"**: basic event parameter structure. 
-  - **"user"**: username
-  - **"version"**: version number of the catalogue.
-  - **"updated"**: date of last update.
-  - ...
-- **"outputType"**: all functions for genotype generation, grouped according to their output type.
-- **"functionIndex"**: all functions for genotype generation, enumerated by their order of inclusion, along with their encoded function index.
-
-## Indexing a function in a GenoMus function catalogue
-Functions are listed into the JSON GenoMus catalogue following this format:
-```
-"outputType": {
-    "<functionType>": {
-        "<functionName>": {
-            "arguments": ["<functionType>", "<functionType>", ...],
-            "description": "String describing what the function does.",
-        "metadata": {
-            "date": (date of creation, in compressed style),
-            "creator": "<username>",
-            ... (optional information if needed.)
-        },
-        ...
-    },
-    "<functionType>": {
-    ...
-}
-```
-- _**functionName**_ should use the corresponding prefix to help a human to know its output type
-- The _**description**_ and _**metadata**_ fields are optional, but very helpful to understand quicky the processes in a genotype, and to add further informations and documentation about the function or the programmer
-
-Furthermore, each function must be included in the catalogue list of function index numbers:
-```
-"functionIndex": {
-    1: {
-        "functionName": 0.618034
-    },
-    2: {
-        "functionName": 0.236068
-    },
-    ...
-}
-```
-The integer index identifies the function. The float is the *encoded function index*. It is a number to map the function within the normalized interval [0, 1]. Encoded genotypes use this float to map all functions optimizing the maximal distance among functions into the interval. That's a critical issue for the automatic characterization of genotypes by machine learning techniques. To maintain coherence of the catalogue, once numbered, a function can never use a different index. Index numbers never can be shared with other functions. 
-
----------
-## Encoded function index generation
-Encoded function indexes are generated using a golden angle iteration mapped on the [0, 1] interval using this formula:
-
-<img src="formulae/encoded_function_index.svg" width="180">
-
-where *&#981;* is the golden ratio, _**f<sub>e</sub>**_ is the index to identify the function in encoded genotypes and _**f<sub>d</sub>**_ is the correspondent decoded index, which is asigned incrementally in the catalogue. Encoded index numbers are rounded to have only six digits after the decimal point. Using this truncated format there are 514263 different indexes available until a recurrence occurs.
-
-This graph shows the distribution of the first 100 encoded function indexes:
-
-<img src="formulae/encoded_function_index_graph.png" width="750">
-
-From the *functionIndex* dictionary, an inverse dictionary is automatically created by rearranging the functions according to their ascending encoded index, following this format:
-
-```
-"encodedFunctionIndexes": {
-    "0.236068": "functionNameX",
-    "0.618034": "functionNameY",
-    ...
-}
-```
-
-This works as a useful lookup table for some automatic and manual processes.
 
 ---------
 # Parameters mapping
