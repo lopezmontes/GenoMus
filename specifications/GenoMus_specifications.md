@@ -777,6 +777,8 @@ chord: `[11,0,5,8,3]`
 
 <img src="figures/chord.svg" width="140">
 
+<img src="figures/chord-aes.svg" width="140">
+
 mode: `[0,1,3,5,6,8,10,11]`
 
 
