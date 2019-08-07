@@ -499,7 +499,7 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 This manual format is useful for different contexts where integer numbers can be much more readable. A possible application may be, for instance, to write a sequence of melodic intervals using a diatonic scale as the step basis.  
 Conversion formulae: normalized parameter _**p**_ to quantized steps _**q**_ ([graph](https://www.desmos.com/calculator/3vy4gwjxcu)):
 
-<img src="formulae/quantized2norm.svg" width="440">
+<img src="formulae/norm2quantized.svg" width="440">
 
 The inversion is made with a lookup table.
 
