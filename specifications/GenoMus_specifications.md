@@ -237,8 +237,8 @@ Function types created to manage specific types of data (some of them are still 
 | --------------- | ------------ | --------
 | **operationF**  | **o**        | result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
 | **binaryF**     | **b**        | boolean value (only 0 or 1)
-| **harmonyF**    | **h**        | pitch class set, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
-| **rhythmF**     | **r**        | rhythmic pattern
+| **harmonyF**    | **h**        | pitch class sequence, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
+| **rhythmF**     | **r**        | rhythmic pattern (nested array of floats &isinv; [0, 1])
 | **quantizF**    | **q**        | numeric structure for quantization of rhythm
 | **catalogueF**   | **c**       | pointer to an external genotype from a specimen catalogue (to be used with functions referencing external data)
 | **genotypeF**   | **g**        | raw encoded genotype (array of floats &isinv; [0, 1])
@@ -270,10 +270,12 @@ Prolationes can be arbitrarily complex. A simple array like `[1,[2,3],1,[1,[1,4]
 
 When more levels of subdivision are required but not specified, simple binary subdivisions are made by default.
 
+These examples uses integers for simplicity, but the output of a rhythmF function is always nested array including only floats &isinv; [0, 1]).
+
 ---------
 ### harmonyF
 
-Tne output of **harmontF** functions is a sequence of floats within interval \[0, 12\). 
+The output of **harmonyF** functions is a sequence of floats within interval \[0, 12\). 
 
 This array is not a pitch class set but a pitch class sequence, because in some contexts the order determines certain algorithmic operations. 
 
