@@ -13,7 +13,7 @@
 - [Function libraries](#function-libraries)  
   - [Indexing a function in a GenoMus Function Library](#indexing-a-function-in-a-genomus-function-library)
   - [Encoded function index generation](#encoded-function-index-generation)
-- [Function types for genotypes](#function-types-for-genotypes)
+- [Function types for genotype assembly](#function-types-for-genotype-assembly)
   - [Used function type identifiers](#used-function-type-identifiers)
   - [Main structures](#main-structures)
   - [Human-readable leaf parameters](#human-readable-leaf-parameters) 
@@ -234,7 +234,7 @@ This works as a useful lookup table for some automatic and manual processes.
 
 ---------
 # Function types for genotypes
-Functions in GenoMus are classified by their output data. 
+Genotype functions are classified by their output data. 
 
 ---------
 ## Used function type identifiers
