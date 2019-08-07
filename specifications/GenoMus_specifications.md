@@ -48,6 +48,7 @@
     - [Examples of rhythmic motives](#examples-of-rhythmic-motives  )
   - [Harmonic motif](#harmonic-motif)
     - [Chromaticity degree](#chromaticity-degree)
+    - [Examples of harmonic motives](#examples-of-harmonic-motives  )
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
   - [Conversion table for genotypes](#conversion-table-for-genotypes)
   - [Examples](#examples)
@@ -800,6 +801,10 @@ Enharmonic differences are not relevant.
 <a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chormaticity-0-2.mp3?token=ABGBHALVJJNK2TZ27LM5QAC5KNVUW">&#128264; MP3</a>
 
 <img src="figures/excerpt-chromat-0-3.svg" width="250">
+
+<a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chormaticity-0-3.mp3?token=ABGBHANXT7FM3R2T6ZJX72S5KNWRS">&#128264; MP3</a>
+
+<img src="figures/excerpt-chromat-0-4.svg" width="250">
 
 <a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chormaticity-0-3.mp3?token=ABGBHANXT7FM3R2T6ZJX72S5KNWRS">&#128264; MP3</a>
 
