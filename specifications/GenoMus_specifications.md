@@ -237,8 +237,8 @@ Function types created to manage specific types of data (some of them are still 
 | --------------- | ------------ | --------
 | **operationF**  | **o**        | result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
 | **binaryF**     | **b**        | boolean value (only 0 or 1)
-| **harmonyF**    | **h**        | pitch class sequence, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
 | **rhythmF**     | **r**        | rhythmic pattern (nested array of floats &isinv; [0, 1])
+| **harmonyF**    | **h**        | pitch class sequence, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
 | **quantizF**    | **q**        | numeric structure for quantization of rhythm
 | **catalogueF**   | **c**       | pointer to an external genotype from a specimen catalogue (to be used with functions referencing external data)
 | **genotypeF**   | **g**        | raw encoded genotype (array of floats &isinv; [0, 1])
