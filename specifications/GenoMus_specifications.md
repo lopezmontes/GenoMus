@@ -244,7 +244,7 @@ Function types created to manage specific types of data (some of them are still 
 | **txtF**        | **t**        | string
 | **waveF**       | **w**        | encoded path to read data from an stored audio file
 
-
+---------
 ### rhythmF
 
 The output of **rhythmF** functions is an abstract time grid determined by a nested array with relative durations. This grid is called **prolatio**, and is used to quantize values, adjusting them to the rhythmic pattern. 
@@ -268,6 +268,11 @@ Prolationes can be arbitrarily complex. A simple array like `[1,[2,3],1,[1,[1,4]
 <img src="figures/prolatio_complex.svg" width="476">
 
 When more levels of subdivision are required but not specified, simple binary subdivisions are made by default.
+
+---------
+### harmonyF
+
+
 
 ---------
 ## Manual manipulation of genotypes
@@ -748,12 +753,12 @@ A harmony can be expressed as a dictionary containing informations to be used by
 
 A **harmonic motif** is coded into an array following this data structure:
 
-| index     | feature          | data format          | description
-| --------- | ---------------- | -------------------- | ----------- 
-| **0**     | **tonalCenter**  | midipitchF           | main reference pitch (usually a chord's root)
-| **1**     | **chord**        | harmonyF             | pitch class sequence with the harmony pitches (regardless of tonal center)
-| **2**     | **mode**         | harmonyF             | pitch class set (usually, a scale) containing the chord pitches using C (pitch class 0) as root 
-| **3**     | **chromaticity** | float &isinv; [0, 1] | tolerance to chromatic notes (higher means more chromatic results)
+| index | feature          | data format             | description
+| ----- | ---------------- | ----------------------- | ----------- 
+| 0     | **tonalCenter**  | midipitchF / frequencyF | main reference pitch (usually a chord's root)
+| 1     | **chord**        | harmonyF                | pitch class sequence with the harmony pitches (regardless of tonal center)
+| 2     | **mode**         | harmonyF                | pitch class set (usually, a scale) containing the chord pitches using C (pitch class 0) as root 
+| 3     | **chromaticity** | float &isinv; [0, 1]    | tolerance to chromatic notes (higher means more chromatic results)
 
 The **chord** is not a pitch class set because order matters. The position within the sequence determines the priority of each pitch for low degrees of chromaticity (the first, the most important). 
 
