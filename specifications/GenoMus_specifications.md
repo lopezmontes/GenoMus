@@ -46,7 +46,7 @@
     - [quantization](#quantization)
     - [Examples of rhythmic motives](#examples-of-rhythmic-motives)
   - [Harmonic motif](#harmonic-motif)
-    - [Chromaticity degree](#chromaticity-degree)
+    - [chromaticity](#chromaticity)
     - [Examples of harmonic motives](#examples-of-harmonic-motives)
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
   - [Conversion table for genotypes](#conversion-table-for-genotypes)
@@ -809,14 +809,6 @@ Enharmonic differences are not relevant.
 
 <a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-0-5.mp3?token=ABGBHALZFR55IOHDLCA5W5C5KNZFC">&#128264; MP3</a>
 
-
----------
-# Genotype operations
-## Creation
-### Self-references
-## Mutation
-## 
-
 ---------
 # Encoding-decoding genotypes
 
@@ -926,6 +918,12 @@ Phenotype:
 
 # Encoding-decoding phenotypes
 
+---------
+# Genotype operations
+## Creation
+### Self-references
+## Mutation
+## 
 
 ---------
 # Genotype substructures
