@@ -785,9 +785,11 @@ Enharmonic differences are not relevant.
 
 <img src="figures/excerpt-chromat-1.svg" width="250">
 
+<a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/cromaticity-1.mp3?token=ABGBHAKL54KKYJNUNCJQKXK5KNNDY">&#128264; MP3</a>
+
 <img src="figures/excerpt-chromat-0.svg" width="250">
 
-<a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/cromaticity-1.mp3?token=ABGBHAKL54KKYJNUNCJQKXK5KNNDY">&#128264; MP3</a>
+<a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/cromaticity-0.mp3?token=ABGBHAI7GYX67IYQDZALTYS5KNTQE">&#128264; MP3</a>
 
 ---------
 # Genotype operations
