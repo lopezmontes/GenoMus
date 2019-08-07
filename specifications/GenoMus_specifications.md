@@ -13,7 +13,7 @@
 - [Function libraries](#function-libraries)  
   - [Indexing a function in a GenoMus Function Library](#indexing-a-function-in-a-genomus-function-library)
   - [Encoded function index generation](#encoded-function-index-generation)
-- [Function types for genotype metaprogramming](#function-types-for-genotype-metaprogramming)
+- [Genotype function types](#genotype-function-types)
   - [Used function type identifiers](#used-function-type-identifiers)
   - [Main structures](#main-structures)
   - [Human-readable leaf parameters](#human-readable-leaf-parameters) 
