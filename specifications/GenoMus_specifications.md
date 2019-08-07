@@ -768,6 +768,10 @@ The **chord** is not a pitch class set because order matters. The position withi
 | 0.75               | all the pitches of the mode are used, with no extra pitches
 | 1                  | all notes of the chromatic scale are used, so the mode can no longer be distinguished
 
+### Examples of harmonic motives
+
+<img src="figures/excerpt-chromat-1.svg" width="240">
+
 ---------
 # Genotype operations
 ## Creation
