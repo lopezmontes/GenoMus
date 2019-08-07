@@ -226,7 +226,7 @@ These functions receive a list of human-readable leaf parameters and return a no
 | **lmidipitchF**    | **lm**       | list of normalized pitches from list of MIDI pitches
 | **lfrequencyF**    | **lf**       | list of normalized pitches from frequencies in Hz
 | **larticulationF** | **la**       | list of normalized relative articulations from list of relative articulations
-| **lintensityF**     | **li**       | list of normalized intensities from MIDI velocities
+| **lintensityF**    | **li**       | list of normalized intensities from MIDI velocities
 | **lxstepsF**       | **lx**       | list of normalized values from list of integer &isinv; [-36, 36]
 
 ---------
@@ -273,7 +273,13 @@ When more levels of subdivision are required but not specified, simple binary su
 ---------
 ### harmonyF
 
-Tne output of **harmontF** functions is an array of floats within interval \[0, 12\), 
+Tne output of **harmontF** functions is a sequence of floats within interval \[0, 12\). 
+
+This array is not a pitch class set but a pitch class sequence, because in some contexts the order determines certain algorithmic operations. 
+
+Numbers represent pitches with the usual pitch class notation (0 = C, 1 = C#, etc), but in many occasions these pitches are transposed. So it is better to contemplate this sequence as an abstract series of intervals, in which C is used as baseline by default. Values can include a decimal part to denotate microtonal intervals.
+
+
 
 ---------
 ## Manual manipulation of genotypes
