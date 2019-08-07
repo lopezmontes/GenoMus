@@ -806,7 +806,7 @@ Enharmonic differences are not relevant.
 
 <img src="figures/excerpt-chromat-0-4.svg" width="250">
 
-<a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chormaticity-0-3.mp3?token=ABGBHANXT7FM3R2T6ZJX72S5KNWRS">&#128264; MP3</a>
+<a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chormaticity-0-4.mp3?token=ABGBHAJIK5SLZSNNPDX22RS5KNXRQ">&#128264; MP3</a>
 
 
 ---------
