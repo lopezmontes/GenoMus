@@ -808,6 +808,10 @@ Enharmonic differences are not relevant.
 
 <a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chormaticity-0-4.mp3?token=ABGBHAJIK5SLZSNNPDX22RS5KNXRQ">&#128264; MP3</a>
 
+<img src="figures/excerpt-chromat-0-5.svg" width="250">
+
+<a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chormaticity-0-4.mp3?token=ABGBHAJIK5SLZSNNPDX22RS5KNXRQ">&#128264; MP3</a>
+
 
 ---------
 # Genotype operations
