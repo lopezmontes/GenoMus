@@ -316,7 +316,7 @@ User functions use uppercase letters to be easily found during manual editing pr
 
 ---------
 # Parameters mapping
-GenoMus function trees expect generic parameters (floats &isinv; [0, 1]) as leaves, regardless arguments' domain. When computing phenotypes, these numbers must be mapped to correct ranges and scales to represent duration, pitch, etc.
+A GenoMus function tree expects generic parameters (floats &isinv; [0, 1]) as leaves, regardless arguments' domain. When computing a phenotype, these numbers must be mapped to correct ranges and scales to represent duration, pitch, etc.
 
 Human-readable function types use specific user-friendly formats for each argument. These non generic parameters are first mapped to a normalized interval [0, 1] to be later evaluated and encoded as stardard normalized paramenters.
 
