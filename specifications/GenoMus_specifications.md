@@ -770,6 +770,12 @@ The **chord** is not a pitch class set because order matters. The position withi
 
 ### Examples of harmonic motives
 
+
+tonalCenter: 8 (A flat)
+chord: `[11,0,5,8,3]`
+mode: `[0,1,3,5,6,8,10,11]`
+
+
 <img src="figures/excerpt-chromat-1.svg" width="270">
 
 <a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/cromaticity-1.mp3?token=ABGBHAKL54KKYJNUNCJQKXK5KNNDY">&#128264; MP3</a>
