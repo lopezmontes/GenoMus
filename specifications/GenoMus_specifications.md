@@ -20,8 +20,6 @@
     - [Integer x steps](#integer-x-steps)
   - [Human-readable lists](#human-readable-lists) 
   - [Special formats](#special-formats)
-    - [rhythmF](#rhythmf)
-    - [harmonyF](#harmonyf)
   - [Manual manipulation of genotypes](#manual-manipulation-of-genotypes)
 - [GenoMus function catalogues](#genomus-function-catalogues)  
   - [Indexing a function in a GenoMus function catalogue](#indexing-a-function-in-a-genomus-function-catalogue)
@@ -39,7 +37,10 @@
   - [Intensity](#intensity-1)
     - [intensityF (x)](#intensityf-i)
   - [Integer x steps](#integer-x-steps-1)
-    - [xstepsF (x)](#xstepsf-x)    
+    - [xstepsF (x)](#xstepsf-x)   
+  - [Special formats](#special-formats-1)    
+    - [rhythmF](#rhythmf)
+    - [harmonyF](#harmonyf)
 - [Characterization of underlying musical patterns](#characterization-of-underlying-musical-patterns)
   - [Rhythmic motif](#rhythmic-motif)
     - [totalValue](#totalvalue)
@@ -244,48 +245,6 @@ Function types created to manage specific types of data (some of them are still 
 | **genotypeF**   | **g**        | raw encoded genotype (array of floats &isinv; [0, 1])
 | **txtF**        | **t**        | string
 | **waveF**       | **w**        | encoded path to read data from an stored audio file
-
----------
-### rhythmF
-
-The output of a **rhythmF** function is an abstract time grid determined by a nested array with relative durations. This grid is called **prolatio**, and is used to quantize the values of a rhythmic pattern. 
-
-The values inside a prolatio array are not absolute durations, but only proportions among themselves. For example, *prolationes* `[3,1,4]` and `[0.63,0.21,0.84]` are equivalent. A prolatio need a reference value to be rendered as a series of durations. Application of this prolatio to a half note (1/2) as total length:
-
-<img src="figures/prolatio_basic.svg" width="117">
-
-Each value of a prolatio can in turn be subdivided into another prolatio using a subarray in the next position. The last value in this prolatio can be subdivided in this way:
-
-`[3,1,4,[1,1,1,1,1]]`, with this result:
-
-<img src="figures/prolatio_basic_2.svg" width="170">
-
-Obviously, each subarray must have at least two values to produce a subdivision at the next depth level of the prolatio. A prolatio with the scheme `[a,[d,e],b,c,[f,g,[i,j],h]]` has three level of subdivisions of the duration set by the variable **totalValue**:
-
-<img src="figures/prolatio_tree.svg" width="140">
-
-Prolationes can be arbitrarily complex. A simple array like `[1,[2,3],1,[1,[1,4],4,2],1,[1,1,[3,4,4]]]` produces nested tuplets (with a whole note as total duration):
-
-<img src="figures/prolatio_complex.svg" width="476">
-
-When more levels of subdivision are required but not specified, simple binary subdivisions are made by default.
-
-These examples use integers for simplicity, but the output of a rhythmF function is always a nested array including only floats &isinv; [0, 1]. For instance, the last example of prolatio would be rescaled so that the maximum value was 1, returning this normalized nested array:
-
-`[0.25,[0.5,0.75],0.25,[0.25,[0.25,1],1,0.5],0.25,[0.25,0.25,[0.75,1,1]]]`
-
-All the functions working with a prolatio perform a normalization before processing or returning data, so simple proportions of integers as in the previous examples can be manually introduced in a decoded genotype. 
-
----------
-### harmonyF
-
-The output of a **harmonyF** function is a sequence of floats within interval \[0, 12\). 
-
-This array is not a pitch class set but a pitch class sequence, because in some contexts the order determines certain algorithmic operations. However, this format can also serve as a pitch class set when needed.
-
-Numbers represent pitches with the usual pitch class notation (0 = C, 1 = C#, etc), but in many occasions these pitches are transposed. So it is better to contemplate this sequence as an abstract series of intervals, in which C is used as baseline by default. Values can include a decimal part to denotate microtonal intervals.
-
-
 
 ---------
 ## Manual manipulation of genotypes
@@ -644,6 +603,50 @@ The inversion is made with a lookup table.
 | 0.999  | 34
 | 0.9995 | 35
 | 1      | 36
+
+
+---------
+## Special formats
+### rhythmF
+
+The output of a **rhythmF** function is an abstract time grid determined by a nested array with relative durations. This grid is called **prolatio**, and is used to quantize the values of a rhythmic pattern. 
+
+The values inside a prolatio array are not absolute durations, but only proportions among themselves. For example, *prolationes* `[3,1,4]` and `[0.63,0.21,0.84]` are equivalent. A prolatio need a reference value to be rendered as a series of durations. Application of this prolatio to a half note (1/2) as total length:
+
+<img src="figures/prolatio_basic.svg" width="117">
+
+Each value of a prolatio can in turn be subdivided into another prolatio using a subarray in the next position. The last value in this prolatio can be subdivided in this way:
+
+`[3,1,4,[1,1,1,1,1]]`, with this result:
+
+<img src="figures/prolatio_basic_2.svg" width="170">
+
+Obviously, each subarray must have at least two values to produce a subdivision at the next depth level of the prolatio. A prolatio with the scheme `[a,[d,e],b,c,[f,g,[i,j],h]]` has three level of subdivisions of the duration set by the variable **totalValue**:
+
+<img src="figures/prolatio_tree.svg" width="140">
+
+Prolationes can be arbitrarily complex. A simple array like `[1,[2,3],1,[1,[1,4],4,2],1,[1,1,[3,4,4]]]` produces nested tuplets (with a whole note as total duration):
+
+<img src="figures/prolatio_complex.svg" width="476">
+
+If more levels of subdivision are required but not specified, simple binary subdivisions are made by default.
+
+These examples use integers for simplicity, but the output of a rhythmF function is always a nested array including only floats &isinv; [0, 1]. For instance, the last example of prolatio would be rescaled so that the maximum value was 1, returning this normalized nested array:
+
+`[0.25,[0.5,0.75],0.25,[0.25,[0.25,1],1,0.5],0.25,[0.25,0.25,[0.75,1,1]]]`
+
+All the functions working with a prolatio perform a normalization before processing or returning data, so simple proportions of integers as in the previous examples can be manually introduced in a decoded genotype. 
+
+---------
+### harmonyF
+
+The output of a **harmonyF** function is a sequence of floats within interval \[0, 12\). 
+
+This array is not a pitch class set but a pitch class sequence, because in some contexts the order determines certain algorithmic operations. However, this format can also serve as a pitch class set when needed.
+
+Numbers represent pitches with the usual pitch class notation (0 = C, 1 = C#, etc), but in many occasions these pitches are transposed. So it is better to contemplate this sequence as an abstract series of intervals, in which C is used as baseline by default. Values can include a decimal part to denotate microtonal intervals.
+
+
 
 ---------
 # Characterization of underlying musical patterns
