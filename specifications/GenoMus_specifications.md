@@ -772,7 +772,11 @@ The **chord** is not a pitch class set because order matters. The position withi
 
 
 tonalCenter: 8 (A flat)
+
 chord: `[11,0,5,8,3]`
+
+<img src="figures/chord.svg" width="100">
+
 mode: `[0,1,3,5,6,8,10,11]`
 
 
