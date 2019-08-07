@@ -264,7 +264,7 @@ Obviously, each subarray must have at least two values to produce a subdivision 
 
 <img src="figures/prolatio_tree.svg" width="140">
 
-Prolationes can be arbitrarily complex. A simple array like `[1,[2,3],1,[1,[1,4],4,2],1,[1,1,[3,4,4]]]` produce nested tuplets (reference note value for total duration is a whole note):
+Prolationes can be arbitrarily complex. A simple array like `[1,[2,3],1,[1,[1,4],4,2],1,[1,1,[3,4,4]]]` produces nested tuplets (with a whole note as total duration):
 
 <img src="figures/prolatio_complex.svg" width="476">
 
