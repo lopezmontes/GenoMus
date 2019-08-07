@@ -33,9 +33,9 @@
   - [Articulation](#articulation)
     - [articulationF (a)](#articulationf-a)
   - [Intensity](#intensity)
-    - [intensityF (x)](#intensityf-i)
-  - [Integer x steps](#integer-x-steps)
-    - [xstepsF (x)](#xstepsf-x)   
+    - [intensityF (i)](#intensityf-i)
+  - [Quantized steps](#quantized-steps)
+    - [quantizedF (q)](#quantized-q)   
   - [rhythmF](#rhythmf)
   - [harmonyF](#harmonyf)
 - [Characterization of underlying musical patterns](#characterization-of-underlying-musical-patterns)
@@ -269,7 +269,7 @@ Function types created to improve manual handling of decoded genotypes. These fu
 | **articulationF** | **a**        | normalized relative articulation (1 is whole duration of the note, 2 is double duration)
 | **durationF**     | **d**        | normalized duration from time in seconds
 | **intensityF**    | **i**        | normalized intensity from standard MIDI velocity
-| **xstepsF**       | **x**        | normalized value from integer &isinv; [-36, 36]
+| **quantizedF**    | **q**        | normalized value from integer &isinv; [-36, 36]
 
 ---------
 ## Human-readable lists
@@ -284,7 +284,7 @@ These functions receive a list of human-readable leaf parameters and return a no
 | **lfrequencyF**    | **lf**       | list of normalized pitches from frequencies in Hz
 | **larticulationF** | **la**       | list of normalized relative articulations from list of relative articulations
 | **lintensityF**    | **li**       | list of normalized intensities from MIDI velocities
-| **lxstepsF**       | **lx**       | list of normalized values from list of integer &isinv; [-36, 36]
+| **lquantizedF**    | **lq**       | list of normalized values from list of integer &isinv; [-36, 36]
 
 ---------
 ## Domain-specific formats
@@ -493,17 +493,17 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 | 1.0    | 127                 | *tutta forza*
 
 ---------
-## Integer x steps
-### **xstepsF** (x)
+## Quantized steps
+### **quantizedF** (q)
 
 This manual format is useful for different contexts where integer numbers can be much more readable. A possible application may be, for instance, to write a sequence of melodic intervals using a diatonic scale as the step basis.  
-Conversion formulae: normalized parameter _**p**_ to x-steps _**s**_ ([graph](https://www.desmos.com/calculator/3vy4gwjxcu)):
+Conversion formulae: normalized parameter _**p**_ to quantized steps _**q**_ ([graph](https://www.desmos.com/calculator/3vy4gwjxcu)):
 
-<img src="formulae/xsteps2norm.svg" width="440">
+<img src="formulae/quantized2norm.svg" width="440">
 
 The inversion is made with a lookup table.
 
-<img src="formulae/norm2xsteps_graph.png" width="450">
+<img src="formulae/norm2quantized_graph.png" width="450">
 
 | [0, 1] |  integer steps      
 | ------ | -------------------
