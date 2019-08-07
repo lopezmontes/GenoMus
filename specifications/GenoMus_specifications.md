@@ -785,7 +785,7 @@ Enharmonic differences are not relevant.
 
 <a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-1.mp3?token=ABGBHAM7TC75RGD6VSPBKKC5KNY4W">
     
-<img src="aux/speaker.svg" width="30"> MP3</a>
+<img src="aux/speaker.svg" width="10"> MP3</a>
 
 <img src="figures/excerpt-chromat-0.svg" width="250">
 
