@@ -274,7 +274,7 @@ These examples use integers for simplicity, but the output of a rhythmF function
 
 `[0.25,[0.5,0.75],0.25,[0.25,[0.25,1],1,0.5],0.25,[0.25,0.25,[0.75,1,1]]]`
 
-All the functions working with a prolatio perform a normalization before processing or returning data, so simple proportions of integers as in the previous examples can be manually introduced in the genotype. 
+All the functions working with a prolatio perform a normalization before processing or returning data, so simple proportions of integers as in the previous examples can be manually introduced in a decoded genotype. 
 
 ---------
 ### harmonyF
