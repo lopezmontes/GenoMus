@@ -781,7 +781,7 @@ Given this harmonic motif:
 
 The algorithm follow these steps:
 1. Set the tonal center with **root**. The value `0.68124` correspond to the pitch A&#9837;, applying this [conversion](#midipitchf-m). 
-2. **chord** and **mode** pitch classes are transposed from C to G&#9839; (or A&#9837;) as root, keeping the same order: 
+2. Transpose **chord** and **mode** pitch classes from C to G&#9839; (or A&#9837;) as root, keeping the same order: 
 
 `[11,0,5,8,3]` &rarr; `[7,8,1,4,11]`:
 
@@ -792,8 +792,7 @@ The algorithm follow these steps:
 <img src="figures/mode.svg" width="348"> 
 
 3. Check the pitch classes of mode which are not part of chord and extract this ordered subsequence. In this case, the result is `[9,2,6]`.
-4. Calculate the ranges of values corresponding to the increasing degrees of chromaticism. In this case, these are the pitch class sequence 
-
+4. Calculate the ranges of values corresponding to the increasing degrees of chromaticism, and transform input data accordingly. In this case, these are the pitch class sequence 
 
 The following tables show how increasing degrees of quantization affect to this motif (enharmonic differences are not relevant): 
 
