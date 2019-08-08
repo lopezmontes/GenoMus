@@ -616,7 +616,7 @@ All the functions working with a prolatio perform a normalization before process
 ---------
 ## harmonyF
 
-The output of a **harmonyF** function is a sequence of floats within interval \[0, 12\). 
+The output of a **harmonyF** function is a sequence of floats within interval \[0, 1\). These number uses the [midipitchF conversion](#midipitchf-m), so the array `[3,7,0,10]` and `[0.03,0.07,0,0.1]` are equivanlent.   
 
 This array is not a pitch class set but a pitch class sequence, because in some contexts the order determines certain algorithmic operations. However, this format can also serve as a pitch class set when needed.
 
@@ -771,15 +771,15 @@ Given this harminoc motif:
 ```
 {
     "root": 0.68124,
-    "chord": [11,0,5,8,3],
-    "modus": [0,3,1,5,8,6,11,10],
+    "chord": [0.11,0,0.05,0.08,0.03],
+    "modus": [0,0.03,0.01,0.05,0.08,0.06,0.11,0.10],
     "chromaticism": <float within interval [0, 1]>
 }
 ```
-The algorithm follow these steps:
-**1. Set the tonal center**. The value `0.68124` correspond to the pitch A&#9837;, applying this [conversion](#midipitchf-m). 
 
-chord: `[11,0,5,8,3]` &rarr; `[7,8,1,4,11]`
+The algorithm follow these steps:
+1. **Set the tonal center**. The value `0.68124` correspond to the pitch A&#9837;, applying this [conversion](#midipitchf-m). 
+2. The chord pitch classes are transposed from C to A&#9837; as root: `[11,0,5,8,3]` &rarr; `[7,8,1,4,11]`:
 
 <img src="figures/chord.svg" width="300"> 
 
