@@ -777,7 +777,7 @@ Given this harminoc motif:
 }
 ```
 The algorithm follow these steps:
-1. Set the tonal center. The value `0.68124` correspond to a A&#9837;, 
+**1. Set the tonal center**. The value `0.68124` correspond to a A&#9837;, 
 
 chord: `[11,0,5,8,3]` &rarr; `[7,8,1,4,11]`
 
