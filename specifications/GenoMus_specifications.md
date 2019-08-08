@@ -781,7 +781,7 @@ Given this harmonic motif:
 
 The algorithm follow these steps:
 1. Set the tonal center with **root**. The value `0.68124` correspond to the pitch A&#9837;, applying this [conversion](#midipitchf-m). 
-2. Transpose **chord** and **mode** pitch classes from C to G&#9839; (or A&#9837;) as root, keeping the same order: 
+2. Transpose pitch classes of **chord** and **mode** from C to G&#9839; (or A&#9837;) as root, keeping the same order: 
 
 `[11,0,5,8,3]` &rarr; `[7,8,1,4,11]`:
 
