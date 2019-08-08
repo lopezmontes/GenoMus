@@ -760,8 +760,8 @@ The degree of **chromaticism** of degree is denoted with a normalized value. Thi
 
 | chromaticism value (c)  | result
 | ----------------------- | ------
-| 0 &#8804; c &#8804; 0.5 | only chord pitch classes are used, progressively incorporated as c is higher (0 &rarr; only 1 pitch class, 0.5 means all chord pitch classes)
-| 0.5 < c &#8804; 0.8     | mode pitches classes are progressively integrated (0.500001 means only 1 new pitch class added, 0.8  means that the complete mode is employed)
+| 0 &#8804; c &#8804; 0.5 | only chord pitch classes are used, progressively incorporated as c is higher (0 &rarr; only 1 pitch class, 0.5 &rarr; all chord pitch classes)
+| 0.5 < c &#8804; 0.8     | mode pitches classes are progressively integrated (0.500001 &rarr; only 1 new pitch class added, 0.8 &rarr; complete mode is employed)
 | 0.8 < c &#8804; 1       | all remaining pitch classes of the chromatic scale are progressively integrated
 
 ### Examples of harmonic motives
