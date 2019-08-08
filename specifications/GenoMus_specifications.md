@@ -783,11 +783,11 @@ The algorithm follow these steps:
 
 `[11,0,5,8,3]` &rarr; `[7,8,1,4,11]`:
 
-<img src="figures/chord.svg" width="300"> 
+<img src="figures/chord.svg" width="240"> 
 
 `[0,3,1,5,8,6,11,10]` &rarr; `[8,11,9,1,4,2,7,6]`
 
-<img src="figures/mode.svg" width="400"> 
+<img src="figures/mode.svg" width="320"> 
 
 
 
