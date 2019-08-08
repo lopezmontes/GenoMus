@@ -779,7 +779,7 @@ Given this harminoc motif:
 
 The algorithm follow these steps:
 1. Set the tonal center. The value `0.68124` correspond to the pitch A&#9837;, applying this [conversion](#midipitchf-m). 
-2. chord and mode pitc classes are transposed from C to G&#9839; (or A&#9837;) as root, keeping the same order: 
+2. **chord and mode pitc classes are transposed from C to G&#9839; (or A&#9837;) as root, keeping the same order: 
 
 `[11,0,5,8,3]` &rarr; `[7,8,1,4,11]`:
 
@@ -789,7 +789,6 @@ The algorithm follow these steps:
 
 <img src="figures/mode.svg" width="400"> 
 
-3. The mode is transposed. Note that the notation reorder the pitch classes to show clearly the scales, but 
 
 
 
