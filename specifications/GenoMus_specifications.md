@@ -620,7 +620,7 @@ The output of a **harmonyF** function is a sequence of floats within interval \[
 
 This array is not a pitch class set but a pitch class sequence, because in some contexts the order determines certain algorithmic operations. However, this format can also serve as a pitch class set when needed.
 
-Numbers represent pitches with the usual pitch class notation (0 = C, 1 = C#, etc), but in many occasions these pitches are transposed. So it is better to contemplate this sequence as an abstract series of intervals, in which C is used as baseline by default. Values can include a decimal part to denotate microtonal intervals.
+Numbers represent pitches with the usual pitch class notation (0 = C, 1 = C&#9839;, etc), but in many occasions these pitches are transposed. So it is better to contemplate this sequence as an abstract series of intervals, in which C is used as baseline by default. Values can include a decimal part to denotate microtonal intervals.
 
 
 
@@ -781,9 +781,9 @@ The algorithm follow these steps:
 1. Set the tonal center. The value `0.68124` correspond to the pitch A&#9837;, applying this [conversion](#midipitchf-m). 
 2. chord and mode pitc classes are transposed from C to A&#9837; as root, keeping the same order: 
 
-`[11,0,5,8,3]` &rarr; `[7,8,1,4,11]`:<img src="figures/chord.svg" width="300"> 
+`[11,0,5,8,3]` &rarr; `[7,8,1,4,11]`:
 
-
+<img src="figures/chord.svg" width="300"> 
 
 `[0,3,1,5,8,6,11,10]` &rarr; `[8,11,9,1,4,2,7,6]`
 
