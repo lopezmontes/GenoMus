@@ -760,11 +760,11 @@ Chromaticism is applied as a kind of pitch quantization. The raw pitch values of
 
 This is the meaning of different values for chromaticism:
 
-| chromaticism (c)        | result
+| chromaticism (*c*)        | result
 | ----------------------- | ------
-| 0 &#8804; c &#8804; 0.5 | only chord pitch classes are used, progressively incorporated as c is higher (0 &rarr; only 1 pitch class, 0.5 &rarr; all chord pitch classes)
-| 0.5 < c &#8804; 0.8     | mode pitches classes are progressively integrated (0.500001 &rarr; only 1 new pitch class added, 0.8 &rarr; complete mode is employed)
-| 0.8 < c &#8804; 1       | all remaining pitch classes of the chromatic scale are progressively integrated
+| 0 &#8804; *c* &#8804; 0.5 | only chord pitch classes are used, progressively incorporated as *c* is higher (0 &rarr; only 1 pitch class, 0.5 &rarr; all chord pitch classes)
+| 0.5 < *c* &#8804; 0.8     | mode pitches classes are progressively integrated (0.500001 &rarr; only 1 new pitch class added, 0.8 &rarr; complete mode is employed)
+| 0.8 < *c* &#8804; 1       | all remaining pitch classes of the chromatic scale are progressively integrated
 
 ### Examples of harmonic motives
 
@@ -797,15 +797,15 @@ The algorithm follow these steps:
 
 The following tables show how increasing degrees of quantization affect to this motif (enharmonic differences are not relevant): 
 
-| chromaticism (c)                  | eligible pitch classes        | result
+| chromaticism (*c*)                  | eligible pitch classes        | result
 | ------------------------------ | ----------------------------- | ----
-| 0 &#8804; c < 0.1   | `[7]`                         | <img src="figures/excerpt-chromat-0.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0.mp3?token=ABGBHAJUPGQWEILSIBWES4K5KUNFK"><img src="aux/speaker.svg" width="15"></a> 
-| 0.1 &#8804; c < 0.2 | `[7,8]`                       | <img src="figures/excerpt-chromat-0-1.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0-1.mp3?token=ABGBHAIEADEUJMM627NGNM25KUMZO"><img src="aux/speaker.svg" width="15"></a>
-| 0.2 &#8804; c < 0.3 | `[7,8,1]`                     | <img src="figures/excerpt-chromat-0-2.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0-2.mp3?token=ABGBHAJLZGJQ2KT5FUHY24S5KUM3Y"><img src="aux/speaker.svg" width="15"></a>
-| 0.3 &#8804; c < 0.4 | `[7,8,1,4]`                   | <img src="figures/excerpt-chromat-0-3.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0-3.mp3?token=ABGBHAKRAXQ3WFJNTTICIYK5KUM7K"><img src="aux/speaker.svg" width="15"></a>
-| 0.5 &#8804; c < 0.5 | `[7,8,1,4,11]`                | <img src="figures/excerpt-chromat-0-4.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0-4.mp3?token=ABGBHAI57KWEEAKD25YRWJK5KUNAK"><img src="aux/speaker.svg" width="15"></a>
-| 0.5 &#8804; c < 0.8 | `[0,1,3,5,6,8,10,11]`         | <img src="figures/excerpt-chromat-0-5.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0-5.mp3?token=ABGBHAPNELFTBH5OAN33AZK5KUNCE"><img src="aux/speaker.svg" width="15"></a>
-| 0.8 &#8804; c < 1   | `[0,1,2,3,4,5,6,7,8,9,10,11]` | <img src="figures/excerpt-chromat-1.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-1.mp3?token=ABGBHANAGTJ4VJ2UMJQ5AOS5KUND4"><img src="aux/speaker.svg" width="15"></a>
+| 0 &#8804; *c* < 0.1   | `[7]`                         | <img src="figures/excerpt-chromat-0.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0.mp3?token=ABGBHAJUPGQWEILSIBWES4K5KUNFK"><img src="aux/speaker.svg" width="15"></a> 
+| 0.1 &#8804; *c* < 0.2 | `[7,8]`                       | <img src="figures/excerpt-chromat-0-1.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0-1.mp3?token=ABGBHAIEADEUJMM627NGNM25KUMZO"><img src="aux/speaker.svg" width="15"></a>
+| 0.2 &#8804; *c* < 0.3 | `[7,8,1]`                     | <img src="figures/excerpt-chromat-0-2.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0-2.mp3?token=ABGBHAJLZGJQ2KT5FUHY24S5KUM3Y"><img src="aux/speaker.svg" width="15"></a>
+| 0.3 &#8804; *c* < 0.4 | `[7,8,1,4]`                   | <img src="figures/excerpt-chromat-0-3.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0-3.mp3?token=ABGBHAKRAXQ3WFJNTTICIYK5KUM7K"><img src="aux/speaker.svg" width="15"></a>
+| 0.5 &#8804; *c* < 0.5 | `[7,8,1,4,11]`                | <img src="figures/excerpt-chromat-0-4.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0-4.mp3?token=ABGBHAI57KWEEAKD25YRWJK5KUNAK"><img src="aux/speaker.svg" width="15"></a>
+| 0.5 &#8804; *c* < 0.8 | `[0,1,3,5,6,8,10,11]`         | <img src="figures/excerpt-chromat-0-5.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0-5.mp3?token=ABGBHAPNELFTBH5OAN33AZK5KUNCE"><img src="aux/speaker.svg" width="15"></a>
+| 0.8 &#8804; *c* < 1   | `[0,1,2,3,4,5,6,7,8,9,10,11]` | <img src="figures/excerpt-chromat-1.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-1.mp3?token=ABGBHANAGTJ4VJ2UMJQ5AOS5KUND4"><img src="aux/speaker.svg" width="15"></a>
 
 ---------
 # Encoding-decoding genotypes
