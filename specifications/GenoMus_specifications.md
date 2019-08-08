@@ -46,7 +46,7 @@
     - [quantization](#quantization)
     - [Examples of rhythmic motives](#examples-of-rhythmic-motives)
   - [Harmonic motif](#harmonic-motif)
-    - [chromaticity](#chromaticity)
+    - [chromaticism](#chromaticism)
     - [Examples of harmonic motives](#examples-of-harmonic-motives)
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
   - [Conversion table for genotypes](#conversion-table-for-genotypes)
@@ -750,15 +750,15 @@ A **harmonic motif** is coded into an array following this data structure:
 | 0     | **tonalCenter**  | midipitchF / frequencyF | main reference pitch (usually a chord's root)
 | 1     | **chord**        | harmonyF                | pitch class sequence with the harmony pitches (regardless of tonal center)
 | 2     | **mode**         | harmonyF                | pitch class set (usually, a scale) containing the chord pitches using C (pitch class 0) as root 
-| 3     | **chromaticity** | float &isinv; [0, 1]    | tolerance to chromatic notes (higher means more chromatic results)
+| 3     | **chromaticism** | float &isinv; [0, 1]    | tolerance to chromatic notes (higher means more chromatic results)
 
-The **chord** is not a pitch class set because order matters. The position within the sequence determines the priority of each pitch for low degrees of chromaticity (the first, the most important). 
+The **chord** is not a pitch class set because order matters. The position within the sequence determines the priority of each pitch for low degrees of chromaticism (the first, the most important). 
 
-### chromaticity
+### chromaticism
 
-**Chromaticity** degree is denoted with a normalized value. This is the meaning of different levels of chromatism:
+The degree of **chromaticism** of degree is denoted with a normalized value. This is the meaning of different levels of chromatism:
 
-| Chromaticity value | result
+| chromaticism value | result
 | ------------------ | ------
 | 0                  | only the tonal center and its octaves are used
 | 0.25               | only the first half of chord pitches sequence is used
@@ -782,15 +782,15 @@ Enharmonic differences are not relevant.
 <img src="figures/mode.svg" width="400"> 
 
 
-| chromaticity                   | eligible pitch classes        | result
+| chromaticism                   | eligible pitch classes        | result
 | ------------------------------ | ----------------------------- | ----
-| 0 &#8804; chromaticity < 0.1   | `[7]`                         | <img src="figures/excerpt-chromat-0.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-0.mp3?token=ABGBHAOXMMAFCMANWGCQGCC5KNY3E"><img src="aux/speaker.svg" width="15"></a> 
-| 0.1 &#8804; chromaticity < 0.2 | `[7,8]`                       | <img src="figures/excerpt-chromat-0-1.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-0-1.mp3?token=ABGBHALG4KWLPJJZRSQ65RC5KNY6A"><img src="aux/speaker.svg" width="15"></a>
-| 0.2 &#8804; chromaticity < 0.3 | `[7,8,1]`                     | <img src="figures/excerpt-chromat-0-2.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chormaticity-0-2.mp3?token=ABGBHAIL7FTHGBZZS46G6MC5KNZA4"><img src="aux/speaker.svg" width="15"></a>
-| 0.3 &#8804; chromaticity < 0.4 | `[7,8,1,4]`                   | <img src="figures/excerpt-chromat-0-3.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-0-3.mp3?token=ABGBHAPRWZJCKOCP6AI6WGC5KNZCY"><img src="aux/speaker.svg" width="15"></a>
-| 0.5 &#8804; chromaticity < 0.5 | `[7,8,1,4,11]`                | <img src="figures/excerpt-chromat-0-4.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-0-4.mp3?token=ABGBHANIMBOSBJIZ4B7YX2C5KNZEC"><img src="aux/speaker.svg" width="15"></a>
-| 0.5 &#8804; chromaticity < 0.8 | `[0,1,3,5,6,8,10,11]`         | <img src="figures/excerpt-chromat-0-5.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-0-5.mp3?token=ABGBHALZFR55IOHDLCA5W5C5KNZFC"><img src="aux/speaker.svg" width="15"></a>
-| 0.8 &#8804; chromaticity < 1   | `[0,1,2,3,4,5,6,7,8,9,10,11]` | <img src="figures/excerpt-chromat-1.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticity-1.mp3?token=ABGBHAM7TC75RGD6VSPBKKC5KNY4W"><img src="aux/speaker.svg" width="15"></a>
+| 0 &#8804; chromaticism < 0.1   | `[7]`                         | <img src="figures/excerpt-chromat-0.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0.mp3?token=ABGBHAOXMMAFCMANWGCQGCC5KNY3E"><img src="aux/speaker.svg" width="15"></a> 
+| 0.1 &#8804; chromaticism < 0.2 | `[7,8]`                       | <img src="figures/excerpt-chromat-0-1.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0-1.mp3?token=ABGBHALG4KWLPJJZRSQ65RC5KNY6A"><img src="aux/speaker.svg" width="15"></a>
+| 0.2 &#8804; chromaticism < 0.3 | `[7,8,1]`                     | <img src="figures/excerpt-chromat-0-2.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chormaticity-0-2.mp3?token=ABGBHAIL7FTHGBZZS46G6MC5KNZA4"><img src="aux/speaker.svg" width="15"></a>
+| 0.3 &#8804; chromaticism < 0.4 | `[7,8,1,4]`                   | <img src="figures/excerpt-chromat-0-3.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0-3.mp3?token=ABGBHAPRWZJCKOCP6AI6WGC5KNZCY"><img src="aux/speaker.svg" width="15"></a>
+| 0.5 &#8804; chromaticism < 0.5 | `[7,8,1,4,11]`                | <img src="figures/excerpt-chromat-0-4.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0-4.mp3?token=ABGBHANIMBOSBJIZ4B7YX2C5KNZEC"><img src="aux/speaker.svg" width="15"></a>
+| 0.5 &#8804; chromaticism < 0.8 | `[0,1,3,5,6,8,10,11]`         | <img src="figures/excerpt-chromat-0-5.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0-5.mp3?token=ABGBHALZFR55IOHDLCA5W5C5KNZFC"><img src="aux/speaker.svg" width="15"></a>
+| 0.8 &#8804; chromaticism < 1   | `[0,1,2,3,4,5,6,7,8,9,10,11]` | <img src="figures/excerpt-chromat-1.svg" width="220"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-1.mp3?token=ABGBHAM7TC75RGD6VSPBKKC5KNY4W"><img src="aux/speaker.svg" width="15"></a>
 
 ---------
 # Encoding-decoding genotypes
