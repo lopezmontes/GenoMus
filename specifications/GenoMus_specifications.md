@@ -747,12 +747,12 @@ A **harmonic motif** is coded into an array following this data structure:
 
 | index | feature          | data format             | description
 | ----- | ---------------- | ----------------------- | ----------- 
-| 0     | **tonalCenter**  | midipitchF / frequencyF | main reference pitch (usually a chord's root)
+| 0     | **root**  | midipitchF / frequencyF | main reference pitch (usually a chord's root)
 | 1     | **chord**        | harmonyF                | pitch class sequence with the harmony pitches (regardless of tonal center)
-| 2     | **mode**         | harmonyF                | pitch class set (usually, a scale) containing the chord pitches using C (pitch class 0) as root 
+| 2     | **mode**         | harmonyF                | pitch class sequence (usually, a scale) containing the chord pitches using C (pitch class 0) as root 
 | 3     | **chromaticism** | float &isinv; [0, 1]    | tolerance to chromatic notes (higher means more chromatic results)
 
-The **chord** is not a pitch class set because order matters. The position within the sequence determines the priority of each pitch for low degrees of chromaticism (the first, the most important). 
+**chord** and **mode** are not a pitch class sets because order matters. The position within the pitch sequences determines the priority of each pitch for low degrees of chromaticism (the first, the most important). 
 
 ### chromaticism
 
@@ -766,8 +766,18 @@ The degree of **chromaticism** of degree is denoted with a normalized value. Thi
 
 ### Examples of harmonic motives
 
+Given this harminoc motif:
 
-tonalCenter: 8 (A flat)
+```
+{
+    "root": 0.68124,
+    "chord": [11,0,5,8,3],
+    "modus": [0,3,1,5,8,6,11,10],
+    "chromaticism": <float within interval [0, 1]>
+}
+```
+The algorithm follow these steps:
+1. Set the tonal center. The value `0.68124` correspond to a A&#9837;, 
 
 chord: `[11,0,5,8,3]` &rarr; `[7,8,1,4,11]`
 
@@ -775,10 +785,11 @@ chord: `[11,0,5,8,3]` &rarr; `[7,8,1,4,11]`
 
 mode: `[0,1,3,5,6,8,10,11]`
 
-Enharmonic differences are not relevant.
 
 <img src="figures/mode.svg" width="400"> 
 
+
+The following tables show how increasing degrees of quantization affect to this motif (enharmonic differences are not relevant): 
 
 | chromaticism (c)                  | eligible pitch classes        | result
 | ------------------------------ | ----------------------------- | ----
