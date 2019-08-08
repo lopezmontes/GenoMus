@@ -616,7 +616,7 @@ All the functions working with a prolatio perform a normalization before process
 ---------
 ## harmonyF
 
-The output of a **harmonyF** function is a sequence of floats within interval \[0, 1\). These number uses the [midipitchF conversion](#midipitchf-m), so the array `[3,7,0,10]` and `[0.03,0.07,0,0.1]` are equivanlent.   
+The output of a **harmonyF** function is a sequence of floats within interval \[0, 12\). 
 
 This array is not a pitch class set but a pitch class sequence, because in some contexts the order determines certain algorithmic operations. However, this format can also serve as a pitch class set when needed.
 
@@ -745,12 +745,12 @@ A harmony can be expressed as a dictionary containing informations to be used by
 
 A **harmonic motif** is coded into an array following this data structure:
 
-| index | feature          | data format             | description
-| ----- | ---------------- | ----------------------- | ----------- 
-| 0     | **root**  | midipitchF / frequencyF | main reference pitch (usually a chord's root)
-| 1     | **chord**        | harmonyF                | pitch class sequence with the harmony pitches (regardless of tonal center)
-| 2     | **mode**         | harmonyF                | pitch class sequence (usually, a scale) containing the chord pitches using C (pitch class 0) as root 
-| 3     | **chromaticism** | float &isinv; [0, 1]    | tolerance to chromatic notes (higher means more chromatic results)
+| index | feature          | data format          | description
+| ----- | ---------------- | -------------------- | ----------- 
+| 0     | **root**         | midipitchF           | main reference pitch (usually a chord's root)
+| 1     | **chord**        | harmonyF             | pitch class sequence with the harmony pitches (regardless of tonal center)
+| 2     | **mode**         | harmonyF             | pitch class sequence (usually, a scale) containing the chord pitches using C (pitch class 0) as root 
+| 3     | **chromaticism** | float &isinv; [0, 1] | tolerance to chromatic notes (higher means more chromatic results)
 
 **chord** and **mode** are not a pitch class sets because order matters. The position within the pitch sequences determines the priority of each pitch for low degrees of chromaticism (the first, the most important). 
 
@@ -771,8 +771,8 @@ Given this harminoc motif:
 ```
 {
     "root": 0.68124,
-    "chord": [0.11,0,0.05,0.08,0.03],
-    "modus": [0,0.03,0.01,0.05,0.08,0.06,0.11,0.10],
+    "chord": [1,0,5,8,3],
+    "modus": [0,3,1,5,8,6,11,10],
     "chromaticism": <float within interval [0, 1]>
 }
 ```
