@@ -663,11 +663,11 @@ A **prolatio** is a nested time grid used to adjust the raw values received from
 ---------
 ### quantization
 
-| quantization value | result
-| ------------------ | ------
-| 0                  | all values are quantized to the totalValue duration (all events are played simultaneously, prolatio is not taken into account)
-| (0, 1)             | gradual quantization using progressive levels of prolatio depth
-| 1                  | no quantization applied, values mapped with full rhythmic resolution (prolatio is not taken into account)
+| quantization | result
+| ------------ | ------
+| 0            | all values are quantized to the totalValue duration (all events are played simultaneously, prolatio is not taken into account)
+| (0, 1)       | gradual quantization using progressive levels of prolatio depth
+| 1            | no quantization applied, values mapped with full rhythmic resolution (prolatio is not taken into account)
 
 ---------
 ### Examples of rhythmic motives
@@ -756,9 +756,11 @@ A **harmonic motif** is coded into an array following this data structure:
 
 ### chromaticism
 
-The degree of **chromaticism** of degree is denoted with a normalized value. This is the meaning of different levels of chromatism:
+Chromaticism is applied as a kind of pitch quantization. The raw pitch values of a melodic sequence is *rounded* to a series of pitch classes. The degree of **chromaticism** is denoted with a normalized value, which determines how complex is the sequence of eligible pitch classes.
 
-| chromaticism value (c)  | result
+This is the meaning of different values for chromaticism:
+
+| chromaticism (c)        | result
 | ----------------------- | ------
 | 0 &#8804; c &#8804; 0.5 | only chord pitch classes are used, progressively incorporated as c is higher (0 &rarr; only 1 pitch class, 0.5 &rarr; all chord pitch classes)
 | 0.5 < c &#8804; 0.8     | mode pitches classes are progressively integrated (0.500001 &rarr; only 1 new pitch class added, 0.8 &rarr; complete mode is employed)
@@ -778,8 +780,8 @@ Given this harminoc motif:
 ```
 
 The algorithm follow these steps:
-1. Set the tonal center. The value `0.68124` correspond to the pitch A&#9837;, applying this [conversion](#midipitchf-m). 
-2. **chord and mode pitc classes are transposed from C to G&#9839; (or A&#9837;) as root, keeping the same order: 
+1. Set the tonal center with **root**. The value `0.68124` correspond to the pitch A&#9837;, applying this [conversion](#midipitchf-m). 
+2. **chord** and **mode** pitch classes are transposed from C to G&#9839; (or A&#9837;) as root, keeping the same order: 
 
 `[11,0,5,8,3]` &rarr; `[7,8,1,4,11]`:
 
@@ -789,7 +791,8 @@ The algorithm follow these steps:
 
 <img src="figures/mode.svg" width="348"> 
 
-
+3. Check the pitch classes of mode which are not part of chord and extract this ordered subsequence. In this case, the result is `[9,2,6]`.
+4. Calculate the ranges of values corresponding to the increasing degrees of chromaticism. In this case, these are the pitch class sequence 
 
 
 The following tables show how increasing degrees of quantization affect to this motif (enharmonic differences are not relevant): 
