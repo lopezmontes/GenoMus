@@ -120,8 +120,8 @@ To enable automatic chaining of functions, all functions inside a genotype share
 | index | variable name  | data type                      | description
 | ----- | -------------- | ------------------------------ | -----------
 | 0     | **funcType**   | string                         | Function type according to its output (see [reference](#function-types-for-genotypes)).
-| 1     | **decGenOut**  | string                         | Decoded genotype excerpt. Functional expression of the genotype branch computed until that node, including the function itself.
-| 2     | **encPhenOut** | array of floats &isinv; [0, 1] | Encoded phenotype excerpt. Transformation of the input data made with the compositional procedures of the function itself.
+| 1     | **decGen**  | string                         | Decoded genotype excerpt. Functional expression of the genotype branch computed until that node, including the function itself.
+| 2     | **encPhen** | array of floats &isinv; [0, 1] | Encoded phenotype excerpt. Transformation of the input data made with the compositional procedures of the function itself.
 | 3     | **phenLength** | integer                        | Number of phenotype events generated so far. Useful for subsequent functions to avoid overly large processes.
 | 4     | **tempo**      | float                          | Tempo of the phenotype. The float uses the [durationF](#durationf-d) format to indicate the duration of a quarter note. Default value: 0.6 (equivalent to &#9833;= 60)
 | 5     | **rhythm**     | dictionary                     | Rhythmic motif characterized with this [data structure](#rhythmic-motif).
@@ -143,12 +143,12 @@ var <iFunctionName> = function (argument1, argument2, ..., argumentN) {
         < check block > // checks that the execution of the function will produce a phenotype that satisfies the constraints of the predetermined initial conditions
     ////
     var funcType = "<functionType>"; // describes the type of the function itself
-    var encPhenOut = []; // this array will contain the produced encoded phenotype
+    var encPhen = []; // this array will contain the produced encoded phenotype
     ////
         < core block > // executes the musical transformations of the function, writing the results in the variable encPhenOut, and calculating at the end of the process the updated values of phenLength, tempo, rhythm and harmony.
     ////
-    var decGenOut = "<iFunctionName>(" + argument1[1] + "," + + argument2[1] + "," + ... argumentN[1] + ")"; // creates a string as a self-reference of the functional expression that has been evaluated.
-    return writeSubexprReturnData(funcType, decGenOut, encPhenOut, phenLength, tempo, rhythm, harmony);
+    var decGen = "<iFunctionName>(" + argument1[1] + "," + + argument2[1] + "," + ... argumentN[1] + ")"; // creates a string as a self-reference of the functional expression that has been evaluated.
+    return writeSubexprReturnData(funcType, decGen, encPhen, phenLength, tempo, rhythm, harmony);
 };
 ```
 
