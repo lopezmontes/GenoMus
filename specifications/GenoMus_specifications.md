@@ -268,8 +268,8 @@ Function types created to improve manual handling of decoded genotypes. These fu
 | **frequencyF**    | **f**        | normalized pitch from frequency in Hz
 | **articulationF** | **a**        | normalized relative articulation (1 is whole duration of the note, 2 is double duration)
 | **durationF**     | **d**        | normalized duration from time in seconds
-| **intensityF**    | **i**        | normalized intensity from standard MIDI velocity
-| **quantizedF**    | **q**        | normalized value from integer &isinv; [-36, 36]
+| **intensityF**    | **i**        | normalized intensity from standard MIDI velocity
+| **quantizedF**    | **q**        | normalized value from integer &isinv; [-36, 36]
 
 ---------
 ## Human-readable lists
@@ -283,8 +283,8 @@ These functions receive a list of human-readable leaf parameters and return a no
 | **lmidipitchF**    | **lm**       | list of normalized pitches from list of MIDI pitches
 | **lfrequencyF**    | **lf**       | list of normalized pitches from frequencies in Hz
 | **larticulationF** | **la**       | list of normalized relative articulations from list of relative articulations
-| **lintensityF**    | **li**       | list of normalized intensities from MIDI velocities
-| **lquantizedF**    | **lq**       | list of normalized values from list of integer &isinv; [-36, 36]
+| **lintensityF**    | **li**       | list of normalized intensities from MIDI velocities
+| **lquantizedF**    | **lq**       | list of normalized values from list of integer &isinv; [-36, 36]
 
 ---------
 ## Domain-specific formats
