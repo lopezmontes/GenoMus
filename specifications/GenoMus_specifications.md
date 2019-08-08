@@ -44,10 +44,10 @@
     - [talea](#talea)
     - [prolatio](#prolatio)
     - [quantization](#quantization)
-    - [Examples of rhythmic motives](#examples-of-rhythmic-motives)
+    - [Example of rhythmic motives](#example-of-rhythmic-motives)
   - [Harmonic motif](#harmonic-motif)
     - [chromaticism](#chromaticism)
-    - [Examples of harmonic motives](#examples-of-harmonic-motives)
+    - [Example of harmonic motives](#example-of-harmonic-motives)
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
   - [Conversion table for genotypes](#conversion-table-for-genotypes)
   - [Examples](#examples)
@@ -670,7 +670,7 @@ A **prolatio** is a nested time grid used to adjust the raw values received from
 | 1            | no quantization applied, values mapped with full rhythmic resolution (prolatio is not taken into account)
 
 ---------
-### Examples of rhythmic motives
+### Example of rhythmic motives
 
 The following tables show how increasing degrees of quantization affect to this motif: 
 
@@ -766,9 +766,9 @@ This is the meaning of different values for chromaticism:
 | 0.5 < *c* &#8804; 0.8     | mode pitches classes are progressively integrated (0.500001 &rarr; only 1 new pitch class added, 0.8 &rarr; complete mode is employed)
 | 0.8 < *c* &#8804; 1       | all remaining pitch classes of the chromatic scale are progressively integrated
 
-### Examples of harmonic motives
+### Example of harmonic motives
 
-Given this harminoc motif:
+Given this harmonic motif:
 
 ```
 {
