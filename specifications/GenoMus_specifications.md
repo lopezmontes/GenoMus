@@ -806,7 +806,7 @@ The following tables show how increasing degrees of quantization affect to this 
 | 0.5 &#8804; *c* < 0.6               | `[7,8,1,4,11,9]`                            | 
 | 0.6 &#8804; *c* < 0.7               | `[7,8,1,4,11,9,2]`                          | 
 | 0.7 &#8804; *c* < 0.8               | `[7,8,1,4,11,9,2,6]` (complete mode)        | <img src="figures/excerpt-chromat-0-5.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0-5.mp3?token=ABGBHAPNELFTBH5OAN33AZK5KUNCE"><img src="aux/speaker.svg" width="15"></a>
-| 0.8 &#8804; *c* &#8804; 1                 | `[0,1,2,3,4,5,6,7,8,9,10,11]` (all pitches) | <img src="figures/excerpt-chromat-1.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-1.mp3?token=ABGBHANAGTJ4VJ2UMJQ5AOS5KUND4"><img src="aux/speaker.svg" width="15"></a>
+| 0.8 &#8804; *c* &#8804; 1           | `[0,1,2,3,4,5,6,7,8,9,10,11]` (all pitches) | <img src="figures/excerpt-chromat-1.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-1.mp3?token=ABGBHANAGTJ4VJ2UMJQ5AOS5KUND4"><img src="aux/speaker.svg" width="15"></a>
 
 ---------
 # Encoding-decoding genotypes
