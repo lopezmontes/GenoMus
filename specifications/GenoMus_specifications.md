@@ -39,15 +39,15 @@
   - [rhythmF](#rhythmf)
   - [harmonyF](#harmonyf)
 - [Characterization of underlying musical patterns](#characterization-of-underlying-musical-patterns)
-  - [Rhythmic motif](#rhythmic-motif)
+  - [Rhythmic grid](#rhythmic-grid)
     - [totalValue](#totalvalue)
     - [talea](#talea)
     - [prolatio](#prolatio)
     - [quantization](#quantization)
     - [Example of rhythmic motives](#example-of-rhythmic-motives)
-  - [Harmonic motif](#harmonic-motif)
+  - [Harmonic grid](#harmonic-grid)
     - [chromaticism](#chromaticism)
-    - [Example of harmonic motives](#example-of-harmonic-motives)
+    - [Example of harmonic grids](#example-of-harmonic-grids)
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
   - [Conversion table for genotypes](#conversion-table-for-genotypes)
   - [Examples](#examples)
@@ -97,8 +97,8 @@
 - **eligible functions**: Set of functions that determine which ones can be chosen during the genotype generation process. Somehow, this set can characterize a composer or a style.
 - **genotype seed**: Number used to initialize the pseudorandom number generator before the genotype generation process starts. It allows repeatable results. Ultimately, a genotype can be identified only by this number, since it determines the entire decision tree that generates it.
 - **phenotype seed**: Number used to initialize the pseudorandom number generator before the genotype evaluation process starts, which allows producing repeatable phenotypes. When a genotype includes random processes, many different phenotypes from the same genotype can arise. In this case, each different result can be indentified with a phenotype seed. So, given specific initial conditions, a single specimen can be identified only by two integers: genotype and phenotype seeds.
-- **rhythmic motif**: Data structure that characterizes a rhythmic pattern by specifying length, talea and other features.
-- **harmonic motif**: Data structure that characterizes a harmony by specifying tonal center, pitch class set and other features.
+- **rhythmic grid**: Data structure that characterizes a rhythmic pattern by specifying length, talea and other features.
+- **harmonic grid**: Data structure that characterizes a harmony by specifying tonal center, pitch class set and other features.
 - **talea**: Array of values that represents a sequence of relative durations (updated concept taken from ancient music).
 - **prolatio**: Hierarchical time grid structure.
 - **quantization**: Adjustment of relatives durations of a talea to a prolatio.
@@ -124,8 +124,8 @@ To enable automatic chaining of functions, all functions inside a genotype share
 | 2     | **encPhen** | array of floats &isinv; [0, 1] | Encoded phenotype excerpt. Transformation of the input data made with the compositional procedures of the function itself.
 | 3     | **phenLength** | integer                        | Number of phenotype events generated so far. Useful for subsequent functions to avoid overly large processes.
 | 4     | **tempo**      | float                          | Tempo of the phenotype. The float uses the [durationF](#durationf-d) format to indicate the duration of a quarter note. Default value: 0.6 (equivalent to &#9833;= 60)
-| 5     | **rhythm**     | dictionary                     | Rhythmic motif characterized with this [data structure](#rhythmic-motif).
-| 6     | **harmony**    | dictionary                     | Harmonic motif characterized with this [data structure](#harmonic-motif).
+| 5     | **rhythm**     | dictionary                     | Rhythmic grid characterized with this [data structure](#rhythmic-grid).
+| 6     | **harmony**    | dictionary                     | Harmonic grid characterized with this [data structure](#harmonic-grid).
 
 First five elements are compulsory for every function inside a genotype. Informations about rhythm and harmony can be useful for subsequent functions, but they are optional. 
 
@@ -630,11 +630,11 @@ Numbers represent pitches with the usual pitch class notation (0 = C, 1 = C&#983
 *\[introduction\]*
 
 ---------
-## Rhythmic motif
+## Rhythmic grid
 
 A rhythmic pattern can be expressed as a dictionary containing informations to be used by other functions to map durations. These data represent a rhythmic pattern and its interrelations with a time grid and with the level of general quantization. Using this dictionary, certain functions adjust their values to get different rhythmic structures and analytical information.
 
-A **rhythmic motif** is coded into an array following this data structure:
+A **rhythmic grid** is coded into an array following this data structure:
 
 | index | feature          | data format          | description
 | ----- | ---------------- | -------------------- | ----------- 
@@ -672,7 +672,7 @@ A **prolatio** is a nested time grid used to adjust the raw values received from
 ---------
 ### Example of rhythmic motives
 
-The following tables show how increasing degrees of quantization affect to this motif: 
+The following tables show how increasing degrees of quantization of this rhythmic grid: 
 
 ```
 {
@@ -735,15 +735,14 @@ The next step is to determine quantization thresholds based on the prolatio dept
 
 It is important to note that some of the rendered values could be rests. Rest are produced when event atributes as articulation or intensity are set to 0. 
 
-The final result of a rhythmic motif is a sequence of floats. Consequently, a processed rhythmic motif can be a talea for a new 
-motif.
+The final result of a rhythmic grid is a sequence of floats. Consequently, a processed rhythmic grid can be a talea for a new grid.
 
 --------
-## Harmonic motif
+## Harmonic grid
 
 A harmony can be expressed as a dictionary containing informations to be used by other functions to map pitches. These data is a representation of a group of pitches (usually a chord) and its interrelations with a pitch class set (usually a mode) and with the level of general chromatism. Using this information, certain functions adjust their values to the grid of pitches that fits this harmony and extract analytical information.
 
-A **harmonic motif** is coded into an array following this data structure:
+A **harmonic grid** is coded into an array following this data structure:
 
 | index | feature          | data format          | description
 | ----- | ---------------- | -------------------- | ----------- 
@@ -768,7 +767,7 @@ This is the meaning of different values for chromaticism:
 
 ### Example of harmonic motives
 
-Given this harmonic motif:
+Given this harmonic grid:
 
 ```
 {
@@ -794,7 +793,7 @@ The algorithm follow these steps:
 3. Check the pitch classes of mode which are not part of chord and extract this ordered subsequence. In this case, the result is `[9,2,6]`.
 4. Calculate the ranges of values corresponding to the increasing degrees of chromaticism, and transform input data accordingly.
 
-The following tables show how increasing degrees of quantization affect to this motif (enharmonic differences are not relevant): 
+The following tables show how increasing degrees of quantization affect to this grid (enharmonic differences are not relevant): 
 
 | chromaticism (*c*) ranges of values | eligible pitch classes        | result
 | ----------------------------------- | ----------------------------- | ----
