@@ -52,11 +52,11 @@
     - [Example of harmonic grids](#example-of-harmonic-grids)
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
   - [Conversion table for genotypes](#conversion-table-for-genotypes)
-  - [Examples](#examples)
-    - [Minimal genotype](#minimal-genotype)
-    - [Minimal genotype with human-readable leaf parameters](#minimal-genotype-with-human-readable-leaf-parameters)
-    - [List encoding](#list-encoding)
 - [Encoding-decoding phenotypes](#encoding-decoding-phenotypes)
+- [Examples of specimens](#examples)
+  - [Minimal specimen](#minimal-specimen)
+  - [Minimal specimen with human-readable leaf parameters](#minimal-specimen-with-human-readable-leaf-parameters)
+  - [List encoding](#list-encoding)
 - [Genotype substructures](#genotype-substructures)
     - [Genotype scaffolding](#genotype-scaffolding)
     - [Function network](#function-network)
@@ -843,8 +843,32 @@ An encoded genotype is an unidimensional array of normalized values &isinv; [0, 
 | function name + \(                   | 1          | encoded function index | `[1, 0.61803]` &#x21C6; `"functionName("`
 
 ---------
-## Examples
-### Minimal genotype
+# Encoding-decoding phenotypes
+
+The format of an encoded phenotype is formally identical to an encoded genotype: both are a sequence of normalized floats whithin interval [0, 1]. As a consequence, encoded genotypes and phenotypes can be seen mathematically as the same type of object: n-dimensional vectors of real numbers within the interval [0, 1]. Furthermore, the evaluation of genotypes can be understood as a map that relates musical procedures to musical scores. This map is non-injective: different genotypes can generate the same phenotype, since diverse compositional processes can lead to the same result. At the same time, if the phenotype seed is changed, a genotype can generate many different phenotypes.
+
+---------
+## Encoded phenotype structure
+
+| structure      | encoding
+| -------------- | --------
+| score          | `[1, <encodedVoice1>, <encodedVoice2>, ..., <encodedVoiceN, 0]`
+| voice          | `[1, <encodedEvent1>, <encodedEvent2>, ..., <encodedEventN, 0]`
+| event          | `[<eventParameter1>, <eventParameter2>, ...<eventParameterN>]` 
+| multiparameter | `[1, <value1>, <value2>, ..., <valueN>, 0]`
+
+- All phenotypes have the same hierarchical structure: events within a voice, and voices within a score. 
+- Event data is listed as normalized values. Voices and scores are notated using numbers as flags: `1` and `0` indicate beginnings and endings of these wrappers.
+- A score can consist of several concatenated scores (especially when their number of voices is different). For this reason it is necessary to use flags to connect them.
+- The event data structure is predetermined by the [species characterization](#species-characterization).
+- All event values are normalized according to predefined [parameter maps](#parameter-mapping). 
+- If an event parameter uses more than one value, it is called *multiparameter* and will also be coded as a list with flag values. 
+
+
+
+---------
+# Examples of specimens
+## Minimal specimen
 `"s(v(e(p(0.5),p(0.5),p(0.5),p(0.5))))"`
 
 &#x21C5;
@@ -861,7 +885,7 @@ Phenotype:
 
 
 ---------
-### Minimal genotype with human-readable leaf parameters
+## Minimal specimen with human-readable leaf parameters
 `"s(v(e(n(1/16),m(69),a(0.4),i(84))))"`
 
 &#x21C5;
@@ -895,7 +919,7 @@ Phenotype:
 <img src="figures/ex2_score.svg" width="57">
 
 ---------
-### List encoding
+## Voice with lists
 `"s(v(eMotif(ln([1/2,1/4,1/2,1/4]),lm([63,67,63,58]),a(1),i(42))))"`
 
 &#x21C5;
@@ -918,32 +942,8 @@ Phenotype:
 <img src="figures/ex3_score.svg" width="140">
 
 ---------
-### Complex example
+## Complex example
 
-
-
-
----------
-# Encoding-decoding phenotypes
-
-The format of an encoded phenotype is formally identical to an encoded genotype: both are a sequence of normalized floats whithin interval [0, 1]. As a consequence, encoded genotypes and phenotypes can be seen mathematically as the same type of object: n-dimensional vectors of real numbers within the interval [0, 1]. Furthermore, the evaluation of genotypes can be understood as a map that relates musical procedures to musical scores. This map is non-injective: different genotypes can generate the same phenotype, since diverse compositional processes can lead to the same result. At the same time, if the phenotype seed is changed, a genotype can generate many different phenotypes.
-
----------
-## Encoded phenotype structure
-
-| structure      | encoding
-| -------------- | --------
-| score          | `[1, <encodedVoice1>, <encodedVoice2>, ..., <encodedVoiceN, 0]`
-| voice          | `[1, <encodedEvent1>, <encodedEvent2>, ..., <encodedEventN, 0]`
-| event          | `[<eventParameter1>, <eventParameter2>, ...<eventParameterN>]` 
-| multiparameter | `[1, <value1>, <value2>, ..., <valueN>, 0]`
-
-- All phenotypes have the same hierarchical structure: events within a voice, and voices within a score. 
-- Event data is listed as normalized values. Voices and scores are notated using numbers as flags: `1` and `0` indicate beginnings and endings of these wrappers.
-- A score can consist of several concatenated scores (especially when their number of voices is different). For this reason it is necessary to use flags to connect them.
-- The event data structure is predetermined by the [species characterization](#species-characterization).
-- All event values are normalized according to predefined [parameter maps](#parameter-mapping). 
-- If an event parameter uses more than one value, it is called *multiparameter* and will also be coded as a list with flag values. 
 
 ---------
 # Genotype operations
