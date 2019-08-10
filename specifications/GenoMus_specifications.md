@@ -793,7 +793,7 @@ The algorithm follow these steps:
 3. Check the pitch classes of mode which are not part of chord and extract this ordered subsequence. In this case, the result is `[9,2,6]`.
 4. Calculate the ranges of values corresponding to the increasing degrees of chromaticism, and transform input data accordingly.
 
-The following tables show how increasing degrees of quantization affect to this grid (enharmonic differences are not relevant): 
+The following tables show how increasing degrees of chromaticism affect to this grid, and the effect of applying it to a music excerpt (enharmonic differences are not relevant): 
 
 | chromaticism (*c*) ranges of values | eligible pitch classes        | result
 | ----------------------------------- | ----------------------------- | ----
