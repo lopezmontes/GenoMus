@@ -53,7 +53,7 @@
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
   - [Conversion table for genotypes](#conversion-table-for-genotypes)
 - [Encoding-decoding phenotypes](#encoding-decoding-phenotypes)
-- [Examples of specimens](#examples)
+- [Examples of specimens](#examples-of-specimens)
   - [Minimal specimen](#minimal-specimen)
   - [Minimal specimen with human-readable leaf parameters](#minimal-specimen-with-human-readable-leaf-parameters)
   - [List encoding](#list-encoding)
