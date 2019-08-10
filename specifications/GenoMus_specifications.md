@@ -4,15 +4,17 @@
 
 --------
 ## Table of Contents
-- [Introduction](#Introduction)
-- [GenoMus arquitecture overall view](#genomus-arquitecture-overall-view)
+- [Conceptual approach](#conceptual-approach)
+  - [Species specification](#species-specification)
 - [Definitions](#definitions)
+- [GenoMus arquitecture overall view](#genomus-arquitecture-overall-view)
 - [Anatomy of a genotype function](#anatomy-of-a-genotype-function)
   - [Function name](#function-name)
   - [Input arguments](#input-argumentss)
   - [Output data structure](#output-data-structure)
   - [Genotype function template](#genotype-function-template)
 - [Function libraries](#function-libraries)  
+  - [Function library data structure](#function-library-data-structure)
   - [Indexing a function in a GenoMus Function Library](#indexing-a-function-in-a-genomus-function-library)
   - [Encoded function index generation](#encoded-function-index-generation)
 - [Genotype function types](#genotype-function-types)
@@ -69,6 +71,17 @@
   - [Classification](#classification)
   - [Catalogue access](#catalogue-access)
 - [Max user interface](#max-user-interface)
+
+----------
+# Conceptual approach
+## Species specification
+
+The concept of species is crucial, because each species is determined by the parameter structure of a basic sonic event. The functional arquitecture depends on this specification. Specimens belonging to different species cannot be mixed without some kind of ad hoc adaptation. Consequently, an independent library must be created for each new species.
+
+The default species of GenoMus, called *piano*, uses this parameters structure for each basic event:
+
+`[<duration>, 1, <pitch1>, <pitch2>, ..., <pitchN>, 0, <articulation>, <intensity>]`
+
 ----------  
 # Definitions
 - **genotype**: Function tree representing compositional procedures.
@@ -158,15 +171,7 @@ The last line uses the auxiliary function **writeSubexprReturnData**, which stor
 # Function libraries
 A GenoMus Function Library is a JSON file that contains all available functions for genotype generation of a specific species.
 
-# Species specification
-
-The concept of species is crucial, because each species is determined by the parameter structure of a basic sonic event. The functional arquitecture depends on this specification. Specimens belonging to different species cannot be mixed without some kind of ad hoc adaptation. Consequently, an independent library must be created for each new species.
-
-The default species of GenoMus, called *piano*, uses this parameters structure for each basic event:
-
-`[<duration>, 1, <pitch1>, <pitch2>, ..., <pitchN>, 0, <articulation>, <intensity>]`
-
-# Function library data structure 
+## Function library data structure 
 
 A GenoMus Function Library contains these blocks:
 - **"metadata"**: 
@@ -942,7 +947,7 @@ The format of an encoded phenotype is formally identical to an encoded genotype:
 - A score can consist of several concatenated scores (especially when their number of voices is different). For this reason it is necessary to use flags to connect them.
 - The event data structure is predetermined by the [species specification](#species-specification).
 - All event values are normalized according to predefined [parameter maps](#parameter-mapping). 
-- If a event parameter uses more than one value, it is called *multiparameter* and will also be coded as a list with flags values. 
+- If an event parameter uses more than one value, it is called *multiparameter* and will also be coded as a list with flag values. 
 
 ---------
 # Genotype operations
