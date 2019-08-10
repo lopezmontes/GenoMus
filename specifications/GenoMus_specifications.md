@@ -999,7 +999,7 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"creationTimecode"**: creation date compressed as a unique number.
   - **"user"**: username.
   - **"species"**: name of the species (given by user).
-  - **"speciesParameters"**: event parameters structure defining the basic sonic events.
+  - **"eventParameters"**: event parameters structure defining the basic sonic events.
   - **"globalRating"**: average of aesthetic ratings obtained.
   - **"iterations"**: number of iterations of the algorithm until finding this specimen.
   - **"millisecondsElapsed"**: time elapsed until finding this specimen.
