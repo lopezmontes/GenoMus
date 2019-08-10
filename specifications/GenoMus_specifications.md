@@ -979,13 +979,13 @@ n:
 
 The concept of species is crucial, because each species is determined by the parameter structure of a basic sonic event, and the functional arquitecture depends on this characterization. Specimens belonging to different species cannot be mixed without some kind of ad hoc adaptation. Consequently, an independent library must be created for each new species.
 
-A species characterization must determine which mapping is employed for each parameter. 
+A species characterization must determine which mapping is employed for the decoding of each parameter. 
 
-The default species of GenoMus, called *piano*, uses this parameters structure for each basic event:
+The default species of GenoMus, called *piano*, uses this event parameter structure:
 
 `[<notevalueF>, 1, <midipitchF_1>, <midipitchF_2>, ..., <midipitch_N>, 0, <articulationF>, <intensityF>]`
 
-For each parameter, decoded phenotypes use the conversion rules of the invoked function types.
+For each parameter, decoded phenotypes use the [conversion rules](#parameter-mapping) of the invoked function types.
 
 ---------
 ## Constraints
