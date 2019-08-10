@@ -998,7 +998,9 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"GenoMusVersion"**: GenoMus version that generated the specimen.
   - **"creationTimecode"**: creation date compressed as a unique number.
   - **"user"**: username.
-  - **"species"**: event parameters structure defining the basic sonic events.
+  - **"species"**: 
+    - **"speciesName"
+    - **"speciesParameters": event parameters structure defining the basic sonic events.
   - **"globalRating"**: average of aesthetic ratings obtained.
   - **"iterations"**: number of iterations of the algorithm until finding this specimen.
   - **"millisecondsElapsed"**: time elapsed until finding this specimen.
