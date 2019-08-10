@@ -5,9 +5,8 @@
 --------
 ## Table of Contents
 - [GenoMus architecture overall view](#GenoMus-architecture-overall-view)
-  - [Data structure flow scheme](#data-structure-flow-scheme) 
+  - [Data structures flow scheme](#data-structures-flow-scheme) 
 - [Definitions](#definitions)
-- [GenoMus arquitecture overall view](#genomus-arquitecture-overall-view)
 - [Anatomy of a genotype function](#anatomy-of-a-genotype-function)
   - [Function name](#function-name)
   - [Input arguments](#input-argumentss)
@@ -75,7 +74,7 @@
 
 ----------
 # GenoMus architecture overall view
-## Data structure flow scheme 
+## Data structures flow scheme 
 
 ----------  
 # Definitions
