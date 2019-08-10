@@ -890,11 +890,6 @@ Visualization of this encoded genotype as a matrix of grayscale colors:
 
 ---------
 ## Minimal specimen with human-readable leaf parameters
-`"s(v(e(n(1/16),m(69),a(0.4),i(84))))"`
-
-&#x21C5;
-
-`[1, 0.618034, 1, 0.236068, 1, 0.854102, 1, 0.09017, 0.01, 0.4, 0.8, 0.2, 1, 0.708204, 0.03, 0.57, 0.8, 0.2, 1, 0.326238, 0.05, 0.248547, 0.8, 0.2, 1, 0.944272, 0.06, 0,661417, 0.8, 0.8, 0.8, 0.8]`
 
 This table shows the encoding/decoding of lexical tokens in this example:
 
@@ -914,21 +909,22 @@ This table shows the encoding/decoding of lexical tokens in this example:
 | `i(`    | `[1, 0.944272]`
 | `80`    | `[0.06, 0,629921]`
 
+#### Decoded genotype
+`"s(v(e(n(1/16),m(69),a(0.4),i(84))))"`
+
+#### Encoded genotype
+`[1, 0.618034, 1, 0.236068, 1, 0.854102, 1, 0.09017, 0.01, 0.4, 0.8, 0.2, 1, 0.708204, 0.03, 0.57, 0.8, 0.2, 1, 0.326238, 0.05, 0.248547, 0.8, 0.2, 1, 0.944272, 0.06, 0,661417, 0.8, 0.8, 0.8, 0.8]`
+
 Visualization:
 
 <img src="figures/example_2_visualization.png" width="500">
 
-Phenotype:
+#### Decoded phenotype
 
 <img src="figures/ex2_score.svg" width="57">
 
 ---------
 ## Voice with lists
-`"s(v(eMotif(ln([1/2,1/4,1/2,1/4]),lm([63,67,63,58]),a(1),i(42))))"`
-
-&#x21C5;
-
-`[1, 0.618034, 1, 0.236068, 1, 0.304952, 1, 0.652476, 0.4, 0.01, 0.7, 0.2, 0.01, 0.6, 0.2, 0.01, 0.7, 0.2, 0.01, 0.6, 0.6, 0.8, 1, 0.888544, 0.4, 0.03, 0.51, 0.2, 0.03, 0.55, 0.2, 0.03, 0.51, 0.2, 0.03, 0.46, 0.6, 0.8, 0.2, 1, 0.326238, 0.05, 0.667539, 1, 0.944272, 0.06, 0,330709, 0.8, 0.8, 0.8, 0.8]` 
 
 The lists in this genotype have encoded as follows:
 
@@ -937,12 +933,17 @@ The lists in this genotype have encoded as follows:
 | `[1/2,1/4,1/2,1/4]` | `[0.4, 0.01, 0.7, 0.2, 0.01, 0.6, 0.2, 0.01, 0.7, 0.2, 0.01, 0.6, 0.6]`
 | `[63,67,63,58]`     | `[0.4, 0.03, 0.51, 0.2, 0.03, 0.55, 0.2, 0.03, 0.51, 0.2, 0.03, 0.46, 0.6]`
 
+#### Decoded genotype
+`"s(v(eMotif(ln([1/2,1/4,1/2,1/4]),lm([63,67,63,58]),a(1),i(42))))"`
+
+#### Encoded genotype
+`[1, 0.618034, 1, 0.236068, 1, 0.304952, 1, 0.652476, 0.4, 0.01, 0.7, 0.2, 0.01, 0.6, 0.2, 0.01, 0.7, 0.2, 0.01, 0.6, 0.6, 0.8, 1, 0.888544, 0.4, 0.03, 0.51, 0.2, 0.03, 0.55, 0.2, 0.03, 0.51, 0.2, 0.03, 0.46, 0.6, 0.8, 0.2, 1, 0.326238, 0.05, 0.667539, 1, 0.944272, 0.06, 0,330709, 0.8, 0.8, 0.8, 0.8]` 
+
 Visualization:
 
 <img src="figures/example_3_visualization.png" width="500">
 
-Phenotype:
-
+#### Decoded phenotype
 <img src="figures/ex3_score.svg" width="140">
 
 ---------
@@ -956,7 +957,6 @@ Phenotype:
 
 Universal random search space. All vectors are a valid input.
 
-n: 
 ### Self-references
 ## Mutation
 
