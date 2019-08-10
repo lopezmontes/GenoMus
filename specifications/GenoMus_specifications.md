@@ -935,7 +935,7 @@ The format of an encoded phenotype is formally identical to an encoded genotype:
 | score          | `[1, <encodedVoice1>, <encodedVoice2>, ..., <encodedVoiceN, 0]`
 | voice          | `[1, <encodedEvent1>, <encodedEvent2>, ..., <encodedEventN, 0]`
 | event          | `[<eventParameter1>, <eventParameter2>, ...<eventParameterN>]` 
-| multiparameter | `[1, <p1>, <p2>, ..., <pN>, 0]`
+| multiparameter | `[1, <value1>, <value2>, ..., <valueN>, 0]`
 
 - All phenotypes have the same hierarchical structure: events within a voice, and voices within a score. 
 - Event data is listed as normalized values. Voices and scores are notated using numbers as flags: `1` and `0` indicate beginnings and endings of these wrappers.
