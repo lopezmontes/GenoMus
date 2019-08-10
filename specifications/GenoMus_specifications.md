@@ -795,7 +795,7 @@ The algorithm follow these steps:
 3. Check the pitch classes of mode which are not part of chord and extract this ordered subsequence. In this case, the result is `[9,2,6]`.
 4. Calculate the ranges of values corresponding to the increasing degrees of chromaticism, and transform input data accordingly.
 
-The following tables show how increasing degrees of chromaticism affect to this grid, and the effect of applying it to a music excerpt (enharmonic differences are not relevant): 
+The following tables show how increasing degrees of chromaticism affect to this grid, and the effect of applying it to a two-voices music excerpt (enharmonic differences are not relevant): 
 
 | chromaticism (*c*) ranges of values | eligible pitch classes        | result
 | ----------------------------------- | ----------------------------- | ----
@@ -915,15 +915,25 @@ Phenotype:
 
 
 
-
+---------
 # Encoding-decoding phenotypes
+
+## Encoded phenotype structure
+
+The format of an encoded phenotype is formally identical to an encoded genotype: both are a sequence of normalized floats whithin interval [0, 1]. As a consequence, encoded genotypes and phenotypes can be seen mathematically as the same type of object: n-dimensional vectors of real numbers within the interval [0,1]. Furthermore, the evaluation of genotypes can be understood as a map that relates musical procedures to musical scores. This map is non-injective: different genotypes can generate the same phenotype, since diverse compositional processes can lead to the same result. 
+
 
 ---------
 # Genotype operations
 ## Creation
+### Generating encoded genoypes from random values
+
+Universal random search space. All vectors are a valid input.
+
+n: 
 ### Self-references
 ## Mutation
-## 
+
 
 ---------
 # Genotype substructures
