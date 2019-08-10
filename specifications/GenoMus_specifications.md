@@ -970,6 +970,8 @@ n:
 ---------
 ## Subexpressions
 
+[golden conversion]
+
 ---------
  
 # Initial conditions for generation of genotypes
@@ -981,8 +983,11 @@ A species characterization must determine which mapping is employed for each par
 
 The default species of GenoMus, called *piano*, uses this parameters structure for each basic event:
 
-`[<notevalueF>, 1, <midipitchF_1>, <midipitchF_2>, ..., <midipitch_N>, 0, <articulation>, <intensity>]`
+`[<notevalueF>, 1, <midipitchF_1>, <midipitchF_2>, ..., <midipitch_N>, 0, <articulationF>, <intensityF>]`
 
+For each parameter, decoded phenotypes use the conversion rules of the invoked function types.
+
+---------
 ## Constraints
 ## Eligible functions
 ## Mandatory functions
