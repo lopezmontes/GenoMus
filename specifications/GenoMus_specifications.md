@@ -923,7 +923,7 @@ The format of an encoded phenotype is formally identical to an encoded genotype:
 ---------
 ## Encoded phenotype structure
 
-All phenotypes have the same hierarchical structure: events inside a voice, and voices inside a score. Each level  
+All phenotypes have the same hierarchical structure: events within a voice, and voices within a score. Event data is listed as normalized values. Voices and scores are notated using numbers as flags: `1` and `0` indicate beginnings and endings of these wrappers.  
 
 | structure | encoding
 | --------- | --------
