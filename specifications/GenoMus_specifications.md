@@ -918,7 +918,7 @@ Phenotype:
 ---------
 # Encoding-decoding phenotypes
 
-The format of an encoded phenotype is formally identical to an encoded genotype: both are a sequence of normalized floats whithin interval [0, 1]. As a consequence, encoded genotypes and phenotypes can be seen mathematically as the same type of object: n-dimensional vectors of real numbers within the interval [0,1]. Furthermore, the evaluation of genotypes can be understood as a map that relates musical procedures to musical scores. This map is non-injective: different genotypes can generate the same phenotype, since diverse compositional processes can lead to the same result. 
+The format of an encoded phenotype is formally identical to an encoded genotype: both are a sequence of normalized floats whithin interval [0, 1]. As a consequence, encoded genotypes and phenotypes can be seen mathematically as the same type of object: n-dimensional vectors of real numbers within the interval [0, 1]. Furthermore, the evaluation of genotypes can be understood as a map that relates musical procedures to musical scores. This map is non-injective: different genotypes can generate the same phenotype, since diverse compositional processes can lead to the same result. At the same time, if the phenotype seed is changed, a genotype can generate many different phenotypes.
 
 ---------
 ## Encoded phenotype structure
