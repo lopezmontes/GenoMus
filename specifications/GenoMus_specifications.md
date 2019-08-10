@@ -164,7 +164,7 @@ The concept of species is crucial, because each species is determined by the par
 
 The default species of GenoMus, called *piano*, uses this parameters structure for each basic event:
 
-`[<duration>, <numberOfPitches>, <pitch1>, <pitch2>, ..., <pitchN>, <articulation>, <intensity>]`
+`[<duration>, 1, <pitch1>, <pitch2>, ..., <pitchN>, 0, <articulation>, <intensity>]`
 
 # Function library data structure 
 
@@ -930,16 +930,19 @@ The format of an encoded phenotype is formally identical to an encoded genotype:
 ---------
 ## Encoded phenotype structure
 
-| structure | encoding
-| --------- | --------
-| event     | `[<eventParameter1>, <eventParameter2>, ...<eventParameterN>]` 
-| voice     | `[1, <encodedEvent1>, <encodedEvent2>, ..., <encodedEventN, 0]`
-| score     | `[1, <encodedVoice1>, <encodedVoice2>, ..., <encodedVoiceN, 0]`
+| structure      | encoding
+| -------------- | --------
+| score          | `[1, <encodedVoice1>, <encodedVoice2>, ..., <encodedVoiceN, 0]`
+| voice          | `[1, <encodedEvent1>, <encodedEvent2>, ..., <encodedEventN, 0]`
+| event          | `[<eventParameter1>, <eventParameter2>, ...<eventParameterN>]` 
+| multiparameter | `[1, <p1>, <p2>, ..., <pN>, 0]`
 
 - All phenotypes have the same hierarchical structure: events within a voice, and voices within a score. 
 - Event data is listed as normalized values. Voices and scores are notated using numbers as flags: `1` and `0` indicate beginnings and endings of these wrappers.
 - A score can consist of several concatenated scores (especially when their number of voices is different). For this reason it is necessary to use flags to connect them.
+- The event data structure is predetermined by the [species specification](#species-specification).
 - All event values are normalized according to predefined [parameter maps](#parameters-mapping). 
+- If a event parameter uses more than one value, it is called *multiparameter* and will also be coded as a list with flags values. 
 
 ---------
 # Genotype operations
