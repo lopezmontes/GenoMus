@@ -977,7 +977,7 @@ n:
 # Initial conditions for generation of genotypes
 ## Species characterization
 
-The concept of species is crucial, because each species is determined by the parameter structure of a basic sonic event. The functional arquitecture depends on this characterization. Specimens belonging to different species cannot be mixed without some kind of ad hoc adaptation. Consequently, an independent library must be created for each new species.
+The concept of species is crucial, because each species is determined by the parameter structure of a basic sonic event, and the functional arquitecture depends on this characterization. Specimens belonging to different species cannot be mixed without some kind of ad hoc adaptation. Consequently, an independent library must be created for each new species.
 
 A species characterization must determine which mapping is employed for each parameter. 
 
