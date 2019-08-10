@@ -322,7 +322,7 @@ User functions use uppercase letters to be easily found during manual editing pr
 - **uFLATTEN** (*expr*) - render part of a genotype into a simple declarative score/voice/event (phenotype)
 
 ---------
-# Parameters mapping
+# Parameter mapping
 A GenoMus function tree expects generic parameters (floats &isinv; [0, 1]) as leaves, regardless arguments' domain. When computing a phenotype, these numbers must be mapped to correct ranges and scales to represent duration, pitch, etc.
 
 Human-readable function types use specific user-friendly formats for each argument. These non generic parameters are first mapped to a normalized interval [0, 1] to be later evaluated and encoded as stardard normalized paramenters.
@@ -331,7 +331,7 @@ In general, these maps are not linear (straight line maps). For each type of par
 
 Since each species could require new domain-specific parameters, for each new parameter a mapping similar to those presented below must be defined.
 
-Parameters mapping is used in several contexts:
+Parameter mapping is used in several contexts:
 - **To display decoded genotypes** in a more human-readable way, converting normalized values to domain-specific ranges when possible.
 - **To encode genotypes**, converting arguments entered manually using user-friendly function types to normalized values.
 - **To render phenotypes** (scores or soundfiles), converting normalized values to domain-specific ranges.
