@@ -156,10 +156,17 @@ The last line uses the auxiliary function **writeSubexprReturnData**, which stor
 
 ---------
 # Function libraries
-A GenoMus Function Library is a JSON file that contains all available functions for genotype generation of a specific species. The concept of species is crucial, because each species is determined by the parameter structure of a basic sonic event. The functional arquitecture depends on this specification. Specimens belonging to different species cannot be mixed without some kind of ad hoc adaptation. Consequently, an independent library must be created for each new species. The default species of GenoMus, called *piano*, uses this parameters structure for each basic event:
+A GenoMus Function Library is a JSON file that contains all available functions for genotype generation of a specific species.
 
-[*\<duration\>*, *\<pitch\>*, *\<articulation\>*, *\<intensity\>*]
- 
+# Species specification
+
+The concept of species is crucial, because each species is determined by the parameter structure of a basic sonic event. The functional arquitecture depends on this specification. Specimens belonging to different species cannot be mixed without some kind of ad hoc adaptation. Consequently, an independent library must be created for each new species.
+
+The default species of GenoMus, called *piano*, uses this parameters structure for each basic event:
+
+`[<duration>, <numberOfPitches>, <pitch1>, <pitch2>, ..., <pitchN>, <articulation>, <intensity>]`
+
+# Function library data structure 
 
 A GenoMus Function Library contains these blocks:
 - **"metadata"**: 
@@ -923,15 +930,16 @@ The format of an encoded phenotype is formally identical to an encoded genotype:
 ---------
 ## Encoded phenotype structure
 
+| structure | encoding
+| --------- | --------
+| event     | `[<eventParameter1>, <eventParameter2>, ...<eventParameterN>]` 
+| voice     | `[1, <encodedEvent1>, <encodedEvent2>, ..., <encodedEventN, 0]`
+| score     | `[1, <encodedVoice1>, <encodedVoice2>, ..., <encodedVoiceN, 0]`
+
 - All phenotypes have the same hierarchical structure: events within a voice, and voices within a score. 
 - Event data is listed as normalized values. Voices and scores are notated using numbers as flags: `1` and `0` indicate beginnings and endings of these wrappers.
 - A score can consist of several concatenated scores (especially when their number of voices is different). For this reason it is necessary to use flags to connect them.
-
-| structure | encoding
-| --------- | --------
-| event     | `[<duration>, <numberOfPitches>, <pitch1>, <pitch2>, ..., <pitchN>, <articulation>, <intensity>]` 
-| voice     | `[1, <encodedEvent1>, <encodedEvent2>, ..., <encodedEventN, 0]`
-| score     | `[1, <encodedVoice1>, <encodedVoice2>, ..., <encodedVoiceN, 0]`
+- All event values are normalized according to predefined [parameter maps](#parameters-mapping). 
 
 ---------
 # Genotype operations
