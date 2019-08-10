@@ -923,6 +923,13 @@ The format of an encoded phenotype is formally identical to an encoded genotype:
 ---------
 ## Encoded phenotype structure
 
+All phenotypes have the same hierarchical structure: events inside a voice, and voices inside a score. 
+
+| structure | encoding
+| --------- | --------
+| score     | `[0, <encodedVoice1>, <encodedVoice2>, ..., <encodedVoiceN, 0>]`
+| voice     | `[0, <encodedEvent1>, <encodedEvent2>, ..., <encodedEventN, 0>]`
+| event     | `[<duration>, <numberOfPitches>, <pitch1>, <pitch2>, ..., <pitchN>, <articulation>, <intensity>]` 
 
 ---------
 # Genotype operations
