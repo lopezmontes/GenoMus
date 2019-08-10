@@ -627,7 +627,9 @@ Numbers represent pitches with the usual pitch class notation (0 = C, 1 = C&#983
 ---------
 # Characterization of underlying musical patterns
 
-During the evaluation of a genotype function tree, functions complement output data with auxiliary information concerning underlying musical patterns regarding to rhythm and harmony. 
+During the evaluation of a genotype function tree, functions complement output data with auxiliary information concerning underlying musical patterns regarding to rhythm and harmony. These data are useful for the analysis and automatic characterization of genotypes, and for certain functions that use this data directly for the evaluation of phenotypes.
+
+Other characteristics beyond rhythm and harmony can be added according to the needs and the event format of each species.
 
 ---------
 ## Rhythmic grid
