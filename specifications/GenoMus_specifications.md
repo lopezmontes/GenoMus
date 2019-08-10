@@ -4,8 +4,8 @@
 
 --------
 ## Table of Contents
-- [Conceptual approach](#conceptual-approach)
-  - [Species specification](#species-specification)
+- [GenoMus architecture overall view](#GenoMus-architecture-overall-view)
+  - [Data structure flow scheme](#data-structure-flow-scheme) 
 - [Definitions](#definitions)
 - [GenoMus arquitecture overall view](#genomus-arquitecture-overall-view)
 - [Anatomy of a genotype function](#anatomy-of-a-genotype-function)
@@ -63,6 +63,7 @@
     - [Leaves vector](#leaves-vector)
     - [Subexpressions](#subexpressions)
 - [Initial conditions for generation of genotypes](#initial-conditions-for-generation-of-genotypes)
+  - [Species specification](#species-specification)
   - [Vector of desired musical characteristics](#vector-of-desired-musical-characteristics)
     - [Weighted measurement of Euclidean distance](#weighted-measurement-of-euclidean-distance)
 - [Specimen data structure](#specimen-data-structure)
@@ -73,7 +74,7 @@
 - [Max user interface](#max-user-interface)
 
 ----------
-# Conceptual approach
+# GenoMus architecture overall view
 ## Species specification
 
 The concept of species is crucial, because each species is determined by the parameter structure of a basic sonic event. The functional arquitecture depends on this specification. Specimens belonging to different species cannot be mixed without some kind of ad hoc adaptation. Consequently, an independent library must be created for each new species.
@@ -81,6 +82,8 @@ The concept of species is crucial, because each species is determined by the par
 The default species of GenoMus, called *piano*, uses this parameters structure for each basic event:
 
 `[<duration>, 1, <pitch1>, <pitch2>, ..., <pitchN>, 0, <articulation>, <intensity>]`
+
+## Data structure flow scheme 
 
 ----------  
 # Definitions
