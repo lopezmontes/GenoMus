@@ -872,7 +872,7 @@ A decoded phenotype is any translation of an encoded phenotype readable for othe
 # Examples of specimens
 ## Minimal specimen
 #### Encoded genotype
-`[1,0.618034,1,0.236068,1,0.854102,1,0.472136,0,0.5,0.8,0.2,1,0.472136,0,0.5,0.8, 0.2, 1, 0.472136, 0, 0.5, 0.8, 0.2, 1, 0.472136, 0, 0.5, 0.8, 0.8, 0.8, 0.8]`
+`[1,0.618034,1,0.236068,1,0.854102,1,0.472136,0,0.5,0.8,0.2,1,0.472136,0,0.5,0.8,0.2,1,0.472136,0,0.5,0.8,0.2,1,0.472136,0,0.5,0.8,0.8,0.8 0.8]`
 
 Visualization of this encoded genotype as a matrix of grayscale colors:
 
