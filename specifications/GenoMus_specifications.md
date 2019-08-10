@@ -75,14 +75,6 @@
 
 ----------
 # GenoMus architecture overall view
-## Species specification
-
-The concept of species is crucial, because each species is determined by the parameter structure of a basic sonic event. The functional arquitecture depends on this specification. Specimens belonging to different species cannot be mixed without some kind of ad hoc adaptation. Consequently, an independent library must be created for each new species.
-
-The default species of GenoMus, called *piano*, uses this parameters structure for each basic event:
-
-`[<duration>, 1, <pitch1>, <pitch2>, ..., <pitchN>, 0, <articulation>, <intensity>]`
-
 ## Data structure flow scheme 
 
 ----------  
@@ -982,6 +974,14 @@ n:
 ---------
  
 # Initial conditions for generation of genotypes
+## Species specification
+
+The concept of species is crucial, because each species is determined by the parameter structure of a basic sonic event. The functional arquitecture depends on this specification. Specimens belonging to different species cannot be mixed without some kind of ad hoc adaptation. Consequently, an independent library must be created for each new species.
+
+The default species of GenoMus, called *piano*, uses this parameters structure for each basic event:
+
+`[<duration>, 1, <pitch1>, <pitch2>, ..., <pitchN>, 0, <articulation>, <intensity>]`
+
 ## Constraints
 ## Eligible functions
 ## Mandatory functions
