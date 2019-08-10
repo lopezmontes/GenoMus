@@ -62,7 +62,7 @@
     - [Leaves vector](#leaves-vector)
     - [Subexpressions](#subexpressions)
 - [Initial conditions for generation of genotypes](#initial-conditions-for-generation-of-genotypes)
-  - [Species specification](#species-specification)
+  - [Species characterization](#species-characterization)
   - [Vector of desired musical characteristics](#vector-of-desired-musical-characteristics)
     - [Weighted measurement of Euclidean distance](#weighted-measurement-of-euclidean-distance)
 - [Specimen data structure](#specimen-data-structure)
@@ -939,7 +939,7 @@ The format of an encoded phenotype is formally identical to an encoded genotype:
 - All phenotypes have the same hierarchical structure: events within a voice, and voices within a score. 
 - Event data is listed as normalized values. Voices and scores are notated using numbers as flags: `1` and `0` indicate beginnings and endings of these wrappers.
 - A score can consist of several concatenated scores (especially when their number of voices is different). For this reason it is necessary to use flags to connect them.
-- The event data structure is predetermined by the [species specification](#species-specification).
+- The event data structure is predetermined by the [species characterization](#species-characterization).
 - All event values are normalized according to predefined [parameter maps](#parameter-mapping). 
 - If an event parameter uses more than one value, it is called *multiparameter* and will also be coded as a list with flag values. 
 
@@ -973,13 +973,15 @@ n:
 ---------
  
 # Initial conditions for generation of genotypes
-## Species specification
+## Species characterization
 
-The concept of species is crucial, because each species is determined by the parameter structure of a basic sonic event. The functional arquitecture depends on this specification. Specimens belonging to different species cannot be mixed without some kind of ad hoc adaptation. Consequently, an independent library must be created for each new species.
+The concept of species is crucial, because each species is determined by the parameter structure of a basic sonic event. The functional arquitecture depends on this characterization. Specimens belonging to different species cannot be mixed without some kind of ad hoc adaptation. Consequently, an independent library must be created for each new species.
+
+A species characterization must determine which mapping is employed for each parameter. 
 
 The default species of GenoMus, called *piano*, uses this parameters structure for each basic event:
 
-`[<duration>, 1, <pitch1>, <pitch2>, ..., <pitchN>, 0, <articulation>, <intensity>]`
+`[<notevalueF>, 1, <midipitchF_1>, <midipitchF_2>, ..., <midipitch_N>, 0, <articulation>, <intensity>]`
 
 ## Constraints
 ## Eligible functions
