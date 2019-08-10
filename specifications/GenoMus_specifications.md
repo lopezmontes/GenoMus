@@ -941,7 +941,7 @@ The format of an encoded phenotype is formally identical to an encoded genotype:
 - Event data is listed as normalized values. Voices and scores are notated using numbers as flags: `1` and `0` indicate beginnings and endings of these wrappers.
 - A score can consist of several concatenated scores (especially when their number of voices is different). For this reason it is necessary to use flags to connect them.
 - The event data structure is predetermined by the [species specification](#species-specification).
-- All event values are normalized according to predefined [parameter maps](#parameters-mapping). 
+- All event values are normalized according to predefined [parameter maps](#parameter-mapping). 
 - If a event parameter uses more than one value, it is called *multiparameter* and will also be coded as a list with flags values. 
 
 ---------
