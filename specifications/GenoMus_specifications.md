@@ -4,8 +4,9 @@
 
 --------
 ## Table of Contents
-- [GenoMus architecture overall view](#GenoMus-architecture-overall-view)
-  - [Data structures flow scheme](#data-structures-flow-scheme) 
+- [GenoMus overview](#GenoMus-overview)
+  - [Conceptual approach](#conceptual-approach)
+  - [Flowchart](#flowchart) 
 - [Definitions](#definitions)
 - [Anatomy of a genotype function](#anatomy-of-a-genotype-function)
   - [Function name](#function-name)
@@ -73,8 +74,9 @@
 - [Max user interface](#max-user-interface)
 
 ----------
-# GenoMus architecture overall view
-## Data structures flow scheme 
+# GenoMus overview
+## Conceptual approach
+## Flowchart 
 
 ----------  
 # Definitions
