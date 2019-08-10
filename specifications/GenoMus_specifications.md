@@ -56,7 +56,7 @@
 - [Examples of specimens](#examples-of-specimens)
   - [Minimal specimen](#minimal-specimen)
   - [Minimal specimen with human-readable leaf parameters](#minimal-specimen-with-human-readable-leaf-parameters)
-  - [List encoding](#list-encoding)
+  - [Voice with lists](#voice-with-lists)
 - [Genotype substructures](#genotype-substructures)
     - [Genotype scaffolding](#genotype-scaffolding)
     - [Function network](#function-network)
@@ -869,20 +869,19 @@ The format of an encoded phenotype is formally identical to an encoded genotype:
 ---------
 # Examples of specimens
 ## Minimal specimen
-`"s(v(e(p(0.5),p(0.5),p(0.5),p(0.5))))"`
-
-&#x21C5;
-
+#### Encoded genotype
 `[1, 0.618034, 1, 0.236068, 1, 0.854102, 1, 0.472136, 0, 0.5, 0.8, 0.2, 1, 0.472136, 0, 0.5, 0.8, 0.2, 1, 0.472136, 0, 0.5, 0.8, 0.2, 1, 0.472136, 0, 0.5, 0.8, 0.8, 0.8, 0.8]`
 
 Visualization of this encoded genotype as a matrix of grayscale colors:
 
 <img src="figures/example_1_visualization.png" width="500">
 
-Phenotype:
+#### Decoded genotype
+`"s(v(e(p(0.5),p(0.5),p(0.5),p(0.5))))"`
+
+#### Decoded phenotype
 
 <img src="figures/ex1_score.svg" width="57">
-
 
 ---------
 ## Minimal specimen with human-readable leaf parameters
