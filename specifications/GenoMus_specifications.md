@@ -514,23 +514,18 @@ This format is useful for different contexts where integer numbers are needed, b
 
 This conversion is specifically used to assign numeric identifiers to indexed elements such as functions or genotype subexpressions.
 
-
-
-Conversion formulae: normalized parameter _**p**_ to quantized steps _**q**_ ([graph](https://www.desmos.com/calculator/3vy4gwjxcu)):
-
----------
-### **quantizedF** (q)
-
-This format is useful for different contexts where integer numbers can be much more readable, but only small positive and negative quantities are needed. A possible application may be, for instance, to write a sequence of melodic intervals using a diatonic scale as the step basis. 
-
 This map take advantage of the golden angle properties using this formula to map positive and negative integers within the interval [0, 1]:
 
+Conversion formulae: normalized parameter _**p**_ to quantized steps _**q**_ ([graph](https://www.desmos.com/calculator/3vy4gwjxcu)):
 
 This graph shows the distribution of the first 100 encoded function indexes:
 
 <img src="formulae/encoded_function_index_graph.png" width="750">
 
+---------
+### **quantizedF** (q)
 
+This format is useful for different contexts where integer numbers can be much more readable, but only small positive and negative quantities are needed. A possible application may be, for instance, to write a sequence of melodic intervals using a diatonic scale as the step basis. 
 
 Conversion formulae: normalized parameter _**p**_ to quantized steps _**q**_ ([graph](https://www.desmos.com/calculator/3vy4gwjxcu)):
 
