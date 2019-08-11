@@ -37,6 +37,7 @@
   - [Intensity](#intensity)
     - [intensityF (i)](#intensityf-i)
   - [Quantized steps](#quantized-steps)
+    - [goldenintegerF (z)](#goldenintegerf-z)
     - [quantizedF (q)](#quantizedf-q)   
   - [rhythmF](#rhythmf)
   - [harmonyF](#harmonyf)
@@ -248,7 +249,7 @@ Genotype functions are classified by their output data.
 
 ---------
 ## Used function type identifiers
-~~**a** **b** **c** **d** **e** **f** **g** **h** **i**~~ j k ~~**l** **m** **n** **o** **p**~~ q ~~**r** **s** **t** **u** **v** **w** **x**~~ y z
+~~**a** **b** **c** **d** **e** **f** **g** **h** **i**~~ j k ~~**l** **m** **n** **o** **p**~~ q ~~**r** **s** **t** **u** **v** **w** **x**~~ y ~~**z**~~
 
 ---------
 ## Main structures
@@ -502,9 +503,11 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 
 ---------
 ## Quantized steps
+### **goldenintegerF** (z)
+
 ### **quantizedF** (q)
 
-This manual format is useful for different contexts where integer numbers can be much more readable. A possible application may be, for instance, to write a sequence of melodic intervals using a diatonic scale as the step basis.  
+This manual format is useful for different contexts where integer numbers can be much more readable, but only small positive and negative quantities are needed. A possible application may be, for instance, to write a sequence of melodic intervals using a diatonic scale as the step basis.  
 Conversion formulae: normalized parameter _**p**_ to quantized steps _**q**_ ([graph](https://www.desmos.com/calculator/3vy4gwjxcu)):
 
 <img src="formulae/norm2quantized.svg" width="440">
@@ -855,14 +858,14 @@ The format of an encoded phenotype is formally identical to an encoded genotype:
 | score          | `[1, <encodedVoice1>, <encodedVoice2>, ..., <encodedVoiceN, 0]`
 | voice          | `[1, <encodedEvent1>, <encodedEvent2>, ..., <encodedEventN, 0]`
 | event          | `[<eventParameter1>, <eventParameter2>, ...<eventParameterN>]` 
-| multiparameter | `[1, <value1>, <value2>, ..., <valueN>, 0]`
+| multiparameter | `[<totalValues>, <value1>, <value2>, ..., <valueN>]`
 
 - All phenotypes have the same hierarchical structure: events within a voice, and voices within a score. 
 - Event data is listed as normalized values. Voices and scores are notated using numbers as flags: `1` and `0` indicate beginnings and endings of these wrappers.
 - A score can consist of several concatenated scores (especially when their number of voices is different). For this reason it is necessary to use flags to connect them.
 - The event data structure is predetermined by the [species characterization](#species-characterization).
 - All event values are normalized according to predefined [parameter maps](#parameter-mapping). 
-- If an event parameter uses more than one value, it is called *multiparameter* and will also be coded as a list with flag values. 
+- If an event parameter uses more than one value, it is called *multiparameter*. The first value indicates the number of values needed (normalized as a *golden natural number*, followed by the values. 
 
 ## Decoded phenotype
 
