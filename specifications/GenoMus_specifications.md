@@ -514,9 +514,16 @@ This format is useful for different contexts where integer numbers are needed, b
 
 This conversion is specifically used to assign numeric identifiers to indexed elements such as functions or genotype subexpressions.
 
-This map take advantage of the golden angle properties using this formula to map positive and negative integers within the interval [0, 1]:
+This map take advantage of the golden angle properties using this formula to map integers _**z**_ &#8712; [0, 514263] to normalized parameter _**p**_ &#8712; [0, 1]:
 
 <img src="formulae/goldenint2norm.svg" width="160">
+
+where *&#981;* is the golden ratio (&#8776; 1.618034):
+
+<img src="formulae/golden_ratio.svg" width="160">
+
+Normalized values are rounded to have only six digits after the decimal point. Using this truncated format there are 514263 different values available until a recurrence occurs.
+
 
 This graph shows the distribution of the first 100 encoded function indexes:
 

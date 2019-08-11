@@ -33,3 +33,6 @@ p\equiv\big(z\cdot\phi\big)\mod 1
 
 encodedFunctionIndexGenerator
 f_{e}\equiv\big(f_{d}\cdot\phi\big)\mod 1 
+
+golden ratio
+\phi=\frac{1+\sqrt{5}}{2}
