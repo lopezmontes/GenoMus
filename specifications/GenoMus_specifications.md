@@ -520,7 +520,7 @@ This map take advantage of the golden angle properties using this formula to map
 
 where *&#981;* is the golden ratio (&#8776; 1.618034):
 
-<img src="formulae/golden_ratio.svg" width="160">
+<img src="formulae/golden_ratio.svg" width="80">
 
 Normalized values are rounded to have only six digits after the decimal point. Using this truncated format there are 514263 different values available until a recurrence occurs.
 
