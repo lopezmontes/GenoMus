@@ -24,6 +24,7 @@
   - [Human-readable lists](#human-readable-lists) 
   - [Domain-specific formats](#domain-specific-formats)
   - [Identity functions](#identity-functions)
+    - [Table of identity functions](#Table-of-identity-functions)
   - [Manual manipulation of genotypes](#manual-manipulation-of-genotypes)
 - [Parameter mapping](#parameter-mapping)
   - [Duration](#duration)
@@ -320,7 +321,9 @@ An identity function simply pass its arguments without any musical transformatio
 
 For the sake of simplicity, identity functions are named using only their corresponding function type identifiers. They serve primarily as wrappers and testing functions.
 
-### Table and examples of identity functions
+### Table of identity functions
+
+Both function indexes, ordinal and encoded function index (smaller) are shown.
 
 | function name | function type       | functionIndex | example decoded genotype &rarr; encoded phenotype
 | ------------- | ------------------- | ------------- | -------------------------------------------------
