@@ -321,21 +321,30 @@ For the sake of simplicity, identity functions are named using only their corres
 
 ### Table and examples of identity functions
 
-| function name | function type      | example decoded genotype &rarr; encoded phenotype
-| ------------- | ------------------ | -------
-| `p`           | **paramF**         | `"p(.5)"` &rarr; `[0.5]` 
-| `e`           | **eventF**         | `"e(p(.5),p(.4),p(0),p(.8))"` &rarr; `[0.5,0.618034,0.4,0,0.8]` 
-| `v`           | **voiceF**         | `"v(e(p(.5),p(.4),p(0),p(.8)))"` &rarr; `[0,0.5,0.618034,0.4,0,0.8,1]` 
-| `s`           | **scoreF**         | `"s(v(e(p(.5),p(.4),p(0),p(.8))))"` &rarr; `[0,0,0.5,0.618034,0.4,0,0.8,1,1]` 
-| `l`           | **listF**          | `"l([0,.3,1,.8])"` &rarr; `[0,0.3,1,0.8]`
-| `n`           | **notevalueF**     | `"n(1/8)"` &rarr; `[0.5]`
-| `d`           | **durationF**      | `"d(1)"` &rarr; `[0.6]`
-| `m`           | **midipitchF**     | `"m(60)"` &rarr; `[0.48]`
-| `f`           | **frequencyF**     | `"f(440)"` &rarr; `[0.385129]`
-| `a`           | **articulationF**  | `"a(.5)"` &rarr; `[0.51729]`
-| `i`           | **intensityF**     | `"i(127)"` &rarr; `[1]`
-| `z`           | **goldenintegerF** | `"z(1)"` &rarr; `[0.618034]`
-| `q`           | **quantizedF**     | `"q(-2)"` &rarr; `[0.4]`
+| function name | function type       | functionIndex | example decoded genotype &rarr; encoded phenotype
+| ------------- | ------------------- | ------------- | -------------------------------------------------
+| `p`           | **paramF**          | 1 (0.618034)  | `"p(.5)"` &rarr; `[0.5]` 
+| `e`           | **eventF**          |               | `"e(p(.5),p(.4),p(0),p(.8))"` &rarr; `[0.5,0.618034,0.4,0,0.8]` 
+| `v`           | **voiceF**          |               | `"v(e(p(.5),p(.4),p(0),p(.8)))"` &rarr; `[0,0.5,0.618034,0.4,0,0.8,1]` 
+| `s`           | **scoreF**          |               | `"s(v(e(p(.5),p(.4),p(0),p(.8))))"` &rarr; `[0,0,0.5,0.618034,0.4,0,0.8,1,1]` 
+| `l`           | **listF**           |               | `"l([0,.3,1,.8])"` &rarr; `[0,0.3,1,0.8]`
+| `n`           | **notevalueF**      |               | `"n(1/8)"` &rarr; `[0.5]`
+| `d`           | **durationF**       |               | `"d(1)"` &rarr; `[0.6]`
+| `m`           | **midipitchF**      |               | `"m(60)"` &rarr; `[0.48]`
+| `f`           | **frequencyF**      |               | `"f(440)"` &rarr; `[0.385129]`
+| `a`           | **articulationF**   |               | `"a(.5)"` &rarr; `[0.51729]`
+| `i`           | **intensityF**      |               | `"i(127)"` &rarr; `[1]`
+| `z`           | **goldenintegerF**  |               | `"z(1)"` &rarr; `[0.618034]`
+| `q`           | **quantizedF**      |               | `"q(-2)"` &rarr; `[0.4]`
+| `ln`          | **lnotevalueF**     |               | `"ln([])"` &rarr; `[]`
+| `ld`          | **ldurationF**      |               | `"ln([])"` &rarr; `[]`
+| `lm`          | **lmidipitchF**     |               | `"ln([])"` &rarr; `[]`
+| `lf`          | **lfrequencyF**     |               | `"ln([])"` &rarr; `[]`
+| `la`          | **larticulationF**  |               | `"ln([])"` &rarr; `[]`
+| `li`          | **lintensityF**     |               | `"ln([])"` &rarr; `[]`
+| `lz`          | **lgoldenintegerF** |               | `"ln([])"` &rarr; `[]`
+| `lq`          | **lquantizedF**     |               | `"ln([])"` &rarr; `[]`
+
 
 ---------
 ## Manual manipulation of genotypes
