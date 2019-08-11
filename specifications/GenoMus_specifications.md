@@ -982,6 +982,10 @@ Visualization of this encoded genotype as a matrix of grayscale colors:
 #### Encoded phenotype
 `[1, 1, 0.5, 1, 0.5, 0, 0.5, 0.5, 0, 0]`
 
+Visualization
+
+<img src="figures/minimal_phenotype.png" width="156">
+
 #### Decoded phenotype
 
 <img src="figures/ex1_score.svg" width="57">
