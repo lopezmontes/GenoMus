@@ -221,15 +221,14 @@ Index numbers must correspond to only one function. To maintain the consistency 
 
 ---------
 ## Encoded function index generation
+
 Encoded function indexes are generated using a golden angle iteration mapped on the [0, 1] interval using this formula:
 
 <img src="formulae/encoded_function_index.svg" width="180">
 
-where *&#981;* is the golden ratio, _**f<sub>e</sub>**_ is the index to identify the function in encoded genotypes and _**f<sub>d</sub>**_ is the correspondent decoded index, which is asigned incrementally in the catalogue. Encoded index numbers are rounded to have only six digits after the decimal point. Using this truncated format there are 514263 different indexes available until a recurrence occurs.
+where *&#981;* is the golden ratio (&#8776; 1.618034), _**f<sub>e</sub>**_ is the index to identify the function in encoded genotypes and _**f<sub>d</sub>**_ is the correspondent decoded index, which is asigned incrementally in the catalogue. Encoded index numbers are rounded to have only six digits after the decimal point. Using this truncated format there are 514263 different indexes available until a recurrence occurs.
 
-This graph shows the distribution of the first 100 encoded function indexes:
-
-<img src="formulae/encoded_function_index_graph.png" width="750">
+This map is used as the quantized function type **goldenintegerF** too [(more info)](#goldenintegerf-z).
 
 From the *functionIndex* dictionary, an inverse dictionary is automatically created by rearranging the functions according to their ascending encoded index, following this format:
 
@@ -242,6 +241,8 @@ From the *functionIndex* dictionary, an inverse dictionary is automatically crea
 ```
 
 This works as a useful lookup table for some automatic and manual processes.
+
+
 
 ---------
 # Genotype function types
@@ -278,7 +279,7 @@ Function types created to improve manual handling of decoded genotypes. These fu
 | **articulationF**  | **a**        | normalized relative articulation (1 is whole duration of the note, 2 is double duration)
 | **durationF**      | **d**        | normalized duration from time in seconds
 | **intensityF**     | **i**        | normalized intensity from standard MIDI velocity
-| **goldenintegerF** | **z**        | normalized value from integer &isinv; [-500000, 500000]
+| **goldenintegerF** | **z**        | normalized value from integer &isinv; [0, 514263]
 | **quantizedF**     | **q**        | normalized value from integer &isinv; [-36, 36]
 
 ---------
@@ -294,7 +295,7 @@ These functions receive a list of human-readable leaf parameters and return a no
 | **lfrequencyF**     | **lf**       | list of normalized pitches from frequencies in Hz
 | **larticulationF**  | **la**       | list of normalized relative articulations from list of relative articulations
 | **lintensityF**     | **li**       | list of normalized intensities from MIDI velocities
-| **lgoldenintegerF** | **lz**       | list of normalized values from list of integer &isinv; [-500000, 500000]
+| **lgoldenintegerF** | **lz**       | list of normalized values from list of integer &isinv; [0, 514263]
 | **lquantizedF**     | **lq**       | list of normalized values from list of integer &isinv; [-36, 36]
 
 ---------
@@ -332,6 +333,8 @@ A GenoMus function tree expects generic parameters (floats &isinv; [0, 1]) as le
 Human-readable function types use specific user-friendly formats for each argument. These non generic parameters are first mapped to a normalized interval [0, 1] to be later evaluated and encoded as stardard normalized paramenters.
 
 In general, these maps are not linear (straight line maps). For each type of parameter, a Gaussian approach is employed, trying to cover a wide range of values for each category, but at the same time modeling the conversion so that central values (specially the range [0.25, 0.75]) map to the musical values that appear more frequently.
+
+To work seamlessly with Max, decimal part of floats are truncated to display only 6 digits on decoded genotypes.
 
 Since each species could require new domain-specific parameters, for each new parameter a mapping similar to those presented below must be defined.
 
@@ -507,9 +510,28 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 ## Quantized steps
 ### **goldenintegerF** (z)
 
+This format is useful for different contexts where integer numbers are needed, but greater distance among consecutives integers are convenient when they are normalized. When converted to normalized values, a sequence of *golden integers* always maintains a balanced distribution over the entire interval [0, 1]. 
+
+This conversion is specifically used to assign numeric identifiers to indexed elements such as functions or genotype subexpressions.
+
+
+
+Conversion formulae: normalized parameter _**p**_ to quantized steps _**q**_ ([graph](https://www.desmos.com/calculator/3vy4gwjxcu)):
+
+---------
 ### **quantizedF** (q)
 
-This manual format is useful for different contexts where integer numbers can be much more readable, but only small positive and negative quantities are needed. A possible application may be, for instance, to write a sequence of melodic intervals using a diatonic scale as the step basis.  
+This format is useful for different contexts where integer numbers can be much more readable, but only small positive and negative quantities are needed. A possible application may be, for instance, to write a sequence of melodic intervals using a diatonic scale as the step basis. 
+
+This map take advantage of the golden angle properties using this formula to map positive and negative integers within the interval [0, 1]:
+
+
+This graph shows the distribution of the first 100 encoded function indexes:
+
+<img src="formulae/encoded_function_index_graph.png" width="750">
+
+
+
 Conversion formulae: normalized parameter _**p**_ to quantized steps _**q**_ ([graph](https://www.desmos.com/calculator/3vy4gwjxcu)):
 
 <img src="formulae/norm2quantized.svg" width="440">
