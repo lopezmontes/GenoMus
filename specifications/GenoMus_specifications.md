@@ -241,29 +241,29 @@ For the sake of simplicity, identity functions are named using only their corres
 
 Both function indexes, ordinal and encoded function index (smaller) are shown.
 
-| function name | function type       | functionIndex | example decoded genotype &rarr; encoded phenotype
-| ------------- | ------------------- | ------------- | -------------------------------------------------
-| `p`           | **paramF**          | 1 <sub>.618034</sub>  | `"p(.5)"` &rarr; `[0.5]` 
-| `e`           | **eventF**          |               | `"e(p(.5),p(.4),p(0),p(.8))"` &rarr; `[0.5,0.618034,0.4,0,0.8]` 
-| `v`           | **voiceF**          |               | `"v(e(p(.5),p(.4),p(0),p(.8)))"` &rarr; `[0,0.5,0.618034,0.4,0,0.8,1]` 
-| `s`           | **scoreF**          |               | `"s(v(e(p(.5),p(.4),p(0),p(.8))))"` &rarr; `[0,0,0.5,0.618034,0.4,0,0.8,1,1]` 
-| `l`           | **listF**           |               | `"l([0,.3,1,.8])"` &rarr; `[0,0.3,1,0.8]`
-| `n`           | **notevalueF**      |               | `"n(1/8)"` &rarr; `[0.5]`
-| `d`           | **durationF**       |               | `"d(1)"` &rarr; `[0.6]`
-| `m`           | **midipitchF**      |               | `"m(60)"` &rarr; `[0.48]`
-| `f`           | **frequencyF**      |               | `"f(440)"` &rarr; `[0.385129]`
-| `a`           | **articulationF**   |               | `"a(.5)"` &rarr; `[0.51729]`
-| `i`           | **intensityF**      |               | `"i(127)"` &rarr; `[1]`
-| `z`           | **goldenintegerF**  |               | `"z(1)"` &rarr; `[0.618034]`
-| `q`           | **quantizedF**      |               | `"q(-2)"` &rarr; `[0.4]`
-| `ln`          | **lnotevalueF**     |               | `"ln([])"` &rarr; `[]`
-| `ld`          | **ldurationF**      |               | `"ln([])"` &rarr; `[]`
-| `lm`          | **lmidipitchF**     |               | `"ln([])"` &rarr; `[]`
-| `lf`          | **lfrequencyF**     |               | `"ln([])"` &rarr; `[]`
-| `la`          | **larticulationF**  |               | `"ln([])"` &rarr; `[]`
-| `li`          | **lintensityF**     |               | `"ln([])"` &rarr; `[]`
-| `lz`          | **lgoldenintegerF** |               | `"ln([])"` &rarr; `[]`
-| `lq`          | **lquantizedF**     |               | `"ln([])"` &rarr; `[]`
+| function name | function type       | functionIndex        | example decoded genotype &rarr; encoded phenotype
+| ------------- | ------------------- | -------------------- | -------------------------------------------------
+| `p`           | **paramF**          | 1 <sub>.618034</sub> | `"p(.5)"` &rarr; `[0.5]` 
+| `e`           | **eventF**          | 2 <sub>.236068</sub> | `"e(p(.5),p(.4),p(0),p(.8))"` &rarr; `[0.5,0.618034,0.4,0,0.8]` 
+| `v`           | **voiceF**          | 3 <sub>.854102</sub> | `"v(e(p(.5),p(.4),p(0),p(.8)))"` &rarr; `[0,0.5,0.618034,0.4,0,0.8,1]` 
+| `s`           | **scoreF**          | 4 <sub>.472136</sub> | `"s(v(e(p(.5),p(.4),p(0),p(.8))))"` &rarr; `[0,0,0.5,0.618034,0.4,0,0.8,1,1]` 
+| `l`           | **listF**           | 5 <sub>.09017</sub>  | `"l([0,.3,1,.8])"` &rarr; `[0,0.3,1,0.8]`
+| `n`           | **notevalueF**      | 1 <sub>.618034</sub> | `"n(1/8)"` &rarr; `[0.5]`
+| `d`           | **durationF**       | 1 <sub>.618034</sub> | `"d(1)"` &rarr; `[0.6]`
+| `m`           | **midipitchF**      | 1 <sub>.618034</sub> | `"m(60)"` &rarr; `[0.48]`
+| `f`           | **frequencyF**      | 1 <sub>.618034</sub> | `"f(440)"` &rarr; `[0.385129]`
+| `a`           | **articulationF**   | 1 <sub>.618034</sub> | `"a(.5)"` &rarr; `[0.51729]`
+| `i`           | **intensityF**      | 1 <sub>.618034</sub> | `"i(127)"` &rarr; `[1]`
+| `z`           | **goldenintegerF**  | 1 <sub>.618034</sub> | `"z(1)"` &rarr; `[0.618034]`
+| `q`           | **quantizedF**      | 1 <sub>.618034</sub> | `"q(-2)"` &rarr; `[0.4]`
+| `ln`          | **lnotevalueF**     | 5 <sub>.09017</sub>  | `"ln([])"` &rarr; `[]`
+| `ld`          | **ldurationF**      | 5 <sub>.09017</sub>  | `"ln([])"` &rarr; `[]`
+| `lm`          | **lmidipitchF**     | 5 <sub>.09017</sub>  | `"ln([])"` &rarr; `[]`
+| `lf`          | **lfrequencyF**     | 5 <sub>.09017</sub>  | `"ln([])"` &rarr; `[]`
+| `la`          | **larticulationF**  | 5 <sub>.09017</sub>  | `"ln([])"` &rarr; `[]`
+| `li`          | **lintensityF**     | 5 <sub>.09017</sub>  | `"ln([])"` &rarr; `[]`
+| `lz`          | **lgoldenintegerF** | 5 <sub>.09017</sub>  | `"ln([])"` &rarr; `[]`
+| `lq`          | **lquantizedF**     | 5 <sub>.09017</sub>  | `"ln([])"` &rarr; `[]`
 
 
 ---------
