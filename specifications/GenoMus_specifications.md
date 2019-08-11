@@ -324,18 +324,11 @@ For the sake of simplicity, identity functions are named using only their corres
 
 | function name | function type | example decoded genotype &rarr; encoded phenotype
 | ------------- | ------------- | -------
-| `p`           | **paramF**    | `"p(.8347)"` &rarr; `[0.8347]` 
+| `p`           | **paramF**    | `"p(.5)"` &rarr; `[0.5]` 
 | `e`           | **eventF**    | `"e(p(.5),p(.4),p(0),p(.8))"` &rarr; `[0.5,0.618034,0.4,0,0.8]` 
 | `v`           | **voiceF**    | `"v(e(p(.5),p(.4),p(0),p(.8)))"` &rarr; `[0,0.5,0.618034,0.4,0,0.8,1]` 
 | `s`           | **scoreF**    | `"s(v(e(p(.5),p(.4),p(0),p(.8))))"` &rarr; `[0,0,0.5,0.618034,0.4,0,0.8,1,1]` 
-
-| **scoreF**      | **s**        | score
-| **voiceF**      | **v**        | voice
-| **eventF**      | **e**        | event
-| **listF**       | **l**        | list of normalized floats &isinv; [0, 1]
-
-| **leaf**        | -            | norm. parameter or specific format parameter
-
+| `l`           | **listF**     | `"l([0,.3,1,.8])"` &rarr; `[0,0.3,1,0.8]`
 
 ---------
 ## Manual manipulation of genotypes
