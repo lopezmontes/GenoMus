@@ -120,6 +120,33 @@ var decimalToFraction = function (_decimal) {
 var goldeninteger2norm = function (n) {
     return Math.round(((n*((1+Math.sqrt(5))/2)) % 1)*1000000)/1000000;
 }
+
+var norm2goldeninteger = function (g) {
+    var phi = (1+Math.sqrt(5))/2;
+    var p = 0;
+    var c = 0;
+    while (Math.abs(p - g)>0.0000005 && c < 520000) {
+        c++;
+        p = (p+phi) % 1;        
+    }
+    return c;
+}
+
+var checkGoldenIntegerConversions = function (max) {
+    var noError = true;
+    var i = 0;
+    do {
+        i++;
+        if (norm2goldeninteger(goldeninteger2norm(i)) != i) { 
+            noError = false;
+            console.log("Error with value " + i + "\ngoldeninteger2norm -> " + goldeninteger2norm(i) + "\nnorm2goldeninteger -> " + norm2goldeninteger(goldeninteger2norm(i)) );
+        }
+        if (i % 10000 == 0) {
+            console.log("No error found until " + i);
+        }
+    } while (i<max && noError == true);
+    return ("Validity of converter: " + noError);
+}
     
 // function to test how many encoded indexes can be generated without recurrences
 var testRepetitions = function (n) {
