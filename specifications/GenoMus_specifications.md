@@ -322,7 +322,7 @@ For the sake of simplicity, identity functions are named using only their corres
 
 ### Table and examples of identity functions
 
-| function name | function type | example
+| function name | function type | example decoded genotype $rarr; encoded phenotype
 | ------------- | ------------- | -------
 | `p`           | **paramF**    | `"p(.8347)"` &rarr; `[0.8347]` 
 | `e`           | **eventF**    | `"e(p(.5),p(.4),p(0),p(.8))"` &rarr; `[0.5,0.618034,0.4,0,0.8]` 
