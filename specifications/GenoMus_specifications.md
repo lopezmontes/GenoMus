@@ -510,7 +510,7 @@ Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standa
 ## Quantized steps
 ### **goldenintegerF** (z)
 
-A function of type goldenintegerF is useful for contexts where positive integer numbers are needed, but relative big distances among consecutives integers are convenient when they are normalized. When converted to normalized values, a sequence of *golden integers* always maintains a optimized distribution over the entire interval [0, 1]. 
+A function of type goldenintegerF is useful for contexts where positive integer numbers are needed, but relative big distances among consecutives integers are convenient when they are normalized. When converted to normalized values, a sequence of *golden integers* always maintains a balanced distribution over the entire interval [0, 1], regardless of the number of elements employ. However, when the number of elements coincides with a Fibonacci number, the distribution is optimal.  
 
 This conversion is specifically used to assign numeric identifiers to indexed elements such as functions or genotype subexpressions.
 
