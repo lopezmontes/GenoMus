@@ -526,7 +526,7 @@ Normalized values are rounded to have only six digits after the decimal point. U
 
 *build inverse function and test it.*
 
-This graph shows the distribution of the first 100 encoded function indexes:
+This graph shows the distribution of the first 100 golden integers mapped within interval [0. 1] :
 
 <img src="formulae/encoded_function_index_graph.png" width="750">
 
