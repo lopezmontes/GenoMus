@@ -13,10 +13,6 @@
   - [Input arguments](#input-argumentss)
   - [Output data structure](#output-data-structure)
   - [Genotype function template](#genotype-function-template)
-- [Function libraries](#function-libraries)  
-  - [Function library data structure](#function-library-data-structure)
-  - [Indexing a function in a GenoMus Function Library](#indexing-a-function-in-a-genomus-function-library)
-  - [Encoded function index generation](#encoded-function-index-generation)
 - [Genotype function types](#genotype-function-types)
   - [Used function type identifiers](#used-function-type-identifiers)
   - [Main structures](#main-structures)
@@ -52,6 +48,10 @@
   - [Harmonic grid](#harmonic-grid)
     - [chromaticism](#chromaticism)
     - [Example of harmonic grids](#example-of-harmonic-grids)
+- [Function libraries](#function-libraries)  
+  - [Function library data structure](#function-library-data-structure)
+  - [Indexing a function in a GenoMus Function Library](#indexing-a-function-in-a-genomus-function-library)
+  - [Encoded function index generation](#encoded-function-index-generation)
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
   - [Conversion table for genotypes](#conversion-table-for-genotypes)
 - [Encoding-decoding phenotypes](#encoding-decoding-phenotypes)
@@ -164,87 +164,6 @@ var <iFunctionName> = function (argument1, argument2, ..., argumentN) {
 ```
 
 The last line uses the auxiliary function **writeSubexprReturnData**, which stores all the subexpressions generated during the evaluation of the function tree so far, and returns the array with the [output data structure](#output-data-structure) described above.
-
----------
-# Function libraries
-A GenoMus Function Library is a JSON file that contains all available functions for genotype generation of a specific species.
-
-## Function library data structure 
-
-A GenoMus Function Library contains these blocks:
-- **"metadata"**: 
-  - **"species"**: name of the species.   
-  - **"parametersStructure"**: basic event parameter structure. 
-  - **"user"**: username
-  - **"version"**: version number of the catalogue.
-  - **"updated"**: date of last update.
-  - ...
-- **"outputType"**: all functions for genotype generation, grouped according to their output type.
-- **"functionIndex"**: all functions for genotype generation, enumerated by their order of inclusion, along with their encoded function index.
-
-## Indexing a function in a GenoMus Function Library
-Functions are listed following this format:
-```
-"outputType": {
-    "<functionType>": {
-        "<functionName>": {
-            "arguments": ["<functionType>", "<functionType>", ...],
-            "description": "String describing what the function does.",
-        "metadata": {
-            "date": (date of creation, in compressed style),
-            "creator": "<username>",
-            ... (optional information if needed.)
-        },
-        ...
-    },
-    "<functionType>": {
-    ...
-}
-```
-The **description** and **metadata** fields are optional, but very helpful to understand quicky the processes in a genotype, and to add further informations and documentation about the function or the programmer.
-
-Furthermore, each function must be included in the list of function index numbers:
-```
-"functionIndex": {
-    1: {
-        "functionName": 0.618034
-    },
-    2: {
-        "functionName": 0.236068
-    },
-    ...
-}
-```
-The integer index identifies the function. The float is the *encoded function index*. It is a number to map the function within the normalized interval [0, 1]. Encoded genotypes use this float to map all functions optimizing the maximal distance among functions into the interval. That's a critical issue for the automatic characterization of genotypes by machine learning techniques. 
-
-Index numbers must correspond to only one function. To maintain the consistency of the library, an indexed function should not change its index numbers.
-
-Index numbers of functions that use [human-readable leaf parameters](#human-readable-leaf-parameters) are assimilated to their standard equivalent functions with normalized parameters, and share the same index. Thus, encoded genotypes remain identical, regardless of whether human-readable conversions have been used. 
-
----------
-## Encoded function index generation
-
-Encoded function indexes are generated using a golden angle iteration mapped on the [0, 1] interval using this formula:
-
-<img src="formulae/encoded_function_index.svg" width="180">
-
-where *&#981;* is the golden ratio (&#8776; 1.618034), _**f<sub>e</sub>**_ is the index to identify the function in encoded genotypes and _**f<sub>d</sub>**_ is the correspondent decoded index, which is asigned incrementally in the catalogue. Encoded index numbers are rounded to have only six digits after the decimal point. Using this truncated format there are 514263 different indexes available until a recurrence occurs.
-
-This map is used as the quantized function type **goldenintegerF** too [(more info)](#goldenintegerf-z).
-
-From the *functionIndex* dictionary, an inverse dictionary is automatically created by rearranging the functions according to their ascending encoded index, following this format:
-
-```
-"encodedFunctionIndexes": {
-    "0.236068": "functionNameX",
-    "0.618034": "functionNameY",
-    ...
-}
-```
-
-This works as a useful lookup table for some automatic and manual processes.
-
-
 
 ---------
 # Genotype function types
@@ -891,6 +810,86 @@ The following tables show how increasing degrees of chromaticism affect to this 
 | 0.6 &#8804; *c* < 0.7               | `[7,8,1,4,11,9,2]`                          | 
 | 0.7 &#8804; *c* < 0.8               | `[7,8,1,4,11,9,2,6]` (complete mode)        | <img src="figures/excerpt-chromat-0-5.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0-5.mp3?token=ABGBHAPNELFTBH5OAN33AZK5KUNCE"><img src="aux/speaker.svg" width="15"></a>
 | 0.8 &#8804; *c* &#8804; 1           | `[0,1,2,3,4,5,6,7,8,9,10,11]` (all pitches) | <img src="figures/excerpt-chromat-1.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-1.mp3?token=ABGBHANAGTJ4VJ2UMJQ5AOS5KUND4"><img src="aux/speaker.svg" width="15"></a>
+
+
+---------
+# Function libraries
+A GenoMus Function Library is a JSON file that contains all available functions for genotype generation of a specific species.
+
+## Function library data structure 
+
+A GenoMus Function Library contains these blocks:
+- **"metadata"**: 
+  - **"species"**: name of the species.   
+  - **"parametersStructure"**: basic event parameter structure. 
+  - **"user"**: username
+  - **"version"**: version number of the catalogue.
+  - **"updated"**: date of last update.
+  - ...
+- **"outputType"**: all functions for genotype generation, grouped according to their output type.
+- **"functionIndex"**: all functions for genotype generation, enumerated by their order of inclusion, along with their encoded function index.
+
+## Indexing a function in a GenoMus Function Library
+Functions are listed following this format:
+```
+"outputType": {
+    "<functionType>": {
+        "<functionName>": {
+            "arguments": ["<functionType>", "<functionType>", ...],
+            "description": "String describing what the function does.",
+        "metadata": {
+            "date": (date of creation, in compressed style),
+            "creator": "<username>",
+            ... (optional information if needed.)
+        },
+        ...
+    },
+    "<functionType>": {
+    ...
+}
+```
+The **description** and **metadata** fields are optional, but very helpful to understand quicky the processes in a genotype, and to add further informations and documentation about the function or the programmer.
+
+Furthermore, each function must be included in the list of function index numbers:
+```
+"functionIndex": {
+    1: {
+        "functionName": 0.618034
+    },
+    2: {
+        "functionName": 0.236068
+    },
+    ...
+}
+```
+The integer index identifies the function. The float is the *encoded function index*. It is a number to map the function within the normalized interval [0, 1]. Encoded genotypes use this float to map all functions optimizing the maximal distance among functions into the interval. That's a critical issue for the automatic characterization of genotypes by machine learning techniques. 
+
+Index numbers must correspond to only one function. To maintain the consistency of the library, an indexed function should not change its index numbers.
+
+Index numbers of functions that use [human-readable leaf parameters](#human-readable-leaf-parameters) are assimilated to their standard equivalent functions with normalized parameters, and share the same index. Thus, encoded genotypes remain identical, regardless of whether human-readable conversions have been used. 
+
+---------
+## Encoded function index generation
+
+Encoded function indexes are generated using a golden angle iteration mapped on the [0, 1] interval using this formula:
+
+<img src="formulae/encoded_function_index.svg" width="180">
+
+where *&#981;* is the golden ratio (&#8776; 1.618034), _**f<sub>e</sub>**_ is the index to identify the function in encoded genotypes and _**f<sub>d</sub>**_ is the correspondent decoded index, which is asigned incrementally in the catalogue. Encoded index numbers are rounded to have only six digits after the decimal point. Using this truncated format there are 514263 different indexes available until a recurrence occurs.
+
+This map is used as the quantized function type **goldenintegerF** too [(more info)](#goldenintegerf-z).
+
+From the *functionIndex* dictionary, an inverse dictionary is automatically created by rearranging the functions according to their ascending encoded index, following this format:
+
+```
+"encodedFunctionIndexes": {
+    "0.236068": "functionNameX",
+    "0.618034": "functionNameY",
+    ...
+}
+```
+
+This works as a useful lookup table for some automatic and manual processes.
 
 ---------
 # Encoding-decoding genotypes
