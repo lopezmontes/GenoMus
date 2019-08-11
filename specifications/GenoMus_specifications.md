@@ -905,7 +905,7 @@ The format of an encoded phenotype is formally identical to an encoded genotype:
 - A score can consist of several concatenated scores (especially when their number of voices is different). For this reason it is necessary to use flags to connect them.
 - The event data structure is predetermined by the [species characterization](#species-characterization).
 - All event values are normalized according to predefined [parameter maps](#parameter-mapping). 
-- If an event parameter uses more than one value, it is called *multiparameter*. The first float indicates the number of values needed (normalized as a [*golden integer*](#goldentintegerf-z)) followed by the values. 
+- If an event parameter uses more than one value, it is called *multiparameter*. The first float indicates the number of values needed (normalized as a [golden integer](#goldenintegerf-z)) followed by the values. 
 
 ## Decoded phenotype
 
