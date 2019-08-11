@@ -1006,6 +1006,7 @@ Visualization:
 ---------
 ## Voice with lists
 
+This example uses the function `vMotif`, 
 The lists in this genotype have been encoded as follows:
 
 | decoded               | encoded
@@ -1017,13 +1018,11 @@ The lists in this genotype have been encoded as follows:
 ```
 "
 s(
-   v(
-      eMotif(
-         ln([1/2,1/4,1/2,1/4]),
-         lm([63,67,63,58]),
-         a(1),
-         i(42)
-      )
+   vMotif(
+      ln([1/2,1/4,1/2,1/4]),
+      lm([63,67,63,58]),
+      a(1),
+      i(42)
    )
 )
 "
