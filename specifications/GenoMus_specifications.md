@@ -870,6 +870,12 @@ A decoded phenotype is any translation of an encoded phenotype readable for othe
 
 ---------
 # Examples of specimens
+
+The following minimal examples illustrate several cases of conversion among encoded/decoded genotypes/phenotypes.
+
+All these examples belong to the default *piano* species. Phenotypes have been decoded into Lilypond language, but only the graphical rendering of this code is shown. 
+
+---------
 ## Minimal specimen
 #### Decoded genotype
 `"s(v(e(p(0.5),p(0.5),p(0.5),p(0.5))))"`
