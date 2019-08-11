@@ -201,8 +201,7 @@ Functions are listed following this format:
     ...
 }
 ```
-- _**functionName**_ should use the corresponding prefix to help a human to know its output type
-- The _**description**_ and _**metadata**_ fields are optional, but very helpful to understand quicky the processes in a genotype, and to add further informations and documentation about the function or the programmer
+The **description** and **metadata** fields are optional, but very helpful to understand quicky the processes in a genotype, and to add further informations and documentation about the function or the programmer
 
 Furthermore, each function must be included in the list of function index numbers:
 ```
