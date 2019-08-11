@@ -220,7 +220,7 @@ The integer index identifies the function. The float is the *encoded function in
 
 Index numbers must correspond to only one function. To maintain the consistency of the library, an indexed function should not change its index numbers.
 
-Index numbers of functions using [human-readable leaf parameters](#human-readable-leaf-parameters) are asimilated to their standard equivalent functions with normalized parameters, and share the same index. Thus, encoded genotypes remain identical, regardless of whether human-readable conversions have been used. 
+Index numbers of functions that use [human-readable leaf parameters](#human-readable-leaf-parameters) are assimilated to their standard equivalent functions with normalized parameters, and share the same index. Thus, encoded genotypes remain identical, regardless of whether human-readable conversions have been used. 
 
 ---------
 ## Encoded function index generation
