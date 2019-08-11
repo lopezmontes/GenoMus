@@ -316,7 +316,9 @@ Function types created to manage specific types of data (some of them are still 
 
 ---------
 ## Identity functions
-For each function type exists an identity function. These identity functions simply pass their arguments without any transformation apart from formatting the output data accordingly when necessary.
+An identity function simply pass its arguments without any transformation apart from formatting the output data accordingly when necessary. For each function type exists an identity function. 
+
+Identity functions are named using only their corresponding function type identifiers. 
 
 
 
