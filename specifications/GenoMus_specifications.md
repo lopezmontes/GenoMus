@@ -926,7 +926,7 @@ Visualization:
 ---------
 ## Voice with lists
 
-The lists in this genotype have encoded as follows:
+The lists in this genotype have been encoded as follows:
 
 | decoded | encoded
 | ------------------- | -------
