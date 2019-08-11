@@ -256,7 +256,7 @@ Genotype functions are classified by their output data.
 ---------
 ## Main structures
 
-| *function type* | *identifier* | *output*
+| function type   | identifier   | output
 | --------------- | ------------ | --------
 | **scoreF**      | **s**        | score
 | **voiceF**      | **v**        | voice
@@ -271,7 +271,7 @@ The **leaf** type is a flag for terminal nodes. This is not really a type of fun
 ## Human-readable leaf parameters
 Function types created to improve manual handling of decoded genotypes. These functions can replace a **paramF** functions in a leaf position of function tree.
 
-| *function type*    | *identifier* | *output*
+| function type      | identifier   | output
 | ------------------ | ------------ | --------
 | **notevalueF**     | **n**        | normalized duration from usual number used for note values (1 = whole note)
 | **durationF**      | **d**        | normalized duration from duration in seconds
@@ -288,7 +288,7 @@ Function types created to improve manual handling of decoded genotypes. These fu
 
 These functions receive a list of human-readable leaf parameters and return a normalized list, which can be seamlessly integrated into automatic processes.
 
-| *function type*     | *identifier* | *output*
+| function type       | identifier   | output
 | ------------------- | ------------ | --------
 | **lnotevalueF**     | **ln**       | list of normalized durations from list of note values (1 = whole note)
 | **ldurationF**      | **ld**       | list of normalized durations from list of duration in seconds
@@ -303,7 +303,7 @@ These functions receive a list of human-readable leaf parameters and return a no
 ## Domain-specific formats
 Function types created to manage specific types of data (some of them are still purely theoretical)
 
-| *function type* | *identifier* | *output*
+| function type   | identifier   | output
 | --------------- | ------------ | --------
 | **operationF**  | **o**        | result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
 | **binaryF**     | **b**        | boolean value (only 0 or 1)
@@ -316,17 +316,29 @@ Function types created to manage specific types of data (some of them are still 
 
 ---------
 ## Identity functions
-An identity function simply pass its arguments without any transformation apart from formatting the output data accordingly when necessary. For each function type exists an identity function. 
+An identity function simply pass its arguments without any musical transformation apart from formatting the output data accordingly when necessary. For each function type exists an identity function. 
 
-Identity functions are named using only their corresponding function type identifiers. 
+Identity functions are named using only their corresponding function type identifiers. They serve primarily as wrappers and testing functions.
 
+### Table of identity functions
+
+| function name | function type | example
+| ------------- | ------------- | -------
+| `p`           | **paramF**    | `p(.8347)` &rarr; `[0.8347]` 
+
+| **scoreF**      | **s**        | score
+| **voiceF**      | **v**        | voice
+| **eventF**      | **e**        | event
+| **listF**       | **l**        | list of normalized floats &isinv; [0, 1]
+
+| **leaf**        | -            | norm. parameter or specific format parameter
 
 
 ---------
 ## Manual manipulation of genotypes
 Functions to be used typing manually on the genotypes to get a more controlled evolution.
 
-| *function type* | *identifier* | *output* |
+| function type   | identifier   | output
 | --------------- | ------------ | --------
 | **userF**       | **u**        | these functions perform very different manipulations on part of a genotype, acting as a metalevel of functional control
 
