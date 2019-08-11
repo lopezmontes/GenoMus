@@ -516,7 +516,7 @@ This conversion is specifically used to assign numeric identifiers to indexed el
 
 This map take advantage of the golden angle properties using this formula to map positive and negative integers within the interval [0, 1]:
 
-<img src="formulae/goldenint2norm.svg" width="200">
+<img src="formulae/goldenint2norm.svg" width="160">
 
 This graph shows the distribution of the first 100 encoded function indexes:
 
