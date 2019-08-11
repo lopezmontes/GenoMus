@@ -324,7 +324,7 @@ For the sake of simplicity, identity functions are named using only their corres
 
 | function name | function type       | functionIndex | example decoded genotype &rarr; encoded phenotype
 | ------------- | ------------------- | ------------- | -------------------------------------------------
-| `p`           | **paramF**          | 1 <sub>(0.618034)</sub>  | `"p(.5)"` &rarr; `[0.5]` 
+| `p`           | **paramF**          | 1 <sub>.618034</sub>  | `"p(.5)"` &rarr; `[0.5]` 
 | `e`           | **eventF**          |               | `"e(p(.5),p(.4),p(0),p(.8))"` &rarr; `[0.5,0.618034,0.4,0,0.8]` 
 | `v`           | **voiceF**          |               | `"v(e(p(.5),p(.4),p(0),p(.8)))"` &rarr; `[0,0.5,0.618034,0.4,0,0.8,1]` 
 | `s`           | **scoreF**          |               | `"s(v(e(p(.5),p(.4),p(0),p(.8))))"` &rarr; `[0,0,0.5,0.618034,0.4,0,0.8,1,1]` 
