@@ -23,7 +23,7 @@
   - [Human-readable leaf parameters](#human-readable-leaf-parameters) 
   - [Human-readable lists](#human-readable-lists) 
   - [Domain-specific formats](#domain-specific-formats)
-  - [Identity-functions](#identity-functions)
+  - [Identity functions](#identity-functions)
   - [Manual manipulation of genotypes](#manual-manipulation-of-genotypes)
 - [Parameter mapping](#parameter-mapping)
   - [Duration](#duration)
