@@ -524,9 +524,22 @@ where *&#981;* is the golden ratio (&#8776; 1.618034):
 
 Normalized values are rounded to have only six digits after the decimal point. Using this truncated format there are 514263 different values available until a recurrence occurs.
 
+*build inverse function and test it.*
+
 This graph shows the distribution of the first 100 encoded function indexes:
 
 <img src="formulae/encoded_function_index_graph.png" width="750">
+
+| golden integer | [0, 1]
+| -------------- | ------
+| 0              | 0
+| 1              | 0.618034
+| 2              | 0.236068
+| 3              | 0.854102
+| 4              | 0.472136
+| 5              | 0.09017
+| 6              | 0.708204
+| ...            | ...
 
 ---------
 ### **quantizedF** (q)
