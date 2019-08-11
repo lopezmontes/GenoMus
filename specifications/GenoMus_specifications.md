@@ -860,8 +860,10 @@ From the *functionIndex* dictionary, an inverse dictionary is automatically crea
 This works as a useful lookup table for some automatic and manual processes.
 
 ---------
-# Basic functions
-The core of a function library is a collection of essential functions to perform basic operations for the generation of phenotypes. Each function type has a number of  
+# Core functions
+A GenoMus Function Library must include a collection of essential functions to perform basic operations for the generation of phenotypes. For each function type, the library has an identity function and other additional functions dedicated to the fundamental manipulations of that data category.
+
+This set of core functions are identified with the first index numbers of the library.
 
 ---------
 ## Identity functions
