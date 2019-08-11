@@ -318,13 +318,14 @@ Function types created to manage specific types of data (some of them are still 
 ## Identity functions
 An identity function simply pass its arguments without any musical transformation apart from formatting the output data accordingly when necessary. For each function type exists an identity function. 
 
-Identity functions are named using only their corresponding function type identifiers. They serve primarily as wrappers and testing functions.
+For the sake of simplicity, identity functions are named using only their corresponding function type identifiers. They serve primarily as wrappers and testing functions.
 
 ### Table of identity functions
 
 | function name | function type | example
 | ------------- | ------------- | -------
-| `p`           | **paramF**    | `p(.8347)` &rarr; `[0.8347]` 
+| `p`           | **paramF**    | `"p(.8347)"` &rarr; `[0.8347]` 
+| `e`           | **eventF**    | `"e(p(.5),p(.4),p(0),p(.8))"` &rarr; `[0.5,0.618034,0.4,0,0.8]` 
 
 | **scoreF**      | **s**        | score
 | **voiceF**      | **v**        | voice
