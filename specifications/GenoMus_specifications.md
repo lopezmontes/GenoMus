@@ -1036,6 +1036,10 @@ Visualization:
 #### Encoded phenotype
 `[1, 1, 0.4, 1, 0.57, 0, 0.248547, 661417, 0, 0]`
 
+Visualization
+
+<img src="figures/pheno_visual_2.png" width="156">
+
 #### Decoded phenotype
 
 <img src="figures/ex2_score.svg" width="57">
