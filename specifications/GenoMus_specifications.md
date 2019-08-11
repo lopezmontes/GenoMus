@@ -24,7 +24,6 @@
   - [Human-readable lists](#human-readable-lists) 
   - [Domain-specific formats](#domain-specific-formats)
   - [Identity functions](#identity-functions)
-    - [Table of identity functions](#Table-of-identity-functions)
   - [Manual manipulation of genotypes](#manual-manipulation-of-genotypes)
 - [Parameter mapping](#parameter-mapping)
   - [Duration](#duration)
@@ -320,8 +319,6 @@ Function types created to manage specific types of data (some of them are still 
 An identity function simply pass its arguments without any musical transformation apart from formatting the output data accordingly when necessary. For each function type exists an identity function. 
 
 For the sake of simplicity, identity functions are named using only their corresponding function type identifiers. They serve primarily as wrappers and testing functions.
-
-### Table of identity functions
 
 Both function indexes, ordinal and encoded function index (smaller) are shown.
 
