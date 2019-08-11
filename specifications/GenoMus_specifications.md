@@ -257,13 +257,13 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `z`           | **goldenintegerF**  | 1 <sub>.618034</sub> | `"z(1)"` &rarr; `[0.618034]`
 | `q`           | **quantizedF**      | 1 <sub>.618034</sub> | `"q(-2)"` &rarr; `[0.4]`
 | `ln`          | **lnotevalueF**     | 5 <sub>.09017</sub>  | `"ln([1/8,1,1/2])"` &rarr; `[0.5,0.8,0.7]`
-| `ld`          | **ldurationF**      | 5 <sub>.09017</sub>  | `"ln([8,1,2])"` &rarr; `[0.9,0.6,0.7]`
-| `lm`          | **lmidipitchF**     | 5 <sub>.09017</sub>  | `"ln([70,69,71])"` &rarr; `[0.58,0.57,0.59]`
-| `lf`          | **lfrequencyF**     | 5 <sub>.09017</sub>  | `"ln([162,32,4802])"` &rarr; `[0.3,0.2,0.7]`
-| `la`          | **larticulationF**  | 5 <sub>.09017</sub>  | `"ln([1,1,0.5])"` &rarr; `[0.667539,0.667539,0.51729]`
-| `li`          | **lintensityF**     | 5 <sub>.09017</sub>  | `"ln([80,90])"` &rarr; `[0.629921,0.708402]`
-| `lz`          | **lgoldenintegerF** | 5 <sub>.09017</sub>  | `"ln([10,8,6,3])"` &rarr; `[0.18034,0.944272,0.708204,0.854102]`
-| `lq`          | **lquantizedF**     | 5 <sub>.09017</sub>  | `"ln([10,-10,0,-3,2])"` &rarr; `[0.79,0.21,0.5,0.36,0.6]`
+| `ld`          | **ldurationF**      | 5 <sub>.09017</sub>  | `"ld([8,1,2])"` &rarr; `[0.9,0.6,0.7]`
+| `lm`          | **lmidipitchF**     | 5 <sub>.09017</sub>  | `"lm([70,69,71])"` &rarr; `[0.58,0.57,0.59]`
+| `lf`          | **lfrequencyF**     | 5 <sub>.09017</sub>  | `"lf([162,32,4802])"` &rarr; `[0.3,0.2,0.7]`
+| `la`          | **larticulationF**  | 5 <sub>.09017</sub>  | `"la([1,1,0.5])"` &rarr; `[0.667539,0.667539,0.51729]`
+| `li`          | **lintensityF**     | 5 <sub>.09017</sub>  | `"li([80,90])"` &rarr; `[0.629921,0.708402]`
+| `lz`          | **lgoldenintegerF** | 5 <sub>.09017</sub>  | `"lz([10,8,6,3])"` &rarr; `[0.18034,0.944272,0.708204,0.854102]`
+| `lq`          | **lquantizedF**     | 5 <sub>.09017</sub>  | `"lq([10,-10,0,-3,2])"` &rarr; `[0.79,0.21,0.5,0.36,0.6]`
 
 
 ---------
