@@ -51,6 +51,31 @@ function intensity2norm(i) {
 
 var xstepsLookupTable = [0, 0.0005, 0.001, 0.003, 0.006, 0.008, 0.01, 0.015, 0.02, 0.025, 0.03, 0.04, 0.045, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11, 0.12, 0.14, 0.15, 0.16, 0.18, 0.2, 0.21, 0.23, 0.25, 0.27, 0.3, 0.32, 0.33, 0.36, 0.4, 0.45, 0.5, 0.55, 0.6, 0.64, 0.67, 0.68, 0.7, 0.73, 0.75, 0.77, 0.79, 0.8, 0.82, 0.84, 0.85, 0.86, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.955, 0.96, 0.97, 0.975, 0.98, 0.985, 0.99, 0.992, 0.994, 0.997, 0.999, 0.9995, 1];
 
+// automated codenumber mapping assignation for functions identification, based on golden angle ratio
+var goldeninteger2norm = function (n) {
+    return Math.round(((n*((1+Math.sqrt(5))/2)) % 1)*1000000)/1000000;
+}
+    
+// function to test how many encoded indexes can be generated without recurrences
+var testRepetitions = function (n) {
+    var usedNumbers = [];
+    var newValue = 0;
+    for (var a=0; a<n; a++) {
+        newValue = goldeninteger2norm(a);
+        for (var b=0; b<usedNumbers.length; b++) {
+            if (newValue == usedNumbers[b]) {
+                console.log("Repetition of " + newValue + " found at iteration " + a + ". Founded the same number at index " + b ".");
+                return -1;
+            }
+        }
+        if (a % 10000 == 0) {
+            // console.log("Tested " + b + " indexes. Recurrences not found so far.");
+        }
+        usedNumbers.push(newValue); 
+    }
+    return 1;                        
+}
+
 function norm2xsteps(p) {
     if (p>1) { p = 1 };
     if (p<0) { p =0 };    

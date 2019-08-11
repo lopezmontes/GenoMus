@@ -269,16 +269,17 @@ The **leaf** type is a flag for terminal nodes. This is not really a type of fun
 ## Human-readable leaf parameters
 Function types created to improve manual handling of decoded genotypes. These functions can replace a **paramF** functions in a leaf position of function tree.
 
-| *function type*   | *identifier* | *output*
-| ----------------- | ------------ | --------
-| **notevalueF**    | **n**        | normalized duration from usual number used for note values (1 = whole note)
-| **durationF**     | **d**        | normalized duration from duration in seconds
-| **midipitchF**    | **m**        | normalized pitch from standard MIDI pitch
-| **frequencyF**    | **f**        | normalized pitch from frequency in Hz
-| **articulationF** | **a**        | normalized relative articulation (1 is whole duration of the note, 2 is double duration)
-| **durationF**     | **d**        | normalized duration from time in seconds
-| **intensityF**    | **i**        | normalized intensity from standard MIDI velocity
-| **quantizedF**    | **q**        | normalized value from integer &isinv; [-36, 36]
+| *function type*    | *identifier* | *output*
+| ------------------ | ------------ | --------
+| **notevalueF**     | **n**        | normalized duration from usual number used for note values (1 = whole note)
+| **durationF**      | **d**        | normalized duration from duration in seconds
+| **midipitchF**     | **m**        | normalized pitch from standard MIDI pitch
+| **frequencyF**     | **f**        | normalized pitch from frequency in Hz
+| **articulationF**  | **a**        | normalized relative articulation (1 is whole duration of the note, 2 is double duration)
+| **durationF**      | **d**        | normalized duration from time in seconds
+| **intensityF**     | **i**        | normalized intensity from standard MIDI velocity
+| **goldenintegerF** | **z**        | normalized value from integer &isinv; [-500000, 500000]
+| **quantizedF**     | **q**        | normalized value from integer &isinv; [-36, 36]
 
 ---------
 ## Human-readable lists
