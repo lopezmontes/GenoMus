@@ -51,7 +51,7 @@
   - [Function library data structure](#function-library-data-structure)
   - [Indexing a function in a GenoMus Function Library](#indexing-a-function-in-a-genomus-function-library)
   - [Encoded function index generation](#encoded-function-index-generation)
-- [Basic functions](#basic-functions)
+- [Core functions](#core-functions)
   - [Identity functions](#identity-functions)  
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
   - [Conversion table for genotypes](#conversion-table-for-genotypes)
