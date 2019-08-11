@@ -320,12 +320,14 @@ An identity function simply pass its arguments without any musical transformatio
 
 For the sake of simplicity, identity functions are named using only their corresponding function type identifiers. They serve primarily as wrappers and testing functions.
 
-### Table of identity functions
+### Table and examples of identity functions
 
 | function name | function type | example
 | ------------- | ------------- | -------
 | `p`           | **paramF**    | `"p(.8347)"` &rarr; `[0.8347]` 
 | `e`           | **eventF**    | `"e(p(.5),p(.4),p(0),p(.8))"` &rarr; `[0.5,0.618034,0.4,0,0.8]` 
+| `v`           | **voiceF**    | `"v(e(p(.5),p(.4),p(0),p(.8)))"` &rarr; `[0,0.5,0.618034,0.4,0,0.8,1]` 
+| `s`           | **scoreF**    | `"s(v(e(p(.5),p(.4),p(0),p(.8))))"` &rarr; `[0,0,0.5,0.618034,0.4,0,0.8,1,1]` 
 
 | **scoreF**      | **s**        | score
 | **voiceF**      | **v**        | voice
