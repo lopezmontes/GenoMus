@@ -286,15 +286,16 @@ Function types created to improve manual handling of decoded genotypes. These fu
 
 These functions receive a list of human-readable leaf parameters and return a normalized list, which can be seamlessly integrated into automatic processes.
 
-| *function type*    | *identifier* | *output*
-| ------------------ | ------------ | --------
-| **lnotevalueF**    | **ln**       | list of normalized durations from list of note values (1 = whole note)
-| **ldurationF**     | **ld**       | list of normalized durations from list of duration in seconds
-| **lmidipitchF**    | **lm**       | list of normalized pitches from list of MIDI pitches
-| **lfrequencyF**    | **lf**       | list of normalized pitches from frequencies in Hz
-| **larticulationF** | **la**       | list of normalized relative articulations from list of relative articulations
-| **lintensityF**    | **li**       | list of normalized intensities from MIDI velocities
-| **lquantizedF**    | **lq**       | list of normalized values from list of integer &isinv; [-36, 36]
+| *function type*     | *identifier* | *output*
+| ------------------- | ------------ | --------
+| **lnotevalueF**     | **ln**       | list of normalized durations from list of note values (1 = whole note)
+| **ldurationF**      | **ld**       | list of normalized durations from list of duration in seconds
+| **lmidipitchF**     | **lm**       | list of normalized pitches from list of MIDI pitches
+| **lfrequencyF**     | **lf**       | list of normalized pitches from frequencies in Hz
+| **larticulationF**  | **la**       | list of normalized relative articulations from list of relative articulations
+| **lintensityF**     | **li**       | list of normalized intensities from MIDI velocities
+| **lgoldenintegerF** | **lz**       | list of normalized values from list of integer &isinv; [-500000, 500000]
+| **lquantizedF**     | **lq**       | list of normalized values from list of integer &isinv; [-36, 36]
 
 ---------
 ## Domain-specific formats
