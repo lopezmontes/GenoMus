@@ -23,6 +23,7 @@
   - [Human-readable leaf parameters](#human-readable-leaf-parameters) 
   - [Human-readable lists](#human-readable-lists) 
   - [Domain-specific formats](#domain-specific-formats)
+  - [Identity-functions](#identity-functions)
   - [Manual manipulation of genotypes](#manual-manipulation-of-genotypes)
 - [Parameter mapping](#parameter-mapping)
   - [Duration](#duration)
@@ -308,10 +309,16 @@ Function types created to manage specific types of data (some of them are still 
 | **binaryF**     | **b**        | boolean value (only 0 or 1)
 | **rhythmF**     | **r**        | rhythmic pattern (nested array of floats &isinv; [0, 1])
 | **harmonyF**    | **h**        | pitch class sequence, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
-| **catalogueF**   | **c**       | pointer to an external genotype from a specimen catalogue (to be used with functions referencing external data)
+| **catalogueF**  | **c**        | pointer to an external genotype from a specimen catalogue (to be used with functions referencing external data)
 | **genotypeF**   | **g**        | raw encoded genotype (array of floats &isinv; [0, 1])
 | **txtF**        | **t**        | string
 | **waveF**       | **w**        | encoded path to read data from an stored audio file
+
+---------
+## Identity functions
+For each function type exists an identity function. These identity functions simply pass their arguments without any transformation apart from formatting the output data accordingly when necessary.
+
+
 
 ---------
 ## Manual manipulation of genotypes
