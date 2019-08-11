@@ -873,7 +873,7 @@ A decoded phenotype is any translation of an encoded phenotype readable for othe
 
 The following minimal examples illustrate several cases of conversion among encoded/decoded genotypes/phenotypes.
 
-Decoded genotypes are automatically formatted for better readability. They would be equivalent to a compressed script without line breaks or tabs.  
+Decoded genotypes are automatically formatted for better readability and editability. They would be equivalent to a compressed script without line breaks or tabs.  
 
 All these examples belong to the default *piano* species. Phenotypes have been decoded into Lilypond language, but only the graphical rendering of this code is shown. 
 
@@ -929,16 +929,18 @@ This table shows the encoding/decoding of lexical tokens in this example:
 
 #### Decoded genotype
 ```
-"s(
-    v(
-        e(
-            n(1/16),
-            m(69),
-            a(0.4),
-            i(84)
-        )
-    )
-)"`
+"
+s(
+   v(
+      e(
+         n(1/16),
+         m(69),
+         a(0.4),
+         i(84)
+      )
+   )   
+)
+"
 ```
 #### Encoded genotype
 `[1, 0.618034, 1, 0.236068, 1, 0.854102, 1, 0.09017, 0.01, 0.4, 0.8, 0.2, 1, 0.708204, 0.03, 0.57, 0.8, 0.2, 1, 0.326238, 0.05, 0.248547, 0.8, 0.2, 1, 0.944272, 0.06, 0,661417, 0.8, 0.8, 0.8, 0.8]`
