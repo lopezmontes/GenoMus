@@ -1033,6 +1033,8 @@ s(
 
 #### Visualization of encoded genotype to encoded phenotype mapping
 
+<sub>Visualization map normalized values to grayscale (0=white, 1=black).</sub>
+
 <img src="figures/ex1_gen.png" width="500">
 
 &darr;
