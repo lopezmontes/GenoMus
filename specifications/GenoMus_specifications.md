@@ -200,7 +200,7 @@ Function types created to improve manual handling of decoded genotypes. These fu
 | **frequencyF**     | **f**        | normalized pitch from frequency in Hz
 | **articulationF**  | **a**        | normalized relative articulation (1 is whole duration of the note, 2 is double duration)
 | **intensityF**     | **i**        | normalized intensity from standard MIDI velocity
-| **goldenintegerF** | **z**        | normalized value from integer &isinv; [0, 514263]
+| **goldenintegerF** | **z**        | normalized value from integer &isinv; [0, 514261]
 | **quantizedF**     | **q**        | normalized value from integer &isinv; [-36, 36]
 
 ---------
@@ -216,7 +216,7 @@ These functions receive a list of human-readable leaf parameters and return a no
 | **lfrequencyF**     | **lf**       | list of normalized pitches from frequencies in Hz
 | **larticulationF**  | **la**       | list of normalized relative articulations from list of relative articulations
 | **lintensityF**     | **li**       | list of normalized intensities from MIDI velocities
-| **lgoldenintegerF** | **lz**       | list of normalized values from list of integer &isinv; [0, 514263]
+| **lgoldenintegerF** | **lz**       | list of normalized values from list of integer &isinv; [0, 514261]
 | **lquantizedF**     | **lq**       | list of normalized values from list of integer &isinv; [-36, 36]
 
 ---------
@@ -407,7 +407,7 @@ Conversion formulae: normalized parameter _**p**_ to relative articulation _**a*
 --------
 ## Intensity
 ### **intensityF** (i)
-Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standard MIDI velocity  and inverse ([graph](https://www.desmos.com/calculator/cisndyw3gs)):
+Conversion formulae: normalized parameter _**p**_ to intensity _**i**_ in standard MIDI velocity and inverse ([graph](https://www.desmos.com/calculator/cisndyw3gs)):
 
 <img src="formulae/norm2intensity.svg" width="72">
 <img src="formulae/intensity2norm.svg" width="67">
@@ -435,15 +435,18 @@ A function of type goldenintegerF is useful for contexts where positive integer 
 
 This conversion is specifically used to assign numeric identifiers to indexed elements such as functions or genotype subexpressions.
 
-This format takes advantage of the golden angle properties using this formula to map integers _**z**_ &#8712; [0, 514263] to normalized parameter _**p**_ &#8712; [0, 1]:
+This format takes advantage of the golden angle properties using this formula to map integers _**z**_ &#8712; [0, 514261] to normalized parameter _**p**_ &#8712; [0, 1] and inverse:
 
 <img src="formulae/goldenint2norm.svg" width="164">
+
+<img src="formulae/norm2goldeninteger.svg" width="264">
+
 
 where *&#981;* is the golden ratio (&#8776; 1.618034):
 
 <img src="formulae/golden_ratio.svg" width="100">
 
-Normalized values are rounded to have only six digits after the decimal point. Using this truncated format there are 514263 different values available until a recurrence occurs.
+Normalized values are rounded to have only six digits after the decimal point. Using this truncated format there are 514262 different values available until a recurrence occurs.
 
 *build inverse function and test it.*
 
@@ -843,7 +846,7 @@ Encoded function indexes are generated using a golden angle iteration mapped on 
 
 <img src="formulae/encoded_function_index.svg" width="180">
 
-where *&#981;* is the golden ratio (&#8776; 1.618034), _**f<sub>e</sub>**_ is the index to identify the function in encoded genotypes and _**f<sub>d</sub>**_ is the correspondent decoded index, which is asigned incrementally in the catalogue. Encoded index numbers are rounded to have only six digits after the decimal point. Using this truncated format there are 514263 different indexes available until a recurrence occurs.
+where *&#981;* is the golden ratio (&#8776; 1.618034), _**f<sub>e</sub>**_ is the index to identify the function in encoded genotypes and _**f<sub>d</sub>**_ is the correspondent decoded index, which is asigned incrementally in the catalogue. Encoded index numbers are rounded to have only six digits after the decimal point. Using this truncated format there are 514262 different indexes available until a recurrence occurs.
 
 This map is used as the quantized function type **goldenintegerF** too [(more info)](#goldenintegerf-z).
 
