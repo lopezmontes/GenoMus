@@ -919,7 +919,7 @@ An encoded genotype is an unidimensional array of normalized values &isinv; [0, 
 
 |  type                                | identifier | value                  | example encoded &#x21C6; decoded 
 | ------------------------------------ | ---------- | ---------------------- | ------------------------------------
-| leaf <sub>normalized parameter</sub> | 0          | parameter              | `[0, 0.3]` &#x21C6; `"0.3"` 
+| leaf <sub>paramF</sub> | 0          | parameter              | `[0, 0.3]` &#x21C6; `"0.3"` 
 | leaf <sub>notevalueF</sub>           | 0.01       | normalized parameter   | `[0.01, 0.3]` &#x21C6; `"1/32"` 
 | leaf <sub>durationF</sub>            | 0.02       | normalized parameter   | `[0.02, 0.3]` &#x21C6; `"0.125"` 
 | leaf <sub>midipitchF</sub>           | 0.03       | normalized parameter   | `[0.03, 0.3]` &#x21C6; `"42"` 
