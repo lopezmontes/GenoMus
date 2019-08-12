@@ -439,7 +439,7 @@ This format takes advantage of the golden angle properties using this formula to
 
 <img src="formulae/goldenint2norm.svg" width="164">
 
-<img src="formulae/norm2goldeninteger.svg" width="400">
+<img src="formulae/norm2goldeninteger.svg" width="360">
 
 
 where *&#981;* is the golden ratio (&#8776; 1.618034):
