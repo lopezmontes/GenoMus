@@ -1091,7 +1091,7 @@ s(
 
 Visualization:
 
-<img src="figures/example_3_visualization.png" width="500">
+<img src="figures/example_3_visualization.png" width="719">
 
 #### Decoded phenotype
 <img src="figures/ex3_score.svg" width="140">
