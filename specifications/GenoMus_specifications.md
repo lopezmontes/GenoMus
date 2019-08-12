@@ -1147,7 +1147,9 @@ A species characterization must determine which mapping is employed for the deco
 
 The default species of GenoMus, called *piano*, uses this event parameter structure:
 
-`[<notevalueF>, <midipitchF_totalValuesN, <midipitchF_1>, <midipitchF_2>, ..., <midipitch_N>, <articulationF>, <intensityF>]`
+`[<notevalueF>, <n>, <midipitchF_1>, <midipitchF_2>, ..., <midipitch_n>, <articulationF>, <intensityF>]`
+
+The second parameter is a **midipitchF** *multiparameter*, which begins with _**n**_ as the total number of midipitch values (written as an encoded golden integer) followed by the series of values.
 
 For each parameter, decoded phenotypes use the [conversion rules](#parameter-mapping) of the invoked function types.
 
