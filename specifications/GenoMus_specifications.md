@@ -926,8 +926,9 @@ An encoded genotype is an unidimensional array of normalized values &isinv; [0, 
 | leaf <sub>frequencyF</sub>           | 0.04       | normalized parameter   | `[0.04, 0.3]` &#x21C6; `"162"` 
 | leaf <sub>articulationF</sub>        | 0.05       | normalized parameter   | `[0.05, 0.3]` &#x21C6; `"0.113708"` 
 | leaf <sub>intensityF</sub>           | 0.06       | normalized parameter   | `[0.06, 0.3]` &#x21C6; `"38.1"` 
-| leaf <sub>quantizedF</sub>           | 0.07       | normalized parameter   | `[0.07, 0.3]` &#x21C6; `"-6"` 
-| leaf <sub>*newtypeF*</sub>           | < 0.2      | normalized parameter   | `[<identifier>, 0.3]` &#x21C6; human-readable converted value 
+| leaf <sub>goldenintegerF</sub>       | 0.07       | normalized parameter   | `[0.07, 0.3]` &#x21C6; `"514262"` 
+| leaf <sub>quantizedF</sub>           | 0.08       | normalized parameter   | `[0.08, 0.3]` &#x21C6; `"-6"` 
+| leaf <sub>*newtypeF*</sub>           | < 0.25     | normalized parameter   | `[<identifier>, 0.3]` &#x21C6; human-readable converted value 
 | `[`                                  | 0.25       | -                      | `[0.25]` &#x21C6; `"["` 
 | `)` or  `),`                         | 0.5        | -                      | `[0.5]` &#x21C6; `"),"`
 | `]` or `],`                          | 0.75       | -                      | `[0.75]` &#x21C6; `"],"` 
