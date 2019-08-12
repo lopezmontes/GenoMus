@@ -917,22 +917,22 @@ An encoded genotype is an unidimensional array of normalized values &isinv; [0, 
 ---------
 ## Conversion table for genotypes
 
-|  type                                | identifier | value                  | example encoded &#x21C6; decoded 
-| ------------------------------------ | ---------- | ---------------------- | ------------------------------------
-| leaf <sub>paramF</sub> | 0          | parameter              | `[0, 0.3]` &#x21C6; `"0.3"` 
-| leaf <sub>notevalueF</sub>           | 0.01       | normalized parameter   | `[0.01, 0.3]` &#x21C6; `"1/32"` 
-| leaf <sub>durationF</sub>            | 0.02       | normalized parameter   | `[0.02, 0.3]` &#x21C6; `"0.125"` 
-| leaf <sub>midipitchF</sub>           | 0.03       | normalized parameter   | `[0.03, 0.3]` &#x21C6; `"42"` 
-| leaf <sub>frequencyF</sub>           | 0.04       | normalized parameter   | `[0.04, 0.3]` &#x21C6; `"162"` 
-| leaf <sub>articulationF</sub>        | 0.05       | normalized parameter   | `[0.05, 0.3]` &#x21C6; `"0.113708"` 
-| leaf <sub>intensityF</sub>           | 0.06       | normalized parameter   | `[0.06, 0.3]` &#x21C6; `"38.1"` 
-| leaf <sub>goldenintegerF</sub>       | 0.07       | normalized parameter   | `[0.07, 0.3]` &#x21C6; `"514262"` 
-| leaf <sub>quantizedF</sub>           | 0.08       | normalized parameter   | `[0.08, 0.3]` &#x21C6; `"-6"` 
-| leaf <sub>*newtypeF*</sub>           | *x* < 0.25 | normalized parameter   | `[x, 0.3]` &#x21C6; human-readable converted value 
-| `[`                                  | 0.25       | -                      | `[0.25]` &#x21C6; `"["` 
-| `)` or  `),`                         | 0.5        | -                      | `[0.5]` &#x21C6; `"),"`
-| `]` or `],`                          | 0.75       | -                      | `[0.75]` &#x21C6; `"],"` 
-| *function name* + `(`                | 1          | encoded function index | `[1, 0.304952]` &#x21C6; `"vMotif("`
+|  type                          | identifier        | value                  | example encoded &#x21C6; decoded 
+| ------------------------------ | ----------------- | ---------------------- | ------------------------------------
+| `)` or  `),`                   | 0                 | -                      | `[0]` &#x21C6; `"),"`
+| `[`                            | 0.25              | -                      | `[0.25]` &#x21C6; `"["` 
+| leaf <sub>paramF</sub>         | 0.5               | parameter              | `[0.5, 0.3]` &#x21C6; `"0.3"` 
+| leaf <sub>notevalueF</sub>     | 0.51              | normalized parameter   | `[0.51, 0.3]` &#x21C6; `"1/32"` 
+| leaf <sub>durationF</sub>      | 0.52              | normalized parameter   | `[0.52, 0.3]` &#x21C6; `"0.125"` 
+| leaf <sub>midipitchF</sub>     | 0.53              | normalized parameter   | `[0.53, 0.3]` &#x21C6; `"42"` 
+| leaf <sub>frequencyF</sub>     | 0.54              | normalized parameter   | `[0.54, 0.3]` &#x21C6; `"162"` 
+| leaf <sub>articulationF</sub>  | 0.55              | normalized parameter   | `[0.55, 0.3]` &#x21C6; `"0.113708"` 
+| leaf <sub>intensityF</sub>     | 0.56              | normalized parameter   | `[0.56, 0.3]` &#x21C6; `"38.1"` 
+| leaf <sub>goldenintegerF</sub> | 0.57              | normalized parameter   | `[0.57, 0.3]` &#x21C6; `"514262"` 
+| leaf <sub>quantizedF</sub>     | 0.58              | normalized parameter   | `[0.58, 0.3]` &#x21C6; `"-6"` 
+| leaf <sub>*newtypeF*</sub>     | 0.59 < *x* < 0.75 | normalized parameter   | `[x, 0.3]` &#x21C6; human-readable converted value 
+| `]` or `],`                    | 0.75              | -                      | `[0.75]` &#x21C6; `"],"` 
+| *function name* + `(`          | 1                 | encoded function index | `[1, 0.304952]` &#x21C6; `"vMotif("`
 
 ----------
 ## Formatting decoded genotypes
