@@ -999,7 +999,7 @@ s(
 
 <img src="figures/example_1_visualization.png" width="500">
 
-# &darr;
+<span style="fontsize: 20pt">&darr;</span>
 
 <img src="figures/minimal_phenotype.png" width="156">
 
