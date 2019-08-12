@@ -1,8 +1,11 @@
 // parameters mapping functions
 
-function norm2notevalue (p) {
+var norm2notevalue = function (p) {
     return decimalToFraction(Math.pow(2,10*p-8));
 }
+
+// abbreviated names of converters for quick manual use
+var p2n = norm2notevalue;
 
 function notevalue2norm (v) {
     return (Math.log10(v)+8*Math.log10(2))/(10*Math.log10(2));
@@ -125,7 +128,6 @@ var norm2goldeninteger = function (g) {
     var phi = (1+Math.sqrt(5))/2;
     var p = 0;
     var c = 0;
-    
     while (Math.abs(p - g)>0.0000009 && c < 514262) {
         c++;
         p = (p+phi) % 1;        
