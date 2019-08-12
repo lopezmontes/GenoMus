@@ -898,11 +898,11 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `la`          | **larticulationF**  | 1 <sub>.618034</sub> | `"la([1,1,0.5])"` &rarr; `[0.667539,0.667539,0.51729]`
 | `li`          | **lintensityF**     | 1 <sub>.618034</sub> | `"li([80,90])"` &rarr; `[0.629921,0.708402]`
 | `lz`          | **lgoldenintegerF** | 1 <sub>.618034</sub> | `"lz([10,8,6,3])"` &rarr; `[0.18034,0.944272,0.708204,0.854102]`
-| `lq`          | **lquantizedF**     | 0 <sub>.618034</sub> | `"lq([10,-10,0,-3,2])"` &rarr; `[0.79,0.21,0.5,0.36,0.6]`
+| `lq`          | **lquantizedF**     | 1 <sub>.618034</sub> | `"lq([10,-10,0,-3,2])"` &rarr; `[0.79,0.21,0.5,0.36,0.6]`
 | `o`           | **operationF**      | 0 <sub>0</sub>       | `"o(.5)"` &rarr; `[0.5]`
-| `b`           | **booleanF**        | 0 <sub>.618034</sub> | `"b(.5)"` &rarr; `[1]`
-| `r`           | **rhythmF**         | 0 <sub>.236068</sub> | `"r([0,6,20,[2,1],16])"` &rarr; `[0,0.3,1,[1,0.5],0.8]`
-| `h`           | **harmonyF**        |                      | `"h([0.03,0.02,0.69])"` &rarr; `[3,2,9]`
+| `b`           | **booleanF**        | 5 <sub>.09017</sub>  | `"b(.5)"` &rarr; `[1]`
+| `r`           | **rhythmF**         | 6 <sub>.708204</sub> | `"r([0,6,20,[2,1],16])"` &rarr; `[0,0.3,1,[1,0.5],0.8]`
+| `h`           | **harmonyF**        | 7 <sub>.326238</sub> | `"h([0.03,0.02,0.69])"` &rarr; `[3,2,9]`
 
 
 
