@@ -1049,7 +1049,7 @@ s(
 #### Encoded phenotype
 `[1, 1, 0.4, 1, 0.57, 0, 0.248547, 0.661417, 0, 0]`
 
-Visualization
+#### Visualization
 
 <img src="figures/example_2_visualization.png" width="500">
 
