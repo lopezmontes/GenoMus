@@ -1091,11 +1091,15 @@ s(
 
 #### Encoded genotype
 
-`[1, 1, 0,4, ]`
+`[1, 1, 0.7 ,0.618034, 0.51, 0.667539, 0.330709, 0.6 ,0.618034, 0.55, 0.667539, 0.330709, 0.7 ,0.618034, 0.51, 0.667539, 0.330709, 0.6 ,0.618034, 0.47, 0.667539, 0.330709, 0, 0]`
 
 #### Visualization
 
 <img src="figures/ex3_gen.png" width="719">
+
+&darr;
+
+<img src="figures/ex3_phen.png" width="375">
 
 #### Decoded phenotype
 <img src="figures/ex3_score.svg" width="140">
