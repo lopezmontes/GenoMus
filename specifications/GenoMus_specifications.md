@@ -997,11 +997,11 @@ s(
 
 #### Visualization of encoded genotype to encoded phenotype mapping
 
-<img src="figures/example_1_visualization.png" width="500">
+<img src="figures/ex1_gen.png" width="500">
 
 &darr;
 
-<img src="figures/minimal_phenotype.png" width="156">
+<img src="figures/ex1_phen.png" width="156">
 
 #### Decoded phenotype
 
@@ -1051,7 +1051,7 @@ s(
 
 #### Visualization
 
-<img src="figures/example_2_visualization.png" width="500">
+<img src="figures/ex2_gen.png" width="500">
 
 &darr;
 
@@ -1095,7 +1095,7 @@ s(
 
 #### Visualization
 
-<img src="figures/example_3_visualization.png" width="719">
+<img src="figures/ex3_gen.png" width="719">
 
 #### Decoded phenotype
 <img src="figures/ex3_score.svg" width="140">
