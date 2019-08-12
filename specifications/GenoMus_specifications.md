@@ -998,9 +998,7 @@ s(
 #### Visualization of encoded genotype to encoded phenotype mapping
 
 <img src="figures/example_1_visualization.png" width="500">
-
-<span style="font-size: 200%">&darr;</span>
-
+&darr;
 <img src="figures/minimal_phenotype.png" width="156">
 
 #### Decoded phenotype
