@@ -912,7 +912,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ---------
 # Encoding-decoding genotypes
 
-An encoded genotype is an unidimensional array of normalized values &isinv; [0, 1]. This encoded form is intended to be an abstract numeric equivalent to the decoded genotype. The purpose of encoding is to provide a representation of compositional procedures, suitable for different machine learning techniques such as evolutionary algorithms or neural networks.
+An encoded genotype is an unidimensional array of normalized values &isinv; [0, 1]. This encoded form is intended to be a pure numeric equivalent to the decoded genotype. The purpose of encoding is to provide an abstract representation of compositional procedures, suitable for different machine learning techniques such as evolutionary algorithms or neural networks.
 
 ---------
 ## Conversion table for genotypes
