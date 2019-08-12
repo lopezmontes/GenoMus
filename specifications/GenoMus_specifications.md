@@ -992,15 +992,13 @@ s(
 #### Encoded genotype
 `[1, 0.472136, 1, 0.854102, 1, 0.236068, 1, 0, 0, 0.5, 0.8, 0.2, 1, 0, 0, 0.5, 0.8, 0.2, 1, 0, 0, 0.5, 0.8, 0.2, 1, 0, 0, 0.5, 0.8, 0.8, 0.8, 0.8]`
 
-Visualization of this encoded genotype as a matrix of grayscale colors:
-
-<img src="figures/example_1_visualization.png" width="500">
-
 #### Encoded phenotype
 `[1, 1, 0.5, 1, 0.5, 0, 0.5, 0.5, 0, 0]`
 
-Visualization
+#### Visualization of encoded genotype to encoded phenotype mapping
 
+<img src="figures/example_1_visualization.png" width="500">
+&darr;
 <img src="figures/minimal_phenotype.png" width="156">
 
 #### Decoded phenotype
