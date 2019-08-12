@@ -1055,7 +1055,7 @@ s(
 
 &darr;
 
-<img src="figures/pheno_visual_2.png" width="141">
+<img src="figures/ex2_phen.png" width="141">
 
 #### Decoded phenotype
 
