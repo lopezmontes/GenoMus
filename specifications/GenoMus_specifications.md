@@ -927,12 +927,16 @@ An encoded genotype is an unidimensional array of normalized values &isinv; [0, 
 | leaf <sub>intensityF</sub>           | 0.06       | normalized parameter   | `[0.06, 0.3]` &#x21C6; `"38.1"` 
 | leaf <sub>quantizedF</sub>           | 0.07       | normalized parameter   | `[0.07, 0.3]` &#x21C6; `"-6"` 
 | leaf <sub>*newtypeF*</sub>           | < 0.2      | normalized parameter   | `[<identifier>, 0.3]` &#x21C6; human-readable converted value 
-| \[                                   | 0.25       | -                      | `[0.4]` &#x21C6; `"["` 
-| \) + ,                               | 0.5        | -                      | `[0.8]` &#x21C6; `"),"`
-| \] + ,                               | 0.75       | -                      | `[0.6]` &#x21C6; `"],"` 
-| function name + \(                   | 1          | encoded function index | `[1, 0.61803]` &#x21C6; `"functionName("`
+| `[`                                   | 0.25       | -                      | `[0.4]` &#x21C6; `"["` 
+| `)` or  `),`                               | 0.5        | -                      | `[0.8]` &#x21C6; `"),"`
+| `]` or `],`                               | 0.75       | -                      | `[0.6]` &#x21C6; `"],"` 
+| function name + `(`                   | 1          | encoded function index | `[1, 0.61803]` &#x21C6; `"functionName("`
 
-The last commas at enumarations can be removed when converting from encoded to encoded genotypes. So, the decoded expression `funcNameA(0.3,funcNameA([0.1, 0.2, [0, 1], 0.3]),0.2)`, if the encoded function index of **funcNameA** and **funcNameB** were 0.123 and 0.456, would be encoded as `[1, 0.123, 0, 0.3, 1, 0.456, 0.25, 0, 0.1, 0, 0.2, 0.25, 0, 0, 0, 1, 0.75, 0, 0.2, 0.5]`. 
+So, the decoded expression `funcNameA(0.3,funcNameA([0.1, 0.2, [0, 1], 0.3]),0.2)`, if the encoded function index of **funcNameA** and **funcNameB** were 0.123 and 0.456, would be encoded as `[1, 0.123, 0, 0.3, 1, 0.456, 0.25, 0, 0.1, 0, 0.2, 0.25, 0, 0, 0, 1, 0.75, 0, 0.2, 0.5]`. 
+
+
+
+The last commas after last element in enumarations and after closing parenthesis and bracketscan be removed when converting from encoded to encoded genotypes. 
 
 ---------
 # Encoding-decoding phenotypes
