@@ -135,26 +135,6 @@ var norm2goldeninteger = function (g) {
     return c;
 }
 
-//var norm2goldeninteger = function (g) {
-//
-//    switch g {
-//        190176:
-//            return 
-//            
-//            default:    
-//                var phi = (1+Math.sqrt(5))/2;
-//                var p = 0;
-//                var c = 0;
-//                while (Math.abs(p - g)>0.0000005 && c < 520000) {
-//                    c++;
-//                    p = (p+phi) % 1;        
-//                }
-//            return c;
-//    } 
-//
-//    
-//}
-
 
 var checkGoldenIntegerConversions = function (max) {
     var noError = true;

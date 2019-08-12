@@ -920,7 +920,7 @@ An encoded genotype is an unidimensional array of normalized values &isinv; [0, 
 |  type                          | identifier        | value                  | example encoded &#x21C6; decoded 
 | ------------------------------ | ----------------- | ---------------------- | ------------------------------------
 | `)` or  `),`                   | 0                 | -                      | `[0]` &#x21C6; `"),"`
-| `[`                            | 0.25              | -                      | `[0.25]` &#x21C6; `"["` 
+| `[`                            | 0.2               | -                      | `[0.2]` &#x21C6; `"["` 
 | leaf <sub>paramF</sub>         | 0.5               | parameter              | `[0.5, 0.3]` &#x21C6; `"0.3"` 
 | leaf <sub>notevalueF</sub>     | 0.51              | normalized parameter   | `[0.51, 0.3]` &#x21C6; `"1/32"` 
 | leaf <sub>durationF</sub>      | 0.52              | normalized parameter   | `[0.52, 0.3]` &#x21C6; `"0.125"` 
@@ -930,9 +930,9 @@ An encoded genotype is an unidimensional array of normalized values &isinv; [0, 
 | leaf <sub>intensityF</sub>     | 0.56              | normalized parameter   | `[0.56, 0.3]` &#x21C6; `"38.1"` 
 | leaf <sub>goldenintegerF</sub> | 0.57              | normalized parameter   | `[0.57, 0.3]` &#x21C6; `"514262"` 
 | leaf <sub>quantizedF</sub>     | 0.58              | normalized parameter   | `[0.58, 0.3]` &#x21C6; `"-6"` 
-| leaf <sub>*newtypeF*</sub>     | 0.3 < *x* < 0.7   | normalized parameter   | `[x, 0.3]` &#x21C6; human-readable converted value 
-| `]` or `],`                    | 0.75              | -                      | `[0.75]` &#x21C6; `"],"` 
-| *function name* + `(`          | 1                 | encoded function index | `[1, 0.304952]` &#x21C6; `"vMotif("`
+| leaf <sub>*newtypeF*</sub>     | 0.2 < *x* < 0.8   | normalized parameter   | `[x, 0.3]` &#x21C6; human-readable converted value 
+| `]` or `],`                    | 0.8               | -                      | `[0.8]` &#x21C6; `"],"` 
+| function name + `(`            | 1                 | encoded function index | `[1, 0.304952]` &#x21C6; `"vMotif("`
 
 For each new function type its identifier must be close to 0.5, but different from the identifiers already used. 
 
@@ -945,7 +945,7 @@ Given the decoded expression
 
 if the encoded function index of **funcNameA** and **funcNameB** were 0.123 and 0.456, the encoding process write 
 
-`[1, 0.123, 0, 0.3, 1, 0.456, 0.25, 0, 0.1, 0, 0.2, 0.25, 0, 0, 0, 1, 0.75, 0, 0.2, 0.5]`. 
+`[1, 0.123, 0.5, 0.3, 1, 0.456, 0.2, 0.5, 0.1, 0.5, 0.2, 0.2, 0.5, 0, 0.5, 1, 0.8, 0, 0.5, 0.2, 0]`. 
 
 Redecoding directly this last array produce
 
@@ -1026,7 +1026,7 @@ s(
 "
 ```
 #### Encoded genotype
-`[1, 0.472136, 1, 0.854102, 1, 0.236068, 1, 0, 0, 0.5, 0.5, 1, 0, 0, 0.5, 0.5, 1, 0, 0, 0.5, 0.5, 1, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5]`
+`[1, 0.472136, 1, 0.854102, 1, 0.236068, 1, 0, 0.5, 0.5, 0, 1, 0, 0.5, 0.5, 0, 1, 0, 0.5, 0.5, 0, 1, 0, 0.5, 0.5, 0, 0, 0, 0]`
 
 #### Encoded phenotype
 `[1, 1, 0.5, 0.618034, 0.5, 0.5, 0.5, 0, 0]`
@@ -1054,15 +1054,15 @@ This table shows the encoding/decoding of lexical tokens in this example:
 | `"v("`   | `[1, 0.854102]`
 | `"e("`   | `[1, 0.236068]`
 | `"n("`   | `[1, 0.09017]`
-| `"1/16"` | `[0.01, 0.4]`
-| `")"`    | `[0.8]`
-| `","`    | `[0.2]`
+| `"1/16"` | `[0.51, 0.4]`
+| `")"`    | `[0]`
+| `"),"`   | `[0]`
 | `"m("`   | `[1, 0.326238]`
-| `"69"`   | `[0.03, 0.57]`
+| `"69"`   | `[0.53, 0.57]`
 | `"a("`   | `[1, 0.562306]`
-| `"0.4"`  | `[0.05, 0.248547]`
+| `"0.4"`  | `[0.55, 0.248547]`
 | `"i("`   | `[1, 0.18034]`
-| `"80"`   | `[0.06, 0,629921]`
+| `"80"`   | `[0.56, 0.629921]`
 
 #### Decoded genotype
 ```
@@ -1073,14 +1073,14 @@ s(
          n(1/16),
          m(69),
          a(0.4),
-         i(84)
+         i(80)
       )
    )   
 )
 "
 ```
 #### Encoded genotype
-`[1, 0.472136, 1, 0.854102, 1, 0.236068, 1, 0.09017, 0.01, 0.4, 0.8, 0.2, 1, 0.326238, 0.03, 0.57, 0.8, 0.2, 1, 0.562306, 0.05, 0.248547, 0.8, 0.2, 1, 0.18034, 0.06, 0.661417, 0.8, 0.8, 0.8, 0.8]`
+`[[1, 0.472136, 1, 0.854102, 1, 0.236068, 1, 0.09017, 0.51, 0.4, 0, 1, 0.326238, 0.53, 0.57, 0, 1, 0.562306, 0.55, 0.248547, 0, 1, 0.18034, 0.56, 0.629921, 0, 0, 0, 0]]`
 
 #### Encoded phenotype
 `[1, 1, 0.4, 0.618034, 0.57, 0.248547, 0.661417, 0, 0]`
