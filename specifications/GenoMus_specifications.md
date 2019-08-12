@@ -932,7 +932,13 @@ An encoded genotype is an unidimensional array of normalized values &isinv; [0, 
 | `]` or `],`                               | 0.75       | -                      | `[0.6]` &#x21C6; `"],"` 
 | function name + `(`                   | 1          | encoded function index | `[1, 0.61803]` &#x21C6; `"functionName("`
 
-So, the decoded expression `funcNameA(0.3,funcNameA([0.1, 0.2, [0, 1], 0.3]),0.2)`, if the encoded function index of **funcNameA** and **funcNameB** were 0.123 and 0.456, would be encoded as `[1, 0.123, 0, 0.3, 1, 0.456, 0.25, 0, 0.1, 0, 0.2, 0.25, 0, 0, 0, 1, 0.75, 0, 0.2, 0.5]`. 
+So, the decoded expression 
+
+`funcNameA(0.3,funcNameA([0.1, 0.2, [0, 1], 0.3]),0.2)`, 
+
+if the encoded function index of **funcNameA** and **funcNameB** were 0.123 and 0.456, would be encoded as 
+
+`[1, 0.123, 0, 0.3, 1, 0.456, 0.25, 0, 0.1, 0, 0.2, 0.25, 0, 0, 0, 1, 0.75, 0, 0.2, 0.5]`. 
 
 
 
