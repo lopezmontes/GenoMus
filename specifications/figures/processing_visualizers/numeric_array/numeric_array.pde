@@ -1,4 +1,4 @@
-float[] numbers = {1, 1, 0.4, 1, 0.57, 0, 0.248547, 661417, 0, 0};
+float[] numbers = {1, 1, 0.4, 1, 0.57, 0, 0.248547, 0.661417, 0, 0};
 int arrayLength = numbers.length;
 
 size(1920, 82);

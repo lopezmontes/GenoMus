@@ -1046,14 +1046,14 @@ s(
 #### Encoded genotype
 `[1, 0.472136, 1, 0.854102, 1, 0.236068, 1, 0.09017, 0.01, 0.4, 0.8, 0.2, 1, 0.326238, 0.03, 0.57, 0.8, 0.2, 1, 0.562306, 0.05, 0.248547, 0.8, 0.2, 1, 0.18034, 0.06, 0.661417, 0.8, 0.8, 0.8, 0.8]`
 
-Visualization:
+#### Encoded phenotype
+`[1, 1, 0.4, 1, 0.57, 0, 0.248547, 0.661417, 0, 0]`
+
+Visualization
 
 <img src="figures/example_2_visualization.png" width="500">
 
-#### Encoded phenotype
-`[1, 1, 0.4, 1, 0.57, 0, 0.248547, 661417, 0, 0]`
-
-Visualization
+&darr;
 
 <img src="figures/pheno_visual_2.png" width="156">
 
