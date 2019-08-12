@@ -918,13 +918,13 @@ An encoded genotype is an unidimensional array of normalized values &isinv; [0, 
 | ------------------------------------ | ---------- | ---------------------- | ------------------------------------
 | leaf <sub>normalized parameter</sub> | 0          | parameter              | `[0, 0.3]` &#x21C6; `"0.3"` 
 | leaf <sub>notevalueF</sub>           | 0.01       | normalized parameter   | `[0.01, 0.3]` &#x21C6; `"1/32"` 
-| leaf <sub>durationF</sub>            | 0.02       | normalized parameter   | `[0.01, 0.3]` &#x21C6; `"0.125"` 
-| leaf <sub>midipitchF</sub>           | 0.03       | normalized parameter   | `[0.01, 0.3]` &#x21C6; `"42"` 
-| leaf <sub>frequencyF</sub>           | 0.04       | normalized parameter   | `[0.01, 0.3]` &#x21C6; `"162"` 
-| leaf <sub>articulationF</sub>        | 0.05       | normalized parameter   | `[0.01, 0.3]` &#x21C6; `"0.113708"` 
-| leaf <sub>intensityF</sub>           | 0.06       | normalized parameter   | `[0.01, 0.3]` &#x21C6; `"38.1"` 
-| leaf <sub>quantizedF</sub>           | 0.07       | normalized parameter   | `[0.01, 0.3]` &#x21C6; `"-6"` 
-| leaf <sub>*newtypeF*</sub>           | < 0.2      | normalized parameter   | `[0.01, 0.3]` &#x21C6; *normalized converted value* 
+| leaf <sub>durationF</sub>            | 0.02       | normalized parameter   | `[0.02, 0.3]` &#x21C6; `"0.125"` 
+| leaf <sub>midipitchF</sub>           | 0.03       | normalized parameter   | `[0.03, 0.3]` &#x21C6; `"42"` 
+| leaf <sub>frequencyF</sub>           | 0.04       | normalized parameter   | `[0.04, 0.3]` &#x21C6; `"162"` 
+| leaf <sub>articulationF</sub>        | 0.05       | normalized parameter   | `[0.05, 0.3]` &#x21C6; `"0.113708"` 
+| leaf <sub>intensityF</sub>           | 0.06       | normalized parameter   | `[0.06, 0.3]` &#x21C6; `"38.1"` 
+| leaf <sub>quantizedF</sub>           | 0.07       | normalized parameter   | `[0.07, 0.3]` &#x21C6; `"-6"` 
+| leaf <sub>*newtypeF*</sub>           | < 0.2      | normalized parameter   | `[<identifier>, 0.3]` &#x21C6; *normalized converted value* 
 | ,                                    | 0.2        | -                      | `[0.2]` &#x21C6; `","` 
 | \[                                   | 0.4        | -                      | `[0.4]` &#x21C6; `"\["` 
 | \]                                   | 0.6        | -                      | `[0.6]` &#x21C6; `"\]"` 
@@ -1042,7 +1042,7 @@ s(
 "
 ```
 #### Encoded genotype
-`[1, 0.618034, 1, 0.236068, 1, 0.854102, 1, 0.09017, 0.01, 0.4, 0.8, 0.2, 1, 0.708204, 0.03, 0.57, 0.8, 0.2, 1, 0.326238, 0.05, 0.248547, 0.8, 0.2, 1, 0.944272, 0.06, 0.661417, 0.8, 0.8, 0.8, 0.8]`
+`[1, 0.472136, 1, 0.854102, 1, 0.236068, 1, 0.09017, 0.01, 0.4, 0.8, 0.2, 1, 0.708204, 0.03, 0.57, 0.8, 0.2, 1, 0.326238, 0.05, 0.248547, 0.8, 0.2, 1, 0.944272, 0.06, 0.661417, 0.8, 0.8, 0.8, 0.8]`
 
 Visualization:
 
