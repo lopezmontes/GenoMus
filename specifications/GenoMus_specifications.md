@@ -900,7 +900,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `lq`          | **lquantizedF**     | 0 <sub>.618034</sub> | `"lq([10,-10,0,-3,2])"` &rarr; `[0.79,0.21,0.5,0.36,0.6]`
 | `o`           | **operationF**      | 0 <sub>0</sub>       | `"o(.5)"` &rarr; `[0.5]`
 | `b`           | **booleanF**        | 0 <sub>.618034</sub> | `"b(.5)"` &rarr; `[1]`
-| `r`           | **rhythmF**         | 0 <sub>.236068</sub> | `"r([0,3,10,8])"` &rarr; `[0,0.3,1,0.8]`
+| `r`           | **rhythmF**         | 0 <sub>.236068</sub> | `"r([0,6,20,16])"` &rarr; `[0,0.3,1,0.8]`
 | `h`           | **harmonyF**        |
 
 
