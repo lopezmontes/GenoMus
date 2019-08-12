@@ -226,7 +226,7 @@ Function types created to manage specific types of data (some of them are still 
 | function type   | identifier   | output
 | --------------- | ------------ | --------
 | **operationF**  | **o**        | result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
-| **binaryF**     | **b**        | boolean value (only 0 or 1)
+| **booleanF**     | **b**        | boolean value (only 0 or 1)
 | **rhythmF**     | **r**        | rhythmic pattern (nested array of floats &isinv; [0, 1])
 | **harmonyF**    | **h**        | pitch class sequence, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
 | **catalogueF**  | **c**        | pointer to an external genotype from a specimen catalogue (to be used with functions referencing external data)
@@ -877,28 +877,31 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 
 | function name | function type       | functionIndex        | example decoded genotype &rarr; encoded phenotype
 | ------------- | ------------------- | -------------------- | -------------------------------------------------
-| `p`           | **paramF**          | 1 <sub>.618034</sub> | `"p(.5)"` &rarr; `[0.5]` 
-| `l`           | **listF**           | 2 <sub>.236068</sub> | `"l([0,.3,1,.8])"` &rarr; `[0,0.3,1,0.8]`
-| `e`           | **eventF**          | 3 <sub>.854102</sub> | `"e(p(.5),p(.4),p(0),p(.8))"` &rarr; `[0.5,0.618034,0.4,0,0.8]` 
-| `v`           | **voiceF**          | 4 <sub>.472136</sub> | `"v(e(p(.5),p(.4),p(0),p(.8)))"` &rarr; `[0,0.5,0.618034,0.4,0,0.8,1]` 
-| `s`           | **scoreF**          | 5 <sub>.09017</sub>  | `"s(v(e(p(.5),p(.4),p(0),p(.8))))"` &rarr; `[0,0,0.5,0.618034,0.4,0,0.8,1,1]` 
-| `n`           | **notevalueF**      | 1 <sub>.618034</sub> | `"n(1/8)"` &rarr; `[0.5]`
-| `d`           | **durationF**       | 1 <sub>.618034</sub> | `"d(1)"` &rarr; `[0.6]`
-| `m`           | **midipitchF**      | 1 <sub>.618034</sub> | `"m(60)"` &rarr; `[0.48]`
-| `f`           | **frequencyF**      | 1 <sub>.618034</sub> | `"f(440)"` &rarr; `[0.385129]`
-| `a`           | **articulationF**   | 1 <sub>.618034</sub> | `"a(.5)"` &rarr; `[0.51729]`
-| `i`           | **intensityF**      | 1 <sub>.618034</sub> | `"i(127)"` &rarr; `[1]`
-| `z`           | **goldenintegerF**  | 1 <sub>.618034</sub> | `"z(1)"` &rarr; `[0.618034]`
-| `q`           | **quantizedF**      | 1 <sub>.618034</sub> | `"q(-2)"` &rarr; `[0.4]`
-| `ln`          | **lnotevalueF**     | 2 <sub>.236068</sub> | `"ln([1/8,1,1/2])"` &rarr; `[0.5,0.8,0.7]`
-| `ld`          | **ldurationF**      | 2 <sub>.236068</sub>  | `"ld([8,1,2])"` &rarr; `[0.9,0.6,0.7]`
-| `lm`          | **lmidipitchF**     | 2 <sub>.236068</sub>  | `"lm([70,69,71])"` &rarr; `[0.58,0.57,0.59]`
-| `lf`          | **lfrequencyF**     | 2 <sub>.236068</sub>  | `"lf([162,32,4802])"` &rarr; `[0.3,0.2,0.7]`
-| `la`          | **larticulationF**  | 2 <sub>.236068</sub>  | `"la([1,1,0.5])"` &rarr; `[0.667539,0.667539,0.51729]`
-| `li`          | **lintensityF**     | 2 <sub>.236068</sub>  | `"li([80,90])"` &rarr; `[0.629921,0.708402]`
-| `lz`          | **lgoldenintegerF** | 2 <sub>.236068</sub>  | `"lz([10,8,6,3])"` &rarr; `[0.18034,0.944272,0.708204,0.854102]`
-| `lq`          | **lquantizedF**     | 2 <sub>.236068</sub>  | `"lq([10,-10,0,-3,2])"` &rarr; `[0.79,0.21,0.5,0.36,0.6]`
-| `o`           | **operationF**      | 1 <sub>.618034</sub>  | `"o(.5)"` &rarr; `[0.5]`
+| `p`           | **paramF**          | 0 <sub>0</sub>       | `"p(.5)"` &rarr; `[0.5]` 
+| `l`           | **listF**           | 1 <sub>.618034</sub> | `"l([0,.3,1,.8])"` &rarr; `[0,0.3,1,0.8]`
+| `e`           | **eventF**          | 2 <sub>.236068</sub> | `"e(p(.5),p(.4),p(0),p(.8))"` &rarr; `[0.5,0.618034,0.4,0,0.8]` 
+| `v`           | **voiceF**          | 3 <sub>.854102</sub> | `"v(e(p(.5),p(.4),p(0),p(.8)))"` &rarr; `[0,0.5,0.618034,0.4,0,0.8,1]` 
+| `s`           | **scoreF**          | 4 <sub>.472136</sub> | `"s(v(e(p(.5),p(.4),p(0),p(.8))))"` &rarr; `[0,0,0.5,0.618034,0.4,0,0.8,1,1]` 
+| `n`           | **notevalueF**      | 0 <sub>0</sub>       | `"n(1/8)"` &rarr; `[0.5]`
+| `d`           | **durationF**       | 0 <sub>0</sub>       | `"d(1)"` &rarr; `[0.6]`
+| `m`           | **midipitchF**      | 0 <sub>0</sub>       | `"m(60)"` &rarr; `[0.48]`
+| `f`           | **frequencyF**      | 0 <sub>0</sub>       | `"f(440)"` &rarr; `[0.385129]`
+| `a`           | **articulationF**   | 0 <sub>0</sub>       | `"a(.5)"` &rarr; `[0.51729]`
+| `i`           | **intensityF**      | 0 <sub>0</sub>       | `"i(127)"` &rarr; `[1]`
+| `z`           | **goldenintegerF**  | 0 <sub>0</sub>       | `"z(1)"` &rarr; `[0.618034]`
+| `q`           | **quantizedF**      | 0 <sub>0</sub>       | `"q(-2)"` &rarr; `[0.4]`
+| `ln`          | **lnotevalueF**     | 1 <sub>.618034</sub> | `"ln([1/8,1,1/2])"` &rarr; `[0.5,0.8,0.7]`
+| `ld`          | **ldurationF**      | 1 <sub>.618034</sub> | `"ld([8,1,2])"` &rarr; `[0.9,0.6,0.7]`
+| `lm`          | **lmidipitchF**     | 1 <sub>.618034</sub> | `"lm([70,69,71])"` &rarr; `[0.58,0.57,0.59]`
+| `lf`          | **lfrequencyF**     | 1 <sub>.618034</sub> | `"lf([162,32,4802])"` &rarr; `[0.3,0.2,0.7]`
+| `la`          | **larticulationF**  | 1 <sub>.618034</sub> | `"la([1,1,0.5])"` &rarr; `[0.667539,0.667539,0.51729]`
+| `li`          | **lintensityF**     | 1 <sub>.618034</sub> | `"li([80,90])"` &rarr; `[0.629921,0.708402]`
+| `lz`          | **lgoldenintegerF** | 1 <sub>.618034</sub> | `"lz([10,8,6,3])"` &rarr; `[0.18034,0.944272,0.708204,0.854102]`
+| `lq`          | **lquantizedF**     | 0 <sub>.618034</sub> | `"lq([10,-10,0,-3,2])"` &rarr; `[0.79,0.21,0.5,0.36,0.6]`
+| `o`           | **operationF**      | 0 <sub>0</sub>       | `"o(.5)"` &rarr; `[0.5]`
+| `b`           | **booleanF**        | 0 <sub>.618034</sub> | `"b(.5)"` &rarr; `[1]`
+| `r`           | **rhythmF**         | 0 <sub>.236068</sub> | `"r([0,3,10,8])"` &rarr; `[0,0.3,1,0.8]`
+| `h`           | **harmonyF**        |
 
 
 
