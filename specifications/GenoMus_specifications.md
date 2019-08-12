@@ -55,6 +55,7 @@
   - [Identity functions](#identity-functions)  
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
   - [Conversion table for genotypes](#conversion-table-for-genotypes)
+  - [Formatting decoded genotypes](#formatting-decoded-genotypes)
 - [Encoding-decoding phenotypes](#encoding-decoding-phenotypes)
 - [Examples of specimens](#examples-of-specimens)
   - [Minimal specimen](#minimal-specimen)
@@ -932,15 +933,18 @@ An encoded genotype is an unidimensional array of normalized values &isinv; [0, 
 | `]` or `],`                          | 0.75       | -                      | `[0.75]` &#x21C6; `"],"` 
 | function name + `(`                  | 1          | encoded function index | `[1, 0.304952]` &#x21C6; `"vMotif("`
 
-So, the decoded expression 
+----------
+## Formatting decoded genotypes
+
+Given the decoded expression 
 
 `"funcNameA(0.3, funcNameA([0.1, 0.2, [0, 1], 0.3]), 0.2)"`, 
 
-if the encoded function index of **funcNameA** and **funcNameB** were 0.123 and 0.456, would be encoded as 
+if the encoded function index of **funcNameA** and **funcNameB** were 0.123 and 0.456, the encoding process write 
 
 `[1, 0.123, 0, 0.3, 1, 0.456, 0.25, 0, 0.1, 0, 0.2, 0.25, 0, 0, 0, 1, 0.75, 0, 0.2, 0.5]`. 
 
-Redecoding directly this last array would produce
+Redecoding directly this last array produce
 
 `"funcNameA(0.3,funcNameA([0.1,0.2,[0,1,],0.3,],),0.2,),"`.
 
