@@ -938,7 +938,7 @@ An encoded genotype is an unidimensional array of normalized values &isinv; [0, 
 
 Given the decoded expression 
 
-`"funcNameA(0.3, funcNameA([0.1, 0.2, [0, 1], 0.3]), 0.2)"`, 
+`"funcNameA(0.3, funcNameB([0.1, 0.2, [0, 1], 0.3]), 0.2)"`, 
 
 if the encoded function index of **funcNameA** and **funcNameB** were 0.123 and 0.456, the encoding process write 
 
@@ -946,11 +946,11 @@ if the encoded function index of **funcNameA** and **funcNameB** were 0.123 and 
 
 Redecoding directly this last array produce
 
-`"funcNameA(0.3,funcNameA([0.1,0.2,[0,1,],0.3,],),0.2,),"`.
+`"funcNameA(0.3,funcNameB([0.1,0.2,[0,1,],0.3,],),0.2,),"`.
 
 So, commas after last element in enumerations and after closing parenthesis and brackets are removed when decoding encoded genotypes, resulting in:
 
-`"funcNameA(0.3,funcNameA([0.1,0.2,[0,1],0.3]),0.2)"`.
+`"funcNameA(0.3,funcNameB([0.1,0.2,[0,1],0.3]),0.2)"`.
 
 When displaying decoded genotypes, further transformations are made to get better readability and editability:
 
@@ -958,7 +958,7 @@ When displaying decoded genotypes, further transformations are made to get bette
 "
 funcNameA(
    0.3,
-   funcNameA(
+   funcNameB(
       [0.1, 0.2, [0, 1], 0.3]
    ),
    0.2,
