@@ -932,7 +932,7 @@ An encoded genotype is an unidimensional array of normalized values &isinv; [0, 
 | `[`                                  | 0.25       | -                      | `[0.25]` &#x21C6; `"["` 
 | `)` or  `),`                         | 0.5        | -                      | `[0.5]` &#x21C6; `"),"`
 | `]` or `],`                          | 0.75       | -                      | `[0.75]` &#x21C6; `"],"` 
-| function name + `(`                  | 1          | encoded function index | `[1, 0.304952]` &#x21C6; `"vMotif("`
+| *function name* + `(`                | 1          | encoded function index | `[1, 0.304952]` &#x21C6; `"vMotif("`
 
 ----------
 ## Formatting decoded genotypes
