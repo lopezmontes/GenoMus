@@ -871,6 +871,8 @@ An identity function simply pass its arguments without any musical transformatio
 
 For the sake of simplicity, identity functions are named using only their corresponding function type identifiers. They serve primarily as wrappers and testing functions.
 
+Different functions can share their function index when they are totally equivalent. For example, `o`, identity function of operationF type, returns a normalized value without changes, exactly like function `p`. 
+
 Both function indexes, ordinal and encoded function index (smaller) are shown.
 
 | function name | function type       | functionIndex        | example decoded genotype &rarr; encoded phenotype
@@ -896,6 +898,9 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `li`          | **lintensityF**     | 2 <sub>.236068</sub>  | `"li([80,90])"` &rarr; `[0.629921,0.708402]`
 | `lz`          | **lgoldenintegerF** | 2 <sub>.236068</sub>  | `"lz([10,8,6,3])"` &rarr; `[0.18034,0.944272,0.708204,0.854102]`
 | `lq`          | **lquantizedF**     | 2 <sub>.236068</sub>  | `"lq([10,-10,0,-3,2])"` &rarr; `[0.79,0.21,0.5,0.36,0.6]`
+| `o`           | **operationF**      | 1 <sub>.618034</sub>  | `"o(.5)"` &rarr; `[0.5]`
+
+
 
 
 ---------
