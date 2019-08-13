@@ -4,7 +4,7 @@ float[] geno = {1, 0.472136, 1, 0.304952, 1, 0.27051, 0.8, 0.51, 0.7, 0.51, 0.6,
 float[] pheno = {1, 1, 0.7, 0.618034, 0.51, 0.667539, 0.330709, 0.6, 0.618034, 0.55, 0.667539, 0.330709, 0.7, 0.618034, 0.51, 0.667539, 0.330709, 0.6, 0.618034, 0.47, 0.667539, 0.330709, 0, 0};
 
 void setup() {
-  size(1600, 141, SVG, "visualization_ex3.svg");
+  size(1600, 142, SVG, "visualization_ex3.svg");
 }
 void draw() {
   for (int a=0; a<geno.length; a++) {
@@ -13,7 +13,7 @@ void draw() {
   }
   fill(0);
   textSize(32);
-  text("↓", 12, 75); 
+  text("↓", 12, 70); 
   for (int a=0; a<pheno.length; a++) {
     fill(255 - pheno[a]*255);
     rect(1+40*a, 101, 40, 40);
