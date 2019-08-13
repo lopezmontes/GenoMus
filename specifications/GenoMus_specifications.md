@@ -1109,7 +1109,7 @@ s(
 ---------
 ## Voice with lists
 
-This example uses the function `vMotif`, which create a sequence of events bases on lists. The longest list determines how many events are rendered. Shorter lists are used as loop until until reach the longest list length.
+This example uses the function `vMotif`, which creates a sequence of events bases on lists. The longest list determines how many events are rendered. Shorter lists are used as loops until the longest list length is reached.
 
 The lists in this genotype have been encoded as follows:
 
