@@ -62,6 +62,7 @@
   - [Minimal specimen](#minimal-specimen)
   - [Minimal specimen with human-readable leaf parameters](#minimal-specimen-with-human-readable-leaf-parameters)
   - [Voice with lists](#voice-with-lists)
+  - [Multiple voices and multiple scores](#multiple-voices-and-multiple-scores)
 - [Genotype substructures](#genotype-substructures)
     - [Genotype scaffolding](#genotype-scaffolding)
     - [Function network](#function-network)
@@ -1107,6 +1108,58 @@ s(
 <img src="figures/ex2_score.svg" width="57">
 
 ---------
+## Multiple voices
+
+The following example demostrate these concepts:
+
+- A score can be made of many scores (only) sequentially concatenated.
+- Poliphony is created adding voices vertically inside a score.
+
+This example uses these functions:
+
+- `sConcatS`, which concatenates two scores sequentially.
+- `sAddV`, which add a new voice vertically to a score.
+- `sRepeatV`, which display two voices vertically.
+- `vRepeatE`, which repeat an event a number of times.
+
+
+The two lists in this genotype have been encoded as follows:
+
+| decoded           | encoded
+| ------------------| -------
+| `"[1/2,1/4]"`     | `[0.8, 0.51, 0.7, 0.51, 0.6, 0.2]`
+| `"[63,67,63,58]"` | `[0.8, 0.53, 0.51, 0.53, 0.55, 0.53, 0.51, 0.53, 0.46, 0.2]`
+
+#### Decoded genotype
+```
+"
+s(
+   vMotif(
+      ln([1/2,1/4]),
+      lm([63,67,63,58]),
+      a(1),
+      i(42)
+   )
+)
+"
+```
+#### Encoded genotype
+`[1, 0.472136, 1, 0.304952, 1, 0.27051, 0.8, 0.51, 0.7, 0.51, 0.6, 0.2, 0, 1, 0.506578, 0.8, 0.53, 0.51, 0.53, 0.55, 0.53, 0.51, 0.53, 0.46, 0.2, 0, 1, 0.562306, 0.55, 0.667539, 0, 1, 0.18034, 0.56, 0,330709, 0, 0, 0]` 
+
+#### Encoded genotype
+
+`[1, 1, 0.7 ,0.618034, 0.51, 0.667539, 0.330709, 0.6 ,0.618034, 0.55, 0.667539, 0.330709, 0.7 ,0.618034, 0.51, 0.667539, 0.330709, 0.6 ,0.618034, 0.47, 0.667539, 0.330709, 0, 0]`
+
+#### Visualization
+
+<img src="figures/visualization_ex3.svg" width="800">
+
+--------
+#### Decoded phenotype
+<img src="figures/ex3_score.svg" width="140">
+
+---------
+---------
 ## Voice with lists
 
 This example uses the function `vMotif`, which creates a sequence of events bases on lists. The longest list determines how many events are rendered. Shorter lists are used as loops until the longest list length is reached.
@@ -1146,15 +1199,6 @@ s(
 #### Decoded phenotype
 <img src="figures/ex3_score.svg" width="140">
 
----------
-# Genotype operations
-## Creation
-### Generating encoded genoypes from random values
-
-Universal random search space. All vectors are a valid input.
-
-### Self-references
-## Mutation
 
 
 ---------
@@ -1175,6 +1219,19 @@ Universal random search space. All vectors are a valid input.
 [golden conversion]
 
 ---------
+
+
+# Genotype operations
+## Creation
+### Generating encoded genoypes from random values
+
+Universal random search space. All vectors are a valid input.
+
+### Self-references
+## Mutation
+
+
+
  
 # Initial conditions for generation of genotypes
 ## Species characterization
