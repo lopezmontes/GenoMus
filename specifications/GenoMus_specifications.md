@@ -741,7 +741,7 @@ Root, chord and mode parameters can lead to very different results. Data types a
 ---------
 ### chromaticism
 
-Chromaticism is applied as a kind of pitch quantization. The raw pitch values of a melodic sequence is *rounded* to a series of pitch classes. The degree of **chromaticism** is denoted with a normalized value, which determines how complex is the sequence of eligible pitch classes.
+**chromaticism** is applied as a kind of pitch quantization. The raw pitch values of a melodic sequence is *rounded* to a series of pitch classes. The degree of chromaticism is denoted with a normalized value, which determines how complex is the sequence of eligible pitch classes.
 
 This is the meaning of different values for chromaticism:
 
