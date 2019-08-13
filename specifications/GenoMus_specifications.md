@@ -736,7 +736,7 @@ A **chord** is a set of notes that determine the leading harmony of a passage, w
 
 Note that chord and mode are not pitch class sets because order matters. The position within the pitch sequences determines the priority of each pitch for low degrees of chromaticism (the first, the most important). 
 
-Root, chord and mode parameters can lead to very different results. Data types analog to harmonyF can be developed to create music with another tuning, microtonality or no tempered steps at all.
+Root, chord and mode parameters can lead to very different results. Data types analog to harmonyF can be developed to create music with another tuning, microtonality or without equally-tempered intervals.
 
 ---------
 ### chromaticism
