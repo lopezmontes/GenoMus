@@ -728,6 +728,7 @@ A **harmonic grid** is coded into an array following this data structure:
 
 **chord** and **mode** are not a pitch class sets because order matters. The position within the pitch sequences determines the priority of each pitch for low degrees of chromaticism (the first, the most important). 
 
+---------
 ### chromaticism
 
 Chromaticism is applied as a kind of pitch quantization. The raw pitch values of a melodic sequence is *rounded* to a series of pitch classes. The degree of **chromaticism** is denoted with a normalized value, which determines how complex is the sequence of eligible pitch classes.
@@ -740,6 +741,7 @@ This is the meaning of different values for chromaticism:
 | 0.5 < *c* &#8804; 0.8     | mode pitches classes are progressively integrated (0.500001 &rarr; only 1 new pitch class added, 0.8 &rarr; complete mode is employed)
 | 0.8 < *c* &#8804; 1       | all remaining pitch classes of the chromatic scale are integrated
 
+--------
 ### Example of harmonic motives
 
 Given this harmonic grid:
