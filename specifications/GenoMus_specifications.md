@@ -151,15 +151,15 @@ The **decoded genotype** is created only when the specimen is sent to another mu
 ## Genotype function template
 
 ```
-// function description
+// description
 var <iFunctionName> = function (argument1, argument2, ..., argumentN) {
     
-        < check block > // checks that the execution of the function will produce a phenotype that satisfies the constraints of the predetermined initial conditions
+    < check block > // checks that the execution of the function will produce a phenotype that satisfies the constraints of the predetermined initial conditions
 
     var funcType = "<functionType>"; // describes the type of the function itself
     var encPhen = []; // this array will contain the produced encoded phenotype
     
-        < core block > // executes the musical transformations of the function, writing the results in the variable encPhenOut, and calculating at the end of the process the updated values of phenLength, tempo, rhythm and harmony.
+    < core block > // executes the musical transformations of the function, writing the results in the variable encPhenOut, and calculating at the end of the process the updated values of phenLength, tempo, rhythm and harmony.
     
     var decGen = "<iFunctionName>(" + argument1[1] + "," + + argument2[1] + "," + ... argumentN[1] + ")"; // creates a string as a self-reference of the functional expression that has been evaluated.
     return writeSubexprReturnData(funcType, decGen, encPhen, phenLength, tempo, rhythm, harmony);
