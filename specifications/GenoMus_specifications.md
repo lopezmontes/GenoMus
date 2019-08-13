@@ -45,6 +45,7 @@
     - [quantization](#quantization)
     - [Example of rhythmic motives](#example-of-rhythmic-motives)
   - [Harmonic grid](#harmonic-grid)
+    - [root, chord and mode](#root-chord-and-mode)
     - [chromaticism](#chromaticism)
     - [Example of harmonic grids](#example-of-harmonic-grids)
 - [Function libraries](#function-libraries)  
@@ -726,7 +727,16 @@ A **harmonic grid** is coded into an array following this data structure:
 | 2     | **mode**         | harmonyF             | pitch class sequence (usually, a scale) containing the chord pitches using C (pitch class 0) as root 
 | 3     | **chromaticism** | float &isinv; [0, 1] | tolerance to chromatic notes (higher means more chromatic results)
 
-**chord** and **mode** are not a pitch class sets because order matters. The position within the pitch sequences determines the priority of each pitch for low degrees of chromaticism (the first, the most important). 
+---------
+### root, chord and mode
+
+The **root** note is used as origin to translate the rest of harmonic parameters.
+
+A **chord** is a set of notes that determine the leading harmony of a passage, while a **mode** is usually related to scales, and is a superset that contains the chord.
+
+Note that chord and mode are not pitch class sets because order matters. The position within the pitch sequences determines the priority of each pitch for low degrees of chromaticism (the first, the most important). 
+
+Root, chord and mode parameters can lead to very different results. Data types analog to harmonyF can be developed to create music with another tuning, microtonality or no tempered steps at all.
 
 ---------
 ### chromaticism
