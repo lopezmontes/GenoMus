@@ -1161,6 +1161,8 @@ This example uses these functions:
 - `vRepeatE`, which repeat an event a number of times.
 
 #### Decoded genotype
+
+##### Formated:
 ```
 "
 sConcatS(    
