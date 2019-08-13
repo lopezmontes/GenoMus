@@ -1125,11 +1125,7 @@ s(
 
 #### Visualization
 
-<img src="figures/ex3_gen.png" width="719">
-
-&darr;
-
-<img src="figures/ex3_phen.png" width="375">
+<img src="figures/visualization_ex3.png" width="800">
 
 #### Decoded phenotype
 <img src="figures/ex3_score.svg" width="140">
