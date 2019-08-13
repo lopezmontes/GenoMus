@@ -1035,7 +1035,7 @@ s(
 
 <sub>Visualization map normalized values to grayscale (0=white, 1=black).</sub>
 
-<img src="figures/visualization_ex1.png" width="500">
+<img src="figures/visualization_ex1.png" width="400">
 
 #### Decoded phenotype
 
