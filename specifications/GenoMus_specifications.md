@@ -1006,6 +1006,8 @@ The format of an encoded phenotype is formally identical to an encoded genotype:
 - All event values are normalized according to predefined [parameter maps](#parameter-mapping). 
 - If an event parameter uses more than one value, it is called *multiparameter*. The first float indicates the number of values needed (normalized as a [golden integer](#goldenintegerf-z)) followed by the values. 
 
+
+---------
 ## Decoded phenotype
 
 A decoded phenotype is any translation of an encoded phenotype readable for other software. Common formats for writing decoded phenotypes can be standard MIDI, MusicXML, Lilypond, readable messages for *bach.roll* and *bach.score* objects in Max, Csound, etc.
