@@ -730,7 +730,7 @@ A **harmonic grid** is coded into an array following this data structure:
 ---------
 ### root, chord and mode
 
-The **root** note is used as origin to translate the rest of harmonic parameters.
+The **root** note is used as origin to transpose the rest of harmonic parameters.
 
 A **chord** is a set of notes that determine the leading harmony of a passage, while a **mode** is usually related to scales, and is a superset that contains the chord.
 
