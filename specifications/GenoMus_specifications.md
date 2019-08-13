@@ -1236,8 +1236,6 @@ sConcatS(
 #### Decoded phenotype
 <img src="figures/ex4_score.svg" width="670">
 
-
-
 ---------
 # Genotype substructures
 ## Genotype scaffolding
