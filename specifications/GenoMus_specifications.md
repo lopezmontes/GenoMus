@@ -964,7 +964,7 @@ Redecoding directly this last array produce
 
 `"funcNameA(0.3,funcNameB([0.1,0.2,[0,1,],0.3,],),0.2,),"`.
 
-So, trailing commas after last element in enumerations and after closing parenthesis and brackets are removed when decoding encoded genotypes, resulting in:
+Trailing commas after last element in enumerations and after closing parenthesis and brackets are removed when decoding encoded genotypes, resulting in:
 
 `"funcNameA(0.3,funcNameB([0.1,0.2,[0,1],0.3]),0.2)"`.
 
