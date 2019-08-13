@@ -1110,7 +1110,7 @@ s(
 ---------
 ## Voice with lists
 
-This example uses the function `vMotif`, which creates a sequence of events bases on lists. The longest list determines how many events are rendered. Shorter lists are used as loops until the longest list length is reached.
+This example uses the function `vMotif`<sub>.304952</sub> (as subscript, its encoded function number). This function which creates a sequence of events bases on lists. The longest list determines how many events are rendered. Shorter lists are used as loops until the longest list length is reached.
 
 The two lists in this genotype have been encoded as follows:
 
@@ -1158,30 +1158,58 @@ This example uses these functions:
 
 - `sConcatS`, which concatenates two scores sequentially.
 - `sAddV`, which add a new voice vertically to a score.
-- `sRepeatV`, which display two voices vertically.
 - `vRepeatE`, which repeat an event a number of times.
-
-
-The two lists in this genotype have been encoded as follows:
-
-| decoded           | encoded
-| ------------------| -------
-| `"[1/2,1/4]"`     | `[0.8, 0.51, 0.7, 0.51, 0.6, 0.2]`
-| `"[63,67,63,58]"` | `[0.8, 0.53, 0.51, 0.53, 0.55, 0.53, 0.51, 0.53, 0.46, 0.2]`
 
 #### Decoded genotype
 ```
 "
-s(
-   vMotif(
-      ln([1/2,1/4]),
-      lm([63,67,63,58]),
-      a(1),
-      i(42)
-   )
+sConcatS(    
+   sAddV(
+      sAddV(
+         s(
+            vRepeatE(
+                e(
+                  n(1/16),
+                  m(71),
+                  a(.2),
+                  i(0.25)
+                ),
+                z(12)
+            )
+         ),
+         vRepeatE(
+            e(
+               n(1/12),
+               m(64),
+               a(.2),
+               i(0.15)
+            ),
+            z(7)
+         )
+      ),
+      vRepeatE(
+         e(
+            n(1/4),
+            m(78),
+            a(1),
+            i(0.25)
+         ),
+         z(2)
+      )
+   ),
+   s(
+      vMotif(
+         ln([1/2,1/4]),
+         lm([63,67,63,58]),
+         a(1),
+         i(42)
+      )
+   ) 
 )
 "
 ```
+
+
 #### Encoded genotype
 `[1, 0.472136, 1, 0.304952, 1, 0.27051, 0.8, 0.51, 0.7, 0.51, 0.6, 0.2, 0, 1, 0.506578, 0.8, 0.53, 0.51, 0.53, 0.55, 0.53, 0.51, 0.53, 0.46, 0.2, 0, 1, 0.562306, 0.55, 0.667539, 0, 1, 0.18034, 0.56, 0,330709, 0, 0, 0]` 
 
