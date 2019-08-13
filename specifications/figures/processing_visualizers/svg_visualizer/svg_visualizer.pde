@@ -9,14 +9,14 @@ void setup() {
 void draw() {
   for (int a=0; a<geno.length; a++) {
     fill(255 - geno[a]*255);
-    rect(0+40*a, 0, 40, 40);
+    rect(1+40*a, 1, 40, 40);
   }
   fill(0);
   textSize(32);
-  text("↓", 12, 82); 
+  text("↓", 12, 80); 
   for (int a=0; a<pheno.length; a++) {
     fill(255 - pheno[a]*255);
-    rect(0+40*a, 100, 40, 40);
+    rect(1+40*a, 101, 40, 40);
   }
   exit();
 }
