@@ -1162,7 +1162,7 @@ This example uses these functions:
 
 #### Decoded genotype
 
-##### Formated:
+##### Formatted:
 ```
 "
 sConcatS(    
@@ -1221,6 +1221,9 @@ sConcatS(
 )
 "
 ```
+
+##### Compressed
+```"sConcatS(sAddV(sAddV(s(vRepeatE(e(n(1/16),m(71),a(.2),i(0.25)),z(12))),vRepeatE(e(n(1/12),m(64),a(.2),i(0.15)),z(7))),vRepeatE(e(n(1/4),m(78),a(1),i(0.25)),z(2))),sAddV(s(vMotif(ln([1/2,1/4]),lm([63,67,63,58]),a(1),i(42))),vRepeatE(e(n(1/4),m(78),a(1),i(0.25)),z(2))))"```
 
 
 #### Encoded genotype
