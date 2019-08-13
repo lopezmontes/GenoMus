@@ -1,14 +1,22 @@
 import processing.svg.*;
 
+float[] geno = {1, 0.472136, 1, 0.304952, 1, 0.27051, 0.8, 0.51, 0.7, 0.51, 0.6, 0.2, 0, 1, 0.506578, 0.8, 0.53, 0.51, 0.53, 0.55, 0.53, 0.51, 0.53, 0.46, 0.2, 0, 1, 0.562306, 0.55, 0.667539, 0, 1, 0.18034, 0.56, 0, 330709, 0, 0, 0};
+float[] pheno = {1, 1, 0.7, 0.618034, 0.51, 0.667539, 0.330709, 0.6, 0.618034, 0.55, 0.667539, 0.330709, 0.7, 0.618034, 0.51, 0.667539, 0.330709, 0.6, 0.618034, 0.47, 0.667539, 0.330709, 0, 0};
+
 void setup() {
-  size(400, 400, SVG, "filename.svg");
+  size(1600, 141, SVG, "visualization_ex3.svg");
 }
-
 void draw() {
-  // Draw something good here
-  line(0, 0, width/2, height);
-
-  // Exit the program
-  println("Finished.");
+  for (int a=0; a<geno.length; a++) {
+    fill(255 - geno[a]*255);
+    rect(0+40*a, 0, 40, 40);
+  }
+  fill(0);
+  textSize(32);
+  text("↓", 12, 82); 
+  for (int a=0; a<pheno.length; a++) {
+    fill(255 - pheno[a]*255);
+    rect(0+40*a, 100, 40, 40);
+  }
   exit();
 }
