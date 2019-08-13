@@ -13,7 +13,7 @@ void draw() {
   }
   fill(0);
   textSize(32);
-  text("↓", 12, 80); 
+  text("↓", 12, 75); 
   for (int a=0; a<pheno.length; a++) {
     fill(255 - pheno[a]*255);
     rect(1+40*a, 101, 40, 40);
