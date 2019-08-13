@@ -1085,7 +1085,7 @@ s(
 
 #### Visualization
 
-<img src="figures/visualization_ex2.png" width="600">
+<img src="figures/visualization_ex2.svg" width="600">
 
 #### Decoded phenotype
 
