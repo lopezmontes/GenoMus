@@ -1156,9 +1156,9 @@ The following example demostrate these concepts:
 
 This example uses these functions:
 
-- `sConcatS`, which concatenates two scores sequentially.
-- `sAddV`, which add a new voice vertically to a score.
-- `vRepeatE`, which repeat an event a number of times.
+- `sConcatS`<sub>.54102</sub>, which concatenates two scores sequentially.
+- `sAddV`<sub>.159054</sub>, which adds a new voice vertically to a score.
+- `vRepeatE`<sub>.777088</sub>, which repeats an event a number of times.
 
 #### Decoded genotype
 
@@ -1235,7 +1235,7 @@ sConcatS(
 <img src="figures/visualization_ex3.svg" width="800">
 
 #### Decoded phenotype
-<img src="figures/ex4_score.svg" width="700">
+<img src="figures/ex4_score.svg" width="670">
 
 
 
