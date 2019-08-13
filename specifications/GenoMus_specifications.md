@@ -174,7 +174,7 @@ Genotype functions are classified by their output data.
 
 ---------
 ## Used function type identifiers
-~~**a** **b** **c** **d** **e** **f** **g** **h** **i**~~ j k ~~**l** **m** **n** **o** **p**~~ q ~~**r** **s** **t** **u** **v** **w** **x**~~ y ~~**z**~~
+~~**a** **b** **c** **d** **e** **f** **g** **h** **i**~~ j k ~~**l** **m** **n** **o** **p** **q** **r** **s** **t** **u** **v** **w**~~ x y ~~**z**~~
 
 ---------
 ## Main structures
@@ -192,7 +192,7 @@ The **leaf** type is a flag for terminal nodes. This is not really a type of fun
 
 ---------
 ## Human-readable leaf parameters
-Function types created to improve manual handling of decoded genotypes. These functions can replace a **paramF** functions in a leaf position of function tree.
+Function types created to improve readability and manual editing of decoded genotypes. These functions can replace a **paramF** functions in a leaf position of function tree.
 
 | function type      | identifier   | output
 | ------------------ | ------------ | --------
