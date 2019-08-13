@@ -1033,7 +1033,7 @@ s(
 
 #### Visualization of encoded genotype to encoded phenotype mapping
 
-<sub>Visualization map normalized values to grayscale (0=white, 1=black).</sub>
+<sub>Visualizations map normalized values to grayscale (0=white, 1=black).</sub>
 
 <img src="figures/visualization_ex1.png" width="600">
 
@@ -1127,6 +1127,7 @@ s(
 
 <img src="figures/visualization_ex3.png" width="800">
 
+--------
 #### Decoded phenotype
 <img src="figures/ex3_score.svg" width="140">
 
