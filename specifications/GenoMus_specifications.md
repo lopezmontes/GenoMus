@@ -171,7 +171,7 @@ The last line uses the auxiliary function **writeSubexprReturnData**, which stor
 
 ---------
 # Genotype function types
-Genotype functions are classified by their output data. 
+Genotype functions are classified by their output data. By convention, each type is has an identifier used as prefix for the names of all functions of that output type. 
 
 ---------
 ## Used function type identifiers
