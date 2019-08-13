@@ -765,7 +765,7 @@ Given this harmonic grid:
 }
 ```
 
-The algorithm follow these steps:
+The algorithm follows these steps:
 1. Set the tonal center with **root**. The value `0.68124` correspond to the pitch A&#9837;, applying this [conversion](#midipitchf-m). 
 2. Transpose pitch classes of **chord** and **mode** from C to G&#9839; (or A&#9837;) as root, keeping the same order: 
 
