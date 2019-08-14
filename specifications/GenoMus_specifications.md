@@ -1231,7 +1231,7 @@ sConcatS(
 
 #### Visualization
 
-<img src="figures/visualization_ex4.png" width="800">
+<img src="figures/visualization_ex4.svg" width="800">
 
 #### Decoded phenotype
 <img src="figures/ex4_score.svg" width="670">
