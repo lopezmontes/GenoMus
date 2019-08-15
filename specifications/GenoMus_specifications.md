@@ -927,7 +927,7 @@ This is a group of integrated functions that perform basic operations. As said b
 | vRepeatV      | 99 <sub>.123456</sub> | repeats a voice a number of times
 | sRepeatS      | 99 <sub>.123456</sub> | repeats a score a number of times
 | vIterExpr     | 99 <sub>.123456</sub> | repeats an expression a number of times, after a new reevaluation
-| vMotif        | 99 <sub>.123456</sub> | creates a sequence of events bases on lists
+| vMotif        | 99 <sub>.123456</sub> | creates a sequence of events based on lists
 
 
 ---------
@@ -1127,7 +1127,7 @@ s(
 ---------
 ## Voice with lists
 
-This example uses the function `vMotif`<sub>.304952</sub> (as subscript, its encoded function number). This function which creates a sequence of events bases on lists. The longest list determines how many events are rendered. Shorter lists are used as loops until the longest list length is reached.
+This example uses the function `vMotif`<sub>.304952</sub> (as subscript, its encoded function number). This function which creates a sequence of events based on lists. The longest list determines how many events are rendered. Shorter lists are used as loops until the longest list length is reached.
 
 The two lists in this genotype have been encoded as follows:
 
