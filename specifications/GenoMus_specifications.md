@@ -921,13 +921,71 @@ This is a group of integrated functions that perform basic operations. As said b
 
 | function name | functionIndex         | description
 | ------------- | --------------------- | -----------
+| pGaussRnd
+| pRnd
+| pRndRange
+| p
+| oSum
+| oDiff
+| oMult
+| oDiv
+| oMod
+| oPow
+| oLog
+| oSin
+| oCos
+| oFract
+| oFloor
+| oCeil
+| pAutoRef
+| lAutoRef
+| eAutoRef
+| vAutoRef
+| sAutoRef
+
+| hNaturalScale
+| hMelodicMinorScale
+| hHexatonicScale
+| hOctatonicScale
+| hLimitedTranspoScale
+
+| eInvert
+| lInvert
+| vInvert
+| sInvert
+| eTranspose
+| lTranspose
+| vTranspose
+| sTranspose
+| eRetrograd
+| lRetrograd
+| vRetrograd
+| sRetrograd
+| eRetrogradInversion
+| lRetrogradInversion
+| vRetrogradInversion
+| sRetrogradInversion
+
+
+
+
+
+
+| lConcatE
+| lConcatL
+| vConcatE      | 99 <sub>.123456</sub> | concatenates two events sequentially
 | sConcatS      | 99 <sub>.123456</sub> | concatenates two scores sequentially
+| eAddPitch     | 99 <sub>.123456</sub> | add a pitch to an event
 | sAddV         | 99 <sub>.123456</sub> | adds a new voice vertically to a score
 | vRepeatE      | 99 <sub>.123456</sub> | repeats an event a number of times
 | vRepeatV      | 99 <sub>.123456</sub> | repeats a voice a number of times
 | sRepeatS      | 99 <sub>.123456</sub> | repeats a score a number of times
 | vIterExpr     | 99 <sub>.123456</sub> | repeats an expression a number of times, after a new reevaluation
 | vMotif        | 99 <sub>.123456</sub> | creates a sequence of events based on lists
+| vMotifLoop    | 99 <sub>.123456</sub> | creates a sequence of events based on lists repeating lists
+| vDiatonize    | 99 <sub>.123456</sub> | diatonize a voice according to a harmonic grid
+| sDiatonize    | 99 <sub>.123456</sub> | diatonize a score according to a harmonic grid
+
 
 
 ---------
@@ -1127,7 +1185,7 @@ s(
 ---------
 ## Voice with lists
 
-This example uses the function `vMotif`<sub>.304952</sub> (as subscript, its encoded function number). This function which creates a sequence of events based on lists. The longest list determines how many events are rendered. Shorter lists are used as loops until the longest list length is reached.
+This example uses the function `vMotifLoop`<sub>.304952</sub> (as subscript, its encoded function number). This function which creates a sequence of events based on lists. The longest list determines how many events are rendered. Shorter lists are used as loops until the longest list length is reached.
 
 The two lists in this genotype have been encoded as follows:
 
@@ -1141,7 +1199,7 @@ The two lists in this genotype have been encoded as follows:
 ```
 "
 s(
-   vMotif(
+   vMotifLoop(
       ln([1/2,1/4]),
       lm([63,67,63,58]),
       a(1),
@@ -1152,7 +1210,7 @@ s(
 ```
 
 ##### Compressed
-`"s(vMotif(ln([1/2,1/4]),lm([63,67,63,58]),a(1),i(42)))"`
+`"s(vMotifLoop(ln([1/2,1/4]),lm([63,67,63,58]),a(1),i(42)))"`
 
 #### Encoded genotype
 `[1, 0.472136, 1, 0.304952, 1, 0.27051, 0.8, 0.51, 0.7, 0.51, 0.6, 0.2, 0, 1, 0.506578, 0.8, 0.53, 0.51, 0.53, 0.55, 0.53, 0.51, 0.53, 0.46, 0.2, 0, 1, 0.562306, 0.55, 0.667539, 0, 1, 0.18034, 0.56, 0,330709, 0, 0, 0]` 
@@ -1210,7 +1268,7 @@ sConcatS(
             z(18)
          )
       ),
-      vMotif(
+      vMotifLoop(
          ln([1/2,1/4]),
          lm([53,56,53,46]),
          a(1),
@@ -1219,7 +1277,7 @@ sConcatS(
    ),
    sAddV(
       s(
-         vMotif(
+         vMotifLoop(
             ln([1/2,1/4]),
             lm([63,67,63,58]),
             a(1),
@@ -1241,7 +1299,7 @@ sConcatS(
 ```
 
 ##### Compressed
-`"sConcatS(sAddV(sAddV(s(vRepeatE(e(n(1/16),lm([68,74,77]),a(.2),i(25)),z(24))),vRepeatE(e(n(1/12),lm([62,65]),a(.2),i(15)),z(18))),vMotif(ln([1/2,1/4]),lm([53,56,53,46]),a(1),i(64))),sAddV(s(vMotif(ln([1/2,1/4]),lm([63,67,63,58]),a(1),i(42))),vRepeatE(e(n(1/8),m(51),a(0.5),i(32)),z(12))))"`
+`"sConcatS(sAddV(sAddV(s(vRepeatE(e(n(1/16),lm([68,74,77]),a(.2),i(25)),z(24))),vRepeatE(e(n(1/12),lm([62,65]),a(.2),i(15)),z(18))),vMotifLoop(ln([1/2,1/4]),lm([53,56,53,46]),a(1),i(64))),sAddV(s(vMotifLoop(ln([1/2,1/4]),lm([63,67,63,58]),a(1),i(42))),vRepeatE(e(n(1/8),m(51),a(0.5),i(32)),z(12))))"`
 
 #### Encoded genotype
 `[1, 0.54102, 1, 0.159054, 1, 0.159054, 1, 0.472136, 1, 0.777088, 1, 0.236068, 1, 0.09017, 0.51, 0.4, 0, 1,  0.506578, 0.8, 0.53, 0.56, 0.53, 0.62, 0.53, 0.65, 0.2, 0, 1, 0.562306, 0.55, 0.369267, 0, 1, 0.18034, 0.56, 0.19685, 0, 0, 1, 0.798374, 0.57, 0.832816, 0, 0, 0, 1, 0.777088, 1, 0.236068, 1, 0.09017, 0.51, 0.441504, 0, 1,  0.506578, 0.8, 0.53, 0.5, 0.53, 0.53, 0.2, 0, 1, 0.562306, 0.55, 0.369267, 0, 1, 0.18034, 0.56, 0.11811, 0, 0, 1, 0.798374, 0.57, 0.124612, 0, 0, 0, 1, 0.304952, 1, 0.27051, 1, 0.8, 0.51, 0.7, 0.51, 0.61, 0.2, 0, 1,  0.506578, 0.8, 0.53, 0.41, 0.53, 0.44, 0.53, 0.41, 0.53, 0.34, 0.2, 0, 1, 0.562306, 0.55, 0.667539, 0, 1, 0.18034, 0.56, 0.503937, 0, 0, 0, 1, 0.159054, 1, 0.472136, 1, 0.304952, 1, 0.27051, 1, 0.8, 0.51, 0.7, 0.51, 0.61, 0.2, 0, 1,  0.506578, 0.8, 0.53, 0.51, 0.53, 0.55, 0.53, 0.51, 0.53, 0.461, 0.2, 0, 1, 0.562306, 0.55, 0.667539, 0, 1, 0.18034, 0.56, 0.330709, 0, 0, 0, 1, 0.777088, 1, 0.236068, 1, 0.09017, 0.51, 0.5, 0, 1, 0.326238, 0.53, 0.38, 0, 1, 0.562306, 0.55, 0.51729, 0, 1, 0.18034, 0.56, 0.251969, 0, 0, 1, 0.798374, 0.57, 0.416408, 0, 0, 0, 0]` 
