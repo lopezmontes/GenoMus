@@ -920,11 +920,17 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 This is a group of integrated functions that perform basic operations. As said before, lowercase prefixes indicate the function type according to their output.
 
 | domain | function name | functionIndex         | description
-| ------ | ------------- | --------------------- | -----------
+| ------     | ------------- | --------------------- | -----------
+
+
+Aleatoric processes
 | pGaussRnd
 | pRnd
 | pRndRange
 | p
+
+
+Mathematical operations
 | oSum
 | oDiff
 | oMult
@@ -943,11 +949,29 @@ This is a group of integrated functions that perform basic operations. As said b
 | vAutoRef
 | sAutoRef
 
+Scales
 | hNaturalScale
 | hMelodicMinorScale
 | hHexatonicScale
 | hOctatonicScale
 | hLimitedTranspoScale
+| hOrientalScale
+| hPentatonic
+| hPCSet
+| hBebopScale
+| hCluster
+
+Chords
+| eMajorChord
+| eMinorChord
+| eSeventhChord
+...
+
+| vInterval
+
+
+List manipulations
+| l
 
 | eInvert
 | lInvert
@@ -968,6 +992,15 @@ This is a group of integrated functions that perform basic operations. As said b
 
 
 
+Form
+
+| lABA
+| vABA
+| sABA
+
+| lABAB
+| vABAB
+| sABAB
 
 
 
@@ -980,9 +1013,14 @@ This is a group of integrated functions that perform basic operations. As said b
 | vRepeatE      | 99 <sub>.123456</sub> | repeats an event a number of times
 | vRepeatV      | 99 <sub>.123456</sub> | repeats a voice a number of times
 | sRepeatS      | 99 <sub>.123456</sub> | repeats a score a number of times
+
+
 | vIterExpr     | 99 <sub>.123456</sub> | repeats an expression a number of times, after a new reevaluation
+
+Motives
 | vMotif        | 99 <sub>.123456</sub> | creates a sequence of events based on lists
 | vMotifLoop    | 99 <sub>.123456</sub> | creates a sequence of events based on lists repeating lists
+
 | vDiatonize    | 99 <sub>.123456</sub> | diatonize a voice according to a harmonic grid
 | sDiatonize    | 99 <sub>.123456</sub> | diatonize a score according to a harmonic grid
 
