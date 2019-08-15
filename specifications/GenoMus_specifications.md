@@ -1257,28 +1257,23 @@ sConcatS(
 ## Genotype scaffolding
 
 ---------
-## Function network
+## Genotype branches and leaves
 
-The genotype **function network** is the function tree without leaves. This can be understood as the pure structure of compositional procedures regardless of the specific values of arguments. 
+The genotype functional tree can be divided into **branches** and **leaves**. The genotype braches are the function tree without leaves. This can be understood as the pure structure of compositional procedures regardless of the specific values of arguments. 
 
----------
-## Leaves
+The set of leaves is the complementary information to the branches network: a list of every leaf with a pointer to its position inside a genotype.  
 
-This is the complementary information to the function network: a dictionary with a list of every leaf with a pointer to its position inside a genotype.  
+Starting with this genotype, taken from [this example](#minimal-specimen-with-human-readable-leaf-parameters), 
 
-`"s(v(e(n(1/16),m(69),a(0.4),i(80))))"`
+`"s(v(e(n(1/16),m(69),a(0.4),i(80))))"`,
 
-#### Encoded genotype
-`[1, 0.472136, 1, 0.854102, 1, 0.236068, 1, 0.09017, 0.51, 0.4, 0, 1, 0.326238, 0.53, 0.57, 0, 1, 0.562306, 0.55, 0.248547, 0, 1, 0.18034, 0.56, 0.629921, 0, 0, 0, 0]`
+whose encoded equivalent is
 
-```
-{
-    "9": 0.4,
-    "14": 0.57,
-    "19": 0.248547,
-    "24": 0.629921
-}
-```
+`[1, 0.472136, 1, 0.854102, 1, 0.236068, 1, 0.09017, 0.51, 0.4, 0, 1, 0.326238, 0.53, 0.57, 0, 1, 0.562306, 0.55, 0.248547, 0, 1, 0.18034, 0.56, 0.629921, 0, 0, 0, 0]`,
+
+is possible to extract an array of arrays with positions and values of leaves. 
+
+`[[9, 0.4],[14, 0.57],[19, 0.248547],[24, 0.629921]]`
 
 ---------
 ## Subexpressions
