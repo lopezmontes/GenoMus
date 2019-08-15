@@ -1256,9 +1256,9 @@ sConcatS(
 ---------
 ## Branches and leaves
 
-The genotype functional tree can be divided into **branches** and **leaves**. Genotype braches network is the function tree without leaves. This can be understood as the pure structure of compositional procedures regardless of the specific values of arguments. 
+The genotype functional tree can be divided into **branches** and **leaves**. Genotype branches network is the function tree without leaves. This can be understood as the pure structure of compositional procedures regardless of the specific values of arguments. 
 
-The set of leaves is the complementary information to the branches network: a list of every leaf with a pointer to its position inside a genotype.  
+The set of leaves is the complementary information to the branches network: a list of every leaf value with a pointer to its position inside a genotype.  
 
 Starting with this genotype, taken from [this example](#minimal-specimen-with-human-readable-leaf-parameters), 
 
