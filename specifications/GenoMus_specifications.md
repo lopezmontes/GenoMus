@@ -1252,10 +1252,14 @@ sConcatS(
 
 ---------
 # Genotype substructures
+
+
 ## Genotype scaffolding
 
 ---------
 ## Function network
+
+The genotype **function network** is the function tree without leaves. This can be understood as the pure structure of compositional procedures regardless of the specific values of arguments.  
 
 ---------
 ## Leaves vector
