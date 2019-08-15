@@ -1256,7 +1256,7 @@ sConcatS(
 ---------
 ## Branches and leaves
 
-The genotype functional tree can be divided into **branches** and **leaves**. The genotype braches are the function tree without leaves. This can be understood as the pure structure of compositional procedures regardless of the specific values of arguments. 
+The genotype functional tree can be divided into **branches** and **leaves**. Genotype braches network is the function tree without leaves. This can be understood as the pure structure of compositional procedures regardless of the specific values of arguments. 
 
 The set of leaves is the complementary information to the branches network: a list of every leaf with a pointer to its position inside a genotype.  
 
@@ -1268,7 +1268,7 @@ whose encoded equivalent is
 
 `[1, 0.472136, 1, 0.854102, 1, 0.236068, 1, 0.09017, 0.51, 0.4, 0, 1, 0.326238, 0.53, 0.57, 0, 1, 0.562306, 0.55, 0.248547, 0, 1, 0.18034, 0.56, 0.629921, 0, 0, 0, 0]`,
 
-is possible to extract an array of arrays with positions and values of leaves. 
+is possible to extract an array of arrays with positions and values of leaves:
 
 `[[9, 0.4],[14, 0.57],[19, 0.248547],[24, 0.629921]]`
 
