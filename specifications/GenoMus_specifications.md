@@ -927,7 +927,34 @@ Aleatoric processes
 | pGaussRnd
 | pRnd
 | pRndRange
-| p
+| pRndDynamicRange
+| pRndDistribution
+| eRnd
+| vRnd
+| sRnd
+| eMutate
+| lMutate
+| vMutate
+| sMutate
+| lPermutate
+| vPermutate
+| sPermutate
+
+Algorithmic techniques
+| lBrownian
+| lCellularAutomata
+| lFibonacci
+| rEuclideanRhythm
+| lLogisticMap
+| lRecursiveEquation
+
+Spectral techniques
+| hHarmonicSeries
+| hSpectralMorphing
+| vSpectralize
+| sSpectralize
+
+
 
 
 Mathematical operations
@@ -943,11 +970,18 @@ Mathematical operations
 | oFract
 | oFloor
 | oCeil
+
+Internal autoreferences
 | pAutoRef
 | lAutoRef
 | eAutoRef
 | vAutoRef
 | sAutoRef
+
+External references
+| sGenotypeFromLibrary
+| lTextfileData
+
 
 Scales
 | hNaturalScale
@@ -971,7 +1005,23 @@ Chords
 
 
 List manipulations
-| l
+| lRotate
+| lLine
+| lExpon
+| lOscil
+| lSawtooth
+| lTriangular
+| lSquareOscil
+| lSmooth
+| lRough
+| lPolynomicGesture
+| lBezierGesture
+| lTrigonometricGesture
+
+Serial manipulations
+
+| hDodecaphonicSeries
+| hUniquePitchesSeries
 
 | eInvert
 | lInvert
@@ -981,6 +1031,10 @@ List manipulations
 | lTranspose
 | vTranspose
 | sTranspose
+| eTranspOctaves
+| lTranspOctaves
+| vTranspOctaves
+| sTranspOctaves
 | eRetrograd
 | lRetrograd
 | vRetrograd
@@ -989,7 +1043,15 @@ List manipulations
 | lRetrogradInversion
 | vRetrogradInversion
 | sRetrogradInversion
-
+| lRotate
+| vRotate
+| sRotate
+| lExpand
+| vExpand
+| sExpand
+| lExtrude
+| vExtrude
+| sExtrude
 
 
 Form
@@ -1002,7 +1064,19 @@ Form
 | vABAB
 | sABAB
 
+Poliphony
+| eTwoPitches
+| eThreePitches
+| eFourPitches
+| eFivePitches
+| eSixPitches
+| eManyPitches
 
+| sTwoV
+| sThreeV
+| sFourV
+| sFiveV
+| sSixV
 
 | lConcatE
 | lConcatL
@@ -1023,6 +1097,37 @@ Motives
 
 | vDiatonize    | 99 <sub>.123456</sub> | diatonize a voice according to a harmonic grid
 | sDiatonize    | 99 <sub>.123456</sub> | diatonize a score according to a harmonic grid
+| vPedalNote
+| vArpeggio
+
+Rhythm
+| sSimplifyRhythm
+| sComplicateRhythm
+| sIsorhythm
+| vAcciaccatura
+| vAppoggiatura
+| vTurn
+| vTrill
+| vJitter
+| vGliss
+
+Dynamics
+| vCresc
+| sCresc
+| vDim
+| sDim
+| vLouder
+| sLouder
+| vSofter
+| sSofter
+
+Tempo
+| vTempo
+| sTempo
+| vAccel
+| vRit
+| sAccel
+| sRit
 
 
 
