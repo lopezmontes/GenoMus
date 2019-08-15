@@ -919,8 +919,8 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## Elementary functions
 This is a group of integrated functions that perform basic operations. As said before, lowercase prefixes indicate the function type according to their output.
 
-| function name | functionIndex         | description
-| ------------- | --------------------- | -----------
+| domain | function name | functionIndex         | description
+| ------ | ------------- | --------------------- | -----------
 | pGaussRnd
 | pRnd
 | pRndRange
