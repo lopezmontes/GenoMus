@@ -1259,12 +1259,26 @@ sConcatS(
 ---------
 ## Function network
 
-The genotype **function network** is the function tree without leaves. This can be understood as the pure structure of compositional procedures regardless of the specific values of arguments.  
+The genotype **function network** is the function tree without leaves. This can be understood as the pure structure of compositional procedures regardless of the specific values of arguments. 
 
 ---------
 ## Leaves
 
-This is the complementary information to the function network: this 
+This is the complementary information to the function network: a dictionary with a list of every leaf with a pointer to its position inside a genotype.  
+
+`"s(v(e(n(1/16),m(69),a(0.4),i(80))))"`
+
+#### Encoded genotype
+`[1, 0.472136, 1, 0.854102, 1, 0.236068, 1, 0.09017, 0.51, 0.4, 0, 1, 0.326238, 0.53, 0.57, 0, 1, 0.562306, 0.55, 0.248547, 0, 1, 0.18034, 0.56, 0.629921, 0, 0, 0, 0]`
+
+```
+{
+    "9": 0.4,
+    "14": 0.57,
+    "19": 0.248547,
+    "24": 0.629921
+}
+```
 
 ---------
 ## Subexpressions
@@ -1342,8 +1356,7 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"phenotypeSeed"**
 - **"encodedGenotype"**: array of floats &isinv; [0, 1].
 - **"decodedGenotype"**: string containing the genotype function tree.
-- **"expandedGenotype"**: string containing the decoded genotype, formatted with blanks and line breaks to clearly display the function tree.
-- **"genotypeScaffolding"**: dictionary with pointers, length and output type of each substructure inside the encoded genotype.
+- **"formattedGenotype"**: string containing the decoded genotype, formatted with blanks and line breaks to clearly display the function tree.
 - **"functionNetwork"**: dictionary with all used functions and their corresponding position in the encoded genotype.
 - **"leaves"**: dictionary with all leaf values and their corresponding position in the encoded genotype. 
 - **"subexpressions"**: list of all functional substructures within a genotype, enumerated by output type and order of appearance.
@@ -1356,7 +1369,7 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - ...
 - **"encodedPhenotype"**: array of floats &isinv; [0, 1].
 - **"decodedPhenotype"**: phenotype converted to the desired formats (bach roll, bach score, lilypond, MusicXML, Csound, multimedia outputs, etc.)
-- **"automaticAnalysis"**: automatic analysis of many different musical characteristics of the specimen, all expressed as an normalized value &isinv; [0, 1]. A higher number means more complexity.  
+- **"automaticAnalysis"**: automatic analysis of many different musical characteristics of the specimen, each one expressed as a normalized value &isinv; [0, 1]. A higher number means more complexity.  
   - **"polyphony"**
   - **"rhythmicComplexity"**
   - **"chromatism"**
