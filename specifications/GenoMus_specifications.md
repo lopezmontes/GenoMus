@@ -1349,8 +1349,8 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
 - **"encodedGenotype"**: array of floats &isinv; [0, 1].
 - **"decodedGenotype"**: string containing the genotype function tree.
 - **"formattedGenotype"**: string containing the decoded genotype, formatted with blanks and line breaks to clearly display the function tree.
-- **"functionNetwork"**: dictionary with all used functions and their corresponding position in the encoded genotype.
-- **"leaves"**: dictionary with all leaf values and their corresponding position in the encoded genotype. 
+- **"branches"**: dictionary with all used functions and their corresponding position in the encoded genotype.
+- **"leaves"**: array with all leaf values and their corresponding position in the encoded genotype. 
 - **"subexpressions"**: list of all functional substructures within a genotype, enumerated by output type and order of appearance.
   - **"scoreF"**: subexpressions whose output is of type score.
   - **"voiceF"**: ...
