@@ -1176,7 +1176,7 @@ This example uses these functions:
 - `vRepeatE`<sub>.777088</sub>, which repeats an event a number of times.
 
 #### Decoded genotype
-##### Formatted:
+##### Formatted
 ```
 "
 sConcatS(    
