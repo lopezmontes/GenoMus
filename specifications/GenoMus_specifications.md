@@ -64,9 +64,7 @@
   - [Voice with lists](#voice-with-lists)
   - [Multiple voices and multiple scores](#multiple-voices-and-multiple-scores)
 - [Genotype substructures](#genotype-substructures)
-    - [Genotype scaffolding](#genotype-scaffolding)
-    - [Function network](#function-network)
-    - [Leaves vector](#leaves-vector)
+    - [Branches and leaves](#branches-and-leaves)
     - [Subexpressions](#subexpressions)
 - [Initial conditions for generation of genotypes](#initial-conditions-for-generation-of-genotypes)
   - [Species characterization](#species-characterization)
@@ -1255,8 +1253,6 @@ sConcatS(
 
 ---------
 # Genotype substructures
-
----------
 ## Branches and leaves
 
 The genotype functional tree can be divided into **branches** and **leaves**. Genotype branches network is the function tree without leaves. This can be understood as the pure structure of compositional procedures regardless of the specific values of arguments. 
