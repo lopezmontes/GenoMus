@@ -967,6 +967,13 @@ Mathematical operations
 | oLog
 | oSin
 | oCos
+| oTan
+| oArcsin
+| oArcos
+| oArctan
+| oSinh
+| oCosh
+| oTanh
 | oFract
 | oFloor
 | oCeil
@@ -1007,9 +1014,12 @@ Chords
 List manipulations
 | lRotate
 | lLine
+| lLinseg
 | lExpon
+| lExpseg
 | lOscil
 | lSawtooth
+| lPhasor
 | lTriangular
 | lSquareOscil
 | lSmooth
@@ -1099,6 +1109,9 @@ Motives
 | sDiatonize    | 99 <sub>.123456</sub> | diatonize a score according to a harmonic grid
 | vPedalNote
 | vArpeggio
+| vPedalSustain
+| sEchoV
+| sHarmonizer
 
 Rhythm
 | sSimplifyRhythm
