@@ -53,7 +53,8 @@
   - [Indexing a function in a GenoMus Function Library](#indexing-a-function-in-a-genomus-function-library)
   - [Encoded function index generation](#encoded-function-index-generation)
 - [Core functions](#core-functions)
-  - [Identity functions](#identity-functions)  
+  - [Identity functions](#identity-functions)
+  - [Elementary functions](#elementary-functions)
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
   - [Conversion table for genotypes](#conversion-table-for-genotypes)
   - [Formatting decoded genotypes](#formatting-decoded-genotypes)
@@ -921,7 +922,12 @@ This is a group of integrated functions that perform basic operations. As said b
 | function name | functionIndex         | description
 | ------------- | --------------------- | -----------
 | sConcatS      | 99 <sub>.123456</sub> | concatenates two scores sequentially
-
+| sAddV         | 99 <sub>.123456</sub> | adds a new voice vertically to a score
+| vRepeatE      | 99 <sub>.123456</sub> | repeats an event a number of times
+| vRepeatV      | 99 <sub>.123456</sub> | repeats a voice a number of times
+| sRepeatS      | 99 <sub>.123456</sub> | repeats a score a number of times
+| vIterExpr     | 99 <sub>.123456</sub> | repeats an expression a number of times, after a new reevaluation
+| vMotif        | 99 <sub>.123456</sub> | creates a sequence of events bases on lists
 
 
 ---------
