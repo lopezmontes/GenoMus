@@ -1262,9 +1262,9 @@ sConcatS(
 The genotype **function network** is the function tree without leaves. This can be understood as the pure structure of compositional procedures regardless of the specific values of arguments.  
 
 ---------
-## Leaves vector
+## Leaves
 
-
+This is the complementary information to the function network: this 
 
 ---------
 ## Subexpressions
@@ -1345,7 +1345,7 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
 - **"expandedGenotype"**: string containing the decoded genotype, formatted with blanks and line breaks to clearly display the function tree.
 - **"genotypeScaffolding"**: dictionary with pointers, length and output type of each substructure inside the encoded genotype.
 - **"functionNetwork"**: dictionary with all used functions and their corresponding position in the encoded genotype.
-- **"leavesVector"**: dictionary with all leaf values and their corresponding position in the encoded genotype. 
+- **"leaves"**: dictionary with all leaf values and their corresponding position in the encoded genotype. 
 - **"subexpressions"**: list of all functional substructures within a genotype, enumerated by output type and order of appearance.
   - **"scoreF"**: subexpressions whose output is of type score.
   - **"voiceF"**: ...
