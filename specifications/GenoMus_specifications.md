@@ -917,9 +917,12 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `o`           | **operationF**      | 23 <sub>.214782</sub> | `"o(.5)"` &rarr; `[0.5]`
 | `b`           | **booleanF**        | 24 <sub>.832816</sub> | `"b(.5)"` &rarr; `[1]`
 
+## Elementary functions
+This is a group of integrated functions that perform basic operations. As said before, lowercase prefixes indicate the function type according to their output.
 
-
-
+| function name | functionIndex         | description
+| ------------- | --------------------- | -----------
+| sConcatS      | 99 <sub>.123456</sub> | concatenates two scores sequentially
 
 
 
