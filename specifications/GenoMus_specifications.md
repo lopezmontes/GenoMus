@@ -1253,11 +1253,8 @@ sConcatS(
 ---------
 # Genotype substructures
 
-
-## Genotype scaffolding
-
 ---------
-## Genotype branches and leaves
+## Branches and leaves
 
 The genotype functional tree can be divided into **branches** and **leaves**. The genotype braches are the function tree without leaves. This can be understood as the pure structure of compositional procedures regardless of the specific values of arguments. 
 
