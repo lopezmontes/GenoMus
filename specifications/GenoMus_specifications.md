@@ -1027,6 +1027,7 @@ All these examples belong to the default *piano* species. Phenotypes have been d
 ---------
 ## Minimal specimen
 #### Decoded genotype
+##### Formatted
 ```
 "
 s(
@@ -1041,6 +1042,10 @@ s(
 )
 "
 ```
+
+##### Compressed
+`"s(v(e(p(.5),p(.5),p(.5),p(.5))))"`
+
 #### Encoded genotype
 `[1, 0.472136, 1, 0.854102, 1, 0.236068, 1, 0, 0.5, 0.5, 0, 1, 0, 0.5, 0.5, 0, 1, 0, 0.5, 0.5, 0, 1, 0, 0.5, 0.5, 0, 0, 0, 0]`
 
