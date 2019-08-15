@@ -1272,6 +1272,9 @@ is possible to extract an array of arrays with positions and values of leaves:
 
 `[[9, 0.4],[14, 0.57],[19, 0.248547],[24, 0.629921]]`
 
+Since all encoded leafs are normalized values, it is easy explore transformations of a genotype by manipulating them homogeneously, without distinguishing the type of parameter they represent, and injecting them back changing the corresponding positions of the encoded genotype.
+
+
 ---------
 ## Subexpressions
 
@@ -1349,7 +1352,6 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
 - **"encodedGenotype"**: array of floats &isinv; [0, 1].
 - **"decodedGenotype"**: string containing the genotype function tree.
 - **"formattedGenotype"**: string containing the decoded genotype, formatted with blanks and line breaks to clearly display the function tree.
-- **"branches"**: dictionary with all used functions and their corresponding position in the encoded genotype.
 - **"leaves"**: array with all leaf values and their corresponding position in the encoded genotype. 
 - **"subexpressions"**: list of all functional substructures within a genotype, enumerated by output type and order of appearance.
   - **"scoreF"**: subexpressions whose output is of type score.
