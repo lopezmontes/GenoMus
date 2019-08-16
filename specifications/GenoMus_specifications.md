@@ -1110,10 +1110,10 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## Spectralism
 | name                | index                          | description
 | ------------------- | ------------------------------ | -----------
-| `hHarmonicSeries`   | <sub>not yet implemented</sub> |
-| `hSpectralMorphing` | <sub>not yet implemented</sub> |
-| `vSpectralize`      | <sub>not yet implemented</sub> |
-| `sSpectralize`      | <sub>not yet implemented</sub> |
+| `hHarmonicSeries`   | <sub>not yet implemented</sub> | returns a harmonic series
+| `hSpectralMorphing` | <sub>not yet implemented</sub> | returns a harmonic series with some manipulations
+| `vSpectralize`      | <sub>not yet implemented</sub> | adjusts the pitches of a voice to a harmonic series
+| `sSpectralize`      | <sub>not yet implemented</sub> | adjusts the pitches of a score to a harmonic series
 
 ---------
 ## Serialism
