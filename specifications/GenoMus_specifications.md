@@ -922,244 +922,240 @@ This is a group of integrated functions that perform basic operations. As said b
 ### Aleatoric processes
 | function name | functionIndex | description
 | ------------- | --------------| -----------
-| pGaussRnd | |
-| pRnd | |
-| pRndRange | |
-| pRndDynamicRange | |
-| pRndDistribution | |
-| eRnd | |
-| vRnd | |
-| sRnd | |
-| eMutate | |
-| lMutate | |
-| vMutate | |
-| sMutate | |
-| lPermutate | |
-| vPermutate | |
-| sPermutate | |
+| `pGaussRnd` | |
+| `pRnd` | |
+| `pRndRange` | |
+| `pRndDynamicRange` | |
+| `pRndDistribution` | |
+| `eRnd` | |
+| `vRnd` | |
+| `sRnd` | |
+| `eMutate` | |
+| `lMutate` | |
+| `vMutate` | |
+| `sMutate` | |
+| `lPermutate` | |
+| `vPermutate` | |
+| `sPermutate` | |
 
 ### Algorithmic techniques
 | function name | functionIndex | description
 | ------------- | --------------| -----------
-| lBrownian | |
-| lCellularAutomata | |
-| lFibonacci | |
-| rEuclideanRhythm | |
-| lLogisticMap | |
-| lRecursiveEquation | |
+| `lBrownian` | |
+| `lCellularAutomata` | |
+| `lFibonacci` | |
+| `rEuclideanRhythm` | |
+| `lLogisticMap` | |
+| `lRecursiveEquation` | |
 
 Spectral techniques
-| hHarmonicSeries
-| hSpectralMorphing
-| vSpectralize
-| sSpectralize
+| `hHarmonicSeries`
+| `hSpectralMorphing`
+| `vSpectralize`
+| `sSpectralize`
 
 
 
 
 Mathematical operations
-| oSum
-| oDiff
-| oMult
-| oDiv
-| oMod
-| oPow
-| oLog
-| oSin
-| oCos
-| oTan
-| oArcsin
-| oArcos
-| oArctan
-| oSinh
-| oCosh
-| oTanh
-| oFract
-| oFloor
-| oCeil
+| `oSum`
+| `oDiff`
+| `oMult`
+| `oDiv`
+| `oMod`
+| `oPow`
+| `oLog`
+| `oSin`
+| `oCos`
+| `oTan`
+| `oArcsin`
+| `oArcos`
+| `oArctan`
+| `oSinh`
+| `oCosh`
+| `oTanh`
+| `oFract`
+| `oFloor`
+| `oCeil`
 
 Internal autoreferences
-| pAutoRef
-| lAutoRef
-| eAutoRef
-| vAutoRef
-| sAutoRef
+| `pAutoRef`
+| `lAutoRef`
+| `eAutoRef`
+| `vAutoRef`
+| `sAutoRef`
 
 External references
-| sGenotypeFromLibrary
-| lTextfileData
+| `sGenotypeFromLibrary`
+| `lTextfileData`
 
 
 Scales
-| hNaturalScale
-| hMelodicMinorScale
-| hHexatonicScale
-| hOctatonicScale
-| hLimitedTranspoScale
-| hOrientalScale
-| hPentatonic
-| hPCSet
-| hBebopScale
-| hCluster
+| `hNaturalScale`
+| `hMelodicMinorScale`
+| `hHexatonicScale`
+| `hOctatonicScale`
+| `hLimitedTranspoScale`
+| `hOrientalScale`
+| `hPentatonic`
+| `hPCSet`
+| `hBebopScale`
+| `hCluster`
 
 Chords
-| eMajorChord
-| eMinorChord
-| eSeventhChord
-...
-
-| vInterval
+| `eMajorChord`
+| `eMinorChord`
+| `eSeventhChord`
 
 
 List manipulations
-| lRotate
-| lLine
-| lLinseg
-| lExpon
-| lExpseg
-| lOscil
-| lSawtooth
-| lPhasor
-| lTriangular
-| lSquareOscil
-| lSmooth
-| lRough
-| lPolynomicGesture
-| lBezierGesture
-| lTrigonometricGesture
+| `lRotate`
+| `lLine`
+| `lLinseg`
+| `lExpon`
+| `lExpseg`
+| `lOscil`
+| `lSawtooth`
+| `lPhasor`
+| `lTriangular`
+| `lSquareOscil`
+| `lSmooth`
+| `lRough`
+| `lPolynomicGesture`
+| `lBezierGesture`
+| `lTrigonometricGesture`
 
 Serial manipulations
-| hDodecaphonicSeries
-| hUniquePitchesSeries
+| `hDodecaphonicSeries`
+| `hUniquePitchesSeries`
 
-| eInvert
-| lInvert
-| vInvert
-| sInvert
-| eTranspose
-| lTranspose
-| vTranspose
-| sTranspose
-| eTranspOctaves
-| lTranspOctaves
-| vTranspOctaves
-| sTranspOctaves
-| eRetrograd
-| lRetrograd
-| vRetrograd
-| sRetrograd
-| eRetrogradInversion
-| lRetrogradInversion
-| vRetrogradInversion
-| sRetrogradInversion
-| lRotate
-| vRotate
-| sRotate
-| lExpand
-| vExpand
-| sExpand
-| lExtrude
-| vExtrude
-| sExtrude
+| `eInvert`
+| `lInvert`
+| `vInvert`
+| `sInvert`
+| `eTranspose`
+| `lTranspose`
+| `vTranspose`
+| `sTranspose`
+| `eTranspOctaves`
+| `lTranspOctaves`
+| `vTranspOctaves`
+| `sTranspOctaves`
+| `eRetrograd`
+| `lRetrograd`
+| `vRetrograd`
+| `sRetrograd`
+| `eRetrogradInversion`
+| `lRetrogradInversion`
+| `vRetrogradInversion`
+| `sRetrogradInversion`
+| `lRotate`
+| `vRotate`
+| `sRotate`
+| `lExpand`
+| `vExpand`
+| `sExpand`
+| `lExtrude`
+| `vExtrude`
+| `sExtrude`
 
 
 Form
 
-| lABA
-| vABA
-| sABA
-
-| lABAB
-| vABAB
-| sABAB
+| `lABA`
+| `vABA`
+| `sABA`
+| `lABAB`
+| `vABAB`
+| `sABAB`
 
 Poliphony
-| eTwoPitches
-| eThreePitches
-| eFourPitches
-| eFivePitches
-| eSixPitches
-| eManyPitches
+| `eTwoPitches`
+| `eThreePitches`
+| `eFourPitches`
+| `eFivePitches`
+| `eSixPitches`
+| `eManyPitches`
 
-| sTwoV
-| sThreeV
-| sFourV
-| sFiveV
-| sSixV
+| `sTwoV`
+| `sThreeV`
+| `sFourV`
+| `sFiveV`
+| `sSixV`
 
-| lConcatE
-| lConcatL
-| vConcatE      | 99 <sub>.123456</sub> | concatenates two events sequentially
-| sConcatS      | 99 <sub>.123456</sub> | concatenates two scores sequentially
-| eAddPitch     | 99 <sub>.123456</sub> | add a pitch to an event
-| sAddV         | 99 <sub>.123456</sub> | adds a new voice vertically to a score
-| vRepeatE      | 99 <sub>.123456</sub> | repeats an event a number of times
-| vRepeatV      | 99 <sub>.123456</sub> | repeats a voice a number of times
-| sRepeatS      | 99 <sub>.123456</sub> | repeats a score a number of times
+| `lConcatE`
+| `lConcatL`
+| `vConcatE`      | 99 <sub>.123456</sub> | concatenates two events sequentially
+| `sConcatS`     | 99 <sub>.123456</sub> | concatenates two scores sequentially
+| `eAddPitch`     | 99 <sub>.123456</sub> | add a pitch to an event
+| `sAddV`         | 99 <sub>.123456</sub> | adds a new voice vertically to a score
+| `vRepeatE`      | 99 <sub>.123456</sub> | repeats an event a number of times
+| `vRepeatV`      | 99 <sub>.123456</sub> | repeats a voice a number of times
+| `sRepeatS`      | 99 <sub>.123456</sub> | repeats a score a number of times
 
 
-| vIterExpr     | 99 <sub>.123456</sub> | repeats an expression a number of times, after a new reevaluation
+| `vIterExpr`     | 99 <sub>.123456</sub> | repeats an expression a number of times, after a new reevaluation
 
 Motives
-| vMotif        | 99 <sub>.123456</sub> | creates a sequence of events based on lists
-| vMotifLoop    | 99 <sub>.123456</sub> | creates a sequence of events based on lists repeating lists
-
-| vDiatonize    | 99 <sub>.123456</sub> | diatonize a voice according to a harmonic grid
-| sDiatonize    | 99 <sub>.123456</sub> | diatonize a score according to a harmonic grid
-| vPedalNote
-| vArpeggio
-| sEchoV
-| sHarmonizer
+| `vInterval`
+| `vMotif`        | 99 <sub>.123456</sub> | creates a sequence of events based on lists
+| `vMotifLoop`    | 99 <sub>.123456</sub> | creates a sequence of events based on lists repeating lists
+| `vDiatonize`   | 99 <sub>.123456</sub> | diatonize a voice according to a harmonic grid
+| `sDiatonize`   | 99 <sub>.123456</sub> | diatonize a score according to a harmonic grid
+| `vPedalNote`
+| `vArpeggio`
+| `sEchoV`
+| `sHarmonizer`
 
 Rhythm
-| sSimplifyRhythm
-| sComplicateRhythm
-| sIsorhythm
-| vAcciaccatura
-| vAppoggiatura
-| vTurn
-| vTrill
-| vJitter
-| vGliss
+| `sSimplifyRhythm`
+| `sComplicateRhythm`
+| `sIsorhythm`
+| `vAcciaccatura`
+| `vAppoggiatura`
+| `vTurn`
+| `vTrill`
+| `vJitter`
+| `vGliss`
 
 Dynamics
-| vCresc
-| sCresc
-| vDim
-| sDim
-| vLouder
-| sLouder
-| vSofter
-| sSofter
-| eMute
+| `vCresc`
+| `sCresc`
+| `vDim`
+| `sDim`
+| `vLouder`
+| `sLouder`
+| `vSofter`
+| `sSofter`
+| `eMute`
 
 Tempo
-| vTempo
-| sTempo
-| vAccel
-| vRit
-| sAccel
-| sRit
+| `vTempo`
+| `sTempo`
+| `vAccel`
+| `vRit`
+| `sAccel`
+| `sRit`
 
 Articulation
-| vLegatissimo
-| sLegatissimo
-| vNonLegato
-| sNonLegato
-| vLegato
-| sLegato
-| vStaccato
-| sStaccato
-| vStaccatissimo
-| sStaccatissimo
+| `vLegatissimo`
+| `sLegatissimo`
+| `vNonLegato`
+| `sNonLegato`
+| `vLegato`
+| `sLegato`
+| `vStaccato`
+| `sStaccato`
+| `vStaccatissimo`
+| `sStaccatissimo`
 
-| vPedalSustain
-| eMarcato
+| `vPedalSustain`
+| `eMarcato`
 
 Manual manipulation of genotypes | uEVOLVE
-| uFREEZE
-| uFLATTEN
-| uEXTRACT
+| `uFREEZE`
+| `uFLATTEN`
+| `uEXTRACT`
 
 ---------
 # Encoding-decoding genotypes
