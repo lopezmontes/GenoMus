@@ -1139,15 +1139,14 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `vRetrogInvert`  | <sub>not yet implemented</sub> | retrogrades and inverts pitches of a voice
 | `sRetrogInvert`  | <sub>not yet implemented</sub> | retrogrades and inverts pitches of a score
 | `eRotate`              | <sub>not yet implemented</sub> | rotates pitches of an event according to its intervallic structure
-| `lRotate`              | <sub>not yet implemented</sub> |
-| `vRotate`              | <sub>not yet implemented</sub> |
-| `sRotate`              | <sub>not yet implemented</sub> |
-| `lExpand`              | <sub>not yet implemented</sub> |
-| `vExpand`              | <sub>not yet implemented</sub> |
-| `sExpand`              | <sub>not yet implemented</sub> |
-| `lExtrude`             | <sub>not yet implemented</sub> |
-| `vExtrude`             | <sub>not yet implemented</sub> |
-| `sExtrude`             | <sub>not yet implemented</sub> |
+| `lRotate`              | <sub>not yet implemented</sub> | rotates values of a list
+| `eExpand`              | <sub>not yet implemented</sub> | expands pitches of an event according to a factor
+| `lExpand`              | <sub>not yet implemented</sub> | expands values of a list according to a factor
+| `vExpand`              | <sub>not yet implemented</sub> | expands pitches of a voice according to a factor
+| `sExpand`              | <sub>not yet implemented</sub> | expands pitches of a score according to a factor
+| `lExtrude`             | <sub>not yet implemented</sub> | deforms values of a list according to a curve
+| `vExtrude`             | <sub>not yet implemented</sub> | deforms pitches of a voice according to a curve
+| `sExtrude`             | <sub>not yet implemented</sub> | deforms pitches of a score according to a curve
 
 ---------
 ## Aleatoric processes
