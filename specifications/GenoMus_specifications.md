@@ -1119,28 +1119,26 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## Serialism
 | name                   | index                          | description
 | ---------------------- | ------------------------------ | -----------
-| `hDodecaphonicSeries`  | <sub>not yet implemented</sub> |
-| `hUniquePitchesSeries` | <sub>not yet implemented</sub> |
-| `eInvert`              | <sub>not yet implemented</sub> |
-| `lInvert`              | <sub>not yet implemented</sub> |
-| `vInvert`              | <sub>not yet implemented</sub> |
-| `sInvert`              | <sub>not yet implemented</sub> |
-| `eTranspose`           | <sub>not yet implemented</sub> |
-| `lTranspose`           | <sub>not yet implemented</sub> |
-| `vTranspose`           | <sub>not yet implemented</sub> |
-| `sTranspose`           | <sub>not yet implemented</sub> |
-| `eTranspOctaves`       | <sub>not yet implemented</sub> |
-| `lTranspOctaves`       | <sub>not yet implemented</sub> |
-| `vTranspOctaves`       | <sub>not yet implemented</sub> |
-| `sTranspOctaves`       | <sub>not yet implemented</sub> |
-| `eRetrograd`           | <sub>not yet implemented</sub> |
-| `lRetrograd`           | <sub>not yet implemented</sub> |
-| `vRetrograd`           | <sub>not yet implemented</sub> |
-| `sRetrograd`           | <sub>not yet implemented</sub> |
-| `eRetrogradInversion`  | <sub>not yet implemented</sub> |
-| `lRetrogradInversion`  | <sub>not yet implemented</sub> |
-| `vRetrogradInversion`  | <sub>not yet implemented</sub> |
-| `sRetrogradInversion`  | <sub>not yet implemented</sub> |
+| `hDodecaphonicToneRow` | <sub>not yet implemented</sub> | returns a canonic dodecaphonic tone row
+| `hUniquePitchesRow`    | <sub>not yet implemented</sub> | returns a row of 2 to 11 pitches without repetitions
+| `eInvert`              | <sub>not yet implemented</sub> | inverts pitches of an event
+| `lInvert`              | <sub>not yet implemented</sub> | inverts values of a list
+| `vInvert`              | <sub>not yet implemented</sub> | inverts pitches of a voice
+| `sInvert`              | <sub>not yet implemented</sub> | inverts pitches of a score
+| `eTransp`           | <sub>not yet implemented</sub> | transposes pitches of an event
+| `lTransp`           | <sub>not yet implemented</sub> | transposes values of a list
+| `vTransp`           | <sub>not yet implemented</sub> | transposes pitches of a voice
+| `sTransp`           | <sub>not yet implemented</sub> | transposes pitches of a score
+| `eTranspOctav`       | <sub>not yet implemented</sub> | transposes pitches of an event only octaves
+| `vTranspOctav`       | <sub>not yet implemented</sub> | transposes pitches of a voice only octaves
+| `sTranspOctav`       | <sub>not yet implemented</sub> | transposes pitches of a score only octaves
+| `lRetrog`           | <sub>not yet implemented</sub> | retrogrades values of a list
+| `vRetrog`           | <sub>not yet implemented</sub> | retrogrades pitches of a voice
+| `sRetrog`           | <sub>not yet implemented</sub> | retrogrades pitches of a score
+| `lRetrogInvert`  | <sub>not yet implemented</sub> | retrogrades and inverts values of a list
+| `vRetrogInvert`  | <sub>not yet implemented</sub> | retrogrades and inverts pitches of a voice
+| `sRetrogInvert`  | <sub>not yet implemented</sub> | retrogrades and inverts pitches of a score
+| `eRotate`              | <sub>not yet implemented</sub> | rotates pitches of an event according to his intervalic structure
 | `lRotate`              | <sub>not yet implemented</sub> |
 | `vRotate`              | <sub>not yet implemented</sub> |
 | `sRotate`              | <sub>not yet implemented</sub> |
