@@ -992,15 +992,17 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## Phrasing
 | name | index | description |
 | ---- | ----- | -----------
-| `vInterval` | <sub>not yet implemented</sub> |
+| `vInterval` | <sub>not yet implemented</sub> | repeats previous note changing pitch according to an interval
 | `vMotif` | <sub>not yet implemented</sub> | creates a sequence of events based on lists
-| `vMotifLoop` | <sub>not yet implemented</sub> | creates a sequence of events based on lists repeating lists
-| `vDiatonize` | <sub>not yet implemented</sub> | diatonize a voice according to a harmonic grid
-| `sDiatonize` | <sub>not yet implemented</sub> | diatonize a score according to a harmonic grid
-| `vPedalNote` | <sub>not yet implemented</sub> |
-| `vArpeggio` | <sub>not yet implemented</sub> |
-| `vProgression` | <sub>not yet implemented</sub> |
-| `sEchoV` | <sub>not yet implemented</sub> |
+| `vMotifLoop` | <sub>not yet implemented</sub> | creates a sequence of events based on repeating lists
+| `vPerpetuumMobile` | <sub>not yet implemented</sub> | creates a sequence of events based on repeating lists but with a single notevalue
+| `vPerpetuumMobileLoop` | <sub>not yet implemented</sub> | creates a sequence of events based on lists but with a single notevalue
+| `vDiatonize` | <sub>not yet implemented</sub> | diatonizes a voice according to a harmonic grid
+| `sDiatonize` | <sub>not yet implemented</sub> | diatonizes a score according to a harmonic grid
+| `sPedalNote` | <sub>not yet implemented</sub> | adds a new voice consisting of a single sustained note to a score  
+| `vArpeggio` | <sub>not yet implemented</sub> | creates an arpeggio according to a harmonic grid
+| `vProgression` | <sub>not yet implemented</sub> | creates a progression repeating a motif at a transposition interval 
+| `sEchoV` | <sub>not yet implemented</sub> | adds a new voice repeating a voice at a time interval
 
 ---------
 ## Poliphony
