@@ -954,8 +954,8 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## External references
 | name | index | description |
 | ---- | ----- | -----------
-| `sGenotypeFromLibrary` | <sub>not yet implemented</sub> |
-| `lTextfileData` | <sub>not yet implemented</sub> |
+| `sGenotypeFromLibrary` | <sub>not yet implemented</sub> | read and insert a genotype from an external library of genotypes
+| `lTextfileData` | <sub>not yet implemented</sub> | read and insert a list of values from an external textfile
 
 ---------
 ## Form
