@@ -1138,7 +1138,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `lRetrogInvert`  | <sub>not yet implemented</sub> | retrogrades and inverts values of a list
 | `vRetrogInvert`  | <sub>not yet implemented</sub> | retrogrades and inverts pitches of a voice
 | `sRetrogInvert`  | <sub>not yet implemented</sub> | retrogrades and inverts pitches of a score
-| `eRotate`              | <sub>not yet implemented</sub> | rotates pitches of an event according to his intervalic structure
+| `eRotate`              | <sub>not yet implemented</sub> | rotates pitches of an event according to its intervallic structure
 | `lRotate`              | <sub>not yet implemented</sub> |
 | `vRotate`              | <sub>not yet implemented</sub> |
 | `sRotate`              | <sub>not yet implemented</sub> |
