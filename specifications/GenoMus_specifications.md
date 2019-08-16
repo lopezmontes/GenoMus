@@ -799,15 +799,15 @@ The following tables show how increasing degrees of chromaticism affect to this 
 
 | chromaticism (*c*) ranges of values | eligible pitch classes        | result
 | ----------------------------------- | ----------------------------- | ----
-| 0 &#8804; *c* < 0.1                 | `[7]` (monochordal)                         | <img src="figures/excerpt-chromat-0.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0.mp3?token=ABGBHAJUPGQWEILSIBWES4K5KUNFK"><img src="aux/speaker.svg" width="15"></a> 
-| 0.1 &#8804; *c* < 0.2               | `[7,8]`                                     | <img src="figures/excerpt-chromat-0-1.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0-1.mp3?token=ABGBHAIEADEUJMM627NGNM25KUMZO"><img src="aux/speaker.svg" width="15"></a>
-| 0.2 &#8804; *c* < 0.3               | `[7,8,1]`                                   | <img src="figures/excerpt-chromat-0-2.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0-2.mp3?token=ABGBHAJLZGJQ2KT5FUHY24S5KUM3Y"><img src="aux/speaker.svg" width="15"></a>
-| 0.3 &#8804; *c* < 0.4               | `[7,8,1,4]`                                 | <img src="figures/excerpt-chromat-0-3.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0-3.mp3?token=ABGBHAKRAXQ3WFJNTTICIYK5KUM7K"><img src="aux/speaker.svg" width="15"></a>
-| 0.5 &#8804; *c* < 0.5               | `[7,8,1,4,11]` (complete chord)             | <img src="figures/excerpt-chromat-0-4.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0-4.mp3?token=ABGBHAI57KWEEAKD25YRWJK5KUNAK"><img src="aux/speaker.svg" width="15"></a>
+| 0 &#8804; *c* < 0.1                 | `[7]` (monochordal)                         | <img src="figures/excerpt-chromat-0.svg" width="200"> 
+| 0.1 &#8804; *c* < 0.2               | `[7,8]`                                     | <img src="figures/excerpt-chromat-0-1.svg" width="200">
+| 0.2 &#8804; *c* < 0.3               | `[7,8,1]`                                   | <img src="figures/excerpt-chromat-0-2.svg" width="200">
+| 0.3 &#8804; *c* < 0.4               | `[7,8,1,4]`                                 | <img src="figures/excerpt-chromat-0-3.svg" width="200">
+| 0.5 &#8804; *c* < 0.5               | `[7,8,1,4,11]` (complete chord)             | <img src="figures/excerpt-chromat-0-4.svg" width="200">
 | 0.5 &#8804; *c* < 0.6               | `[7,8,1,4,11,9]`                            | 
 | 0.6 &#8804; *c* < 0.7               | `[7,8,1,4,11,9,2]`                          | 
-| 0.7 &#8804; *c* < 0.8               | `[7,8,1,4,11,9,2,6]` (complete mode)        | <img src="figures/excerpt-chromat-0-5.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-0-5.mp3?token=ABGBHAPNELFTBH5OAN33AZK5KUNCE"><img src="aux/speaker.svg" width="15"></a>
-| 0.8 &#8804; *c* &#8804; 1           | `[0,1,2,3,4,5,6,7,8,9,10,11]` (all pitches) | <img src="figures/excerpt-chromat-1.svg" width="200"><a href="https://raw.githubusercontent.com/lopezmontes/GenoMus/master/specifications/mp3_examples/chromaticism-1.mp3?token=ABGBHANAGTJ4VJ2UMJQ5AOS5KUND4"><img src="aux/speaker.svg" width="15"></a>
+| 0.7 &#8804; *c* < 0.8               | `[7,8,1,4,11,9,2,6]` (complete mode)        | <img src="figures/excerpt-chromat-0-5.svg" width="200">
+| 0.8 &#8804; *c* &#8804; 1           | `[0,1,2,3,4,5,6,7,8,9,10,11]` (all pitches) | <img src="figures/excerpt-chromat-1.svg" width="200">
 
 
 ---------
