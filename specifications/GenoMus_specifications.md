@@ -878,6 +878,8 @@ This works as a useful lookup table for some automatic and manual processes.
 # Core functions
 A GenoMus Function Library must include a collection of essential functions to perform basic operations for the generation of phenotypes. For each function type, the library has an identity function and other additional functions dedicated to the fundamental manipulations of that data category.
 
+This is a group of integrated functions that perform basic operations. As said before, lowercase prefixes indicate function types according to their output. 
+
 This set of core functions are identified with the first index numbers of the library.
 
 ---------
@@ -887,6 +889,8 @@ An identity function simply pass its arguments without any musical transformatio
 For the sake of simplicity, identity functions are named using only their corresponding function type identifiers. They serve primarily as wrappers and testing functions.
 
 Both function indexes, ordinal and encoded function index (smaller) are shown.
+
+*This is still an incomplete list.*
 
 | function name | function type       | function index        | example decoded genotype &rarr; encoded phenotype
 | ------------- | ------------------- | --------------------- | -------------------------------------------------
@@ -916,10 +920,8 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `o`           | **operationF**      | 23 <sub>.214782</sub> | `"o(.5)"` &rarr; `[0.5]`
 | `b`           | **booleanF**        | 24 <sub>.832816</sub> | `"b(.5)"` &rarr; `[1]`
 
-## Implemented functions
-This is a group of integrated functions that perform basic operations. As said before, lowercase prefixes indicate function types according to their output.
-
-### Aleatoric processes
+---------
+## Aleatoric processes
 | name | index | description |
 | ---- | ----- | -----------
 | `pGaussRnd` | <sub>not yet implemented</sub> |
@@ -938,7 +940,8 @@ This is a group of integrated functions that perform basic operations. As said b
 | `vPermutate` | <sub>not yet implemented</sub> |
 | `sPermutate` | <sub>not yet implemented</sub> |
 
-### Algorithmic techniques
+---------
+## Algorithmic techniques
 | name | index | description |
 | ---- | ----- | -----------
 | `lBrownian` | <sub>not yet implemented</sub> |
@@ -948,7 +951,8 @@ This is a group of integrated functions that perform basic operations. As said b
 | `lLogisticMap` | <sub>not yet implemented</sub> |
 | `lRecursiveEquation` | <sub>not yet implemented</sub> |
 
-### Spectral techniques
+---------
+## Spectral techniques
 | name | index | description |
 | ---- | ----- | -----------
 | `hHarmonicSeries` | <sub>not yet implemented</sub> |
@@ -956,10 +960,8 @@ This is a group of integrated functions that perform basic operations. As said b
 | `vSpectralize` | <sub>not yet implemented</sub> |
 | `sSpectralize` | <sub>not yet implemented</sub> |
 
-
-
-
-### Mathematical operations
+---------
+## Mathematical operations
 | name | index | description |
 | ---- | ----- | -----------
 | `oSum` | <sub>not yet implemented</sub> |
@@ -982,7 +984,8 @@ This is a group of integrated functions that perform basic operations. As said b
 | `oFloor` | <sub>not yet implemented</sub> |
 | `oCeil` | <sub>not yet implemented</sub> |
 
-### Internal autoreferences
+---------
+## Internal autoreferences
 | name | index | description |
 | ---- | ----- | -----------
 | `pAutoRef` | <sub>not yet implemented</sub> |
@@ -994,14 +997,15 @@ This is a group of integrated functions that perform basic operations. As said b
 | `vIterExpr` | <sub>not yet implemented</sub> |repeats an expression a number of times, after a new reevaluation
 | `sIterExpr` | <sub>not yet implemented</sub> |repeats an expression a number of times, after a new reevaluation
 
-
-### External references
+---------
+## External references
 | name | index | description |
 | ---- | ----- | -----------
 | `sGenotypeFromLibrary` | <sub>not yet implemented</sub> |
 | `lTextfileData` | <sub>not yet implemented</sub> |
 
-### Scales
+---------
+## Scales
 | name | index | description |
 | ---- | ----- | -----------
 | `hNaturalScale` | <sub>not yet implemented</sub> |
@@ -1015,15 +1019,16 @@ This is a group of integrated functions that perform basic operations. As said b
 | `hBebopScale` | <sub>not yet implemented</sub> |
 | `hCluster` | <sub>not yet implemented</sub> |
 
-### Chords
+---------
+## Chords
 | name | index | description |
 | ---- | ----- | -----------
 | `eMajorChord` | <sub>not yet implemented</sub> |
 | `eMinorChord` | <sub>not yet implemented</sub> |
 | `eSeventhChord` | <sub>not yet implemented</sub> |
 
-
-### List manipulations
+---------
+## List manipulations
 | name | index | description |
 | ---- | ----- | -----------
 | `lRotate` | <sub>not yet implemented</sub> |
@@ -1042,7 +1047,8 @@ This is a group of integrated functions that perform basic operations. As said b
 | `lBezierGesture` | <sub>not yet implemented</sub> |
 | `lTrigonometricGesture` | <sub>not yet implemented</sub> |
 
-### Serial manipulations
+---------
+## Serial manipulations
 | name | index | description |
 | ---- | ----- | -----------
 | `hDodecaphonicSeries` | <sub>not yet implemented</sub> |
@@ -1077,8 +1083,8 @@ This is a group of integrated functions that perform basic operations. As said b
 | `vExtrude` | <sub>not yet implemented</sub> |
 | `sExtrude` | <sub>not yet implemented</sub> |
 
-
-### Form
+---------
+## Form
 | name | index | description |
 | ---- | ----- | -----------
 | `lConcatE` | <sub>not yet implemented</sub> |
@@ -1100,7 +1106,8 @@ This is a group of integrated functions that perform basic operations. As said b
 | `vABAB` | <sub>not yet implemented</sub> |
 | `sABAB` | <sub>not yet implemented</sub> |
 
-### Poliphony
+---------
+## Poliphony
 | name | index | description |
 | ---- | ----- | -----------
 | `eTwoPitches` | <sub>not yet implemented</sub> |
@@ -1115,9 +1122,8 @@ This is a group of integrated functions that perform basic operations. As said b
 | `sFiveV` | <sub>not yet implemented</sub> |
 | `sSixV` | <sub>not yet implemented</sub> |
 
-
-
-### Motives
+---------
+## Motives
 | name | index | description |
 | ---- | ----- | -----------
 | `vInterval` | <sub>not yet implemented</sub> |
@@ -1130,7 +1136,8 @@ This is a group of integrated functions that perform basic operations. As said b
 | `sEchoV` | <sub>not yet implemented</sub> |
 | `sHarmonizer` | <sub>not yet implemented</sub> |
 
-### Rhythm
+---------
+## Rhythm
 | name | index | description |
 | ---- | ----- | -----------
 | `sSimplifyRhythm` | <sub>not yet implemented</sub> |
@@ -1143,7 +1150,8 @@ This is a group of integrated functions that perform basic operations. As said b
 | `vJitter` | <sub>not yet implemented</sub> |
 | `vGliss` | <sub>not yet implemented</sub> |
 
-### Dynamics
+---------
+## Dynamics
 | name | index | description |
 | ---- | ----- | -----------
 | `vCresc` | <sub>not yet implemented</sub> |
@@ -1156,7 +1164,8 @@ This is a group of integrated functions that perform basic operations. As said b
 | `sSofter` | <sub>not yet implemented</sub> |
 | `eMute` | <sub>not yet implemented</sub> |
 
-### Tempo
+---------
+## Tempo
 | name | index | description |
 | ---- | ----- | -----------
 | `vTempo` | <sub>not yet implemented</sub> |
@@ -1166,7 +1175,8 @@ This is a group of integrated functions that perform basic operations. As said b
 | `sAccel` | <sub>not yet implemented</sub> |
 | `sRit` | <sub>not yet implemented</sub> |
 
-### Articulation
+---------
+## Articulation
 | name | index | description |
 | ---- | ----- | -----------
 | `vLegatissimo` | <sub>not yet implemented</sub> |
@@ -1182,9 +1192,11 @@ This is a group of integrated functions that perform basic operations. As said b
 | `vPedalSustain` | <sub>not yet implemented</sub> |
 | `eMarcato` | <sub>not yet implemented</sub> |
 
-### Manual manipulation of genotypes | uEVOLVE
+---------
+## Manual manipulation of genotypes 
 | name | index | description |
 | ---- | ----- | -----------
+| `uEVOLVE` | <sub>not yet implemented</sub> |
 | `uFREEZE` | <sub>not yet implemented</sub> |
 | `uFLATTEN` | <sub>not yet implemented</sub> |
 | `uEXTRACT` | <sub>not yet implemented</sub> |
