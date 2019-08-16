@@ -939,14 +939,16 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## Internal autoreferences
 | name | index | description |
 | ---- | ----- | -----------
-| `pAutoRef` | <sub>not yet implemented</sub> |
-| `lAutoRef` | <sub>not yet implemented</sub> |
-| `eAutoRef` | <sub>not yet implemented</sub> |
-| `vAutoRef` | <sub>not yet implemented</sub> |
-| `sAutoRef` | <sub>not yet implemented</sub> |
-| `lIterExpr` | <sub>not yet implemented</sub> |repeats an expression a number of times, after a new reevaluation
-| `vIterExpr` | <sub>not yet implemented</sub> |repeats an expression a number of times, after a new reevaluation
-| `sIterExpr` | <sub>not yet implemented</sub> |repeats an expression a number of times, after a new reevaluation
+| `pAutoRef` | <sub>not yet implemented</sub> | points to a previous parameter
+| `eAutoRef` | <sub>not yet implemented</sub> | points to a previous event
+| `lAutoRef` | <sub>not yet implemented</sub> | points to a previous list
+| `vAutoRef` | <sub>not yet implemented</sub> | points to a previous voice
+| `sAutoRef` | <sub>not yet implemented</sub> | points to a previous score
+| `pIterExpr` | <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a parameter function 
+| `eIterExpr` | <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of an event function 
+| `lIterExpr` | <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a list function 
+| `vIterExpr` | <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a voice function
+| `sIterExpr` | <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a score function
 
 ---------
 ## External references
