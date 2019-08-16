@@ -897,6 +897,8 @@ This is a group of integrated functions that perform basic operations. As said b
 
 This set of core functions are identified with the first index numbers of the library.
 
+*This is still an incomplete list.*
+
 ---------
 ## Identity functions
 An identity function simply pass its arguments without any musical transformation apart from formatting the output data accordingly when necessary. For each function type exists an identity function. 
@@ -904,8 +906,6 @@ An identity function simply pass its arguments without any musical transformatio
 For the sake of simplicity, identity functions are named using only their corresponding function type identifiers. They serve primarily as wrappers and testing functions.
 
 Both function indexes, ordinal and encoded function index (smaller) are shown.
-
-*This is still an incomplete list.*
 
 | function name | function type       | function index        | example decoded genotype &rarr; encoded phenotype
 | ------------- | ------------------- | --------------------- | -------------------------------------------------
