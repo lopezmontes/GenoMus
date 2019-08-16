@@ -1229,11 +1229,12 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## Manual operators of genotypes 
 | name       | index                          | description
 | ---------- | ------------------------------ | -----------
-| `uEVOLVE`  | <sub>not yet implemented</sub> |
-| `uFREEZE`  | <sub>not yet implemented</sub> |
-| `uFLATTEN` | <sub>not yet implemented</sub> |
+| `uEVOLVE`  | <sub>not yet implemented</sub> | forces that all processes of evolution and mutation affects only the branch in which the function is inserted
+| `uFREEZE`  | <sub>not yet implemented</sub> | blocks a genotype branch to exclude it from all processes of evolution and mutation 
+| `uFLATTEN` | <sub>not yet implemented</sub> | renders a genotype branch and replace the branch with the encoded phenotype, so it will be not changed or evaluated anymore 
 | `uEXTRACT` | <sub>not yet implemented</sub> | set boundaries on a score to allow transformations in only that part regardless of the score functional structure
 | `uCUT`     | <sub>not yet implemented</sub> | set boundaries on a score and delete all events outside that section
+| `uSAVE`    | <sub>not yet implemented</sub> | saves a genotype branch to an external library
 
 ---------
 # Encoding-decoding genotypes
