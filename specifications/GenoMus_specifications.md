@@ -54,7 +54,22 @@
   - [Encoded function index generation](#encoded-function-index-generation)
 - [Core functions](#core-functions)
   - [Identity functions](#identity-functions)
-  - [Elementary functions](#elementary-functions)
+  - [Internal autoreferences](#internal-autoreferences)
+  - [External references](#external-references)
+  - [Form](#form)
+  - [Phrasing](#phrasing)
+  - [Poliphony](#poliphony)
+  - [Harmony](#harmony)
+  - [Rhythm](#rhythm)
+  - [Articulation](#articulation)
+  - [Dynamics](#dynamics)
+  - [Spectralism](#spectralism)
+  - [Serialism](#serialism)
+  - [Aleatoric processes](#aleatoric-processes)
+  - [Algorithmic techniques](#algorithmic-techniques)
+  - [Mathematical operations](#mathematical-operations)
+  - [List manipulation](#list-manipulation)
+  - [Genotype manual operators](#genotype-manual-operators)
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
   - [Conversion table for genotypes](#conversion-table-for-genotypes)
   - [Formatting decoded genotypes](#formatting-decoded-genotypes)
@@ -952,7 +967,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `lRecursiveEquation` | <sub>not yet implemented</sub> |
 
 ---------
-## Spectral techniques
+## Spectralism
 | name | index | description |
 | ---- | ----- | -----------
 | `hHarmonicSeries` | <sub>not yet implemented</sub> |
