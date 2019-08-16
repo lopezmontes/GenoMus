@@ -919,34 +919,34 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## Elementary functions
 This is a group of integrated functions that perform basic operations. As said before, lowercase prefixes indicate the function type according to their output.
 
-| domain | function name | functionIndex         | description
-| ------     | ------------- | --------------------- | -----------
+### Aleatoric processes
+| function name | functionIndex | description
+| ------------- | --------------| -----------
+| pGaussRnd | |
+| pRnd | |
+| pRndRange | |
+| pRndDynamicRange | |
+| pRndDistribution | |
+| eRnd | |
+| vRnd | |
+| sRnd | |
+| eMutate | |
+| lMutate | |
+| vMutate | |
+| sMutate | |
+| lPermutate | |
+| vPermutate | |
+| sPermutate | |
 
-
-Aleatoric processes
-| pGaussRnd
-| pRnd
-| pRndRange
-| pRndDynamicRange
-| pRndDistribution
-| eRnd
-| vRnd
-| sRnd
-| eMutate
-| lMutate
-| vMutate
-| sMutate
-| lPermutate
-| vPermutate
-| sPermutate
-
-Algorithmic techniques
-| lBrownian
-| lCellularAutomata
-| lFibonacci
-| rEuclideanRhythm
-| lLogisticMap
-| lRecursiveEquation
+### Algorithmic techniques
+| function name | functionIndex | description
+| ------------- | --------------| -----------
+| lBrownian | |
+| lCellularAutomata | |
+| lFibonacci | |
+| rEuclideanRhythm | |
+| lLogisticMap | |
+| lRecursiveEquation | |
 
 Spectral techniques
 | hHarmonicSeries
@@ -1029,7 +1029,6 @@ List manipulations
 | lTrigonometricGesture
 
 Serial manipulations
-
 | hDodecaphonicSeries
 | hUniquePitchesSeries
 
@@ -1109,7 +1108,6 @@ Motives
 | sDiatonize    | 99 <sub>.123456</sub> | diatonize a score according to a harmonic grid
 | vPedalNote
 | vArpeggio
-| vPedalSustain
 | sEchoV
 | sHarmonizer
 
@@ -1133,6 +1131,7 @@ Dynamics
 | sLouder
 | vSofter
 | sSofter
+| eMute
 
 Tempo
 | vTempo
@@ -1142,7 +1141,25 @@ Tempo
 | sAccel
 | sRit
 
+Articulation
+| vLegatissimo
+| sLegatissimo
+| vNonLegato
+| sNonLegato
+| vLegato
+| sLegato
+| vStaccato
+| sStaccato
+| vStaccatissimo
+| sStaccatissimo
 
+| vPedalSustain
+| eMarcato
+
+Manual manipulation of genotypes | uEVOLVE
+| uFREEZE
+| uFLATTEN
+| uEXTRACT
 
 ---------
 # Encoding-decoding genotypes
