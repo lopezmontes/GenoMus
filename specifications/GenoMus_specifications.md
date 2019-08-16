@@ -955,6 +955,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `sGenotypeFromLibrary` | <sub>not yet implemented</sub> |
 | `lTextfileData` | <sub>not yet implemented</sub> |
 
+---------
 ## Form
 | name | index | description |
 | ---- | ----- | -----------
