@@ -954,31 +954,39 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## External references
 | name | index | description |
 | ---- | ----- | -----------
-| `sGenotypeFromLibrary` | <sub>not yet implemented</sub> | read and insert a genotype from an external library of genotypes
-| `lTextfileData` | <sub>not yet implemented</sub> | read and insert a list of values from an external textfile
+| `sGenotypeFromLibrary` | <sub>not yet implemented</sub> | reads and insert a genotype from an external library of genotypes
+| `lTextfileData` | <sub>not yet implemented</sub> | reads and insert a list of values from an external textfile
 
 ---------
 ## Form
 | name | index | description |
 | ---- | ----- | -----------
-| `lConcatE` | <sub>not yet implemented</sub> |
-| `lConcatL` | <sub>not yet implemented</sub> |
+| `lConcatP` | <sub>not yet implemented</sub> | concatenates two parameters sequentially
+| `lConcatL` | <sub>not yet implemented</sub> | concatenates two lists sequentially
 | `vConcatE` | <sub>not yet implemented</sub> | concatenates two events sequentially
+| `vConcatV` | <sub>not yet implemented</sub> | concatenates two voices sequentially
 | `sConcatS` | <sub>not yet implemented</sub> | concatenates two scores sequentially
-| `eAddPitch` | <sub>not yet implemented</sub> | add a pitch to an event
+| `eAddPitch` | <sub>not yet implemented</sub> | adds a pitch to an event
 | `sAddV` | <sub>not yet implemented</sub> | adds a new voice vertically to a score
 | `vRepeatE` | <sub>not yet implemented</sub> | repeats an event a number of times
+| `lRepeatL` | <sub>not yet implemented</sub> | repeats a list a number of times
 | `vRepeatV` | <sub>not yet implemented</sub> | repeats a voice a number of times
 | `sRepeatS` | <sub>not yet implemented</sub> | repeats a score a number of times
-| `lAA` | <sub>not yet implemented</sub> |
-| `vAA` | <sub>not yet implemented</sub> |
-| `sAA` | <sub>not yet implemented</sub> |
-| `lABA` | <sub>not yet implemented</sub> |
-| `vABA` | <sub>not yet implemented</sub> |
-| `sABA` | <sub>not yet implemented</sub> |
-| `lABAB` | <sub>not yet implemented</sub> |
-| `vABAB` | <sub>not yet implemented</sub> |
-| `sABAB` | <sub>not yet implemented</sub> |
+| `lAAe` | <sub>not yet implemented</sub> | single repetition of a parameter
+| `lAAl` | <sub>not yet implemented</sub> | single repetition of a list
+| `vAAe` | <sub>not yet implemented</sub> | single repetition of an event
+| `vAAv` | <sub>not yet implemented</sub> | single repetition of a voice
+| `sAA` | <sub>not yet implemented</sub> | single repetition of a score
+| `lABAp` | <sub>not yet implemented</sub> | A-B-A structure of parameters
+| `lABAl` | <sub>not yet implemented</sub> | A-B-A structure of lists
+| `vABAe` | <sub>not yet implemented</sub> | A-B-A structure of events
+| `vABAv` | <sub>not yet implemented</sub> | A-B-A structure of voices
+| `sABA` | <sub>not yet implemented</sub> | A-B-A structure of events
+| `lABCABp` | <sub>not yet implemented</sub> | A-B-C-B-A structure of parameters
+| `lABCABl` | <sub>not yet implemented</sub> | A-B-C-B-A structure of lists
+| `vABCABe` | <sub>not yet implemented</sub> | A-B-C-B-A structure of events
+| `vABCABv` | <sub>not yet implemented</sub> | A-B-C-B-A structure of voices
+| `sABCAB` | <sub>not yet implemented</sub> | A-B-C-B-A structure of events
 
 ---------
 ## Phrasing
@@ -991,6 +999,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `sDiatonize` | <sub>not yet implemented</sub> | diatonize a score according to a harmonic grid
 | `vPedalNote` | <sub>not yet implemented</sub> |
 | `vArpeggio` | <sub>not yet implemented</sub> |
+| `vProgression` | <sub>not yet implemented</sub> |
 | `sEchoV` | <sub>not yet implemented</sub> |
 
 ---------
