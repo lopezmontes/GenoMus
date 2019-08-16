@@ -989,24 +989,25 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 
 ---------
 ## Phrasing
-| name                   | index                          | description
-| ---------------------- | ------------------------------ | -----------
-| `vInterval`            | <sub>not yet implemented</sub> | repeats previous note changing pitch according to an interval
-| `vMotif`               | <sub>not yet implemented</sub> | creates a sequence of events based on lists
-| `vMotifLoop`           | <sub>not yet implemented</sub> | creates a sequence of events based on repeating lists
-| `vPerpetuumMobile`     | <sub>not yet implemented</sub> | creates a sequence of events based on repeating lists but with a single notevalue
-| `vPerpetuumMobileLoop` | <sub>not yet implemented</sub> | creates a sequence of events based on lists but with a single notevalue
-| `vAcciaccatura`        | <sub>not yet implemented</sub> | adds an acciaccatura to an event
-| `vAppoggiatura`        | <sub>not yet implemented</sub> | adds an appoggiatura to an event
-| `vTrill`               | <sub>not yet implemented</sub> | converts an event in a trill of two pitches
-| `vJitter`              | <sub>not yet implemented</sub> | converts an event in a group of randomly alterning pitches
-| `vGliss`               | <sub>not yet implemented</sub> | connects two pitches with a scale (diatonic of chromatic)
-| `vDiatonize`           | <sub>not yet implemented</sub> | diatonizes a voice according to a harmonic grid
-| `sDiatonize`           | <sub>not yet implemented</sub> | diatonizes a score according to a harmonic grid
-| `sPedalNote`           | <sub>not yet implemented</sub> | adds a new voice consisting of a single sustained note to a score  
-| `vArpeggio`            | <sub>not yet implemented</sub> | creates an arpeggio according to a harmonic grid
-| `vProgression`         | <sub>not yet implemented</sub> | creates a progression repeating a motif at a transposition interval 
-| `sEchoV`               | <sub>not yet implemented</sub> | adds a new voice repeating a voice at a time interval
+| name                    | index                          | description
+| ----------------------- | ------------------------------ | -----------
+| `vInterval`             | <sub>not yet implemented</sub> | repeats previous note changing pitch according to an interval
+| `vMotif`                | <sub>not yet implemented</sub> | creates a sequence of events based on lists
+| `vMotifLoop`            | <sub>not yet implemented</sub> | creates a sequence of events based on repeating lists
+| `vPerpetuumMobile`      | <sub>not yet implemented</sub> | creates a sequence of events based on repeating lists but with a single notevalue
+| `vPerpetuumMobileLoop`  | <sub>not yet implemented</sub> | creates a sequence of events based on lists but with a single notevalue
+| `vAcciaccatura`         | <sub>not yet implemented</sub> | adds an acciaccatura to an event
+| `vAppoggiatura`         | <sub>not yet implemented</sub> | adds an appoggiatura to an event
+| `vTrill`                | <sub>not yet implemented</sub> | converts an event in a trill of two pitches
+| `vJitter`               | <sub>not yet implemented</sub> | converts an event in a group of randomly alterning pitches
+| `vGliss`                | <sub>not yet implemented</sub> | connects two pitches with a scale (diatonic of chromatic)
+| `vDiatonize`            | <sub>not yet implemented</sub> | diatonizes a voice according to a harmonic grid
+| `sDiatonize`            | <sub>not yet implemented</sub> | diatonizes a score according to a harmonic grid
+| `sPedalNote`            | <sub>not yet implemented</sub> | adds a new voice consisting of a single sustained note to a score  
+| `vArpeggio`             | <sub>not yet implemented</sub> | creates an arpeggio according to a harmonic grid
+| `vProgression`          | <sub>not yet implemented</sub> | creates a progression repeating a motif at a transposition interval with chormatic transposition
+| `vDiatonic Progression` | <sub>not yet implemented</sub> | creates a progression repeating a motif at a transposition interval adapting pitches to the harmonic grid
+| `sEchoV`                | <sub>not yet implemented</sub> | adds a new voice repeating a voice at a time interval
 
 ---------
 ## Poliphony
