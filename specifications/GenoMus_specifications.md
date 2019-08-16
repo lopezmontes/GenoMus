@@ -1232,7 +1232,8 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `uEVOLVE`  | <sub>not yet implemented</sub> |
 | `uFREEZE`  | <sub>not yet implemented</sub> |
 | `uFLATTEN` | <sub>not yet implemented</sub> |
-| `uEXTRACT` | <sub>not yet implemented</sub> |
+| `uEXTRACT` | <sub>not yet implemented</sub> | set boundaries on a score to allow transformations in only that part regardless of the score functional structure
+| `uCUT`     | <sub>not yet implemented</sub> | set boundaries on a score and delete all events outside that section
 
 ---------
 # Encoding-decoding genotypes
