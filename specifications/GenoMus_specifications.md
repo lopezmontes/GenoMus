@@ -996,6 +996,12 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `vMotifLoop`           | <sub>not yet implemented</sub> | creates a sequence of events based on repeating lists
 | `vPerpetuumMobile`     | <sub>not yet implemented</sub> | creates a sequence of events based on repeating lists but with a single notevalue
 | `vPerpetuumMobileLoop` | <sub>not yet implemented</sub> | creates a sequence of events based on lists but with a single notevalue
+| `vAcciaccatura`        | <sub>not yet implemented</sub> | 
+| `vAppoggiatura`        | <sub>not yet implemented</sub> |
+| `vTurn`                | <sub>not yet implemented</sub> |
+| `vTrill`               | <sub>not yet implemented</sub> |
+| `vJitter`              | <sub>not yet implemented</sub> |
+| `vGliss`               | <sub>not yet implemented</sub> |
 | `vDiatonize`           | <sub>not yet implemented</sub> | diatonizes a voice according to a harmonic grid
 | `sDiatonize`           | <sub>not yet implemented</sub> | diatonizes a score according to a harmonic grid
 | `sPedalNote`           | <sub>not yet implemented</sub> | adds a new voice consisting of a single sustained note to a score  
@@ -1056,21 +1062,15 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## Rhythm
 | name                | index                          | description
 | ------------------- | ------------------------------ | -----------
-| `vTempo`            | <sub>not yet implemented</sub> |
-| `sTempo`            | <sub>not yet implemented</sub> |
-| `vAccel`            | <sub>not yet implemented</sub> |
-| `vRit`              | <sub>not yet implemented</sub> |
-| `sAccel`            | <sub>not yet implemented</sub> |
-| `sRit`              | <sub>not yet implemented</sub> |
-| `sSimplifyRhythm`   | <sub>not yet implemented</sub> |
-| `sComplicateRhythm` | <sub>not yet implemented</sub> |
-| `sIsorhythm`        | <sub>not yet implemented</sub> |
-| `vAcciaccatura`     | <sub>not yet implemented</sub> |
-| `vAppoggiatura`     | <sub>not yet implemented</sub> |
-| `vTurn`             | <sub>not yet implemented</sub> |
-| `vTrill`            | <sub>not yet implemented</sub> |
-| `vJitter`           | <sub>not yet implemented</sub> |
-| `vGliss`            | <sub>not yet implemented</sub> |
+| `vTempo`            | <sub>not yet implemented</sub> | changes the relative tempo of a voice 
+| `sTempo`            | <sub>not yet implemented</sub> | changes the relative tempo of a score
+| `vAccel`            | <sub>not yet implemented</sub> | accelerates tempo along a voice
+| `sAccel`            | <sub>not yet implemented</sub> | accelerates tempo along a score
+| `vRit`              | <sub>not yet implemented</sub> | slows tempo aling a voice
+| `sRit`              | <sub>not yet implemented</sub> | slows tempo aling a score
+| `vSimplifyRhythm`   | <sub>not yet implemented</sub> | reduces the rhythmic complexity of a voice
+| `sSimplifyRhythm`   | <sub>not yet implemented</sub> | reduces the rhythmic complexity of a score
+| `sIsorhythm`        | <sub>not yet implemented</sub> | forces a isorhythmic texture for all voices within a score
 
 ---------
 ## Articulation
