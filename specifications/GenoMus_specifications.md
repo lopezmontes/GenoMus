@@ -888,7 +888,7 @@ For the sake of simplicity, identity functions are named using only their corres
 
 Both function indexes, ordinal and encoded function index (smaller) are shown.
 
-| function name | function type       | functionIndex         | example decoded genotype &rarr; encoded phenotype
+| function name | function type       | function index        | example decoded genotype &rarr; encoded phenotype
 | ------------- | ------------------- | --------------------- | -------------------------------------------------
 | `p`           | **paramF**          | 0 <sub>0</sub>        | `"p(.5)"` &rarr; `[0.5]` 
 | `l`           | **listF**           | 1 <sub>.618034</sub>  | `"l([0,.3,1,.8])"` &rarr; `[0,0.3,1,0.8]`
@@ -916,12 +916,12 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `o`           | **operationF**      | 23 <sub>.214782</sub> | `"o(.5)"` &rarr; `[0.5]`
 | `b`           | **booleanF**        | 24 <sub>.832816</sub> | `"b(.5)"` &rarr; `[1]`
 
-## Elementary functions
-This is a group of integrated functions that perform basic operations. As said before, lowercase prefixes indicate the function type according to their output.
+## Implemented functions
+This is a group of integrated functions that perform basic operations. As said before, lowercase prefixes indicate function types according to their output.
 
 ### Aleatoric processes
-| function name | functionIndex | description
-| ------------- | --------------| -----------
+| function name | function index | description
+| ------------- | -------------- | -----------
 | `pGaussRnd` | |
 | `pRnd` | |
 | `pRndRange` | |
@@ -939,8 +939,8 @@ This is a group of integrated functions that perform basic operations. As said b
 | `sPermutate` | |
 
 ### Algorithmic techniques
-| function name | functionIndex | description
-| ------------- | --------------| -----------
+| function name | function index | description
+| ------------- | -------------- | -----------
 | `lBrownian` | |
 | `lCellularAutomata` | |
 | `lFibonacci` | |
@@ -948,7 +948,9 @@ This is a group of integrated functions that perform basic operations. As said b
 | `lLogisticMap` | |
 | `lRecursiveEquation` | |
 
-Spectral techniques
+### Spectral techniques
+| function name | function index | description
+| ------------- | -------------- | -----------
 | `hHarmonicSeries`
 | `hSpectralMorphing`
 | `vSpectralize`
@@ -957,7 +959,9 @@ Spectral techniques
 
 
 
-Mathematical operations
+### Mathematical operations
+| function name | function index | description
+| ------------- | -------------- | -----------
 | `oSum`
 | `oDiff`
 | `oMult`
@@ -978,19 +982,29 @@ Mathematical operations
 | `oFloor`
 | `oCeil`
 
-Internal autoreferences
+### Internal autoreferences
+| function name | function index | description
+| ------------- | -------------- | -----------
 | `pAutoRef`
 | `lAutoRef`
 | `eAutoRef`
 | `vAutoRef`
 | `sAutoRef`
+| `lIterExpr`     | 99 <sub>.123456</sub> | repeats an expression a number of times, after a new reevaluation
+| `vIterExpr`     | 99 <sub>.123456</sub> | repeats an expression a number of times, after a new reevaluation
+| `sIterExpr`     | 99 <sub>.123456</sub> | repeats an expression a number of times, after a new reevaluation
 
-External references
+
+### External references
+| function name | function index | description
+| ------------- | -------------- | -----------
 | `sGenotypeFromLibrary`
 | `lTextfileData`
 
 
-Scales
+### Scales
+| function name | function index | description
+| ------------- | -------------- | -----------
 | `hNaturalScale`
 | `hMelodicMinorScale`
 | `hHexatonicScale`
@@ -1002,13 +1016,17 @@ Scales
 | `hBebopScale`
 | `hCluster`
 
-Chords
+### Chords
+| function name | function index | description
+| ------------- | -------------- | -----------
 | `eMajorChord`
 | `eMinorChord`
 | `eSeventhChord`
 
 
-List manipulations
+### List manipulations
+| function name | function index | description
+| ------------- | -------------- | -----------
 | `lRotate`
 | `lLine`
 | `lLinseg`
@@ -1025,10 +1043,11 @@ List manipulations
 | `lBezierGesture`
 | `lTrigonometricGesture`
 
-Serial manipulations
+### Serial manipulations
+| function name | function index | description
+| ------------- | -------------- | -----------
 | `hDodecaphonicSeries`
 | `hUniquePitchesSeries`
-
 | `eInvert`
 | `lInvert`
 | `vInvert`
@@ -1060,29 +1079,9 @@ Serial manipulations
 | `sExtrude`
 
 
-Form
-
-| `lABA`
-| `vABA`
-| `sABA`
-| `lABAB`
-| `vABAB`
-| `sABAB`
-
-Poliphony
-| `eTwoPitches`
-| `eThreePitches`
-| `eFourPitches`
-| `eFivePitches`
-| `eSixPitches`
-| `eManyPitches`
-
-| `sTwoV`
-| `sThreeV`
-| `sFourV`
-| `sFiveV`
-| `sSixV`
-
+### Form
+| function name | function index | description
+| ------------- | -------------- | -----------
 | `lConcatE`
 | `lConcatL`
 | `vConcatE`      | 99 <sub>.123456</sub> | concatenates two events sequentially
@@ -1092,11 +1091,36 @@ Poliphony
 | `vRepeatE`      | 99 <sub>.123456</sub> | repeats an event a number of times
 | `vRepeatV`      | 99 <sub>.123456</sub> | repeats a voice a number of times
 | `sRepeatS`      | 99 <sub>.123456</sub> | repeats a score a number of times
+| `lAA`
+| `vAA`
+| `sAA`
+| `lABA`
+| `vABA`
+| `sABA`
+| `lABAB`
+| `vABAB`
+| `sABAB`
+
+### Poliphony
+| function name | function index | description
+| ------------- | -------------- | -----------
+| `eTwoPitches`
+| `eThreePitches`
+| `eFourPitches`
+| `eFivePitches`
+| `eSixPitches`
+| `eManyPitches`
+| `sTwoV`
+| `sThreeV`
+| `sFourV`
+| `sFiveV`
+| `sSixV`
 
 
-| `vIterExpr`     | 99 <sub>.123456</sub> | repeats an expression a number of times, after a new reevaluation
 
-Motives
+### Motives
+| function name | function index | description
+| ------------- | -------------- | -----------
 | `vInterval`
 | `vMotif`        | 99 <sub>.123456</sub> | creates a sequence of events based on lists
 | `vMotifLoop`    | 99 <sub>.123456</sub> | creates a sequence of events based on lists repeating lists
@@ -1107,7 +1131,9 @@ Motives
 | `sEchoV`
 | `sHarmonizer`
 
-Rhythm
+### Rhythm
+| function name | function index | description
+| ------------- | -------------- | -----------
 | `sSimplifyRhythm`
 | `sComplicateRhythm`
 | `sIsorhythm`
@@ -1118,7 +1144,9 @@ Rhythm
 | `vJitter`
 | `vGliss`
 
-Dynamics
+### Dynamics
+| function name | function index | description
+| ------------- | -------------- | -----------
 | `vCresc`
 | `sCresc`
 | `vDim`
@@ -1129,7 +1157,9 @@ Dynamics
 | `sSofter`
 | `eMute`
 
-Tempo
+### Tempo
+| function name | function index | description
+| ------------- | -------------- | -----------
 | `vTempo`
 | `sTempo`
 | `vAccel`
@@ -1137,7 +1167,9 @@ Tempo
 | `sAccel`
 | `sRit`
 
-Articulation
+### Articulation
+| function name | function index | description
+| ------------- | -------------- | -----------
 | `vLegatissimo`
 | `sLegatissimo`
 | `vNonLegato`
@@ -1148,11 +1180,12 @@ Articulation
 | `sStaccato`
 | `vStaccatissimo`
 | `sStaccatissimo`
-
 | `vPedalSustain`
 | `eMarcato`
 
-Manual manipulation of genotypes | uEVOLVE
+### Manual manipulation of genotypes | uEVOLVE
+| function name | function index | description
+| ------------- | -------------- | -----------
 | `uFREEZE`
 | `uFLATTEN`
 | `uEXTRACT`
