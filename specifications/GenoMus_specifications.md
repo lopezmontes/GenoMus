@@ -1025,16 +1025,18 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## Harmony
 | name                   | index                          | description
 | ---------------------- | ------------------------------ | -----------
-| `hNaturalScale`        | <sub>not yet implemented</sub> |
-| `hMelodicMinorScale`   | <sub>not yet implemented</sub> |
-| `hHexatonicScale`      | <sub>not yet implemented</sub> |
-| `hOctatonicScale`      | <sub>not yet implemented</sub> |
-| `hLimitedTranspoScale` | <sub>not yet implemented</sub> |
-| `hOrientalScale`       | <sub>not yet implemented</sub> |
-| `hPentatonic`          | <sub>not yet implemented</sub> |
-| `hPCSet`               | <sub>not yet implemented</sub> |
-| `hBebopScale`          | <sub>not yet implemented</sub> |
-| `hCluster`             | <sub>not yet implemented</sub> |
+| `hNaturalScale`        | <sub>not yet implemented</sub> | returns modes derived from the natural scale
+| `hMelodicMinorScale`   | <sub>not yet implemented</sub> | returns modes derived from the melodic minor scale
+| `hPentatonic`          | <sub>not yet implemented</sub> | returns modes derived from the major pentatonic scale
+| `hJapanesePentatonic`  | <sub>not yet implemented</sub> | returns modes derived from japanese pentatonic scales
+| `hHexatonicScale`      | <sub>not yet implemented</sub> | returns a whole tone scale
+| `hOctatonicScale`      | <sub>not yet implemented</sub> | returns a half-whole diminished scale 
+| `hLimitedTranspoScale` | <sub>not yet implemented</sub> | returns modes derived from the
+| `hPCSet`               | <sub>not yet implemented</sub> | returns modes derived from the
+| `hCluster`             | <sub>not yet implemented</sub> | returns a group of consecutives chromatic tones
+| `hOrientalizer`        | <sub>not yet implemented</sub> | takes a mode and transforms it moving notes in the middle of two consecutives whole tones to get 3 half-tone intervals.
+| `hBebopizer`           | <sub>not yet implemented</sub> | takes a mode and returns it after inserting some chromatic steps
+| `hDefectiveMode`       | <sub>not yet implemented</sub> | takes a mode and returns it after deleting some pitches 
 | `eMajorChord`          | <sub>not yet implemented</sub> |
 | `eMinorChord`          | <sub>not yet implemented</sub> |
 | `eSeventhChord`        | <sub>not yet implemented</sub> |
