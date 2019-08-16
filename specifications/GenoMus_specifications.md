@@ -1095,15 +1095,15 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | name         | index                          | description
 | ------------ | ------------------------------ | -----------
 | `eSforzando` | <sub>not yet implemented</sub> | changes the articulation/dynamics of an event to marcato
-| `vCresc`     | <sub>not yet implemented</sub> |
-| `sCresc`     | <sub>not yet implemented</sub> |
-| `vDim`       | <sub>not yet implemented</sub> |
-| `sDim`       | <sub>not yet implemented</sub> |
-| `vLouder`    | <sub>not yet implemented</sub> |
-| `sLouder`    | <sub>not yet implemented</sub> |
-| `vSofter`    | <sub>not yet implemented</sub> |
-| `sSofter`    | <sub>not yet implemented</sub> |
-| `eMute`      | <sub>not yet implemented</sub> |
+| `vCresc`     | <sub>not yet implemented</sub> | creates a crescendo in a voice
+| `sCresc`     | <sub>not yet implemented</sub> | creates a crescendo in a score
+| `vDim`       | <sub>not yet implemented</sub> | creates a diminuendo in a voice
+| `sDim`       | <sub>not yet implemented</sub> | creates a diminuendo in a score
+| `vLouder`    | <sub>not yet implemented</sub> | increments the global dynamics of a voice
+| `sLouder`    | <sub>not yet implemented</sub> | increments the global dynamics of a score
+| `vSofter`    | <sub>not yet implemented</sub> | reduces the global dynamics of a voice
+| `sSofter`    | <sub>not yet implemented</sub> | reduces the global dynamics of a score
+| `eMute`      | <sub>not yet implemented</sub> | reduces to 0 the dynamics of an event
 
 ---------
 ## Spectralism
