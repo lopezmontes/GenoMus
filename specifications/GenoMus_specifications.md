@@ -967,7 +967,6 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `vConcatV` | <sub>not yet implemented</sub> | concatenates two voices sequentially
 | `sConcatS` | <sub>not yet implemented</sub> | concatenates two scores sequentially
 | `eAddPitch` | <sub>not yet implemented</sub> | adds a pitch to an event
-| `sAddV` | <sub>not yet implemented</sub> | adds a new voice vertically to a score
 | `vRepeatE` | <sub>not yet implemented</sub> | repeats an event a number of times
 | `lRepeatL` | <sub>not yet implemented</sub> | repeats a list a number of times
 | `vRepeatV` | <sub>not yet implemented</sub> | repeats a voice a number of times
@@ -1008,17 +1007,19 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## Poliphony
 | name | index | description |
 | ---- | ----- | -----------
-| `eTwoPitches` | <sub>not yet implemented</sub> |
-| `eThreePitches` | <sub>not yet implemented</sub> |
-| `eFourPitches` | <sub>not yet implemented</sub> |
-| `eFivePitches` | <sub>not yet implemented</sub> |
-| `eSixPitches` | <sub>not yet implemented</sub> |
-| `eManyPitches` | <sub>not yet implemented</sub> |
-| `sTwoV` | <sub>not yet implemented</sub> |
-| `sThreeV` | <sub>not yet implemented</sub> |
-| `sFourV` | <sub>not yet implemented</sub> |
-| `sFiveV` | <sub>not yet implemented</sub> |
-| `sSixV` | <sub>not yet implemented</sub> |
+| `eTwoPitches` | <sub>not yet implemented</sub> | creates an event with two pitches
+| `eThreePitches` | <sub>not yet implemented</sub> | creates an event with three pitches
+| `eFourPitches` | <sub>not yet implemented</sub> | creates an event with four pitches
+| `eFivePitches` | <sub>not yet implemented</sub> | creates an event with five pitches
+| `eSixPitches` | <sub>not yet implemented</sub> | creates an event with six pitches
+| `eManyPitches` | <sub>not yet implemented</sub> | creates an event with more than six pitches, with a maximal of 12 pitches
+| `sTwoV` | <sub>not yet implemented</sub> | creates an score with two simultaneous voices
+| `sThreeV` | <sub>not yet implemented</sub> | creates an score with three simultaneous voices
+| `sFourV` | <sub>not yet implemented</sub> | creates an score with four simultaneous voices
+| `sFiveV` | <sub>not yet implemented</sub> | creates an score with five simultaneous voices
+| `sSixV` | <sub>not yet implemented</sub> | creates an score with six simultaneous voices
+| `sAddV` | <sub>not yet implemented</sub> | adds a new voice vertically to a score
+| `sAddS` | <sub>not yet implemented</sub> | adds a new score vertically to a score
 
 ---------
 ## Harmony
