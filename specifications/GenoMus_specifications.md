@@ -996,12 +996,11 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `vMotifLoop`           | <sub>not yet implemented</sub> | creates a sequence of events based on repeating lists
 | `vPerpetuumMobile`     | <sub>not yet implemented</sub> | creates a sequence of events based on repeating lists but with a single notevalue
 | `vPerpetuumMobileLoop` | <sub>not yet implemented</sub> | creates a sequence of events based on lists but with a single notevalue
-| `vAcciaccatura`        | <sub>not yet implemented</sub> | 
-| `vAppoggiatura`        | <sub>not yet implemented</sub> |
-| `vTurn`                | <sub>not yet implemented</sub> |
-| `vTrill`               | <sub>not yet implemented</sub> |
-| `vJitter`              | <sub>not yet implemented</sub> |
-| `vGliss`               | <sub>not yet implemented</sub> |
+| `vAcciaccatura`        | <sub>not yet implemented</sub> | adds an acciaccatura to an event
+| `vAppoggiatura`        | <sub>not yet implemented</sub> | adds an appoggiatura to an event
+| `vTrill`               | <sub>not yet implemented</sub> | converts an event in a trill of two pitches
+| `vJitter`              | <sub>not yet implemented</sub> | converts an event in a group of randomly alterning pitches
+| `vGliss`               | <sub>not yet implemented</sub> | connects two pitches with a scale (diatonic of chromatic)
 | `vDiatonize`           | <sub>not yet implemented</sub> | diatonizes a voice according to a harmonic grid
 | `sDiatonize`           | <sub>not yet implemented</sub> | diatonizes a score according to a harmonic grid
 | `sPedalNote`           | <sub>not yet implemented</sub> | adds a new voice consisting of a single sustained note to a score  
@@ -1074,34 +1073,37 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 
 ---------
 ## Articulation
-| name             | index                          | description
-| ---------------- | ------------------------------ | -----------
-| `vLegatissimo`   | <sub>not yet implemented</sub> |
-| `sLegatissimo`   | <sub>not yet implemented</sub> |
-| `vNonLegato`     | <sub>not yet implemented</sub> |
-| `sNonLegato`     | <sub>not yet implemented</sub> |
-| `vLegato`        | <sub>not yet implemented</sub> |
-| `sLegato`        | <sub>not yet implemented</sub> |
-| `vStaccato`      | <sub>not yet implemented</sub> |
-| `sStaccato`      | <sub>not yet implemented</sub> |
-| `vStaccatissimo` | <sub>not yet implemented</sub> |
-| `sStaccatissimo` | <sub>not yet implemented</sub> |
-| `vPedalSustain`  | <sub>not yet implemented</sub> |
-| `eMarcato`       | <sub>not yet implemented</sub> |
+| name                    | index                          | description
+| ----------------------- | ------------------------------ | -----------
+| `eMarcato`              | <sub>not yet implemented</sub> | changes the articulation/dynamics of an event to marcato
+| `vLegatissimo`          | <sub>not yet implemented</sub> | changes all articulations within a voice to legatissimo
+| `sLegatissimo`          | <sub>not yet implemented</sub> | changes all articulations within a score to legatissimo
+| `vNonLegato`            | <sub>not yet implemented</sub> | changes all articulations within a voice to non-legato
+| `sNonLegato`            | <sub>not yet implemented</sub> | changes all articulations within a score to non-legato
+| `vLegato`               | <sub>not yet implemented</sub> | changes all articulations within a voice to legato
+| `sLegato`               | <sub>not yet implemented</sub> | changes all articulations within a score to legato
+| `vStaccato`             | <sub>not yet implemented</sub> | changes all articulations within a voice to staccato
+| `sStaccato`             | <sub>not yet implemented</sub> | changes all articulations within a score to staccato
+| `vStaccatissimo`        | <sub>not yet implemented</sub> | changes all articulations within a voice to staccatissimo
+| `sStaccatissimo`        | <sub>not yet implemented</sub> | changes all articulations within a score to staccatissimo
+| `sPedalSustain`         | <sub>not yet implemented</sub> | extends all articulations within a voice to simulate a pedal sustain
+| `vShortenArticulations` | <sub>not yet implemented</sub> | shortens all articulations within a voice according to a factor
+| `vProlongArticulations` | <sub>not yet implemented</sub> | extends all articulations within a voice according to a factor
 
 ---------
 ## Dynamics
-| name      | index                          | description
-| --------- | ------------------------------ | -----------
-| `vCresc`  | <sub>not yet implemented</sub> |
-| `sCresc`  | <sub>not yet implemented</sub> |
-| `vDim`    | <sub>not yet implemented</sub> |
-| `sDim`    | <sub>not yet implemented</sub> |
-| `vLouder` | <sub>not yet implemented</sub> |
-| `sLouder` | <sub>not yet implemented</sub> |
-| `vSofter` | <sub>not yet implemented</sub> |
-| `sSofter` | <sub>not yet implemented</sub> |
-| `eMute`   | <sub>not yet implemented</sub> |
+| name         | index                          | description
+| ------------ | ------------------------------ | -----------
+| `eSforzando` | <sub>not yet implemented</sub> | changes the articulation/dynamics of an event to marcato
+| `vCresc`     | <sub>not yet implemented</sub> |
+| `sCresc`     | <sub>not yet implemented</sub> |
+| `vDim`       | <sub>not yet implemented</sub> |
+| `sDim`       | <sub>not yet implemented</sub> |
+| `vLouder`    | <sub>not yet implemented</sub> |
+| `sLouder`    | <sub>not yet implemented</sub> |
+| `vSofter`    | <sub>not yet implemented</sub> |
+| `sSofter`    | <sub>not yet implemented</sub> |
+| `eMute`      | <sub>not yet implemented</sub> |
 
 ---------
 ## Spectralism
