@@ -920,27 +920,27 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 This is a group of integrated functions that perform basic operations. As said before, lowercase prefixes indicate function types according to their output.
 
 ### Aleatoric processes
-| function name | function index | description
-| ------------- | -------------- | -----------
-| `pGaussRnd` | |
-| `pRnd` | |
-| `pRndRange` | |
-| `pRndDynamicRange` | |
-| `pRndDistribution` | |
-| `eRnd` | |
-| `vRnd` | |
-| `sRnd` | |
-| `eMutate` | |
-| `lMutate` | |
-| `vMutate` | |
-| `sMutate` | |
-| `lPermutate` | |
-| `vPermutate` | |
-| `sPermutate` | |
+| name | index | description |
+| ---- | ----- | -----------
+| `pGaussRnd` | <sub>not yet implemented</sub> |
+| `pRnd` | <sub>not yet implemented</sub> |
+| `pRndRange` | <sub>not yet implemented</sub> |
+| `pRndDynamicRange` | <sub>not yet implemented</sub> |
+| `pRndDistribution` | <sub>not yet implemented</sub> |
+| `eRnd` | <sub>not yet implemented</sub> |
+| `vRnd` | <sub>not yet implemented</sub> |
+| `sRnd` | <sub>not yet implemented</sub> |
+| `eMutate` | <sub>not yet implemented</sub> |
+| `lMutate` | <sub>not yet implemented</sub> |
+| `vMutate` | <sub>not yet implemented</sub> |
+| `sMutate` | <sub>not yet implemented</sub> |
+| `lPermutate` | <sub>not yet implemented</sub> |
+| `vPermutate` | <sub>not yet implemented</sub> |
+| `sPermutate` | <sub>not yet implemented</sub> |
 
 ### Algorithmic techniques
-| function name | function index | description
-| ------------- | -------------- | -----------
+| name | index | description |
+| ---- | ----- | -----------
 | `lBrownian` | |
 | `lCellularAutomata` | |
 | `lFibonacci` | |
@@ -949,8 +949,8 @@ This is a group of integrated functions that perform basic operations. As said b
 | `lRecursiveEquation` | |
 
 ### Spectral techniques
-| function name | function index | description
-| ------------- | -------------- | -----------
+| name | index | description |
+| ---- | ----- | -----------
 | `hHarmonicSeries`
 | `hSpectralMorphing`
 | `vSpectralize`
@@ -960,8 +960,8 @@ This is a group of integrated functions that perform basic operations. As said b
 
 
 ### Mathematical operations
-| function name | function index | description
-| ------------- | -------------- | -----------
+| name | index | description |
+| ---- | ----- | -----------
 | `oSum`
 | `oDiff`
 | `oMult`
@@ -983,8 +983,8 @@ This is a group of integrated functions that perform basic operations. As said b
 | `oCeil`
 
 ### Internal autoreferences
-| function name | function index | description
-| ------------- | -------------- | -----------
+| name | index | description |
+| ---- | ----- | -----------
 | `pAutoRef`
 | `lAutoRef`
 | `eAutoRef`
@@ -996,15 +996,15 @@ This is a group of integrated functions that perform basic operations. As said b
 
 
 ### External references
-| function name | function index | description
-| ------------- | -------------- | -----------
+| name | index | description |
+| ---- | ----- | -----------
 | `sGenotypeFromLibrary`
 | `lTextfileData`
 
 
 ### Scales
-| function name | function index | description
-| ------------- | -------------- | -----------
+| name | index | description |
+| ---- | ----- | -----------
 | `hNaturalScale`
 | `hMelodicMinorScale`
 | `hHexatonicScale`
@@ -1017,16 +1017,16 @@ This is a group of integrated functions that perform basic operations. As said b
 | `hCluster`
 
 ### Chords
-| function name | function index | description
-| ------------- | -------------- | -----------
+| name | index | description |
+| ---- | ----- | -----------
 | `eMajorChord`
 | `eMinorChord`
 | `eSeventhChord`
 
 
 ### List manipulations
-| function name | function index | description
-| ------------- | -------------- | -----------
+| name | index | description |
+| ---- | ----- | -----------
 | `lRotate`
 | `lLine`
 | `lLinseg`
@@ -1044,8 +1044,8 @@ This is a group of integrated functions that perform basic operations. As said b
 | `lTrigonometricGesture`
 
 ### Serial manipulations
-| function name | function index | description
-| ------------- | -------------- | -----------
+| name | index | description |
+| ---- | ----- | -----------
 | `hDodecaphonicSeries`
 | `hUniquePitchesSeries`
 | `eInvert`
@@ -1080,8 +1080,8 @@ This is a group of integrated functions that perform basic operations. As said b
 
 
 ### Form
-| function name | function index | description
-| ------------- | -------------- | -----------
+| name | index | description |
+| ---- | ----- | -----------
 | `lConcatE`
 | `lConcatL`
 | `vConcatE`      | 99 <sub>.123456</sub> | concatenates two events sequentially
@@ -1102,8 +1102,8 @@ This is a group of integrated functions that perform basic operations. As said b
 | `sABAB`
 
 ### Poliphony
-| function name | function index | description
-| ------------- | -------------- | -----------
+| name | index | description |
+| ---- | ----- | -----------
 | `eTwoPitches`
 | `eThreePitches`
 | `eFourPitches`
@@ -1119,8 +1119,8 @@ This is a group of integrated functions that perform basic operations. As said b
 
 
 ### Motives
-| function name | function index | description
-| ------------- | -------------- | -----------
+| name | index | description |
+| ---- | ----- | -----------
 | `vInterval`
 | `vMotif`        | 99 <sub>.123456</sub> | creates a sequence of events based on lists
 | `vMotifLoop`    | 99 <sub>.123456</sub> | creates a sequence of events based on lists repeating lists
@@ -1132,8 +1132,8 @@ This is a group of integrated functions that perform basic operations. As said b
 | `sHarmonizer`
 
 ### Rhythm
-| function name | function index | description
-| ------------- | -------------- | -----------
+| name | index | description |
+| ---- | ----- | -----------
 | `sSimplifyRhythm`
 | `sComplicateRhythm`
 | `sIsorhythm`
@@ -1145,8 +1145,8 @@ This is a group of integrated functions that perform basic operations. As said b
 | `vGliss`
 
 ### Dynamics
-| function name | function index | description
-| ------------- | -------------- | -----------
+| name | index | description |
+| ---- | ----- | -----------
 | `vCresc`
 | `sCresc`
 | `vDim`
@@ -1158,8 +1158,8 @@ This is a group of integrated functions that perform basic operations. As said b
 | `eMute`
 
 ### Tempo
-| function name | function index | description
-| ------------- | -------------- | -----------
+| name | index | description |
+| ---- | ----- | -----------
 | `vTempo`
 | `sTempo`
 | `vAccel`
@@ -1168,8 +1168,8 @@ This is a group of integrated functions that perform basic operations. As said b
 | `sRit`
 
 ### Articulation
-| function name | function index | description
-| ------------- | -------------- | -----------
+| name | index | description |
+| ---- | ----- | -----------
 | `vLegatissimo`
 | `sLegatissimo`
 | `vNonLegato`
@@ -1184,8 +1184,8 @@ This is a group of integrated functions that perform basic operations. As said b
 | `eMarcato`
 
 ### Manual manipulation of genotypes | uEVOLVE
-| function name | function index | description
-| ------------- | -------------- | -----------
+| name | index | description |
+| ---- | ----- | -----------
 | `uFREEZE`
 | `uFLATTEN`
 | `uEXTRACT`
