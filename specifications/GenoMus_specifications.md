@@ -936,70 +936,6 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `b`           | **booleanF**        | 24 <sub>.832816</sub> | `"b(.5)"` &rarr; `[1]`
 
 ---------
-## Aleatoric processes
-| name | index | description |
-| ---- | ----- | -----------
-| `pGaussRnd` | <sub>not yet implemented</sub> |
-| `pRnd` | <sub>not yet implemented</sub> |
-| `pRndRange` | <sub>not yet implemented</sub> |
-| `pRndDynamicRange` | <sub>not yet implemented</sub> |
-| `pRndDistribution` | <sub>not yet implemented</sub> |
-| `eRnd` | <sub>not yet implemented</sub> |
-| `vRnd` | <sub>not yet implemented</sub> |
-| `sRnd` | <sub>not yet implemented</sub> |
-| `eMutate` | <sub>not yet implemented</sub> |
-| `lMutate` | <sub>not yet implemented</sub> |
-| `vMutate` | <sub>not yet implemented</sub> |
-| `sMutate` | <sub>not yet implemented</sub> |
-| `lPermutate` | <sub>not yet implemented</sub> |
-| `vPermutate` | <sub>not yet implemented</sub> |
-| `sPermutate` | <sub>not yet implemented</sub> |
-
----------
-## Algorithmic techniques
-| name | index | description |
-| ---- | ----- | -----------
-| `lBrownian` | <sub>not yet implemented</sub> |
-| `lCellularAutomata` | <sub>not yet implemented</sub> |
-| `lFibonacci` | <sub>not yet implemented</sub> |
-| `rEuclideanRhythm` | <sub>not yet implemented</sub> |
-| `lLogisticMap` | <sub>not yet implemented</sub> |
-| `lRecursiveEquation` | <sub>not yet implemented</sub> |
-
----------
-## Spectralism
-| name | index | description |
-| ---- | ----- | -----------
-| `hHarmonicSeries` | <sub>not yet implemented</sub> |
-| `hSpectralMorphing` | <sub>not yet implemented</sub> |
-| `vSpectralize` | <sub>not yet implemented</sub> |
-| `sSpectralize` | <sub>not yet implemented</sub> |
-
----------
-## Mathematical operations
-| name | index | description |
-| ---- | ----- | -----------
-| `oSum` | <sub>not yet implemented</sub> |
-| `oDiff` | <sub>not yet implemented</sub> |
-| `oMult` | <sub>not yet implemented</sub> |
-| `oDiv` | <sub>not yet implemented</sub> |
-| `oMod` | <sub>not yet implemented</sub> |
-| `oPow` | <sub>not yet implemented</sub> |
-| `oLog` | <sub>not yet implemented</sub> |
-| `oSin` | <sub>not yet implemented</sub> |
-| `oCos` | <sub>not yet implemented</sub> |
-| `oTan` | <sub>not yet implemented</sub> |
-| `oArcsin` | <sub>not yet implemented</sub> |
-| `oArcos` | <sub>not yet implemented</sub> |
-| `oArctan` | <sub>not yet implemented</sub> |
-| `oSinh` | <sub>not yet implemented</sub> |
-| `oCosh` | <sub>not yet implemented</sub> |
-| `oTanh` | <sub>not yet implemented</sub> |
-| `oFract` | <sub>not yet implemented</sub> |
-| `oFloor` | <sub>not yet implemented</sub> |
-| `oCeil` | <sub>not yet implemented</sub> |
-
----------
 ## Internal autoreferences
 | name | index | description |
 | ---- | ----- | -----------
@@ -1019,8 +955,59 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `sGenotypeFromLibrary` | <sub>not yet implemented</sub> |
 | `lTextfileData` | <sub>not yet implemented</sub> |
 
+## Form
+| name | index | description |
+| ---- | ----- | -----------
+| `lConcatE` | <sub>not yet implemented</sub> |
+| `lConcatL` | <sub>not yet implemented</sub> |
+| `vConcatE` | <sub>not yet implemented</sub> | concatenates two events sequentially
+| `sConcatS` | <sub>not yet implemented</sub> | concatenates two scores sequentially
+| `eAddPitch` | <sub>not yet implemented</sub> | add a pitch to an event
+| `sAddV` | <sub>not yet implemented</sub> | adds a new voice vertically to a score
+| `vRepeatE` | <sub>not yet implemented</sub> | repeats an event a number of times
+| `vRepeatV` | <sub>not yet implemented</sub> | repeats a voice a number of times
+| `sRepeatS` | <sub>not yet implemented</sub> | repeats a score a number of times
+| `lAA` | <sub>not yet implemented</sub> |
+| `vAA` | <sub>not yet implemented</sub> |
+| `sAA` | <sub>not yet implemented</sub> |
+| `lABA` | <sub>not yet implemented</sub> |
+| `vABA` | <sub>not yet implemented</sub> |
+| `sABA` | <sub>not yet implemented</sub> |
+| `lABAB` | <sub>not yet implemented</sub> |
+| `vABAB` | <sub>not yet implemented</sub> |
+| `sABAB` | <sub>not yet implemented</sub> |
+
 ---------
-## Scales
+## Phrasing
+| name | index | description |
+| ---- | ----- | -----------
+| `vInterval` | <sub>not yet implemented</sub> |
+| `vMotif` | <sub>not yet implemented</sub> | creates a sequence of events based on lists
+| `vMotifLoop` | <sub>not yet implemented</sub> | creates a sequence of events based on lists repeating lists
+| `vDiatonize` | <sub>not yet implemented</sub> | diatonize a voice according to a harmonic grid
+| `sDiatonize` | <sub>not yet implemented</sub> | diatonize a score according to a harmonic grid
+| `vPedalNote` | <sub>not yet implemented</sub> |
+| `vArpeggio` | <sub>not yet implemented</sub> |
+| `sEchoV` | <sub>not yet implemented</sub> |
+
+---------
+## Poliphony
+| name | index | description |
+| ---- | ----- | -----------
+| `eTwoPitches` | <sub>not yet implemented</sub> |
+| `eThreePitches` | <sub>not yet implemented</sub> |
+| `eFourPitches` | <sub>not yet implemented</sub> |
+| `eFivePitches` | <sub>not yet implemented</sub> |
+| `eSixPitches` | <sub>not yet implemented</sub> |
+| `eManyPitches` | <sub>not yet implemented</sub> |
+| `sTwoV` | <sub>not yet implemented</sub> |
+| `sThreeV` | <sub>not yet implemented</sub> |
+| `sFourV` | <sub>not yet implemented</sub> |
+| `sFiveV` | <sub>not yet implemented</sub> |
+| `sSixV` | <sub>not yet implemented</sub> |
+
+---------
+## Harmony
 | name | index | description |
 | ---- | ----- | -----------
 | `hNaturalScale` | <sub>not yet implemented</sub> |
@@ -1033,37 +1020,73 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `hPCSet` | <sub>not yet implemented</sub> |
 | `hBebopScale` | <sub>not yet implemented</sub> |
 | `hCluster` | <sub>not yet implemented</sub> |
-
----------
-## Chords
-| name | index | description |
-| ---- | ----- | -----------
 | `eMajorChord` | <sub>not yet implemented</sub> |
 | `eMinorChord` | <sub>not yet implemented</sub> |
 | `eSeventhChord` | <sub>not yet implemented</sub> |
+| `sHarmonizer` | <sub>not yet implemented</sub> |
 
 ---------
-## List manipulations
+## Rhythm
 | name | index | description |
 | ---- | ----- | -----------
-| `lRotate` | <sub>not yet implemented</sub> |
-| `lLine` | <sub>not yet implemented</sub> |
-| `lLinseg` | <sub>not yet implemented</sub> |
-| `lExpon` | <sub>not yet implemented</sub> |
-| `lExpseg` | <sub>not yet implemented</sub> |
-| `lOscil` | <sub>not yet implemented</sub> |
-| `lSawtooth` | <sub>not yet implemented</sub> |
-| `lPhasor` | <sub>not yet implemented</sub> |
-| `lTriangular` | <sub>not yet implemented</sub> |
-| `lSquareOscil` | <sub>not yet implemented</sub> |
-| `lSmooth` | <sub>not yet implemented</sub> |
-| `lRough` | <sub>not yet implemented</sub> |
-| `lPolynomicGesture` | <sub>not yet implemented</sub> |
-| `lBezierGesture` | <sub>not yet implemented</sub> |
-| `lTrigonometricGesture` | <sub>not yet implemented</sub> |
+| `vTempo` | <sub>not yet implemented</sub> |
+| `sTempo` | <sub>not yet implemented</sub> |
+| `vAccel` | <sub>not yet implemented</sub> |
+| `vRit` | <sub>not yet implemented</sub> |
+| `sAccel` | <sub>not yet implemented</sub> |
+| `sRit` | <sub>not yet implemented</sub> |
+| `sSimplifyRhythm` | <sub>not yet implemented</sub> |
+| `sComplicateRhythm` | <sub>not yet implemented</sub> |
+| `sIsorhythm` | <sub>not yet implemented</sub> |
+| `vAcciaccatura` | <sub>not yet implemented</sub> |
+| `vAppoggiatura` | <sub>not yet implemented</sub> |
+| `vTurn` | <sub>not yet implemented</sub> |
+| `vTrill` | <sub>not yet implemented</sub> |
+| `vJitter` | <sub>not yet implemented</sub> |
+| `vGliss` | <sub>not yet implemented</sub> |
 
 ---------
-## Serial manipulations
+## Articulation
+| name | index | description |
+| ---- | ----- | -----------
+| `vLegatissimo` | <sub>not yet implemented</sub> |
+| `sLegatissimo` | <sub>not yet implemented</sub> |
+| `vNonLegato` | <sub>not yet implemented</sub> |
+| `sNonLegato` | <sub>not yet implemented</sub> |
+| `vLegato` | <sub>not yet implemented</sub> |
+| `sLegato` | <sub>not yet implemented</sub> |
+| `vStaccato` | <sub>not yet implemented</sub> |
+| `sStaccato` | <sub>not yet implemented</sub> |
+| `vStaccatissimo` | <sub>not yet implemented</sub> |
+| `sStaccatissimo` | <sub>not yet implemented</sub> |
+| `vPedalSustain` | <sub>not yet implemented</sub> |
+| `eMarcato` | <sub>not yet implemented</sub> |
+
+---------
+## Dynamics
+| name | index | description |
+| ---- | ----- | -----------
+| `vCresc` | <sub>not yet implemented</sub> |
+| `sCresc` | <sub>not yet implemented</sub> |
+| `vDim` | <sub>not yet implemented</sub> |
+| `sDim` | <sub>not yet implemented</sub> |
+| `vLouder` | <sub>not yet implemented</sub> |
+| `sLouder` | <sub>not yet implemented</sub> |
+| `vSofter` | <sub>not yet implemented</sub> |
+| `sSofter` | <sub>not yet implemented</sub> |
+| `eMute` | <sub>not yet implemented</sub> |
+
+---------
+## Spectralism
+| name | index | description |
+| ---- | ----- | -----------
+| `hHarmonicSeries` | <sub>not yet implemented</sub> |
+| `hSpectralMorphing` | <sub>not yet implemented</sub> |
+| `vSpectralize` | <sub>not yet implemented</sub> |
+| `sSpectralize` | <sub>not yet implemented</sub> |
+
+---------
+## Serialism
 | name | index | description |
 | ---- | ----- | -----------
 | `hDodecaphonicSeries` | <sub>not yet implemented</sub> |
@@ -1099,113 +1122,81 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `sExtrude` | <sub>not yet implemented</sub> |
 
 ---------
-## Form
+## Aleatoric processes
 | name | index | description |
 | ---- | ----- | -----------
-| `lConcatE` | <sub>not yet implemented</sub> |
-| `lConcatL` | <sub>not yet implemented</sub> |
-| `vConcatE` | <sub>not yet implemented</sub> | concatenates two events sequentially
-| `sConcatS` | <sub>not yet implemented</sub> | concatenates two scores sequentially
-| `eAddPitch` | <sub>not yet implemented</sub> | add a pitch to an event
-| `sAddV` | <sub>not yet implemented</sub> | adds a new voice vertically to a score
-| `vRepeatE` | <sub>not yet implemented</sub> | repeats an event a number of times
-| `vRepeatV` | <sub>not yet implemented</sub> | repeats a voice a number of times
-| `sRepeatS` | <sub>not yet implemented</sub> | repeats a score a number of times
-| `lAA` | <sub>not yet implemented</sub> |
-| `vAA` | <sub>not yet implemented</sub> |
-| `sAA` | <sub>not yet implemented</sub> |
-| `lABA` | <sub>not yet implemented</sub> |
-| `vABA` | <sub>not yet implemented</sub> |
-| `sABA` | <sub>not yet implemented</sub> |
-| `lABAB` | <sub>not yet implemented</sub> |
-| `vABAB` | <sub>not yet implemented</sub> |
-| `sABAB` | <sub>not yet implemented</sub> |
+| `pGaussRnd` | <sub>not yet implemented</sub> |
+| `pRnd` | <sub>not yet implemented</sub> |
+| `pRndRange` | <sub>not yet implemented</sub> |
+| `pRndDynamicRange` | <sub>not yet implemented</sub> |
+| `pRndDistribution` | <sub>not yet implemented</sub> |
+| `eRnd` | <sub>not yet implemented</sub> |
+| `vRnd` | <sub>not yet implemented</sub> |
+| `sRnd` | <sub>not yet implemented</sub> |
+| `eMutate` | <sub>not yet implemented</sub> |
+| `lMutate` | <sub>not yet implemented</sub> |
+| `vMutate` | <sub>not yet implemented</sub> |
+| `sMutate` | <sub>not yet implemented</sub> |
+| `lPermutate` | <sub>not yet implemented</sub> |
+| `vPermutate` | <sub>not yet implemented</sub> |
+| `sPermutate` | <sub>not yet implemented</sub> |
 
 ---------
-## Poliphony
+## Algorithmic techniques
 | name | index | description |
 | ---- | ----- | -----------
-| `eTwoPitches` | <sub>not yet implemented</sub> |
-| `eThreePitches` | <sub>not yet implemented</sub> |
-| `eFourPitches` | <sub>not yet implemented</sub> |
-| `eFivePitches` | <sub>not yet implemented</sub> |
-| `eSixPitches` | <sub>not yet implemented</sub> |
-| `eManyPitches` | <sub>not yet implemented</sub> |
-| `sTwoV` | <sub>not yet implemented</sub> |
-| `sThreeV` | <sub>not yet implemented</sub> |
-| `sFourV` | <sub>not yet implemented</sub> |
-| `sFiveV` | <sub>not yet implemented</sub> |
-| `sSixV` | <sub>not yet implemented</sub> |
+| `lBrownian` | <sub>not yet implemented</sub> |
+| `lCellularAutomata` | <sub>not yet implemented</sub> |
+| `lFibonacci` | <sub>not yet implemented</sub> |
+| `rEuclideanRhythm` | <sub>not yet implemented</sub> |
+| `lLogisticMap` | <sub>not yet implemented</sub> |
+| `lRecursiveEquation` | <sub>not yet implemented</sub> |
 
 ---------
-## Motives
+## Mathematical operations
 | name | index | description |
 | ---- | ----- | -----------
-| `vInterval` | <sub>not yet implemented</sub> |
-| `vMotif` | <sub>not yet implemented</sub> | creates a sequence of events based on lists
-| `vMotifLoop` | <sub>not yet implemented</sub> | creates a sequence of events based on lists repeating lists
-| `vDiatonize` | <sub>not yet implemented</sub> | diatonize a voice according to a harmonic grid
-| `sDiatonize` | <sub>not yet implemented</sub> | diatonize a score according to a harmonic grid
-| `vPedalNote` | <sub>not yet implemented</sub> |
-| `vArpeggio` | <sub>not yet implemented</sub> |
-| `sEchoV` | <sub>not yet implemented</sub> |
-| `sHarmonizer` | <sub>not yet implemented</sub> |
+| `oSum` | <sub>not yet implemented</sub> |
+| `oDiff` | <sub>not yet implemented</sub> |
+| `oMult` | <sub>not yet implemented</sub> |
+| `oDiv` | <sub>not yet implemented</sub> |
+| `oMod` | <sub>not yet implemented</sub> |
+| `oPow` | <sub>not yet implemented</sub> |
+| `oLog` | <sub>not yet implemented</sub> |
+| `oSin` | <sub>not yet implemented</sub> |
+| `oCos` | <sub>not yet implemented</sub> |
+| `oTan` | <sub>not yet implemented</sub> |
+| `oArcsin` | <sub>not yet implemented</sub> |
+| `oArcos` | <sub>not yet implemented</sub> |
+| `oArctan` | <sub>not yet implemented</sub> |
+| `oSinh` | <sub>not yet implemented</sub> |
+| `oCosh` | <sub>not yet implemented</sub> |
+| `oTanh` | <sub>not yet implemented</sub> |
+| `oFract` | <sub>not yet implemented</sub> |
+| `oFloor` | <sub>not yet implemented</sub> |
+| `oCeil` | <sub>not yet implemented</sub> |
 
 ---------
-## Rhythm
-| name | index | description |
-| ---- | ----- | -----------
-| `sSimplifyRhythm` | <sub>not yet implemented</sub> |
-| `sComplicateRhythm` | <sub>not yet implemented</sub> |
-| `sIsorhythm` | <sub>not yet implemented</sub> |
-| `vAcciaccatura` | <sub>not yet implemented</sub> |
-| `vAppoggiatura` | <sub>not yet implemented</sub> |
-| `vTurn` | <sub>not yet implemented</sub> |
-| `vTrill` | <sub>not yet implemented</sub> |
-| `vJitter` | <sub>not yet implemented</sub> |
-| `vGliss` | <sub>not yet implemented</sub> |
 
 ---------
-## Dynamics
+## List manipulations
 | name | index | description |
 | ---- | ----- | -----------
-| `vCresc` | <sub>not yet implemented</sub> |
-| `sCresc` | <sub>not yet implemented</sub> |
-| `vDim` | <sub>not yet implemented</sub> |
-| `sDim` | <sub>not yet implemented</sub> |
-| `vLouder` | <sub>not yet implemented</sub> |
-| `sLouder` | <sub>not yet implemented</sub> |
-| `vSofter` | <sub>not yet implemented</sub> |
-| `sSofter` | <sub>not yet implemented</sub> |
-| `eMute` | <sub>not yet implemented</sub> |
-
----------
-## Tempo
-| name | index | description |
-| ---- | ----- | -----------
-| `vTempo` | <sub>not yet implemented</sub> |
-| `sTempo` | <sub>not yet implemented</sub> |
-| `vAccel` | <sub>not yet implemented</sub> |
-| `vRit` | <sub>not yet implemented</sub> |
-| `sAccel` | <sub>not yet implemented</sub> |
-| `sRit` | <sub>not yet implemented</sub> |
-
----------
-## Articulation
-| name | index | description |
-| ---- | ----- | -----------
-| `vLegatissimo` | <sub>not yet implemented</sub> |
-| `sLegatissimo` | <sub>not yet implemented</sub> |
-| `vNonLegato` | <sub>not yet implemented</sub> |
-| `sNonLegato` | <sub>not yet implemented</sub> |
-| `vLegato` | <sub>not yet implemented</sub> |
-| `sLegato` | <sub>not yet implemented</sub> |
-| `vStaccato` | <sub>not yet implemented</sub> |
-| `sStaccato` | <sub>not yet implemented</sub> |
-| `vStaccatissimo` | <sub>not yet implemented</sub> |
-| `sStaccatissimo` | <sub>not yet implemented</sub> |
-| `vPedalSustain` | <sub>not yet implemented</sub> |
-| `eMarcato` | <sub>not yet implemented</sub> |
+| `lRotate` | <sub>not yet implemented</sub> |
+| `lLine` | <sub>not yet implemented</sub> |
+| `lLinseg` | <sub>not yet implemented</sub> |
+| `lExpon` | <sub>not yet implemented</sub> |
+| `lExpseg` | <sub>not yet implemented</sub> |
+| `lOscil` | <sub>not yet implemented</sub> |
+| `lSawtooth` | <sub>not yet implemented</sub> |
+| `lPhasor` | <sub>not yet implemented</sub> |
+| `lTriangular` | <sub>not yet implemented</sub> |
+| `lSquareOscil` | <sub>not yet implemented</sub> |
+| `lSmooth` | <sub>not yet implemented</sub> |
+| `lRough` | <sub>not yet implemented</sub> |
+| `lPolynomicGesture` | <sub>not yet implemented</sub> |
+| `lBezierGesture` | <sub>not yet implemented</sub> |
+| `lTrigonometricGesture` | <sub>not yet implemented</sub> |
 
 ---------
 ## Manual manipulation of genotypes 
