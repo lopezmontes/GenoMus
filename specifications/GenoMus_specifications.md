@@ -941,20 +941,20 @@ This is a group of integrated functions that perform basic operations. As said b
 ### Algorithmic techniques
 | name | index | description |
 | ---- | ----- | -----------
-| `lBrownian` | |
-| `lCellularAutomata` | |
-| `lFibonacci` | |
-| `rEuclideanRhythm` | |
-| `lLogisticMap` | |
-| `lRecursiveEquation` | |
+| `lBrownian` | <sub>not yet implemented</sub> |
+| `lCellularAutomata` | <sub>not yet implemented</sub> |
+| `lFibonacci` | <sub>not yet implemented</sub> |
+| `rEuclideanRhythm` | <sub>not yet implemented</sub> |
+| `lLogisticMap` | <sub>not yet implemented</sub> |
+| `lRecursiveEquation` | <sub>not yet implemented</sub> |
 
 ### Spectral techniques
 | name | index | description |
 | ---- | ----- | -----------
-| `hHarmonicSeries`
-| `hSpectralMorphing`
-| `vSpectralize`
-| `sSpectralize`
+| `hHarmonicSeries` | <sub>not yet implemented</sub> |
+| `hSpectralMorphing` | <sub>not yet implemented</sub> |
+| `vSpectralize` | <sub>not yet implemented</sub> |
+| `sSpectralize` | <sub>not yet implemented</sub> |
 
 
 
@@ -962,233 +962,232 @@ This is a group of integrated functions that perform basic operations. As said b
 ### Mathematical operations
 | name | index | description |
 | ---- | ----- | -----------
-| `oSum`
-| `oDiff`
-| `oMult`
-| `oDiv`
-| `oMod`
-| `oPow`
-| `oLog`
-| `oSin`
-| `oCos`
-| `oTan`
-| `oArcsin`
-| `oArcos`
-| `oArctan`
-| `oSinh`
-| `oCosh`
-| `oTanh`
-| `oFract`
-| `oFloor`
-| `oCeil`
+| `oSum` | <sub>not yet implemented</sub> |
+| `oDiff` | <sub>not yet implemented</sub> |
+| `oMult` | <sub>not yet implemented</sub> |
+| `oDiv` | <sub>not yet implemented</sub> |
+| `oMod` | <sub>not yet implemented</sub> |
+| `oPow` | <sub>not yet implemented</sub> |
+| `oLog` | <sub>not yet implemented</sub> |
+| `oSin` | <sub>not yet implemented</sub> |
+| `oCos` | <sub>not yet implemented</sub> |
+| `oTan` | <sub>not yet implemented</sub> |
+| `oArcsin` | <sub>not yet implemented</sub> |
+| `oArcos` | <sub>not yet implemented</sub> |
+| `oArctan` | <sub>not yet implemented</sub> |
+| `oSinh` | <sub>not yet implemented</sub> |
+| `oCosh` | <sub>not yet implemented</sub> |
+| `oTanh` | <sub>not yet implemented</sub> |
+| `oFract` | <sub>not yet implemented</sub> |
+| `oFloor` | <sub>not yet implemented</sub> |
+| `oCeil` | <sub>not yet implemented</sub> |
 
 ### Internal autoreferences
 | name | index | description |
 | ---- | ----- | -----------
-| `pAutoRef`
-| `lAutoRef`
-| `eAutoRef`
-| `vAutoRef`
-| `sAutoRef`
-| `lIterExpr`     | 99 <sub>.123456</sub> | repeats an expression a number of times, after a new reevaluation
-| `vIterExpr`     | 99 <sub>.123456</sub> | repeats an expression a number of times, after a new reevaluation
-| `sIterExpr`     | 99 <sub>.123456</sub> | repeats an expression a number of times, after a new reevaluation
+| `pAutoRef` | <sub>not yet implemented</sub> |
+| `lAutoRef` | <sub>not yet implemented</sub> |
+| `eAutoRef` | <sub>not yet implemented</sub> |
+| `vAutoRef` | <sub>not yet implemented</sub> |
+| `sAutoRef` | <sub>not yet implemented</sub> |
+| `lIterExpr` | <sub>not yet implemented</sub> |repeats an expression a number of times, after a new reevaluation
+| `vIterExpr` | <sub>not yet implemented</sub> |repeats an expression a number of times, after a new reevaluation
+| `sIterExpr` | <sub>not yet implemented</sub> |repeats an expression a number of times, after a new reevaluation
 
 
 ### External references
 | name | index | description |
 | ---- | ----- | -----------
-| `sGenotypeFromLibrary`
-| `lTextfileData`
-
+| `sGenotypeFromLibrary` | <sub>not yet implemented</sub> |
+| `lTextfileData` | <sub>not yet implemented</sub> |
 
 ### Scales
 | name | index | description |
 | ---- | ----- | -----------
-| `hNaturalScale`
-| `hMelodicMinorScale`
-| `hHexatonicScale`
-| `hOctatonicScale`
-| `hLimitedTranspoScale`
-| `hOrientalScale`
-| `hPentatonic`
-| `hPCSet`
-| `hBebopScale`
-| `hCluster`
+| `hNaturalScale` | <sub>not yet implemented</sub> |
+| `hMelodicMinorScale` | <sub>not yet implemented</sub> |
+| `hHexatonicScale` | <sub>not yet implemented</sub> |
+| `hOctatonicScale` | <sub>not yet implemented</sub> |
+| `hLimitedTranspoScale` | <sub>not yet implemented</sub> |
+| `hOrientalScale` | <sub>not yet implemented</sub> |
+| `hPentatonic` | <sub>not yet implemented</sub> |
+| `hPCSet` | <sub>not yet implemented</sub> |
+| `hBebopScale` | <sub>not yet implemented</sub> |
+| `hCluster` | <sub>not yet implemented</sub> |
 
 ### Chords
 | name | index | description |
 | ---- | ----- | -----------
-| `eMajorChord`
-| `eMinorChord`
-| `eSeventhChord`
+| `eMajorChord` | <sub>not yet implemented</sub> |
+| `eMinorChord` | <sub>not yet implemented</sub> |
+| `eSeventhChord` | <sub>not yet implemented</sub> |
 
 
 ### List manipulations
 | name | index | description |
 | ---- | ----- | -----------
-| `lRotate`
-| `lLine`
-| `lLinseg`
-| `lExpon`
-| `lExpseg`
-| `lOscil`
-| `lSawtooth`
-| `lPhasor`
-| `lTriangular`
-| `lSquareOscil`
-| `lSmooth`
-| `lRough`
-| `lPolynomicGesture`
-| `lBezierGesture`
-| `lTrigonometricGesture`
+| `lRotate` | <sub>not yet implemented</sub> |
+| `lLine` | <sub>not yet implemented</sub> |
+| `lLinseg` | <sub>not yet implemented</sub> |
+| `lExpon` | <sub>not yet implemented</sub> |
+| `lExpseg` | <sub>not yet implemented</sub> |
+| `lOscil` | <sub>not yet implemented</sub> |
+| `lSawtooth` | <sub>not yet implemented</sub> |
+| `lPhasor` | <sub>not yet implemented</sub> |
+| `lTriangular` | <sub>not yet implemented</sub> |
+| `lSquareOscil` | <sub>not yet implemented</sub> |
+| `lSmooth` | <sub>not yet implemented</sub> |
+| `lRough` | <sub>not yet implemented</sub> |
+| `lPolynomicGesture` | <sub>not yet implemented</sub> |
+| `lBezierGesture` | <sub>not yet implemented</sub> |
+| `lTrigonometricGesture` | <sub>not yet implemented</sub> |
 
 ### Serial manipulations
 | name | index | description |
 | ---- | ----- | -----------
-| `hDodecaphonicSeries`
-| `hUniquePitchesSeries`
-| `eInvert`
-| `lInvert`
-| `vInvert`
-| `sInvert`
-| `eTranspose`
-| `lTranspose`
-| `vTranspose`
-| `sTranspose`
-| `eTranspOctaves`
-| `lTranspOctaves`
-| `vTranspOctaves`
-| `sTranspOctaves`
-| `eRetrograd`
-| `lRetrograd`
-| `vRetrograd`
-| `sRetrograd`
-| `eRetrogradInversion`
-| `lRetrogradInversion`
-| `vRetrogradInversion`
-| `sRetrogradInversion`
-| `lRotate`
-| `vRotate`
-| `sRotate`
-| `lExpand`
-| `vExpand`
-| `sExpand`
-| `lExtrude`
-| `vExtrude`
-| `sExtrude`
+| `hDodecaphonicSeries` | <sub>not yet implemented</sub> |
+| `hUniquePitchesSeries` | <sub>not yet implemented</sub> |
+| `eInvert` | <sub>not yet implemented</sub> |
+| `lInvert` | <sub>not yet implemented</sub> |
+| `vInvert` | <sub>not yet implemented</sub> |
+| `sInvert` | <sub>not yet implemented</sub> |
+| `eTranspose` | <sub>not yet implemented</sub> |
+| `lTranspose` | <sub>not yet implemented</sub> |
+| `vTranspose` | <sub>not yet implemented</sub> |
+| `sTranspose` | <sub>not yet implemented</sub> |
+| `eTranspOctaves` | <sub>not yet implemented</sub> |
+| `lTranspOctaves` | <sub>not yet implemented</sub> |
+| `vTranspOctaves` | <sub>not yet implemented</sub> |
+| `sTranspOctaves` | <sub>not yet implemented</sub> |
+| `eRetrograd` | <sub>not yet implemented</sub> |
+| `lRetrograd` | <sub>not yet implemented</sub> |
+| `vRetrograd` | <sub>not yet implemented</sub> |
+| `sRetrograd` | <sub>not yet implemented</sub> |
+| `eRetrogradInversion` | <sub>not yet implemented</sub> |
+| `lRetrogradInversion` | <sub>not yet implemented</sub> |
+| `vRetrogradInversion` | <sub>not yet implemented</sub> |
+| `sRetrogradInversion` | <sub>not yet implemented</sub> |
+| `lRotate` | <sub>not yet implemented</sub> |
+| `vRotate` | <sub>not yet implemented</sub> |
+| `sRotate` | <sub>not yet implemented</sub> |
+| `lExpand` | <sub>not yet implemented</sub> |
+| `vExpand` | <sub>not yet implemented</sub> |
+| `sExpand` | <sub>not yet implemented</sub> |
+| `lExtrude` | <sub>not yet implemented</sub> |
+| `vExtrude` | <sub>not yet implemented</sub> |
+| `sExtrude` | <sub>not yet implemented</sub> |
 
 
 ### Form
 | name | index | description |
 | ---- | ----- | -----------
-| `lConcatE`
-| `lConcatL`
-| `vConcatE`      | 99 <sub>.123456</sub> | concatenates two events sequentially
-| `sConcatS`     | 99 <sub>.123456</sub> | concatenates two scores sequentially
-| `eAddPitch`     | 99 <sub>.123456</sub> | add a pitch to an event
-| `sAddV`         | 99 <sub>.123456</sub> | adds a new voice vertically to a score
-| `vRepeatE`      | 99 <sub>.123456</sub> | repeats an event a number of times
-| `vRepeatV`      | 99 <sub>.123456</sub> | repeats a voice a number of times
-| `sRepeatS`      | 99 <sub>.123456</sub> | repeats a score a number of times
-| `lAA`
-| `vAA`
-| `sAA`
-| `lABA`
-| `vABA`
-| `sABA`
-| `lABAB`
-| `vABAB`
-| `sABAB`
+| `lConcatE` | <sub>not yet implemented</sub> |
+| `lConcatL` | <sub>not yet implemented</sub> |
+| `vConcatE` | <sub>not yet implemented</sub> | concatenates two events sequentially
+| `sConcatS` | <sub>not yet implemented</sub> | concatenates two scores sequentially
+| `eAddPitch` | <sub>not yet implemented</sub> | add a pitch to an event
+| `sAddV` | <sub>not yet implemented</sub> | adds a new voice vertically to a score
+| `vRepeatE` | <sub>not yet implemented</sub> | repeats an event a number of times
+| `vRepeatV` | <sub>not yet implemented</sub> | repeats a voice a number of times
+| `sRepeatS` | <sub>not yet implemented</sub> | repeats a score a number of times
+| `lAA` | <sub>not yet implemented</sub> |
+| `vAA` | <sub>not yet implemented</sub> |
+| `sAA` | <sub>not yet implemented</sub> |
+| `lABA` | <sub>not yet implemented</sub> |
+| `vABA` | <sub>not yet implemented</sub> |
+| `sABA` | <sub>not yet implemented</sub> |
+| `lABAB` | <sub>not yet implemented</sub> |
+| `vABAB` | <sub>not yet implemented</sub> |
+| `sABAB` | <sub>not yet implemented</sub> |
 
 ### Poliphony
 | name | index | description |
 | ---- | ----- | -----------
-| `eTwoPitches`
-| `eThreePitches`
-| `eFourPitches`
-| `eFivePitches`
-| `eSixPitches`
-| `eManyPitches`
-| `sTwoV`
-| `sThreeV`
-| `sFourV`
-| `sFiveV`
-| `sSixV`
+| `eTwoPitches` | <sub>not yet implemented</sub> |
+| `eThreePitches` | <sub>not yet implemented</sub> |
+| `eFourPitches` | <sub>not yet implemented</sub> |
+| `eFivePitches` | <sub>not yet implemented</sub> |
+| `eSixPitches` | <sub>not yet implemented</sub> |
+| `eManyPitches` | <sub>not yet implemented</sub> |
+| `sTwoV` | <sub>not yet implemented</sub> |
+| `sThreeV` | <sub>not yet implemented</sub> |
+| `sFourV` | <sub>not yet implemented</sub> |
+| `sFiveV` | <sub>not yet implemented</sub> |
+| `sSixV` | <sub>not yet implemented</sub> |
 
 
 
 ### Motives
 | name | index | description |
 | ---- | ----- | -----------
-| `vInterval`
-| `vMotif`        | 99 <sub>.123456</sub> | creates a sequence of events based on lists
-| `vMotifLoop`    | 99 <sub>.123456</sub> | creates a sequence of events based on lists repeating lists
-| `vDiatonize`   | 99 <sub>.123456</sub> | diatonize a voice according to a harmonic grid
-| `sDiatonize`   | 99 <sub>.123456</sub> | diatonize a score according to a harmonic grid
-| `vPedalNote`
-| `vArpeggio`
-| `sEchoV`
-| `sHarmonizer`
+| `vInterval` | <sub>not yet implemented</sub> |
+| `vMotif` | <sub>not yet implemented</sub> | creates a sequence of events based on lists
+| `vMotifLoop` | <sub>not yet implemented</sub> | creates a sequence of events based on lists repeating lists
+| `vDiatonize` | <sub>not yet implemented</sub> | diatonize a voice according to a harmonic grid
+| `sDiatonize` | <sub>not yet implemented</sub> | diatonize a score according to a harmonic grid
+| `vPedalNote` | <sub>not yet implemented</sub> |
+| `vArpeggio` | <sub>not yet implemented</sub> |
+| `sEchoV` | <sub>not yet implemented</sub> |
+| `sHarmonizer` | <sub>not yet implemented</sub> |
 
 ### Rhythm
 | name | index | description |
 | ---- | ----- | -----------
-| `sSimplifyRhythm`
-| `sComplicateRhythm`
-| `sIsorhythm`
-| `vAcciaccatura`
-| `vAppoggiatura`
-| `vTurn`
-| `vTrill`
-| `vJitter`
-| `vGliss`
+| `sSimplifyRhythm` | <sub>not yet implemented</sub> |
+| `sComplicateRhythm` | <sub>not yet implemented</sub> |
+| `sIsorhythm` | <sub>not yet implemented</sub> |
+| `vAcciaccatura` | <sub>not yet implemented</sub> |
+| `vAppoggiatura` | <sub>not yet implemented</sub> |
+| `vTurn` | <sub>not yet implemented</sub> |
+| `vTrill` | <sub>not yet implemented</sub> |
+| `vJitter` | <sub>not yet implemented</sub> |
+| `vGliss` | <sub>not yet implemented</sub> |
 
 ### Dynamics
 | name | index | description |
 | ---- | ----- | -----------
-| `vCresc`
-| `sCresc`
-| `vDim`
-| `sDim`
-| `vLouder`
-| `sLouder`
-| `vSofter`
-| `sSofter`
-| `eMute`
+| `vCresc` | <sub>not yet implemented</sub> |
+| `sCresc` | <sub>not yet implemented</sub> |
+| `vDim` | <sub>not yet implemented</sub> |
+| `sDim` | <sub>not yet implemented</sub> |
+| `vLouder` | <sub>not yet implemented</sub> |
+| `sLouder` | <sub>not yet implemented</sub> |
+| `vSofter` | <sub>not yet implemented</sub> |
+| `sSofter` | <sub>not yet implemented</sub> |
+| `eMute` | <sub>not yet implemented</sub> |
 
 ### Tempo
 | name | index | description |
 | ---- | ----- | -----------
-| `vTempo`
-| `sTempo`
-| `vAccel`
-| `vRit`
-| `sAccel`
-| `sRit`
+| `vTempo` | <sub>not yet implemented</sub> |
+| `sTempo` | <sub>not yet implemented</sub> |
+| `vAccel` | <sub>not yet implemented</sub> |
+| `vRit` | <sub>not yet implemented</sub> |
+| `sAccel` | <sub>not yet implemented</sub> |
+| `sRit` | <sub>not yet implemented</sub> |
 
 ### Articulation
 | name | index | description |
 | ---- | ----- | -----------
-| `vLegatissimo`
-| `sLegatissimo`
-| `vNonLegato`
-| `sNonLegato`
-| `vLegato`
-| `sLegato`
-| `vStaccato`
-| `sStaccato`
-| `vStaccatissimo`
-| `sStaccatissimo`
-| `vPedalSustain`
-| `eMarcato`
+| `vLegatissimo` | <sub>not yet implemented</sub> |
+| `sLegatissimo` | <sub>not yet implemented</sub> |
+| `vNonLegato` | <sub>not yet implemented</sub> |
+| `sNonLegato` | <sub>not yet implemented</sub> |
+| `vLegato` | <sub>not yet implemented</sub> |
+| `sLegato` | <sub>not yet implemented</sub> |
+| `vStaccato` | <sub>not yet implemented</sub> |
+| `sStaccato` | <sub>not yet implemented</sub> |
+| `vStaccatissimo` | <sub>not yet implemented</sub> |
+| `sStaccatissimo` | <sub>not yet implemented</sub> |
+| `vPedalSustain` | <sub>not yet implemented</sub> |
+| `eMarcato` | <sub>not yet implemented</sub> |
 
 ### Manual manipulation of genotypes | uEVOLVE
 | name | index | description |
 | ---- | ----- | -----------
-| `uFREEZE`
-| `uFLATTEN`
-| `uEXTRACT`
+| `uFREEZE` | <sub>not yet implemented</sub> |
+| `uFLATTEN` | <sub>not yet implemented</sub> |
+| `uEXTRACT` | <sub>not yet implemented</sub> |
 
 ---------
 # Encoding-decoding genotypes
