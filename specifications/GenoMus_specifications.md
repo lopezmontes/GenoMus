@@ -61,7 +61,7 @@
   - [Poliphony](#poliphony)
   - [Harmony](#harmony)
   - [Rhythm](#rhythm)
-  - [Articulation](#articulation)
+  - [Articulation](#articulation-1)
   - [Dynamics](#dynamics)
   - [Spectralism](#spectralism)
   - [Serialism](#serialism)
@@ -69,7 +69,7 @@
   - [Algorithmic techniques](#algorithmic-techniques)
   - [Mathematical operations](#mathematical-operations)
   - [List manipulation](#list-manipulation)
-  - [Genotype manual operators](#genotype-manual-operators)
+  - [Manual operators of genotypes](#manual-operators-of-genotypes)
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
   - [Conversion table for genotypes](#conversion-table-for-genotypes)
   - [Formatting decoded genotypes](#formatting-decoded-genotypes)
@@ -1179,7 +1179,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ---------
 
 ---------
-## List manipulations
+## List manipulation
 | name | index | description |
 | ---- | ----- | -----------
 | `lRotate` | <sub>not yet implemented</sub> |
@@ -1199,7 +1199,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `lTrigonometricGesture` | <sub>not yet implemented</sub> |
 
 ---------
-## Manual manipulation of genotypes 
+## Manual operators of genotypes 
 | name | index | description |
 | ---- | ----- | -----------
 | `uEVOLVE` | <sub>not yet implemented</sub> |
