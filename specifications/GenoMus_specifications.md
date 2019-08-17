@@ -1635,10 +1635,28 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
 
 ---------
 ## Constraints
+
+- Minimum numbers of events
+- Maximum numbers of events
+- Maximum number of iterations
+- Maximum genotype ramification depth
+
 ## Eligible functions
+
+- Format for specifying eligible functions
+- Format for specifying not eligible functions
+
 ## Mandatory functions
+
+- Format for specifying mandatory functions
+
 ## Vector of desired musical characteristics
+
+- Format for determine desired musical features and weights
+
 ### Weighted measurement of Euclidean distance
+
+- Formula to measure distance of a phenotype to the goal vector
 
 --------- 
 # Specimen data structure
