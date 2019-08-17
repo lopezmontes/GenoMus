@@ -1148,11 +1148,20 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `pRnd`             | <sub>not yet implemented</sub> | returns a random normalized parameter with uniform distribution
 | `pGaussRnd`        | <sub>not yet implemented</sub> | returns a random normalized parameter with Gaussian (or normal) distribution
 | `pWrappedGaussRnd` | <sub>not yet implemented</sub> | returns a random normalized parameter with a wrapped normal distribution
+| `eRnd`             | <sub>not yet implemented</sub> | returns a complete random event with uniform distribution of parameters
+| `eGaussRnd`        | <sub>not yet implemented</sub> | returns a complete random event with with Gaussian distribution of parameters
+| `eWrappedGaussRnd` | <sub>not yet implemented</sub> | returns a complete random event with a wrapped normal distribution of parameters
+| `lRnd`             | <sub>not yet implemented</sub> | returns a complete random list with uniform distribution of values
+| `lGaussRnd`        | <sub>not yet implemented</sub> | returns a complete random list with with Gaussian distribution of parameters
+| `lWrappedGaussRnd` | <sub>not yet implemented</sub> | returns a complete random list with a wrapped normal distribution of values
+| `vRnd`             | <sub>not yet implemented</sub> | returns a complete random voice with uniform distribution of parameters
+| `vGaussRnd`        | <sub>not yet implemented</sub> | returns a complete random voice with with Gaussian distribution of parameters
+| `vWrappedGaussRnd` | <sub>not yet implemented</sub> | returns a complete random voice with a wrapped normal distribution of parameters
+| `sRnd`             | <sub>not yet implemented</sub> | returns a complete random score with uniform distribution of parameters
+| `sGaussRnd`        | <sub>not yet implemented</sub> | returns a complete random score with with Gaussian distribution of parameters
+| `sWrappedGaussRnd` | <sub>not yet implemented</sub> | returns a complete random score with a wrapped normal distribution of parameters
 | `pRndRange`        | <sub>not yet implemented</sub> | rescales a random normalized parameter to a new range
 | `lRndDynamicRange` | <sub>not yet implemented</sub> | rescales a list of random values a changing range
-| `eRnd`             | <sub>not yet implemented</sub> | returns a complete random event
-| `vRnd`             | <sub>not yet implemented</sub> | returns a complete random voice
-| `sRnd`             | <sub>not yet implemented</sub> | returns a complete random score
 | `eMutate`          | <sub>not yet implemented</sub> | changes parameters of an event according to probability and range of mutations
 | `lMutate`          | <sub>not yet implemented</sub> | changes values of a list according to probability and range of mutations
 | `vMutate`          | <sub>not yet implemented</sub> | changes parameters of a voice according to probability and range of mutations
