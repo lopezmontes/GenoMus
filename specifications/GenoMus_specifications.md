@@ -1145,8 +1145,8 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## Aleatoric processes
 | name               | index                          | description
 | ------------------ | ------------------------------ | -----------
-| `pGaussRnd`        | <sub>not yet implemented</sub> |
 | `pRnd`             | <sub>not yet implemented</sub> |
+| `pGaussRnd`        | <sub>not yet implemented</sub> |
 | `pRndRange`        | <sub>not yet implemented</sub> |
 | `pRndDynamicRange` | <sub>not yet implemented</sub> |
 | `pRndDistribution` | <sub>not yet implemented</sub> |
@@ -1215,6 +1215,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `lOscil`            | <sub>not yet implemented</sub> | generates a periodic sinusoidal oscillation between two values
 | `lPhasor`           | <sub>not yet implemented</sub> | generates periodic straight transitions from first value to second one
 | `lTriangular`       | <sub>not yet implemented</sub> | generates periodic straight transitions from first value to second one and vice versa
+| `lRescale`          | <sub>not yet implemented</sub> | remaps a list to a new range  
 | `lSmooth`           | <sub>not yet implemented</sub> | smooths distances between contiguous items in a list according to a factor
 | `lRough`            | <sub>not yet implemented</sub> | sharpens distances between contiguous items in a list according to a factor
 | `lInvert`           | <sub>not yet implemented</sub> | inverts values of a list
