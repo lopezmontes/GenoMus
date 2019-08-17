@@ -1145,21 +1145,20 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## Aleatoric processes
 | name               | index                          | description
 | ------------------ | ------------------------------ | -----------
-| `pRnd`             | <sub>not yet implemented</sub> |
-| `pGaussRnd`        | <sub>not yet implemented</sub> |
-| `pRndRange`        | <sub>not yet implemented</sub> |
-| `pRndDynamicRange` | <sub>not yet implemented</sub> |
-| `pRndDistribution` | <sub>not yet implemented</sub> |
-| `eRnd`             | <sub>not yet implemented</sub> |
-| `vRnd`             | <sub>not yet implemented</sub> |
-| `sRnd`             | <sub>not yet implemented</sub> |
-| `eMutate`          | <sub>not yet implemented</sub> |
-| `lMutate`          | <sub>not yet implemented</sub> |
-| `vMutate`          | <sub>not yet implemented</sub> |
-| `sMutate`          | <sub>not yet implemented</sub> |
-| `lPermutate`       | <sub>not yet implemented</sub> |
-| `vPermutate`       | <sub>not yet implemented</sub> |
-| `sPermutate`       | <sub>not yet implemented</sub> |
+| `pRnd`             | <sub>not yet implemented</sub> | returns a random normalized parameter with uniform distribution
+| `pGaussRnd`        | <sub>not yet implemented</sub> | returns a random normalized parameter with Gaussian (or normal) distribution
+| `pWrappedGaussRnd` | <sub>not yet implemented</sub> | returns a random normalized parameter with a wrapped normal distribution
+| `pRndRange`        | <sub>not yet implemented</sub> | rescales a random normalized parameter to a new range
+| `lRndDynamicRange` | <sub>not yet implemented</sub> | rescales a list of random values a changing range
+| `eRnd`             | <sub>not yet implemented</sub> | returns a complete random event
+| `vRnd`             | <sub>not yet implemented</sub> | returns a complete random voice
+| `sRnd`             | <sub>not yet implemented</sub> | returns a complete random score
+| `eMutate`          | <sub>not yet implemented</sub> | changes parameters of an event according to probability and range of mutations
+| `lMutate`          | <sub>not yet implemented</sub> | changes values of a list according to probability and range of mutations
+| `vMutate`          | <sub>not yet implemented</sub> | changes parameters of a voice according to probability and range of mutations
+| `sMutate`          | <sub>not yet implemented</sub> | changes parameters of a score according to probability and range of mutations
+| `lPermutate`       | <sub>not yet implemented</sub> | permutates value positions of a list
+| `vPermutate`       | <sub>not yet implemented</sub> | permutates events positions of a voice
 
 ---------
 ## Algorithmic techniques
