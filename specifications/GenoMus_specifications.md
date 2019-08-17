@@ -1206,27 +1206,27 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 
 ---------
 ## List manipulation
-| name                    | index                          | description
-| ----------------------- | ------------------------------ | -----------
-| `lInvert`               | <sub>not yet implemented</sub> | inverts values of a list
-| `lTransp`               | <sub>not yet implemented</sub> | transposes values of a list
-| `lRetrog`               | <sub>not yet implemented</sub> | retrogrades values of a list
-| `lRetrogInvert`         | <sub>not yet implemented</sub> | retrogrades and inverts values of a list
-| `lRotate`               | <sub>not yet implemented</sub> | rotates values of a list
-| `lExpand`               | <sub>not yet implemented</sub> | expands values of a list according to a factor
-| `lExtrude`              | <sub>not yet implemented</sub> | deforms values of a list according to a curve
-| `lLine`                 | <sub>not yet implemented</sub> | generates a straight progression between two values
-| `lLinseg`               | <sub>not yet implemented</sub> | generates a series of straight segments between several values
-| `lExpon`                | <sub>not yet implemented</sub> | generates an exponential progression between two values
-| `lExpseg`               | <sub>not yet implemented</sub> | generates a series of exponential progressions between several values
-| `lOscil`                | <sub>not yet implemented</sub> | generates a periodic sinusoidal oscillation between two values
-| `lPhasor`               | <sub>not yet implemented</sub> | generates periodic straight transitions from first value to second one
-| `lTriangular`           | <sub>not yet implemented</sub> | generates periodic straight transitions from first value to second one and vice versa
-| `lSmooth`               | <sub>not yet implemented</sub> | smooths distances between contiguous items in a list according to a factor
-| `lRough`                | <sub>not yet implemented</sub> | sharpens distances between contiguous items in a list according to a factor
-| `lPolynomicGesture`     | <sub>not yet implemented</sub> | generates a list by evaluating a polynomial
-| `lBezierGesture`        | <sub>not yet implemented</sub> | generates a list based on a Bézier curve
-| `lTrigonometricGesture` | <sub>not yet implemented</sub> | generates a list based on a trigonometric compound expression
+| name                | index                          | description
+| ------------------- | ------------------------------ | -----------
+| `lLine`             | <sub>not yet implemented</sub> | generates a straight progression between two values
+| `lLinseg`           | <sub>not yet implemented</sub> | generates a series of straight segments between several values
+| `lExpon`            | <sub>not yet implemented</sub> | generates an exponential progression between two values
+| `lExpseg`           | <sub>not yet implemented</sub> | generates a series of exponential progressions between several values
+| `lOscil`            | <sub>not yet implemented</sub> | generates a periodic sinusoidal oscillation between two values
+| `lPhasor`           | <sub>not yet implemented</sub> | generates periodic straight transitions from first value to second one
+| `lTriangular`       | <sub>not yet implemented</sub> | generates periodic straight transitions from first value to second one and vice versa
+| `lSmooth`           | <sub>not yet implemented</sub> | smooths distances between contiguous items in a list according to a factor
+| `lRough`            | <sub>not yet implemented</sub> | sharpens distances between contiguous items in a list according to a factor
+| `lInvert`           | <sub>not yet implemented</sub> | inverts values of a list
+| `lTransp`           | <sub>not yet implemented</sub> | transposes values of a list
+| `lRetrog`           | <sub>not yet implemented</sub> | retrogrades values of a list
+| `lRetrogInvert`     | <sub>not yet implemented</sub> | retrogrades and inverts values of a list
+| `lRotate`           | <sub>not yet implemented</sub> | rotates values of a list
+| `lExpand`           | <sub>not yet implemented</sub> | expands values of a list according to a factor
+| `lExtrude`          | <sub>not yet implemented</sub> | deforms values of a list according to a curve
+| `lPolynomicGesture` | <sub>not yet implemented</sub> | generates a list by evaluating a polynomial
+| `lBezierGesture`    | <sub>not yet implemented</sub> | generates a list based on a Bézier curve
+| `lTrigonoGesture`   | <sub>not yet implemented</sub> | generates a list based on a trigonometric compound expression
 
 ---------
 ## Manual operators of genotypes 
