@@ -999,8 +999,6 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `vTrill`                | <sub>not yet implemented</sub> | converts an event in a trill of two pitches
 | `vJitter`               | <sub>not yet implemented</sub> | converts an event in a group of randomly alterning pitches
 | `vGliss`                | <sub>not yet implemented</sub> | connects two pitches with a scale (diatonic of chromatic)
-| `vDiatonize`            | <sub>not yet implemented</sub> | diatonizes a voice according to a harmonic grid
-| `sDiatonize`            | <sub>not yet implemented</sub> | diatonizes a score according to a harmonic grid
 | `sPedalNote`            | <sub>not yet implemented</sub> | adds a new voice consisting of a single sustained note to a score  
 | `vArpeggio`             | <sub>not yet implemented</sub> | creates an arpeggio according to a harmonic grid
 | `vProgression`          | <sub>not yet implemented</sub> | creates a progression repeating a motif at a transposition interval with chormatic transposition
@@ -1029,6 +1027,8 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## Harmony
 | name                   | index                          | description
 | ---------------------- | ------------------------------ | -----------
+| `vDiatonize`           | <sub>not yet implemented</sub> | diatonizes a voice according to a harmonic grid
+| `sDiatonize`           | <sub>not yet implemented</sub> | diatonizes a score according to a harmonic grid
 | `hChromaticScale`      | <sub>not yet implemented</sub> | returns a complete chromatic scale
 | `hNaturalScale`        | <sub>not yet implemented</sub> | returns modes derived from the natural scale
 | `hMelodicMinorScale`   | <sub>not yet implemented</sub> | returns modes derived from the melodic minor scale
