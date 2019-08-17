@@ -67,8 +67,8 @@
   - [Serialism](#serialism)
   - [Aleatoric processes](#aleatoric-processes)
   - [Algorithmic techniques](#algorithmic-techniques)
-  - [Mathematical operations](#mathematical-operations)
   - [List manipulation](#list-manipulation)
+  - [Mathematical operations](#mathematical-operations)
   - [Manual operators of genotypes](#manual-operators-of-genotypes)
 - [Encoding-decoding genotypes](#encoding-decoding-genotypes)
   - [Conversion table for genotypes](#conversion-table-for-genotypes)
@@ -1177,6 +1177,31 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `rEuclideanRhythm`   | <sub>not yet implemented</sub> | returns an Euclidean rhythmic grid
 
 ---------
+## List manipulation
+| name                | index                          | description
+| ------------------- | ------------------------------ | -----------
+| `lLine`             | <sub>not yet implemented</sub> | generates a straight progression between two values
+| `lLinseg`           | <sub>not yet implemented</sub> | generates a series of straight segments between several values
+| `lExpon`            | <sub>not yet implemented</sub> | generates an exponential progression between two values
+| `lExpseg`           | <sub>not yet implemented</sub> | generates a series of exponential progressions between several values
+| `lOscil`            | <sub>not yet implemented</sub> | generates a periodic sinusoidal oscillation between two values
+| `lPhasor`           | <sub>not yet implemented</sub> | generates periodic straight transitions from first value to second one
+| `lTriangular`       | <sub>not yet implemented</sub> | generates periodic straight transitions from first value to second one and vice versa
+| `lRescale`          | <sub>not yet implemented</sub> | remaps a list to a new range  
+| `lSmooth`           | <sub>not yet implemented</sub> | smooths distances between contiguous items in a list according to a factor
+| `lRough`            | <sub>not yet implemented</sub> | sharpens distances between contiguous items in a list according to a factor
+| `lInvert`           | <sub>not yet implemented</sub> | inverts values of a list
+| `lTransp`           | <sub>not yet implemented</sub> | transposes values of a list
+| `lRetrog`           | <sub>not yet implemented</sub> | retrogrades values of a list
+| `lRetrogInvert`     | <sub>not yet implemented</sub> | retrogrades and inverts values of a list
+| `lRotate`           | <sub>not yet implemented</sub> | rotates values of a list
+| `lExpand`           | <sub>not yet implemented</sub> | expands values of a list according to a factor
+| `lExtrude`          | <sub>not yet implemented</sub> | deforms values of a list according to a curve
+| `lPolynomicGesture` | <sub>not yet implemented</sub> | generates a list by evaluating a polynomial
+| `lBezierGesture`    | <sub>not yet implemented</sub> | generates a list based on a Bézier curve
+| `lTrigonoGesture`   | <sub>not yet implemented</sub> | generates a list based on a trigonometric compound expression
+
+---------
 ## Mathematical operations
 
 *Explain how to deal with normalization*
@@ -1203,31 +1228,6 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `oSinh`    | <sub>not yet implemented</sub> | returns the hyperbolic sine of a value
 | `oCosh`    | <sub>not yet implemented</sub> | returns the hyperbolic cosine of a value
 | `oTanh`    | <sub>not yet implemented</sub> | returns the hyperbolic tangent of a value
-
----------
-## List manipulation
-| name                | index                          | description
-| ------------------- | ------------------------------ | -----------
-| `lLine`             | <sub>not yet implemented</sub> | generates a straight progression between two values
-| `lLinseg`           | <sub>not yet implemented</sub> | generates a series of straight segments between several values
-| `lExpon`            | <sub>not yet implemented</sub> | generates an exponential progression between two values
-| `lExpseg`           | <sub>not yet implemented</sub> | generates a series of exponential progressions between several values
-| `lOscil`            | <sub>not yet implemented</sub> | generates a periodic sinusoidal oscillation between two values
-| `lPhasor`           | <sub>not yet implemented</sub> | generates periodic straight transitions from first value to second one
-| `lTriangular`       | <sub>not yet implemented</sub> | generates periodic straight transitions from first value to second one and vice versa
-| `lRescale`          | <sub>not yet implemented</sub> | remaps a list to a new range  
-| `lSmooth`           | <sub>not yet implemented</sub> | smooths distances between contiguous items in a list according to a factor
-| `lRough`            | <sub>not yet implemented</sub> | sharpens distances between contiguous items in a list according to a factor
-| `lInvert`           | <sub>not yet implemented</sub> | inverts values of a list
-| `lTransp`           | <sub>not yet implemented</sub> | transposes values of a list
-| `lRetrog`           | <sub>not yet implemented</sub> | retrogrades values of a list
-| `lRetrogInvert`     | <sub>not yet implemented</sub> | retrogrades and inverts values of a list
-| `lRotate`           | <sub>not yet implemented</sub> | rotates values of a list
-| `lExpand`           | <sub>not yet implemented</sub> | expands values of a list according to a factor
-| `lExtrude`          | <sub>not yet implemented</sub> | deforms values of a list according to a curve
-| `lPolynomicGesture` | <sub>not yet implemented</sub> | generates a list by evaluating a polynomial
-| `lBezierGesture`    | <sub>not yet implemented</sub> | generates a list based on a Bézier curve
-| `lTrigonoGesture`   | <sub>not yet implemented</sub> | generates a list based on a trigonometric compound expression
 
 ---------
 ## Manual operators of genotypes 
