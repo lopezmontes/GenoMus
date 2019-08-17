@@ -891,9 +891,7 @@ This works as a useful lookup table for some automatic and manual processes.
 
 ---------
 # Core functions
-A GenoMus Function Library must include a collection of essential functions to perform basic operations for the generation of phenotypes. For each function type, the library has an identity function and other additional functions dedicated to the fundamental manipulations of that data category.
-
-This is a group of integrated functions that perform basic operations. As said before, lowercase prefixes indicate function types according to their output. 
+A GenoMus Function Library must include a collection of essential functions to perform basic operations for the generation of phenotypes. For each function type, the library has an identity function and other additional functions dedicated to the fundamental manipulations of that data category. As said before, lowercase prefixes indicate function types according to their output. 
 
 This set of core functions are identified with the first index numbers of the library.
 
