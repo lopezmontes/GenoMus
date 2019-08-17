@@ -1617,7 +1617,7 @@ Universal random search space. All vectors are a valid input.
 
 
 
- 
+--------- 
 # Initial conditions for generation of genotypes
 ## Species characterization
 
@@ -1641,19 +1641,33 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
 - Maximum number of iterations
 - Maximum genotype ramification depth
 
+---------
 ## Eligible functions
 
 - Format for specifying eligible functions
 - Format for specifying not eligible functions
 
+---------
 ## Mandatory functions
 
 - Format for specifying mandatory functions
 
+---------
 ## Vector of desired musical characteristics
 
 - Format for determine desired musical features and weights
-
+  - **"polyphony"**
+  - **"rhythmicComplexity"**
+  - **"chromatism"**
+  - **"disonance"**
+  - **"disjunctivity"**
+  - **"modalChroma"**
+  - **"tonalStability"**
+  - **"tessituraDispersion"**
+  - **"variability"**: measures how much use of repetition is made.
+  - **"articulationHomogeneity"**
+  - **"dynamicHomogeneity"**
+  
 ### Weighted measurement of Euclidean distance
 
 - Formula to measure distance of a phenotype to the goal vector
