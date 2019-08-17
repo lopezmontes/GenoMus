@@ -1122,29 +1122,22 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `hDodecaphonicToneRow` | <sub>not yet implemented</sub> | returns a canonic dodecaphonic tone row
 | `hUniquePitchesRow`    | <sub>not yet implemented</sub> | returns a row of 2 to 11 pitches without repetitions
 | `eInvert`              | <sub>not yet implemented</sub> | inverts pitches of an event
-| `lInvert`              | <sub>not yet implemented</sub> | inverts values of a list
 | `vInvert`              | <sub>not yet implemented</sub> | inverts pitches of a voice
 | `sInvert`              | <sub>not yet implemented</sub> | inverts pitches of a score
 | `eTransp`              | <sub>not yet implemented</sub> | transposes pitches of an event
-| `lTransp`              | <sub>not yet implemented</sub> | transposes values of a list
 | `vTransp`              | <sub>not yet implemented</sub> | transposes pitches of a voice
 | `sTransp`              | <sub>not yet implemented</sub> | transposes pitches of a score
 | `eTranspOctav`         | <sub>not yet implemented</sub> | transposes pitches of an event only octaves
 | `vTranspOctav`         | <sub>not yet implemented</sub> | transposes pitches of a voice only octaves
 | `sTranspOctav`         | <sub>not yet implemented</sub> | transposes pitches of a score only octaves
-| `lRetrog`              | <sub>not yet implemented</sub> | retrogrades values of a list
 | `vRetrog`              | <sub>not yet implemented</sub> | retrogrades pitches of a voice
 | `sRetrog`              | <sub>not yet implemented</sub> | retrogrades pitches of a score
-| `lRetrogInvert`        | <sub>not yet implemented</sub> | retrogrades and inverts values of a list
 | `vRetrogInvert`        | <sub>not yet implemented</sub> | retrogrades and inverts pitches of a voice
 | `sRetrogInvert`        | <sub>not yet implemented</sub> | retrogrades and inverts pitches of a score
 | `eRotate`              | <sub>not yet implemented</sub> | rotates pitches of an event according to its intervallic structure
-| `lRotate`              | <sub>not yet implemented</sub> | rotates values of a list
 | `eExpand`              | <sub>not yet implemented</sub> | expands pitches of an event according to a factor
-| `lExpand`              | <sub>not yet implemented</sub> | expands values of a list according to a factor
 | `vExpand`              | <sub>not yet implemented</sub> | expands pitches of a voice according to a factor
 | `sExpand`              | <sub>not yet implemented</sub> | expands pitches of a score according to a factor
-| `lExtrude`             | <sub>not yet implemented</sub> | deforms values of a list according to a curve
 | `vExtrude`             | <sub>not yet implemented</sub> | deforms pitches of a voice according to a curve
 | `sExtrude`             | <sub>not yet implemented</sub> | deforms pitches of a score according to a curve
 
@@ -1215,21 +1208,25 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## List manipulation
 | name                    | index                          | description
 | ----------------------- | ------------------------------ | -----------
-| `lRotate`               | <sub>not yet implemented</sub> |
-| `lLine`                 | <sub>not yet implemented</sub> |
-| `lLinseg`               | <sub>not yet implemented</sub> |
-| `lExpon`                | <sub>not yet implemented</sub> |
-| `lExpseg`               | <sub>not yet implemented</sub> |
-| `lOscil`                | <sub>not yet implemented</sub> |
-| `lSawtooth`             | <sub>not yet implemented</sub> |
-| `lPhasor`               | <sub>not yet implemented</sub> |
-| `lTriangular`           | <sub>not yet implemented</sub> |
-| `lSquareOscil`          | <sub>not yet implemented</sub> |
-| `lSmooth`               | <sub>not yet implemented</sub> |
-| `lRough`                | <sub>not yet implemented</sub> |
-| `lPolynomicGesture`     | <sub>not yet implemented</sub> |
-| `lBezierGesture`        | <sub>not yet implemented</sub> |
-| `lTrigonometricGesture` | <sub>not yet implemented</sub> |
+| `lInvert`               | <sub>not yet implemented</sub> | inverts values of a list
+| `lTransp`               | <sub>not yet implemented</sub> | transposes values of a list
+| `lRetrog`               | <sub>not yet implemented</sub> | retrogrades values of a list
+| `lRetrogInvert`         | <sub>not yet implemented</sub> | retrogrades and inverts values of a list
+| `lRotate`               | <sub>not yet implemented</sub> | rotates values of a list
+| `lExpand`               | <sub>not yet implemented</sub> | expands values of a list according to a factor
+| `lExtrude`              | <sub>not yet implemented</sub> | deforms values of a list according to a curve
+| `lLine`                 | <sub>not yet implemented</sub> | generates a straight progression between two values
+| `lLinseg`               | <sub>not yet implemented</sub> | generates a series of straight segments between several values
+| `lExpon`                | <sub>not yet implemented</sub> | generates an exponential progression between two values
+| `lExpseg`               | <sub>not yet implemented</sub> | generates a series of exponential progressions between several values
+| `lOscil`                | <sub>not yet implemented</sub> | generates a periodic sinusoidal oscillation between two values
+| `lPhasor`               | <sub>not yet implemented</sub> | generates periodic straight transitions from first value to second one
+| `lTriangular`           | <sub>not yet implemented</sub> | generates periodic straight transitions from first value to second one and vice versa
+| `lSmooth`               | <sub>not yet implemented</sub> | smooths distances between contiguous items in a list according to a factor
+| `lRough`                | <sub>not yet implemented</sub> | sharpens distances between contiguous items in a list according to a factor
+| `lPolynomicGesture`     | <sub>not yet implemented</sub> | generates a list by evaluating a polynomial
+| `lBezierGesture`        | <sub>not yet implemented</sub> | generates a list based on a Bézier curve
+| `lTrigonometricGesture` | <sub>not yet implemented</sub> | generates a list based on a trigonometric compound expression
 
 ---------
 ## Manual operators of genotypes 
