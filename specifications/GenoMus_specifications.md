@@ -1633,16 +1633,13 @@ Universal random search space. All vectors are a valid input.
 
 This table lists all information required for the process of generation, evaluation and selection of specimens. The default values can be modulated from the user interface. 
 
-| initial condition                   | description | default value
-| ----------------------------------- | ----------- | -------------
-| maxGenotypeDepth | Maximum genotype ramification depth |
-| minPhenotypeLength Minimum numbers of events           | 
-| maxPhenotypeLength Maximum numbers of events           |
-| maxIterations Maximum number of iterations        |
-    - **""**
-    - **""**
-    - **""**
-    - **""**: maxim
+| initial condition  | description                                                              | default value
+| ------------------ | ------------------------------------------------------------------------ | -------------
+| maxGenotypeDepth   | Deepest level of ramification for new genotype                           | 8
+| minPhenotypeLength | Minimal number of events whithin the resulting phenotype                 | 1
+| maxPhenotypeLength | Maximal number of events whithin the resulting phenotype                 | 1000
+| maxIterations      | Maximal number of attempts to get a specimen that meets the requirements | 500
+
 
 ## Species characterization
 
@@ -1659,12 +1656,7 @@ The second parameter is a **midipitchF** *multiparameter*, which begins with _**
 For each parameter, decoded phenotypes use the [conversion rules](#parameter-mapping) of the invoked function types.
 
 ---------
-## Constraints
 
-- Minimum numbers of events
-- Maximum numbers of events
-- Maximum number of iterations
-- Maximum genotype ramification depth
 
 ---------
 ## Eligible functions
