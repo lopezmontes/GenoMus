@@ -1619,8 +1619,11 @@ Since all encoded leafs are normalized values, it is easy explore transformation
 
 
 
+---------
+# Generation, evolution and selection of specimens 
+
 --------- 
-# Initial conditions for generation of genotypes
+## Initial conditions for generation of genotypes
 
 This table lists all information required for the process of generation, evaluation and selection of specimens. The default values can be modulated from the user interface. 
 
@@ -1632,7 +1635,7 @@ This table lists all information required for the process of generation, evaluat
 | maxIterations      | Maximal number of attempts to get a specimen that meets the requirements | 500
 
 
-## Species characterization
+### Species characterization
 
 The concept of species is crucial, because each species is determined by the parameter structure of a basic sonic event, and the functional arquitecture depends on this characterization. Specimens belonging to different species cannot be mixed without some kind of ad hoc adaptation. Consequently, an independent library must be created for each new species.
 
@@ -1646,22 +1649,21 @@ The second parameter is a **midipitchF** *multiparameter*, which begins with _**
 
 For each parameter, decoded phenotypes use the [conversion rules](#parameter-mapping) of the invoked function types.
 
----------
 
 
 ---------
-## Eligible functions
+### Eligible functions
 
 - Format for specifying eligible functions
 - Format for specifying not eligible functions
 
 ---------
-## Mandatory functions
+### Mandatory functions
 
 - Format for specifying mandatory functions
 
 ---------
-## Vector of desired musical characteristics
+### Vector of desired musical characteristics
 
 - Format for determine desired musical features and weights
   - **"polyphony"**
@@ -1676,24 +1678,24 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
   - **"articulationHomogeneity"**
   - **"dynamicHomogeneity"**
   
-### Weighted measurement of Euclidean distance
+#### Weighted measurement of Euclidean distance
 
 - Formula to measure distance of a phenotype to the goal vector
 
 ---------
-# Generation, evolution and selection of specimens 
 ## Creation of new genotypes
+
+*Creative cycle flowchart*
+
 ### Generating encoded genoypes from random values
 
 Universal random search space. All vectors are a valid input.
 
 ### Self-references
-## Mutation
-
-
+### Mutation
 
 --------- 
-# Specimen data structure
+## Specimen data structure
 
 All generated specimens are stored as temporary JSON files. Selected specimens are permanently saved as JSON files in the Specimen catalogue. These JSON files are created according to the following data structure:
 
@@ -1756,10 +1758,10 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"predictability"**
 
 ---------
-# Specimen catalogue
-## Naming
-## Classification
-## Catalogue access
+## Specimen catalogue
+### Naming
+### Classification
+### Catalogue access
 
-
+---------
 # Max user interface
