@@ -1625,9 +1625,7 @@ Since all encoded leafs are normalized values, it is easy explore transformation
 
 
 ---------
-# Generation, evolution and selection of specimens 
-
---------- 
+# Generation, evolution and selection of specimens
 ## Initial conditions for generation of genotypes
 
 This table lists all information required for the process of generation, evaluation and selection of specimens. The default values can be modulated from the user interface. 
