@@ -1632,12 +1632,17 @@ Since all encoded leafs are normalized values, it is easy explore transformation
 
 This table lists all information required for the process of generation, evaluation and selection of specimens. The default values can be modulated from the user interface. 
 
-| initial condition  | description                                                              | default value
-| ------------------ | ------------------------------------------------------------------------ | -------------
-| maxGenotypeDepth   | Deepest level of ramification for new genotypes                          | 8
-| minPhenotypeLength | Minimal number of events whithin the resulting phenotype                 | 1
-| maxPhenotypeLength | Maximal number of events whithin the resulting phenotype                 | 1000
-| maxIterations      | Maximal number of attempts to get a specimen that meets the requirements | 500
+| initial condition  | description                                                                | default value
+| ------------------ | -------------------------------------------------------------------------- | -------------
+| species            | Name of the species that determines events strutcure and functions library | piano
+| eligibleFunctions  | Numeric array containing the eligible functions for genotype generation    | all available
+| mandatoryFunctions | Numeric array containing functions required to be included in the genotype | none
+| maxGenotypeDepth   | Deepest level of ramification for new genotypes                            | 8
+| minPhenotypeLength | Minimal number of events whithin the resulting phenotype                   | 1
+| maxPhenotypeLength | Maximal number of events whithin the resulting phenotype                   | 1000
+| maxIterations      | Maximal number of attempts to get a specimen that meets the requirements   | 500
+
+
 
 ---------
 ### Species characterization
@@ -1725,12 +1730,13 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"totalFunctions**: total of different functions used.    
   - **"selfReference"**: measures reuse of internal substructures.  
 - **"initialConditions"**: set of initial conditions to satisfy by the generative process [(more info)](#initial-conditions-for-generation-of-genotypes).
-  - **"eligibleFunctions"**: numeric array containing the eligible functions for genotype generation.
+  - **"eligibleFunctions"**
+  - **"mandatoryFunctiones"**
   - **"maxGenotypeDepth"**
   - **"minPhenotypeLength"**
   - **"maxPhenotypeLength"**
-  - **"maxIterations"**: maximal number of attempts before the generative process stops 
-  - **"heuristics"**: weigthed list of desired features, similar to those in "automaticAnalysis" (see below).
+  - **"maxIterations"**
+  - **"heuristics"**
   - **"genotypeSeed"**
   - **"phenotypeSeed"**
 - **"encodedGenotype"**: array of floats &isinv; [0, 1].
