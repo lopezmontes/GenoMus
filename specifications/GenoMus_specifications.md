@@ -1737,6 +1737,7 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"heuristics"**
   - **"genotypeSeed"**
   - **"phenotypeSeed"**
+- **"evolutionLog"**: log covering the history of actions and manipulations operated on the specimen 
 - **"encodedGenotype"**: array of floats &isinv; [0, 1].
 - **"decodedGenotype"**: string containing the genotype function tree.
 - **"formattedGenotype"**: string containing the decoded genotype, formatted with blanks and line breaks to clearly display the function tree.
