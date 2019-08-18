@@ -1633,6 +1633,17 @@ Universal random search space. All vectors are a valid input.
 
 This table lists all information required for the process of generation, evaluation and selection of specimens. The default values can be modulated from the user interface. 
 
+| initial condition                   | description | default value
+| ----------------------------------- | ----------- | -------------
+| maxGenotypeDepth | Maximum genotype ramification depth |
+| minPhenotypeLength Minimum numbers of events           | 
+| maxPhenotypeLength Maximum numbers of events           |
+| maxIterations Maximum number of iterations        |
+    - **""**
+    - **""**
+    - **""**
+    - **""**: maxim
+
 ## Species characterization
 
 The concept of species is crucial, because each species is determined by the parameter structure of a basic sonic event, and the functional arquitecture depends on this characterization. Specimens belonging to different species cannot be mixed without some kind of ad hoc adaptation. Consequently, an independent library must be created for each new species.
@@ -1708,13 +1719,12 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"depth"**: deepest level of ramification of the decoded genotype function tree.
   - **"totalFunctions**: total of different functions used.    
   - **"selfReference"**: measures reuse of internal substructures.  
-- **"initialConditions"**: set of initial conditions to satisfy by the generative process.
+- **"initialConditions"**: set of initial conditions to satisfy by the generative process [(more info)](#initial-conditions-for-generation-of-genotypes).
   - **"eligibleFunctions"**: numeric array containing the eligible functions for genotype generation.
-  - **"constraints"**: features required for a genotype to be acceptable for the generative algorithm.
-    - **"maxGenotypeDepth"**
-    - **"minPhenotypeLength"**
-    - **"maxPhenotypeLength"**
-    - **"maxIterations"**: maximal number of attempts before the generative process stops 
+  - **"maxGenotypeDepth"**
+  - **"minPhenotypeLength"**
+  - **"maxPhenotypeLength"**
+  - **"maxIterations"**: maximal number of attempts before the generative process stops 
   - **"heuristics"**: weigthed list of desired features, similar to those in "automaticAnalysis" (see below).
   - **"genotypeSeed"**
   - **"phenotypeSeed"**
