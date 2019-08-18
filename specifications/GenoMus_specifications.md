@@ -1639,7 +1639,7 @@ This table lists all information required for the process of generation, evaluat
 | maxPhenotypeLength | Maximal number of events whithin the resulting phenotype                 | 1000
 | maxIterations      | Maximal number of attempts to get a specimen that meets the requirements | 500
 
-
+---------
 ### Species characterization
 
 The concept of species is crucial, because each species is determined by the parameter structure of a basic sonic event, and the functional arquitecture depends on this characterization. Specimens belonging to different species cannot be mixed without some kind of ad hoc adaptation. Consequently, an independent library must be created for each new species.
