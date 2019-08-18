@@ -1615,9 +1615,6 @@ Since all encoded leafs are normalized values, it is easy explore transformation
 
 [golden conversion]
 
----------
-
-
 
 ---------
 # Generation, evolution and selection of specimens 
