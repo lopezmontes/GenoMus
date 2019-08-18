@@ -1630,6 +1630,9 @@ Universal random search space. All vectors are a valid input.
 
 --------- 
 # Initial conditions for generation of genotypes
+
+This table lists all information required for the process of generation, evaluation and selection of specimens. The default values can be modulated from the user interface. 
+
 ## Species characterization
 
 The concept of species is crucial, because each species is determined by the parameter structure of a basic sonic event, and the functional arquitecture depends on this characterization. Specimens belonging to different species cannot be mixed without some kind of ad hoc adaptation. Consequently, an independent library must be created for each new species.
