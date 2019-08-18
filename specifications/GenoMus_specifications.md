@@ -83,7 +83,7 @@
   - [Autoreferences](#autoreferences)
 - [Genotype substructures](#genotype-substructures)
     - [Branches and leaves](#branches-and-leaves)
-    - [Subexpressions](#subexpressions)
+    - [Subexpressions and autoreferences](#subexpressions-and-autoreferences)
 - [Generation, evolution and selection of specimens](#generation-evolution-and-selection-of-specimens)
   - [Species characterization](#species-characterization)
   - [Initial conditions for generation of genotypes](#initial-conditions-for-generation-of-genotypes)
@@ -1619,7 +1619,7 @@ Since all encoded leafs are normalized values, it is easy explore transformation
 
 
 ---------
-## Subexpressions
+## Subexpressions and autoreferences
 
 [golden conversion]
 
@@ -1688,16 +1688,19 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
 - Formula to measure distance of a phenotype to the goal vector
 
 ---------
-## Creation of new genotypes
+## Creation of new specimens
 
 *Creative cycle flowchart*
 
-### Generating encoded genoypes from random values
+### Generating genotypes from random values
 
 Universal random search space. All vectors are a valid input.
 
-### Self-references
-### Mutation
+--------- 
+### Evolution of genotypes
+#### Mutation
+### Manual manipulation
+### Selecting and processing specimens
 
 --------- 
 ## Specimen data structure
