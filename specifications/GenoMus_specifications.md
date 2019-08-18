@@ -87,6 +87,7 @@
   - [Species characterization](#species-characterization)
   - [Vector of desired musical characteristics](#vector-of-desired-musical-characteristics)
     - [Weighted measurement of Euclidean distance](#weighted-measurement-of-euclidean-distance)
+- [Generation, evolution and selection of specimens](#generation-evolution-and-selection-of-specimens)
 - [Specimen data structure](#specimen-data-structure)
 - [Specimen catalogue](#specimen-catalogue)
   - [Naming](#naming)
@@ -1617,16 +1618,6 @@ Since all encoded leafs are normalized values, it is easy explore transformation
 ---------
 
 
-# Genotype operations
-## Creation
-### Generating encoded genoypes from random values
-
-Universal random search space. All vectors are a valid input.
-
-### Self-references
-## Mutation
-
-
 
 --------- 
 # Initial conditions for generation of genotypes
@@ -1635,7 +1626,7 @@ This table lists all information required for the process of generation, evaluat
 
 | initial condition  | description                                                              | default value
 | ------------------ | ------------------------------------------------------------------------ | -------------
-| maxGenotypeDepth   | Deepest level of ramification for new genotype                           | 8
+| maxGenotypeDepth   | Deepest level of ramification for new genotypes                          | 8
 | minPhenotypeLength | Minimal number of events whithin the resulting phenotype                 | 1
 | maxPhenotypeLength | Maximal number of events whithin the resulting phenotype                 | 1000
 | maxIterations      | Maximal number of attempts to get a specimen that meets the requirements | 500
@@ -1688,6 +1679,18 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
 ### Weighted measurement of Euclidean distance
 
 - Formula to measure distance of a phenotype to the goal vector
+
+---------
+# Generation, evolution and selection of specimens 
+## Creation of new genotypes
+### Generating encoded genoypes from random values
+
+Universal random search space. All vectors are a valid input.
+
+### Self-references
+## Mutation
+
+
 
 --------- 
 # Specimen data structure
