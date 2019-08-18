@@ -60,6 +60,7 @@
   - [Phrasing](#phrasing)
   - [Poliphony](#poliphony)
   - [Harmony](#harmony)
+  - [Counterpoint](#counterpoint)
   - [Rhythm](#rhythm)
   - [Articulation](#articulation-1)
   - [Dynamics](#dynamics)
@@ -1022,6 +1023,18 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `sSixV`         | <sub>not yet implemented</sub> | creates an score with six simultaneous voices
 | `sAddV`         | <sub>not yet implemented</sub> | adds a new voice vertically to a score
 | `sAddS`         | <sub>not yet implemented</sub> | adds a new score vertically to a score
+
+---------
+## Counterpoint
+| name                   | index                          | description
+| ---------------------- | ------------------------------ | -----------
+| `sFirstSpecies`        | <sub>not yet implemented</sub> | creates a new voice oposing an event against each event of a previous voice
+| `sSecondSpecies`       | <sub>not yet implemented</sub> | creates a new voice oposing two events against each event of a previous voice
+| `sSecondSpeciesInvert` | <sub>not yet implemented</sub> | creates a new voice oposing an event against each two events of a previous voice
+| `sThirdSpecies`        | <sub>not yet implemented</sub> | creates a new voice oposing a fixed number of events (more than 2) against each event of a previous voice
+| `sThirdSpeciesInvert`  | <sub>not yet implemented</sub> | creates a new voice oposing an event against a fixed number of events (more than 2) of a previous voice
+| `sFourthSpecies`       | <sub>not yet implemented</sub> | creates a new voice oposing an event between each two events of a previous voice
+| `sFifthSpecies`        | <sub>not yet implemented</sub> | creates a new voice adding a new voice that combines freely the first four species
 
 ---------
 ## Harmony
