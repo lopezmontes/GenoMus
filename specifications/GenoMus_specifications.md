@@ -1707,10 +1707,10 @@ Universal random search space. All vectors are a valid input.
 
 All generated specimens are stored as temporary JSON files. Selected specimens are permanently saved as JSON files in the Specimen catalogue. These JSON files are created according to the following data structure:
 
-- `**"metadata"**`: data to identify and classify the specimen within the catalogue.
-  - `**"specimenID"**`: unique specimen identificator base on date of creation compressed as a unique number and usersname.
-  - `**"permalink**`: permanent link to the JSON file of the specimen (only for selected specimens, not for temporary ones).
-  - `**"GenoMusVersion"**`: GenoMus version that generated the specimen.
+- **"metadata"**: data to identify and classify the specimen within the catalogue.
+  - **"specimenID"**: unique specimen identificator base on date of creation compressed as a unique number and usersname.
+  - **"permalink**: permanent link to the JSON file of the specimen (only for selected specimens, not for temporary ones).
+  - **"GenoMusVersion"**: GenoMus version that generated the specimen.
   - **"creationTimecode"**: creation date compressed as a unique number.
   - **"user"**: username.
   - **"species"**: name of the species (given by user).
