@@ -1771,6 +1771,8 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
 - **"encodedPhenotype"**: array of floats &isinv; [0, 1].
 - **"decodedPhenotype"**: phenotype converted to the desired formats (bach roll, bach score, lilypond, MusicXML, Csound, multimedia outputs, etc.)
 - **"automaticAnalysis"**: automatic analysis of many different musical characteristics of the specimen, each one expressed as a normalized value &isinv; [0, 1]. A higher number means more complexity.  
+  - **"autoreference"**
+  - **"variability"**
   - **"polyphony"**
   - **"rhythmicComplexity"**
   - **"chromatism"**
@@ -1779,7 +1781,6 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"modalChroma"**
   - **"tonalStability"**
   - **"tessituraDispersion"**
-  - **"variability"**: measures how much use of repetition is made.
   - **"articulationHomogeneity"**
   - **"dynamicHomogeneity"**
 - **"humanEvaluation"**: human evaluation of different musical, aesthetic and emotional aspects of the specimen. This item can store the assessment of many different users. 
