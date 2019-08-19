@@ -1661,7 +1661,7 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
 
 
 ---------
-### Vector of desired musical characteristics
+### Vector of requested musical characteristics
 
 - Format for determine desired musical features and weights
   - **"polyphony"**
@@ -1676,11 +1676,12 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
   - **"articulationHomogeneity"**
   - **"dynamicHomogeneity"**
   
-#### Weighted measurement of Euclidean distance
 
-The distance between an specimen and a set of desired musical characteristics is measured using a weighted 
+The distance between an specimen and a set of requested musical characteristics is measured using a weighted version of the standard formula of the Euclidean distance for *n* dimensions:
 
 <img src="formulae/euclidean_distance.svg" width="250">
+
+where _**r**_ is the vector **_r_=(_r_<sub>1</sub>, _r_<sub>n</sub>, ..., _r_<sub>n</sub>)** is the vector of requested features,
 
 
 
