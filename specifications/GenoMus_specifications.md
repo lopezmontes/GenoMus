@@ -164,7 +164,7 @@ To enable automatic chaining of functions, all functions inside a genotype share
 | 4     | **tempo**      | float                          | Tempo of the phenotype. The float uses the [durationF](#durationf-d) format to indicate the duration of a quarter note. Default value: 0.6 (equivalent to &#9833;= 60)
 | 5     | **rhythm**     | dictionary                     | Rhythmic grid characterized following this [data structure](#rhythmic-grid).
 | 6     | **harmony**    | dictionary                     | Harmonic grid characterized following this [data structure](#harmonic-grid).
-| 7     | **analysis**   | dictionary                     | Autoanalysis of different musical features following this [data structure](#requested-profile)
+| 7     | **analysis**   | dictionary                     | Autoanalysis of different musical features following this [data structure](#requested-profile).
 
 First five elements are compulsory for every function inside a genotype. Informations about rhythm and harmony can be useful for subsequent functions, but they are optional. 
 
@@ -187,8 +187,10 @@ var <iFunctionName> = function (argument1, argument2, ..., argumentN) {
     
     < core block > // executes the musical transformations of the function, writing the results in the variable encPhenOut, and calculating at the end of the process the updated values of phenLength, tempo, rhythm and harmony.
     
+    < analitycs block > // stores some analytical measurement to be inherited by next functions. Its objective is to facilitate the estimation of global musical characteristics to compare with the requested profile.
+    
     var decGen = "<iFunctionName>(" + argument1[1] + "," + + argument2[1] + "," + ... argumentN[1] + ")"; // creates a string as a self-reference of the functional expression that has been evaluated.
-    return writeSubexprReturnData(funcType, decGen, encPhen, phenLength, tempo, rhythm, harmony);
+    return writeSubexprReturnData(funcType, decGen, encPhen, phenLength, tempo, rhythm, harmony, analysis);
 };
 ```
 
