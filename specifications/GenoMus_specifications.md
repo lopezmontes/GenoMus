@@ -1706,7 +1706,7 @@ where
 - _**r**_ is the vector _r_ = (_r_<sub>1</sub>, _r_<sub>2</sub>, ..., _r_<sub>n</sub>) of requested features
 - _**w**_ is the vector _w_ = (_w_<sub>1</sub>, _w_<sub>2</sub>, ..., _w_<sub>n</sub>) of asigned weghts for each feature
 - _**e**_ is the vector _e_ = (_e_<sub>1</sub>, _e_<sub>2</sub>, ..., _e_<sub>n</sub>) of evaluated values for each feature
-- _**d**_ is the distance between two vectors
+- _**d**_ is the weighted Euclidean distance between two vectors
 - _**c**_ is the number or measured characteristics of the requested profile vector
 
 The formula squares all weight values taken from the requested profile vector, mapping the values as follows:
