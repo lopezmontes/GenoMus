@@ -1633,6 +1633,7 @@ This table lists all information required for the process of generation, evaluat
 | initial condition  | description                                                                | default value
 | ------------------ | -------------------------------------------------------------------------- | -------------
 | species            | Name of the species that determines events strutcure and functions library | piano
+| desiredFeatures    | Vector of desired musical characteristics, with weights for each one       | undefined
 | eligibleFunctions  | Numeric array containing the eligible functions for genotype generation    | all available
 | mandatoryFunctions | Numeric array containing functions required to be included in the genotype | none
 | maxGenotypeDepth   | Deepest level of ramification for new genotypes                            | 8
@@ -1728,15 +1729,13 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"totalFunctions**: total of different functions used.    
   - **"selfReference"**: measures reuse of internal substructures.  
 - **"initialConditions"**: set of initial conditions to satisfy by the generative process [(more info)](#initial-conditions-for-generation-of-genotypes).
+  - **"desiredFeatures"**
   - **"eligibleFunctions"**
   - **"mandatoryFunctiones"**
   - **"maxGenotypeDepth"**
   - **"minPhenotypeLength"**
   - **"maxPhenotypeLength"**
   - **"maxIterations"**
-  - **"heuristics"**
-  - **"genotypeSeed"**
-  - **"phenotypeSeed"**
 - **"evolutionLog"**: log covering the history of actions and manipulations operated on the specimen 
 - **"encodedGenotype"**: array of floats &isinv; [0, 1].
 - **"decodedGenotype"**: string containing the genotype function tree.
