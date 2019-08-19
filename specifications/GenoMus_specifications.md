@@ -1681,7 +1681,10 @@ The distance between an specimen and a set of requested musical characteristics 
 
 <img src="formulae/euclidean_distance.svg" width="250">
 
-where _**r**_ is the vector _r_=(_r_<sub>1</sub>, _r_<sub>n</sub>, ..., _r_<sub>n</sub>) is the vector of requested features,
+where
+- _**r**_ is the vector _r_=(_r_<sub>1</sub>, _r_<sub>2</sub>, ..., _r_<sub>n</sub>) is the vector of requested features
+- _**w**_ is the vector _w_=(_w_<sub>1</sub>, _w_<sub>2</sub>, ..., _w_<sub>n</sub>) is the vector of requested features
+
 
 
 
