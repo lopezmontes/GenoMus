@@ -1680,6 +1680,16 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
 | **"articulationHomogeneity"** |
 | **"dynamicHomogeneity"**
 
+
+```
+{
+    "autoreference": [<requestedValue>, <weight>],
+    "variability": [<requestedValue>, <weight>],
+    ...
+}
+
+```
+
 ----------
 ## Comparison of profiles
 
