@@ -1709,7 +1709,7 @@ where
 - _**d**_ is the distance between two vectors
 - _**c**_ is the number or measured characteristics of the requested profile vector
 
-The formula squares all weight values taken from the requested profile vector, having this effect in the formula:
+The formula squares all weight values taken from the requested profile vector, mapping the values as follows:
 
 | weightValue *w* | factor applied in the Euclidean distance formula
 | --------------- | -------------------------------------------------
