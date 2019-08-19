@@ -87,7 +87,7 @@
 - [Generation, evolution and selection of specimens](#generation-evolution-and-selection-of-specimens)
   - [Initial conditions for generation of genotypes](#initial-conditions-for-generation-of-genotypes)
     - [Species characterization](#species-characterization)
-    - [Vector of desired musical characteristics](#vector-of-desired-musical-characteristics)
+    - [Requested profile](#requested-profile)
       - [Weighted measurement of Euclidean distance](#weighted-measurement-of-euclidean-distance)- [Specimen data structure](#specimen-data-structure)
     - [Eligible functions](#eligible-functions)
     - [Mandatory functions](#mandatory-functions)
@@ -1661,7 +1661,7 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
 
 
 ---------
-### Vector of requested musical characteristics
+### Requested profile
 
 - Format for determine desired musical features and weights
   - **"polyphony"**
@@ -1677,7 +1677,7 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
   - **"dynamicHomogeneity"**
   
 
-The adequacy level of an specimen to a set of requested musical characteristics is measured using a weighted version of the Euclidean distance formula for *n* dimensions:
+The adequacy level of an specimen to a requested profile is measured using a weighted version of the Euclidean distance formula for *n* dimensions:
 
 <img src="formulae/euclidean_distance.svg" width="255">
 
