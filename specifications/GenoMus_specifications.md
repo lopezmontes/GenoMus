@@ -1680,6 +1680,10 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
 
 - Formula to measure distance of a phenotype to the goal vector
 
+<img src="formulae/euclidean_distance.svg" width="140">
+
+
+
 ---------
 ### Eligible functions
 

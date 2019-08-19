@@ -36,3 +36,10 @@ f_{e}\equiv\big(f_{d}\cdot\phi\big)\mod 1
 
 golden ratio
 \phi=\frac{1+\sqrt{5}}{2}
+
+
+euclidean distance
+r=(r_1, r_2, ..., r_n)
+w=(w_1, w_2, ..., w_n)
+e=(e_1, e_2, ..., e_n)
+d(r,e)=\sqrt{ \sum_{n=1}^{n} w_n(e_n-r_n)^2}
