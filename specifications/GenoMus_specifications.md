@@ -1661,18 +1661,19 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
 ---------
 ### Requested profile
 
-- Format for determine desired musical features and weights
-  - **"polyphony"**
-  - **"rhythmicComplexity"**
-  - **"chromatism"**
-  - **"disonance"**
-  - **"disjunctivity"**
-  - **"modalChroma"**
-  - **"tonalStability"**
-  - **"tessituraDispersion"**
-  - **"variability"**: measures how much use of repetition is made.
-  - **"articulationHomogeneity"**
-  - **"dynamicHomogeneity"**
+| feature                       | metrics 
+| ----------------------------- | -------   
+| **"polyphony"**               | 0: bla<br>1: blu<br>2:tre
+| **"rhythmicComplexity"**      |
+| **"chromatism"**              |
+| **"disonance"**               |
+| **"disjunctivity"**           |
+| **"modalChroma"**             |
+| **"tonalStability"**          |
+| **"tessituraDispersion"**     |
+| **"variability"**             |
+| **"articulationHomogeneity"** |
+| **"dynamicHomogeneity"**
   
 
 The adequacy level of an specimen to a requested profile is measured using a weighted version of the Euclidean distance formula for *n* dimensions:
