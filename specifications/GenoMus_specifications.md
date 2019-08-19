@@ -86,9 +86,10 @@
     - [Subexpressions and autoreferences](#subexpressions-and-autoreferences)
 - [Generation, evolution and selection of specimens](#generation-evolution-and-selection-of-specimens)
   - [Initial conditions for generation of genotypes](#initial-conditions-for-generation-of-genotypes)
-    - [Species characterization](#species-characterization)
-    - [Requested profile](#requested-profile)
-    - [Eligible functions](#eligible-functions)
+  - [Species characterization](#species-characterization)
+  - [Specimen autoanalytic profile](#specimen-autoanalytic-profile)
+  - [Comparison of profiles](#comparison-of-profiles)
+  - [Eligible functions](#eligible-functions)
     - [Mandatory functions](#mandatory-functions)
   - [Creation of new specimens](#creation-of-new-specimens)
     - [Generating genoypes from random arrays](#generating-genoypes-from-random-arrays)
@@ -1662,7 +1663,7 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
 
 
 ---------
-### Requested profile
+## Specimen autoanalytic profile
 
 | feature tag                   | metrics 
 | ----------------------------- | -------   
@@ -1677,7 +1678,11 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
 | **"variability"**             |
 | **"articulationHomogeneity"** |
 | **"dynamicHomogeneity"**
-  
+
+----------
+## Comparison of profiles
+
+Each specimen stores an autoalalysis 
 
 The adequacy level of an specimen to a requested profile is measured using a weighted version of the Euclidean distance formula for *n* dimensions:
 
@@ -1694,7 +1699,7 @@ where
 
 
 ---------
-### Eligible functions
+## Eligible functions
 
 - Format for specifying eligible functions
 - Format for specifying not eligible functions
