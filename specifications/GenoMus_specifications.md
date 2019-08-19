@@ -82,8 +82,8 @@
   - [Multiple voices and multiple scores](#multiple-voices-and-multiple-scores)
   - [Autoreferences](#autoreferences)
 - [Genotype substructures](#genotype-substructures)
-    - [Branches and leaves](#branches-and-leaves)
-    - [Subexpressions and autoreferences](#subexpressions-and-autoreferences)
+  - [Branches and leaves](#branches-and-leaves)
+  - [Subexpressions and autoreferences](#subexpressions-and-autoreferences)
 - [Generation, evolution and selection of specimens](#generation-evolution-and-selection-of-specimens)
   - [Initial conditions for generation of genotypes](#initial-conditions-for-generation-of-genotypes)
   - [Species characterization](#species-characterization)
@@ -1647,7 +1647,7 @@ This table lists all information required for the process of generation, evaluat
 
 
 ---------
-### Species characterization
+## Species characterization
 
 The concept of species is crucial, because each species is determined by the parameter structure of a basic sonic event, and the functional arquitecture depends on this characterization. Specimens belonging to different species cannot be mixed without some kind of ad hoc adaptation. Consequently, an independent library must be created for each new species.
 
