@@ -1669,7 +1669,7 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
 | ----------------------------- | -------   
 | **"polyphony"**               | 0 &rarr; monophonic<br>0.5 &rarr; 4 voices<br>0.9 &rarr; 8 voices<br>1 &rarr; more than 8 voices 
 | **"rhythmicComplexity"**      | 0 &rarr; a single rhythmic value<br>0.5 &rarr; many different rhythmic values, but easy to distinguish patterns<br>1 &rarr; impossible to distinguish patterns
-| **"chromatism"**              |
+| **"chromatism"**              | 0 &rarr; only one pitch class is employed<br>0.5 &rarr; diatonic scales are predominant, with occasional chromatic notes<br>1 &rarr; impossible to distinguish diatonic scales
 | **"disonance"**               |
 | **"disjunctivity"**           |
 | **"modalChroma"**             |
