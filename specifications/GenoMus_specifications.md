@@ -1632,7 +1632,7 @@ This table lists all information required for the process of generation, evaluat
 
 | initial condition  | description                                                                | default value
 | ------------------ | -------------------------------------------------------------------------- | -------------
-| species            | Name of the species that determines events strutcure and functions library | piano
+| species            | Name of the species that determines event structure and functions library  | piano
 | desiredFeatures    | Vector of desired musical characteristics, with weights for each one       | undefined
 | eligibleFunctions  | Numeric array containing the eligible functions for genotype generation    | all available
 | mandatoryFunctions | Numeric array containing functions required to be included in the genotype | none
