@@ -1665,6 +1665,8 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
 ---------
 ## Specimen autoanalytic profile
 
+Each specimen stores an autoanalysis of a set of musical characteristics. Each feature is asigned a normalized value. A higher value means more musical complexity:
+
 | feature tag                   | metrics 
 | ----------------------------- | -------   
 | **"autoreference"**           | 0 &rarr; no autoreferences<br>0.5 &rarr; 50% of functions are autoreferences<br>1 &rarr; all functions are autoreferences
@@ -1696,8 +1698,6 @@ Both **requestedValue** and **weight** variables are normalized values within in
 ----------
 ## Comparison of profiles
 
-Each specimen stores an autoalalysis 
-
 The adequacy level of an specimen to a requested profile is measured using a weighted version of the Euclidean distance formula for *n* dimensions:
 
 <img src="formulae/euclidean_distance.svg" width="255">
@@ -1707,7 +1707,7 @@ where
 - _**w**_ is the vector _w_ = (_w_<sub>1</sub>, _w_<sub>2</sub>, ..., _w_<sub>n</sub>) of asigned weghts for each feature
 - _**e**_ is the vector _e_ = (_e_<sub>1</sub>, _e_<sub>2</sub>, ..., _e_<sub>n</sub>) of evaluated values for each feature
 - _**d**_ is the weighted Euclidean distance between two vectors
-- _**c**_ is the number or measured characteristics of the requested profile vector
+- _**c**_ is the total number or analyzed characteristics of the requested profile vector
 
 The formula squares all weight values taken from the requested profile vector, mapping the values as follows:
 
