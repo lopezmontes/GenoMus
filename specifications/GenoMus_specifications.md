@@ -1634,6 +1634,7 @@ This table lists all information required for the process of generation, evaluat
 | initial condition  | description                                                                | default value
 | ------------------ | -------------------------------------------------------------------------- | -------------
 | species            | Name of the species that determines event structure and functions library  | piano
+| requestedProfile   | Weighted vector of desired musical characteristics                         | 0.5 for every item and weight
 | desiredFeatures    | Vector of desired musical characteristics, with weights for each one       | undefined
 | eligibleFunctions  | Numeric array containing the eligible functions for genotype generation    | all available
 | mandatoryFunctions | Numeric array containing functions required to be included in the genotype | none
@@ -1641,7 +1642,6 @@ This table lists all information required for the process of generation, evaluat
 | minPhenotypeLength | Minimal number of events whithin the resulting phenotype                   | 1
 | maxPhenotypeLength | Maximal number of events whithin the resulting phenotype                   | 1000
 | maxIterations      | Maximal number of attempts to get a specimen that meets the requirements   | 500
-| requestedProfile   | Weighted vector of requested musical characteristics                       | 0.5 for every item and weight
 
 
 ---------
