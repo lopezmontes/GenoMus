@@ -1681,6 +1681,7 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
 | **"dynamicHomogeneity"**
 
 
+Format 
 ```
 {
     "autoreference": [<requestedValue>, <weight>],
@@ -1708,6 +1709,15 @@ where
 - _**d**_ is the distance between two vectors
 - _**c**_ is the number or measured characteristics of the requested profile vector
 
+Weight values are squared, so the values of the requested profile vector have this effect in the formula:
+
+| weightValue | factor applied in the Euclidean distance formula
+| ----------- | -------------------------------------------------
+| 0           | 0
+| 0.25        | 0.0625
+| 0.5         | 0.25
+| 0.75        | 0.5625
+| 1           | 1
 
 
 
