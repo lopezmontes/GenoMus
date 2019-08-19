@@ -1667,6 +1667,8 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
 
 | feature tag                   | metrics 
 | ----------------------------- | -------   
+| **"autoreference"**           | 0 &rarr; no autoreferences<br>0.5 &rarr; 50% of functions are autoreferences<br>1 &rarr; all functions are autoreferences
+| **"variability"**             | 0 &rarr; all events are repetitions or previous events (one event repeated as the only texture)<br>0.5 &rarr; 50% or events involve repetition of previous patterns<br>1 &rarr; there is no repetitions at all
 | **"polyphony"**               | 0 &rarr; monophonic<br>0.5 &rarr; 4 voices<br>0.9 &rarr; 8 voices<br>1 &rarr; more than 8 voices 
 | **"rhythmicComplexity"**      | 0 &rarr; a single rhythmic value<br>0.5 &rarr; many different rhythmic values, but easy to distinguish patterns<br>1 &rarr; impossible to distinguish patterns
 | **"chromatism"**              | 0 &rarr; only one pitch class is employed<br>0.5 &rarr; diatonic scales are predominant, with occasional chromatic notes<br>1 &rarr; impossible to distinguish diatonic scales
@@ -1675,7 +1677,6 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
 | **"modalChroma"**             |
 | **"tonalStability"**          | 
 | **"tessituraDispersion"**     |
-| **"variability"**             |
 | **"articulationHomogeneity"** |
 | **"dynamicHomogeneity"**
 
@@ -1746,7 +1747,6 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"decPhenotypeDuration"**: total duration of the generated piece in seconds.
   - **"depth"**: deepest level of ramification of the decoded genotype function tree.
   - **"totalFunctions**: total of different functions used.    
-  - **"selfReference"**: measures reuse of internal substructures.  
 - **"initialConditions"**: set of initial conditions to satisfy by the generative process [(more info)](#initial-conditions-for-generation-of-genotypes).
   - **"requestedProfile"**
   - **"eligibleFunctions"**
