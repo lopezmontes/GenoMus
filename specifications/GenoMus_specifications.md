@@ -1690,6 +1690,8 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
 
 ```
 
+Both **requestedValue** and **weight** variables are normalized values within interval [0, 1].
+
 ----------
 ## Comparison of profiles
 
