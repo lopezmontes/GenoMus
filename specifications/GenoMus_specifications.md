@@ -1678,9 +1678,9 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
   
 #### Weighted measurement of Euclidean distance
 
-- Formula to measure distance of a phenotype <img src="formulae/requeted_features.svg" width="100"> to the goal vector
+The distance between an specimen and a set of desired musical characteristics is measured using a weighted 
 
-<img src="formulae/euclidean_distance.svg" width="228">
+<img src="formulae/euclidean_distance.svg" width="240">
 
 
 
