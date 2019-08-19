@@ -1679,7 +1679,7 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
 
 The distance between an specimen and a set of requested musical characteristics is measured using a weighted version of the standard formula of the Euclidean distance for *n* dimensions:
 
-<img src="formulae/euclidean_distance.svg" width="250">
+<img src="formulae/euclidean_distance.svg" width="260">
 
 where
 - _**r**_ is the vector _r_ = (_r_<sub>1</sub>, _r_<sub>2</sub>, ..., _r_<sub>n</sub>) is the vector of requested features
