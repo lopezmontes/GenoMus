@@ -1663,7 +1663,7 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
 
 | feature                       | metrics 
 | ----------------------------- | -------   
-| **"polyphony"**               | 0 &rarr; monophonic<br>0.5 $rarr; 4 voices<br>0.9 $rarr; 8 voices<br>1 $rarr; more than 8 voices 
+| **"polyphony"**               | 0 &rarr; monophonic<br>0.5 &rarr; 4 voices<br>0.9 &rarr; 8 voices<br>1 &rarr; more than 8 voices 
 | **"rhythmicComplexity"**      |
 | **"chromatism"**              |
 | **"disonance"**               |
