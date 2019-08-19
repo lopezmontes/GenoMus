@@ -1677,7 +1677,7 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
   - **"dynamicHomogeneity"**
   
 
-The distance between an specimen and a set of requested musical characteristics is measured using a weighted version of the standard formula of the Euclidean distance for *n* dimensions:
+The adequacy level of an specimen to a set of requested musical characteristics is measured using a weighted version of the Euclidean distance formula for *n* dimensions:
 
 <img src="formulae/euclidean_distance.svg" width="255">
 
