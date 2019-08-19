@@ -1711,7 +1711,7 @@ where
 
 The formula squares all weight values taken from the requested profile vector, mapping the values as follows:
 
-| weightValue *w* | factor applied in the Euclidean distance formula
+| weightValue *w* | factor applied in the formula
 | --------------- | -------------------------------------------------
 | 0               | 0
 | 0.25            | 0.0625
