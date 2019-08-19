@@ -85,12 +85,13 @@
     - [Branches and leaves](#branches-and-leaves)
     - [Subexpressions and autoreferences](#subexpressions-and-autoreferences)
 - [Generation, evolution and selection of specimens](#generation-evolution-and-selection-of-specimens)
-  - [Species characterization](#species-characterization)
   - [Initial conditions for generation of genotypes](#initial-conditions-for-generation-of-genotypes)
+    - [Species characterization](#species-characterization)
+    - [Vector of desired musical characteristics](#vector-of-desired-musical-characteristics)
+      - [Weighted measurement of Euclidean distance](#weighted-measurement-of-euclidean-distance)- [Specimen data structure](#specimen-data-structure)
     - [Eligible functions](#eligible-functions)
     - [Mandatory functions](#mandatory-functions)
-    - [Vector of desired musical characteristics](#vector-of-desired-musical-characteristics)
-    - [Weighted measurement of Euclidean distance](#weighted-measurement-of-euclidean-distance)- [Specimen data structure](#specimen-data-structure)
+
   - [Creation of new specimens](#creation-of-new-specimens)
     - [Generating genoypes from random arrays](#generating-genoypes-from-random-arrays)
     - [Evolution of genotypes](#evolution-of-genotypes)
@@ -1659,18 +1660,6 @@ The second parameter is a **midipitchF** *multiparameter*, which begins with _**
 For each parameter, decoded phenotypes use the [conversion rules](#parameter-mapping) of the invoked function types.
 
 
-
----------
-### Eligible functions
-
-- Format for specifying eligible functions
-- Format for specifying not eligible functions
-
----------
-### Mandatory functions
-
-- Format for specifying mandatory functions
-
 ---------
 ### Vector of desired musical characteristics
 
@@ -1690,6 +1679,18 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
 #### Weighted measurement of Euclidean distance
 
 - Formula to measure distance of a phenotype to the goal vector
+
+---------
+### Eligible functions
+
+- Format for specifying eligible functions
+- Format for specifying not eligible functions
+
+---------
+### Mandatory functions
+
+- Format for specifying mandatory functions
+
 
 ---------
 ## Creation of new specimens
