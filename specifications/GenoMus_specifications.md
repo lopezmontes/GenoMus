@@ -1641,7 +1641,7 @@ This table lists all information required for the process of generation, evaluat
 | minPhenotypeLength | Minimal number of events whithin the resulting phenotype                   | 1
 | maxPhenotypeLength | Maximal number of events whithin the resulting phenotype                   | 1000
 | maxIterations      | Maximal number of attempts to get a specimen that meets the requirements   | 500
-
+| requestedProfile   | Weighted vector of requested musical characteristics                       | 0.5 for every item and weight
 
 
 ---------
@@ -1740,7 +1740,7 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"totalFunctions**: total of different functions used.    
   - **"selfReference"**: measures reuse of internal substructures.  
 - **"initialConditions"**: set of initial conditions to satisfy by the generative process [(more info)](#initial-conditions-for-generation-of-genotypes).
-  - **"desiredFeatures"**
+  - **"requestedProfile"**
   - **"eligibleFunctions"**
   - **"mandatoryFunctiones"**
   - **"maxGenotypeDepth"**
