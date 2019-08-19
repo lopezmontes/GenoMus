@@ -1671,7 +1671,7 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
 | **"rhythmicComplexity"**      | 0 &rarr; a single rhythmic value<br>0.5 &rarr; many different rhythmic values, but easy to distinguish patterns<br>1 &rarr; impossible to distinguish patterns
 | **"chromatism"**              | 0 &rarr; only one pitch class is employed<br>0.5 &rarr; diatonic scales are predominant, with occasional chromatic notes<br>1 &rarr; impossible to distinguish diatonic scales
 | **"disonance"**               |
-| **"disjunctivity"**           |
+| **"disjunctivity"**           | 0 &rarr; all intervals are unisons and seconds<br>0.5 &rarr; 50% of all movements are conjunct<br>1 &rarr; all intervals are bigger than a second
 | **"modalChroma"**             |
 | **"tonalStability"**          |
 | **"tessituraDispersion"**     |
