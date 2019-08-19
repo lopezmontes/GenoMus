@@ -1680,7 +1680,7 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
 
 The distance between an specimen and a set of desired musical characteristics is measured using a weighted 
 
-<img src="formulae/euclidean_distance.svg" width="240">
+<img src="formulae/euclidean_distance.svg" width="250">
 
 
 
