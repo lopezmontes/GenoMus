@@ -1829,12 +1829,12 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"mood"**
   - **"emotionalIntensity"**
   - **"evaluation"**
-    - **<username1>**
+    - _**username1**_
       - **"aestheticValue"**
       - **"originality"**
       - **"mood"**
       - **"emotionalIntensity"**
-    - **<username2>**
+    - _**username2**_
       - ...
 
 ---------
