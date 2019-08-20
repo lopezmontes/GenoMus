@@ -1677,7 +1677,7 @@ Each specimen stores an autoanalysis of a set of musical characteristics. Each f
 | **"dissonance"**               | 0 &rarr; all pitch simultaneities correspond to major chords, perfect fifths and octaves<br>0.5 &rarr; 50% of pitch simultaneities correspond to triads and seventh chords<br>1 &rarr; no simultaneity corresponds to a perfect chord
 | **"disjunctivity"**           | 0 &rarr; all intervals are unisons and seconds<br>0.5 &rarr; 50% of all movements are conjunct<br>1 &rarr; all intervals are bigger than a second
 | **"modalChroma"**             |
-| **"tonalStability"**          | 
+| **"tonalStability"**          | 0 &rarr; only one tonal center for the whole phenotype<br>0.5 &rarr; 50% of the time the tonal center is the same<br>1 &rarr; each event has a different tonal center
 | **"tessituraDispersion"**     |
 | **"articulationHomogeneity"** |
 | **"dynamicHomogeneity"**
