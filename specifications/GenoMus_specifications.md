@@ -1781,8 +1781,8 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"depth"**: deepest level of ramification of the decoded genotype function tree
   - **"totalFunctions**: total of different functions used
 - **"initialConditions"**: set of initial conditions to satisfy by the generative process [(more info)](#initial-conditions-for-generation-of-genotypes)
-  - **"species"**.
-    - **"eventParameters"**: event parameters structure defining the basic sonic events.
+  - **"species"**
+    - **"eventParameters"**: event parameters structure defining the basic sonic events
   - **"requestedProfile"**
   - **"functionLibrary"**
   - **"includedFunctions"**
