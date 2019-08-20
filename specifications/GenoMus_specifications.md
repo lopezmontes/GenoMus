@@ -1788,21 +1788,6 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"minPhenotypeLength"**
   - **"maxPhenotypeLength"**
   - **"maxIterations"**
-- **"evolutionLog"**: log covering the history of actions and manipulations operated on the specimen 
-- **"encodedGenotype"**: array of floats &isinv; [0, 1].
-- **"decodedGenotype"**: string containing the genotype function tree.
-- **"formattedGenotype"**: string containing the decoded genotype, formatted with blanks and line breaks to clearly display the function tree.
-- **"leaves"**: array with all leaf values and their corresponding position in the encoded genotype. 
-- **"subexpressions"**: list of all functional substructures within a genotype, enumerated by output type and order of appearance.
-  - **"scoreF"**: subexpressions whose output is of type score.
-  - **"voiceF"**: ...
-  - **"eventF"**
-  - **"listF"**
-  - **"paramF"**
-  - **"harmonyF"**
-  - ...
-- **"encodedPhenotype"**: array of floats &isinv; [0, 1].
-- **"decodedPhenotype"**: phenotype converted to the desired formats (bach roll, bach score, lilypond, MusicXML, Csound, multimedia outputs, etc.)
 - **"automaticAnalysis"**: automatic analysis of many different musical characteristics of the specimen, each one expressed as a normalized value &isinv; [0, 1]. A higher number means more complexity.  
   - **"autoreference"**
   - **"variability"**
@@ -1821,6 +1806,21 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"mood"**: emotional resonances, expressed as a vector of different axes (to be defined).
   - **"originality"**
   - **"predictability"**
+- **"encodedGenotype"**: array of floats &isinv; [0, 1].
+- **"decodedGenotype"**: string containing the genotype function tree.
+- **"formattedGenotype"**: string containing the decoded genotype, formatted with blanks and line breaks to clearly display the function tree.
+- **"leaves"**: array with all leaf values and their corresponding position in the encoded genotype. 
+- **"subexpressions"**: list of all functional substructures within a genotype, enumerated by output type and order of appearance.
+  - **"scoreF"**: subexpressions whose output is of type score.
+  - **"voiceF"**: ...
+  - **"eventF"**
+  - **"listF"**
+  - **"paramF"**
+  - **"harmonyF"**
+  - ...
+- **"encodedPhenotype"**: array of floats &isinv; [0, 1].
+- **"decodedPhenotype"**: phenotype converted to the desired formats (bach roll, bach score, lilypond, MusicXML, Csound, multimedia outputs, etc.)
+- **"evolutionLog"**: log covering the history of actions and manipulations operated on the specimen 
 
 ---------
 ## Specimen catalogue
