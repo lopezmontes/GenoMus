@@ -1666,13 +1666,13 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
 ---------
 ## Eligible functions
 
-**includedFunctions**, **excludedFunctions** and **mandatoryFunctions** variables determine which functions from the library are eligible for the generation of new genotypes
+**includedFunctions**, **excludedFunctions** and **mandatoryFunctions** variables determine which functions from the library are eligible for the generation of new genotypes.
 
-Note that in the case of **includedFunctions**, an empty array means that all functions of the library  
+Note that in the case of **includedFunctions** an empty array means that all functions of the library are eligible.
 
-To improve readability, the numbers used to include functions in these arrays are corresponding golden integera.
+To improve readability, the numbers used to indicate functions in these arrays are their corresponding golden integer indexes.
 
-Using this three arrays, a new array called **eligibleFunctions** is automatically constructed, to have an ordered enumeration of all available functions at the precise moment of a genotype generation. 
+Using these three arrays, a new array called **eligibleFunctions** is automatically constructed, to have an ordered enumeration of all available functions at the precise moment of a genotype generation. 
 
 For instance, given this variables setup:
 
