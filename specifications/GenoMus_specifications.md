@@ -1728,13 +1728,14 @@ The formula squares all weight values taken from the requested profile vector, m
 ---------
 ## Eligible functions
 
-- Format for specifying eligible functions
-- Format for specifying not eligible functions
+Three initialization variables determine which functions from the library are eligible for the generation of new genotypes
 
----------
-### Mandatory functions
+| functions set          | description                                                   | default value
+| ---------------------- | ------------------------------------------------------------- | -------------
+| **includedFunctions**  | set of functions that can be chosen                           | `[]` &rrar; all available functions are elegible
+| **excludedFunctions**  | set of functions excluded                                     | `[]` &rrar; no function excluded
+| **mandatoryFunctions** | set of compulsory functions that must appear in new genotypes | `[]` &rrar; no mandatory functions
 
-- Format for specifying mandatory functions
 
 ```
 var includedFunctions = [];
