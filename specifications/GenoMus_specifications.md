@@ -1767,18 +1767,19 @@ Universal random search space. All vectors are a valid input.
 All generated specimens are stored as temporary JSON files. Selected specimens are permanently saved as JSON files in the Specimen catalogue. These JSON files are created according to the following data structure:
 
 - **"metadata"**: data to identify and classify the specimen within the catalogue.
-  - **"specimenID"**: unique specimen identificator base on date of creation compressed as a unique number and usersname.
-  - **"permalink**: permanent link to the JSON file of the specimen (only for selected specimens, not for temporary ones).
-  - **"GenoMusVersion"**: GenoMus version that generated the specimen.
-  - **"creationTimecode"**: creation date compressed as a unique number.
-  - **"user"**: username.
-  - **"iterations"**: number of iterations of the algorithm until finding this specimen.
-  - **"millisecondsElapsed"**: time elapsed until finding this specimen.
-  - **"encGenotypeLength"**: length of the float array contaning the encoded genotype. 
-  - **"encPhenotypeLength"**: length of the float array contaning the encoded phenotype.
-  - **"decPhenotypeDuration"**: total duration of the generated piece in seconds.
-  - **"depth"**: deepest level of ramification of the decoded genotype function tree.
-  - **"totalFunctions**: total of different functions used.    
+  - **"specimenID"**: unique specimen identificator base on date of creation compressed as a unique number and usersname
+  - **"permalink**: permanent link to the JSON file of the specimen (only for selected specimens, not for temporary ones)
+  - **"GenoMusVersion"**: GenoMus version that generated the specimen
+  - **"creationTimecode"**: creation date compressed as a unique number
+  - **"user"**: username
+  - **"globalRating"**: average of human ratings obtained, based on all evaluations
+  - **"iterations"**: number of iterations of the algorithm until finding this specimen
+  - **"millisecondsElapsed"**: time elapsed until finding this specimen
+  - **"encGenotypeLength"**: length of the float array contaning the encoded genotype
+  - **"encPhenotypeLength"**: length of the float array contaning the encoded phenotype
+  - **"decPhenotypeDuration"**: total duration of the generated piece in seconds
+  - **"depth"**: deepest level of ramification of the decoded genotype function tree
+  - **"totalFunctions**: total of different functions used
 - **"initialConditions"**: set of initial conditions to satisfy by the generative process [(more info)](#initial-conditions-for-generation-of-genotypes)
   - **"species"**.
     - **"eventParameters"**: event parameters structure defining the basic sonic events.
@@ -1806,7 +1807,7 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - ...
 - **"encodedPhenotype"**: array of floats &isinv; [0, 1].
 - **"decodedPhenotype"**: phenotype converted to the desired formats (bach roll, bach score, lilypond, MusicXML, Csound, multimedia outputs, etc.)
-- **"automaticAnalysis"**: automatic analysis of many different musical characteristics of the specimen, each one expressed as a normalized value &isinv; [0, 1]. A higher number means more complexity. 
+- **"autoanalitycProfile"**: [(more info)](#specimen-autoanalytic-profile) 
   - **"autoreference"**
   - **"variability"**
   - **"rhythmDensity"**
@@ -1823,7 +1824,6 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"dynamicHomogeneity"**
 - **"evolutionLog"**: log covering the history of actions and manipulations operated on the specimen 
 - **"humanEvaluation"**: human evaluation of different musical, aesthetic and emotional aspects of the specimen. This item store the assessment of many different users and give the average rating for different musical aspects
-  - **"globalRating"**: average of aesthetic ratings obtained.
   - **"aestheticValue"**
   - **"originality"**
   - **"mood"**
@@ -1836,6 +1836,7 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
       - **"emotionalIntensity"**
     - _**username2**_
       - ...
+    - ...
 
 ---------
 ## Specimen catalogue
