@@ -1674,13 +1674,13 @@ Each specimen stores an autoanalysis of a set of musical characteristics. Each f
 | **"polyphony"**               | 0 &rarr; monophonic<br>0.5 &rarr; 4 voices<br>0.9 &rarr; 8 voices<br>1 &rarr; more than 8 voices 
 | **"rhythmicComplexity"**      | 0 &rarr; a single rhythmic value<br>0.5 &rarr; many different rhythmic values, but easy to distinguish patterns<br>1 &rarr; impossible to distinguish patterns
 | **"chromatism"**              | 0 &rarr; only one pitch class is employed<br>0.5 &rarr; diatonic scales are predominant, with occasional chromatic notes<br>1 &rarr; impossible to distinguish diatonic scales
-| **"dissonance"**               | 0 &rarr; all pitch simultaneities correspond to major chords, perfect fifths and octaves<br>0.5 &rarr; 50% of pitch simultaneities correspond to triads and seventh chords<br>1 &rarr; no simultaneity corresponds to a perfect chord
+| **"dissonance"**              | 0 &rarr; all pitch simultaneities correspond to major chords, perfect fifths and octaves<br>0.5 &rarr; 50% of pitch simultaneities correspond to triads and seventh chords<br>1 &rarr; no simultaneity corresponds to a perfect chord
 | **"disjunctivity"**           | 0 &rarr; all intervals are unisons and seconds<br>0.5 &rarr; 50% of all movements are conjunct<br>1 &rarr; all intervals are bigger than a second
 | **"modalChroma"**             |
 | **"tonalStability"**          | 0 &rarr; only one tonal center for the whole phenotype<br>0.5 &rarr; 50% of the time the tonal center is the same<br>1 &rarr; each event has a different tonal center
-| **"tessituraDispersion"**     |
-| **"articulationHomogeneity"** |
-| **"dynamicHomogeneity"**
+| **"tessituraDispersion"**     | 0 &rarr; all pitches are within an only octave<br>0.5 &rarr; the pitches are scattered across four octaves <br>1 &rarr; pitches are found in the entire range of values
+| **"articulationHomogeneity"** | 0 &rarr; only one articulation value for all events<br>0.5 &rarr; diversity in articulation values, but similar values are grouped<br>1 &rarr; extremely disperse articulation values
+| **"dynamicHomogeneity"**      | 0 &rarr; only one dynamic value for all events<br>0.5 &rarr; diversity in dynamics values, but similar  values are grouped<br>1 &rarr; extremely disperse dynamics values
 
 
 Format 
