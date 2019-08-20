@@ -1692,7 +1692,7 @@ Each specimen stores an autoanalysis of a set of musical characteristics. Each f
 | ----------------------------- | -------   
 | **"autoreference"**           | 0 &rarr; no autoreferences<br>0.5 &rarr; 50% of functions are autoreferences<br>1 &rarr; all functions are autoreferences
 | **"variability"**             | 0 &rarr; all events are repetitions or previous events (one event repeated as the only texture)<br>0.5 &rarr; 50% or events involve repetition of previous patterns<br>1 &rarr; there is no repetitions at all
-| **"rhythmDensity"**           | 0 &rarr; average separation between events is more than 20 seconds<br>average separation between events is 1 second<br>1 &rarr; average separation between events is less than 0.05 seconds
+| **"rhythmDensity"**           | 0 &rarr; average separation between events is more than 20 seconds<br>0.5 &rarr; average separation between events is 1 second<br>1 &rarr; average separation between events is less than 0.05 seconds
 | **"rhythmComplexity"**        | 0 &rarr; a single rhythmic value<br>0.5 &rarr; many different rhythmic values, but easy to distinguish patterns<br>1 &rarr; impossible to distinguish patterns
 | **"polyphony"**               | 0 &rarr; monophonic<br>0.5 &rarr; 4 voices<br>0.9 &rarr; 8 voices<br>1 &rarr; more than 8 voices 
 | **"chromatism"**              | 0 &rarr; only one pitch class is employed<br>0.5 &rarr; diatonic scales are predominant, with occasional chromatic notes<br>1 &rarr; impossible to distinguish diatonic scales
