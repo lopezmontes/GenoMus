@@ -1772,8 +1772,6 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"GenoMusVersion"**: GenoMus version that generated the specimen.
   - **"creationTimecode"**: creation date compressed as a unique number.
   - **"user"**: username.
-  - **"eventParameters"**: event parameters structure defining the basic sonic events.
-  - **"globalRating"**: average of aesthetic ratings obtained.
   - **"iterations"**: number of iterations of the algorithm until finding this specimen.
   - **"millisecondsElapsed"**: time elapsed until finding this specimen.
   - **"encGenotypeLength"**: length of the float array contaning the encoded genotype. 
@@ -1781,8 +1779,9 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"decPhenotypeDuration"**: total duration of the generated piece in seconds.
   - **"depth"**: deepest level of ramification of the decoded genotype function tree.
   - **"totalFunctions**: total of different functions used.    
-- **"initialConditions"**: set of initial conditions to satisfy by the generative process [(more info)](#initial-conditions-for-generation-of-genotypes).
+- **"initialConditions"**: set of initial conditions to satisfy by the generative process [(more info)](#initial-conditions-for-generation-of-genotypes)
   - **"species"**.
+    - **"eventParameters"**: event parameters structure defining the basic sonic events.
   - **"requestedProfile"**
   - **"functionLibrary"**
   - **"includedFunctions"**
@@ -1793,12 +1792,12 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"minPhenotypeLength"**
   - **"maxPhenotypeLength"**
   - **"maxIterations"**
-- **"encodedGenotype"**: array of floats &isinv; [0, 1].
-- **"decodedGenotype"**: string containing the genotype function tree.
-- **"formattedGenotype"**: string containing the decoded genotype, formatted with blanks and line breaks to clearly display the function tree.
-- **"leaves"**: array with all leaf values and their corresponding position in the encoded genotype. 
-- **"subexpressions"**: list of all functional substructures within a genotype, enumerated by output type and order of appearance.
-  - **"scoreF"**: subexpressions whose output is of type score.
+- **"encodedGenotype"**: array of floats &isinv; [0, 1]
+- **"decodedGenotype"**: string containing the genotype function tree
+- **"formattedGenotype"**: string containing the decoded genotype, formatted with blanks and line breaks to clearly display the function tree
+- **"leaves"**: array with all leaf values and their corresponding position in the encoded genotype.
+- **"subexpressions"**: list of all functional substructures within a genotype, enumerated by output type and order of appearance
+  - **"scoreF"**: subexpressions whose output is of type score
   - **"voiceF"**: ...
   - **"eventF"**
   - **"listF"**
@@ -1807,7 +1806,7 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - ...
 - **"encodedPhenotype"**: array of floats &isinv; [0, 1].
 - **"decodedPhenotype"**: phenotype converted to the desired formats (bach roll, bach score, lilypond, MusicXML, Csound, multimedia outputs, etc.)
-- **"automaticAnalysis"**: automatic analysis of many different musical characteristics of the specimen, each one expressed as a normalized value &isinv; [0, 1]. A higher number means more complexity.  
+- **"automaticAnalysis"**: automatic analysis of many different musical characteristics of the specimen, each one expressed as a normalized value &isinv; [0, 1]. A higher number means more complexity. 
   - **"autoreference"**
   - **"variability"**
   - **"rhythmDensity"**
@@ -1823,11 +1822,20 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"globalDynamics"**
   - **"dynamicHomogeneity"**
 - **"evolutionLog"**: log covering the history of actions and manipulations operated on the specimen 
-- **"humanEvaluation"**: human evaluation of different musical, aesthetic and emotional aspects of the specimen. This item can store the assessment of many different users. 
+- **"humanEvaluation"**: human evaluation of different musical, aesthetic and emotional aspects of the specimen. This item store the assessment of many different users and give the average rating for different musical aspects
+  - **"globalRating"**: average of aesthetic ratings obtained.
   - **"aestheticValue"**
-  - **"mood"**: emotional resonances, expressed as a vector of different axes (to be defined).
   - **"originality"**
-  - **"predictability"**
+  - **"mood"**
+  - **"emotionalIntensity"**
+  - **"evaluation"**
+    - **<username1>**
+      - **"aestheticValue"**
+      - **"originality"**
+      - **"mood"**
+      - **"emotionalIntensity"**
+    - **<username2>**
+      - ...
 
 ---------
 ## Specimen catalogue
