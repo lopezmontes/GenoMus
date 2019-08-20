@@ -1676,14 +1676,19 @@ Each specimen stores an autoanalysis of a set of musical characteristics. Each f
 | **"chromatism"**              | 0 &rarr; only one pitch class is employed<br>0.5 &rarr; diatonic scales are predominant, with occasional chromatic notes<br>1 &rarr; impossible to distinguish diatonic scales
 | **"dissonance"**              | 0 &rarr; all pitch simultaneities correspond to major chords, perfect fifths and octaves<br>0.5 &rarr; 50% of pitch simultaneities correspond to triads and seventh chords<br>1 &rarr; no simultaneity corresponds to a perfect chord
 | **"disjunctivity"**           | 0 &rarr; all intervals are unisons and seconds<br>0.5 &rarr; 50% of all movements are conjunct<br>1 &rarr; all intervals are bigger than a second
-| **"modalChroma"**             |
+| **"modalChroma"**             | 0 &rarr; 
 | **"tonalStability"**          | 0 &rarr; only one tonal center for the whole phenotype<br>0.5 &rarr; 50% of the time the tonal center is the same<br>1 &rarr; each event has a different tonal center
 | **"tessituraDispersion"**     | 0 &rarr; all pitches are within an only octave<br>0.5 &rarr; the pitches are scattered across four octaves <br>1 &rarr; pitches are found in the entire range of values
 | **"articulationHomogeneity"** | 0 &rarr; only one articulation value for all events<br>0.5 &rarr; diversity in articulation values, but similar values are grouped<br>1 &rarr; extremely disperse articulation values
 | **"dynamicHomogeneity"**      | 0 &rarr; only one dynamic value for all events<br>0.5 &rarr; diversity in dynamics values, but similar  values are grouped<br>1 &rarr; extremely disperse dynamics values
 
+The value of **modalChroma** depends on the tendency to flats or sharps of the modes used. In the case of very chromatic music this meams almost nothing, since it is applicable in contexts of modality and diatonism. 
 
-Format 
+
+## Requested profile vector
+
+The desired values for this features are coded as a dictionary, specifying the requested value and the relative weight among features. Both **requestedValue** and **weight** variables are normalized values within interval [0, 1].
+
 ```
 {
     "autoreference": [<requestedValue>, <weight>],
@@ -1692,8 +1697,6 @@ Format
 }
 
 ```
-
-Both **requestedValue** and **weight** variables are normalized values within interval [0, 1].
 
 ----------
 ## Comparison of profiles
