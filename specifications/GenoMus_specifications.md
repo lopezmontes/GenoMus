@@ -1636,12 +1636,12 @@ This table lists all information required for the process of generation, evaluat
 | initial condition      | description                                                                          | default value
 | ---------------------- | ------------------------------------------------------------------------------------ | -------------
 | **species**            | name of the species that determines event structure and functions library            | `"piano"`
-| **requestedProfile**   | weighted vector of desired musical characteristics                                   | `0.5` for items, `0` for weights (no profile defined)
 | **function library**   | name of the JSON file containing all the available functions for genotype generation | last version of library for the *piano* species
 | **includedFunctions**  | set of functions that can be chosen                                                  | `[]` &rarr; all available functions are elegible
 | **excludedFunctions**  | set of functions excluded                                                            | `[]` &rarr; no function excluded
 | **mandatoryFunctions** | set of compulsory functions that must appear in new genotypes                        | `[]` &rarr; no mandatory functions
 | **elegibleFunction**   | set of elegible functions generated automatically from previous sets                 | array containing a complete list of the available functions in the library
+| **requestedProfile**   | weighted vector of desired musical characteristics                                   | `0.5` for items, `0` for weights (no profile defined)
 | **maxGenotypeDepth**   | deepest level of ramification for new genotypes                                      | `8`
 | **minPhenotypeLength** | minimal number of events whithin the resulting phenotype                             | `1`
 | **maxPhenotypeLength** | maximal number of events whithin the resulting phenotype                             | `1000`
@@ -1779,12 +1779,12 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
 - **"initialConditions"**: set of initial conditions to satisfy by the generative process [(more info)](#initial-conditions-for-generation-of-genotypes)
   - **"species"**
     - **"eventParameters"**: event parameters structure defining the basic sonic events
-  - **"requestedProfile"**
   - **"functionLibrary"**
   - **"includedFunctions"**
   - **"excludedFunctions"**
   - **"mandatoryFunctions"**
   - **"eligibleFunctions"**
+  - **"requestedProfile"**
   - **"maxGenotypeDepth"**
   - **"minPhenotypeLength"**
   - **"maxPhenotypeLength"**
