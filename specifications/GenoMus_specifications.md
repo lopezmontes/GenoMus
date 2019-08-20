@@ -1669,9 +1669,9 @@ Three initialization variables determine which functions from the library are el
 
 | functions set          | description                                                   | default value
 | ---------------------- | ------------------------------------------------------------- | -------------
-| **includedFunctions**  | set of functions that can be chosen                           | `[]` &rrar; all available functions are elegible
-| **excludedFunctions**  | set of functions excluded                                     | `[]` &rrar; no function excluded
-| **mandatoryFunctions** | set of compulsory functions that must appear in new genotypes | `[]` &rrar; no mandatory functions
+| **includedFunctions**  | set of functions that can be chosen                           | `[]` &rarr; all available functions are elegible
+| **excludedFunctions**  | set of functions excluded                                     | `[]` &rarr; no function excluded
+| **mandatoryFunctions** | set of compulsory functions that must appear in new genotypes | `[]` &rarr; no mandatory functions
 
 
 ```
