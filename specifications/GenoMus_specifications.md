@@ -91,7 +91,6 @@
   - [Specimen autoanalytic profile](#specimen-autoanalytic-profile)
   - [Requested profile vector](#requested-profile-vector)
   - [Comparison of profiles](#comparison-of-profiles)
-    - [Mandatory functions](#mandatory-functions)
   - [Creation of new specimens](#creation-of-new-specimens)
     - [Generating genoypes from random arrays](#generating-genoypes-from-random-arrays)
     - [Evolution of genotypes](#evolution-of-genotypes)
@@ -1636,7 +1635,7 @@ This table lists all information required for the process of generation, evaluat
 
 | initial condition  | description                                                                          | default value
 | ------------------ | ------------------------------------------------------------------------------------ | -------------
-| species            | name of the species that determines event structure and functions library            | piano
+| species            | name of the species that determines event structure and functions library            | "piano"
 | requestedProfile   | weighted vector of desired musical characteristics                                   | 0.5 for items, 0 for weights (no profile defined)
 | function library   | name of the JSON file containing all the available functions for genotype generation | last version of library for the *piano* species
 | eligibleFunctions  | numeric array containing the eligible functions for genotype generation              | all available
