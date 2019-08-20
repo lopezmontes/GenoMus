@@ -1674,7 +1674,9 @@ Three initialization variables determine which functions from the library are el
 
 Note that in the case of **includedFunctions**, an empty array means that all functions of the library  
 
-Using this three arrays, a new array called **eligibleFunctions** is automatically constructed, to have an enumaration of all available functions at the precise moment of a genotype generation. 
+To improve readability, the numbers used to include functions in these arrays are corresponding golden integera.
+
+Using this three arrays, a new array called **eligibleFunctions** is automatically constructed, to have an ordered enumeration of all available functions at the precise moment of a genotype generation. 
 
 ```
 var includedFunctions = [];
@@ -1690,8 +1692,9 @@ Each specimen stores an autoanalysis of a set of musical characteristics. Each f
 | ----------------------------- | -------   
 | **"autoreference"**           | 0 &rarr; no autoreferences<br>0.5 &rarr; 50% of functions are autoreferences<br>1 &rarr; all functions are autoreferences
 | **"variability"**             | 0 &rarr; all events are repetitions or previous events (one event repeated as the only texture)<br>0.5 &rarr; 50% or events involve repetition of previous patterns<br>1 &rarr; there is no repetitions at all
+| **"rhythmDensity"**           | 0 &rarr; average separation between events is more than 20 seconds<br>average separation between events is 1 second<br>1 &rarr; average separation between events is less than 0.05 seconds
+| **"rhythmComplexity"**        | 0 &rarr; a single rhythmic value<br>0.5 &rarr; many different rhythmic values, but easy to distinguish patterns<br>1 &rarr; impossible to distinguish patterns
 | **"polyphony"**               | 0 &rarr; monophonic<br>0.5 &rarr; 4 voices<br>0.9 &rarr; 8 voices<br>1 &rarr; more than 8 voices 
-| **"rhythmicComplexity"**      | 0 &rarr; a single rhythmic value<br>0.5 &rarr; many different rhythmic values, but easy to distinguish patterns<br>1 &rarr; impossible to distinguish patterns
 | **"chromatism"**              | 0 &rarr; only one pitch class is employed<br>0.5 &rarr; diatonic scales are predominant, with occasional chromatic notes<br>1 &rarr; impossible to distinguish diatonic scales
 | **"dissonance"**              | 0 &rarr; all pitch simultaneities correspond to major chords, perfect fifths and octaves<br>0.5 &rarr; 50% of pitch simultaneities correspond to triads and seventh chords<br>1 &rarr; no simultaneity corresponds to a perfect chord
 | **"disjunctivity"**           | 0 &rarr; all intervals are unisons and seconds<br>0.5 &rarr; 50% of all movements are conjunct<br>1 &rarr; all intervals are bigger than a second
@@ -1808,8 +1811,9 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
 - **"automaticAnalysis"**: automatic analysis of many different musical characteristics of the specimen, each one expressed as a normalized value &isinv; [0, 1]. A higher number means more complexity.  
   - **"autoreference"**
   - **"variability"**
+  - **"rhythmDensity"**
+  - **"rhythmComplexity"**
   - **"polyphony"**
-  - **"rhythmicComplexity"**
   - **"chromatism"**
   - **"dissonance"**
   - **"disjunctivity"**
@@ -1817,6 +1821,7 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"tonalStability"**
   - **"tessituraDispersion"**
   - **"articulationHomogeneity"**
+  - **"globalDynamics"**
   - **"dynamicHomogeneity"**
 - **"evolutionLog"**: log covering the history of actions and manipulations operated on the specimen 
 - **"humanEvaluation"**: human evaluation of different musical, aesthetic and emotional aspects of the specimen. This item can store the assessment of many different users. 
