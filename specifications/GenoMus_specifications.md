@@ -1737,9 +1737,9 @@ The formula squares all weight values taken from the requested profile vector, m
 - Format for specifying mandatory functions
 
 ```
-    var eligibleFunctions = [];
-    var mandatoryFunctions = [62,35,25];
-    var excludedFunctions = [23,35];
+var includedFunctions = [];
+var excludedFunctions = [23,35];
+var mandatoryFunctions = [62,35,25];
 ```
 
 
