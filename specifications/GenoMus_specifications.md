@@ -1698,7 +1698,7 @@ Both **requestedValue** and **weight** variables are normalized values within in
 ----------
 ## Comparison of profiles
 
-The adequacy level of an specimen to a requested profile is measured using a weighted version of the Euclidean distance formula for *n* dimensions:
+The adequacy level of an specimen to a requested profile is measured using a weighted version of the Euclidean distance formula:
 
 <img src="formulae/euclidean_distance.svg" width="255">
 
