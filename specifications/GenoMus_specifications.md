@@ -1769,7 +1769,6 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"GenoMusVersion"**: GenoMus version that generated the specimen.
   - **"creationTimecode"**: creation date compressed as a unique number.
   - **"user"**: username.
-  - **"species"**: name of the species (given by user).
   - **"eventParameters"**: event parameters structure defining the basic sonic events.
   - **"globalRating"**: average of aesthetic ratings obtained.
   - **"iterations"**: number of iterations of the algorithm until finding this specimen.
@@ -1780,6 +1779,7 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"depth"**: deepest level of ramification of the decoded genotype function tree.
   - **"totalFunctions**: total of different functions used.    
 - **"initialConditions"**: set of initial conditions to satisfy by the generative process [(more info)](#initial-conditions-for-generation-of-genotypes).
+  - **"species"**.
   - **"requestedProfile"**
   - **"eligibleFunctions"**
   - **"excludedFunctions"**
