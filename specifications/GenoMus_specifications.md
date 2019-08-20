@@ -1697,6 +1697,7 @@ Each specimen stores an autoanalysis of a set of musical characteristics. Each f
 | **"modalChroma"**             | 0 &rarr; diatonic content has maximal bias to flats (like altered scale)<br>0.5 &rarr diatonic content are balanced between flats and sharps (like dorian mode)<br>0 &rarr; diatonic content has maximal bias to sharps (like lydian &#9839;5)<br><sub>The value of **modalChroma** depends on the tendency to flats or sharps of the modes used. In the case of very chromatic music this meams almost nothing, since it is applicable in contexts of modality and diatonism.</sub>
 | **"tonalStability"**          | 0 &rarr; only one tonal center for the whole phenotype<br>0.5 &rarr; 50% of the time the tonal center is the same<br>1 &rarr; each event has a different tonal center
 | **"tessituraDispersion"**     | 0 &rarr; all pitches are within an only octave<br>0.5 &rarr; the pitches are scattered across four octaves <br>1 &rarr; pitches are found in the entire range of values
+| **"globalArticulation"**      | 0 &rarr; average event articulation = 0<br>0.5 &rarr; average event articulation = 50% of maximal articulation value<br>1 &rarr; average event articulation = maximal articulation value
 | **"articulationHomogeneity"** | 0 &rarr; only one articulation value for all events<br>0.5 &rarr; diversity in articulation values, but similar values are grouped<br>1 &rarr; extremely disperse articulation values
 | **"globalDynamics"**          | 0 &rarr; average event dynamics = 0<br>0.5 &rarr; average event dynamics = 50% of maximal intensity<br>1 &rarr; average event dynamics = maximal intensity
 | **"dynamicHomogeneity"**      | 0 &rarr; only one dynamic value for all events<br>0.5 &rarr; diversity in dynamics values, but similar  values are grouped<br>1 &rarr; extremely disperse dynamics values
@@ -1815,6 +1816,7 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"modalChroma"**
   - **"tonalStability"**
   - **"tessituraDispersion"**
+  - **"globalArticulation"**
   - **"articulationHomogeneity"**
   - **"globalDynamics"**
   - **"dynamicHomogeneity"**
