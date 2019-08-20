@@ -1633,17 +1633,19 @@ Since all encoded leafs are normalized values, it is easy explore transformation
 
 This table lists all information required for the process of generation, evaluation and selection of specimens. The default values can be modulated from the user interface. 
 
-| initial condition  | description                                                                          | default value
-| ------------------ | ------------------------------------------------------------------------------------ | -------------
-| species            | name of the species that determines event structure and functions library            | "piano"
-| requestedProfile   | weighted vector of desired musical characteristics                                   | 0.5 for items, 0 for weights (no profile defined)
-| function library   | name of the JSON file containing all the available functions for genotype generation | last version of library for the *piano* species
-| eligibleFunctions  | numeric array containing the eligible functions for genotype generation              | all available
-| mandatoryFunctions | numeric array containing functions required to be included in the genotype           | none
-| maxGenotypeDepth   | deepest level of ramification for new genotypes                                      | 8
-| minPhenotypeLength | minimal number of events whithin the resulting phenotype                             | 1
-| maxPhenotypeLength | maximal number of events whithin the resulting phenotype                             | 1000
-| maxIterations      | maximal number of attempts to get a specimen that meets the requirements             | 500
+| initial condition      | description                                                                          | default value
+| ---------------------- | ------------------------------------------------------------------------------------ | -------------
+| **species**            | name of the species that determines event structure and functions library            | `"piano"`
+| **requestedProfile**   | weighted vector of desired musical characteristics                                   | `0.5` for items, `0` for weights (no profile defined)
+| **function library**   | name of the JSON file containing all the available functions for genotype generation | last version of library for the *piano* species
+| **includedFunctions**  | set of functions that can be chosen                                                  | `[]` &rarr; all available functions are elegible
+| **excludedFunctions**  | set of functions excluded                                                            | `[]` &rarr; no function excluded
+| **mandatoryFunctions** | set of compulsory functions that must appear in new genotypes                        | `[]` &rarr; no mandatory functions
+| **elegibleFunction**   | set of elegible functions generated automatically from previous sets                 | array containing a complete list of the available functions in the library
+| **maxGenotypeDepth**   | deepest level of ramification for new genotypes                                      | `8`
+| **minPhenotypeLength** | minimal number of events whithin the resulting phenotype                             | `1`
+| **maxPhenotypeLength** | maximal number of events whithin the resulting phenotype                             | `1000`
+| **maxIterations**      | maximal number of attempts to get a specimen that meets the requirements             | `500`
 
 
 ---------
@@ -1664,13 +1666,7 @@ For each parameter, decoded phenotypes use the [conversion rules](#parameter-map
 ---------
 ## Eligible functions
 
-Three initialization variables determine which functions from the library are eligible for the generation of new genotypes
-
-| functions set          | description                                                   | default value
-| ---------------------- | ------------------------------------------------------------- | -------------
-| **includedFunctions**  | set of functions that can be chosen                           | `[]` &rarr; all available functions are elegible
-| **excludedFunctions**  | set of functions excluded                                     | `[]` &rarr; no function excluded
-| **mandatoryFunctions** | set of compulsory functions that must appear in new genotypes | `[]` &rarr; no mandatory functions
+**includedFunctions**, **excludedFunctions** and **mandatoryFunctions** variables determine which functions from the library are eligible for the generation of new genotypes
 
 Note that in the case of **includedFunctions**, an empty array means that all functions of the library  
 
