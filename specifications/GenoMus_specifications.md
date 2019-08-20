@@ -1634,16 +1634,17 @@ Since all encoded leafs are normalized values, it is easy explore transformation
 
 This table lists all information required for the process of generation, evaluation and selection of specimens. The default values can be modulated from the user interface. 
 
-| initial condition  | description                                                                | default value
-| ------------------ | -------------------------------------------------------------------------- | -------------
-| species            | Name of the species that determines event structure and functions library  | piano
-| requestedProfile   | Weighted vector of desired musical characteristics                         | 0.5 for items, 0 for weights (no profile defined)
-| eligibleFunctions  | Numeric array containing the eligible functions for genotype generation    | all available
-| mandatoryFunctions | Numeric array containing functions required to be included in the genotype | none
-| maxGenotypeDepth   | Deepest level of ramification for new genotypes                            | 8
-| minPhenotypeLength | Minimal number of events whithin the resulting phenotype                   | 1
-| maxPhenotypeLength | Maximal number of events whithin the resulting phenotype                   | 1000
-| maxIterations      | Maximal number of attempts to get a specimen that meets the requirements   | 500
+| initial condition  | description                                                                          | default value
+| ------------------ | ------------------------------------------------------------------------------------ | -------------
+| species            | Name of the species that determines event structure and functions library            | piano
+| requestedProfile   | Weighted vector of desired musical characteristics                                   | 0.5 for items, 0 for weights (no profile defined)
+| function library   | name of the JSON file containing all the available functions for genotype generation | last version of library for the *piano* species
+| eligibleFunctions  | Numeric array containing the eligible functions for genotype generation              | all available
+| mandatoryFunctions | Numeric array containing functions required to be included in the genotype           | none
+| maxGenotypeDepth   | Deepest level of ramification for new genotypes                                      | 8
+| minPhenotypeLength | Minimal number of events whithin the resulting phenotype                             | 1
+| maxPhenotypeLength | Maximal number of events whithin the resulting phenotype                             | 1000
+| maxIterations      | Maximal number of attempts to get a specimen that meets the requirements             | 500
 
 
 ---------
