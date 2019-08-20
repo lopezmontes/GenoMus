@@ -1686,7 +1686,7 @@ var mandatoryFunctions = [62,35,25];
 - **excludedFunctions** will remove functions with indexes 23 and 35 from the list.
 - Finally, functions with indexes 62, 35 and 25 are declared as mandatory (overwriting the removal of **excludedFunctions** for index 35). 
 
-So, for the generation of genotypes all functions are eligible except 23; functions 62, 35 and 25 must be obligatorily used.
+So, for the generation of genotypes all functions are eligible except 23; functions 62, 35 and 25 must be obligatorily used. This complete list of available function indexes will be automatically stored in the variable **eligibleFunctions**.
 
 -----------
 ## Specimen autoanalytic profile
