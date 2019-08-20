@@ -88,6 +88,7 @@
   - [Initial conditions for generation of genotypes](#initial-conditions-for-generation-of-genotypes)
   - [Species characterization](#species-characterization)
   - [Specimen autoanalytic profile](#specimen-autoanalytic-profile)
+  - [Requested profile vector](#requested-profile-vector)
   - [Comparison of profiles](#comparison-of-profiles)
   - [Eligible functions](#eligible-functions)
     - [Mandatory functions](#mandatory-functions)
