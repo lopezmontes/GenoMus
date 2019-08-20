@@ -1662,8 +1662,24 @@ The second parameter is a **midipitchF** *multiparameter*, which begins with _**
 
 For each parameter, decoded phenotypes use the [conversion rules](#parameter-mapping) of the invoked function types.
 
-
 ---------
+## Eligible functions
+
+Three initialization variables determine which functions from the library are eligible for the generation of new genotypes
+
+| functions set          | description                                                   | default value
+| ---------------------- | ------------------------------------------------------------- | -------------
+| **includedFunctions**  | set of functions that can be chosen                           | `[]` &rrar; all available functions are elegible
+| **excludedFunctions**  | set of functions excluded                                     | `[]` &rrar; no function excluded
+| **mandatoryFunctions** | set of compulsory functions that must appear in new genotypes | `[]` &rrar; no mandatory functions
+
+
+```
+var includedFunctions = [];
+var excludedFunctions = [23,35];
+var mandatoryFunctions = [62,35,25];
+```
+-----------
 ## Specimen autoanalytic profile
 
 Each specimen stores an autoanalysis of a set of musical characteristics. Each feature is asigned a normalized value. A higher value means more musical complexity:
@@ -1724,24 +1740,6 @@ The formula squares all weight values taken from the requested profile vector, m
 | 1               | 1
 
 
-
----------
-## Eligible functions
-
-Three initialization variables determine which functions from the library are eligible for the generation of new genotypes
-
-| functions set          | description                                                   | default value
-| ---------------------- | ------------------------------------------------------------- | -------------
-| **includedFunctions**  | set of functions that can be chosen                           | `[]` &rrar; all available functions are elegible
-| **excludedFunctions**  | set of functions excluded                                     | `[]` &rrar; no function excluded
-| **mandatoryFunctions** | set of compulsory functions that must appear in new genotypes | `[]` &rrar; no mandatory functions
-
-
-```
-var includedFunctions = [];
-var excludedFunctions = [23,35];
-var mandatoryFunctions = [62,35,25];
-```
 
 
 ---------
