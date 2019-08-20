@@ -1637,8 +1637,7 @@ This table lists all information required for the process of generation, evaluat
 | initial condition  | description                                                                | default value
 | ------------------ | -------------------------------------------------------------------------- | -------------
 | species            | Name of the species that determines event structure and functions library  | piano
-| requestedProfile   | Weighted vector of desired musical characteristics                         | 0.5 for every item and weight
-| desiredFeatures    | Vector of desired musical characteristics, with weights for each one       | undefined
+| requestedProfile   | Weighted vector of desired musical characteristics                         | 0.5 for items, 0 for weights (no profile defined)
 | eligibleFunctions  | Numeric array containing the eligible functions for genotype generation    | all available
 | mandatoryFunctions | Numeric array containing functions required to be included in the genotype | none
 | maxGenotypeDepth   | Deepest level of ramification for new genotypes                            | 8
@@ -1673,6 +1672,9 @@ Three initialization variables determine which functions from the library are el
 | **excludedFunctions**  | set of functions excluded                                     | `[]` &rarr; no function excluded
 | **mandatoryFunctions** | set of compulsory functions that must appear in new genotypes | `[]` &rarr; no mandatory functions
 
+Note that in the case of **includedFunctions**, an empty array means that all functions of the library  
+
+Using this three arrays, a new array called **eligibleFunctions** is automatically constructed, to have an enumaration of all available functions at the precise moment of a genotype generation. 
 
 ```
 var includedFunctions = [];
@@ -1780,9 +1782,11 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
 - **"initialConditions"**: set of initial conditions to satisfy by the generative process [(more info)](#initial-conditions-for-generation-of-genotypes).
   - **"species"**.
   - **"requestedProfile"**
+  - **"functionLibrary"**
   - **"includedFunctions"**
   - **"excludedFunctions"**
   - **"mandatoryFunctions"**
+  - **"eligibleFunctions"**
   - **"maxGenotypeDepth"**
   - **"minPhenotypeLength"**
   - **"maxPhenotypeLength"**
