@@ -1688,7 +1688,7 @@ The value of **modalChroma** depends on the tendency to flats or sharps of the m
 
 ## Requested profile vector
 
-The desired values for this features are coded as a dictionary, specifying the requested value and the relative weight among features. Both **requestedValue** and **weight** variables are normalized values within interval [0, 1].
+The desired values for these features are coded as a dictionary, specifying the requested value and the relative weight among features. Both **requestedValue** and **weight** variables are normalized values within interval [0, 1]. By default, all weights are set to 0, to avoid filtering of results. This information must be in the file requestedProfile.json. Its contents can be edited from the [Max user interface](#max-user-interface) or manually, respecting this format: 
 
 ```
 {
