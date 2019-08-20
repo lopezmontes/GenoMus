@@ -1780,7 +1780,7 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
 - **"initialConditions"**: set of initial conditions to satisfy by the generative process [(more info)](#initial-conditions-for-generation-of-genotypes).
   - **"species"**.
   - **"requestedProfile"**
-  - **"eligibleFunctions"**
+  - **"includedFunctions"**
   - **"excludedFunctions"**
   - **"mandatoryFunctions"**
   - **"maxGenotypeDepth"**
