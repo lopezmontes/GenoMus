@@ -1682,7 +1682,7 @@ var excludedFunctions = [23,35];
 var mandatoryFunctions = [62,35,25];
 ```
 
-Firstly, all available functions are included by default because **includedFunctions** is an empty array; **excludedFunctions** will delete functions with index 23 and 35 from the list, and finally, functions with index 62, 35 and 25 are declared as compulsory (overwriting the deletion of **excludedFunctions** for index 35). So, for the generation of genotypes all functions are eligible except 23, and function 62, 35 and 25 must be obligatorily used.
+First, all available functions are included by default because **includedFunctions** is an empty array; **excludedFunctions** will remove functions with indexes 23 and 35 from the list, and finally, functions with indexes 62, 35 and 25 are declared as mandatory (overwriting the removal of **excludedFunctions** for index 35). So, for the generation of genotypes all functions are eligible except 23; functions 62, 35 and 25 must be obligatorily used.
 
 -----------
 ## Specimen autoanalytic profile
