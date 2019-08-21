@@ -1835,7 +1835,7 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"originality"**
   - **"mood"**
   - **"emotionalIntensity"**
-  - **"evaluation"**
+  - **"evaluations"**
     - _**username1**_
       - **"aestheticValue"**
       - **"originality"**
