@@ -955,11 +955,11 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `lAutoRef`  | <sub>not yet implemented</sub> | points to a previous list
 | `vAutoRef`  | <sub>not yet implemented</sub> | points to a previous voice
 | `sAutoRef`  | <sub>not yet implemented</sub> | points to a previous score
-| `pClone`    | <sub>not yet implemented</sub> | copy the branch of a previous parameter
-| `eClone`    | <sub>not yet implemented</sub> | copy the branch of a previous event
-| `lClone`    | <sub>not yet implemented</sub> | copy the branch of a previous list
-| `vClone`    | <sub>not yet implemented</sub> | copy the branch of a previous voice
-| `sClone`    | <sub>not yet implemented</sub> | copy the branch of a previous score
+| `pClone`    | <sub>not yet implemented</sub> | copy a previous parameter branch
+| `eClone`    | <sub>not yet implemented</sub> | copy a previous event branch
+| `lClone`    | <sub>not yet implemented</sub> | copy a previous list branch
+| `vClone`    | <sub>not yet implemented</sub> | copy a previous voice branch
+| `sClone`    | <sub>not yet implemented</sub> | copy a previous score brach
 | `pIterExpr` | <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a parameter function 
 | `eIterExpr` | <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of an event function 
 | `lIterExpr` | <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a list function 
