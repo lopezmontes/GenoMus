@@ -93,7 +93,8 @@
   - [Comparison of profiles](#comparison-of-profiles)
   - [Creation and manipulation of genotypes](#creation-and-manipulation-of-genotypes)
     - [Generating genoypes from random arrays](#generating-genoypes-from-random-arrays)
-    - [Evolution of genotypes](#evolution-of-genotypes)
+  - [Evolution of specimens](#evolution-of-specimens)
+    - [Flowchart](#flowchart-1)
     - [Manual manipulation](manual-manipulation)
     - [Selecting and processing specimens](selecting-and-processing-specimens) 
   - [Specimen data structure](#specimen-data-structure)
@@ -1602,7 +1603,7 @@ sConcatS(
 # Genotype substructures
 ## Branches and leaves
 
-The genotype functional tree can be divided into **branches** and **leaves**. Genotype branches network is the function tree without leaves. This can be understood as the pure structure of compositional procedures regardless of the specific values of arguments. 
+A genotype functional tree can be divided into **branches** and **leaves**. Genotype branches network is the function tree without leaves. This can be understood as the pure structure of compositional procedures regardless of the specific values of arguments. 
 
 The set of leaves is the complementary information to the branches network: a list of every leaf value with a pointer to its position inside a genotype.  
 
@@ -1773,8 +1774,8 @@ A genotype can be create and modified in many ways. This is a summary of manipul
 Universal random search space. All vectors are a valid input.
 
 --------- 
-### Evolution of genotypes
-#### Mutation
+## Evolution of specimens
+### Flowchart
 ### Manual manipulation
 ### Selecting and processing specimens
 
