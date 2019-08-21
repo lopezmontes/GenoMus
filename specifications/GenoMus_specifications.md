@@ -1755,13 +1755,13 @@ The formula squares all weight values taken from the requested profile vector, m
 ---------
 ## Creation and transformation of genotypes
 
-A genotype can be create and modified in many ways. This is a summary of manipulations that can be made algorithmically or manually, typen from the user interface:
+A genotype can be create and modified in many ways. This is a summary of manipulations that can be made algorithmically or manually, typing from the user interface:
 
-| method | description | graphical example
-| --------------- | ------------- | ------------------------------------
-| **createGen** | creation from seeded random array | d           
-| **mutateLeaves** | change of leaf values |
-| manual edition of leaves | |
+| method           | description                      | graphical example
+| ---------------- | -------------------------------- | ------------------------------------
+| **createGen**    | creation of a brand new genotype | <img src="figures/tree_1.svg" width="60"> 
+| **mutateLeaves** | change of leaf values            |
+| **growTrunk**    | grow embedding the current genotype in a larger tree |
 
 
 

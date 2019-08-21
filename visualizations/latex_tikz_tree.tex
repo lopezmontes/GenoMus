@@ -5,33 +5,24 @@
 \begin{document}
 
 \forestset{
-  L1/.style={fill=gray!35,},
-  L2/.style={fill=gray!35,edge={gray!35,line width=1.5pt}},
-  L3/.style={fill=gray!35,edge={gray!35,line width=1.5pt}},
-  L4/.style={fill=gray!35,edge={gray!35,line width=1.5pt}},
+  L1/.style={fill=gray!35, edge={gray!35, line width=1.5pt}},
 }
 
 \begin{forest}
     for tree={
-        grow=0,reversed, % tree direction
-        parent anchor=east,child anchor=west, % edge anchors
+        grow=0, reversed, % tree direction
+        parent anchor=east, child anchor=west, % edge anchors
         edge={line cap=round},outer sep=-0.5pt, % edge/node connection
-        circle,minimum width=0.2mm, % node shape
+        circle, minimum width=0.2mm, % node shape
         l sep=2mm % level distance
     }
   [,L1
-    [,L2
-        [,L3
-            [,L4][,L4]
-        ]
-        [,L3
-            [,L4][,L4]
-        ]
-        [,L3
-            [,L4][,L4]
-        ] 
+    [,L1
+    	[,L1]
+		[,L1]
     ]
-    [,L2]
+    [,L1]
+    [,L1]  
   ]
 \end{forest}
 
