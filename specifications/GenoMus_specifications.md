@@ -1764,6 +1764,8 @@ A genotype can be create and modified in many ways. This is a summary of manipul
 | **growTrunk**    | grow embedding the current genotype in a larger tree | <img src="figures/tree_3.svg" width="96">
 | **growBranch**   | grow a branch from a leaf                            | <img src="figures/tree_4.svg" width="96">
 | **insertBranch** | insert a branch in an intermediate node              | <img src="figures/tree_5.svg" width="124">
+| **flattenBranch** | insert a branch in an intermediate node              | <img src="figures/tree_5.svg" width="124">
+| **pruneBranch** | insert a branch in an intermediate node              | <img src="figures/tree_5.svg" width="124">
 
 
 ### Generating genotypes from random values
