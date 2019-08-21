@@ -95,7 +95,6 @@
     - [Generating genoypes from random arrays](#generating-genoypes-from-random-arrays)
   - [Evolution of specimens](#evolution-of-specimens)
     - [Flowchart](#flowchart-1)
-    - [Manual manipulation](manual-manipulation)
     - [Selecting and processing specimens](selecting-and-processing-specimens) 
   - [Specimen data structure](#specimen-data-structure)
   - [Specimen catalogue](#specimen-catalogue)
@@ -956,6 +955,11 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `lAutoRef`  | <sub>not yet implemented</sub> | points to a previous list
 | `vAutoRef`  | <sub>not yet implemented</sub> | points to a previous voice
 | `sAutoRef`  | <sub>not yet implemented</sub> | points to a previous score
+| `pClone`    | <sub>not yet implemented</sub> | copy the branch of a previous parameter
+| `eClone`    | <sub>not yet implemented</sub> | copy the branch of a previous event
+| `lClone`    | <sub>not yet implemented</sub> | copy the branch of a previous list
+| `vClone`    | <sub>not yet implemented</sub> | copy the branch of a previous voice
+| `sClone`    | <sub>not yet implemented</sub> | copy the branch of a previous score
 | `pIterExpr` | <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a parameter function 
 | `eIterExpr` | <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of an event function 
 | `lIterExpr` | <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a list function 
@@ -1776,7 +1780,6 @@ Universal random search space. All vectors are a valid input.
 --------- 
 ## Evolution of specimens
 ### Flowchart
-### Manual manipulation
 ### Selecting and processing specimens
 
 --------- 
