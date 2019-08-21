@@ -1756,8 +1756,8 @@ The formula squares all weight values taken from the requested profile vector, m
 ## Creation and transformation of specimens
 
 
-| method | description | graphical example
-| --------------- | -------------------------------------------------
+| method | description | example
+| --------------- | ------------- | ------------------------------------
 | 0               | 0
 | 0.25            | 0.0625
 | 0.5             | 0.25
