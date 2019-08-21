@@ -1753,13 +1753,12 @@ The formula squares all weight values taken from the requested profile vector, m
 
 
 ---------
-## Creation and transformation of specimens
-
+## Creation and transformation of genotypes
 
 | method | description | graphical example
 | --------------- | ------------- | ------------------------------------
-| creation from seeded random array | d           | s
-| creation from manual editing      | |
+| **createGen** | creation from seeded random array | d           
+| **editGen** | creation and edition from manual typing of encoded genotypes from the interface      | |
 | mutation of leaves | |
 | manual edition of leaves | |
 
