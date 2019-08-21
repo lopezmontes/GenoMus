@@ -1758,20 +1758,12 @@ The formula squares all weight values taken from the requested profile vector, m
 
 | method | description | graphical example
 | --------------- | ------------- | ------------------------------------
-| 0               | 0
-| 0.25            | 0.0625
-| 0.5             | 0.25
-| 0.75            | 0.5625
-| 1               | 1
-
-|                             | description 
-| --------------------------------- | ----------- | -----------------
 | creation from seeded random array | d           | s
-
-
 | creation from manual editing      | |
 | mutation of leaves | |
 | manual edition of leaves | |
+
+
 
 
 ### Generating genotypes from random values
