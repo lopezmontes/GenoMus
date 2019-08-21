@@ -1760,7 +1760,7 @@ A genotype can be create and modified in many ways. This is a summary of manipul
 | method           | description                                          | graphical example
 | ---------------- | ---------------------------------------------------- | -----------------
 | **createGen**    | creation of a brand new genotype                     | <img src="figures/tree_1.svg" width="68"> 
-| **mutateLeaves** | change of leaf values                                | <img src="figures/tree_0.svg" width="68"> <h1>&rarr;</h1> <img src="figures/tree_2.svg" width="68">
+| **mutateLeaves** | change of leaf values                                | <img src="figures/tree_0.svg" width="68"> &rarr; <img src="figures/tree_2.svg" width="68">
 | **growTrunk**    | grow embedding the current genotype in a larger tree | <img src="figures/tree_3.svg" width="96">
 | **growBranch**   | grow a branch from a leaf                            | <img src="figures/tree_4.svg" width="96">
 | **insertBranch** | insert a branch in an intermediate node              | <img src="figures/tree_5.svg" width="124">
