@@ -91,7 +91,7 @@
   - [Specimen autoanalytic profile](#specimen-autoanalytic-profile)
   - [Requested profile vector](#requested-profile-vector)
   - [Comparison of profiles](#comparison-of-profiles)
-  - [Creation of new specimens](#creation-of-new-specimens)
+  - [Creation and manipulation of genotypes](#creation-and-manipulation-of-genotypes)
     - [Generating genoypes from random arrays](#generating-genoypes-from-random-arrays)
     - [Evolution of genotypes](#evolution-of-genotypes)
     - [Manual manipulation](manual-manipulation)
@@ -1753,7 +1753,7 @@ The formula squares all weight values taken from the requested profile vector, m
 
 
 ---------
-## Creation and transformation of genotypes
+## Creation and manipulation of genotypes
 
 A genotype can be create and modified in many ways. This is a summary of manipulations that can be made algorithmically or manually, typing from the user interface (red indicates changes):
 
