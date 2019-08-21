@@ -1755,7 +1755,7 @@ The formula squares all weight values taken from the requested profile vector, m
 ---------
 ## Creation and transformation of genotypes
 
-A genotype can be create and modified in many ways. This is a summary of manipulations that can be made algorithmically or manually, typing from the user interface:
+A genotype can be create and modified in many ways. This is a summary of manipulations that can be made algorithmically or manually, typing from the user interface (red indicates changes):
 
 | method           | description                                          | graphical example
 | ---------------- | ---------------------------------------------------- | -----------------
