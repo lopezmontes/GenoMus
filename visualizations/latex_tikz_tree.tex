@@ -6,7 +6,6 @@
 
 \forestset{
   L1/.style={fill=gray!35, edge={gray!35, line width=1.5pt}},
-  L2/.style={fill=gray!65, edge={gray!35, line width=1.5pt}},
 }
 
 \begin{forest}
@@ -18,11 +17,21 @@
         l sep=2mm % level distance
     }
   [,L1
-    [,L1
-    	[,L2]
-		[,L2]
-    ]
-    [,L2]
+  	[,L1
+    	[,L1
+    		[,L1]
+			[,L1]
+    	]
+    	[,L1]
+	]
+	[,L1]
+	[,L1
+		[,L1
+			[,L1]
+		]
+    	[,L1]
+		[,L1]
+	]	
   ]
 \end{forest}
 
