@@ -1757,16 +1757,16 @@ The formula squares all weight values taken from the requested profile vector, m
 
 A genotype can be create and modified in many ways. This is a summary of manipulations that can be made algorithmically or manually, typing from the user interface (red indicates changes):
 
-| method           | description                                          | graphical example
-| ---------------- | ---------------------------------------------------- | -----------------
-| **createGen**    | creation of a brand new genotype                     | <img src="figures/tree_1.svg" width="68"> 
-| **mutateLeaves** | change of leaf values                                | <img src="figures/tree_2.svg" width="68">
-| **growTrunk**    | grow embedding the current genotype in a larger tree | <img src="figures/tree_3.svg" width="96">
-| **growBranch**   | grow a branch from a leaf                            | <img src="figures/tree_4.svg" width="96">
-| **insertBranch** | insert a branch in an intermediate node              | <img src="figures/tree_5.svg" width="124">
-| **flattenBranch** | insert a branch in an intermediate node             | <img src="figures/tree_6.svg" width="68">
-| **pruneBranch** | insert a branch in an intermediate node               | <img src="figures/tree_7.svg" width="68">
-
+| method            | description                                              | graphical example
+| ----------------- | -------------------------------------------------------- | -----------------
+| **createGen**     | creation of a brand new genotype                         | <img src="figures/tree_1.svg" width="68"> 
+| **mutateLeaves**  | change of leaf values                                    | <img src="figures/tree_2.svg" width="68">
+| **growTrunk**     | grow embedding the current genotype in a larger tree     | <img src="figures/tree_3.svg" width="96">
+| **growBranch**    | grow a branch from a leaf                                | <img src="figures/tree_4.svg" width="96">
+| **insertBranch**  | insert a branch in an intermediate node                  | <img src="figures/tree_5.svg" width="124">
+| **flattenBranch** | computes a branch and flatten it as an encoded phenotype | <img src="figures/tree_6.svg" width="68">
+| **pruneBranch**   | prune a branch replacing its processes null data         | <img src="figures/tree_7.svg" width="68">
+| **splitGen**      | remove part of the trunk returning one or more subtrees  | <img src="figures/tree_8.svg" width="68">
 
 ### Generating genotypes from random values
 
