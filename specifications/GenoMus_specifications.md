@@ -1758,7 +1758,9 @@ The formula squares all weight values taken from the requested profile vector, m
 
 | method                            | description | graphical example
 | --------------------------------- | ----------- | -----------------
-| creation from seeded random array | d | s
+| creation from seeded random array | d           | s
+
+
 | creation from manual editing      | |
 | mutation of leaves | |
 | manual edition of leaves | |
