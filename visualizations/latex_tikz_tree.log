@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  21 AUG 2019 17:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  21 AUG 2019 18:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -751,15 +751,15 @@ e
 
 ] (./latex_tikz_tree.aux) ) 
 Here is how much of TeX's memory you used:
- 30954 strings out of 492995
- 711908 string characters out of 6132705
- 730761 words of memory out of 5000000
- 34205 multiletter control sequences out of 15000+600000
+ 30600 strings out of 492995
+ 705758 string characters out of 6132705
+ 722830 words of memory out of 5000000
+ 33851 multiletter control sequences out of 15000+600000
  3640 words of font info for 14 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 137i,9n,178p,10367b,2263s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 137i,9n,178p,10367b,1898s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on latex_tikz_tree.pdf (1 page, 1403 bytes).
+Output written on latex_tikz_tree.pdf (1 page, 1352 bytes).
 PDF statistics:
  11 PDF objects out of 1000 (max. 8388607)
  7 compressed objects within 1 object stream
