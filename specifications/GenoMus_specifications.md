@@ -1761,7 +1761,7 @@ The formula squares all weight values taken from the requested profile vector, m
 | creation from manual editing      |
 | mutation of leaves
 | manual edition of leaves
-| 
+
 
 ### Generating genotypes from random values
 
