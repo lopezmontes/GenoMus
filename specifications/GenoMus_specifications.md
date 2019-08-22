@@ -1382,7 +1382,7 @@ All these examples belong to the default *piano* species. Phenotypes have been d
 #### Decoded genotype
 ##### Function tree
 
-<img src="figures/ex1_tree.svg" width="190">
+<img src="figures/ex1_tree.svg" width="180">
 
 ##### Formatted
 ```
