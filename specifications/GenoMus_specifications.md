@@ -1796,7 +1796,11 @@ Universal random search space. All vectors are a valid input.
 10. `j`
 11. `k(i,j)` &rarr; `k(autoref(d),j)` &rarr; `k(d,j)` &rarr; `k(autoref(a),j)` &rarr; `k(a,j)`
 12. `l(k(i,j))` &rarr; `l(k(autoref(d),j))` &rarr; `l(k(d,j))` &rarr; `l(k(autoref(a),j))` &rarr; `l(k(a,j))`
-
+13. `m`
+14. `n` &rarr; `autoref(c)` &rarr; `c(a,b)`
+15. `o`
+16. `p(m,n,o)` &rarr; `p(m,autoref(c),o)` &rarr; `p(m,c(a,b),o)`
+17. `q(g(f(c(a,b),d,e)),h,l(k(i,j)),p(m,n,o))` &rarr; `q(g(f(c(a,b),autoref(a),e)),autoref(g),l(k(autoref(d),j)),p(m,autoref(c),o))` &rarr; `q(g(f(c(a,b),a,e)),g(f(c(a,b),d,e)),l(k(d,j)),p(m,c(a,b),o))` &rarr; `q(g(f(c(a,b),a,e)),g(f(c(a,b),autoref(a),e)),l(k(d,j)),p(m,c(a,b),o))` &rarr; `q(g(f(c(a,b),a,e)),g(f(c(a,b),a,e)),l(k(d,j)),p(m,c(a,b),o))`
 
 
 
