@@ -1803,8 +1803,11 @@ Universal random search space. All vectors are a valid input.
 17. `q(g(f(c(a,b),d,e)),h,l(k(i,j)),p(m,n,o))` &rarr; `q(g(f(c(a,b),autoref(a),e)),autoref(g),l(k(autoref(d),j)),p(m,autoref(c),o))` &rarr; `q(g(f(c(a,b),a,e)),g(f(c(a,b),d,e)),l(k(d,j)),p(m,c(a,b),o))` &rarr; `q(g(f(c(a,b),a,e)),g(f(c(a,b),autoref(a),e)),l(k(d,j)),p(m,c(a,b),o))` &rarr; `q(g(f(c(a,b),a,e)),g(f(c(a,b),a,e)),l(k(d,j)),p(m,c(a,b),o))`
 
 
+### Autoreferences after *mutateLeaves*
 
 <img src="figures/autorefs_mutate.svg" width="310">
+
+
 
 `q(g(f(c(a,b),a,e)),g(f(c(a,b),a,e)),l(k(d,j)),p(m,c(a,b),o))`
 <br>**&darr;**<br>
