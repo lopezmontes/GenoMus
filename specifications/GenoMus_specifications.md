@@ -1784,23 +1784,23 @@ Universal random search space. All vectors are a valid input.
 
 <img src="figures/autorefs_0.svg" width="310">
 
-1. `a`
-2. `b`
-3. `c(a,b)`
-4. `d` &rarr; `autoref(1)` &rarr; `a`
-5. `e`
-6. `f(c(a,b),d,e)` &rarr; `f(c(a,b),autoref(1),e)` &rarr; `f(c(a,b),a,e)`
-7. `g(f(c(a,b),d,e))` &rarr; `g(f(c(a,b),autoref(1),e))` &rarr; `g(f(c(a,b),a,e))` 
-8. `h` &rarr; `autoref(7)` &rarr; `g(f(c(a,b),d,e))`
-9. `i` &rarr; `autoref(4)` &rarr; `d` &rarr; `autoref(1)` &rarr; `a`
-10. `j`
-11. `k(i,j)` &rarr; `k(autoref(4),j)` &rarr; `k(d,j)` &rarr; `k(autoref(1),j)` &rarr; `k(a,j)`
-12. `l(k(i,j))` &rarr; `l(k(autoref(4),j))` &rarr; `l(k(d,j))` &rarr; `l(k(autoref(1),j))` &rarr; `l(k(a,j))`
-13. `m`
-14. `n` &rarr; `autoref(3)` &rarr; `c(a,b)`
-15. `o`
-16. `p(m,n,o)` &rarr; `p(m,autoref(3),o)` &rarr; `p(m,c(a,b),o)`
-17. `q(g(f(c(a,b),d,e)),h,l(k(i,j)),p(m,n,o))` &rarr; `q(g(f(c(a,b),autoref(1),e)),autoref(7),l(k(autoref(4),j)),p(m,autoref(3),o))` &rarr; `q(g(f(c(a,b),a,e)),g(f(c(a,b),d,e)),l(k(d,j)),p(m,c(a,b),o))` &rarr; `q(g(f(c(a,b),a,e)),g(f(c(a,b),autoref(1),e)),l(k(d,j)),p(m,c(a,b),o))` &rarr; `q(g(f(c(a,b),a,e)),g(f(c(a,b),a,e)),l(k(d,j)),p(m,c(a,b),o))`
+<br>**1:** `a`
+<br>**2:** `b`
+<br>**3:** `c(a,b)`
+<br>**4:** `d` &rarr; `autoref(1)` &rarr; `a`
+<br>**5:** `e`
+<br>**6:** `f(c(a,b),d,e)` &rarr; `f(c(a,b),autoref(1),e)` &rarr; `f(c(a,b),a,e)`
+<br>**7:** `g(f(c(a,b),d,e))` &rarr; `g(f(c(a,b),autoref(1),e))` &rarr; `g(f(c(a,b),a,e))` 
+<br>**8:** `h` &rarr; `autoref(7)` &rarr; `g(f(c(a,b),d,e))`
+<br>**9:** `i` &rarr; `autoref(4)` &rarr; `d` &rarr; `autoref(1)` &rarr; `a`
+<br>**10:**`j`
+<br>**11:**`k(i,j)` &rarr; `k(autoref(4),j)` &rarr; `k(d,j)` &rarr; `k(autoref(1),j)` &rarr; `k(a,j)`
+<br>**12:**`l(k(i,j))` &rarr; `l(k(autoref(4),j))` &rarr; `l(k(d,j))` &rarr; `l(k(autoref(1),j))` &rarr; `l(k(a,j))`
+<br>**13:** `m`
+<br>**14:** `n` &rarr; `autoref(3)` &rarr; `c(a,b)`
+<br>**15:** `o`
+<br>**16:** `p(m,n,o)` &rarr; `p(m,autoref(3),o)` &rarr; `p(m,c(a,b),o)`
+<br>**17:** `q(g(f(c(a,b),d,e)),h,l(k(i,j)),p(m,n,o))` &rarr; `q(g(f(c(a,b),autoref(1),e)),autoref(7),l(k(autoref(4),j)),p(m,autoref(3),o))` &rarr; `q(g(f(c(a,b),a,e)),g(f(c(a,b),d,e)),l(k(d,j)),p(m,c(a,b),o))` &rarr; `q(g(f(c(a,b),a,e)),g(f(c(a,b),autoref(1),e)),l(k(d,j)),p(m,c(a,b),o))` &rarr; `q(g(f(c(a,b),a,e)),g(f(c(a,b),a,e)),l(k(d,j)),p(m,c(a,b),o))`
 
 --------
 ### Autoreferences after *mutateLeaves*
@@ -1809,8 +1809,8 @@ Universal random search space. All vectors are a valid input.
 
 Involved nodes:
 
-1: `r`
-<br>4: `d` &rarr; `autoref(1)` &rarr; `r`
+**1:** `r`
+<br>**4:** `d` &rarr; `autoref(1)` &rarr; `r`
 
 After mutation of leaves, the subexpressions are reevaluated with the new parameters and all autoreferences reflect these changes accordingly:
 
