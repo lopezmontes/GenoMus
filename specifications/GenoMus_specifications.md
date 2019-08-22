@@ -950,11 +950,11 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## Internal autoreferences
 | name        | index                          | description
 | ----------- | ------------------------------ | -----------
-| `pAutoRef`  | <sub>not yet implemented</sub> | points to a previous parameter
-| `eAutoRef`  | <sub>not yet implemented</sub> | points to a previous event
-| `lAutoRef`  | <sub>not yet implemented</sub> | points to a previous list
-| `vAutoRef`  | <sub>not yet implemented</sub> | points to a previous voice
-| `sAutoRef`  | <sub>not yet implemented</sub> | points to a previous score
+| `pAutoref`  | <sub>not yet implemented</sub> | points to a previous parameter
+| `eAutoref`  | <sub>not yet implemented</sub> | points to a previous event
+| `lAutoref`  | <sub>not yet implemented</sub> | points to a previous list
+| `vAutoref`  | <sub>not yet implemented</sub> | points to a previous voice
+| `sAutoref`  | <sub>not yet implemented</sub> | points to a previous score
 | `pClone`    | <sub>not yet implemented</sub> | copy a previous parameter branch
 | `eClone`    | <sub>not yet implemented</sub> | copy a previous event branch
 | `lClone`    | <sub>not yet implemented</sub> | copy a previous list branch
@@ -1783,6 +1783,14 @@ Universal random search space. All vectors are a valid input.
 ## Subexpressions and autoreferences
 
 <img src="figures/autorefs_0.svg" width="250">
+
+1: `a`
+2: `b`
+3: `c(a,b)`
+4: `d` &rarr; `autoref(a)``
+
+
+
 
 
 --------- 
