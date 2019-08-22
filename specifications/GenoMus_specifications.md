@@ -1396,6 +1396,9 @@ s(
 "
 ```
 
+<img src="figures/ex1_tree.svg" width="57">
+
+
 ##### Compressed
 `"s(v(e(p(.5),p(.5),p(.5),p(.5))))"`
 
