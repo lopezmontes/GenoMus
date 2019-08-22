@@ -1168,6 +1168,10 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `sExpand`              | <sub>not yet implemented</sub> | expands pitches of a score according to a factor
 | `vExtrude`             | <sub>not yet implemented</sub> | deforms pitches of a voice according to a curve
 | `sExtrude`             | <sub>not yet implemented</sub> | deforms pitches of a score according to a curve
+| `vReverse`             | <sub>not yet implemented</sub> | reverses the order of a voice events
+| `sReverse`             | <sub>not yet implemented</sub> | reverses the order of a score events
+| `vPalindrome`          | <sub>not yet implemented</sub> | concatenates to a given voice all its events in reverse order
+| `sPalindrome`          | <sub>not yet implemented</sub> | concatenates to a given score all its events in reverse order
 
 ---------
 ## Aleatoric processes
@@ -1230,6 +1234,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `lTransp`           | <sub>not yet implemented</sub> | transposes values of a list
 | `lRetrog`           | <sub>not yet implemented</sub> | retrogrades values of a list
 | `lRetrogInvert`     | <sub>not yet implemented</sub> | retrogrades and inverts values of a list
+| `lPalindrome`       | <sub>not yet implemented</sub> | concatenates to a list its values in reverse order
 | `lRotate`           | <sub>not yet implemented</sub> | rotates values of a list
 | `lExpand`           | <sub>not yet implemented</sub> | expands values of a list according to a factor
 | `lExtrude`          | <sub>not yet implemented</sub> | deforms values of a list according to a curve
