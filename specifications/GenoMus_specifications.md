@@ -1808,7 +1808,7 @@ Universal random search space. All vectors are a valid input.
 
 `q(g(f(c(a,b),a,e)),g(f(c(a,b),a,e)),l(k(d,j)),p(m,c(a,b),o))`
 
-&downarr;
+&darr;
 
 `q(g(f(c(r,s),r,t)),g(f(c(r,s),r,t)),l(k(d,u)),p(v,c(r,s),w))`
 
