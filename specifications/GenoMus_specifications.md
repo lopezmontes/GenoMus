@@ -1787,27 +1787,27 @@ Universal random search space. All vectors are a valid input.
 1. `a`
 2. `b`
 3. `c(a,b)`
-4. `d` &rarr; `autoref(a)` &rarr; `a`
+4. `d` &rarr; `autoref(1)` &rarr; `a`
 5. `e`
-6. `f(c(a,b),d,e)` &rarr; `f(c(a,b),autoref(a),e)` &rarr; `f(c(a,b),a,e)`
-7. `g(f(c(a,b),d,e))` &rarr; `g(f(c(a,b),autoref(a),e))` &rarr; `g(f(c(a,b),a,e))` 
-8. `h` &rarr; `autoref(g)` &rarr; `g(f(c(a,b),d,e))`
-9. `i` &rarr; `autoref(d)` &rarr; `d` &rarr; `autoref(a)` &rarr; `a`
+6. `f(c(a,b),d,e)` &rarr; `f(c(a,b),autoref(1),e)` &rarr; `f(c(a,b),a,e)`
+7. `g(f(c(a,b),d,e))` &rarr; `g(f(c(a,b),autoref(1),e))` &rarr; `g(f(c(a,b),a,e))` 
+8. `h` &rarr; `autoref(7)` &rarr; `g(f(c(a,b),d,e))`
+9. `i` &rarr; `autoref(4)` &rarr; `d` &rarr; `autoref(1)` &rarr; `a`
 10. `j`
-11. `k(i,j)` &rarr; `k(autoref(d),j)` &rarr; `k(d,j)` &rarr; `k(autoref(a),j)` &rarr; `k(a,j)`
-12. `l(k(i,j))` &rarr; `l(k(autoref(d),j))` &rarr; `l(k(d,j))` &rarr; `l(k(autoref(a),j))` &rarr; `l(k(a,j))`
+11. `k(i,j)` &rarr; `k(autoref(4),j)` &rarr; `k(d,j)` &rarr; `k(autoref(1),j)` &rarr; `k(a,j)`
+12. `l(k(i,j))` &rarr; `l(k(autoref(4),j))` &rarr; `l(k(d,j))` &rarr; `l(k(autoref(1),j))` &rarr; `l(k(a,j))`
 13. `m`
-14. `n` &rarr; `autoref(c)` &rarr; `c(a,b)`
+14. `n` &rarr; `autoref(3)` &rarr; `c(a,b)`
 15. `o`
-16. `p(m,n,o)` &rarr; `p(m,autoref(c),o)` &rarr; `p(m,c(a,b),o)`
-17. `q(g(f(c(a,b),d,e)),h,l(k(i,j)),p(m,n,o))` &rarr; `q(g(f(c(a,b),autoref(a),e)),autoref(g),l(k(autoref(d),j)),p(m,autoref(c),o))` &rarr; `q(g(f(c(a,b),a,e)),g(f(c(a,b),d,e)),l(k(d,j)),p(m,c(a,b),o))` &rarr; `q(g(f(c(a,b),a,e)),g(f(c(a,b),autoref(a),e)),l(k(d,j)),p(m,c(a,b),o))` &rarr; `q(g(f(c(a,b),a,e)),g(f(c(a,b),a,e)),l(k(d,j)),p(m,c(a,b),o))`
+16. `p(m,n,o)` &rarr; `p(m,autoref(3),o)` &rarr; `p(m,c(a,b),o)`
+17. `q(g(f(c(a,b),d,e)),h,l(k(i,j)),p(m,n,o))` &rarr; `q(g(f(c(a,b),autoref(1),e)),autoref(7),l(k(autoref(4),j)),p(m,autoref(3),o))` &rarr; `q(g(f(c(a,b),a,e)),g(f(c(a,b),d,e)),l(k(d,j)),p(m,c(a,b),o))` &rarr; `q(g(f(c(a,b),a,e)),g(f(c(a,b),autoref(1),e)),l(k(d,j)),p(m,c(a,b),o))` &rarr; `q(g(f(c(a,b),a,e)),g(f(c(a,b),a,e)),l(k(d,j)),p(m,c(a,b),o))`
 
 --------
 ### Autoreferences after *mutateLeaves*
 
 <img src="figures/autorefs_mutate.svg" width="310">
 
-
+- `d` &rarr; `autoref(1)` &rarr; `r`
 
 `q(g(f(c(a,b),a,e)),g(f(c(a,b),a,e)),l(k(d,j)),p(m,c(a,b),o))`
 <br>**&darr;**<br>
