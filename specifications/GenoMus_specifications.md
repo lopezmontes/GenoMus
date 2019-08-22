@@ -1789,10 +1789,12 @@ Universal random search space. All vectors are a valid input.
 3. `c(a,b)`
 4. `d` &rarr; `autoref(a)` &rarr; `a`
 5. `e`
-6. `f(c(a,b),d,e)`
-7. `g(f(c(a,b),d,e))`
+6. `f(c(a,b),d,e)` &rarr; `f(c(a,b),autoref(a),e)` &rarr; `f(c(a,b),a,e)`
+7. `g(f(c(a,b),d,e))` &rarr; `g(f(c(a,b),autoref(a),e))` &rarr; `g(f(c(a,b),a,e))` 
 8. `h` &rarr; `autoref(g)` &rarr; `g(f(c(a,b),d,e))`
-
+9. `i` &rarr; `autoref(d)` &rarr; `d` &rarr; `autoref(a)` &rarr; `a`
+10. `j`
+11. `k(i,j)`
 
 
 
