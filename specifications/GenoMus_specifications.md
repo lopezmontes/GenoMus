@@ -1380,10 +1380,6 @@ All these examples belong to the default *piano* species. Phenotypes have been d
 ---------
 ## Minimal specimen
 #### Decoded genotype
-##### Function tree
-
-<img src="figures/ex1_tree.svg" width="183">
-
 ##### Formatted
 ```
 "
@@ -1441,10 +1437,6 @@ This table shows the encoding/decoding of lexical tokens in this example:
 | `"80"`   | `[0.56, 0.629921]`
 
 #### Decoded genotype
-##### Function tree
-
-<img src="figures/ex2_tree.svg" width="194">
-
 ##### Formatted
 ```
 "
