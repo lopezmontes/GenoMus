@@ -1813,8 +1813,10 @@ Final decoded genotype result after substitutions is the last indexed subexpress
 
 Involved nodes:
 
-**1:** `r`
-<br>**4:** `d` &rarr; `autoref(1)` &rarr; `r`
+**4:** `d` &rarr; `autoref(1)` &rarr; `r`
+<br>**8:** `h` &rarr; `autoref(7)` &rarr; `g(f(c(r,s),d,t))`
+<br>**9:** `i` &rarr; `autoref(4)` &rarr; `d` &rarr; `autoref(1)` &rarr; `r`
+<br>**14:** `n` &rarr; `autoref(3)` &rarr; `c(r,s)`
 
 After mutation of leaves, the subexpressions are reevaluated with the new parameters and all autoreferences reflect these changes accordingly:
 
