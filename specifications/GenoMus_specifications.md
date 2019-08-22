@@ -1804,6 +1804,8 @@ Universal random search space. All vectors are a valid input.
 
 
 
+<img src="figures/autorefs_mutate.svg" width="310">
+
 
 --------- 
 ## Evolution of specimens
