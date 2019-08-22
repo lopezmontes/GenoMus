@@ -9,16 +9,20 @@ var testTree = function (tree) {
 // create a subexpression
 var f = function (inheritExpr) {
     var newSubExp = "f(" + inheritExpr[0] + ")";
-    subExpressions.push(newSubExp);
-    return [newSubExp];
+    indexSubExpr(newSubExp);
 }
 
 var g = function (inheritExprA, inheritExprB) {
-    var newSubExp = "g(" + inheritExprA[0] + "," + inheritExprA[0] + ")";
-    subExpressions.push(newSubExp);
-    return [newSubExp];
+    var newSubExp = "g(" + inheritExprA[0] + "," + inheritExprB[0] + ")";
+    indexSubExpr(newSubExp);
 }
 
 var l = function () {
-    return ["l()"];
+    var newSubExp = "l()";
+    indexSubExpr(newSubExp);
+}
+
+var indexSubExpr = function (expr) {
+    subExpressions.push([subExpressions.length, expr]);
+    return expr;
 }
