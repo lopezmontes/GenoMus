@@ -1635,7 +1635,7 @@ Since all encoded leafs are normalized values, it is easy explore transformation
 ---------
 ## Subexpressions and autoreferences
 
-<img src="figures/autorefs_0.svg" width="555">
+<img src="figures/autorefs_0.svg" width="350">
 
 
 ---------
