@@ -1784,10 +1784,10 @@ Universal random search space. All vectors are a valid input.
 
 <img src="figures/autorefs_0.svg" width="250">
 
-1: `a`
-2: `b`
-3: `c(a,b)`
-4: `d` &rarr; `autoref(a)``
+1. `a`
+2. `b`
+3. `c(a,b)`
+4. `d` &rarr; `autoref(a)``
 
 
 
