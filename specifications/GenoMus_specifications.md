@@ -81,9 +81,6 @@
   - [Voice with lists](#voice-with-lists)
   - [Multiple voices and multiple scores](#multiple-voices-and-multiple-scores)
   - [Autoreferences](#autoreferences)
-- [Genotype substructures](#genotype-substructures)
-  - [Branches and leaves](#branches-and-leaves)
-  - [Subexpressions and autoreferences](#subexpressions-and-autoreferences)
 - [Generation, evolution and selection of specimens](#generation-evolution-and-selection-of-specimens)
   - [Initial conditions for generation of genotypes](#initial-conditions-for-generation-of-genotypes)
   - [Species characterization](#species-characterization)
@@ -93,6 +90,9 @@
   - [Comparison of profiles](#comparison-of-profiles)
   - [Creation and manipulation of genotypes](#creation-and-manipulation-of-genotypes)
     - [Generating genoypes from random arrays](#generating-genoypes-from-random-arrays)
+  - [Genotype substructures](#genotype-substructures)
+    - [Subexpressions and autoreferences](#subexpressions-and-autoreferences)
+    - [Branches and leaves](#branches-and-leaves)
   - [Evolution of specimens](#evolution-of-specimens)
     - [Flowchart](#flowchart-1)
     - [Selecting and processing specimens](selecting-and-processing-specimens) 
@@ -1632,10 +1632,6 @@ is possible to extract an array of arrays with positions and values of leaves:
 Since all encoded leafs are normalized values, it is easy explore transformations of a genotype by manipulating them homogeneously, without distinguishing the type of parameter they represent, and injecting them back changing the corresponding positions of the encoded genotype.
 
 
----------
-## Subexpressions and autoreferences
-
-<img src="figures/autorefs_0.svg" width="350">
 
 
 ---------
@@ -1782,6 +1778,12 @@ A genotype can be create and modified in many ways. This is a summary of manipul
 ### Generating genotypes from random values
 
 Universal random search space. All vectors are a valid input.
+
+---------
+## Subexpressions and autoreferences
+
+<img src="figures/autorefs_0.svg" width="250">
+
 
 --------- 
 ## Evolution of specimens
