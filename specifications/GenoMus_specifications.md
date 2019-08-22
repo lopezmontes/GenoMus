@@ -1443,7 +1443,7 @@ This table shows the encoding/decoding of lexical tokens in this example:
 #### Decoded genotype
 ##### Function tree
 
-<img src="figures/ex2_tree.svg" width="190">
+<img src="figures/ex2_tree.svg" width="194">
 
 ##### Formatted
 ```
