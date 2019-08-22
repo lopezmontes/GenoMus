@@ -1444,7 +1444,8 @@ This table shows the encoding/decoding of lexical tokens in this example:
 ##### Function tree
 
 <img src="figures/ex2_tree.svg" width="190">
-5##### Formatted
+
+##### Formatted
 ```
 "
 s(
