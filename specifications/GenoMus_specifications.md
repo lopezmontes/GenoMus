@@ -1782,7 +1782,7 @@ Universal random search space. All vectors are a valid input.
 ---------
 ## Subexpressions and autoreferences
 
-<img src="figures/autorefs_0.svg" width="270">
+<img src="figures/autorefs_0.svg" width="310">
 
 1. `a`
 2. `b`
