@@ -1,0 +1,46 @@
+\documentclass{standalone}
+
+\usepackage{inconsolata}
+\renewcommand*\familydefault{\ttdefault} %% Only if the base font of the document is to be typewriter style
+\usepackage[T1]{fontenc}
+
+\usepackage{forest}
+
+\begin{document}
+
+
+\forestset{
+  L1/.style={fill=gray!35, edge={gray!35, line width=1.5pt}},
+}
+
+\begin{forest}
+    for tree={
+        % edge=gray!85, text=gray!85,
+        anchor=center,
+        grow=0, reversed, % tree direction
+        parent anchor=east, child anchor=west, % edge anchors
+        edge={line cap=round},outer sep=-2pt, % edge/node connection
+        % rounded corners,% node shape
+        l sep=1mm, s sep=0.1mm, % distances
+    }
+[s
+   [v
+      [e
+         [p
+         	[0.5]
+	     ]
+         [p
+         	[0.5]
+	     ]
+         [p
+         	[0.5]
+		 ]
+         [p
+         	[0.5]
+	     ]
+	  ]     
+   ] 
+]
+\end{forest}
+
+\end{document}
