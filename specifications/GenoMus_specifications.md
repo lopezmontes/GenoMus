@@ -1806,10 +1806,10 @@ Universal random search space. All vectors are a valid input.
 
 <img src="figures/autorefs_mutate.svg" width="310">
 
-Original genotype:
 `q(g(f(c(a,b),a,e)),g(f(c(a,b),a,e)),l(k(d,j)),p(m,c(a,b),o))`
 
-After mutation:
+&downarr;
+
 `q(g(f(c(r,s),r,t)),g(f(c(r,s),r,t)),l(k(d,u)),p(v,c(r,s),w))`
 
 
