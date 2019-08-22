@@ -19,7 +19,7 @@ var g = function (inheritExprA, inheritExprB) {
 
 var l = function () {
     var newSubExp = "l()";
-    indexSubExpr(newSubExp);
+    return indexSubExpr(newSubExp);
 }
 
 var indexSubExpr = function (expr) {
