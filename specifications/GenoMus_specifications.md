@@ -1809,9 +1809,8 @@ Universal random search space. All vectors are a valid input.
 
 Involved nodes:
 
-1. `r`
-
-4. `d` &rarr; `autoref(1)` &rarr; `r`
+- 1. `r`
+- 4. `d` &rarr; `autoref(1)` &rarr; `r`
 
 After mutation of leaves, the subexpressions are reevaluated with the new parameters and all autoreferences reflect these changes accordingly:
 
