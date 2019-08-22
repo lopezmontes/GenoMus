@@ -1396,7 +1396,7 @@ s(
 "
 ```
 
-<img src="figures/ex1_tree.svg" width="57">
+<img src="figures/ex1_tree.svg" width="257">
 
 
 ##### Compressed
