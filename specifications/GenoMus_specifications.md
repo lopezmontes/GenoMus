@@ -1822,7 +1822,7 @@ After mutation of leaves, the subexpressions are reevaluated with the new parame
 
 `q(g(f(c(a,b),a,e)),g(f(c(a,b),a,e)),l(k(d,j)),p(m,c(a,b),o))`
 <br>**&darr;**<br>
-`q(g(f(c(r,s),r,t)),g(f(c(r,s),r,t)),l(k(d,u)),p(v,c(r,s),w))`
+`q(g(f(c(r,s),r,t)),g(f(c(r,s),r,t)),l(k(r,u)),p(v,c(r,s),w))`
 
 
 --------- 
