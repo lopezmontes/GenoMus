@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  22 AUG 2019 02:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  22 AUG 2019 02:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -866,17 +866,17 @@ e
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 (./genotype_tree_visualization_test.aux) ) 
 Here is how much of TeX's memory you used:
- 30996 strings out of 492995
- 711756 string characters out of 6132705
- 717481 words of memory out of 5000000
- 34219 multiletter control sequences out of 15000+600000
+ 31084 strings out of 492995
+ 712965 string characters out of 6132705
+ 717986 words of memory out of 5000000
+ 34307 multiletter control sequences out of 15000+600000
  4702 words of font info for 16 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  141i,9n,167p,10384b,1625s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/f
 onts/enc/dvips/inconsolata/i4-t1-0.enc}</usr/local/texlive/2017/texmf-dist/font
 s/type1/public/inconsolata/Inconsolata-zi4r.pfb>
-Output written on genotype_tree_visualization_test.pdf (1 page, 14724 bytes).
+Output written on genotype_tree_visualization_test.pdf (1 page, 16502 bytes).
 PDF statistics:
  16 PDF objects out of 1000 (max. 8388607)
  11 compressed objects within 1 object stream

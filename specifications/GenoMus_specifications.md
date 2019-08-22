@@ -1441,6 +1441,10 @@ This table shows the encoding/decoding of lexical tokens in this example:
 | `"80"`   | `[0.56, 0.629921]`
 
 #### Decoded genotype
+##### Function tree
+
+<img src="figures/ex2_tree.svg" width="190">
+
 ##### Formatted
 ```
 "
