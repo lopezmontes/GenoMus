@@ -1807,7 +1807,7 @@ Universal random search space. All vectors are a valid input.
 <img src="figures/autorefs_mutate.svg" width="310">
 
 `q(g(f(c(a,b),a,e)),g(f(c(a,b),a,e)),l(k(d,j)),p(m,c(a,b),o))`
-<br><h3>&darr;</h3><br>
+<br><h4>&darr;</h4><br>
 `q(g(f(c(r,s),r,t)),g(f(c(r,s),r,t)),l(k(d,u)),p(v,c(r,s),w))`
 
 
