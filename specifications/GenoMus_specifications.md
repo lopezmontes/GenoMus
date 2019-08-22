@@ -1802,6 +1802,10 @@ Universal random search space. All vectors are a valid input.
 <br>**16:** `p(m,n,o)` &rarr; `p(m,autoref(3),o)` &rarr; `p(m,c(a,b),o)`
 <br>**17:** `q(g(f(c(a,b),d,e)),h,l(k(i,j)),p(m,n,o))` &rarr; `q(g(f(c(a,b),autoref(1),e)),autoref(7),l(k(autoref(4),j)),p(m,autoref(3),o))` &rarr; `q(g(f(c(a,b),a,e)),g(f(c(a,b),d,e)),l(k(d,j)),p(m,c(a,b),o))` &rarr; `q(g(f(c(a,b),a,e)),g(f(c(a,b),autoref(1),e)),l(k(d,j)),p(m,c(a,b),o))` &rarr; `q(g(f(c(a,b),a,e)),g(f(c(a,b),a,e)),l(k(d,j)),p(m,c(a,b),o))`
 
+Final decoded genotype result after substitutions is the last indexed subexpression:
+
+`q(g(f(c(a,b),a,e)),g(f(c(a,b),a,e)),l(k(d,j)),p(m,c(a,b),o))`
+
 --------
 ### Autoreferences after *mutateLeaves*
 
