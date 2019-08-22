@@ -1794,7 +1794,8 @@ Universal random search space. All vectors are a valid input.
 8. `h` &rarr; `autoref(g)` &rarr; `g(f(c(a,b),d,e))`
 9. `i` &rarr; `autoref(d)` &rarr; `d` &rarr; `autoref(a)` &rarr; `a`
 10. `j`
-11. `k(i,j)`
+11. `k(i,j)` &rarr; `k(autoref(d),j)` &rarr; `k(d,j)` &rarr; `k(autoref(a),j)` &rarr; `k(a,j)`
+12. `l(k(i,j))` &rarr; `l(k(autoref(d),j))` &rarr; `l(k(d,j))` &rarr; `l(k(autoref(a),j))` &rarr; `l(k(a,j))`
 
 
 
