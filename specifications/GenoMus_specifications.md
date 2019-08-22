@@ -1807,7 +1807,12 @@ Universal random search space. All vectors are a valid input.
 
 <img src="figures/autorefs_mutate.svg" width="310">
 
-- `d` &rarr; `autoref(1)` &rarr; `r`
+Involved nodes:
+
+1. `r`
+4. `d` &rarr; `autoref(1)` &rarr; `r`
+
+After mutation of leaves, the subexpressions are reevaluated with the new parameters and all autoreferences reflect these changes accordingly:
 
 `q(g(f(c(a,b),a,e)),g(f(c(a,b),a,e)),l(k(d,j)),p(m,c(a,b),o))`
 <br>**&darr;**<br>
