@@ -9,12 +9,12 @@ var testTree = function (tree) {
 // create a subexpression
 var f = function (inheritExpr) {
     var newSubExp = "f(" + inheritExpr[0] + ")";
-    indexSubExpr(newSubExp);
+    return indexSubExpr(newSubExp);
 }
 
 var g = function (inheritExprA, inheritExprB) {
     var newSubExp = "g(" + inheritExprA[0] + "," + inheritExprB[0] + ")";
-    indexSubExpr(newSubExp);
+    return indexSubExpr(newSubExp);
 }
 
 var l = function () {
@@ -25,4 +25,11 @@ var l = function () {
 var indexSubExpr = function (expr) {
     subExpressions.push([subExpressions.length, expr]);
     return expr;
+}
+
+var autoref = function (i) {
+    i = i%subExpressions.length;
+    var newSubExp = "autoref(" + i + ")";  
+    console.log("I will eval " + subExpressions[i][1]);
+    return indexSubExpr(newSubExp);
 }
