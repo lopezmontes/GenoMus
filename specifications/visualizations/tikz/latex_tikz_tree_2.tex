@@ -31,33 +31,41 @@
         l sep=2mm % level distance
     }
   [m,L1
-    [f,L1, name=f, draw=autorefarrow, line width=0.9pt
+    [f,L1
     	[e,L1
-			[c,L1, name=c, draw=autorefarrow, line width=0.9pt
-				[a,L1, name=a, draw=autorefarrow, line width=0.9pt]
+			[c,L1
+				[a,L1]
 				[b,L1]
 			]
-			[{\tiny xAutoref(3)},L2, name=auto3, draw=autorefarrow, line width=0.9pt]
+			[a,L1]
 			[d,L1]
 		]
     ]
-    [{\tiny xAutoref(1)},L2, name=auto1]
+    [f,L1
+    	[e,L1
+			[c,L1
+				[a,L1]
+				[b,L1]
+			]
+			[a,L1]
+			[d,L1]
+		]
+    ]
     [i,L1
     	[h,L1
-			[{\tiny xAutoref(5)},L2, name=auto5]
+			[a,L1]
 			[g,L1]
 		]
     ]
     [l,L1
 		[j,L1]
-		[{\tiny xAutoref(11)},L2, name=auto11]
+		[c,L1
+			[a,L1]
+			[b,L1]
+		]
 		[k,L1]
     ]
   ] 
-  \draw[->, autorefarrow, line width=0.6pt] (auto1) to[out=east, in=south east] (f);  
-  \draw[->, autorefarrow, line width=0.6pt] (auto3) to[out=east, in=south east] (a);  
-  \draw[->, autorefarrow, line width=0.6pt] (auto5) to[out=east, in=south east] (auto3);  
-  \draw[->, autorefarrow, line width=0.6pt] (auto11) to[out=east, in=north east] (c);  
 \end{forest}
 
 

@@ -1815,7 +1815,7 @@ Universal random search space. All vectors are a valid input.
 
 Given this function tree:
 
-<img src="figures/autorefs_createGen.svg" width="310">
+<img src="figures/autorefs_createGen.svg" width="350">
 
 At the time of the evaluation of this expression, all the subexpressions (or nested functions) would be stored according to this order and format:
 
@@ -1853,13 +1853,15 @@ Final decoded genotype produced after all substitutions:
 
 The following graph, showing the result of autoreference, is equivalent to the previous one:
 
+<img src="figures/autorefs_createGen_substitutions.svg" width="310">
+
 
 
 --------
 ### Autoreferences after *mutateLeaves*
 
 
-<img src="figures/autorefs_mutate.svg" width="310">
+<img src="figures/autorefs_mutate.svg" width="350">
 
 Involved nodes:
 
