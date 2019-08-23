@@ -1819,16 +1819,35 @@ Letters within the nodes represent function names.
 
 <img src="figures/autorefs_createGen.svg" width="310">
 
-<br>**1:** `a`
-<br>**2:** `b`
-<br>**3:** `c(a,b)`
-<br>**4:** `xAutoref(3)` &rarr; `a`
-<br>**5:** `e`
+```
+"1": "a",
+"2": "b`
+"3": "c(a,b)`
+"4": "xAutoref(3)` &rarr; `a`
+"5": "d`
+"6": "e(c(a,b),xAutoref(3)`
+"7": "d`
+"8": "
+"9: "
+"10": "
+"11": "
+"12": "
+"13": "
+"14": "
+"15": "
+"16": "
+"17": "
+"18": "
+"19": "
+```
+
+Substitutions:
+
+`"xAutoref(3)"` &rarr; `"a"`
 
 
 Final decoded genotype result after substitutions is the last indexed subexpression:
 
-`q(g(f(c(a,b),a,e)),g(f(c(a,b),a,e)),l(k(d,j)),p(m,c(a,b),o))`
 
 --------
 ### Autoreferences after *mutateLeaves*
