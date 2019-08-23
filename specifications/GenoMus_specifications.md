@@ -1802,7 +1802,8 @@ Universal random search space. All vectors are a valid input.
     - *En el caso de que crezca una rama dentro del arco referencial, si crece desde un nodo referenciado, no hay problema, se mantienen las distancias, pero si crece en una rama intermedia se pierde la referencia. Estudiar soluciones.*
   - *Al hacer **insertBranch**, de nuevo sólo problema si la inserción está en una rama intermedia de la autorreferencia. Estudiar solución como en la anterior. Una opción es dejar que la autorreferencia cambie al punto correspondiente, sin más. Otra opción, tratar de hacer un cotejo previo, si no coincide la autorreferencia, se trata de corregir buscando la expresión (dado que es única y no hay duplicados) y cambiando el parámetro de autoref. Si la función ha desaparecido, la autoreferencia toma argumento 0 y es una función de efecto nulo.*
   - *Con **flattenBranch**, si después del cotejo la función ha desaparecido, se renderiza el contenido con el respaldo archivado de autoreferencias.*
-  - *Con **pruneBranch**
+  - *Con **pruneBranch** no tiene sentido renderizar la autoreferencia, dado que la fuente ha sido anulada. Si se consigue hacer el cotejo, si no existe la función para referenciar se hace autoref nula.*
+  - *Al hacer **splitGen**, las referencias que sobrevivan se quedan, las que no pasan a ser nulas. 
   
 - *A la hora de construir genotipos, si se crea una autoreferencia imposible se veta y se cambia a otra función no de autoreferencia. Así evitamos las autoref(0) que no significan nada.*
 
