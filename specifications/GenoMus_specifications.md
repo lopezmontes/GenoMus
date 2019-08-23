@@ -1782,6 +1782,8 @@ Universal random search space. All vectors are a valid input.
 ---------
 ## Subexpressions and autoreferences
 
+(Autoreferences nodes are terminal as leaves)
+
 *Conclusiones de los tests sobre posibles maneras de autorreferenciar:*
 - *La referencia por ruta (nodos atrás, y luego bifurcaciones hacia adelante) no es viable porque cuando aquí que referenciar al vuelo no está aún construidos los nodos de comunicación de la base).*
 
@@ -1793,7 +1795,9 @@ Universal random search space. All vectors are a valid input.
   - *Con un solo número entero se referencia una ruta relativa, fácil de localizar visualmente también.*
   - *La mutaciones de parámetros con **mutateLeaves** funcionan perfectamente.*
   - *La aplicación de **growTrunk** no da problemas nunca. Cuando el tronco desarrolla ramificaciones anteriores al árbol existente, cambia la numeración absoluta de las funciones pero no la distancia relativa, por lo que no hay problema. Esto es importante porque seguramente será la evolución más natural de los genotipos.*
-  - *Protocolo con **growBranch**: Si la rama que crece no está involucrada en la autorreferencia, aunque cambie las numeraciones absolutas de las subexpresiones al estar antes de la autorreferencia, no cambia las distancias relativas, por lo que la autorreferencia sigue funcionando correctamente. En el caso de que crezca una rama dentro del arco referencial,** 
+  - *Protocolo con **growBranch**:
+    - *Si la rama que crece no está involucrada en la autorreferencia, aunque cambie la numeración absoluta de las subexpresiones al estar antes de la autorreferencia, no cambian las distancias relativas, por lo que la autorreferencia sigue funcionando correctamente.*
+    - *En el caso de que crezca una rama dentro del arco referencial, si crece desde un nodo referenciado, no hay problema, se mantienen las distancias.* 
   
 - *A la hora de construir genotipos, si se crea una autoreferencia imposible se veta y se cambia a otra función no de autoreferencia. Así evitamos las autoref(0) que no significan nada.*
 
