@@ -1812,7 +1812,7 @@ Universal random search space. All vectors are a valid input.
 
 Given this function tree:
 
-<img src="figures/autorefs_createGen.svg" width="370">
+<img src="figures/autorefs_createGen.svg" width="360">
 
 At the time of the evaluation of this expression, all the subexpressions (or nested functions) would be stored according to this order and format:
 
