@@ -1244,8 +1244,6 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 
 ---------
 ## Mathematical operations
-
-*Explain how to deal with normalization*
  
 | name       | index                          | description
 | ---------- | ------------------------------ | -----------
@@ -1852,6 +1850,9 @@ Final decoded genotype produced after all substitutions:
 `"m(f(e(c(a,b),xAutoref(3))),xAutoref(1),i(h(xAutoref(5),g)),l(j,xAutoref(11),k)"`
 &darr;
 `"m(f(e(c(a,b),a)),f(e(c(a,b),a)),i(h(a,g)),l(j,c(a,b),k)"`
+
+The following graph, showing the result of autoreference, is equivalent to the previous one:
+
 
 
 --------
