@@ -1812,6 +1812,9 @@ Universal random search space. All vectors are a valid input.
 
 --------
 
+For simplicity, this examples use only a type of autoreference function, named as _**xAutoref(n)**_, where *x* would be the prefix or a correnponding function type.
+
+The nodes of the diagrams are blue to show internal autoreference pointers. Added, changed or deleted nodes are shown in red.
 
 
 <img src="figures/autorefs_0.svg" width="310">
