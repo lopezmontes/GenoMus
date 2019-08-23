@@ -10,47 +10,57 @@
 
 \begin{document}
 
+\definecolor{basecolor}{RGB}{214,214,214}
+\definecolor{autorefcolor}{RGB}{156,216,255}
+\definecolor{autorefarrow}{RGB}{70,100,210}
 
 \forestset{
-  L1/.style={font=\scriptsize, fill=gray!35, edge={gray!35, line width=1.2pt}},
+  L1/.style={font=\small, fill=basecolor, edge={basecolor, line width=1.5pt}},
+  L2/.style={font=\tiny, fill=autorefcolor, edge={basecolor, line width=1.5pt}}
 }
 
 \begin{forest}
 %  delay={where n children=0{tier=word,%    if={instr("P",content("!u"))}{roof}{}%  }{}},
     for tree={
-        grow'=0,l=1cm, calign=last,
+        grow'=0,l=0.9cm, % calign=first,
         anchor=west,
         grow=0, reversed, % tree direction
         parent anchor=east, child anchor=west, % edge anchors
         edge={line cap=round},outer sep=-0.5pt, % edge/node connection
-        rounded corners, minimum width=0.2mm, minimum height=4mm, % node shape
+        rounded corners=2.5mm, minimum width=5mm, minimum height=5mm, % node shape
         l sep=2mm % level distance
     }
-  [q,L1
-    [g,L1
-    	[f,L1
-			[c,L1, name=c
-				[a,L1, name=goal]
+  [n,L1
+    [f,L1, name=f, draw=autorefarrow, line width=0.9pt
+    	[e,L1
+			[c,L1, name=c, draw=autorefarrow, line width=0.9pt
+				[a,L1, name=a, draw=autorefarrow, line width=0.9pt]
 				[b,L1]
 			]
-			[{\tiny xAutoref(3)},L1]
-			[e,L1]
+			[{\tiny xAutoref(3)},L2, name=auto3, draw=autorefarrow, line width=0.9pt]
+			[d,L1]
 		]
     ]
-    [h,L1]
-    [l,L1
-    	[k,L1
-    		[i,L1]
-			[j,L1]
+    [{\tiny xAutoref(1)},L2, name=auto1]
+    [j,L1
+    	[i,L1
+			[{\tiny xAutoref(5)},L2, name=auto5]
+			[h,L1]
 		]
     ]
-    [p,L1
-		[m,L1]
-		[{\tiny xAutoref(11)},L1, name=autoref11]
-		[o,L1]
+    [m,L1
+		[k,L1]
+		[{\tiny xAutoref(11)},L2, name=auto11]
+		[l,L1]
     ]
   ] 
-  \draw[->] (autoref11) to[out=east, in=north east] (c);  
+  \draw[->, autorefarrow, line width=0.6pt] (auto1) to[out=east, in=south east] (f);  
+  \draw[->, autorefarrow, line width=0.6pt] (auto3) to[out=east, in=south east] (a);  
+  \draw[->, autorefarrow, line width=0.6pt] (auto5) to[out=east, in=south east] (auto3);  
+  \draw[->, autorefarrow, line width=0.6pt] (auto11) to[out=east, in=north east] (c);  
 \end{forest}
+
+
+
 
 \end{document}

@@ -1846,7 +1846,7 @@ q(
 ```
 
 
-<img src="figures/autorefs_0.svg" width="310">
+<img src="figures/autorefs_createGen.svg" width="310">
 
 <br>**1:** `a`
 <br>**2:** `b`
