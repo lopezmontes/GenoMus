@@ -1795,7 +1795,7 @@ Universal random search space. All vectors are a valid input.
   - *Con un solo número entero se referencia una ruta relativa, fácil de localizar visualmente también.*
   - *La mutaciones de parámetros con **mutateLeaves** funcionan perfectamente.*
   - *La aplicación de **growTrunk** no da problemas nunca. Cuando el tronco desarrolla ramificaciones anteriores al árbol existente, cambia la numeración absoluta de las funciones pero no la distancia relativa, por lo que no hay problema. Esto es importante porque seguramente será la evolución más natural de los genotipos.*
-  - *Protocolo con **growBranch**:
+  - *Protocolo con **growBranch**:*
     - *Si la rama que crece no está involucrada en la autorreferencia, aunque cambie la numeración absoluta de las subexpresiones al estar antes de la autorreferencia, no cambian las distancias relativas, por lo que la autorreferencia sigue funcionando correctamente.*
     - *En el caso de que crezca una rama dentro del arco referencial, si crece desde un nodo referenciado, no hay problema, se mantienen las distancias.* 
   
