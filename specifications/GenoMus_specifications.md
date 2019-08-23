@@ -1817,53 +1817,14 @@ Nodes of the diagrams are blue to show internal autoreference pointers. Added, c
 
 Letters within the nodes represent function names.
 
-```
-q(
-   g(
-      f(
-         c(
-            a,
-            b
-         ),
-         d,
-         e
-      )
-   ),
-   h,
-   l(
-      k(
-         i,
-         j
-      )
-   ),
-   p(
-      m,
-      n,
-      o
-   )
-)
-```
-
-
 <img src="figures/autorefs_createGen.svg" width="310">
 
 <br>**1:** `a`
 <br>**2:** `b`
 <br>**3:** `c(a,b)`
-<br>**4:** `d` &rarr; `xAutoref(1)` &rarr; `a`
+<br>**4:** `xAutoref(3)` &rarr; `a`
 <br>**5:** `e`
-<br>**6:** `f(c(a,b),d,e)` &rarr; `f(c(a,b),xAutoref(1),e)` &rarr; `f(c(a,b),a,e)`
-<br>**7:** `g(f(c(a,b),d,e))` &rarr; `g(f(c(a,b),xAutoref(1),e))` &rarr; `g(f(c(a,b),a,e))` 
-<br>**8:** `h` &rarr; `xAutoref(7)` &rarr; `g(f(c(a,b),d,e))`
-<br>**9:** `i` &rarr; `xAutoref(4)` &rarr; `d` &rarr; `xAutoref(1)` &rarr; `a`
-<br>**10:**`j`
-<br>**11:**`k(i,j)` &rarr; `k(xAutoref(4),j)` &rarr; `k(d,j)` &rarr; `k(xAutoref(1),j)` &rarr; `k(a,j)`
-<br>**12:**`l(k(i,j))` &rarr; `l(k(xAutoref(4),j))` &rarr; `l(k(d,j))` &rarr; `l(k(xAutoref(1),j))` &rarr; `l(k(a,j))`
-<br>**13:** `m`
-<br>**14:** `n` &rarr; `xAutoref(3)` &rarr; `c(a,b)`
-<br>**15:** `o`
-<br>**16:** `p(m,n,o)` &rarr; `p(m,xAutoref(3),o)` &rarr; `p(m,c(a,b),o)`
-<br>**17:** `q(g(f(c(a,b),d,e)),h,l(k(i,j)),p(m,n,o))` &rarr; `q(g(f(c(a,b),xAutoref(1),e)),xAutoref(7),l(k(xAutoref(4),j)),p(m,xAutoref(3),o))` &rarr; `q(g(f(c(a,b),a,e)),g(f(c(a,b),d,e)),l(k(d,j)),p(m,c(a,b),o))` &rarr; `q(g(f(c(a,b),a,e)),g(f(c(a,b),xAutoref(1),e)),l(k(d,j)),p(m,c(a,b),o))` &rarr; `q(g(f(c(a,b),a,e)),g(f(c(a,b),a,e)),l(k(d,j)),p(m,c(a,b),o))`
+
 
 Final decoded genotype result after substitutions is the last indexed subexpression:
 
