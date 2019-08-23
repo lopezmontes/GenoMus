@@ -1792,7 +1792,7 @@ Universal random search space. All vectors are a valid input.
 - *La referencia relativa parece ser la más sencilla y útil: `autoref(4)` indica que se referencia la funcióm que está 4 posiciones antes de la propia autorreferencia. Ventajas:*
   - *Con un solo número entero se referencia una ruta relativa, fácil de localizar visualmente también.*
   - *La mutaciones de parámetros con **mutateLeaves** funcionan perfectamente.*
-  - *La aplicación de **growTrunk** no da problemas nunca. Esto es importante porque seguramente será la evolución más natural de los genotipos.*
+  - *La aplicación de **growTrunk** no da problemas nunca. Cuando el tronco desarrolla ramificaciones anteriores al árbol existente, cambia la numeración absoluta de las funciones pero no la distancia relativa, por lo que no hay problema. Esto es importante porque seguramente será la evolución más natural de los genotipos.*
   
 - *A la hora de construir genotipos, si se crea una autoreferencia imposible se veta y se cambia a otra función no de autoreferencia. Así evitamos las autoref(0) que no significan nada.*
 
