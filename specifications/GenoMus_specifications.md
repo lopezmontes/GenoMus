@@ -1412,7 +1412,7 @@ s(
 
 <sub>Visualizations map normalized values to grayscale (0=white, 1=black).</sub>
 
-<img src="figures/visualization_ex1.svg" width="600">
+<img src="figures/visualization_ex1.svg" width="450">
 
 #### Decoded phenotype
 
@@ -1467,7 +1467,7 @@ s(
 
 #### Visualization
 
-<img src="figures/visualization_ex2.svg" width="600">
+<img src="figures/visualization_ex2.svg" width="450">
 
 #### Decoded phenotype
 
@@ -1512,7 +1512,7 @@ s(
 
 #### Visualization
 
-<img src="figures/visualization_ex3.svg" width="800">
+<img src="figures/visualization_ex3.svg" width="600">
 
 #### Decoded phenotype
 <img src="figures/ex3_score.svg" width="140">
@@ -1601,7 +1601,7 @@ sConcatS(
 
 #### Visualization
 
-<img src="figures/visualization_ex4.svg" width="800">
+<img src="figures/visualization_ex4.svg" width="600">
 
 #### Decoded phenotype
 <img src="figures/ex4_score.svg" width="670">
