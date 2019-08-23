@@ -1094,8 +1094,8 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `sTempo`            | <sub>not yet implemented</sub> | changes the relative tempo of a score
 | `vAccel`            | <sub>not yet implemented</sub> | accelerates tempo along a voice
 | `sAccel`            | <sub>not yet implemented</sub> | accelerates tempo along a score
-| `vRit`              | <sub>not yet implemented</sub> | slows tempo aling a voice
-| `sRit`              | <sub>not yet implemented</sub> | slows tempo aling a score
+| `vRit`              | <sub>not yet implemented</sub> | slows tempo along a voice
+| `sRit`              | <sub>not yet implemented</sub> | slows tempo along a score
 | `vSimplifyRhythm`   | <sub>not yet implemented</sub> | reduces the rhythmic complexity of a voice
 | `sSimplifyRhythm`   | <sub>not yet implemented</sub> | reduces the rhythmic complexity of a score
 | `sIsorhythm`        | <sub>not yet implemented</sub> | forces a isorhythmic texture for all voices within a score

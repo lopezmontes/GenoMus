@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  22 AUG 2019 03:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  23 AUG 2019 14:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -861,22 +861,27 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
+(Font)              scaled to size 7.0pt on input line 56.
+LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
+(Font)              scaled to size 5.0pt on input line 56.
+
 [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 (./latex_tikz_tree.aux) ) 
 Here is how much of TeX's memory you used:
- 32930 strings out of 492995
- 742142 string characters out of 6132705
- 754193 words of memory out of 5000000
- 36153 multiletter control sequences out of 15000+600000
- 4702 words of font info for 16 fonts, out of 8000000 for 9000
+ 31826 strings out of 492995
+ 725644 string characters out of 6132705
+ 740884 words of memory out of 5000000
+ 35049 multiletter control sequences out of 15000+600000
+ 5300 words of font info for 18 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 147i,9n,185p,10367b,3330s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 147i,9n,185p,10367b,2337s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/in
 consolata/i4-t1-0.enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/in
 consolata/Inconsolata-zi4r.pfb>
-Output written on latex_tikz_tree.pdf (1 page, 18730 bytes).
+Output written on latex_tikz_tree.pdf (1 page, 19625 bytes).
 PDF statistics:
  16 PDF objects out of 1000 (max. 8388607)
  11 compressed objects within 1 object stream

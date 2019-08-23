@@ -12,26 +12,28 @@
 
 
 \forestset{
-  L1/.style={fill=gray!35, edge={gray!35, line width=1.5pt}},
+  L1/.style={font=\scriptsize, fill=gray!35, edge={gray!35, line width=1.2pt}},
 }
 
 \begin{forest}
+%  delay={where n children=0{tier=word,%    if={instr("P",content("!u"))}{roof}{}%  }{}},
     for tree={
+        grow'=0,l=1cm, calign=last,
         anchor=west,
         grow=0, reversed, % tree direction
         parent anchor=east, child anchor=west, % edge anchors
         edge={line cap=round},outer sep=-0.5pt, % edge/node connection
-        circle, minimum width=0.2mm, % node shape
+        rounded corners, minimum width=0.2mm, minimum height=4mm, % node shape
         l sep=2mm % level distance
     }
   [q,L1
     [g,L1
     	[f,L1
-			[c,L1
-				[a,L1]
+			[c,L1, name=c
+				[a,L1, name=goal]
 				[b,L1]
 			]
-			[d,L1]
+			[{\tiny xAutoref(3)},L1]
 			[e,L1]
 		]
     ]
@@ -44,10 +46,11 @@
     ]
     [p,L1
 		[m,L1]
-		[n,L1]
+		[{\tiny xAutoref(11)},L1, name=autoref11]
 		[o,L1]
     ]
-  ]
+  ] 
+  \draw[->] (autoref11) to[out=east, in=north east] (c);  
 \end{forest}
 
 \end{document}
