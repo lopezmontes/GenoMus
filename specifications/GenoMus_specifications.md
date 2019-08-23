@@ -1812,11 +1812,39 @@ Universal random search space. All vectors are a valid input.
 
 --------
 
-For simplicity, this examples use only a type of autoreference function, named as _**xAutoref(n)**_, where *x* would be the prefix or a correnponding function type.
+For simplicity, this examples use an only type of autoreference function, _**xAutoref(n)**_, where *x* would be the prefix or a correnponding function type.
 
 Nodes of the diagrams are blue to show internal autoreference pointers. Added, changed or deleted nodes are shown in red.
 
 Letters within the nodes represent function names.
+
+```
+q(
+   g(
+      f(
+         c(
+            a,
+            b
+         ),
+         d,
+         e
+      )
+   ),
+   h,
+   l(
+      k(
+         i,
+         j
+      )
+   ),
+   p(
+      m,
+      n,
+      o
+   )
+)
+```
+
 
 <img src="figures/autorefs_0.svg" width="310">
 
