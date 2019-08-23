@@ -1784,6 +1784,7 @@ Universal random search space. All vectors are a valid input.
 
 *Conclusiones de los tests sobre posibles maneras de autorreferenciar:*
 - *La referencia por ruta (nodos atrás, y luego bifurcaciones hacia adelante) no es viable porque cuando aquí que referenciar al vuelo no está aún construidos los nodos de comunicación de la base)*
+- *La referencia directa al número absoluto de subexpresión no funciona después de ciertos casos de growTrunk (con nodos anteriores al injerto, que cambian la numeración) 
 
 
 
