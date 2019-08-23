@@ -1794,7 +1794,6 @@ Universal random search space. All vectors are a valid input.
   - *La mutaciones de parámetros funcionan perfectamente.*
   - *g*
   
-  ![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
 
 
 
