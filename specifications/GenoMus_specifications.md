@@ -1786,7 +1786,7 @@ Universal random search space. All vectors are a valid input.
 
 - *La referencia directa al número absoluto de subexpresión no funciona después de ciertos casos de growTrunk (con nodos anteriores al injerto, que cambian la numeración), ni de growBranches. Las soluciones son muy aparatosas.*
 
-- *Renderizar la expresión referenciada y perder la autorreferencia es verboso, pierde la pureza del concepto, y sobre todo no funciona con las mutaciones de parámetros, ya que se pierde la autorreferencia tras cualquier manipulación de parámetros implicados.
+- *Renderizar la expresión referenciada y perder la autorreferencia es verboso, pierde la pureza del concepto, y sobre todo no funciona con las mutaciones de parámetros, ya que se pierde la autorreferencia tras cualquier manipulación de parámetros implicados.*
 
 - *La referencia relativa parece ser la más sencilla y útil: `autoref(4)` indica que se referencia la funcióm que está 4 posiciones antes de la propia autorreferencia. Ventajas:*
   - *Con un solo número entero se referencia una ruta relativa, fácil de localizar visualmente también.*
