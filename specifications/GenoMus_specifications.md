@@ -1791,10 +1791,10 @@ Universal random search space. All vectors are a valid input.
 
 - *La referencia relativa parece ser la más sencilla y útil: `autoref(4)` indica que se referencia la funcióm que está 4 posiciones antes de la propia autorreferencia. Ventajas:*
   - *Con un solo número entero se referencia una ruta relativa, fácil de localizar visualmente también.*
-  - *La mutaciones de parámetros funcionan perfectamente.*
+  - *La mutaciones de parámetros con **mutateLeaves** funcionan perfectamente.*
   - *g*
   
-
+- *A la hora de construir genotipos, si se crea una autoreferencia imposible se veta y se cambia a otra función no de autoreferencia. Así evitamos las autoref(0) que no significan nada.*
 
 
 
