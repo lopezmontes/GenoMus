@@ -1809,6 +1809,11 @@ Final decoded genotype result after substitutions is the last indexed subexpress
 --------
 ### Autoreferences after *mutateLeaves*
 
+*
+Conclusiones de los tests sobre posibles maneras de autorreferenciar:
+
+*
+
 <img src="figures/autorefs_mutate.svg" width="310">
 
 Involved nodes:
@@ -1823,6 +1828,25 @@ After mutation of leaves, the subexpressions are reevaluated with the new parame
 `q(g(f(c(a,b),a,e)),g(f(c(a,b),a,e)),l(k(d,j)),p(m,c(a,b),o))`
 <br>**&darr;**<br>
 `q(g(f(c(r,s),r,t)),g(f(c(r,s),r,t)),l(k(r,u)),p(v,c(r,s),w))`
+
+--------
+### Autoreferences after *growTrunck*
+
+<img src="figures/autorefs_mutate.svg" width="310">
+
+Involved nodes:
+
+**4:** `d` &rarr; `autoref(1)` &rarr; `r`
+<br>**8:** `h` &rarr; `autoref(7)` &rarr; `g(f(c(r,s),d,t))`
+<br>**9:** `i` &rarr; `autoref(4)` &rarr; `d` &rarr; `autoref(1)` &rarr; `r`
+<br>**14:** `n` &rarr; `autoref(3)` &rarr; `c(r,s)`
+
+After mutation of leaves, the subexpressions are reevaluated with the new parameters and all autoreferences reflect these changes accordingly:
+
+`q(g(f(c(a,b),a,e)),g(f(c(a,b),a,e)),l(k(d,j)),p(m,c(a,b),o))`
+<br>**&darr;**<br>
+`q(g(f(c(r,s),r,t)),g(f(c(r,s),r,t)),l(k(r,u)),p(v,c(r,s),w))`
+
 
 
 --------- 
