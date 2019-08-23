@@ -1809,10 +1809,7 @@ Final decoded genotype result after substitutions is the last indexed subexpress
 --------
 ### Autoreferences after *mutateLeaves*
 
-*
-Conclusiones de los tests sobre posibles maneras de autorreferenciar:
-
-*
+*Conclusiones de los tests sobre posibles maneras de autorreferenciar:*
 
 <img src="figures/autorefs_mutate.svg" width="310">
 
