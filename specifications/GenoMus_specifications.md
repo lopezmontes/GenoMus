@@ -1783,6 +1783,8 @@ Universal random search space. All vectors are a valid input.
 ## Subexpressions and autoreferences
 
 (Autoreferences nodes are terminal as leaves)
+(Explain process of asigning autoreferencies)
+(Duplicates are removed)
 
 *Conclusiones de los tests sobre posibles maneras de autorreferenciar:*
 - *La referencia por ruta (nodos atrás, y luego bifurcaciones hacia adelante) no es viable porque cuando aquí que referenciar al vuelo no está aún construidos los nodos de comunicación de la base).*
@@ -1797,9 +1799,14 @@ Universal random search space. All vectors are a valid input.
   - *La aplicación de **growTrunk** no da problemas nunca. Cuando el tronco desarrolla ramificaciones anteriores al árbol existente, cambia la numeración absoluta de las funciones pero no la distancia relativa, por lo que no hay problema. Esto es importante porque seguramente será la evolución más natural de los genotipos.*
   - *Protocolo con **growBranch**:*
     - *Si la rama que crece no está involucrada en la autorreferencia, aunque cambie la numeración absoluta de las subexpresiones al estar antes de la autorreferencia, no cambian las distancias relativas, por lo que la autorreferencia sigue funcionando correctamente.*
-    - *En el caso de que crezca una rama dentro del arco referencial, si crece desde un nodo referenciado, no hay problema, se mantienen las distancias.* 
+    - *En el caso de que crezca una rama dentro del arco referencial, si crece desde un nodo referenciado, no hay problema, se mantienen las distancias, pero si crece en una rama intermedia se pierde la referencia. Estudiar soluciones.*
+  - *Al hacer **insertBranch**, de nuevo sólo problema si la inserción está en una rama intermedia de la autorreferencia. Estudiar solución como en la anterior. Una opción es dejar que la autorreferencia cambie al punto correspondiente, sin más. Otra opción, tratar de hacer un cotejo previo, si no coincide la autorreferencia, se trata de corregir buscando la expresión (dado que es única y no hay duplicados) y cambiando el parámetro de autoref. Si la función ha desaparecido, la autoreferencia toma argumento 0 y es una función de efecto nulo.*
+  - *Con **flattenBranch**, si después del cotejo la función ha desaparecido, se renderiza el contenido con el respaldo archivado de autoreferencias.*
+  - *Con **pruneBranch**
   
 - *A la hora de construir genotipos, si se crea una autoreferencia imposible se veta y se cambia a otra función no de autoreferencia. Así evitamos las autoref(0) que no significan nada.*
+
+- *Una función de autoreferencia guarda un registro aparte de lo que está autoreferenciando para poder hacer un cotejo cuando sea necesario.
 
 
 
