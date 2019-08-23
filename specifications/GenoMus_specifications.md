@@ -1811,13 +1811,15 @@ Universal random search space. All vectors are a valid input.
 
 --------
 
-For simplicity, this examples use an only type of autoreference function, _**xAutoref(n)**_, where *x* would be the prefix or a correnponding function type.
+- For simplicity, this examples use an only type of autoreference function, _**xAutoref(n)**_, where *x* would be the prefix or a correnponding function type.
+- Nodes of the diagrams are blue to show internal autoreference pointers. Added, changed or deleted nodes are shown in red.
+- Letters within nodes represent function names.
 
-Nodes of the diagrams are blue to show internal autoreference pointers. Added, changed or deleted nodes are shown in red.
-
-Letters within the nodes represent function names.
+Given this function tree:
 
 <img src="figures/autorefs_createGen.svg" width="310">
+
+At the time of the evaluation of this expression, all the subexpressions (or nested functions) would be stored according to this order and format:
 
 ```
 "1": "a",
@@ -1839,9 +1841,13 @@ Letters within the nodes represent function names.
 "17": "m(f(e(c(a,b),xAutoref(3))),xAutoref(1),i(h(xAutoref(5),g)),l(j,xAutoref(11),k)"
 ```
 
-Effects after evaluation of autoreferences:
 
-`"xAutoref(3)"` &rarr; `"a"`
+At the same time, during the evaluation itself these successive substitutions would be made when executing each `xAutoref` function:
+
+- `"xAutoref(3)"` &rarr; `"a"`
+- `"xAutoref(1)"` &rarr; `"f(e(c(a,b),xAutoref(3))"` &rarr; `"f(e(c(a,b),a"`
+- `"xAutoref(5)"` &rarr; `"xAutoref(3)"` &rarr; `"a"`
+- `"xAutoref(11)"` &rarr; `"c(a,b)"`
 
 
 Final decoded genotype result after substitutions is the last indexed subexpression:
