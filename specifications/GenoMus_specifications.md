@@ -1786,6 +1786,7 @@ Universal random search space. All vectors are a valid input.
 (Explain process of asigning autoreferencies)
 (Duplicates are removed)
 
+---------
 #### Conclusiones de los tests sobre posibles maneras de autorreferenciar:*
 - *La referencia por ruta (nodos atrás, y luego bifurcaciones hacia adelante) no es viable porque cuando aquí que referenciar al vuelo no está aún construidos los nodos de comunicación de la base).*
 
@@ -1809,7 +1810,7 @@ Universal random search space. All vectors are a valid input.
 
 - *Una función de autoreferencia guarda un registro aparte de lo que está autoreferenciando para poder hacer un cotejo cuando sea necesario.
 
-
+--------
 
 <img src="figures/autorefs_0.svg" width="310">
 
