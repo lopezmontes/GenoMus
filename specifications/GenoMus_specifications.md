@@ -1780,9 +1780,6 @@ Universal random search space. All vectors are a valid input.
 ---------
 ## Subexpressions and autoreferences
 
-(Autoreferences nodes are terminal as leaves)
-(Explain process of asigning autoreferencies)
-
 ---------
 #### *Conclusiones de los tests sobre posibles maneras de autorreferenciar:*
 - *La referencia por ruta (nodos atrás, y luego bifurcaciones hacia adelante) no es viable porque cuando aquí que referenciar al vuelo no está aún construidos los nodos de comunicación de la base).*
@@ -1894,6 +1891,7 @@ After mutation of leaves, the subexpressions are reevaluated with the new parame
 <br>**&darr;**<br>
 `q(g(f(c(r,s),r,t)),g(f(c(r,s),r,t)),l(k(r,u)),p(v,c(r,s),w))`
 
+(Autoreferences nodes are terminal as leaves)
 
 
 --------- 
