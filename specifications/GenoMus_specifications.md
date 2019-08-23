@@ -1841,16 +1841,17 @@ At the time of the evaluation of this expression, all the subexpressions (or nes
 "17": "m(f(e(c(a,b),xAutoref(3))),xAutoref(1),i(h(xAutoref(5),g)),l(j,xAutoref(11),k)"
 ```
 
-
 At the same time, during the evaluation itself these successive substitutions would be made when executing each `xAutoref` function:
 
 - `"xAutoref(3)"` &rarr; `"a"`
-- `"xAutoref(1)"` &rarr; `"f(e(c(a,b),xAutoref(3))"` &rarr; `"f(e(c(a,b),a"`
+- `"xAutoref(1)"` &rarr; `"f(e(c(a,b),xAutoref(3)))"` &rarr; `"f(e(c(a,b),a))"`
 - `"xAutoref(5)"` &rarr; `"xAutoref(3)"` &rarr; `"a"`
 - `"xAutoref(11)"` &rarr; `"c(a,b)"`
 
-
-Final decoded genotype result after substitutions is the last indexed subexpression:
+Final decoded genotype produced after all substitutions:
+`"m(f(e(c(a,b),xAutoref(3))),xAutoref(1),i(h(xAutoref(5),g)),l(j,xAutoref(11),k)"`
+&darr;
+`"m(f(e(c(a,b),a)),f(e(c(a,b),a)),i(h(a,g)),l(j,c(a,b),k)"`
 
 
 --------
