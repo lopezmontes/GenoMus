@@ -1783,7 +1783,7 @@ Universal random search space. All vectors are a valid input.
 ## Subexpressions and autoreferences
 
 *Conclusiones de los tests sobre posibles maneras de autorreferenciar:*
-*- La referencia por ruta (nodos atrás, y luego bifurcaciones hacia adelante) no es viable porque cuando aquí que referenciar al vuelo no está aún construidos los nodos de comunicación de la base)*
+- *La referencia por ruta (nodos atrás, y luego bifurcaciones hacia adelante) no es viable porque cuando aquí que referenciar al vuelo no está aún construidos los nodos de comunicación de la base)*
 
 
 
