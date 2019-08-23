@@ -1735,7 +1735,7 @@ The desired values for these features are coded as a dictionary, specifying the 
 ----------
 ## Comparison of profiles
 
-The adequacy level of an specimen to a requested profile is measured using a weighted version of the Euclidean distance formula:
+The adequacy of an specimen to a requested profile is measured using a weighted version of the Euclidean distance formula:
 
 <img src="formulae/euclidean_distance.svg" width="255">
 
