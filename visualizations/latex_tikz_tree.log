@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  23 AUG 2019 16:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  23 AUG 2019 19:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -881,7 +881,7 @@ Here is how much of TeX's memory you used:
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/in
 consolata/i4-t1-0.enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/in
 consolata/Inconsolata-zi4r.pfb>
-Output written on latex_tikz_tree.pdf (1 page, 19364 bytes).
+Output written on latex_tikz_tree.pdf (1 page, 19840 bytes).
 PDF statistics:
  16 PDF objects out of 1000 (max. 8388607)
  11 compressed objects within 1 object stream

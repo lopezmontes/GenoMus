@@ -30,7 +30,7 @@
         rounded corners=2.5mm, minimum width=5mm, minimum height=5mm, % node shape
         l sep=2mm % level distance
     }
-  [n,L1
+  [m,L1
     [f,L1, name=f, draw=autorefarrow, line width=0.9pt
     	[e,L1
 			[c,L1, name=c, draw=autorefarrow, line width=0.9pt
@@ -42,16 +42,16 @@
 		]
     ]
     [{\tiny xAutoref(1)},L2, name=auto1]
-    [j,L1
-    	[i,L1
+    [i,L1
+    	[h,L1
 			[{\tiny xAutoref(5)},L2, name=auto5]
-			[h,L1]
+			[g,L1]
 		]
     ]
-    [m,L1
-		[k,L1]
+    [l,L1
+		[j,L1]
 		[{\tiny xAutoref(11)},L2, name=auto11]
-		[l,L1]
+		[k,L1]
     ]
   ] 
   \draw[->, autorefarrow, line width=0.6pt] (auto1) to[out=east, in=south east] (f);  

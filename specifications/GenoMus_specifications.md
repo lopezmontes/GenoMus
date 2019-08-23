@@ -1824,24 +1824,22 @@ Letters within the nodes represent function names.
 "2": "b",
 "3": "c(a,b)",
 "4": "xAutoref(3)",
-"5": "d`
-"6": "e(c(a,b),xAutoref(3)`
-"7": "e`
-"8": "
-"9: "
-"10": "
-"11": "
-"12": "
-"13": "
-"14": "
-"15": "
-"16": "
-"17": "
-"18": "
-"19": "
+"5": "d",
+"6": "e(c(a,b),xAutoref(3)",
+"7": "f(e(c(a,b),xAutoref(3))",
+"8": "xAutoref(1)",
+"9": "xAutoref(5)",
+"10": "g",
+"11": "h(xAutoref(5),g)",
+"12": "i(h(xAutoref(5),g))",
+"13": "j",
+"14": "xAutoref(11)",
+"15": "k",
+"16": "l(j,xAutoref(11),k)",
+"17": "m(f(e(c(a,b),xAutoref(3))),xAutoref(1),i(h(xAutoref(5),g)),l(j,xAutoref(11),k)"
 ```
 
-Substitutions:
+Effects after evaluation of autoreferences:
 
 `"xAutoref(3)"` &rarr; `"a"`
 
