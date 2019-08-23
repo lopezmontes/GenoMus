@@ -1786,7 +1786,7 @@ Universal random search space. All vectors are a valid input.
 (Explain process of asigning autoreferencies)
 (Duplicates are removed)
 
-*Conclusiones de los tests sobre posibles maneras de autorreferenciar:*
+#### Conclusiones de los tests sobre posibles maneras de autorreferenciar:*
 - *La referencia por ruta (nodos atrás, y luego bifurcaciones hacia adelante) no es viable porque cuando aquí que referenciar al vuelo no está aún construidos los nodos de comunicación de la base).*
 
 - *La referencia directa al número absoluto de subexpresión no funciona después de ciertos casos de growTrunk (con nodos anteriores al injerto, que cambian la numeración), ni de growBranches. Las soluciones son muy aparatosas.*
@@ -1803,7 +1803,7 @@ Universal random search space. All vectors are a valid input.
   - *Al hacer **insertBranch**, de nuevo sólo problema si la inserción está en una rama intermedia de la autorreferencia. Estudiar solución como en la anterior. Una opción es dejar que la autorreferencia cambie al punto correspondiente, sin más. Otra opción, tratar de hacer un cotejo previo, si no coincide la autorreferencia, se trata de corregir buscando la expresión (dado que es única y no hay duplicados) y cambiando el parámetro de autoref. Si la función ha desaparecido, la autoreferencia toma argumento 0 y es una función de efecto nulo.*
   - *Con **flattenBranch**, si después del cotejo la función ha desaparecido, se renderiza el contenido con el respaldo archivado de autoreferencias.*
   - *Con **pruneBranch** no tiene sentido renderizar la autoreferencia, dado que la fuente ha sido anulada. Si se consigue hacer el cotejo, si no existe la función para referenciar se hace autoref nula.*
-  - *Al hacer **splitGen**, las referencias que sobrevivan se quedan, las que no pasan a ser nulas. 
+  - *Al hacer **splitGen**, las referencias que sobrevivan se quedan, las que no pasan a ser nulas.*
   
 - *A la hora de construir genotipos, si se crea una autoreferencia imposible se veta y se cambia a otra función no de autoreferencia. Así evitamos las autoref(0) que no significan nada.*
 
