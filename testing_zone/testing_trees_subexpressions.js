@@ -28,8 +28,13 @@ var indexSubExpr = function (expr) {
 }
 
 var autoref = function (i) {
-    i = i%subExpressions.length;
-    var newSubExp = "autoref(" + i + ")";  
-    console.log("I will eval " + subExpressions[i][1]);
-    return indexSubExpr(newSubExp);
+    i = (i-1)%(subExpressions.length) + 1;
+    if (i==0) { 
+        console.log("not possible autoref");
+    }
+    else {
+        var newSubExp = "autoref(" + i + ")";  
+        console.log("I will eval " + subExpressions[subExpressions.length - i][1]);
+        return indexSubExpr(newSubExp);        
+    }
 }
