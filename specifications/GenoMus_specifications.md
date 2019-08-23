@@ -1782,6 +1782,12 @@ Universal random search space. All vectors are a valid input.
 ---------
 ## Subexpressions and autoreferences
 
+*Conclusiones de los tests sobre posibles maneras de autorreferenciar:*
+*- La referencia por ruta (nodos atrás, y luego bifurcaciones hacia adelante) no es viable porque cuando aquí que referenciar al vuelo no está aún construidos los nodos de comunicación de la base)*
+
+
+
+
 <img src="figures/autorefs_0.svg" width="310">
 
 <br>**1:** `a`
@@ -1809,7 +1815,6 @@ Final decoded genotype result after substitutions is the last indexed subexpress
 --------
 ### Autoreferences after *mutateLeaves*
 
-*Conclusiones de los tests sobre posibles maneras de autorreferenciar:*
 
 <img src="figures/autorefs_mutate.svg" width="310">
 
