@@ -1784,7 +1784,6 @@ Universal random search space. All vectors are a valid input.
 
 (Autoreferences nodes are terminal as leaves)
 (Explain process of asigning autoreferencies)
-(Duplicates are removed)
 
 ---------
 #### *Conclusiones de los tests sobre posibles maneras de autorreferenciar:*
