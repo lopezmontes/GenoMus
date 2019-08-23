@@ -1821,12 +1821,12 @@ Letters within the nodes represent function names.
 
 ```
 "1": "a",
-"2": "b`
-"3": "c(a,b)`
-"4": "xAutoref(3)` &rarr; `a`
+"2": "b",
+"3": "c(a,b)",
+"4": "xAutoref(3)",
 "5": "d`
 "6": "e(c(a,b),xAutoref(3)`
-"7": "d`
+"7": "e`
 "8": "
 "9: "
 "10": "
