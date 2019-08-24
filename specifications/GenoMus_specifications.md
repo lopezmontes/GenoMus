@@ -158,15 +158,15 @@ To enable automatic chaining of functions, all functions inside a genotype share
 
 key                | data type                      | description
 | ---------------- | ------------------------------ | -----------
-**funcType**       | string                         | Function type according to its output (see [function types](#function-types-for-genotypes)).
-**encPhen**        | array of floats &isinv; [0, 1] | Encoded phenotype excerpt. Transformation of the input data made with the compositional procedures of the function itself.
-**decGen**         | string                         | Decoded genotype excerpt. Functional expression of the genotype branch computed until that node, including the function itself.
-**subexpressions** | dictionary                     | Subexpressions generated so far, available to be used as [autoreferences](#subexpressions-and-autoreferences).
-**phenLength**     | integer                        | Number of phenotype events generated so far. Useful for subsequent functions to avoid overly large processes.
-**tempo**          | float                          | Tempo of the phenotype. The float uses the [durationF](#durationf-d) format to indicate the duration of a quarter note. Default value: 0.6 (equivalent to &#9833;= 60)
-**rhythm**         | dictionary                     | Rhythmic grid characterized following this [data structure](#rhythmic-grid).
-**harmony**        | dictionary                     | Harmonic grid characterized following this [data structure](#harmonic-grid).
-**analysis**       | dictionary                     | Autoanalysis of different musical features following this [data structure](#requested-profile).
+**funcType**       | string                         | [**Function type**](#function-types-for-genotypes) according to its output.
+**encPhen**        | array of floats &isinv; [0, 1] | **Encoded phenotype** excerpt. Transformation of the input data made with the compositional procedures of the function itself.
+**decGen**         | string                         | **Decoded genotype** excerpt. Functional expression of the genotype branch computed until that node, including the function itself.
+**subexpressions** | dictionary                     | **Subexpressions** generated so far, available to be used as [autoreferences](#subexpressions-and-autoreferences).
+**phenLength**     | integer                        | **Number of events** generated so far. Useful for subsequent functions to avoid overly large processes.
+**tempo**          | float                          | **Tempo** of the phenotype. The float uses the [durationF](#durationf-d) format to indicate the duration of a quarter note. Default value: 0.6 (equivalent to &#9833;= 60)
+**rhythm**         | dictionary                     | [**Rhythmic grid**](#rhythmic-grid).
+**harmony**        | dictionary                     | [**Harmonic grid**](#harmonic-grid).
+**analysis**       | dictionary                     | **Autoanalysis** of different [musical features](#requested-profile).
 
 First six elements are compulsory for every function inside a genotype. Informations about rhythm and harmony can be useful for subsequent functions, but they are optional. 
 
