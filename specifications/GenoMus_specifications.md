@@ -156,18 +156,19 @@ The names of the input arguments are of free choice.
 ## Output data structure 
 To enable automatic chaining of functions, all functions inside a genotype share the same output data structure. This output data is returned within an array according to the following order of elements:
 
-| index | variable name  | data type                      | description
-| ----- | -------------- | ------------------------------ | -----------
-| 0     | **funcType**   | string                         | Function type according to its output (see [reference](#function-types-for-genotypes)).
-| 1     | **decGen**  | string                         | Decoded genotype excerpt. Functional expression of the genotype branch computed until that node, including the function itself.
-| 2     | **encPhen** | array of floats &isinv; [0, 1] | Encoded phenotype excerpt. Transformation of the input data made with the compositional procedures of the function itself.
-| 3     | **phenLength** | integer                        | Number of phenotype events generated so far. Useful for subsequent functions to avoid overly large processes.
-| 4     | **tempo**      | float                          | Tempo of the phenotype. The float uses the [durationF](#durationf-d) format to indicate the duration of a quarter note. Default value: 0.6 (equivalent to &#9833;= 60)
-| 5     | **rhythm**     | dictionary                     | Rhythmic grid characterized following this [data structure](#rhythmic-grid).
-| 6     | **harmony**    | dictionary                     | Harmonic grid characterized following this [data structure](#harmonic-grid).
-| 7     | **analysis**   | dictionary                     | Autoanalysis of different musical features following this [data structure](#requested-profile).
+| index | variable name      | data type                        | description
+| ----- | ------------------ | -------------------------------- | -----------
+| 0     | **funcType**       | string                           | Function type according to its output (see [function types](#function-types-for-genotypes)).
+| 1     | **encPhen**        | array of floats &isinv; [0, 1]   | Encoded phenotype excerpt. Transformation of the input data made with the compositional procedures of the function itself.
+| 2     | **decGen**         | string                           | Decoded genotype excerpt. Functional expression of the genotype branch computed until that node, including the function itself.
+| 3     | **subexpressions** | dictionary                       | Subexpressions generated so far, available to be used as [autoreferences](#subexpressions-and-autoreferences).
+| 4     | **phenLength**     | integer                          | Number of phenotype events generated so far. Useful for subsequent functions to avoid overly large processes.
+| 5     | **tempo**          | float                            | Tempo of the phenotype. The float uses the [durationF](#durationf-d) format to indicate the duration of a quarter note. Default value: 0.6 (equivalent to &#9833;= 60)
+| 6     | **rhythm**         | dictionary                       | Rhythmic grid characterized following this [data structure](#rhythmic-grid).
+| 7     | **harmony**        | dictionary                       | Harmonic grid characterized following this [data structure](#harmonic-grid).
+| 8     | **analysis**       | dictionary                       | Autoanalysis of different musical features following this [data structure](#requested-profile).
 
-First five elements are compulsory for every function inside a genotype. Informations about rhythm and harmony can be useful for subsequent functions, but they are optional. 
+First six elements are compulsory for every function inside a genotype. Informations about rhythm and harmony can be useful for subsequent functions, but they are optional. 
 
 Variable names inside each genotype function are not compulsory, but is highly recommended to maintain the same nomenclature to improve code readability and reusability.
 
