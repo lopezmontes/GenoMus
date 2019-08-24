@@ -166,7 +166,7 @@ key                | data type                      | description
 **tempo**          | float                          | **Tempo** of the phenotype. The float uses the [durationF](#durationf-d) format to indicate the duration of a quarter note. Default value: 0.6 (equivalent to &#9833;= 60)
 **rhythm**         | dictionary                     | [**Rhythmic grid**](#rhythmic-grid).
 **harmony**        | dictionary                     | [**Harmonic grid**](#harmonic-grid).
-**analysis**       | dictionary                     | **Autoanalysis** of different [musical features](#specimen_autoanalytic_profile).
+**analysis**       | dictionary                     | **Autoanalysis** of different [musical features](#specimen-autoanalytic-profile).
 
 First six elements are compulsory for every function inside a genotype. Informations about rhythm and harmony can be useful for subsequent functions, but they are optional. 
 
