@@ -38,3 +38,5 @@ var autoref = function (i) {
         return indexSubExpr(newSubExp);        
     }
 }
+
+var add = (a, b) => a + b;
