@@ -39,4 +39,14 @@ var autoref = function (i) {
     }
 }
 
-var add = (a, b) => a + b;
+var p = x => ({
+        decGen: "p(" + x + ")",
+        encPhen: [x]
+    });
+
+var p = x => ({
+        decGen: "p(" + x + ")",
+        encPhen: [x]
+    });
+
+    
