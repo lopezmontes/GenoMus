@@ -39,49 +39,74 @@ var autoref = function (i) {
     }
 }
 
-var pRnd = x => {
-    var rnd = Math.random();
-    var decodedGen = "pRnd()";
+
+
+var p = x => {
+    var decodedGen = "p(" + x + ")";
+    subexpressions.push(decodedGen);
     return ({
         funcType: "leaf",
         decGen: decodedGen,
-        encPhen: [rnd],
-        subexpressions: [decodedGen],
+        encPhen: [x],
         phenLength: 1
     })
 };
 
-var p = x => ({
-    funcType: "leaf",
-    decGen: "p(" + x + ")",
-    encPhen: [x],
-    subexpressions: ["p(" + x + ")"],
-    phenLength: 1
-});
+var pRnd = () => {
+    var rnd = Math.random();
+    var decodedGen = "p(" + rnd + )";
+    subexpressions.push(decodedGen);
+    return ({
+        funcType: "leaf",
+        decGen: decodedGen,
+        encPhen: [rnd],
+        phenLength: 1
+    })
+};
 
-var square = x => ({
-    funcType: "generic",
-    decGen: "square(" + x.decGen + ")",
-    encPhen: [x.encPhen*x.encPhen],
-    subexpressions: x.subexpressions.concat("square(" + x.decGen + ")"),
-    phenLength: 1
-});
+var square = x => {
+    var rnd = Math.random();
+    var decodedGen = "square(" + x.decGen + ")";
+    subexpressions.push(decodedGen);
+    return ({
+        funcType: "generic",
+        decGen: decodedGen,
+        encPhen: [x.encPhen*x.encPhen],
+        phenLength: 1
+    })
+};
 
-var repeatNum = (x, y) => ({
-    funcType: "generic",
-    decGen: "repeatNum(" + x.decGen + ", " + y.decGen + ")",
-    encPhen:  Array(y.encPhen[0]).fill(x.encPhen[0]),
-    subexpressions: x.subexpressions.concat(y.subexpressions).concat("repeatNum(" + x.decGen + ", " + y.decGen + ")"),
-    phenLength: y.encPhen[0]
-}); 
+var repeatNum = (val, times) => {
+    var rnd = Math.random();
+    var decodedGen = "repeatNum(" + val.decGen + ", " + times.decGen + ")";
+    subexpressions.push(decodedGen);
+    return ({
+        funcType: "generic",
+        decGen: decodedGen,
+        encPhen: Array(times.encPhen[0]).fill(val.encPhen[0]),
+        phenLength: times.encPhen[0]
+    })
+}; 
     
-var iter = (x, y) => {
-    var decodedGen = "iter(" + x.decGen + ", " + y.decGen + ")";
+var iter = (expr, times) => {
+    var decodedGen = "iter(" + expr.decGen + ", " + times.decGen + ")";
+    subexpressions.push(decodedGen);
     return ({    
         funcType: "generic",
         decGen: decodedGen,
-        encPhen: Array(y.encPhen[0]).fill(eval(x.decGen).encPhen[0]),
-        subexpressions: x.subexpressions.concat(y.subexpressions).concat(decodedGen),
+        encPhen: Array(times.encPhen[0]).fill(1).map(x => eval(expr.decGen).encPhen[0]),
+        phenLength: times.encPhen[0]
+    })
+};
+
+var autoref = a => {
+    var decodedGen = "autoref(" + a + ")";
+    subexpressions.push(decodedGen);
+    return ({
+        funcType: "generic",
+        decGen: decodedGen,
+        encPhen: [],
+        subexpressions: x.subexpressions.concat(y.subexpressions).concat("repeatNum(" + x.decGen + ", " + y.decGen + ")"),
         phenLength: y.encPhen[0]
     })
 };
