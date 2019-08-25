@@ -39,14 +39,38 @@ var autoref = function (i) {
     }
 }
 
-var p = x => ({
-        decGen: "p(" + x + ")",
-        encPhen: [x]
-    });
+var pRnd = x => 
+    var rnd = Math.random();
+    var decodedGen = "pRnd()";
+    return ({
+    funcType: "leaf",
+    decGen: decodedGen,
+    encPhen: [rnd],
+    subexpressions: [decodedGen],
+    phenLength: 1
+});
 
 var p = x => ({
-        decGen: "p(" + x + ")",
-        encPhen: [x]
-    });
+    funcType: "leaf",
+    decGen: "p(" + x + ")",
+    encPhen: [x],
+    subexpressions: ["p(" + x + ")"],
+    phenLength: 1
+});
 
+var square = x => ({
+    funcType: "generic",
+    decGen: "square(" + x.decGen + ")",
+    encPhen: [x.encPhen*x.encPhen],
+    subexpressions: x.subexpressions.concat("square(" + x.decGen + ")"),
+    phenLength: 1
+});
+
+var repeatNum = (x, y) => ({
+    funcType: "generic",
+    decGen: "repeatNum(" + x.decGen + ", " + y.decGen + ")",
+    encPhen:  Array(y.encPhen[0]).fill(x.encPhen[0]),
+    subexpressions: x.subexpressions.concat(y.subexpressions).concat("repeatNum(" + x.decGen + ", " + y.decGen + ")"),
+    phenLength: y.encPhen[0]
+});
     
