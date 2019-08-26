@@ -581,7 +581,7 @@ function encodedPhenotype2bachScore(encodedPhenotype) {
 // and to return pheno/geno pair
 var writeSubexpressionAndReturnData = function (functionType, encodedPhenotypeOutput, decodedGenotypeOutput) {
     var subexpressionRepeated = -1;
-    var subexpressionsIndexed = subexpressions[functionType].length;    // if subexpression is founded, returns its value withouth indexing it
+    var subexpressionsIndexed = subexpressions[functionType].length;    // if subexpression is founded, returns its value without indexing it
     for (var a = 0; a<subexpressionsIndexed; a++) {
         subexpressionRepeated = decodedGenotypeOutput.localeCompare(subexpressions[functionType][a]);
         if (subexpressionRepeated == 0) {

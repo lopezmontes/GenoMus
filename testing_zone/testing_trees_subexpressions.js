@@ -1,5 +1,8 @@
 var subExpressions = [];
 
+// round fractional part to 6 digits
+var r6d = f => Math.round(f*1000000)/1000000;
+
 var testTree = function (tree) {
     subExpressions = [];
     eval(tree);
@@ -53,9 +56,9 @@ var p = x => {
 };
 
 var pRnd = () => {
-    var rnd = Math.random();
-    var decodedGen = "p(" + rnd + )";
-    subexpressions.push(decodedGen);
+    var rnd = r6d(Math.random());
+    var decodedGen = "pRnd()";
+    subexpressions.push("p(" + rnd + ")"); // for autereferences the actual value is stored
     return ({
         funcType: "leaf",
         decGen: decodedGen,
@@ -99,14 +102,27 @@ var iter = (expr, times) => {
     })
 };
 
-var autoref = a => {
-    var decodedGen = "autoref(" + a + ")";
+var autoref = index => {
+    subexprLength = subexpressions.length;
+    if (subexprLength == 0) {
+        // returns null event
+        return "nulo"
+    }
+    // index = (subexprLength - index % subexprLength) % subexprLength;
+    index %= subexprLength; 
+    var decodedGen = "autoref(" + index + ")";
+    console.log("funcion " + index);
+    encodedPhenotype = eval(subexpressions[index]).encPhen;
     subexpressions.push(decodedGen);
     return ({
-        funcType: "generic",
+        funcType: "leaf",
         decGen: decodedGen,
-        encPhen: [],
-        subexpressions: x.subexpressions.concat(y.subexpressions).concat("repeatNum(" + x.decGen + ", " + y.decGen + ")"),
-        phenLength: y.encPhen[0]
+        encPhen: encodedPhenotype,
+        phenLength: encodedPhenotype.length
     })
 };
+
+function neg (i,l) {
+    if (i==0) { return "nulo"};
+    return (l-i%l)%l;
+}
