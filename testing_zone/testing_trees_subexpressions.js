@@ -17,29 +17,26 @@ function initSubexpressionsArrays() {
 
 initSubexpressionsArrays();
 
-//
+// indexes subexpressions and formats output data
 var storeSubexprReturnData = (funcType, decGen, encPhen, phenLength) => {
     var subexpressionRepeated = -1;
-    var subexpressionsIndexed = subexpressions[funcType].length;    // if subexpression is founded, returns its value without indexing it
-    for (var a = 0; a < subexpressionsIndexed; a++) {
-        subexpressionRepeated = decGen.localeCompare(subexpressions[funcType][a]);
-        if (subexpressionRepeated == 0) {
-            return ({
-                funcType: funcType,
-                decGen: decGen,
-                encPhen: encPhen,
-                phenLength: phenLength
-            })        
-        }
-    }    
-    // if subexpression is new, idexes it and returns value
-    subexpressions[funcType].push(decGen);
-    return ({
+    var subexpressionsIndexed = subexpressions[funcType].length;    
+    var outputData = {
         funcType: funcType,
         decGen: decGen,
         encPhen: encPhen,
         phenLength: phenLength
-    })
+    }
+    // if subexpression is founded, returns only data
+    for (var a = 0; a < subexpressionsIndexed; a++) {
+        subexpressionRepeated = decGen.localeCompare(subexpressions[funcType][a]);
+        if (subexpressionRepeated == 0) {
+            return outputData;      
+        }
+    }    
+    // if subexpression is new, idexes it and returns data
+    subexpressions[funcType].push(decGen);
+    return outputData;
 };   
 
 // round fractional part to 6 digits
@@ -111,11 +108,8 @@ var pAutoref = index => {
     return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
 };
 
-function neg (i,l) {
-    if (i==0) { return "nulo"};
-    return (l-i%l)%l;
-}
-
+//////////
+// testing
 
 initSubexpressionsArrays();
 console.log(subexpressions);
@@ -124,5 +118,5 @@ lIterExpr(pAdd(p(34),pRnd()),p(4));
 pAdd(p(34),pRnd());
 p(45);
 
-tt("pAdd(p(39),pAutoref(44567))");
-tt("pAdd(pSquare(p(2)),pAutoref(29))");
+tt("pAdd(p(39),pAutoref(1))");
+tt("pAdd(pSquare(p(2)),pAutoref(27))");
