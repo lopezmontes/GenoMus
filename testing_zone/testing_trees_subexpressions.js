@@ -94,10 +94,11 @@ var repeatNum = (val, times) => {
 var iter = (expr, times) => {
     var decodedGen = "iter(" + expr.decGen + ", " + times.decGen + ")";
     subexpressions.push(decodedGen);
+    var encodedPhenotype = Array(times.encPhen[0]).fill().map(() => eval(expr.decGen).encPhen).reduce((acc, val) => acc.concat(val), []);;
     return ({    
         funcType: "generic",
         decGen: decodedGen,
-        encPhen: Array(times.encPhen[0]).fill(1).map(x => eval(expr.decGen).encPhen[0]),
+        encPhen: encodedPhenotype,
         phenLength: times.encPhen[0]
     })
 };
