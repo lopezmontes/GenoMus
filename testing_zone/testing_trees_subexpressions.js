@@ -1,129 +1,113 @@
-var subExpressions = [];
+var subexpressions = [];
+
+function initSubexpressionsArrays() {
+    subexpressionsindex = {};
+    subexpressions["listF"] = [];
+    subexpressions["paramF"] = [];
+    encodedLeaves = [];    
+    leaves = [];
+}
+
+initSubexpressionsArrays();
+
+//
+var storeSubexprReturnData = (funcType, decGen, encPhen, phenLength) => {
+    var subexpressionRepeated = -1;
+    var subexpressionsIndexed = subexpressions[funcType].length;    // if subexpression is founded, returns its value without indexing it
+    for (var a = 0; a < subexpressionsIndexed; a++) {
+        subexpressionRepeated = decGen.localeCompare(subexpressions[funcType][a]);
+        if (subexpressionRepeated == 0) {
+            return ({
+                funcType: funcType,
+                decGen: decGen,
+                encPhen: encPhen,
+                phenLength: phenLength
+            })        
+        }
+    }    
+    // if subexpression is new, idexes it and returns value
+    subexpressions[funcType].push(decGen);
+    return ({
+        funcType: funcType,
+        decGen: decGen,
+        encPhen: encPhen,
+        phenLength: phenLength
+    })
+};   
 
 // round fractional part to 6 digits
 var r6d = f => Math.round(f*1000000)/1000000;
 
-var testTree = function (tree) {
-    subExpressions = [];
-    eval(tree);
-    console.log(subExpressions);
-}
-
-// create a subexpression
-var f = function (inheritExpr) {
-    var newSubExp = "f(" + inheritExpr[0] + ")";
-    return indexSubExpr(newSubExp);
-}
-
-var g = function (inheritExprA, inheritExprB) {
-    var newSubExp = "g(" + inheritExprA[0] + "," + inheritExprB[0] + ")";
-    return indexSubExpr(newSubExp);
-}
-
-var l = function () {
-    var newSubExp = "l()";
-    return indexSubExpr(newSubExp);
-}
-
-var indexSubExpr = function (expr) {
-    subExpressions.push([subExpressions.length, expr]);
-    return expr;
-}
-
-var autoref = function (i) {
-    i = (i-1)%(subExpressions.length) + 1;
-    if (i==0) { 
-        console.log("not possible autoref");
-    }
-    else {
-        var newSubExp = "autoref(" + i + ")";  
-        console.log("I will eval " + subExpressions[subExpressions.length - i][1]);
-        return indexSubExpr(newSubExp);        
-    }
-}
-
-
-
 var p = x => {
-    var decodedGen = "p(" + x + ")";
-    subexpressions.push(decodedGen);
-    return ({
-        funcType: "leaf",
-        decGen: decodedGen,
-        encPhen: [x],
-        phenLength: 1
-    })
+    var funcType = "paramF";
+    var decGen = "p(" + x + ")";
+    var encPhen = [x];
+    var phenLength = 1;
+    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
 };
 
 var pRnd = () => {
+    var funcType = "paramF";
     var rnd = r6d(Math.random());
-    var decodedGen = "pRnd()";
-    subexpressions.push("p(" + rnd + ")"); // for autereferences the actual value is stored
-    return ({
-        funcType: "leaf",
-        decGen: decodedGen,
-        encPhen: [rnd],
-        phenLength: 1
-    })
+    var decGen = "pRnd()";
+    var encPhen = [rnd];
+    var phenLength = 1;
+    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
 };
 
-var square = x => {
+var pSquare = x => {
+    var funcType = "paramF";
     var rnd = Math.random();
-    var decodedGen = "square(" + x.decGen + ")";
-    subexpressions.push(decodedGen);
-    return ({
-        funcType: "generic",
-        decGen: decodedGen,
-        encPhen: [x.encPhen*x.encPhen],
-        phenLength: 1
-    })
+    var decGen = "pSquare(" + x.decGen + ")";
+    var encPhen = [x.encPhen[0] * x.encPhen[0]];
+    var phenLength = 1;
+    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
 };
 
-var repeatNum = (val, times) => {
+var pAdd = (a, b) => {
+    var funcType = "paramF";
+    var decGen = "pAdd(" + a.decGen + ", " + b.decGen + ")";
+    var encPhen = [a.encPhen[0] + b.encPhen[0]];
+    var phenLength = 1;
+    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
+};
+
+var lRepeatNum = (val, times) => {
+    var funcType = "listF";
     var rnd = Math.random();
-    var decodedGen = "repeatNum(" + val.decGen + ", " + times.decGen + ")";
-    subexpressions.push(decodedGen);
-    return ({
-        funcType: "generic",
-        decGen: decodedGen,
-        encPhen: Array(times.encPhen[0]).fill(val.encPhen[0]),
-        phenLength: times.encPhen[0]
-    })
-}; 
+    var decGen = "lRepeatNum(" + val.decGen + ", " + times.decGen + ")";
+    var encPhen = Array(times.encPhen[0]).fill(val.encPhen[0]);
+    var phenLength = times.encPhen[0];
+    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
+};
     
-var iter = (expr, times) => {
-    var decodedGen = "iter(" + expr.decGen + ", " + times.decGen + ")";
-    subexpressions.push(decodedGen);
-    var encodedPhenotype = Array(times.encPhen[0]).fill().map(() => eval(expr.decGen).encPhen).reduce((acc, val) => acc.concat(val), []);;
-    return ({    
-        funcType: "generic",
-        decGen: decodedGen,
-        encPhen: encodedPhenotype,
-        phenLength: times.encPhen[0]
-    })
+var lIterExpr = (expr, times) => {
+    var funcType = "listF";
+    var decGen = "lIterExpr(" + expr.decGen + ", " + times.decGen + ")";
+    var encPhen = Array(times.encPhen[0]).fill().map(() => eval(expr.decGen).encPhen).reduce((acc, val) => acc.concat(val), []);;
+    var phenLength = times.encPhen[0];
+    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
 };
 
-var autoref = index => {
-    subexprLength = subexpressions.length;
+var pAutoref = index => {
+    var funcType = "paramF";
+    var subexprLength = subexpressions[funcType].length;
     if (subexprLength == 0) {
-        // returns null event
-        return "nulo"
-    }
-    // index = (subexprLength - index % subexprLength) % subexprLength;
-    index %= subexprLength; 
-    var decodedGen = "autoref(" + index + ")";
-    console.log("funcion " + index);
-    encodedPhenotype = eval(subexpressions[index]).encPhen;
-    subexpressions.push(decodedGen);
-    return ({
-        funcType: "leaf",
-        decGen: decodedGen,
-        encPhen: encodedPhenotype,
-        phenLength: encodedPhenotype.length
-    })
+        return "nulo";
+    } 
+    var decGen = "pAutoref(" + index + ")";
+    // index indicates the chosen function counting backwards  
+    var convertedIndex = (subexprLength - index % subexprLength) % subexprLength;
+    console.log("funcion " + convertedIndex);
+    var encPhen = eval(subexpressions[funcType][convertedIndex]).encPhen;
+    var phenLength = encPhen.length;
+    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
 };
 
 function neg (i,l) {
     if (i==0) { return "nulo"};
     return (l-i%l)%l;
 }
+
+
+

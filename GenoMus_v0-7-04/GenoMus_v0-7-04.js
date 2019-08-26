@@ -399,7 +399,7 @@ function decodeGenotype (encodedGenotype) {
     
 
     
-// reevaluate expression from manuel input in Max    
+// reevaluate expression from manual input in Max    
 function evalTextInputGenotype (decodedGenotype) {
     initSubexpressionsArrays();
     // get library of functions data

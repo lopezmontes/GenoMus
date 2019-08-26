@@ -192,7 +192,7 @@ var <iFunctionName> = function (argument1, argument2, ..., argumentN) {
     < analitycs block > // stores some analytical measurement to be inherited by next functions. Its objective is to facilitate the estimation of global musical characteristics to compare with the requested profile.
     
     var decGen = "<iFunctionName>(" + argument1[1] + "," + + argument2[1] + "," + ... argumentN[1] + ")"; // creates a string as a self-reference of the functional expression that has been evaluated.
-    return writeSubexprReturnData(funcType, decGen, encPhen, phenLength, tempo, rhythm, harmony, analysis);
+    return storeSubexprReturnData(funcType, decGen, encPhen, phenLength, tempo, rhythm, harmony, analysis);
 };
 ```
 
