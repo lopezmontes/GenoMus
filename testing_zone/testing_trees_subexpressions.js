@@ -108,3 +108,5 @@ function neg (i,l) {
     if (i==0) { return "nulo"};
     return (l-i%l)%l;
 }
+
+// from VS
