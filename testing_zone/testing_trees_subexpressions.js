@@ -1,3 +1,10 @@
+var tt = function (decGenotype) {
+    initSubexpressionsArrays();
+    var output = (eval(decGenotype));
+    console.log(subexpressions);
+    return output;
+}
+
 var subexpressions = [];
 
 function initSubexpressionsArrays() {
@@ -95,10 +102,10 @@ var pAutoref = index => {
     if (subexprLength == 0) {
         return "nulo";
     } 
+    index = index % subexprLength + 1;
     var decGen = "pAutoref(" + index + ")";
     // index indicates the chosen function counting backwards  
     var convertedIndex = (subexprLength - index % subexprLength) % subexprLength;
-    console.log("funcion " + convertedIndex);
     var encPhen = eval(subexpressions[funcType][convertedIndex]).encPhen;
     var phenLength = encPhen.length;
     return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
@@ -109,4 +116,13 @@ function neg (i,l) {
     return (l-i%l)%l;
 }
 
-// from VS
+
+initSubexpressionsArrays();
+console.log(subexpressions);
+pAdd(p(34),pAutoref(1));
+lIterExpr(pAdd(p(34),pRnd()),p(4));
+pAdd(p(34),pRnd());
+p(45);
+
+tt("pAdd(p(39),pAutoref(44567))");
+tt("pAdd(pSquare(p(2)),pAutoref(29))");
