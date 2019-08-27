@@ -6,7 +6,7 @@ var version = "0.7.4"
 var encodedGenotypeCreator = function () {
     var encodedGen = [];
     for (var a=0; a<1000; a++) {
-        encodedGen.push(Math.round(rng()*1e6)/1e6);
+        encodedGen.push(Math.round(Math.random()*1e6)/1e6);
     }
     return encodedGen;
 }
@@ -70,8 +70,8 @@ function rng() {
 //////////
 
 
-var currentSeed = Math.round(rng()*1e14);
-var evaluationSeed = Math.round(rng()*1e14);
+var currentSeed = Math.round(Math.random()*1e14);
+var evaluationSeed = Math.round(Math.random()*1e14);
 
 // global parameters controlled from Max patch
 var subexpressions = {}; // stores all created subexpressiones during evaluation of genotypes
@@ -174,7 +174,7 @@ maxAPI.addHandler('testManualGen', (...args) => {
 maxAPI.addHandler('mutateEncodedGenotype', (probabilityOfMutation, amountOfMautation) => {
     var alteredValue;
     for (var a=0; a<currentLeavesStructure.length; a++) {
-        if (rng() < probabilityOfMutation) {
+        if (Math.random() < probabilityOfMutation) {
             alteredValue = Math.round((currentLeavesStructure[a][1] + (Math.round(Math.random()*1e5)/1e5 - 0.5) * amountOfMautation)*1e5)/1e5;
             if (alteredValue < 0) {
                 alteredValue = 0
@@ -232,7 +232,7 @@ function createGenotype () {
             var decodedGenotype = "";
             var numElegibleFunctions;
             do {
-                encodedGenotype.push(Math.round(rng()*1e6)/1e6);
+                encodedGenotype.push(Math.round(Math.random()*1e6)/1e6);
                 p++;
                 // new ramification of genotype
                 // maxAPI.post("last written function is " + chosenFunction);
@@ -252,7 +252,7 @@ function createGenotype () {
                 // add a numerical leaf value
                 else {
                     encodedGenotype[p] = 0; // change value to 0 for make genotypes syntax independent from leaf newFunctionThreshold value
-                    newLeaf = Math.round(rng()*1e6)/1e6;
+                    newLeaf = Math.round(Math.random()*1e6)/1e6;
                     encodedGenotype.push(newLeaf);
                     p++;
                     // add primitive function, leaves of functions tree
@@ -292,17 +292,18 @@ function createGenotype () {
         // currentGenotype = evaluatedGenotype;
         // maxAPI.post("dec: " + decodedGenotype);
         // maxAPI.post("Pheno length: " + evaluatedGenotype[0].length); 
-        // update seed according to last value of rng(), to keep the iterations repeatable
+        // update seed according to last value of Math.random(), to keep the iterations repeatable
         // track seed used for genotype creation    
         usedSeed = currentSeed;
         // creates and saves new derived seed value only for evaluations (to be independent of seed for genotype creation)
-        evaluationSeed = Math.round(rng()*1e14); 
+        evaluationSeed = Math.round(Math.random()*1e14); 
         // seeding before genotype evaluation
-        rng = seedrandom(evaluationSeed); 
+        rng = Math.random(); // PARCHE
+        // rng = seedrandom(evaluationSeed); 
         evaluatedGenotype = evalAndReturnExpression(decodedGenotype);
         // creates new seed for genotype creation before new iteration, if necessary
-        currentSeed = Math.round(rng()*1e14); 
-        rng = seedrandom(currentSeed); 
+        currentSeed = Math.round(Math.random()*1e14); 
+        rng = Math.random(); // PARCHE
     } while ((evaluatedGenotype[0].length < phenotypeMinimalLength || evaluatedGenotype[0].length > phenotypeMaximalLength) && iterations < maxIterations)
     var stopdate = new Date();
     // maxAPI.post(encodedGenotype);
@@ -408,16 +409,16 @@ function decodeGenotype (encodedGenotype) {
     // currentGenotype = evaluatedGenotype;
     // maxAPI.post("dec: " + decodedGenotype);
     // maxAPI.post("Pheno length: " + evaluatedGenotype[0].length); 
-    // update seed according to last value of rng(), to keep the iterations repeatable
+    // update seed according to last value of Math.random(), to keep the iterations repeatable
     // track seed used for genotype creation    
     usedSeed = currentSeed;
     // creates and saves new derived seed value only for evaluations (to be independent of seed for genotype creation)
-    ///////// evaluationSeed = Math.round(rng()*100000000000000); 
+    ///////// evaluationSeed = Math.round(Math.random()*100000000000000); 
     // seeding before genotype evaluation
     rng = seedrandom(evaluationSeed); 
     evaluatedGenotype = evalAndReturnExpression(decodedGenotype);
     // creates new seed for genotype creation before new iteration, if necessary
-    // currentSeed = Math.round(rng()*100000000000000); 
+    // currentSeed = Math.round(Math.random()*100000000000000); 
     // rng = seedrandom(currentSeed); 
     var stopdate = new Date();
     // maxAPI.post(encodedGenotype);
@@ -659,7 +660,8 @@ var p = function (v) {
 var pRand = function (foo) {
     var funcType = "paramF";
     var decGenOut = "pRand()";
-    var encPhenOut = (rng());
+    // var encPhenOut = (rng());
+    encPhenOut = (Math.random()); // PARCHE
     return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
 };
     
@@ -674,7 +676,7 @@ var pGaussRand = function (foo) {
 var pRandRange = function (value_1, value_2) {
     var funcType = "paramF";
     var decGenOut = "pRandRange(" + value_1[1] + "," + value_2[1] + ")";
-    var encPhenOut = rng() *  Math.abs(value_1[0] - value_2[0]) + Math.min(value_1[0], value_2[0]);
+    var encPhenOut = Math.random() *  Math.abs(value_1[0] - value_2[0]) + Math.min(value_1[0], value_2[0]);
     return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
 };
     
@@ -910,7 +912,7 @@ var aRndRangeArray = function (flo, value_1, value_2) {
     var totalElements = flo[0] * 16;
     var encPhenOut = [];
     for (var a=0; a<totalElements; a++) {
-        encPhenOut.push(rng() *  Math.abs(value_1[0] - value_2[0]) + Math.min(value_1[0], value_2[0]));
+        encPhenOut.push(Math.random() *  Math.abs(value_1[0] - value_2[0]) + Math.min(value_1[0], value_2[0]));
     }
     return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
 }
@@ -962,7 +964,7 @@ function cRandomNote(foo1, foo2, foo3, foo4) {
             1,
             randn_bm(),
             randn_bm(),
-            rng()];
+            Math.random()];
     return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
 }
 
@@ -973,10 +975,10 @@ function cRandomTwoPitchesChord(foo1) {
             2,
             randn_bm(),
             randn_bm(),
-            rng(),
+            Math.random(),
             randn_bm(),
             randn_bm(),
-            rng()];
+            Math.random()];
     return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
 }
     
@@ -987,13 +989,13 @@ function cRandomThreePitchesChord(foo1) {
             3,
             randn_bm(),
             randn_bm(),
-            rng(),
+            Math.random(),
             randn_bm(),
             randn_bm(),
-            rng(),
+            Math.random(),
             randn_bm(),
             randn_bm(),
-            rng()];
+            Math.random()];
     return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
 }
     
@@ -1004,16 +1006,16 @@ function cRandomFourPitchesChord(foo1) {
             4,
             randn_bm(),
             randn_bm(),
-            rng(),
+            Math.random(),
             randn_bm(),
             randn_bm(),
-            rng(),
+            Math.random(),
             randn_bm(),
             randn_bm(),
-            rng(),
+            Math.random(),
             randn_bm(),
             randn_bm(),
-            rng()];
+            Math.random()];
     return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
 }
     
@@ -1026,13 +1028,13 @@ function cRandomOctavesChord(foo1, foo2, foo3, foo4) {
             3,
             mainPitch,
             randn_bm(),
-            rng(),
+            Math.random(),
             mainPitch-0.125,
             randn_bm(),
-            rng(),
+            Math.random(),
             mainPitch+0.125,
             randn_bm(),
-            rng()];
+            Math.random()];
     return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
 }
     
@@ -1045,13 +1047,13 @@ function cRandomMajorChord(foo1, foo2, foo3, foo4) {
             3,
             mainPitch,
             randn_bm(),
-            rng(),
+            Math.random(),
             mainPitch+0.073,
             randn_bm(),
-            rng(),
+            Math.random(),
             mainPitch+0.16667,
             randn_bm(),
-            rng()];
+            Math.random()];
     return writeSubexpressionAndReturnData(funcType,encPhenOut,decGenOut);
 }
     
@@ -1254,7 +1256,7 @@ function vMutate(excerpt, probability, amount) {
     // maxAPI.post('howMuchMutate: ' + howMuchMutate);
     excerptLength = encPhenOut.length;
     for (var i = 1; i < excerptLength - 1; i++) {
-        if (rng() < decideIfMutate && encPhenOut[i]<1) {
+        if (Math.random() < decideIfMutate && encPhenOut[i]<1) {
             encPhenOut[i] = encPhenOut[i] + (randn_bm() - 0.5) * howMuchMutate;
             if (encPhenOut[i] < 0.05) {
                 encPhenOut[i] = 0.05
@@ -1504,8 +1506,11 @@ var encodedFunctionIndexGenerator = function (n) {
 function randn_bm() {
     var u = 0,
         v = 0;
-    while (u === 0) u = rng(); //Converting [0,1) to (0,1)
-    while (v === 0) v = rng();
+    // while (u === 0) u = Math.random(); //Converting [0,1) to (0,1)
+    while (u === 0) u = Math.random(); // PARCHE
+    
+    // while (v === 0) v = Math.random();
+    while (v === 0) v = Math.random(); // PARCHE
     let num = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
     num = num / 10.0 + 0.5; // Translate to 0 -> 1
     if (num > 1 || num < 0) return randn_bm(); // resample between 0 and 1
