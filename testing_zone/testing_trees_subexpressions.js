@@ -8,11 +8,8 @@ var tt = function (decGenotype) {
 var subexpressions = [];
 
 function initSubexpressionsArrays() {
-    subexpressionsindex = {};
     subexpressions["listF"] = [];
     subexpressions["paramF"] = [];
-    encodedLeaves = [];    
-    leaves = [];
 }
 
 initSubexpressionsArrays();
@@ -52,7 +49,7 @@ var p = x => {
 
 var pRnd = () => {
     var funcType = "paramF";
-    var rnd = r6d(Math.random());
+    var rnd = Math.random();
     var decGen = "pRnd()";
     var encPhen = [rnd];
     var phenLength = 1;
@@ -88,7 +85,8 @@ var lRepeatNum = (val, times) => {
 var lIterExpr = (expr, times) => {
     var funcType = "listF";
     var decGen = "lIterExpr(" + expr.decGen + ", " + times.decGen + ")";
-    var encPhen = Array(times.encPhen[0]).fill().map(() => eval(expr.decGen).encPhen).reduce((acc, val) => acc.concat(val), []);;
+    var encPhen = Array(times.encPhen[0]).fill().map(() => 
+    eval(expr.decGen).encPhen).reduce((acc, val) => acc.concat(val), []);
     var phenLength = times.encPhen[0];
     return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
 };
@@ -99,7 +97,8 @@ var pAutoref = index => {
     if (subexprLength == 0) {
         return "nulo";
     } 
-    index = index % subexprLength + 1;
+    index = index % subexprLength;
+    if (index == 0) { index = subexprLength; }
     var decGen = "pAutoref(" + index + ")";
     // index indicates the chosen function counting backwards  
     var convertedIndex = (subexprLength - index % subexprLength) % subexprLength;
@@ -118,5 +117,13 @@ lIterExpr(pAdd(p(34),pRnd()),p(4));
 pAdd(p(34),pRnd());
 p(45);
 
-tt("pAdd(p(39),pAutoref(1))");
-tt("pAdd(pSquare(p(2)),pAutoref(27))");
+tt("pAdd(pAdd(p(39),pAutoref(1)),pAutoref(2))");
+tt("pAdd(pAdd(p(39),pRnd()),pAutoref(4))");
+tt("pAdd(pSquare(p(2)),pAutoref(5))");
+tt("lRepeatNum(pAdd(pSquare(p(2)),pAutoref(4)),p(3))");
+tt("lRepeatNum(pAdd(pSquare(pRnd()),pAutoref(3)),p(3))");
+tt("lIterExpr(lRepeatNum(pAdd(pSquare(pRnd()),pAutoref(7)),p(3)),p(2))");
+tt("lIterExpr(pRnd(),p(6))");
+tt("lIterExpr(lRepeatNum(pAdd(pSquare(pRnd()),pAutoref(2)),p(3)),p(5))");
+tt("lIterExpr(pAdd(p(39),pAutoref(3)),p(4))");
+tt("lIterExpr(lIterExpr(lRepeatNum(pAdd(pSquare(pRnd()),pAutoref(45676753)),p(3)),p(2)),p(4))");
