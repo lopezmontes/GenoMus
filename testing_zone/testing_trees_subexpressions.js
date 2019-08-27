@@ -94,14 +94,22 @@ var lIterExpr = (expr, times) => {
 var pAutoref = index => {
     var funcType = "paramF";
     var subexprLength = subexpressions[funcType].length;
+    // if no autoreferences available, returns a null element to sustain the function tree
     if (subexprLength == 0) {
-        return "nulo";
+        return {
+            funcType: funcType,
+            decGen: "p(.5)",
+            encPhen: [.5],
+            phenLength: 1
+        }    
     } 
     index = index % subexprLength;
-    if (index == 0) { index = subexprLength; }
+    // if (index == 0) { index = subexprLength; }
     var decGen = "pAutoref(" + index + ")";
-    // index indicates the chosen function counting backwards  
-    var convertedIndex = (subexprLength - index % subexprLength) % subexprLength;
+    // indexes indicates the chosen function counting backwards  
+    // var convertedIndex = (subexprLength - index % subexprLength) % subexprLength;
+    var convertedIndex = index;
+    console.log("uso " + subexpressions[funcType][convertedIndex]);
     var encPhen = eval(subexpressions[funcType][convertedIndex]).encPhen;
     var phenLength = encPhen.length;
     return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
@@ -119,7 +127,7 @@ p(45);
 
 tt("pAdd(pAdd(p(39),pAutoref(1)),pAutoref(2))");
 tt("pAdd(pAdd(p(39),pRnd()),pAutoref(4))");
-tt("pAdd(pSquare(p(2)),pAutoref(5))");
+tt("pAdd(pSquare(p(2)),pAutoref(4))");
 tt("lRepeatNum(pAdd(pSquare(p(2)),pAutoref(4)),p(3))");
 tt("lRepeatNum(pAdd(pSquare(pRnd()),pAutoref(3)),p(3))");
 tt("lIterExpr(lRepeatNum(pAdd(pSquare(pRnd()),pAutoref(7)),p(3)),p(2))");
@@ -127,3 +135,8 @@ tt("lIterExpr(pRnd(),p(6))");
 tt("lIterExpr(lRepeatNum(pAdd(pSquare(pRnd()),pAutoref(2)),p(3)),p(5))");
 tt("lIterExpr(pAdd(p(39),pAutoref(3)),p(4))");
 tt("lIterExpr(lIterExpr(lRepeatNum(pAdd(pSquare(pRnd()),pAutoref(45676753)),p(3)),p(2)),p(4))");
+tt("lIterExpr(pAdd(pSquare(pRnd()),pSquare(pAutoref(2))),pSquare(p(3)))");
+tt("lIterExpr(lRepeatNum(pAdd(pSquare(p(5)),pAutoref(0)),p(3)),p(4))");
+tt("lRepeatNum(pAdd(pSquare(p(5),pAutoref(1)),p(3)),p(4))");
+tt("pAdd(pSquare(p(5),pAutoref(1)),p(3))");
+tt("lRepeatNum(pAdd(pSquare(pAdd(p(5),p(0)),pAutoref(1)),p(3)),p(4))");
