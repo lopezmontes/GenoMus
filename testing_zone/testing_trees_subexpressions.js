@@ -18,12 +18,7 @@ initSubexpressionsArrays();
 var storeSubexprReturnData = (funcType, decGen, encPhen, phenLength) => {
     var subexpressionRepeated = -1;
     var subexpressionsIndexed = subexpressions[funcType].length;    
-    var outputData = {
-        funcType: funcType,
-        decGen: decGen,
-        encPhen: encPhen,
-        phenLength: phenLength
-    }
+    var outputData = { funcType: funcType, decGen: decGen, encPhen: encPhen, phenLength: phenLength }
     // if subexpression is founded, returns only data
     for (var a = 0; a < subexpressionsIndexed; a++) {
         subexpressionRepeated = decGen.localeCompare(subexpressions[funcType][a]);
@@ -31,7 +26,7 @@ var storeSubexprReturnData = (funcType, decGen, encPhen, phenLength) => {
             return outputData;      
         }
     }    
-    // if subexpression is new, idexes it and returns data
+    // if subexpression is new, indexes it and returns data
     subexpressions[funcType].push(decGen);
     return outputData;
 };   
@@ -96,21 +91,12 @@ var pAutoref = index => {
     var subexprLength = subexpressions[funcType].length;
     // if no autoreferences available, returns a null element to sustain the function tree
     if (subexprLength == 0) {
-        return {
-            funcType: funcType,
-            decGen: "p(.5)",
-            encPhen: [.5],
-            phenLength: 1
-        }    
+        return { funcType: funcType, decGen: "p(.5)", encPhen: [.5], phenLength: 1 }    
     } 
     index = index % subexprLength;
-    // if (index == 0) { index = subexprLength; }
     var decGen = "pAutoref(" + index + ")";
-    // indexes indicates the chosen function counting backwards  
-    // var convertedIndex = (subexprLength - index % subexprLength) % subexprLength;
-    var convertedIndex = index;
-    console.log("uso " + subexpressions[funcType][convertedIndex]);
-    var encPhen = eval(subexpressions[funcType][convertedIndex]).encPhen;
+    console.log("uso " + subexpressions[funcType][index]);
+    var encPhen = eval(subexpressions[funcType][index]).encPhen;
     var phenLength = encPhen.length;
     return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
 };
@@ -128,6 +114,7 @@ p(45);
 tt("pAdd(pAdd(p(39),pAutoref(1)),pAutoref(2))");
 tt("pAdd(pAdd(p(39),pRnd()),pAutoref(4))");
 tt("pAdd(pSquare(p(2)),pAutoref(4))");
+tt("pAdd(pAdd(pAdd(pSquare(p(2)),pAutoref(1)),pAutoref(2)),pRnd())");
 tt("lRepeatNum(pAdd(pSquare(p(2)),pAutoref(4)),p(3))");
 tt("lRepeatNum(pAdd(pSquare(pRnd()),pAutoref(3)),p(3))");
 tt("lIterExpr(lRepeatNum(pAdd(pSquare(pRnd()),pAutoref(7)),p(3)),p(2))");
@@ -140,3 +127,5 @@ tt("lIterExpr(lRepeatNum(pAdd(pSquare(p(5)),pAutoref(0)),p(3)),p(4))");
 tt("lRepeatNum(pAdd(pSquare(p(5),pAutoref(1)),p(3)),p(4))");
 tt("pAdd(pSquare(p(5),pAutoref(1)),p(3))");
 tt("lRepeatNum(pAdd(pSquare(pAdd(p(5),p(0)),pAutoref(1)),p(3)),p(4))");
+
+

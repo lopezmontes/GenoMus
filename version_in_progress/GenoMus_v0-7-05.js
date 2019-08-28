@@ -1457,7 +1457,7 @@ var testRepetitions = function (n) {
         newValue = encodedFunctionIndexGenerator(a);
         for (var b=0; b<usedNumbers.length; b++) {
             if (newValue == usedNumbers[b]) {
-                console.log("Repetition of " + newValue + " found at iteration " + a + ". Founded the same number at index " + b ".");
+                // console.log("Repetition of " + newValue + " found at iteration " + a + ". Founded the same number at index " + b ".");
                 return -1;
             }
         }
