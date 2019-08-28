@@ -1,3 +1,6 @@
+const random = require('random');
+const seedrandom = require('seedrandom');
+
 var tt = function (decGenotype) {
     initSubexpressionsArrays();
     var output = (eval(decGenotype));
@@ -49,6 +52,18 @@ var l = x => {
     var phenLength = x.length;
     return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
 };
+
+var lRnd = (numItemsSeed, seqSeed) => {
+    random.use(seedrandom(numItemsSeed));
+    var numItems = random.int(1, 12);
+    random.use(seedrandom(seqSeed));
+    var seq = Array(numItems).fill().map( () => random.float() );
+    var funcType = "listF";
+    var decGen = "lRnd(" + numItemsSeed.decGen + ", " + seqSeed.decGen + ")";
+    var encPhen = seq;
+    var phenLength = numItemsSeed;
+    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
+};    
 
 var lConcatL = (lA, lB) => {
     var funcType = "listF";
@@ -163,3 +178,6 @@ tt("lRepeatNum(lIterExpr(l(23,43,45),p(3)),p(4))");
 tt("lConcatL(l([0,.3,1,.8]),l([0.1,0.3]))");
 tt("lConcatL(l([34,5,12]),lAutoref(5))");
 tt("lConcatL(lConcatL(l([0,.3,1,.8]),l([0.134,0.325])),lAutoref(2))");
+
+tt("lRnd(p(0.2),p(0.5987))");
+Array(4).fill(4);
