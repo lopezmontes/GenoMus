@@ -1181,12 +1181,12 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `pRnd`             | <sub>not yet implemented</sub> | returns a random normalized parameter with uniform distribution
 | `pGaussRnd`        | <sub>not yet implemented</sub> | returns a random normalized parameter with Gaussian (or normal) distribution
 | `pWrappedGaussRnd` | <sub>not yet implemented</sub> | returns a random normalized parameter with a wrapped normal distribution
-| `eRnd`             | <sub>not yet implemented</sub> | returns a complete random event with uniform distribution of parameters
-| `eGaussRnd`        | <sub>not yet implemented</sub> | returns a complete random event with with Gaussian distribution of parameters
-| `eWrappedGaussRnd` | <sub>not yet implemented</sub> | returns a complete random event with a wrapped normal distribution of parameters
 | `lRnd`             | <sub>not yet implemented</sub> | returns a complete random list with uniform distribution of values
 | `lGaussRnd`        | <sub>not yet implemented</sub> | returns a complete random list with with Gaussian distribution of parameters
 | `lWrappedGaussRnd` | <sub>not yet implemented</sub> | returns a complete random list with a wrapped normal distribution of values
+| `eRnd`             | <sub>not yet implemented</sub> | returns a complete random event with uniform distribution of parameters
+| `eGaussRnd`        | <sub>not yet implemented</sub> | returns a complete random event with with Gaussian distribution of parameters
+| `eWrappedGaussRnd` | <sub>not yet implemented</sub> | returns a complete random event with a wrapped normal distribution of parameters
 | `vRnd`             | <sub>not yet implemented</sub> | returns a complete random voice with uniform distribution of parameters
 | `vGaussRnd`        | <sub>not yet implemented</sub> | returns a complete random voice with with Gaussian distribution of parameters
 | `vWrappedGaussRnd` | <sub>not yet implemented</sub> | returns a complete random voice with a wrapped normal distribution of parameters

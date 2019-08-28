@@ -42,6 +42,22 @@ var p = x => {
     return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
 };
 
+var l = x => {
+    var funcType = "listF";
+    var decGen = "l([" + x + "])";
+    var encPhen = x;
+    var phenLength = x.length;
+    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
+};
+
+var lConcatL = (lA, lB) => {
+    var funcType = "listF";
+    var decGen = "lConcatL(" + lA.decGen + ", " + lB.decGen + ")";
+    var encPhen = lA.encPhen.concat(lB.encPhen);
+    var phenLength = encPhen.length;
+    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
+};
+
 var pRnd = () => {
     var funcType = "paramF";
     var rnd = Math.random();
@@ -89,13 +105,26 @@ var lIterExpr = (expr, times) => {
 var pAutoref = index => {
     var funcType = "paramF";
     var subexprLength = subexpressions[funcType].length;
-    // if no autoreferences available, returns a null element to sustain the function tree
+    // if no autoreferences available, returns a silent element to sustain the function tree
     if (subexprLength == 0) {
         return { funcType: funcType, decGen: "p(.5)", encPhen: [.5], phenLength: 1 }    
     } 
     index = index % subexprLength;
     var decGen = "pAutoref(" + index + ")";
-    console.log("uso " + subexpressions[funcType][index]);
+    var encPhen = eval(subexpressions[funcType][index]).encPhen;
+    var phenLength = encPhen.length;
+    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
+};
+
+var lAutoref = index => {
+    var funcType = "listF";
+    var subexprLength = subexpressions[funcType].length;
+    // if no autoreferences available, returns a silent element to sustain the function tree
+    if (subexprLength == 0) {
+        return { funcType: funcType, decGen: "l([.5])", encPhen: [.5], phenLength: 1 }    
+    } 
+    index = index % subexprLength;
+    var decGen = "lAutoref(" + index + ")";
     var encPhen = eval(subexpressions[funcType][index]).encPhen;
     var phenLength = encPhen.length;
     return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
@@ -129,3 +158,8 @@ tt("pAdd(pSquare(p(5),pAutoref(1)),p(3))");
 tt("lRepeatNum(pAdd(pSquare(pAdd(p(5),p(0)),pAutoref(1)),p(3)),p(4))");
 
 
+tt("lIterExpr(l(23,43,45),p(3))");
+tt("lRepeatNum(lIterExpr(l(23,43,45),p(3)),p(4))");
+tt("lConcatL(l([0,.3,1,.8]),l([0.1,0.3]))");
+tt("lConcatL(l([34,5,12]),lAutoref(5))");
+tt("lConcatL(lConcatL(l([0,.3,1,.8]),l([0.134,0.325])),lAutoref(2))");
