@@ -61,7 +61,7 @@ var lRnd = (numItemsSeed, seqSeed) => {
     var funcType = "listF";
     var decGen = "lRnd(" + numItemsSeed.decGen + ", " + seqSeed.decGen + ")";
     var encPhen = seq;
-    var phenLength = numItemsSeed;
+    var phenLength = numItems;
     return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
 };    
 
