@@ -20,10 +20,19 @@ function initSubexpressionsArrays() {
 initSubexpressionsArrays();
 
 // indexes subexpressions and formats output data
-var storeSubexprReturnData = (funcType, decGen, encPhen, phenLength) => {
+var storeSubexprReturnData = (funcType, decGen, encPhen, phenLength, tempo, rhythm, harmony, analysis) => {
     var subexpressionRepeated = -1;
     var subexpressionsIndexed = subexpressions[funcType].length;    
-    var outputData = { funcType: funcType, decGen: decGen, encPhen: encPhen, phenLength: phenLength }
+    var outputData = { 
+        funcType: funcType, 
+        decGen: decGen, 
+        encPhen: encPhen, 
+        phenLength: phenLength,
+        tempo: tempo,
+        rhythm: rhythm,
+        harmony: harmony,
+        analysis: analysis
+    }
     // if subexpression is founded, returns only data
     for (var a = 0; a < subexpressionsIndexed; a++) {
         subexpressionRepeated = decGen.localeCompare(subexpressions[funcType][a]);
@@ -44,7 +53,8 @@ var p = x => {
     var decGen = "p(" + x + ")";
     var encPhen = [x];
     var phenLength = 1;
-    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
+    var tempo, rhythm, harmony, analysis;
+    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength, tempo, rhythm, harmony, analysis);
 };
 
 var l = x => {
@@ -162,36 +172,3 @@ var lAutoref = index => autoref("lAutoref", "listF", index, { funcType: "listF",
 // testing
 
 tt("pAdd(pAdd(p(39),pAutoref(1)),pAutoref(2))");
-tt("pAdd(pAdd(p(39),pRnd()),pAutoref(4))");
-tt("pAdd(pSquare(p(2)),pAutoref(3))");
-tt("pAdd(pAdd(pAdd(pSquare(p(2)),pAutoref(1)),pAutoref(2)),pRnd())");
-tt("lRepeatNum(pAdd(pSquare(p(2)),pAutoref(4)),p(3))");
-tt("lRepeatNum(pAdd(pSquare(pRnd()),pAutoref(3)),p(3))");
-tt("lIterExpr(lRepeatNum(pAdd(pSquare(pRnd()),pAutoref(7)),p(3)),p(2))");
-tt("lIterExpr(pRnd(),p(6))");
-tt("lIterExpr(lRepeatNum(pAdd(pSquare(pRnd()),pAutoref(2)),p(3)),p(5))");
-tt("lIterExpr(pAdd(p(39),pAutoref(3)),p(4))");
-tt("lIterExpr(lIterExpr(lRepeatNum(pAdd(pSquare(pRnd()),pAutoref(45676753)),p(3)),p(2)),p(4))");
-tt("lIterExpr(pAdd(pSquare(pRnd()),pSquare(pAutoref(2))),pSquare(p(3)))");
-tt("lIterExpr(lRepeatNum(pAdd(pSquare(p(5)),pAutoref(0)),p(3)),p(4))");
-tt("lRepeatNum(pAdd(pSquare(p(5),pAutoref(1)),p(3)),p(4))");
-tt("pAdd(pSquare(p(5),pAutoref(1)),p(3))");
-tt("lRepeatNum(pAdd(pSquare(pAdd(p(5),p(0)),pAutoref(1)),p(3)),p(4))");
-
-tt("lIterExpr(l(23,43,45),p(3))");
-tt("lRepeatNum(lIterExpr(l(23,43,45),p(3)),p(4))");
-tt("lConcatL(l([0,.3,1,.8]),l([0.1,0.3]))");
-tt("lConcatL(l([34,5,12]),lAutoref(5))");
-
-tt("lConcatL(lConcatL(l([0,.3,1,.8]),l([0.134,0.325])),lAutoref(2))");
-
-tt("lRnd(pRnd(),p(0.5987))");
-tt("lIter\Expr(lConcatL(lRnd(p(0.21),p(0.5987)),lAutoref(4)),p(3))");
-
-tt("l([3,56,3,6])");
-tt("l([3,56,p(3),6])");
-Array(4).fill(4);
-tt("l2P(p(3),pRnd())");
-tt("l3P(p(3),pRnd(),p(2.56))");
-tt("lConcatL(l3P(p(3),pAutoref(0),p(2.56)),l2P(p(3.9),pAutoref(3)))");
-
