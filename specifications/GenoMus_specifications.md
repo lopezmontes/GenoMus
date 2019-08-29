@@ -190,7 +190,7 @@ var <iFunctionName> = (arg1, arg2, ..., argN) => {
     return storeSubexprReturnData(funcType, decGen, encPhen, phenLength, tempo, rhythm, harmony, analysis);
 };
 ```
-- The **check block** verifies that the execution of the function will produce a phenotype that satisfies the constraints of the predetermined initial conditions (specially regarding encoded phenotype length).
+- The **check block** verifies that the execution of the function will produce a phenotype that satisfies the constraints of the predetermined initial conditions (specially regarding encoded phenotype length). If the requirements cannot be fulfilled, the process is canceled.
 - **funcType** declares the output type of the function, namely one of this [types](#genotype-function-types).
 - **decGen** is the own functional expression, constructed with the respective own expressions of the functions taken as arguments. This element is essential to possibilitate internal autoreferences, recursive functions and reiterations of non-deterministic expressions.
 - The **core block** executes the musical transformations of the function, writing the results in the variable encPhen, and calculating at the end of the process the updated values of phenLength, tempo, rhythm and harmony.
