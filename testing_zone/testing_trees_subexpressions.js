@@ -113,37 +113,26 @@ var lIterExpr = (expr, times) => {
     var decGen = "lIterExpr(" + expr.decGen + ", " + times.decGen + ")";
     var encPhen = Array(times.encPhen[0]).fill().map(() => 
     eval(expr.decGen).encPhen).reduce((acc, val) => acc.concat(val), []);
-    var phenLength = times.encPhen[0];
+    var phenLength = encPhen.length;
     return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
 };
 
-var pAutoref = index => {
-    var funcType = "paramF";
+// autoreferences framework for different functionTypes
+var autoref = (funcName, funcType, index) => {
     var subexprLength = subexpressions[funcType].length;
     // if no autoreferences available, returns a silent element to sustain the function tree
     if (subexprLength == 0) {
         return { funcType: funcType, decGen: "p(.5)", encPhen: [.5], phenLength: 1 }    
     } 
     index = index % subexprLength;
-    var decGen = "pAutoref(" + index + ")";
+    var decGen = funcName + "(" + index + ")";
     var encPhen = eval(subexpressions[funcType][index]).encPhen;
     var phenLength = encPhen.length;
     return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
 };
 
-var lAutoref = index => {
-    var funcType = "listF";
-    var subexprLength = subexpressions[funcType].length;
-    // if no autoreferences available, returns a silent element to sustain the function tree
-    if (subexprLength == 0) {
-        return { funcType: funcType, decGen: "l([.5])", encPhen: [.5], phenLength: 1 }    
-    } 
-    index = index % subexprLength;
-    var decGen = "lAutoref(" + index + ")";
-    var encPhen = eval(subexpressions[funcType][index]).encPhen;
-    var phenLength = encPhen.length;
-    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
-};
+var pAutoref = index => autoref("pAutoref", "paramF", index);
+var lAutoref = index => autoref("lAutoref", "listF", index);
 
 //////////
 // testing
@@ -157,7 +146,7 @@ p(45);
 
 tt("pAdd(pAdd(p(39),pAutoref(1)),pAutoref(2))");
 tt("pAdd(pAdd(p(39),pRnd()),pAutoref(4))");
-tt("pAdd(pSquare(p(2)),pAutoref(4))");
+tt("pAdd(pSquare(p(2)),pAutoref(3))");
 tt("pAdd(pAdd(pAdd(pSquare(p(2)),pAutoref(1)),pAutoref(2)),pRnd())");
 tt("lRepeatNum(pAdd(pSquare(p(2)),pAutoref(4)),p(3))");
 tt("lRepeatNum(pAdd(pSquare(pRnd()),pAutoref(3)),p(3))");
@@ -172,12 +161,13 @@ tt("lRepeatNum(pAdd(pSquare(p(5),pAutoref(1)),p(3)),p(4))");
 tt("pAdd(pSquare(p(5),pAutoref(1)),p(3))");
 tt("lRepeatNum(pAdd(pSquare(pAdd(p(5),p(0)),pAutoref(1)),p(3)),p(4))");
 
-
 tt("lIterExpr(l(23,43,45),p(3))");
 tt("lRepeatNum(lIterExpr(l(23,43,45),p(3)),p(4))");
 tt("lConcatL(l([0,.3,1,.8]),l([0.1,0.3]))");
 tt("lConcatL(l([34,5,12]),lAutoref(5))");
 tt("lConcatL(lConcatL(l([0,.3,1,.8]),l([0.134,0.325])),lAutoref(2))");
 
-tt("lRnd(p(0.2),p(0.5987))");
+tt("lRnd(pRnd(),p(0.5987))");
+tt("lIter\Expr(lConcatL(lRnd(p(0.21),p(0.5987)),lAutoref(4)),p(3))");
+
 Array(4).fill(4);
