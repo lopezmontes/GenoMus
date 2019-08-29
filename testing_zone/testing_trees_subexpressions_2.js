@@ -56,6 +56,16 @@ var p = x => {
     return storeSubexprReturnData (funcType, decGen, encPhen);
 };
 
+var pRnd = () => {
+    var funcType = "paramF";
+    var decGen = "pRnd()";
+    var encPhen = [r6d(random.float())];
+    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
+};
+
+tt("e(pRnd(),pRnd(),pRnd(),pRnd())");
+
+
 var l = x => {
     var funcType = "listF";
     var decGen = "l([" + x + "])";
@@ -71,12 +81,13 @@ var e = (notevalue, midiPitch, articulation, intensity) => {
         + midiPitch.decGen + "," 
         + articulation.decGen + "," 
         + intensity.decGen + ")";
-    var encPhen = [notevalue.encPhen, 
-        midiPitch.encPhen, 
-        articulation.encPhen, 
-        intensity.encPhen];
+    var encPhen = [notevalue.encPhen[0], 
+        1, midiPitch.encPhen[0], 
+        articulation.encPhen[0], 
+        intensity.encPhen[0]];
     var phenLength = 1;
-    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);    
+    var tempo = 0.6;
+    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength, tempo);    
 }
 
 tt("e(p(.5),p(.4),p(0),p(.8))");
@@ -122,15 +133,6 @@ var lConcatL = (lA, lB) => {
     var decGen = "lConcatL(" + lA.decGen + ", " + lB.decGen + ")";
     var encPhen = lA.encPhen.concat(lB.encPhen);
     var phenLength = encPhen.length;
-    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
-};
-
-var pRnd = () => {
-    var funcType = "paramF";
-    var rnd = Math.random();
-    var decGen = "pRnd()";
-    var encPhen = [rnd];
-    var phenLength = 1;
     return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
 };
 
