@@ -1219,30 +1219,30 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 
 ---------
 ## List manipulation
-| name                    | index                          | description
-| ----------------------- | ------------------------------ | -----------
-| `l2P`, `l3P`, ... `lxP` | <sub>not yet implemented</sub> | generates a list of x parameters
-| `lLine`                 | <sub>not yet implemented</sub> | generates a straight progression between two values
-| `lLinseg`               | <sub>not yet implemented</sub> | generates a series of straight segments between several values
-| `lExpon`                | <sub>not yet implemented</sub> | generates an exponential progression between two values
-| `lExpseg`               | <sub>not yet implemented</sub> | generates a series of exponential progressions between several values
-| `lOscil`                | <sub>not yet implemented</sub> | generates a periodic sinusoidal oscillation between two values
-| `lPhasor`               | <sub>not yet implemented</sub> | generates periodic straight transitions from first value to second one
-| `lTriangular`           | <sub>not yet implemented</sub> | generates periodic straight transitions from first value to second one and vice versa
-| `lRescale`              | <sub>not yet implemented</sub> | remaps a list to a new range  
-| `lSmooth`               | <sub>not yet implemented</sub> | smooths distances between contiguous items in a list according to a factor
-| `lRough`                | <sub>not yet implemented</sub> | sharpens distances between contiguous items in a list according to a factor
-| `lInvert`           | <sub>not yet implemented</sub> | inverts values of a list
-| `lTransp`           | <sub>not yet implemented</sub> | transposes values of a list
-| `lRetrog`           | <sub>not yet implemented</sub> | retrogrades values of a list
-| `lRetrogInvert`     | <sub>not yet implemented</sub> | retrogrades and inverts values of a list
-| `lPalindrome`       | <sub>not yet implemented</sub> | concatenates to a list its values in reverse order
-| `lRotate`           | <sub>not yet implemented</sub> | rotates values of a list
-| `lExpand`           | <sub>not yet implemented</sub> | expands values of a list according to a factor
-| `lExtrude`          | <sub>not yet implemented</sub> | deforms values of a list according to a curve
-| `lPolynomicGesture` | <sub>not yet implemented</sub> | generates a list by evaluating a polynomial
-| `lBezierGesture`    | <sub>not yet implemented</sub> | generates a list based on a Bézier curve
-| `lTrigonoGesture`   | <sub>not yet implemented</sub> | generates a list based on a trigonometric compound expression
+| name                     | index                          | description
+| ------------------------ | ------------------------------ | -----------
+| `l2P`, `l3P`, ..., `lxP` | <sub>not yet implemented</sub> | generates a list of x parameters
+| `lLine`                  | <sub>not yet implemented</sub> | generates a straight progression between two values
+| `lLinseg`                | <sub>not yet implemented</sub> | generates a series of straight segments between several values
+| `lExpon`                 | <sub>not yet implemented</sub> | generates an exponential progression between two values
+| `lExpseg`                | <sub>not yet implemented</sub> | generates a series of exponential progressions between several values
+| `lOscil`                 | <sub>not yet implemented</sub> | generates a periodic sinusoidal oscillation between two values
+| `lPhasor`                | <sub>not yet implemented</sub> | generates periodic straight transitions from first value to second one
+| `lTriangular`            | <sub>not yet implemented</sub> | generates periodic straight transitions from first value to second one and vice versa
+| `lRescale`               | <sub>not yet implemented</sub> | remaps a list to a new range  
+| `lSmooth`                | <sub>not yet implemented</sub> | smooths distances between contiguous items in a list according to a factor
+| `lRough`                 | <sub>not yet implemented</sub> | sharpens distances between contiguous items in a list according to a factor
+| `lInvert`                | <sub>not yet implemented</sub> | inverts values of a list
+| `lTransp`                | <sub>not yet implemented</sub> | transposes values of a list
+| `lRetrog`                | <sub>not yet implemented</sub> | retrogrades values of a list
+| `lRetrogInvert`          | <sub>not yet implemented</sub> | retrogrades and inverts values of a list
+| `lPalindrome`            | <sub>not yet implemented</sub> | concatenates to a list its values in reverse order
+| `lRotate`                | <sub>not yet implemented</sub> | rotates values of a list
+| `lExpand`                | <sub>not yet implemented</sub> | expands values of a list according to a factor
+| `lExtrude`               | <sub>not yet implemented</sub> | deforms values of a list according to a curve
+| `lPolynomicGesture`      | <sub>not yet implemented</sub> | generates a list by evaluating a polynomial
+| `lBezierGesture`         | <sub>not yet implemented</sub> | generates a list based on a Bézier curve
+| `lTrigonoGesture`        | <sub>not yet implemented</sub> | generates a list based on a trigonometric compound expression
 
 ---------
 ## Mathematical operations
