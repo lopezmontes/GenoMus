@@ -15,6 +15,7 @@ var subexpressions = [];
 function initSubexpressionsArrays() {
     subexpressions["listF"] = [];
     subexpressions["paramF"] = [];
+    subexpressions["eventF"] = [];
 }
 
 initSubexpressionsArrays();
@@ -52,9 +53,7 @@ var p = x => {
     var funcType = "paramF";
     var decGen = "p(" + x + ")";
     var encPhen = [x];
-    var phenLength = 1;
-    var tempo, rhythm, harmony, analysis;
-    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength, tempo, rhythm, harmony, analysis);
+    return storeSubexprReturnData (funcType, decGen, encPhen);
 };
 
 var l = x => {
@@ -64,6 +63,23 @@ var l = x => {
     var phenLength = x.length;
     return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
 };
+
+var e = (notevalue, midiPitch, articulation, intensity) => {
+    var funcType = "eventF";
+    var decGen = "e(" 
+        + notevalue.decGen + "," 
+        + midiPitch.decGen + "," 
+        + articulation.decGen + "," 
+        + intensity.decGen + ")";
+    var encPhen = [notevalue.encPhen, 
+        midiPitch.encPhen, 
+        articulation.encPhen, 
+        intensity.encPhen];
+    var phenLength = 1;
+    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);    
+}
+
+tt("e(p(.5),p(.4),p(0),p(.8))");
 
 var l2P = (a, b) => {
     var funcType = "listF";
@@ -171,4 +187,4 @@ var lAutoref = index => autoref("lAutoref", "listF", index, { funcType: "listF",
 //////////
 // testing
 
-tt("pAdd(pAdd(p(39),pAutoref(1)),pAutoref(2))");
+tt("pAdd(pAdd(p(39),pAutoref(1)),pAutoref(1))");

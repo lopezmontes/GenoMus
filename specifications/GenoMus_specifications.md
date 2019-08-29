@@ -167,7 +167,7 @@ key                | data type                      | description
 **harmony**        | dictionary                     | [**Harmonic grid**](#harmonic-grid).
 **analysis**       | dictionary                     | **Autoanalysis** of different [musical features](#specimen-autoanalytic-profile).
 
-First six elements are compulsory for every function inside a genotype. Informations about rhythm and harmony can be useful for subsequent functions, but they are optional. 
+First three elements are compulsory for every function inside a genotype. Informations about rhythm and harmony can be useful for subsequent functions, but they are optional. 
 
 Variable names inside each genotype function are not compulsory, but is highly recommended to maintain the same nomenclature to improve code readability and reusability.
 
