@@ -20,34 +20,6 @@ function initSubexpressionsArrays() {
 
 initSubexpressionsArrays();
 
-
-// indexes subexpressions and formats output data
-var storeSubexprReturnDataOLD = (funcType, decGen, encPhen, phenLength, tempo, rhythm, harmony, analysis) => {
-    var subexpressionRepeated = -1;
-    var subexpressionsIndexed = subexpressions[funcType].length;    
-    var outputData = { 
-        funcType: funcType, 
-        decGen: decGen, 
-        encPhen: encPhen, 
-        phenLength: phenLength,
-        tempo: tempo,
-        rhythm: rhythm,
-        harmony: harmony,
-        analysis: analysis
-    }
-    // if subexpression is founded, returns only data
-    for (var a = 0; a < subexpressionsIndexed; a++) {
-        subexpressionRepeated = decGen.localeCompare(subexpressions[funcType][a]);
-        if (subexpressionRepeated == 0) {
-            return outputData;      
-        }
-    }    
-    // if subexpression is new, indexes it and returns data
-    subexpressions[funcType].push(decGen);
-    return outputData;
-};   
-
-
 // takes subspecimen s, indexes subexpressions and formats output data
 var storeSubexprReturnData = s => {
     var subexpressionsIndexed = subexpressions[s.funcType].length;    
@@ -76,10 +48,12 @@ var p = x => {
 tt("p(0.9433)");
 
 var pRnd = () => {
-    var funcType = "paramF";
-    var decGen = "pRnd()";
-    var encPhen = [r6d(random.float())];
-    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
+    subspec = {
+        funcType: "paramF",
+        decGen: "pRnd()",
+        encPhen: [r6d(random.float())]
+    }
+    return storeSubexprReturnData (subspec);
 };
 
 tt("e(pRnd(),pRnd(),pRnd(),pRnd())");
