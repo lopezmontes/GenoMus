@@ -182,22 +182,27 @@ The **decoded genotype** is created only when the specimen is sent to another mu
 // description
 var <iFunctionName> = (arg1, arg2, ..., argN) => {
     
-    < check block > // checks that the execution of the function will produce a phenotype that satisfies the constraints of the predetermined initial conditions
+    <check block>
 
-    var funcType = "<functionType>"; // describes the type of the function itself
-    var decGen = "<iFunctionName>(" + arg1.decGen + ", " + arg2.decGen + ", " + ... + "argN.decGen + ")"; // string with own expression
+    var funcType = "<functionType>";
+    var decGen = "<iFunctionName>(" + arg1.decGen + ", " + arg2.decGen + ", " + ... + "argN.decGen + ")";
     
-    < core block > // executes the musical transformations of the function, writing the results in the variable encPhen, and calculating at the end of the process the updated values of phenLength, tempo, rhythm and harmony.
-
-    var encPhen = [<array containing the result of the manipulations>]; // this array will contain the produced encoded phenotype
+    <core block> 
     
-    < analitycs block > // stores some analytical measurement to be inherited by next functions. Its objective is to facilitate the estimation of global musical characteristics to compare with the requested profile.
+    var encPhen = [<array containing the result of the transformations>];
+    
+    < analitycs block >
     
     return storeSubexprReturnData(funcType, decGen, encPhen, phenLength, tempo, rhythm, harmony, analysis);
 };
 ```
-
-The last line uses the auxiliary function **writeSubexprReturnData**, which stores all the subexpressions generated during the evaluation of the function tree so far, and returns the array with the [output data structure](#output-data-structure) described above.
+- The **check block** verifies that the execution of the function will produce a phenotype that satisfies the constraints of the predetermined initial conditions (specially regarding encoded phenotype length).
+- **funcType** declares the output type of the function, namely one of this [types](#genotype-function-types).
+- **decGen** is the own functional expression, constructed with the respective own expressions of the functions taken as arguments. This element is essential to possibilitate internal autoreferences, recursive functions and reiterations of non-deterministic expressions.
+- The **core block** executes the musical transformations of the function, writing the results in the variable encPhen, and calculating at the end of the process the updated values of phenLength, tempo, rhythm and harmony.
+- **encPhen** stores the result of transformations with the encoded phenotype format, namely an unimensional array of floats within interl [0, 1].
+- The **analitycs block** stores some analytical measurement to be inherited by next functions. Its objective is to facilitate the estimation of global musical characteristics to compare with the requested profile.
+- The last line uses the auxiliary function **writeSubexprReturnData**, which stores all the subexpressions generated during the evaluation of the function tree so far, and returns the array with the [output data structure](#output-data-structure) described above.
 
 ---------
 # Genotype function types
