@@ -181,18 +181,12 @@ The **decoded genotype** is created only when the specimen is sent to another mu
 ```
 // description
 var <iFunctionName> = (arg1, arg2, ..., argN) => {
-    
     <check block>
-
     var funcType = "<functionType>";
     var decGen = "<iFunctionName>(" + arg1.decGen + ", " + arg2.decGen + ", " + ... + "argN.decGen + ")";
-    
     <core block> 
-    
     var encPhen = [<array containing the result of the transformations>];
-    
-    < analitycs block >
-    
+    <analitycs block>
     return storeSubexprReturnData(funcType, decGen, encPhen, phenLength, tempo, rhythm, harmony, analysis);
 };
 ```
