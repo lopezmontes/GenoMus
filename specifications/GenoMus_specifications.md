@@ -196,7 +196,7 @@ var <iFunctionName> = (arg1, arg2, ..., argN) => {
 - The **core block** executes the musical transformations of the function, writing the results in the variable encPhen, and calculating at the end of the process the updated values of phenLength, tempo, rhythm and harmony.
 - **encPhen** stores the result of transformations with the encoded phenotype format, namely an unimensional array of floats within interl [0, 1].
 - The **analitycs block** stores some analytical measurement to be inherited by next functions. Its objective is to facilitate the estimation of global musical characteristics to compare with the requested profile.
-- The last line uses the auxiliary function **writeSubexprReturnData**, which stores all the subexpressions generated during the evaluation of the function tree so far, and returns the array with the [output data structure](#output-data-structure) described above.
+- **writeSubexprReturnData** stores all the subexpressions generated during the evaluation of the function tree so far, and returns the array with the [output data structure](#output-data-structure) described above.
 
 ---------
 # Genotype function types
