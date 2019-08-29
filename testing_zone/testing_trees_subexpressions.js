@@ -118,12 +118,10 @@ var lIterExpr = (expr, times) => {
 };
 
 // autoreferences framework for different functionTypes
-var autoref = (funcName, funcType, index) => {
+var autoref = (funcName, funcType, index, silentElement) => {
     var subexprLength = subexpressions[funcType].length;
-    // if no autoreferences available, returns a silent element to sustain the function tree
-    if (subexprLength == 0) {
-        return { funcType: funcType, decGen: "p(.5)", encPhen: [.5], phenLength: 1 }    
-    } 
+    // if no autoreferences available, returns default, a silent element to sustain the function tree
+    if (subexprLength == 0) return silentElement;    
     index = index % subexprLength;
     var decGen = funcName + "(" + index + ")";
     var encPhen = eval(subexpressions[funcType][index]).encPhen;
@@ -131,18 +129,11 @@ var autoref = (funcName, funcType, index) => {
     return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
 };
 
-var pAutoref = index => autoref("pAutoref", "paramF", index);
-var lAutoref = index => autoref("lAutoref", "listF", index);
+var pAutoref = index => autoref("pAutoref", "paramF", index, { funcType: "paramF", decGen: "p(.5)", encPhen: [.5], phenLength: 1 });
+var lAutoref = index => autoref("lAutoref", "listF", index, { funcType: "listF", decGen: "p(.5)", encPhen: [.5], phenLength: 1 });
 
 //////////
 // testing
-
-initSubexpressionsArrays();
-console.log(subexpressions);
-pAdd(p(34),pAutoref(1));
-lIterExpr(pAdd(p(34),pRnd()),p(4));
-pAdd(p(34),pRnd());
-p(45);
 
 tt("pAdd(pAdd(p(39),pAutoref(1)),pAutoref(2))");
 tt("pAdd(pAdd(p(39),pRnd()),pAutoref(4))");
