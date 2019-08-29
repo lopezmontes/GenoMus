@@ -48,8 +48,8 @@ var storeSubexprReturnDataOLD = (funcType, decGen, encPhen, phenLength, tempo, r
 };   
 
 
-// takes expression e, indexes subexpressions and formats output data
-var storeSubexprReturnData = e => {
+// takes sub-specimen e, indexes subexpressions and formats output data
+var storeSubexprReturnData = s => {
     var subexpressionRepeated = -1;
     var subexpressionsIndexed = subexpressions[s.funcType].length;    
     var outputData = { 
@@ -78,12 +78,12 @@ var storeSubexprReturnData = e => {
 var r6d = f => Math.round(f*1000000)/1000000;
 
 var p = x => {
-    specimen = {
+    subspec = {
         funcType: "paramF",
         decGen: "p(" + x + ")",
         encPhen: [x]
     }
-    return storeSubexprReturnData (specimen);
+    return storeSubexprReturnData (subspec);
 };
 
 tt("p(3)");
