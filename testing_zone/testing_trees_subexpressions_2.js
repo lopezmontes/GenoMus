@@ -48,30 +48,17 @@ var storeSubexprReturnDataOLD = (funcType, decGen, encPhen, phenLength, tempo, r
 };   
 
 
-// takes sub-specimen e, indexes subexpressions and formats output data
+// takes subspecimen s, indexes subexpressions and formats output data
 var storeSubexprReturnData = s => {
-    var subexpressionRepeated = -1;
     var subexpressionsIndexed = subexpressions[s.funcType].length;    
-    var outputData = { 
-        funcType: s.funcType, 
-        decGen: s.decGen, 
-        encPhen: s.encPhen, 
-        phenLength: s.phenLength,
-        tempo: s.tempo,
-        rhythm: s.rhythm,
-        harmony: s.harmony,
-        analysis: s.analysis
-    }
     // if subexpression is founded, returns only data
     for (var a = 0; a < subexpressionsIndexed; a++) {
-        subexpressionRepeated = decGen.localeCompare(subexpressions[s.funcType][a]);
-        if (subexpressionRepeated == 0) {
-            return outputData;      
-        }
+        subexpressionRepeated = s.decGen.localeCompare(subexpressions[s.funcType][a]);
+        if (subexpressionRepeated == 0) return s;      
     }    
     // if subexpression is new, indexes it and returns data
     subexpressions[s.funcType].push(s.decGen);
-    return outputData;
+    return s;
 };   
 
 // round fractional part to 6 digits
@@ -86,7 +73,7 @@ var p = x => {
     return storeSubexprReturnData (subspec);
 };
 
-tt("p(3)");
+tt("p(0.9433)");
 
 var pRnd = () => {
     var funcType = "paramF";
@@ -107,25 +94,27 @@ var l = x => {
 };
 
 var e = (notevalue, midiPitch, articulation, intensity) => {
-    var funcType = "eventF";
-    var decGen = "e(" 
-        + notevalue.decGen + "," 
-        + midiPitch.decGen + "," 
-        + articulation.decGen + "," 
-        + intensity.decGen + ")";
-    var encPhen = [notevalue.encPhen[0], 
-        1, midiPitch.encPhen[0], 
-        articulation.encPhen[0], 
-        intensity.encPhen[0]];
-    var phenLength = 1;
-    var tempo = 0.6;
-    var harmony = { 
-        root: midiPitch.encPhen[0], 
-        chord: [0],
-        mode: [0],
-        chromaticism: 0
+    subspec = {
+        funcType: "eventF",
+        decGen: "e(" 
+            + notevalue.decGen + "," 
+            + midiPitch.decGen + "," 
+            + articulation.decGen + "," 
+            + intensity.decGen + ")",
+        encPhen: [notevalue.encPhen[0], 
+            1, midiPitch.encPhen[0], 
+            articulation.encPhen[0], 
+            intensity.encPhen[0]],
+        phenLength: 1,
+        tempo: 0.6,
+        harmony: { 
+            root: midiPitch.encPhen[0], 
+            chord: [0],
+            mode: [0],
+            chromaticism: 0
+        }
     }
-    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength, tempo, rhythm, harmony);    
+    return storeSubexprReturnData (subspec);
 }
 
 tt("e(p(.5),p(.4),p(0),p(.8))");
