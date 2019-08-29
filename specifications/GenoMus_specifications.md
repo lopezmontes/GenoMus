@@ -978,7 +978,6 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## Form
 | name        | index                          | description
 | ----------- | ------------------------------ | -----------
-| `lConcatP`  | <sub>not yet implemented</sub> | concatenates two parameters sequentially
 | `lConcatL`  | <sub>not yet implemented</sub> | concatenates two lists sequentially
 | `vConcatE`  | <sub>not yet implemented</sub> | concatenates two events sequentially
 | `vConcatV`  | <sub>not yet implemented</sub> | concatenates two voices sequentially

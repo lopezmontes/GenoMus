@@ -3,6 +3,7 @@
 const random = require('random');
 const seedrandom = require('seedrandom');
 
+// test decoded genotypes
 var tt = function (decGenotype) {
     initSubexpressionsArrays();
     var output = (eval(decGenotype));
@@ -10,8 +11,8 @@ var tt = function (decGenotype) {
     return output;
 }
 
+// global variable to store subexpressions
 var subexpressions = [];
-
 function initSubexpressionsArrays() {
     subexpressions["listF"] = [];
     subexpressions["paramF"] = [];
@@ -36,6 +37,7 @@ var storeSubexprReturnData = s => {
 // round fractional part to 6 digits
 var r6d = f => Math.round(f*1000000)/1000000;
 
+// parameter identity function
 var p = x => {
     subspec = {
         funcType: "paramF",
@@ -47,6 +49,7 @@ var p = x => {
 
 tt("p(0.9433)");
 
+// returns a random normalized parameter
 var pRnd = () => {
     subspec = {
         funcType: "paramF",
@@ -58,15 +61,19 @@ var pRnd = () => {
 
 tt("e(pRnd(),pRnd(),pRnd(),pRnd())");
 
-
+// list identity function (only for direct manual input)
 var l = x => {
-    var funcType = "listF";
-    var decGen = "l([" + x + "])";
-    var encPhen = x;
-    var phenLength = x.length;
-    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
+    subspec = {
+        funcType: "listF",
+        decGen: "l([" + x + "])",
+        encPhen: x
+    }
+    return storeSubexprReturnData (subspec);
 };
 
+tt("l([0.4,0.23,0.56,0.25])");
+
+// piano event identity function
 var e = (notevalue, midiPitch, articulation, intensity) => {
     subspec = {
         funcType: "eventF",
@@ -93,12 +100,14 @@ var e = (notevalue, midiPitch, articulation, intensity) => {
 
 tt("e(p(.5),p(.4),p(0),p(.8))");
 
+// generates a list of 2 parameters
 var l2P = (a, b) => {
-    var funcType = "listF";
-    var decGen = "l2P(" + a.decGen + ", " + b.decGen + ")";
-    var encPhen = a.encPhen.concat(b.encPhen);
-    var phenLength = 2;
-    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
+    subspec = {
+        funcType: "listF",
+        decGen: "l2P(" + a.decGen + ", " + b.decGen + ")",
+        encPhen: a.encPhen.concat(b.encPhen)
+    }
+    return storeSubexprReturnData (subspec);
 };
 
 var l3P = (a, b, c) => {
