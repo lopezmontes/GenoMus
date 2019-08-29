@@ -180,18 +180,19 @@ The **decoded genotype** is created only when the specimen is sent to another mu
 
 ```
 // description
-var <iFunctionName> = function (argument1, argument2, ..., argumentN) {
+var <iFunctionName> = (arg1, arg2, ..., argN) => {
     
     < check block > // checks that the execution of the function will produce a phenotype that satisfies the constraints of the predetermined initial conditions
 
     var funcType = "<functionType>"; // describes the type of the function itself
-    var encPhen = []; // this array will contain the produced encoded phenotype
+    var decGen = "<iFunctionName>(" + arg1.decGen + ", " + arg2.decGen + ", " + ... + "argN.decGen + ")"; // string with own expression
     
-    < core block > // executes the musical transformations of the function, writing the results in the variable encPhenOut, and calculating at the end of the process the updated values of phenLength, tempo, rhythm and harmony.
+    < core block > // executes the musical transformations of the function, writing the results in the variable encPhen, and calculating at the end of the process the updated values of phenLength, tempo, rhythm and harmony.
+
+    var encPhen = [<array containing the result of the manipulations>]; // this array will contain the produced encoded phenotype
     
     < analitycs block > // stores some analytical measurement to be inherited by next functions. Its objective is to facilitate the estimation of global musical characteristics to compare with the requested profile.
     
-    var decGen = "<iFunctionName>(" + argument1[1] + "," + + argument2[1] + "," + ... argumentN[1] + ")"; // creates a string as a self-reference of the functional expression that has been evaluated.
     return storeSubexprReturnData(funcType, decGen, encPhen, phenLength, tempo, rhythm, harmony, analysis);
 };
 ```
@@ -1229,7 +1230,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `lOscil`                 | <sub>not yet implemented</sub> | generates a periodic sinusoidal oscillation between two values
 | `lPhasor`                | <sub>not yet implemented</sub> | generates periodic straight transitions from first value to second one
 | `lTriangular`            | <sub>not yet implemented</sub> | generates periodic straight transitions from first value to second one and vice versa
-| `lRescale`               | <sub>not yet implemented</sub> | remaps a list to a new range  
+| `lRemap  `               | <sub>not yet implemented</sub> | remaps a list to a new range  
 | `lSmooth`                | <sub>not yet implemented</sub> | smooths distances between contiguous items in a list according to a factor
 | `lRough`                 | <sub>not yet implemented</sub> | sharpens distances between contiguous items in a list according to a factor
 | `lInvert`                | <sub>not yet implemented</sub> | inverts values of a list

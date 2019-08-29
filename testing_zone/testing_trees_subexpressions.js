@@ -53,6 +53,29 @@ var l = x => {
     return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
 };
 
+var l2P = (a, b) => {
+    var funcType = "listF";
+    var decGen = "l2P(" + a.decGen + ", " + b.decGen + ")";
+    var encPhen = a.encPhen.concat(b.encPhen);
+    var phenLength = 2;
+    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
+};
+
+var l3P = (a, b, c) => {
+    var funcType = "listF";
+    var decGen = "l3P(" + a.decGen + ", " + b.decGen + ", " + c.decGen + ")";
+    var encPhen = a.encPhen.concat(b.encPhen).concat(c.encPhen);
+    var phenLength = 3;
+    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
+};
+
+var l4P = (a, b, c, d) => {
+    var funcType = "listF";
+    var decGen = "l3P(" + a.decGen + ", " + b.decGen + ", " + c.decGen + ", " + d.decGen + ")";
+    var encPhen = a.encPhen.concat(b.encPhen).concat(c.encPhen).concat(d.encPhen);
+    var phenLength = 4;
+    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
+};
 
 var lRnd = (numItemsSeed, seqSeed) => {
     random.use(seedrandom(numItemsSeed));
@@ -166,3 +189,7 @@ tt("lIter\Expr(lConcatL(lRnd(p(0.21),p(0.5987)),lAutoref(4)),p(3))");
 tt("l([3,56,3,6])");
 tt("l([3,56,p(3),6])");
 Array(4).fill(4);
+tt("l2P(p(3),pRnd())");
+tt("l3P(p(3),pRnd(),p(2.56))");
+tt("lConcatL(l3P(p(3),pAutoref(0),p(2.56)),l2P(p(3.9),pAutoref(3)))");
+
