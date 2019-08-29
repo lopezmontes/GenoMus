@@ -53,6 +53,7 @@ var l = x => {
     return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
 };
 
+
 var lRnd = (numItemsSeed, seqSeed) => {
     random.use(seedrandom(numItemsSeed));
     var numItems = random.int(1, 12);
@@ -156,9 +157,12 @@ tt("lIterExpr(l(23,43,45),p(3))");
 tt("lRepeatNum(lIterExpr(l(23,43,45),p(3)),p(4))");
 tt("lConcatL(l([0,.3,1,.8]),l([0.1,0.3]))");
 tt("lConcatL(l([34,5,12]),lAutoref(5))");
+
 tt("lConcatL(lConcatL(l([0,.3,1,.8]),l([0.134,0.325])),lAutoref(2))");
 
 tt("lRnd(pRnd(),p(0.5987))");
 tt("lIter\Expr(lConcatL(lRnd(p(0.21),p(0.5987)),lAutoref(4)),p(3))");
 
+tt("l([3,56,3,6])");
+tt("l([3,56,p(3),6])");
 Array(4).fill(4);

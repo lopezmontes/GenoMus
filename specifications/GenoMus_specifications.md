@@ -988,7 +988,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `lRepeatL`  | <sub>not yet implemented</sub> | repeats a list a number of times
 | `vRepeatV`  | <sub>not yet implemented</sub> | repeats a voice a number of times
 | `sRepeatS`  | <sub>not yet implemented</sub> | repeats a score a number of times
-| `lAAe`      | <sub>not yet implemented</sub> | single repetition of a parameter
+| `lAAp`      | <sub>not yet implemented</sub> | single repetition of a parameter
 | `lAAl`      | <sub>not yet implemented</sub> | single repetition of a list
 | `vAAe`      | <sub>not yet implemented</sub> | single repetition of an event
 | `vAAv`      | <sub>not yet implemented</sub> | single repetition of a voice
