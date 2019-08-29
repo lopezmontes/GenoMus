@@ -20,8 +20,9 @@ function initSubexpressionsArrays() {
 
 initSubexpressionsArrays();
 
+
 // indexes subexpressions and formats output data
-var storeSubexprReturnData = (funcType, decGen, encPhen, phenLength, tempo, rhythm, harmony, analysis) => {
+var storeSubexprReturnDataOLD = (funcType, decGen, encPhen, phenLength, tempo, rhythm, harmony, analysis) => {
     var subexpressionRepeated = -1;
     var subexpressionsIndexed = subexpressions[funcType].length;    
     var outputData = { 
@@ -46,15 +47,46 @@ var storeSubexprReturnData = (funcType, decGen, encPhen, phenLength, tempo, rhyt
     return outputData;
 };   
 
+
+// takes expression e, indexes subexpressions and formats output data
+var storeSubexprReturnData = e => {
+    var subexpressionRepeated = -1;
+    var subexpressionsIndexed = subexpressions[s.funcType].length;    
+    var outputData = { 
+        funcType: s.funcType, 
+        decGen: s.decGen, 
+        encPhen: s.encPhen, 
+        phenLength: s.phenLength,
+        tempo: s.tempo,
+        rhythm: s.rhythm,
+        harmony: s.harmony,
+        analysis: s.analysis
+    }
+    // if subexpression is founded, returns only data
+    for (var a = 0; a < subexpressionsIndexed; a++) {
+        subexpressionRepeated = decGen.localeCompare(subexpressions[s.funcType][a]);
+        if (subexpressionRepeated == 0) {
+            return outputData;      
+        }
+    }    
+    // if subexpression is new, indexes it and returns data
+    subexpressions[s.funcType].push(s.decGen);
+    return outputData;
+};   
+
 // round fractional part to 6 digits
 var r6d = f => Math.round(f*1000000)/1000000;
 
 var p = x => {
-    var funcType = "paramF";
-    var decGen = "p(" + x + ")";
-    var encPhen = [x];
-    return storeSubexprReturnData (funcType, decGen, encPhen);
+    specimen = {
+        funcType: "paramF",
+        decGen: "p(" + x + ")",
+        encPhen: [x]
+    }
+    return storeSubexprReturnData (specimen);
 };
+
+tt("p(3)");
 
 var pRnd = () => {
     var funcType = "paramF";
@@ -87,7 +119,13 @@ var e = (notevalue, midiPitch, articulation, intensity) => {
         intensity.encPhen[0]];
     var phenLength = 1;
     var tempo = 0.6;
-    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength, tempo);    
+    var harmony = { 
+        root: midiPitch.encPhen[0], 
+        chord: [0],
+        mode: [0],
+        chromaticism: 0
+    }
+    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength, tempo, rhythm, harmony);    
 }
 
 tt("e(p(.5),p(.4),p(0),p(.8))");

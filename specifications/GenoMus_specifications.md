@@ -117,6 +117,7 @@
 - **encoded phenotype**: Phenotype coded as an array of normalized floats within the closed interval [0, 1].
 - **decoded phenotype**: Phenotype converted to a format for notation or audio software, such as Max, Csound, Lilypond, etc.
 - **specimen**: Genotype/phenotype pair, saved as a JSON file containing encoded and decoded versions of its code, metadata and many other useful analytical informations.
+- **sub-specimen**: each of the substructures of a specimen. Its format is a dictionary containing a genotype/phenotype pair along with other useful analytical informations.
 - **species**: Group of specimens that share the same parameter structure of their simplest musical events.
 - **genotype function**: Minimum computable unit of a genotype. It is designed in a modular way to easily take other genotype functions as arguments.
 - **parameter**: Normalized float &isinv; [0, 1] used to feed the functions' required arguments. These numeric values are leaves of the functional tree that gives rise to a genotype.
