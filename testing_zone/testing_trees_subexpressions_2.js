@@ -110,6 +110,7 @@ var l2P = (a, b) => {
     return storeSubexprReturnData (subspec);
 };
 tt("l2P(p(0.4),p(345))");
+tt("l2P(p(0.4),pAutoref(345))");
 
 var l3P = (a, b, c) => {
     var funcType = "listF";
@@ -188,26 +189,21 @@ var autoref = (funcName, funcType, index, silentElement) => {
     // if no autoreferences available, returns default, a silent element to sustain the function tree
     if (subexprLength == 0) return silentElement;    
     index = index % subexprLength;
-
-
-    subspec = {
+    var subspec = {
         funcType: funcType,
         decGen: funcName + "(" + index + ")",
         encPhen: eval(subexpressions[funcType][index]).encPhen,
-        phenLength = subexpressions[funcType][index].length;
+        phenLength: subexpressions[funcType][index].length
     }
     return storeSubexprReturnData (subspec);
-
-    var decGen = funcName + "(" + index + ")";
-    var encPhen = eval(subexpressions[funcType][index]).encPhen;
-    var phenLength = encPhen.length;
-    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
 };
 
 var pAutoref = index => autoref("pAutoref", "paramF", index, { funcType: "paramF", decGen: "p(.5)", encPhen: [.5], phenLength: 1 });
 var lAutoref = index => autoref("lAutoref", "listF", index, { funcType: "listF", decGen: "p(.5)", encPhen: [.5], phenLength: 1 });
 
+
 //////////
 // testing
 
+tt("e(pAutoref(5),p(.4),pAutoref(0),p(.8))");
 tt("pAdd(pAdd(p(39),pAutoref(1)),pAutoref(1))");
