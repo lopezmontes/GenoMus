@@ -39,8 +39,9 @@ var r6d = f => Math.round(f*1000000)/1000000;
 // flats arrays with any level of nesting
 var flattenDeep = arr1 => arr1.reduce((acc, val) => Array.isArray(val) ? acc.concat(flattenDeep(val)) : acc.concat(val), []);
 
-// wraps elements such as voices and scores, putting 1 at the beginning and 0 at the end
-var wrap = a => [1].concat(a.concat(0));  
+// wraps and unwraps elements such as voices and scores, putting 1 at the beginning and 0 at the end
+var wrap = a => [1].concat(a.concat(0)); 
+var unwrap = a => a.slice(1,-1); 
 
 // takes subspecimen s, indexes subexpressions and formats output data
 var indexExprReturnSpecimen = s => {
@@ -229,6 +230,21 @@ tt("s(vConcatE(e(p(.54),p(.5),p(0),p(.834)),e(p(.54),pRnd(),p(0),p(.834))))");
 tt("vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0))");
 tt("s(vConcatE(e(p(.54),pRnd(),p(0),p(.834)),eAutoref(0)))");
 
+// concatenates two voices sequentially
+var vConcatV = (v1, v2) => indexExprReturnSpecimen ({
+    funcType: "voiceF",
+    decGen: "vConcatV(" + v1.decGen + ", " + v2.decGen + ")",
+    encPhen: wrap(unwrap(v1.encPhen).concat(unwrap(v2.encPhen))),
+    phenLength: v1.phenLength + v2.phenLength,
+    tempo: v1.tempo,
+    rhythm: v1.rhythm,
+    harmony: v1.harmony,
+    analysis: v1.analysis,
+});
+
+tt("vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0)))")
+
+
 var pSquare = x => {
     var funcType = "paramF";
     var rnd = Math.random();
@@ -239,13 +255,13 @@ var pSquare = x => {
 };
 
 // add two numbers
-var oAdd = (p1, p2) => indexExprReturnSpecimen ({
+var oSum = (p1, p2) => indexExprReturnSpecimen ({
     funcType: "operationF",
-    decGen: "oAdd(" + p1.decGen + ", " + p2.decGen + ")",
+    decGen: "oSum(" + p1.decGen + ", " + p2.decGen + ")",
     encPhen: [p1.encPhen[0] + p2.encPhen[0]]
 });
 
-tt("oAdd(p(34),p(45))");
+tt("oSum(p(34),p(45))");
 
 tt("lConcatL(lRnd(p(.2),p(.3)),l2P(pAutoref(0),pAdd(p(74),pAutoref(1))))");
 
