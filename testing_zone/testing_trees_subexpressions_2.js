@@ -128,7 +128,7 @@ var v = e => indexExprReturnSpecimen ({
 
 tt("v(e(p(.5),p(.4),p(0),p(.8)))");
 
-// voice identity function
+// scores identity function
 var s = v => indexExprReturnSpecimen ({
     funcType: "scoreF",
     decGen: "s(" + v.decGen + ")",
@@ -162,29 +162,29 @@ tt("vRepeatE(eAutoref(8),p(3))");
 
 
 // generates a list of 2 parameters
-var l2P = (a, b) => indexExprReturnSpecimen ({
+var l2P = (p1, p2) => indexExprReturnSpecimen ({
     funcType: "listF",
-    decGen: "l2P(" + a.decGen + ", " + b.decGen + ")",
-    encPhen: a.encPhen.concat(b.encPhen)
+    decGen: "l2P(" + p1.decGen + ", " + p2.decGen + ")",
+    encPhen: p1.encPhen.concat(p2.encPhen)
 });
 
 tt("l2P(p(0.4),p(345))");
 tt("l2P(p(0.4),pAutoref(345))");
 
 // generates a list of 3 parameters
-var l3P = (a, b, c) => indexExprReturnSpecimen ({
+var l3P = (p1, p2, p3) => indexExprReturnSpecimen ({
     funcType: "listF",
-    decGen: "l3P(" + a.decGen + ", " + b.decGen + ", " + c.decGen + ")",
-    encPhen: a.encPhen.concat(b.encPhen).concat(c.encPhen)
+    decGen: "l3P(" + p1.decGen + ", " + p2.decGen + ", " + p3.decGen + ")",
+    encPhen: p1.encPhen.concat(p2.encPhen).concat(p3.encPhen)
 });
 
 tt("l3P(p(0.4),pRnd(),pAutoref(345))");
 
 // generates a list of 5 parameters
-var l5P = (a, b, c, d, e) => indexExprReturnSpecimen ({
+var l5P = (p1, p2, p3, p4, p5) => indexExprReturnSpecimen ({
     funcType: "listF",
-    decGen: "l5P(" + a.decGen + ", " + b.decGen + ", " + c.decGen + ", " + d.decGen + ", " + e.decGen + ")",
-    encPhen: a.encPhen.concat(b.encPhen).concat(c.encPhen).concat(d.encPhen).concat(e.encPhen)
+    decGen: "l5P(" + p1.decGen + ", " + p2.decGen + ", " + p3.decGen + ", " + p4.decGen + ", " + p5.decGen + ")",
+    encPhen: p1.encPhen.concat(p2.encPhen).concat(p3.encPhen).concat(p4.encPhen).concat(p5.encPhen)
 });
 
 tt("l5P(p(0.4),pRnd(),pAutoref(345),pRnd(),pAutoref(345))");
@@ -204,10 +204,10 @@ var lRnd = (numItemsSeed, seqSeed) => {
 tt("lRnd(p(.12),p(.3))");
 
 // concatenates two lists sequentially
-var lConcatL = (lA, lB) => indexExprReturnSpecimen ({
+var lConcatL = (l1, l2) => indexExprReturnSpecimen ({
     funcType: "listF",
-    decGen: "lConcatL(" + lA.decGen + ", " + lB.decGen + ")",
-    encPhen: lA.encPhen.concat(lB.encPhen)
+    decGen: "lConcatL(" + l1.decGen + ", " + l2.decGen + ")",
+    encPhen: l1.encPhen.concat(l2.encPhen)
 });
 
 
@@ -215,16 +215,16 @@ tt("lConcatL(lRnd(p(.2),p(.3)),lRnd(pAutoref(0),p(.30002)))");
 tt("lConcatL(lRnd(p(.209),p(.3)),lAutoref(0))");
 
 // concatenates two events sequentially
-var vConcatE = (eA, eB) => indexExprReturnSpecimen ({
+var vConcatE = (e1, e2) => indexExprReturnSpecimen ({
     funcType: "voiceF",
-    decGen: "vConcatE(" + eA.decGen + ", " + eB.decGen + ")",
-    encPhen: wrap(eA.encPhen.concat(eB.encPhen)),
+    decGen: "vConcatE(" + e1.decGen + ", " + e2.decGen + ")",
+    encPhen: wrap(e1.encPhen.concat(e2.encPhen)),
     phenLength: 2,
-    tempo: eA.tempo,
+    tempo: e1.tempo,
     harmony: {
-        root: Math.min(eA.harmony.root, eB.harmony.root),
-        chord: [eA.harmony.root, eB.harmony.root],
-        mode: [eA.harmony.root, eB.harmony.root].sort(),
+        root: Math.min(e1.harmony.root, e2.harmony.root),
+        chord: [e1.harmony.root, e2.harmony.root],
+        mode: [e1.harmony.root, e2.harmony.root].sort(),
         chromaticism: 1
     }
 });
@@ -243,11 +243,11 @@ var pSquare = x => {
     return indexExprReturnSpecimen (funcType, decGen, encPhen, phenLength);
 };
 
-var pAdd = (a, b) => {
+var oAdd = (p1, p2) => {
     subspec = {
-        funcType: "paramF",
-        decGen: "pAdd(" + a.decGen + ", " + b.decGen + ")",
-        encPhen: [a.encPhen[0] + b.encPhen[0]]
+        funcType: "operationF",
+        decGen: "pAdd(" + p1.decGen + ", " + p2.decGen + ")",
+        encPhen: [p1.encPhen[0] + p2.encPhen[0]]
     }
     return indexExprReturnSpecimen (subspec);
 };
@@ -255,22 +255,22 @@ var pAdd = (a, b) => {
 tt("lConcatL(lRnd(p(.2),p(.3)),l2P(pAutoref(0),pAdd(p(74),pAutoref(1))))");
 
 // repeats a parameter a number of times
-var lRepeatP = (val, times) => {
+var lRepeatP = (p, times) => {
     subspec = {
         funcType: "listF",
-        decGen: "lRepeatP(" + val.decGen + ", " + times.decGen + ")",
-        encPhen: Array(times.encPhen[0]).fill(val.encPhen[0])
+        decGen: "lRepeatP(" + p.decGen + ", " + times.decGen + ")",
+        encPhen: Array(times.encPhen[0]).fill(p.encPhen[0])
     }
     return indexExprReturnSpecimen (subspec);
 };
 
 tt("lRepeatP(pRnd(),p(4))");
 
-var lIterExpr = (expr, times) => {
+var lIterExpr = (l, times) => {
     var funcType = "listF";
-    var decGen = "lIterExpr(" + expr.decGen + ", " + times.decGen + ")";
+    var decGen = "lIterExpr(" + l.decGen + ", " + times.decGen + ")";
     var encPhen = Array(times.encPhen[0]).fill().map(() => 
-    eval(expr.decGen).encPhen).reduce((acc, val) => acc.concat(val), []);
+    eval(l.decGen).encPhen).reduce((acc, val) => acc.concat(val), []);
     var phenLength = encPhen.length;
     return indexExprReturnSpecimen (funcType, decGen, encPhen, phenLength);
 };
@@ -282,7 +282,7 @@ var autoref = (funcName, funcType, index, silentElement) => {
     if (subexprLength == 0) return eval(silentElement);    
     index = index % subexprLength;
     var evaluatedSubexp = eval(subexpressions[funcType][index]);
-    var subspec = {
+    return {
         funcType: funcType,
         decGen: funcName + "(" + index + ")",
         encPhen: evaluatedSubexp.encPhen,
@@ -292,7 +292,6 @@ var autoref = (funcName, funcType, index, silentElement) => {
         harmony: evaluatedSubexp.harmony,
         analysis: evaluatedSubexp.analysis
     }
-    return indexExprReturnSpecimen (subspec);
 };
 
 // autoreferences functions for each output type
