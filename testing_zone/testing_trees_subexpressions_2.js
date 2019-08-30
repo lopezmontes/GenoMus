@@ -109,6 +109,7 @@ var l2P = (a, b) => {
     }
     return storeSubexprReturnData (subspec);
 };
+tt("l2P(p(0.4),p(345))");
 
 var l3P = (a, b, c) => {
     var funcType = "listF";
@@ -187,6 +188,16 @@ var autoref = (funcName, funcType, index, silentElement) => {
     // if no autoreferences available, returns default, a silent element to sustain the function tree
     if (subexprLength == 0) return silentElement;    
     index = index % subexprLength;
+
+
+    subspec = {
+        funcType: funcType,
+        decGen: funcName + "(" + index + ")",
+        encPhen: eval(subexpressions[funcType][index]).encPhen,
+        phenLength = subexpressions[funcType][index].length;
+    }
+    return storeSubexprReturnData (subspec);
+
     var decGen = funcName + "(" + index + ")";
     var encPhen = eval(subexpressions[funcType][index]).encPhen;
     var phenLength = encPhen.length;
