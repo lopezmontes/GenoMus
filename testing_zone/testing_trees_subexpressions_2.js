@@ -76,14 +76,11 @@ var pRnd = () => indexExprReturnSpecimen ({
 tt("e(pRnd(),pRnd(),pRnd(),pRnd())");
 
 // list identity function (only for direct manual input)
-var l = x => {
-    subspec = {
-        funcType: "listF",
-        decGen: "l([" + x + "])",
-        encPhen: x
-    }
-    return indexExprReturnSpecimen (subspec);
-};
+var l = x => indexExprReturnSpecimen ({
+    funcType: "listF",
+    decGen: "l([" + x + "])",
+    encPhen: x
+});
 
 tt("l([0.4,0.23,0.56,0.25])");
 
