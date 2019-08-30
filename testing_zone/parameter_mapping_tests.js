@@ -1,4 +1,6 @@
+// GenoMus_maps.js
 // parameters mapping functions and abbreviated versions with short names and rounded output
+// =========================================================================================
 
 const PHI = (1 + Math.sqrt(5)) / 2;
 
