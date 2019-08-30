@@ -255,14 +255,11 @@ var oAdd = (p1, p2) => {
 tt("lConcatL(lRnd(p(.2),p(.3)),l2P(pAutoref(0),pAdd(p(74),pAutoref(1))))");
 
 // repeats a parameter a number of times
-var lRepeatP = (p, times) => {
-    subspec = {
+var lRepeatP = (p, times) => indexExprReturnSpecimen ({
         funcType: "listF",
         decGen: "lRepeatP(" + p.decGen + ", " + times.decGen + ")",
         encPhen: Array(times.encPhen[0]).fill(p.encPhen[0])
-    }
-    return indexExprReturnSpecimen (subspec);
-};
+});
 
 tt("lRepeatP(pRnd(),p(4))");
 
