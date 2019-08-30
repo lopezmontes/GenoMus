@@ -128,7 +128,7 @@ var v = e => indexExprReturnSpecimen ({
 
 tt("v(e(p(.5),p(.4),p(0),p(.8)))");
 
-// scores identity function
+// score identity function
 var s = v => indexExprReturnSpecimen ({
     funcType: "scoreF",
     decGen: "s(" + v.decGen + ")",
