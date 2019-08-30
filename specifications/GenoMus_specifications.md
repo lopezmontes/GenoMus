@@ -951,11 +951,11 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## Internal autoreferences
 | name        | index                          | description
 | ----------- | ------------------------------ | -----------
-| `pAutoref`  | <sub>not yet implemented</sub> | points to a previous parameter
-| `eAutoref`  | <sub>not yet implemented</sub> | points to a previous event
-| `lAutoref`  | <sub>not yet implemented</sub> | points to a previous list
-| `vAutoref`  | <sub>not yet implemented</sub> | points to a previous voice
-| `sAutoref`  | <sub>not yet implemented</sub> | points to a previous score
+| `pAutoref`  | <sub>in progress</sub>         | points to a previous parameter
+| `eAutoref`  | <sub>in progress</sub>         | points to a previous event
+| `lAutoref`  | <sub>in progress</sub>         | points to a previous list
+| `vAutoref`  | <sub>in progress</sub>         | points to a previous voice
+| `sAutoref`  | <sub>in progress</sub>         | points to a previous score
 | `pClone`    | <sub>not yet implemented</sub> | copy and paste a previous parameter branch without subsequent linking
 | `eClone`    | <sub>not yet implemented</sub> | copy and paste a previous event branch without subsequent linking
 | `lClone`    | <sub>not yet implemented</sub> | copy and paste a previous list branch without subsequent linking
@@ -963,7 +963,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `sClone`    | <sub>not yet implemented</sub> | copy and paste a previous score brach without subsequent linking
 | `pIterExpr` | <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a parameter function 
 | `eIterExpr` | <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of an event function 
-| `lIterExpr` | <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a list function 
+| `lIterExpr` | <sub>in progress</sub>         | repeats and concatenates re-evaluations of a list function 
 | `vIterExpr` | <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a voice function
 | `sIterExpr` | <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a score function
 
@@ -978,12 +978,12 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## Form
 | name        | index                          | description
 | ----------- | ------------------------------ | -----------
-| `lConcatL`  | <sub>not yet implemented</sub> | concatenates two lists sequentially
+| `lConcatL`  | <sub>in progress</sub>         | concatenates two lists sequentially
 | `vConcatE`  | <sub>not yet implemented</sub> | concatenates two events sequentially
 | `vConcatV`  | <sub>not yet implemented</sub> | concatenates two voices sequentially
 | `sConcatS`  | <sub>not yet implemented</sub> | concatenates two scores sequentially
 | `eAddPitch` | <sub>not yet implemented</sub> | adds a pitch to an event
-| `vRepeatE`  | <sub>not yet implemented</sub> | repeats an event a number of times
+| `vRepeatE`  | <sub>in progress</sub>         | repeats an event a number of times
 | `lRepeatL`  | <sub>not yet implemented</sub> | repeats a list a number of times
 | `vRepeatV`  | <sub>not yet implemented</sub> | repeats a voice a number of times
 | `sRepeatS`  | <sub>not yet implemented</sub> | repeats a score a number of times
@@ -1177,10 +1177,10 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## Aleatoric processes
 | name               | index                          | description
 | ------------------ | ------------------------------ | -----------
-| `pRnd`             | <sub>not yet implemented</sub> | returns a random normalized parameter with uniform distribution
+| `pRnd`             | <sub>in progress</sub>         | returns a random normalized parameter with uniform distribution
 | `pGaussRnd`        | <sub>not yet implemented</sub> | returns a random normalized parameter with Gaussian (or normal) distribution
 | `pWrappedGaussRnd` | <sub>not yet implemented</sub> | returns a random normalized parameter with a wrapped normal distribution
-| `lRnd`             | <sub>not yet implemented</sub> | returns a complete random list with uniform distribution of values
+| `lRnd`             | <sub>in progress</sub>         | returns a complete random list with uniform distribution of values
 | `lGaussRnd`        | <sub>not yet implemented</sub> | returns a complete random list with with Gaussian distribution of parameters
 | `lWrappedGaussRnd` | <sub>not yet implemented</sub> | returns a complete random list with a wrapped normal distribution of values
 | `eRnd`             | <sub>not yet implemented</sub> | returns a complete random event with uniform distribution of parameters
@@ -1220,7 +1220,8 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## List manipulation
 | name                     | index                          | description
 | ------------------------ | ------------------------------ | -----------
-| `l2P`, `l3P`, ..., `lxP` | <sub>not yet implemented</sub> | generates a list of x parameters
+| `l2P`, `l3P`, ..., `lxP` | <sub>in progress</sub>         | generates a list of x parameters
+| `lRepeatP`               | <sub>in progress</sub>         | repeats a parameter a number of times
 | `lLine`                  | <sub>not yet implemented</sub> | generates a straight progression between two values
 | `lLinseg`                | <sub>not yet implemented</sub> | generates a series of straight segments between several values
 | `lExpon`                 | <sub>not yet implemented</sub> | generates an exponential progression between two values

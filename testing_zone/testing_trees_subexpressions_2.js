@@ -29,6 +29,18 @@ var tt = function (decGenotype) {
 
 //////////// TEST GENOTYPE FUNCIONS
 
+////// AUX FUNCTIONS
+
+
+// round fractional part to 6 digits
+var r6d = f => Math.round(f*1000000)/1000000;
+
+// flats arrays with any level of nesting
+var flattenDeep = arr1 => arr1.reduce((acc, val) => Array.isArray(val) ? acc.concat(flattenDeep(val)) : acc.concat(val), []);
+
+// wraps elements such as voices and scores, putting 1 at the beginning and 0 at the end
+var wrap = a => [1].concat(a.concat(0));  
+
 // takes subspecimen s, indexes subexpressions and formats output data
 var indexExprReturnSpecimen = s => {
     var subexpressionsIndexed = subexpressions[s.funcType].length;    
@@ -42,14 +54,8 @@ var indexExprReturnSpecimen = s => {
     return s;
 };   
 
-// round fractional part to 6 digits
-var r6d = f => Math.round(f*1000000)/1000000;
 
-// flats arrays with any level of nesting
-var flattenDeep = arr1 => arr1.reduce((acc, val) => Array.isArray(val) ? acc.concat(flattenDeep(val)) : acc.concat(val), []);
-
-// wraps elements such as voices and scores, putting 1 at the beginning and 0 at the end
-var wrap = a => [1].concat(a.concat(0));  
+////// GENOTYPE FUNCTIONS
 
 // parameter identity function
 var p = x => indexExprReturnSpecimen ({
@@ -232,16 +238,18 @@ var pAdd = (a, b) => {
 
 tt("lConcatL(lRnd(p(.2),p(.3)),l2P(pAutoref(0),pAdd(p(74),pAutoref(1))))");
 
-
-var lRepeatNum = (val, times) => {
+// repeats a parameter a number of times
+var lRepeatP = (val, times) => {
     subspec = {
         funcType: "listF",
-        decGen: "lRepeatNum(" + val.decGen + ", " + times.decGen + ")",
+        decGen: "lRepeatP(" + val.decGen + ", " + times.decGen + ")",
         encPhen: Array(times.encPhen[0]).fill(val.encPhen[0])
     }
     return indexExprReturnSpecimen (subspec);
 };
-    
+
+tt("lRepeatP(pRnd(),p(4))");
+
 var lIterExpr = (expr, times) => {
     var funcType = "listF";
     var decGen = "lIterExpr(" + expr.decGen + ", " + times.decGen + ")";
