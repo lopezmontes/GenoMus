@@ -109,44 +109,47 @@ var l2P = (a, b) => {
     }
     return storeSubexprReturnData (subspec);
 };
+
 tt("l2P(p(0.4),p(345))");
 tt("l2P(p(0.4),pAutoref(345))");
 
+// generates a list of 3 parameters
 var l3P = (a, b, c) => {
-    var funcType = "listF";
-    var decGen = "l3P(" + a.decGen + ", " + b.decGen + ", " + c.decGen + ")";
-    var encPhen = a.encPhen.concat(b.encPhen).concat(c.encPhen);
-    var phenLength = 3;
-    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
+    subspec = {
+        funcType: "listF",
+        decGen: "l3P(" + a.decGen + ", " + b.decGen + ", " + c.decGen + ")",
+        encPhen: a.encPhen.concat(b.encPhen).concat(c.encPhen)
+    }
+    return storeSubexprReturnData (subspec);
 };
 
-var l4P = (a, b, c, d) => {
-    var funcType = "listF";
-    var decGen = "l3P(" + a.decGen + ", " + b.decGen + ", " + c.decGen + ", " + d.decGen + ")";
-    var encPhen = a.encPhen.concat(b.encPhen).concat(c.encPhen).concat(d.encPhen);
-    var phenLength = 4;
-    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
-};
+tt("l3P(p(0.4),pRnd(),pAutoref(345))");
 
+// random list up to 12 values (paramF, paramF)
 var lRnd = (numItemsSeed, seqSeed) => {
-    random.use(seedrandom(numItemsSeed));
+    random.use(seedrandom(numItemsSeed.encPhen));
     var numItems = random.int(1, 12);
-    random.use(seedrandom(seqSeed));
-    var seq = Array(numItems).fill().map( () => random.float() );
-    var funcType = "listF";
-    var decGen = "lRnd(" + numItemsSeed.decGen + ", " + seqSeed.decGen + ")";
-    var encPhen = seq;
-    var phenLength = numItems;
-    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
+    random.use(seedrandom(seqSeed.encPhen));
+    subspec = {
+        funcType: "listF",
+        decGen: "lRnd(" + numItemsSeed.decGen + ", " + seqSeed.decGen + ")",
+        encPhen: Array(numItems).fill().map( () => random.float() )
+    }
+    return storeSubexprReturnData (subspec);
 };    
 
+tt("lRnd(p(.7),p(.3))");
+
 var lConcatL = (lA, lB) => {
-    var funcType = "listF";
-    var decGen = "lConcatL(" + lA.decGen + ", " + lB.decGen + ")";
-    var encPhen = lA.encPhen.concat(lB.encPhen);
-    var phenLength = encPhen.length;
-    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
+    subspec = {
+        funcType: "listF",
+        decGen: "lConcatL(" + lA.decGen + ", " + lB.decGen + ")",
+        encPhen: lA.encPhen.concat(lB.encPhen)
+    }
+    return storeSubexprReturnData (subspec);
 };
+
+tt("lConcatL(lRnd(p(.2),p(.3)),lRnd(pAutoref(0),p(.30002)))");
 
 var pSquare = x => {
     var funcType = "paramF";
@@ -157,21 +160,25 @@ var pSquare = x => {
     return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
 };
 
+
 var pAdd = (a, b) => {
-    var funcType = "paramF";
-    var decGen = "pAdd(" + a.decGen + ", " + b.decGen + ")";
-    var encPhen = [a.encPhen[0] + b.encPhen[0]];
-    var phenLength = 1;
-    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
+    subspec = {
+        funcType: "paramF",
+        decGen: "pAdd(" + a.decGen + ", " + b.decGen + ")",
+        encPhen: [a.encPhen[0] + b.encPhen[0]]
+    }
+    return storeSubexprReturnData (subspec);
 };
 
+tt("lConcatL(lRnd(p(.2),p(.3)),l2P(pAutoref(0),pAdd(p(74),pAutoref(1))))");
+
 var lRepeatNum = (val, times) => {
-    var funcType = "listF";
-    var rnd = Math.random();
-    var decGen = "lRepeatNum(" + val.decGen + ", " + times.decGen + ")";
-    var encPhen = Array(times.encPhen[0]).fill(val.encPhen[0]);
-    var phenLength = times.encPhen[0];
-    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
+    subspec = {
+        funcType: "listF",
+        decGen: "lRepeatNum(" + val.decGen + ", " + times.decGen + ")",
+        encPhen: Array(times.encPhen[0]).fill(val.encPhen[0])
+    }
+    return storeSubexprReturnData (subspec);
 };
     
 var lIterExpr = (expr, times) => {
