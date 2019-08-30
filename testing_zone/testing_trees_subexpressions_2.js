@@ -3,6 +3,9 @@
 const random = require('random');
 const seedrandom = require('seedrandom');
 
+// initial conditions
+var  maxPhenotypeLength   
+
 // test decoded genotypes
 var tt = function (decGenotype) {
     initSubexpressionsArrays();
@@ -71,29 +74,26 @@ var l = x => {
 tt("l([0.4,0.23,0.56,0.25])");
 
 // piano event identity function
-var e = (notevalue, midiPitch, articulation, intensity) => {
-    subspec = {
-        funcType: "eventF",
-        decGen: "e(" 
-            + notevalue.decGen + "," 
-            + midiPitch.decGen + "," 
-            + articulation.decGen + "," 
-            + intensity.decGen + ")",
-        encPhen: [notevalue.encPhen[0], 
-            1, midiPitch.encPhen[0], 
-            articulation.encPhen[0], 
-            intensity.encPhen[0]],
-        phenLength: 1,
-        tempo: 0.6,
-        harmony: { 
-            root: midiPitch.encPhen[0], 
-            chord: [0],
-            mode: [0],
-            chromaticism: 0
-        }
+var e = (notevalue, midiPitch, articulation, intensity) => indexSubexprReturnSubspec ({
+    funcType: "eventF",
+    decGen: "e(" 
+        + notevalue.decGen + "," 
+        + midiPitch.decGen + "," 
+        + articulation.decGen + "," 
+        + intensity.decGen + ")",
+    encPhen: [notevalue.encPhen[0], 
+        1, midiPitch.encPhen[0], 
+        articulation.encPhen[0], 
+        intensity.encPhen[0]],
+    phenLength: 1,
+    tempo: 0.6,
+    harmony: { 
+        root: midiPitch.encPhen[0], 
+        chord: [0],
+        mode: [0],
+        chromaticism: 0
     }
-    return indexSubexprReturnSubspec (subspec);
-}
+});
 
 tt("e(p(.5),p(.4),p(0),p(.8))");
 
@@ -103,7 +103,6 @@ var l2P = (a, b) => indexSubexprReturnSubspec ({
     decGen: "l2P(" + a.decGen + ", " + b.decGen + ")",
     encPhen: a.encPhen.concat(b.encPhen)
 });
-
 
 tt("l2P(p(0.4),p(345))");
 tt("l2P(p(0.4),pAutoref(345))");

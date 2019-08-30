@@ -1648,9 +1648,9 @@ This table lists all information required for the process of generation, evaluat
 | **mandatoryFunctions** | set of compulsory functions that must appear in new genotypes                        | `[]` &rarr; no mandatory functions
 | **elegibleFunction**   | set of elegible functions generated automatically from previous sets                 | array containing a complete list of the available functions in the library
 | **requestedProfile**   | weighted vector of desired musical characteristics                                   | `0.5` for items, `0` for weights (no profile defined)
-| **maxGenotypeDepth**   | deepest level of ramification for new genotypes                                      | `8`
-| **minPhenotypeLength** | minimal number of events whithin the resulting phenotype                             | `1`
-| **maxPhenotypeLength** | maximal number of events whithin the resulting phenotype                             | `1000`
+| **genMaxLength**       | deepest level of ramification for new genotypes                                      | `8`
+| **phenMinLength**      | minimal number of events whithin the resulting phenotype                             | `1`
+| **phenMaxLength**      | maximal number of events whithin the resulting phenotype                             | `1000`
 | **maxIterations**      | maximal number of attempts to get a specimen that meets the requirements             | `500`
 
 
@@ -1899,9 +1899,9 @@ All generated specimens are stored as temporary JSON files. Selected specimens a
   - **"mandatoryFunctions"**
   - **"eligibleFunctions"**
   - **"requestedProfile"**
-  - **"maxGenotypeDepth"**
-  - **"minPhenotypeLength"**
-  - **"maxPhenotypeLength"**
+  - **"genMaxLength"**
+  - **"phenMinLength"**
+  - **"phenMaxLength"**
   - **"maxIterations"**
 - **"encodedGenotype"**: array of floats &isinv; [0, 1]
 - **"decodedGenotype"**: string containing the genotype function tree
