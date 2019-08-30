@@ -150,7 +150,7 @@ var vRepeatE = (event, times) => {
         decGen: "vRepeatE(" 
             + event.decGen + "," 
             + times.decGen + ")",
-        encPhen: flattenDeep([1, Array(times.encPhen[0]).fill(event.encPhen), 0]),
+        encPhen: wrap(flattenDeep(Array(times.encPhen[0]).fill(event.encPhen))),
         phenLength: times.encPhen,
         tempo: event.tempo,
         harmony: event.harmony
@@ -256,9 +256,9 @@ tt("lConcatL(lRnd(p(.2),p(.3)),l2P(pAutoref(0),pAdd(p(74),pAutoref(1))))");
 
 // repeats a parameter a number of times
 var lRepeatP = (p, times) => indexExprReturnSpecimen ({
-        funcType: "listF",
-        decGen: "lRepeatP(" + p.decGen + ", " + times.decGen + ")",
-        encPhen: Array(times.encPhen[0]).fill(p.encPhen[0])
+    funcType: "listF",
+    decGen: "lRepeatP(" + p.decGen + ", " + times.decGen + ")",
+    encPhen: Array(times.encPhen[0]).fill(p.encPhen[0])
 });
 
 tt("lRepeatP(pRnd(),p(4))");
