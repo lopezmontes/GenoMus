@@ -681,10 +681,10 @@ The following tables show how increasing degrees of quantization of this rhythmi
 
 ```
 {
-    "totalValue": 1,
-    "talea": [0.1,0.1,0.4,0.8,0.4,0.5],
-    "prolatio": [2,[1,[1,1],1,[1,1],1],4,1,[2,[3,1],1,1],1,[2,1]],
-    "quantization": <float within interval [0, 1]>
+    totalValue: 1,
+    talea: [0.1,0.1,0.4,0.8,0.4,0.5],
+    prolatio: [2,[1,[1,1],1,[1,1],1],4,1,[2,[3,1],1,1],1,[2,1]],
+    quantization: <float within interval [0, 1]>
 }
 ```
 
@@ -787,10 +787,10 @@ Given this harmonic grid:
 
 ```
 {
-    "root": 0.68124,
-    "chord": [1,0,5,8,3],
-    "mode": [0,3,1,5,8,6,11,10],
-    "chromaticism": <float within interval [0, 1]>
+    root: 0.68124,
+    chord: [1,0,5,8,3],
+    mode: [0,3,1,5,8,6,11,10],
+    chromaticism: <float within interval [0, 1]>
 }
 ```
 

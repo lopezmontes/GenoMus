@@ -4,7 +4,18 @@ const random = require('random');
 const seedrandom = require('seedrandom');
 
 // initial conditions
-var  maxPhenotypeLength   
+var phenMaxLength = 10;   
+
+// global variable to store subexpressions
+var subexpressions = [];
+function initSubexpressionsArrays() {
+    subexpressions["paramF"] = [];
+    subexpressions["listF"] = [];
+    subexpressions["eventF"] = [];
+    subexpressions["voiceF"] = [];
+}
+
+initSubexpressionsArrays();
 
 // test decoded genotypes
 var tt = function (decGenotype) {
@@ -14,15 +25,13 @@ var tt = function (decGenotype) {
     return output;
 }
 
-// global variable to store subexpressions
-var subexpressions = [];
-function initSubexpressionsArrays() {
-    subexpressions["listF"] = [];
-    subexpressions["paramF"] = [];
-    subexpressions["eventF"] = [];
-}
 
-initSubexpressionsArrays();
+
+
+
+
+
+//////////// TEST GENOTYPE FUNCIONS
 
 // takes subspecimen s, indexes subexpressions and formats output data
 var indexSubexprReturnSubspec = s => {
@@ -39,6 +48,12 @@ var indexSubexprReturnSubspec = s => {
 
 // round fractional part to 6 digits
 var r6d = f => Math.round(f*1000000)/1000000;
+
+// flats arrays
+function flattenDeep(arr1) {
+    return arr1.reduce((acc, val) => Array.isArray(val) ? acc.concat(flattenDeep(val)) : acc.concat(val), []);
+ }
+
 
 // parameter identity function
 var p = x => indexSubexprReturnSubspec ({
@@ -97,6 +112,25 @@ var e = (notevalue, midiPitch, articulation, intensity) => indexSubexprReturnSub
 
 tt("e(p(.5),p(.4),p(0),p(.8))");
 
+// repeats an event a number of times (eventP, paramP)
+var vRepeatE = (event, times) => {
+    if (times.encPhen[0] > phenMaxLength) return "phenotype max length exceeded";
+    return indexSubexprReturnSubspec ({
+        funcType: "voiceF",
+        decGen: "vRepeatE(" 
+            + event.decGen + "," 
+            + times.decGen + ")",
+        encPhen: flattenDeep([1, Array(times.encPhen[0]).fill(event.encPhen), 0]),
+        phenLength: times.encPhen,
+        tempo: event.tempo,
+        harmony: event.harmony
+    });
+}
+
+tt("vRepeatE(e(p(.5),p(.4),p(0),p(.8)),p(3))");
+tt("vRepeatE(eAutoref(8),p(3))");
+
+
 // generates a list of 2 parameters
 var l2P = (a, b) => indexSubexprReturnSubspec ({
     funcType: "listF",
@@ -115,6 +149,17 @@ var l3P = (a, b, c) => indexSubexprReturnSubspec ({
 });
 
 tt("l3P(p(0.4),pRnd(),pAutoref(345))");
+
+// generates a list of 5 parameters
+var l5P = (a, b, c, d, e) => indexSubexprReturnSubspec ({
+    funcType: "listF",
+    decGen: "l5P(" + a.decGen + ", " + b.decGen + ", " + c.decGen + ", " + d.decGen + ", " + e.decGen + ")",
+    encPhen: a.encPhen.concat(b.encPhen).concat(c.encPhen).concat(d.encPhen).concat(e.encPhen)
+});
+
+tt("l5P(p(0.4),pRnd(),pAutoref(345),pRnd(),pAutoref(345))");
+
+
 
 // random list up to 12 values (paramF, paramF)
 var lRnd = (numItemsSeed, seqSeed) => {
@@ -140,6 +185,7 @@ var lConcatL = (lA, lB) => {
 };
 
 tt("lConcatL(lRnd(p(.2),p(.3)),lRnd(pAutoref(0),p(.30002)))");
+tt("lConcatL(lRnd(p(.23),p(.3)),lAutoref(0))");
 
 var pSquare = x => {
     var funcType = "paramF";
@@ -161,6 +207,7 @@ var pAdd = (a, b) => {
 };
 
 tt("lConcatL(lRnd(p(.2),p(.3)),l2P(pAutoref(0),pAdd(p(74),pAutoref(1))))");
+
 
 var lRepeatNum = (val, times) => {
     subspec = {
@@ -195,8 +242,10 @@ var autoref = (funcName, funcType, index, silentElement) => {
     return indexSubexprReturnSubspec (subspec);
 };
 
-var pAutoref = index => autoref("pAutoref", "paramF", index, { funcType: "paramF", decGen: "p(.5)", encPhen: [.5], phenLength: 1 });
-var lAutoref = index => autoref("lAutoref", "listF", index, { funcType: "listF", decGen: "p(.5)", encPhen: [.5], phenLength: 1 });
+// autoreferences functions for each output type
+var pAutoref = index => autoref("pAutoref", "paramF", index, p(.5) );
+var lAutoref = index => autoref("lAutoref", "listF", index, l([.5]) );
+var eAutoref = index => autoref("eAutoref", "eventF", index, e(p(0),p(0),p(0),p(0)) );
 
 
 //////////
