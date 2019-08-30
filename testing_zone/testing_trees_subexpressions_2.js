@@ -22,7 +22,7 @@ function initSubexpressionsArrays() {
 initSubexpressionsArrays();
 
 // takes subspecimen s, indexes subexpressions and formats output data
-var storeSubexprReturnData = s => {
+var indexSubexprReturnSubspec = s => {
     var subexpressionsIndexed = subexpressions[s.funcType].length;    
     // if subexpression is founded, returns only data
     for (var a = 0; a < subexpressionsIndexed; a++) {
@@ -38,14 +38,11 @@ var storeSubexprReturnData = s => {
 var r6d = f => Math.round(f*1000000)/1000000;
 
 // parameter identity function
-var p = x => {
-    subspec = {
-        funcType: "paramF",
-        decGen: "p(" + x + ")",
-        encPhen: [x]
-    }
-    return storeSubexprReturnData (subspec);
-};
+var p = x => indexSubexprReturnSubspec ({
+    funcType: "paramF",
+    decGen: "p(" + x + ")",
+    encPhen: [x]
+});
 
 tt("p(0.9433)");
 
@@ -56,7 +53,7 @@ var pRnd = () => {
         decGen: "pRnd()",
         encPhen: [r6d(random.float())]
     }
-    return storeSubexprReturnData (subspec);
+    return indexSubexprReturnSubspec (subspec);
 };
 
 tt("e(pRnd(),pRnd(),pRnd(),pRnd())");
@@ -68,7 +65,7 @@ var l = x => {
         decGen: "l([" + x + "])",
         encPhen: x
     }
-    return storeSubexprReturnData (subspec);
+    return indexSubexprReturnSubspec (subspec);
 };
 
 tt("l([0.4,0.23,0.56,0.25])");
@@ -95,33 +92,28 @@ var e = (notevalue, midiPitch, articulation, intensity) => {
             chromaticism: 0
         }
     }
-    return storeSubexprReturnData (subspec);
+    return indexSubexprReturnSubspec (subspec);
 }
 
 tt("e(p(.5),p(.4),p(0),p(.8))");
 
 // generates a list of 2 parameters
-var l2P = (a, b) => {
-    subspec = {
-        funcType: "listF",
-        decGen: "l2P(" + a.decGen + ", " + b.decGen + ")",
-        encPhen: a.encPhen.concat(b.encPhen)
-    }
-    return storeSubexprReturnData (subspec);
-};
+var l2P = (a, b) => indexSubexprReturnSubspec ({
+    funcType: "listF",
+    decGen: "l2P(" + a.decGen + ", " + b.decGen + ")",
+    encPhen: a.encPhen.concat(b.encPhen)
+});
+
 
 tt("l2P(p(0.4),p(345))");
 tt("l2P(p(0.4),pAutoref(345))");
 
 // generates a list of 3 parameters
-var l3P = (a, b, c) => {
-    subspec = {
-        funcType: "listF",
-        decGen: "l3P(" + a.decGen + ", " + b.decGen + ", " + c.decGen + ")",
-        encPhen: a.encPhen.concat(b.encPhen).concat(c.encPhen)
-    }
-    return storeSubexprReturnData (subspec);
-};
+var l3P = (a, b, c) => indexSubexprReturnSubspec ({
+    funcType: "listF",
+    decGen: "l3P(" + a.decGen + ", " + b.decGen + ", " + c.decGen + ")",
+    encPhen: a.encPhen.concat(b.encPhen).concat(c.encPhen)
+});
 
 tt("l3P(p(0.4),pRnd(),pAutoref(345))");
 
@@ -130,15 +122,14 @@ var lRnd = (numItemsSeed, seqSeed) => {
     random.use(seedrandom(numItemsSeed.encPhen));
     var numItems = random.int(1, 12);
     random.use(seedrandom(seqSeed.encPhen));
-    subspec = {
+    return indexSubexprReturnSubspec ({
         funcType: "listF",
         decGen: "lRnd(" + numItemsSeed.decGen + ", " + seqSeed.decGen + ")",
         encPhen: Array(numItems).fill().map( () => random.float() )
-    }
-    return storeSubexprReturnData (subspec);
+    });
 };    
 
-tt("lRnd(p(.7),p(.3))");
+tt("lRnd(p(.12),p(.3))");
 
 var lConcatL = (lA, lB) => {
     subspec = {
@@ -146,7 +137,7 @@ var lConcatL = (lA, lB) => {
         decGen: "lConcatL(" + lA.decGen + ", " + lB.decGen + ")",
         encPhen: lA.encPhen.concat(lB.encPhen)
     }
-    return storeSubexprReturnData (subspec);
+    return indexSubexprReturnSubspec (subspec);
 };
 
 tt("lConcatL(lRnd(p(.2),p(.3)),lRnd(pAutoref(0),p(.30002)))");
@@ -157,7 +148,7 @@ var pSquare = x => {
     var decGen = "pSquare(" + x.decGen + ")";
     var encPhen = [x.encPhen[0] * x.encPhen[0]];
     var phenLength = 1;
-    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
+    return indexSubexprReturnSubspec (funcType, decGen, encPhen, phenLength);
 };
 
 
@@ -167,7 +158,7 @@ var pAdd = (a, b) => {
         decGen: "pAdd(" + a.decGen + ", " + b.decGen + ")",
         encPhen: [a.encPhen[0] + b.encPhen[0]]
     }
-    return storeSubexprReturnData (subspec);
+    return indexSubexprReturnSubspec (subspec);
 };
 
 tt("lConcatL(lRnd(p(.2),p(.3)),l2P(pAutoref(0),pAdd(p(74),pAutoref(1))))");
@@ -178,7 +169,7 @@ var lRepeatNum = (val, times) => {
         decGen: "lRepeatNum(" + val.decGen + ", " + times.decGen + ")",
         encPhen: Array(times.encPhen[0]).fill(val.encPhen[0])
     }
-    return storeSubexprReturnData (subspec);
+    return indexSubexprReturnSubspec (subspec);
 };
     
 var lIterExpr = (expr, times) => {
@@ -187,7 +178,7 @@ var lIterExpr = (expr, times) => {
     var encPhen = Array(times.encPhen[0]).fill().map(() => 
     eval(expr.decGen).encPhen).reduce((acc, val) => acc.concat(val), []);
     var phenLength = encPhen.length;
-    return storeSubexprReturnData (funcType, decGen, encPhen, phenLength);
+    return indexSubexprReturnSubspec (funcType, decGen, encPhen, phenLength);
 };
 
 // autoreferences framework for different functionTypes
@@ -202,7 +193,7 @@ var autoref = (funcName, funcType, index, silentElement) => {
         encPhen: eval(subexpressions[funcType][index]).encPhen,
         phenLength: subexpressions[funcType][index].length
     }
-    return storeSubexprReturnData (subspec);
+    return indexSubexprReturnSubspec (subspec);
 };
 
 var pAutoref = index => autoref("pAutoref", "paramF", index, { funcType: "paramF", decGen: "p(.5)", encPhen: [.5], phenLength: 1 });
