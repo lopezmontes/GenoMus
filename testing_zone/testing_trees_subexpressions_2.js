@@ -14,6 +14,7 @@ function initSubexpressionsArrays() {
     subexpressions["eventF"] = [];
     subexpressions["voiceF"] = [];
     subexpressions["scoreF"] = [];
+    subexpressions["operationF"] = [];
 }
 
 initSubexpressionsArrays();
@@ -237,14 +238,14 @@ var pSquare = x => {
     return indexExprReturnSpecimen (funcType, decGen, encPhen, phenLength);
 };
 
-var oAdd = (p1, p2) => {
-    subspec = {
-        funcType: "operationF",
-        decGen: "pAdd(" + p1.decGen + ", " + p2.decGen + ")",
-        encPhen: [p1.encPhen[0] + p2.encPhen[0]]
-    }
-    return indexExprReturnSpecimen (subspec);
-};
+// add two numbers
+var oAdd = (p1, p2) => indexExprReturnSpecimen ({
+    funcType: "operationF",
+    decGen: "pAdd(" + p1.decGen + ", " + p2.decGen + ")",
+    encPhen: [p1.encPhen[0] + p2.encPhen[0]]
+});
+
+tt("oAdd")
 
 tt("lConcatL(lRnd(p(.2),p(.3)),l2P(pAutoref(0),pAdd(p(74),pAutoref(1))))");
 

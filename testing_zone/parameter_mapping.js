@@ -45,17 +45,17 @@ var quantized2norm = q => {
 }
 var q2n = quantized2norm;
 var goldeninteger2norm = p => r6d(p * PHI % 1);
-var g2n = goldeninteger2norm;
-var norm2goldeninteger = g => {
+var z2n = goldeninteger2norm;
+var norm2goldeninteger = z => {
     var p = 0;
     var c = 0;
-    while (Math.abs(p - g) > 0.0000009 && c < 514262) {
+    while (Math.abs(p - z) > 0.0000009 && c < 514262) {
         c++;
         p = (p+PHI) % 1;        
     }
     return c;
 }
-var n2g = norm2goldeninteger;
+var n2z = norm2goldeninteger;
 
 // aux functions
 // round fractional part to 6 digits
