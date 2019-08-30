@@ -241,11 +241,11 @@ var pSquare = x => {
 // add two numbers
 var oAdd = (p1, p2) => indexExprReturnSpecimen ({
     funcType: "operationF",
-    decGen: "pAdd(" + p1.decGen + ", " + p2.decGen + ")",
+    decGen: "oAdd(" + p1.decGen + ", " + p2.decGen + ")",
     encPhen: [p1.encPhen[0] + p2.encPhen[0]]
 });
 
-tt("oAdd")
+tt("oAdd(p(34),p(45))");
 
 tt("lConcatL(lRnd(p(.2),p(.3)),l2P(pAutoref(0),pAdd(p(74),pAutoref(1))))");
 
