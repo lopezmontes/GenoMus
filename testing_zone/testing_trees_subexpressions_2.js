@@ -67,14 +67,11 @@ var p = x => indexExprReturnSpecimen ({
 tt("p(0.9433)");
 
 // returns a random normalized parameter
-var pRnd = () => {
-    subspec = {
-        funcType: "paramF",
-        decGen: "pRnd()",
-        encPhen: [r6d(random.float())]
-    }
-    return indexExprReturnSpecimen (subspec);
-};
+var pRnd = () => indexExprReturnSpecimen ({
+    funcType: "paramF",
+    decGen: "pRnd()",
+    encPhen: [r6d(random.float())]
+});
 
 tt("e(pRnd(),pRnd(),pRnd(),pRnd())");
 
