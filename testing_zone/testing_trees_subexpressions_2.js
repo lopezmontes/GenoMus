@@ -13,6 +13,7 @@ function initSubexpressionsArrays() {
     subexpressions["listF"] = [];
     subexpressions["eventF"] = [];
     subexpressions["voiceF"] = [];
+    subexpressions["scoreF"] = [];
 }
 
 initSubexpressionsArrays();
@@ -24,11 +25,6 @@ var tt = function (decGenotype) {
     console.log(subexpressions);
     return output;
 }
-
-
-
-
-
 
 
 //////////// TEST GENOTYPE FUNCIONS
@@ -49,11 +45,11 @@ var indexExprReturnSpecimen = s => {
 // round fractional part to 6 digits
 var r6d = f => Math.round(f*1000000)/1000000;
 
-// flats arrays
-function flattenDeep(arr1) {
-    return arr1.reduce((acc, val) => Array.isArray(val) ? acc.concat(flattenDeep(val)) : acc.concat(val), []);
- }
+// flats arrays with any level of nesting
+var flattenDeep = arr1 => arr1.reduce((acc, val) => Array.isArray(val) ? acc.concat(flattenDeep(val)) : acc.concat(val), []);
 
+// wraps elements such as voices and scores, putting 1 at the beginning and 0 at the end
+var wrap = a => [1].concat(a.concat(0));  
 
 // parameter identity function
 var p = x => indexExprReturnSpecimen ({
@@ -111,6 +107,34 @@ var e = (notevalue, midiPitch, articulation, intensity) => indexExprReturnSpecim
 });
 
 tt("e(p(.5),p(.4),p(0),p(.8))");
+
+// voice identity function
+var v = e => indexExprReturnSpecimen ({
+    funcType: "voiceF",
+    decGen: "v(" + e.decGen + ")",
+    encPhen: wrap(e.encPhen),
+    phenLength: 1,
+    tempo: e.tempo,
+    rhythm: e.rhythm,
+    harmony: e.harmony,
+    analysis: e.analysis
+});
+
+tt("v(e(p(.5),p(.4),p(0),p(.8)))");
+
+// voice identity function
+var s = v => indexExprReturnSpecimen ({
+    funcType: "scoreF",
+    decGen: "s(" + v.decGen + ")",
+    encPhen: wrap(v.encPhen),
+    phenLength: v.phenLength,
+    tempo: v.tempo,
+    rhythm: v.rhythm,
+    harmony: v.harmony,
+    analysis: v.analysis
+});
+
+tt("s(v(e(p(.5),p(.4),p(0),p(.8))))");
 
 // repeats an event a number of times (eventP, paramP)
 var vRepeatE = (event, times) => {
@@ -246,7 +270,8 @@ var autoref = (funcName, funcType, index, silentElement) => {
 var pAutoref = index => autoref("pAutoref", "paramF", index, p(.5) );
 var lAutoref = index => autoref("lAutoref", "listF", index, l([.5]) );
 var eAutoref = index => autoref("eAutoref", "eventF", index, e(p(0),p(0),p(0),p(0)) );
-
+var vAutoref = index => autoref("vAutoref", "voiceF", index, v(e(p(0),p(0),p(0),p(0))) );
+var sAutoref = index => autoref("sAutoref", "scoreF", index, s(v(e(p(0),p(0),p(0),p(0)))) );
 
 //////////
 // testing
