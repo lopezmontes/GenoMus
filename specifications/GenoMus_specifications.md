@@ -187,7 +187,7 @@ var <iFunctionName> = (arg1, arg2, ..., argN) => {
     <core block> 
     var encPhen = [<array containing the result of the transformations>];
     <analitycs block>
-    return indexSubexprReturnSubspec(funcType, decGen, encPhen, phenLength, tempo, rhythm, harmony, analysis);
+    return indexExprReturnSpecimen(funcType, decGen, encPhen, phenLength, tempo, rhythm, harmony, analysis);
 };
 ```
 - The **check block** verifies that the execution of the function will produce a phenotype that satisfies the constraints of the predetermined initial conditions (specially regarding encoded phenotype length). If the requirements cannot be fulfilled, the process is canceled.

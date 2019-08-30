@@ -34,7 +34,7 @@ var tt = function (decGenotype) {
 //////////// TEST GENOTYPE FUNCIONS
 
 // takes subspecimen s, indexes subexpressions and formats output data
-var indexSubexprReturnSubspec = s => {
+var indexExprReturnSpecimen = s => {
     var subexpressionsIndexed = subexpressions[s.funcType].length;    
     // if subexpression is founded, returns only data
     for (var a = 0; a < subexpressionsIndexed; a++) {
@@ -56,7 +56,7 @@ function flattenDeep(arr1) {
 
 
 // parameter identity function
-var p = x => indexSubexprReturnSubspec ({
+var p = x => indexExprReturnSpecimen ({
     funcType: "paramF",
     decGen: "p(" + x + ")",
     encPhen: [x]
@@ -71,7 +71,7 @@ var pRnd = () => {
         decGen: "pRnd()",
         encPhen: [r6d(random.float())]
     }
-    return indexSubexprReturnSubspec (subspec);
+    return indexExprReturnSpecimen (subspec);
 };
 
 tt("e(pRnd(),pRnd(),pRnd(),pRnd())");
@@ -83,13 +83,13 @@ var l = x => {
         decGen: "l([" + x + "])",
         encPhen: x
     }
-    return indexSubexprReturnSubspec (subspec);
+    return indexExprReturnSpecimen (subspec);
 };
 
 tt("l([0.4,0.23,0.56,0.25])");
 
 // piano event identity function
-var e = (notevalue, midiPitch, articulation, intensity) => indexSubexprReturnSubspec ({
+var e = (notevalue, midiPitch, articulation, intensity) => indexExprReturnSpecimen ({
     funcType: "eventF",
     decGen: "e(" 
         + notevalue.decGen + "," 
@@ -115,7 +115,7 @@ tt("e(p(.5),p(.4),p(0),p(.8))");
 // repeats an event a number of times (eventP, paramP)
 var vRepeatE = (event, times) => {
     if (times.encPhen[0] > phenMaxLength) return "phenotype max length exceeded";
-    return indexSubexprReturnSubspec ({
+    return indexExprReturnSpecimen ({
         funcType: "voiceF",
         decGen: "vRepeatE(" 
             + event.decGen + "," 
@@ -132,7 +132,7 @@ tt("vRepeatE(eAutoref(8),p(3))");
 
 
 // generates a list of 2 parameters
-var l2P = (a, b) => indexSubexprReturnSubspec ({
+var l2P = (a, b) => indexExprReturnSpecimen ({
     funcType: "listF",
     decGen: "l2P(" + a.decGen + ", " + b.decGen + ")",
     encPhen: a.encPhen.concat(b.encPhen)
@@ -142,7 +142,7 @@ tt("l2P(p(0.4),p(345))");
 tt("l2P(p(0.4),pAutoref(345))");
 
 // generates a list of 3 parameters
-var l3P = (a, b, c) => indexSubexprReturnSubspec ({
+var l3P = (a, b, c) => indexExprReturnSpecimen ({
     funcType: "listF",
     decGen: "l3P(" + a.decGen + ", " + b.decGen + ", " + c.decGen + ")",
     encPhen: a.encPhen.concat(b.encPhen).concat(c.encPhen)
@@ -151,7 +151,7 @@ var l3P = (a, b, c) => indexSubexprReturnSubspec ({
 tt("l3P(p(0.4),pRnd(),pAutoref(345))");
 
 // generates a list of 5 parameters
-var l5P = (a, b, c, d, e) => indexSubexprReturnSubspec ({
+var l5P = (a, b, c, d, e) => indexExprReturnSpecimen ({
     funcType: "listF",
     decGen: "l5P(" + a.decGen + ", " + b.decGen + ", " + c.decGen + ", " + d.decGen + ", " + e.decGen + ")",
     encPhen: a.encPhen.concat(b.encPhen).concat(c.encPhen).concat(d.encPhen).concat(e.encPhen)
@@ -166,7 +166,7 @@ var lRnd = (numItemsSeed, seqSeed) => {
     random.use(seedrandom(numItemsSeed.encPhen));
     var numItems = random.int(1, 12);
     random.use(seedrandom(seqSeed.encPhen));
-    return indexSubexprReturnSubspec ({
+    return indexExprReturnSpecimen ({
         funcType: "listF",
         decGen: "lRnd(" + numItemsSeed.decGen + ", " + seqSeed.decGen + ")",
         encPhen: Array(numItems).fill().map( () => random.float() )
@@ -181,7 +181,7 @@ var lConcatL = (lA, lB) => {
         decGen: "lConcatL(" + lA.decGen + ", " + lB.decGen + ")",
         encPhen: lA.encPhen.concat(lB.encPhen)
     }
-    return indexSubexprReturnSubspec (subspec);
+    return indexExprReturnSpecimen (subspec);
 };
 
 tt("lConcatL(lRnd(p(.2),p(.3)),lRnd(pAutoref(0),p(.30002)))");
@@ -193,7 +193,7 @@ var pSquare = x => {
     var decGen = "pSquare(" + x.decGen + ")";
     var encPhen = [x.encPhen[0] * x.encPhen[0]];
     var phenLength = 1;
-    return indexSubexprReturnSubspec (funcType, decGen, encPhen, phenLength);
+    return indexExprReturnSpecimen (funcType, decGen, encPhen, phenLength);
 };
 
 
@@ -203,7 +203,7 @@ var pAdd = (a, b) => {
         decGen: "pAdd(" + a.decGen + ", " + b.decGen + ")",
         encPhen: [a.encPhen[0] + b.encPhen[0]]
     }
-    return indexSubexprReturnSubspec (subspec);
+    return indexExprReturnSpecimen (subspec);
 };
 
 tt("lConcatL(lRnd(p(.2),p(.3)),l2P(pAutoref(0),pAdd(p(74),pAutoref(1))))");
@@ -215,7 +215,7 @@ var lRepeatNum = (val, times) => {
         decGen: "lRepeatNum(" + val.decGen + ", " + times.decGen + ")",
         encPhen: Array(times.encPhen[0]).fill(val.encPhen[0])
     }
-    return indexSubexprReturnSubspec (subspec);
+    return indexExprReturnSpecimen (subspec);
 };
     
 var lIterExpr = (expr, times) => {
@@ -224,7 +224,7 @@ var lIterExpr = (expr, times) => {
     var encPhen = Array(times.encPhen[0]).fill().map(() => 
     eval(expr.decGen).encPhen).reduce((acc, val) => acc.concat(val), []);
     var phenLength = encPhen.length;
-    return indexSubexprReturnSubspec (funcType, decGen, encPhen, phenLength);
+    return indexExprReturnSpecimen (funcType, decGen, encPhen, phenLength);
 };
 
 // autoreferences framework for different functionTypes
@@ -239,7 +239,7 @@ var autoref = (funcName, funcType, index, silentElement) => {
         encPhen: eval(subexpressions[funcType][index]).encPhen,
         phenLength: subexpressions[funcType][index].length
     }
-    return indexSubexprReturnSubspec (subspec);
+    return indexExprReturnSpecimen (subspec);
 };
 
 // autoreferences functions for each output type
