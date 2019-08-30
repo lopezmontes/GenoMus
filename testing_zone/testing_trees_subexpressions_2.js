@@ -245,6 +245,20 @@ var vConcatV = (v1, v2) => indexExprReturnSpecimen ({
 tt("vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0)))")
 tt("s(vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0))))")
 
+// concatenates two voices sequentially
+var sConcatS = (s1, s2) => indexExprReturnSpecimen ({
+    funcType: "scoreF",
+    decGen: "sConcatS(" + s1.decGen + ", " + s2.decGen + ")",
+    encPhen: s1.encPhen.concat(s2.encPhen),
+    phenLength: s1.phenLength + s2.phenLength,
+    tempo: s1.tempo,
+    rhythm: s1.rhythm,
+    harmony: s1.harmony,
+    analysis: s1.analysis,
+});
+
+tt("sConcatS(s(vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0)))),sAutoref(234))")
+
 
 var pSquare = x => {
     var funcType = "paramF";
