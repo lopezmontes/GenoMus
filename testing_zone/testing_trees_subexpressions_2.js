@@ -1,4 +1,4 @@
-// add more output elements to test the final genotype function format
+// minimal elements to test the final genotype function format
 
 const random = require('random');
 const seedrandom = require('seedrandom');
