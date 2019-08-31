@@ -15,13 +15,21 @@ function initSubexpressionsArrays() {
     subexpressions["voiceF"] = [];
     subexpressions["scoreF"] = [];
     subexpressions["notevalueF"] = [];
+    subexpressions["lnotevalueF"] = [];
     subexpressions["durationF"] = [];
+    subexpressions["ldurationF"] = [];
     subexpressions["midipitchF"] = [];
+    subexpressions["lmidipitchF"] = [];    
     subexpressions["frequencyF"] = [];
+    subexpressions["lfrequencyF"] = [];
     subexpressions["articulationF"] = [];
+    subexpressions["larticulationF"] = [];
     subexpressions["intensityF"] = [];
+    subexpressions["lintensityF"] = [];
     subexpressions["goldenintegerF"] = [];
+    subexpressions["lgoldenintegerF"] = [];
     subexpressions["quantizedF"] = [];
+    subexpressions["lquantizedF"] = [];
     subexpressions["operationF"] = [];
 }
 
@@ -87,12 +95,12 @@ var pRnd = () => indexExprReturnSpecimen ({
 var n = x => indexExprReturnSpecimen ({
     funcType: "notevalueF",
     decGen: "n(" + x + ")",
-    encPhen: [r6d(notevalue2norm(x))]
+    encPhen: [notevalue2norm(x)]
 });
 
 // midipitch identity function
 var m = x => {
-    var normalizedParam = r6d(midipitch2norm(x));
+    var normalizedParam = midipitch2norm(x);
     eval("p(" + normalizedParam + ")");    
     return indexExprReturnSpecimen ({
         funcType: "midipitchF",
@@ -103,7 +111,7 @@ var m = x => {
 
 // articulation identity function
 var a = x => {
-    var normalizedParam = r6d(articulation2norm(x));
+    var normalizedParam = articulation2norm(x);
     eval("p(" + normalizedParam + ")");    
     return indexExprReturnSpecimen ({
         funcType: "articulationF",
@@ -114,7 +122,7 @@ var a = x => {
 
 // intensity identity function
 var i = x => {
-    var normalizedParam = r6d(intensity2norm(x));
+    var normalizedParam = intensity2norm(x);
     eval("p(" + normalizedParam + ")");
     return indexExprReturnSpecimen ({
         funcType: "intensityF",
@@ -135,13 +143,39 @@ tt("s(v(e(n(1/16),m(69),a(0.4),i(80))))"); // EXAMPLE 2
 
 // tt("e(pRnd(),pRnd(),pRnd(),pRnd())");
 
-// list identity function (only for direct manual input)
+// list identity function
 var l = x => indexExprReturnSpecimen ({
     funcType: "listF",
     decGen: "l([" + x + "])",
     encPhen: x
 });
 
+// list of notevalues identity function
+var ln = notevalueList => {
+    var normalizedParams = notevalueList.map(x => notevalue2norm(x));
+    eval("l([" + normalizedParams + "])");
+    return indexExprReturnSpecimen ({
+        funcType: "lnotevalueF",
+        decGen: "ln([" + notevalueList + "])",
+        encPhen: normalizedParams
+    });
+};
+
+tt("ln([1/8,1,1/2])");
+
+
+// list of midipitch values identity function
+var lm = midipitchList => {
+    var normalizedParams = midipitchList.map(x => midipitch2norm(x));
+    eval("l([" + normalizedParams + "])");
+    return indexExprReturnSpecimen ({
+        funcType: "lmidipitchF",
+        decGen: "lm([" + midipitchList + "])",
+        encPhen: normalizedParams
+    });
+};
+
+tt("lm([45,47,67,45,46])");
 // tt("l([0.4,0.23,0.56,0.25])");
 
 // piano event identity function
@@ -317,16 +351,6 @@ var sConcatS = (s1, s2) => indexExprReturnSpecimen ({
 
 // tt("sConcatS(s(vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0)))),sAutoref(234))")
 
-
-var pSquare = x => {
-    var funcType = "paramF";
-    var rnd = Math.random();
-    var decGen = "pSquare(" + x.decGen + ")";
-    var encPhen = [x.encPhen[0] * x.encPhen[0]];
-    var phenLength = 1;
-    return indexExprReturnSpecimen (funcType, decGen, encPhen, phenLength);
-};
-
 // add two numbers
 var oSum = (p1, p2) => indexExprReturnSpecimen ({
     funcType: "operationF",
@@ -347,14 +371,13 @@ var lRepeatP = (p, times) => indexExprReturnSpecimen ({
 
 // tt("lRepeatP(pRnd(),p(4))");
 
-var lIterExpr = (l, times) => {
-    var funcType = "listF";
-    var decGen = "lIterExpr(" + l.decGen + ", " + times.decGen + ")";
-    var encPhen = Array(times.encPhen[0]).fill().map(() => 
-    eval(l.decGen).encPhen).reduce((acc, val) => acc.concat(val), []);
-    var phenLength = encPhen.length;
-    return indexExprReturnSpecimen (funcType, decGen, encPhen, phenLength);
-};
+var lIterExpr = (l, times) => indexExprReturnSpecimen ({
+    funcType: "listF",
+    decGen: "lIterExpr(" + l.decGen + ", " + times.decGen + ")",
+    encPhen: flattenDeep(Array(times.encPhen[0]).fill().map(() => eval(l.decGen).encPhen))
+});
+
+ tt("lIterExpr(l3P(p(0.333),pRnd(),pRnd()),p(4))");
 
 // autoreferences framework for different functionTypes
 var autoref = (funcName, funcType, index, silentElement) => {
@@ -396,32 +419,32 @@ const PHI = (1 + Math.sqrt(5)) / 2;
 
 var norm2notevalue = p => decimalToFraction(Math.pow(2, 10 * p - 8));
 var p2n = norm2notevalue;
-var notevalue2norm = n => (Math.log10(n) + 8 * Math.log10(2)) / (10 * Math.log10(2));
+var notevalue2norm = n => r6d((Math.log10(n) + 8 * Math.log10(2)) / (10 * Math.log10(2)));
 var n2p = notevalue2norm;
-var norm2duration = p => Math.pow(2, 10 * p - 6);
+var norm2duration = p => r6d(Math.pow(2, 10 * p - 6));
 var p2d = norm2duration;
-var duration2norm = s => (Math.log10(s) + 6 * Math.log10(2)) / (10 * Math.log10(2));
+var duration2norm = s => r6d((Math.log10(s) + 6 * Math.log10(2)) / (10 * Math.log10(2)));
 var d2p = duration2norm;
-var norm2midipitch = p => 100 * p + 12;
+var norm2midipitch = p => r6d(100 * p + 12);
 var p2m = norm2midipitch;
-var midipitch2norm = m => (m - 12) / 100;
+var midipitch2norm = m => r6d((m - 12) / 100);
 var m2p = midipitch2norm;
-var norm2frequency = p => p < 0.003 ? 0.000001 : 20000 * Math.pow(p, 4);
+var norm2frequency = p => p < 0.003 ? 0.000001 : r6d(20000 * Math.pow(p, 4));
 var n2f = norm2frequency;
-var frequency2norm = f => Math.pow((f / 20000), (1 / 4));
+var frequency2norm = f => r6d(Math.pow((f / 20000), (1 / 4)));
 var f2n = frequency2norm;
-var norm2articulation = p => 3 * Math.pow(p, Math.E);
+var norm2articulation = p => r6d(3 * Math.pow(p, Math.E));
 var n2a = norm2articulation;
-var articulation2norm = a => Math.pow((a / 3), (1 / Math.E));
+var articulation2norm = a => r6d(Math.pow((a / 3), (1 / Math.E)));
 var a2n = articulation2norm;
-var norm2intensity = p => 127*p; 
+var norm2intensity = p => r6d(127*p); 
 var n2i = norm2intensity;
-var intensity2norm = i => i/127;
+var intensity2norm = i => r6d(i/127);
 var i2n = intensity2norm;
 var norm2quantized = p => {
     if (p > 1) { p = 1 };
     if (p < 0) { p = 0 };    
-    var s = -1 * Math.round(((((Math.asin(Math.pow(Math.abs((2 * p - 1)),(17 / 11))))/Math.PI)) + 0.5) * 72 - 36);
+    var s = r6d(-1 * Math.round(((((Math.asin(Math.pow(Math.abs((2 * p - 1)),(17 / 11))))/Math.PI)) + 0.5) * 72 - 36));
     if (p < .5) {
         return s;
     }
