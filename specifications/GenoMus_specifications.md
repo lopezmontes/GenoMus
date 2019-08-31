@@ -258,7 +258,7 @@ Function types created to manage specific types of data (some of them are still 
 | function type   | identifier   | output
 | --------------- | ------------ | --------
 | **operationF**  | **o**        | result of an arithmetic operation, useful to construct recursive mathematical expressions inside a genotype
-| **booleanF**     | **b**        | boolean value (only 0 or 1)
+| **booleanF**    | **b**        | boolean value (only 0 or 1)
 | **rhythmF**     | **r**        | rhythmic pattern (nested array of floats &isinv; [0, 1])
 | **harmonyF**    | **h**        | pitch class sequence, useful for specifying scales, modes, chords, pitch aggregates, harmonic series, etc.
 | **catalogueF**  | **c**        | pointer to an external genotype from a specimen catalogue (to be used with functions referencing external data)
@@ -1462,10 +1462,10 @@ s(
 `"s(v(e(n(1/16),m(69),a(0.4),i(80))))"`
 
 #### Encoded genotype
-`[1, 0.472136, 1, 0.854102, 1, 0.236068, 1, 0.09017, 0.51, 0.4, 0, 1, 0.326238, 0.53, 0.57, 0, 1, 0.562306, 0.55, 0.248547, 0, 1, 0.18034, 0.56, 0.629921, 0, 0, 0, 0]`
+`[1, 0.472136, 1, 0.854102, 1, 0.236068, 1, 0.09017, 0.51, 0.4, 0, 1, 0.326238, 0.53, 0.57, 0, 1, 0.562306, 0.55, 0.476522, 0, 1, 0.18034, 0.56, 0.629921, 0, 0, 0, 0]`
 
 #### Encoded phenotype
-`[1, 1, 0.4, 0.618034, 0.57, 0.248547, 0.661417, 0, 0]`
+`[1, 1, 0.4, 0.618034, 0.57, 0.476522, 0.629921, 0, 0]`
 
 #### Visualization
 
