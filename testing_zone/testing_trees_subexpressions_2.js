@@ -556,7 +556,7 @@ var testRepetitions = function (n) {
 
 
 var visualizeSpecimen = (spec, filename) => {
-    var lineHeight = 100, lineWidth = 10, lineColor;
+    var lineColor, lineColorGrad, lineHeight = 140, lineWidth = 10, lineColor;
     var specimenLength = spec.encGen.length;
     var graphWidth = specimenLength*(lineWidth+1);
     var graphHeight = lineHeight;
@@ -569,22 +569,38 @@ var visualizeSpecimen = (spec, filename) => {
         "' style='fill:white;' />\n";
     for (var i = 0; i < specimenLength; i++) {
         lineHeight = spec.encGen[i] * (graphHeight - lineWidth) + lineWidth;
-        if (spec.encGen[i] == 0 || spec.encGen[i] == 0.2 ||spec.encGen[i] == 0.5 ||spec.encGen[i] == 0.8 ||spec.encGen[i] == 1 ) {
+        if (spec.encGen[i] == 0 || spec.encGen[i] == 1 ) {
+            lineColor = "white";
+            lineColorGrad = "black";
+        } else
+        if (spec.encGen[i] == 0.2 || spec.encGen[i] == 0.5 || spec.encGen[i] == 0.8) {
             lineColor = "dimgray";
+            lineColorGrad = "white";
+        } else
+        if (spec.encGen[i] == 0.5) {
+            lineColor = "dimgray";
+            lineColorGrad = "dimgray";
         } else {
-            lineColor = "hsl(" + (norm2goldeninteger(spec.encGen[i])%360) + "," + 87 + "%," + 50 + "%)";
+            lineColor = "hsl(" + (norm2goldeninteger(spec.encGen[i])%360) + "," + 89 + "%," + 50 + "%)";
+            lineColorGrad = "hsl(" + (norm2goldeninteger(spec.encGen[i])%360) + "," + 100 + "%," + 80 + "%)";
         }
         lines = lines + 
+            "    <defs>\n" +
+            "      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>\n" +
+            "      <stop offset='40%'  style='stop-color:" + lineColor + ";stop-opacity:1' />\n" +
+            "      <stop offset='100%'  style='stop-color:" + lineColorGrad + ";stop-opacity:1' />\n" +
+            "      </linearGradient>\n" +
+            "    </defs>\n" +
             "    <rect x='" + (i * (lineWidth + 1)) + 
             "' y='" + (graphHeight - lineHeight) + 
             "' rx='" + roundedCornerRadius + "' ry='" + roundedCornerRadius + "' width='" + lineWidth + "' height='" + lineHeight + 
-            "' style='fill:" + lineColor + ";' />\n";
+            "' style='fill:url(#grad1)' />\n";
     }
     var SVGcode = SVGheader + lines + "</svg>";    
     fs.writeFileSync(filename + '.svg', SVGcode);
 };
 
-visualizeSpecimen(largeSpecimen, "automatic_visualization");
+visualizeSpecimen(realPhenotype, "automatic_visualization");
 
 
 var minimalSpecimen = {encGen: [1, 1, 0.5, 0.618034, 0.5, 0.5, 0.5, 0, 0]};

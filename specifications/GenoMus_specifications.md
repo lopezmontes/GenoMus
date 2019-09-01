@@ -160,6 +160,7 @@ To enable automatic chaining of functions, all functions inside a genotype share
 key                | data type                      | description
 | ---------------- | ------------------------------ | -----------
 **funcType**       | string                         | [**Function type**](#genotype-function-types) according to its output.
+**encGen**         | array of floats &isinv; [0, 1] | **Encoded genotype** excerpt. umeric representation of the following functional expression.
 **decGen**         | string                         | **Decoded genotype** excerpt. Functional expression of the genotype branch computed until that node, including the function itself.
 **encPhen**        | array of floats &isinv; [0, 1] | **Encoded phenotype** excerpt. Transformation of the input data made with the compositional procedures of the function itself.
 **phenLength**     | integer                        | **Number of events** generated so far. Useful for subsequent functions to avoid overly large processes.
@@ -168,7 +169,7 @@ key                | data type                      | description
 **harmony**        | dictionary                     | [**Harmonic grid**](#harmonic-grid).
 **analysis**       | dictionary                     | **Autoanalysis** of different [musical features](#specimen-autoanalytic-profile).
 
-First three elements are compulsory for every function inside a genotype. Informations about rhythm and harmony can be useful for subsequent functions, but they are optional. 
+First four elements are compulsory for every function inside a genotype. Informations about rhythm and harmony can be useful for subsequent functions, but they are optional. 
 
 Variable names inside each genotype function are not compulsory, but is highly recommended to maintain the same nomenclature to improve code readability and reusability.
 
@@ -187,7 +188,7 @@ var <iFunctionName> = (arg1, arg2, ..., argN) => {
     <core block> 
     var encPhen = [<array containing the result of the transformations>];
     <analitycs block>
-    return indexExprReturnSpecimen(funcType, decGen, encPhen, phenLength, tempo, rhythm, harmony, analysis);
+    return indexExprReturnSpecimen(funcType, encGen, decGen, encPhen, phenLength, tempo, rhythm, harmony, analysis);
 };
 ```
 - The **check block** verifies that the execution of the function will produce a phenotype that satisfies the constraints of the predetermined initial conditions (specially regarding encoded phenotype length). If the requirements cannot be fulfilled, the process is canceled.
