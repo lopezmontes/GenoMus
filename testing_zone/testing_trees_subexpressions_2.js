@@ -176,6 +176,7 @@ var lm = midipitchList => {
 };
 
 tt("lm([45,47,67,45,46])");
+
 // tt("l([0.4,0.23,0.56,0.25])");
 
 // piano event identity function
