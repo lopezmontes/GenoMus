@@ -2,6 +2,8 @@
 
 const random = require('random');
 const seedrandom = require('seedrandom');
+const jsdom = require('jsdom');
+const fs = require('fs');
 
 // initial conditions
 var phenMaxLength = 10;   
@@ -549,3 +551,11 @@ var testRepetitions = function (n) {
     }
     return 1;                        
 }
+
+
+
+var data = "<svg version='1.1'\nbaseProfile='full'\n    width='300' height='65'\n    xmlns='http://www.w3.org/2000/svg'>\n    <rect x='0' y='0' width='300' height='65' style='fill:white;' />\n    <rect x='36' y='60' rx='2.5' ry='2.5' width='5' height='5' style='fill:black;' />\n    </svg>";
+
+fs.writeFileSync('visualization_tests/prueba.svg', data);
+
+
