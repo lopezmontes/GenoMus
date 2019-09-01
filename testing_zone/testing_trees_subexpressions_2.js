@@ -554,8 +554,37 @@ var testRepetitions = function (n) {
 
 
 
-var data = "<svg version='1.1'\nbaseProfile='full'\n    width='300' height='65'\n    xmlns='http://www.w3.org/2000/svg'>\n    <rect x='0' y='0' width='300' height='65' style='fill:white;' />\n    <rect x='36' y='60' rx='2.5' ry='2.5' width='5' height='5' style='fill:black;' />\n    </svg>";
 
-fs.writeFileSync('visualization_tests/prueba.svg', data);
+var visualizeSpecimen = function (spec, filename) {
+    var specimenLength = spec.encGen.length;
+    var graphWidth = specimenLength*6;
+    var graphHeight = 70;
+    var lines = "";
+    var lineHeight, lineWidth = 5, lineColor;
+    var SVGheader = "<svg version='1.1'\nbaseProfile='full'\n    width='" +
+        graphWidth + "' height='" + graphHeight +
+        "'\n    xmlns='http://www.w3.org/2000/svg'>\n    <rect x='0' y='0' width=';" +
+        graphWidth + "' height='" + graphHeight +
+        "' style='fill:white;' />\n";
+    for (var i = 0; i < specimenLength; i++) {
+        lineHeight = spec.encGen[i] * (graphHeight - lineWidth) + lineWidth;
+        if (spec.encGen[i] == 0 || spec.encGen[i] == 0.2 ||spec.encGen[i] == 0.5 ||spec.encGen[i] == 0.8 ||spec.encGen[i] == 1 ) {
+            lineColor = "dimgray";
+        } else {
+            lineColor = "hsl(" + (norm2goldeninteger(spec.encGen[i])%360) + "," + 87 + "%," + 50 + "%)";
+        }
+        lines = lines + 
+            "    <rect x='" + (i * (lineWidth + 1)) + 
+            "' y='" + (graphHeight - lineHeight) + 
+            "' rx='2.5' ry='2.5' width='5' height='" + 
+            lineHeight + 
+            "' style='fill:" + lineColor + ";' />\n";
+    }
+    var SVGcode = SVGheader + lines + "</svg>";    
+    fs.writeFileSync(filename + '.svg', SVGcode);
+};
 
+visualizeSpecimen(testColorsSpecimen, "narome");
 
+var testColorsSpecimen = {encGen: [0,0.000001,.000002,.000003,.000004,0,0.1,0.2,0.3,.4,.5,.6,.7,.8,.9,1,0,0.11,0.21,0.31,.41,.51,.61,.71,.81,.91,1,0,0.101,0.201,0.301,.401,.501,.601,.701,.801,.901,1]};
+var realPhenotype = {encGen: [1, 0.54102, 1, 0.159054, 1, 0.159054, 1, 0.472136, 1, 0.777088, 1, 0.236068, 1, 0.09017, 0.51, 0.4, 0, 1, 0.506578, 0.8, 0.53, 0.56, 0.53, 0.62, 0.53, 0.65, 0.2, 0, 1, 0.562306, 0.55, 0.369267, 0, 1, 0.18034, 0.56, 0.19685, 0, 0, 1, 0.798374, 0.57, 0.832816, 0, 0, 0, 1, 0.777088, 1, 0.236068, 1, 0.09017, 0.51, 0.441504, 0, 1, 0.506578, 0.8, 0.53, 0.5, 0.53, 0.53, 0.2, 0, 1, 0.562306, 0.55, 0.369267, 0, 1, 0.18034, 0.56, 0.11811, 0, 0, 1, 0.798374, 0.57, 0.124612, 0, 0, 0, 1, 0.304952, 1, 0.27051, 1, 0.8, 0.51, 0.7, 0.51, 0.61, 0.2, 0, 1, 0.506578, 0.8, 0.53, 0.41, 0.53, 0.44, 0.53, 0.41, 0.53, 0.34, 0.2, 0, 1, 0.562306, 0.55, 0.667539, 0, 1, 0.18034, 0.56, 0.503937, 0, 0, 0, 1, 0.159054, 1, 0.472136, 1, 0.304952, 1, 0.27051, 1, 0.8, 0.51, 0.7, 0.51, 0.61, 0.2, 0, 1, 0.506578, 0.8, 0.53, 0.51, 0.53, 0.55, 0.53, 0.51, 0.53, 0.461, 0.2, 0, 1, 0.562306, 0.55, 0.667539, 0, 1, 0.18034, 0.56, 0.330709, 0, 0, 0, 1, 0.777088, 1, 0.236068, 1, 0.09017, 0.51, 0.5, 0, 1, 0.326238, 0.53, 0.38, 0, 1, 0.562306, 0.55, 0.51729, 0, 1, 0.18034, 0.56, 0.251969, 0, 0, 1, 0.798374, 0.57, 0.416408, 0, 0, 0, 0]};
