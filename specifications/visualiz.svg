@@ -1,0 +1,167 @@
+<svg version='1.1'
+baseProfile='full'
+    width='253' height='140'
+    xmlns='http://www.w3.org/2000/svg'>
+    <rect x='0' y='0' width=';253' height='140' style='fill:white;' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:black;stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:black;stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='0' y='0' rx='3' ry='3' width='10' height='140' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:hsl(15,89%,50%);stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:hsl(15,100%,80%);stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='11' y='94.8337' rx='3' ry='3' width='10' height='45.1663' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:dimgray;stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:white;stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='22' y='26' rx='3' ry='3' width='10' height='114' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:hsl(249,89%,50%);stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:hsl(249,100%,80%);stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='33' y='63.7' rx='3' ry='3' width='10' height='76.3' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:dimgray;stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:white;stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='44' y='65' rx='3' ry='3' width='10' height='75' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:hsl(249,89%,50%);stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:hsl(249,100%,80%);stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='55' y='63.7' rx='3' ry='3' width='10' height='76.3' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:dimgray;stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:white;stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='66' y='26' rx='3' ry='3' width='10' height='114' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:hsl(249,89%,50%);stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:hsl(249,100%,80%);stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='77' y='63.7' rx='3' ry='3' width='10' height='76.3' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:hsl(132,89%,50%);stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:hsl(132,100%,80%);stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='88' y='39' rx='3' ry='3' width='10' height='101' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:hsl(249,89%,50%);stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:hsl(249,100%,80%);stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='99' y='63.7' rx='3' ry='3' width='10' height='76.3' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:dimgray;stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:white;stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='110' y='65' rx='3' ry='3' width='10' height='75' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:hsl(249,89%,50%);stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:hsl(249,100%,80%);stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='121' y='63.7' rx='3' ry='3' width='10' height='76.3' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:dimgray;stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:white;stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='132' y='26' rx='3' ry='3' width='10' height='114' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:hsl(249,89%,50%);stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:hsl(249,100%,80%);stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='143' y='63.7' rx='3' ry='3' width='10' height='76.3' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:hsl(132,89%,50%);stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:hsl(132,100%,80%);stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='154' y='39' rx='3' ry='3' width='10' height='101' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:hsl(249,89%,50%);stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:hsl(249,100%,80%);stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='165' y='63.7' rx='3' ry='3' width='10' height='76.3' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:hsl(176,89%,50%);stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:hsl(176,100%,80%);stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='176' y='52' rx='3' ry='3' width='10' height='88' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:hsl(249,89%,50%);stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:hsl(249,100%,80%);stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='187' y='63.7' rx='3' ry='3' width='10' height='76.3' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:dimgray;stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:white;stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='198' y='26' rx='3' ry='3' width='10' height='114' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:hsl(249,89%,50%);stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:hsl(249,100%,80%);stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='209' y='63.7' rx='3' ry='3' width='10' height='76.3' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:hsl(132,89%,50%);stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:hsl(132,100%,80%);stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='220' y='39' rx='3' ry='3' width='10' height='101' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:dimgray;stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:white;stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='231' y='104' rx='3' ry='3' width='10' height='36' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:black;stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:black;stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='242' y='130' rx='3' ry='3' width='10' height='10' style='fill:url(#grad1)' />
+</svg>
