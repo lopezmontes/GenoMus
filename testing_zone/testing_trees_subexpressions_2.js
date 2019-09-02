@@ -5,7 +5,7 @@ const seedrandom = require('seedrandom');
 const fs = require('fs');
 
 // initial conditions
-var phenMaxLength = 10;   
+var phenMaxLength = 1000;   
 
 // global variable to store subexpressions
 var subexpressions = [];
@@ -143,6 +143,17 @@ var i = x => {
     });
 };
 
+// intensity identity function
+var q = x => {
+    eval("p(" + quantized2norm(x) + ")");
+    return indexExprReturnSpecimen ({
+        funcType: "intensityF",
+        encGen: [1, 0.416408, 0.58, quantized2norm(x)],
+        decGen: "q(" + x + ")",
+        encPhen: [quantized2norm(x)]
+    });
+};
+
 // tt("n(4)");
 // tt("m(60)");
 // tt("a(60)");
@@ -222,6 +233,7 @@ tt("e(p(.5),p(.4),p(0.6),p(.8))");
 // voice identity function
 var v = e => indexExprReturnSpecimen ({
     funcType: "voiceF",
+    encGen: flattenDeep([1, 0.854102, e.encGen, 0]),
     decGen: "v(" + e.decGen + ")",
     encPhen: wrap(e.encPhen),
     phenLength: 1,
@@ -231,11 +243,12 @@ var v = e => indexExprReturnSpecimen ({
     analysis: e.analysis
 });
 
-// // tt("v(e(p(.5),p(.4),p(0),p(.8)))");
+tt("v(e(p(.5),p(.4),p(0),p(.8)))");
 
 // score identity function
 var s = v => indexExprReturnSpecimen ({
     funcType: "scoreF",
+    encGen: flattenDeep([1, 0.472136, v.encGen, 0]),
     decGen: "s(" + v.decGen + ")",
     encPhen: wrap(v.encPhen),
     phenLength: v.phenLength,
@@ -245,24 +258,27 @@ var s = v => indexExprReturnSpecimen ({
     analysis: v.analysis
 });
 
-// // tt("s(v(e(p(.5),p(.4),p(0),p(.8))))");
+tt("s(v(e(p(.5),p(.4),p(0),p(.8))))");
 
 // repeats an event a number of times (eventP, paramP)
 var vRepeatE = (event, times) => {
+    // implement a rescaling reusable
+    var numRepeats = Math.abs(n2q(times.encPhen[0])) % 11 + 2; // number of times rescaled to range [2, 12]
     if (times.encPhen[0] > phenMaxLength) return "phenotype max length exceeded";
     return indexExprReturnSpecimen ({
         funcType: "voiceF",
+        encGen: flattenDeep([1, 0.068884, event.encGen, times.encGen, 0]),
         decGen: "vRepeatE(" 
             + event.decGen + "," 
             + times.decGen + ")",
-        encPhen: wrap(flattenDeep(Array(times.encPhen[0]).fill(event.encPhen))),
-        phenLength: times.encPhen,
+        encPhen: wrap(flattenDeep(Array(numRepeats).fill(event.encPhen))),
+        phenLength: numRepeats,
         tempo: event.tempo,
         harmony: event.harmony
     });
 }
 
-// tt("vRepeatE(e(p(.5),p(.4),p(0),p(.8)),p(3))");
+ tt("vRepeatE(e(p(.5),pRnd(),p(0),pRnd()),pRnd())");
 // tt("vRepeatE(eAutoref(8),p(3))");
 
 
@@ -571,13 +587,13 @@ var testRepetitions = function (n) {
 
 
 var visualizeSpecimen = (normArray, filename) => {
-    var lineColor, lineColorGrad, lineHeight = 140, lineWidth = 10, lineColor;
+    var lineColor, lineHeight = 140, lineWidth = 10, lineColor;
     var specimenLength = normArray.length;
     var graphWidth = specimenLength*(lineWidth+1);
     var graphHeight = lineHeight;
-    var roundedCornerRadius = lineWidth * 0.3;
+    var roundedCornerRadius = lineWidth * 0.5;
     var lines = "";
-    var SVGheader = "<svg version='1.1'\nbaseProfile='full'\n    width='" +
+    var SVGheader = "<svg version='1.1'\n    baseProfile='full'\n    width='" +
         graphWidth + "' height='" + graphHeight +
         "'\n    xmlns='http://www.w3.org/2000/svg'>\n    <rect x='0' y='0' width=';" +
         graphWidth + "' height='" + graphHeight +
@@ -586,30 +602,17 @@ var visualizeSpecimen = (normArray, filename) => {
         lineHeight = normArray[i] * (graphHeight - lineWidth) + lineWidth;
         if (normArray[i] == 0 || normArray[i] == 1 ) {
             lineColor = "black";
-            lineColorGrad = "black";
         } else
         if (normArray[i] == 0.2 || normArray[i] == 0.5 || normArray[i] == 0.8 ) {
             lineColor = "dimgray";
-            lineColorGrad = "white";
-        } else
-        if (normArray[i] == 0.5) {
-            lineColor = "dimgray";
-            lineColorGrad = "dimgray";
         } else {
-            lineColor = "hsl(" + (norm2goldeninteger(normArray[i])%360) + "," + 89 + "%," + 50 + "%)";
-            lineColorGrad = "hsl(" + (norm2goldeninteger(normArray[i])%360) + "," + 100 + "%," + 80 + "%)";
+            lineColor = "hsl(" + (norm2goldeninteger(normArray[i])%360) + "," + 93 + "%," + 50 + "%)";
         }
         lines = lines + 
-            "    <defs>\n" +
-            "      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>\n" +
-            "      <stop offset='40%'  style='stop-color:" + lineColor + ";stop-opacity:1' />\n" +
-            "      <stop offset='100%'  style='stop-color:" + lineColorGrad + ";stop-opacity:1' />\n" +
-            "      </linearGradient>\n" +
-            "    </defs>\n" +
             "    <rect x='" + (i * (lineWidth + 1)) + 
             "' y='" + (graphHeight - lineHeight) + 
             "' rx='" + roundedCornerRadius + "' ry='" + roundedCornerRadius + "' width='" + lineWidth + "' height='" + lineHeight + 
-            "' style='fill:url(#grad1)' />\n";
+            "' style='fill:" + lineColor + "' />\n";
     }
     var SVGcode = SVGheader + lines + "</svg>";    
     fs.writeFileSync(filename + '.svg', SVGcode);

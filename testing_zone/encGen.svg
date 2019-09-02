@@ -1,139 +1,32 @@
 <svg version='1.1'
-baseProfile='full'
-    width='209' height='140'
+    baseProfile='full'
+    width='286' height='140'
     xmlns='http://www.w3.org/2000/svg'>
-    <rect x='0' y='0' width=';209' height='140' style='fill:white;' />
-    <defs>
-      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
-      <stop offset='40%'  style='stop-color:black;stop-opacity:1' />
-      <stop offset='100%'  style='stop-color:black;stop-opacity:1' />
-      </linearGradient>
-    </defs>
-    <rect x='0' y='0' rx='3' ry='3' width='10' height='140' style='fill:url(#grad1)' />
-    <defs>
-      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
-      <stop offset='40%'  style='stop-color:hsl(2,89%,50%);stop-opacity:1' />
-      <stop offset='100%'  style='stop-color:hsl(2,100%,80%);stop-opacity:1' />
-      </linearGradient>
-    </defs>
-    <rect x='11' y='99.31116' rx='3' ry='3' width='10' height='40.68884' style='fill:url(#grad1)' />
-    <defs>
-      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
-      <stop offset='40%'  style='stop-color:black;stop-opacity:1' />
-      <stop offset='100%'  style='stop-color:black;stop-opacity:1' />
-      </linearGradient>
-    </defs>
-    <rect x='22' y='0' rx='3' ry='3' width='10' height='140' style='fill:url(#grad1)' />
-    <defs>
-      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
-      <stop offset='40%'  style='stop-color:black;stop-opacity:1' />
-      <stop offset='100%'  style='stop-color:black;stop-opacity:1' />
-      </linearGradient>
-    </defs>
-    <rect x='33' y='130' rx='3' ry='3' width='10' height='10' style='fill:url(#grad1)' />
-    <defs>
-      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
-      <stop offset='40%'  style='stop-color:dimgray;stop-opacity:1' />
-      <stop offset='100%'  style='stop-color:white;stop-opacity:1' />
-      </linearGradient>
-    </defs>
-    <rect x='44' y='65' rx='3' ry='3' width='10' height='75' style='fill:url(#grad1)' />
-    <defs>
-      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
-      <stop offset='40%'  style='stop-color:dimgray;stop-opacity:1' />
-      <stop offset='100%'  style='stop-color:white;stop-opacity:1' />
-      </linearGradient>
-    </defs>
-    <rect x='55' y='65' rx='3' ry='3' width='10' height='75' style='fill:url(#grad1)' />
-    <defs>
-      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
-      <stop offset='40%'  style='stop-color:black;stop-opacity:1' />
-      <stop offset='100%'  style='stop-color:black;stop-opacity:1' />
-      </linearGradient>
-    </defs>
-    <rect x='66' y='0' rx='3' ry='3' width='10' height='140' style='fill:url(#grad1)' />
-    <defs>
-      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
-      <stop offset='40%'  style='stop-color:black;stop-opacity:1' />
-      <stop offset='100%'  style='stop-color:black;stop-opacity:1' />
-      </linearGradient>
-    </defs>
-    <rect x='77' y='130' rx='3' ry='3' width='10' height='10' style='fill:url(#grad1)' />
-    <defs>
-      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
-      <stop offset='40%'  style='stop-color:dimgray;stop-opacity:1' />
-      <stop offset='100%'  style='stop-color:white;stop-opacity:1' />
-      </linearGradient>
-    </defs>
-    <rect x='88' y='65' rx='3' ry='3' width='10' height='75' style='fill:url(#grad1)' />
-    <defs>
-      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
-      <stop offset='40%'  style='stop-color:hsl(264,89%,50%);stop-opacity:1' />
-      <stop offset='100%'  style='stop-color:hsl(264,100%,80%);stop-opacity:1' />
-      </linearGradient>
-    </defs>
-    <rect x='99' y='78' rx='3' ry='3' width='10' height='62' style='fill:url(#grad1)' />
-    <defs>
-      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
-      <stop offset='40%'  style='stop-color:black;stop-opacity:1' />
-      <stop offset='100%'  style='stop-color:black;stop-opacity:1' />
-      </linearGradient>
-    </defs>
-    <rect x='110' y='0' rx='3' ry='3' width='10' height='140' style='fill:url(#grad1)' />
-    <defs>
-      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
-      <stop offset='40%'  style='stop-color:black;stop-opacity:1' />
-      <stop offset='100%'  style='stop-color:black;stop-opacity:1' />
-      </linearGradient>
-    </defs>
-    <rect x='121' y='130' rx='3' ry='3' width='10' height='10' style='fill:url(#grad1)' />
-    <defs>
-      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
-      <stop offset='40%'  style='stop-color:dimgray;stop-opacity:1' />
-      <stop offset='100%'  style='stop-color:white;stop-opacity:1' />
-      </linearGradient>
-    </defs>
-    <rect x='132' y='65' rx='3' ry='3' width='10' height='75' style='fill:url(#grad1)' />
-    <defs>
-      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
-      <stop offset='40%'  style='stop-color:hsl(176,89%,50%);stop-opacity:1' />
-      <stop offset='100%'  style='stop-color:hsl(176,100%,80%);stop-opacity:1' />
-      </linearGradient>
-    </defs>
-    <rect x='143' y='52' rx='3' ry='3' width='10' height='88' style='fill:url(#grad1)' />
-    <defs>
-      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
-      <stop offset='40%'  style='stop-color:black;stop-opacity:1' />
-      <stop offset='100%'  style='stop-color:black;stop-opacity:1' />
-      </linearGradient>
-    </defs>
-    <rect x='154' y='0' rx='3' ry='3' width='10' height='140' style='fill:url(#grad1)' />
-    <defs>
-      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
-      <stop offset='40%'  style='stop-color:black;stop-opacity:1' />
-      <stop offset='100%'  style='stop-color:black;stop-opacity:1' />
-      </linearGradient>
-    </defs>
-    <rect x='165' y='130' rx='3' ry='3' width='10' height='10' style='fill:url(#grad1)' />
-    <defs>
-      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
-      <stop offset='40%'  style='stop-color:dimgray;stop-opacity:1' />
-      <stop offset='100%'  style='stop-color:white;stop-opacity:1' />
-      </linearGradient>
-    </defs>
-    <rect x='176' y='65' rx='3' ry='3' width='10' height='75' style='fill:url(#grad1)' />
-    <defs>
-      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
-      <stop offset='40%'  style='stop-color:dimgray;stop-opacity:1' />
-      <stop offset='100%'  style='stop-color:white;stop-opacity:1' />
-      </linearGradient>
-    </defs>
-    <rect x='187' y='26' rx='3' ry='3' width='10' height='114' style='fill:url(#grad1)' />
-    <defs>
-      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
-      <stop offset='40%'  style='stop-color:black;stop-opacity:1' />
-      <stop offset='100%'  style='stop-color:black;stop-opacity:1' />
-      </linearGradient>
-    </defs>
-    <rect x='198' y='130' rx='3' ry='3' width='10' height='10' style='fill:url(#grad1)' />
+    <rect x='0' y='0' width=';286' height='140' style='fill:white;' />
+    <rect x='0' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='11' y='121.04508' rx='5' ry='5' width='10' height='18.95492' style='fill:hsl(26,93%,50%)' />
+    <rect x='22' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='33' y='99.31116' rx='5' ry='5' width='10' height='40.68884' style='fill:hsl(2,93%,50%)' />
+    <rect x='44' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='55' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='66' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
+    <rect x='77' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
+    <rect x='88' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='99' y='71.3895' rx='5' ry='5' width='10' height='68.6105' style='fill:hsl(25,93%,50%)' />
+    <rect x='110' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
+    <rect x='121' y='58.968909999999994' rx='5' ry='5' width='10' height='81.03109' style='fill:hsl(209,93%,50%)' />
+    <rect x='132' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='143' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='154' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
+    <rect x='165' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='176' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='187' y='71.3895' rx='5' ry='5' width='10' height='68.6105' style='fill:hsl(25,93%,50%)' />
+    <rect x='198' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
+    <rect x='209' y='19.071000000000012' rx='5' ry='5' width='10' height='120.92899999999999' style='fill:hsl(182,93%,50%)' />
+    <rect x='220' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='231' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='242' y='71.3895' rx='5' ry='5' width='10' height='68.6105' style='fill:hsl(25,93%,50%)' />
+    <rect x='253' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
+    <rect x='264' y='34.22184999999999' rx='5' ry='5' width='10' height='105.77815000000001' style='fill:hsl(250,93%,50%)' />
+    <rect x='275' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
 </svg>
