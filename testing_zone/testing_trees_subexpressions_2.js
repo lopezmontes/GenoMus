@@ -2,7 +2,6 @@
 
 const random = require('random');
 const seedrandom = require('seedrandom');
-const jsdom = require('jsdom');
 const fs = require('fs');
 
 // initial conditions
