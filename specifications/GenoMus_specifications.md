@@ -952,21 +952,21 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## Internal autoreferences
 | name        | index                          | description
 | ----------- | ------------------------------ | -----------
-| `pAutoref`  | 25 <sub>.832816 in progress</sub>         | points to a previous parameter
-| `eAutoref`  | 26 <sub>.832816 in progress</sub>         | points to a previous event
-| `lAutoref`  | 27 <sub>.832816 in progress</sub>         | points to a previous list
-| `vAutoref`  | 28 <sub>.832816 in progress</sub>         | points to a previous voice
-| `sAutoref`  | 29 <sub>.832816 in progress</sub>         | points to a previous score
-| `pClone`    | 30 <sub>.832816 not yet implemented</sub> | copy and paste a previous parameter branch without subsequent linking
-| `eClone`    | 31 <sub>.832816 not yet implemented</sub> | copy and paste a previous event branch without subsequent linking
-| `lClone`    | 32 <sub>.832816 not yet implemented</sub> | copy and paste a previous list branch without subsequent linking
-| `vClone`    | 33 <sub>.832816 not yet implemented</sub> | copy and paste a previous voice branch without subsequent linking
-| `sClone`    | 34 <sub>.832816 not yet implemented</sub> | copy and paste a previous score brach without subsequent linking
-| `pIterExpr` | 35 <sub>.832816 not yet implemented</sub> | repeats and concatenates re-evaluations of a parameter function 
-| `eIterExpr` | 36 <sub>.832816 not yet implemented</sub> | repeats and concatenates re-evaluations of an event function 
-| `lIterExpr` | 37 <sub>.832816 not yet implemented</sub> | repeats and concatenates re-evaluations of a list function 
-| `vIterExpr` | 38 <sub>.832816 not yet implemented</sub> | repeats and concatenates re-evaluations of a voice function
-| `sIterExpr` | 39 <sub>.832816 not yet implemented</sub> | repeats and concatenates re-evaluations of a score function
+| `pAutoref`  | 25 <sub>.45085 in progress</sub> | points to a previous parameter
+| `eAutoref`  | 26 <sub>.068884 in progress</sub> | points to a previous event
+| `lAutoref`  | 27 <sub>.686918 in progress</sub> | points to a previous list
+| `vAutoref`  | 28 <sub>.304952 in progress</sub> | points to a previous voice
+| `sAutoref`  | 29 <sub>.922986 in progress</sub> | points to a previous score
+| `pClone`    | 30 <sub>not yet implemented</sub> | copy and paste a previous parameter branch without subsequent linking
+| `eClone`    | 31 <sub>not yet implemented</sub> | copy and paste a previous event branch without subsequent linking
+| `lClone`    | 32 <sub>not yet implemented</sub> | copy and paste a previous list branch without subsequent linking
+| `vClone`    | 33 <sub>not yet implemented</sub> | copy and paste a previous voice branch without subsequent linking
+| `sClone`    | 34 <sub>not yet implemented</sub> | copy and paste a previous score brach without subsequent linking
+| `pIterExpr` | 35 <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a parameter function 
+| `eIterExpr` | 36 <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of an event function 
+| `lIterExpr` | 37 <sub>.867258 in progress</sub> | repeats and concatenates re-evaluations of a list function 
+| `vIterExpr` | 38 <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a voice function
+| `sIterExpr` | 39 <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a score function
 
 ---------
 ## External references
@@ -979,12 +979,12 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## Form
 | name        | index                             | description
 | ----------- | --------------------------------- | -----------
-| `lConcatL`  | 40 <sub>.832816 in progress</sub> | concatenates two lists sequentially
-| `vConcatE`  | 41 <sub>.832816 in progress</sub> | concatenates two events sequentially
-| `vConcatV`  | 42 <sub>.832816 in progress</sub> | concatenates two voices sequentially
-| `sConcatS`  | 43 <sub>.832816 in progress</sub> | concatenates two scores sequentially
-| `eAddPitch` | 44 <sub>.832816 in progress</sub> | adds a pitch to an event
-| `vRepeatE`  | 45 <sub>.832816 in progress</sub> | repeats an event a number of times
+| `lConcatL`  | 40 <sub>. in progress</sub> | concatenates two lists sequentially
+| `vConcatE`  | 41 <sub>. in progress</sub> | concatenates two events sequentially
+| `vConcatV`  | 42 <sub>.957428 in progress</sub> | concatenates two voices sequentially
+| `sConcatS`  | 43 <sub>.575462 in progress</sub> | concatenates two scores sequentially
+| `eAddPitch` | 44 <sub>. in progress</sub> | adds a pitch to an event
+| `vRepeatE`  | 45 <sub>.811529 in progress</sub> | repeats an event a number of times
 | `lRepeatL`  | 46 <sub>not yet implemented</sub> | repeats a list a number of times
 | `vRepeatV`  | 47 <sub>not yet implemented</sub> | repeats a voice a number of times
 | `sRepeatS`  | 48 <sub>not yet implemented</sub> | repeats a score a number of times
@@ -1222,7 +1222,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | name                     | index                          | description
 | ------------------------ | ------------------------------ | -----------
 | `l2P`, `l3P`, ..., `lxP` | 64 <sub>in progress</sub>         | generates a list of x parameters
-| `lRepeatP`               | 65 <sub>in progress</sub>         | repeats a parameter a number of times
+| `lRepeatP`               | 65 <sub>.172209 in progress</sub> | repeats a parameter a number of times
 | `lLine`                  | 66 <sub>not yet implemented</sub> | generates a straight progression between two values
 | `lLinseg`                | 67 <sub>not yet implemented</sub> | generates a series of straight segments between several values
 | `lExpon`                 | 68 <sub>not yet implemented</sub> | generates an exponential progression between two values
@@ -1250,26 +1250,26 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
  
 | name       | index                          | description
 | ---------- | ------------------------------ | -----------
-| `oSum`     | 100<sub>not yet implemented</sub> | returns the sum of two values
-| `oDiff`    | 101<sub>not yet implemented</sub> | returns the subtraction of two values
-| `oMult`    | 102<sub>not yet implemented</sub> | returns the multiplication of two values
-| `oDiv`     | 103<sub>not yet implemented</sub> | returns the quotient of two values
-| `oMod`     | 104<sub>not yet implemented</sub> | returns the modulo (the remainder of the first value divided by the second one)
-| `oPow`     | 105<sub>not yet implemented</sub> | returns an exponentiation using first value as base and second as exponent 
-| `oLog`     | 106<sub>not yet implemented</sub> | returns the logarithm to base second value of the first value
-| `oAbs`     | 107<sub>not yet implemented</sub> | returns the absolute value of the input
-| `oFract`   | 108<sub>not yet implemented</sub> | returns the fractional value of the input
-| `oFloor`   | 109<sub>not yet implemented</sub> | returns the greates integer less or equal to the input
-| `oCeil`    | 110<sub>not yet implemented</sub> | returns the least integer greater or equal to the input
-| `oSin`     | 111<sub>not yet implemented</sub> | returns the sine of a value
-| `oCos`     | 112<sub>not yet implemented</sub> | returns the cosine of a value
-| `oTan`     | 113<sub>not yet implemented</sub> | returns the tangent of a value
-| `oArcsin`  | 114<sub>not yet implemented</sub> | returns the arcsine of a value
-| `oArccos`  | 115<sub>not yet implemented</sub> | returns the arccosine of a value
-| `oArctan`  | 116<sub>not yet implemented</sub> | returns the arctangent of a value
-| `oSinh`    | 117<sub>not yet implemented</sub> | returns the hyperbolic sine of a value
-| `oCosh`    | 118<sub>not yet implemented</sub> | returns the hyperbolic cosine of a value
-| `oTanh`    | 119<sub>not yet implemented</sub> | returns the hyperbolic tangent of a value
+| `oSum`     | 100 <sub>.803399 in progress</sub> | returns the sum of two values
+| `oDiff`    | 101 <sub>not yet implemented</sub> | returns the subtraction of two values
+| `oMult`    | 102 <sub>not yet implemented</sub> | returns the multiplication of two values
+| `oDiv`     | 103 <sub>not yet implemented</sub> | returns the quotient of two values
+| `oMod`     | 104 <sub>not yet implemented</sub> | returns the modulo (the remainder of the first value divided by the second one)
+| `oPow`     | 105 <sub>not yet implemented</sub> | returns an exponentiation using first value as base and second as exponent 
+| `oLog`     | 106 <sub>not yet implemented</sub> | returns the logarithm to base second value of the first value
+| `oAbs`     | 107 <sub>not yet implemented</sub> | returns the absolute value of the input
+| `oFract`   | 108 <sub>not yet implemented</sub> | returns the fractional value of the input
+| `oFloor`   | 109 <sub>not yet implemented</sub> | returns the greates integer less or equal to the input
+| `oCeil`    | 110 <sub>not yet implemented</sub> | returns the least integer greater or equal to the input
+| `oSin`     | 111 <sub>not yet implemented</sub> | returns the sine of a value
+| `oCos`     | 112 <sub>not yet implemented</sub> | returns the cosine of a value
+| `oTan`     | 113 <sub>not yet implemented</sub> | returns the tangent of a value
+| `oArcsin`  | 114 <sub>not yet implemented</sub> | returns the arcsine of a value
+| `oArccos`  | 115 <sub>not yet implemented</sub> | returns the arccosine of a value
+| `oArctan`  | 116 <sub>not yet implemented</sub> | returns the arctangent of a value
+| `oSinh`    | 117 <sub>not yet implemented</sub> | returns the hyperbolic sine of a value
+| `oCosh`    | 118 <sub>not yet implemented</sub> | returns the hyperbolic cosine of a value
+| `oTanh`    | 119 <sub>not yet implemented</sub> | returns the hyperbolic tangent of a value
 
 ---------
 ## Manual operators of genotypes 
