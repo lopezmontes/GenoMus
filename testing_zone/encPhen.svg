@@ -1,0 +1,41 @@
+<svg version='1.1'
+baseProfile='full'
+    width='55' height='140'
+    xmlns='http://www.w3.org/2000/svg'>
+    <rect x='0' y='0' width=';55' height='140' style='fill:white;' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:dimgray;stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:white;stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='0' y='65' rx='3' ry='3' width='10' height='75' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:hsl(1,89%,50%);stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:hsl(1,100%,80%);stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='11' y='49.65558' rx='3' ry='3' width='10' height='90.34442' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:hsl(264,89%,50%);stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:hsl(264,100%,80%);stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='22' y='78' rx='3' ry='3' width='10' height='62' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:hsl(176,89%,50%);stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:hsl(176,100%,80%);stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='33' y='52' rx='3' ry='3' width='10' height='88' style='fill:url(#grad1)' />
+    <defs>
+      <linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'>
+      <stop offset='40%'  style='stop-color:dimgray;stop-opacity:1' />
+      <stop offset='100%'  style='stop-color:white;stop-opacity:1' />
+      </linearGradient>
+    </defs>
+    <rect x='44' y='26' rx='3' ry='3' width='10' height='114' style='fill:url(#grad1)' />
+</svg>

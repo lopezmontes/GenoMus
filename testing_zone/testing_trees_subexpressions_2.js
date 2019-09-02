@@ -41,7 +41,8 @@ var tt = function (decGenotype) {
     initSubexpressionsArrays();
     var output = (eval(decGenotype));
     console.log(subexpressions);
-    visualizeSpecimen(output, "visualiz");
+    visualizeSpecimen(output.encGen, "encGen");
+    visualizeSpecimen(output.encPhen, "encPhen");
     return output;
 }
 
@@ -103,7 +104,7 @@ var n = x => {
     eval("p(" + notevalue2norm(x) + ")");    
     return indexExprReturnSpecimen ({
         funcType: "notevalueF",
-        encGen: [0.51, notevalue2norm(x)],
+        encGen: [1, 0.09017, 0.51, notevalue2norm(x)],
         decGen: "n(" + x + ")",
         encPhen: [notevalue2norm(x)]
     });
@@ -114,7 +115,7 @@ var m = x => {
     eval("p(" + midipitch2norm(x) + ")");    
     return indexExprReturnSpecimen ({
         funcType: "midipitchF",
-        encGen: [0.53, midipitch2norm(x)],
+        encGen: [1, 0.326238, 0.53, midipitch2norm(x)],
         decGen: "m(" + x + ")",
         encPhen: [midipitch2norm(x)]
     });
@@ -125,7 +126,7 @@ var a = x => {
     eval("p(" + articulation2norm(x) + ")");    
     return indexExprReturnSpecimen ({
         funcType: "articulationF",
-        encGen: [0.55, articulation2norm(x)],
+        encGen: [1, 0.562306, 0.55, articulation2norm(x)],
         decGen: "a(" + x + ")",
         encPhen: [articulation2norm(x)]
     });
@@ -136,7 +137,7 @@ var i = x => {
     eval("p(" + intensity2norm(x) + ")");
     return indexExprReturnSpecimen ({
         funcType: "intensityF",
-        encGen: [0.56, intensity2norm(x)],
+        encGen: [1, 0.18034, 0.56, intensity2norm(x)],
         decGen: "i(" + x + ")",
         encPhen: [intensity2norm(x)]
     });
@@ -196,6 +197,7 @@ var lm = midipitchList => {
 // piano event identity function
 var e = (notevalue, midiPitch, articulation, intensity) => indexExprReturnSpecimen ({
     funcType: "eventF",
+    encGen: flattenDeep([1, 0.236068, notevalue.encGen, midiPitch.encGen, articulation.encGen, intensity.encGen, 0]),
     decGen: "e(" 
         + notevalue.decGen + "," 
         + midiPitch.decGen + "," 
@@ -215,7 +217,7 @@ var e = (notevalue, midiPitch, articulation, intensity) => indexExprReturnSpecim
     }
 });
 
-// tt("e(p(.5),p(.4),p(0),p(.8))");
+tt("e(p(.5),p(.4),p(0.6),p(.8))");
 
 // voice identity function
 var v = e => indexExprReturnSpecimen ({
@@ -568,9 +570,9 @@ var testRepetitions = function (n) {
 
 
 
-var visualizeSpecimen = (spec, filename) => {
+var visualizeSpecimen = (normArray, filename) => {
     var lineColor, lineColorGrad, lineHeight = 140, lineWidth = 10, lineColor;
-    var specimenLength = spec.encGen.length;
+    var specimenLength = normArray.length;
     var graphWidth = specimenLength*(lineWidth+1);
     var graphHeight = lineHeight;
     var roundedCornerRadius = lineWidth * 0.3;
@@ -581,21 +583,21 @@ var visualizeSpecimen = (spec, filename) => {
         graphWidth + "' height='" + graphHeight +
         "' style='fill:white;' />\n";
     for (var i = 0; i < specimenLength; i++) {
-        lineHeight = spec.encGen[i] * (graphHeight - lineWidth) + lineWidth;
-        if (spec.encGen[i] == 0 || spec.encGen[i] == 1 ) {
+        lineHeight = normArray[i] * (graphHeight - lineWidth) + lineWidth;
+        if (normArray[i] == 0 || normArray[i] == 1 ) {
             lineColor = "black";
             lineColorGrad = "black";
         } else
-        if (spec.encGen[i] == 0.2 || spec.encGen[i] == 0.5 || spec.encGen[i] == 0.8 || spec.encGen[i] == 1 ) {
+        if (normArray[i] == 0.2 || normArray[i] == 0.5 || normArray[i] == 0.8 ) {
             lineColor = "dimgray";
             lineColorGrad = "white";
         } else
-        if (spec.encGen[i] == 0.5) {
+        if (normArray[i] == 0.5) {
             lineColor = "dimgray";
             lineColorGrad = "dimgray";
         } else {
-            lineColor = "hsl(" + (norm2goldeninteger(spec.encGen[i])%360) + "," + 89 + "%," + 50 + "%)";
-            lineColorGrad = "hsl(" + (norm2goldeninteger(spec.encGen[i])%360) + "," + 100 + "%," + 80 + "%)";
+            lineColor = "hsl(" + (norm2goldeninteger(normArray[i])%360) + "," + 89 + "%," + 50 + "%)";
+            lineColorGrad = "hsl(" + (norm2goldeninteger(normArray[i])%360) + "," + 100 + "%," + 80 + "%)";
         }
         lines = lines + 
             "    <defs>\n" +

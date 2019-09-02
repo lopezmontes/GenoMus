@@ -922,8 +922,8 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 
 | function name | function type       | function index        | example decoded genotype &rarr; encoded phenotype
 | ------------- | ------------------- | --------------------- | -------------------------------------------------
-| `p`           | **paramF**          | 0 <sub>0</sub>        | `"p(.5)"` &rarr; `[1, 0, 0.5, 0.5]` <sub>in progress</sub>
-| `l`           | **listF**           | 1 <sub>.618034</sub>  | `"l([0,.3,1,.8])"` &rarr; `[1, 0.618034, 0.8, 0.5, 0, 0.5, 0.3, 0.5, 1, 0.5, 0.8, 0.2, 0]` <sub>in progress</sub>
+| `p`           | **paramF**          | 0 <sub>0</sub>        | `"p(.5)"` &rarr; `[0.5]` <sub>in progress</sub>
+| `l`           | **listF**           | 1 <sub>.618034</sub>  | `"l([0,.3,1,.8])"` &rarr; `[10,0.3,1,0.8]` <sub>in progress</sub>
 | `e`           | **eventF**          | 2 <sub>.236068</sub>  | `"e(p(.5),p(.4),p(0.6),p(.8))"` &rarr; `[0.5,0.618034,0.4,0.6,0.8]` 
 | `v`           | **voiceF**          | 3 <sub>.854102</sub>  | `"v(e(p(.5),p(.4),p(0),p(.8)))"` &rarr; `[0,0.5,0.618034,0.4,0,0.8,1]` 
 | `s`           | **scoreF**          | 4 <sub>.472136</sub>  | `"s(v(e(p(.5),p(.4),p(0),p(.8))))"` &rarr; `[0,0,0.5,0.618034,0.4,0,0.8,1,1]` 
