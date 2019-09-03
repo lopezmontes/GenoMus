@@ -60,7 +60,7 @@ var flattenDeep = arr1 => arr1.reduce((acc, val) => Array.isArray(val) ? acc.con
 // wraps and unwraps elements such as voices and scores, putting 1 at the beginning and 0 at the end
 var wrap = a => [1].concat(a.concat(0)); 
 var unwrap = a => a.slice(1,-1); 
-// adjust an integer from quantizedF to a range
+// adjust a value from quantizedF to a range without rescaling
 var adjustRange = (q, minQ, maxQ) => {
     if (q < minQ) { return minQ };
     if (q > maxQ) { return maxQ };
@@ -101,7 +101,7 @@ var pRnd = () => {
     var randomValue = r6d(random.float());
     return indexExprReturnSpecimen ({
         funcType: "paramF",
-        encGen: [1, 0.45085, 0.5, randomValue],
+        encGen: [1, 0.344419, 0.5, randomValue],
         decGen: "pRnd()",
         encPhen: [randomValue]
     });
@@ -270,10 +270,9 @@ tt("s(v(e(p(.5),p(.4),p(0),p(.8))))");
 
 // repeats an event a number of times between 2 and 12 (eventP, paramP)
 var vRepeatE = (event, times) => {
-    // implement a rescaling reusable
-    var numRepeats = adjustRange(times.encPhen[0], 0, 1, 0.6, 0.84); // number of times rescaled to range [2, 13)
-    if (numRepeats == 13) numRepeats = 12; // avoid 13 times if normalized input = 1
-    if (times.encPhen[0] > phenMaxLength) return "phenotype max length exceeded";
+    var numRepeats = Math.abs(n2q(adjustRange(times.encPhen[0], q2n(-12), q2n(12)))); // number of times rescaled to range [2, 12], mapped according to the deviation from the center value 0.5
+    if (numRepeats < 2) numRepeats = 2;
+    if (numRepeats > phenMaxLength) return "phenotype max length exceeded";
     return indexExprReturnSpecimen ({
         funcType: "voiceF",
         encGen: flattenDeep([1, 0.068884, event.encGen, times.encGen, 0]),
@@ -287,35 +286,49 @@ var vRepeatE = (event, times) => {
     });
 }
 
- tt("vRepeatE(e(p(.5),pRnd(),p(0),pRnd()),pRnd())");
+tt("vRepeatE(e(p(.5),pRnd(),p(0),pRnd()),p(.5))");
 // tt("vRepeatE(eAutoref(8),p(3))");
 
 
 // generates a list of 2 parameters
 var l2P = (p1, p2) => indexExprReturnSpecimen ({
     funcType: "listF",
+    encGen: flattenDeep([1, 0.554175, p1.encGen, p2.encGen, 0]),
     decGen: "l2P(" + p1.decGen + ", " + p2.decGen + ")",
     encPhen: p1.encPhen.concat(p2.encPhen)
 });
 
-// // tt("l2P(p(0.4),p(345))");
-// // tt("l2P(p(0.4),pAutoref(345))");
-
 // generates a list of 3 parameters
 var l3P = (p1, p2, p3) => indexExprReturnSpecimen ({
     funcType: "listF",
+    encGen: flattenDeep([1, 0.172209, p1.encGen, p2.encGen, p3.encGen, 0]),
     decGen: "l3P(" + p1.decGen + ", " + p2.decGen + ", " + p3.decGen + ")",
     encPhen: p1.encPhen.concat(p2.encPhen).concat(p3.encPhen)
 });
 
-// // tt("l3P(p(0.4),pRnd(),pAutoref(345))");
+tt("l2P(p(0.4),p(.345))");
+tt("l3P(p(0.4),p(.345),p(.84))");
+// // tt("l2P(p(0.4),pAutoref(345))");
+
+// generates a list of 4 parameters
+var l4P = (p1, p2, p3, p4) => indexExprReturnSpecimen ({
+    funcType: "listF",
+    encGen: flattenDeep([1, 0.790243, p1.encGen, p2.encGen, p3.encGen, p4.encGen, 0]),
+    decGen: "l4P(" + p1.decGen + ", " + p2.decGen + ", " + p3.decGen + ", " + p4.decGen + ")",
+    encPhen: p1.encPhen.concat(p2.encPhen).concat(p3.encPhen).concat(p4.encPhen)
+});
+
+tt("l4P(p(0.4),pRnd(),p(0.2),p(0.2345))");
 
 // generates a list of 5 parameters
 var l5P = (p1, p2, p3, p4, p5) => indexExprReturnSpecimen ({
     funcType: "listF",
+    encGen: flattenDeep([1, 0.408277, p1.encGen, p2.encGen, p3.encGen, p4.encGen, 0]),
     decGen: "l5P(" + p1.decGen + ", " + p2.decGen + ", " + p3.decGen + ", " + p4.decGen + ", " + p5.decGen + ")",
     encPhen: p1.encPhen.concat(p2.encPhen).concat(p3.encPhen).concat(p4.encPhen).concat(p5.encPhen)
 });
+
+tt("l5P(p(0.4),pRnd(),p(0.2),p(0.2345),p(.45))");
 
 // // tt("l5P(p(0.4),pRnd(),pAutoref(345),pRnd(),pAutoref(345))");
 
@@ -515,11 +528,12 @@ var norm2goldeninteger = z => {
 }
 var n2z = norm2goldeninteger;
 
-// aux functions
-// round fractional part to 6 digits
-var r6d = f => Math.round(f*1000000)/1000000;
 
 var quantizedLookupTable = [0, 0.0005, 0.001, 0.003, 0.006, 0.008, 0.01, 0.015, 0.02, 0.025, 0.03, 0.04, 0.045, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11, 0.12, 0.14, 0.15, 0.16, 0.18, 0.2, 0.21, 0.23, 0.25, 0.27, 0.3, 0.32, 0.33, 0.36, 0.4, 0.45, 0.5, 0.55, 0.6, 0.64, 0.67, 0.68, 0.7, 0.73, 0.75, 0.77, 0.79, 0.8, 0.82, 0.84, 0.85, 0.86, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.955, 0.96, 0.97, 0.975, 0.98, 0.985, 0.99, 0.992, 0.994, 0.997, 0.999, 0.9995, 1];
+
+
+// aux functions
+
 
 // greates common divisor, taken and adapted from https://gist.github.com/redteam-snippets/3934258. 
 // Still to refine to avoid too weird numbers

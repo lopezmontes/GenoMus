@@ -1,32 +1,25 @@
 <svg version='1.1'
     baseProfile='full'
-    width='286' height='140'
+    width='209' height='140'
     xmlns='http://www.w3.org/2000/svg'>
-    <rect x='0' y='0' width=';286' height='140' style='fill:white;' />
+    <rect x='0' y='0' width=';209' height='140' style='fill:white;' />
     <rect x='0' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='11' y='121.04508' rx='5' ry='5' width='10' height='18.95492' style='fill:hsl(26,93%,50%)' />
+    <rect x='11' y='76.92399' rx='5' ry='5' width='10' height='63.07601' style='fill:hsl(67,93%,50%)' />
     <rect x='22' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='33' y='99.31116' rx='5' ry='5' width='10' height='40.68884' style='fill:hsl(2,93%,50%)' />
-    <rect x='44' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='55' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='66' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
-    <rect x='77' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
-    <rect x='88' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='99' y='71.3895' rx='5' ry='5' width='10' height='68.6105' style='fill:hsl(25,93%,50%)' />
-    <rect x='110' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
-    <rect x='121' y='97.71736' rx='5' ry='5' width='10' height='42.28264' style='fill:hsl(71,93%,50%)' />
-    <rect x='132' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='143' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='154' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
+    <rect x='33' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='44' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
+    <rect x='55' y='78' rx='5' ry='5' width='10' height='62' style='fill:hsl(264,93%,50%)' />
+    <rect x='66' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='77' y='85.22553' rx='5' ry='5' width='10' height='54.774469999999994' style='fill:hsl(130,93%,50%)' />
+    <rect x='88' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
+    <rect x='99' y='70.24836' rx='5' ry='5' width='10' height='69.75164' style='fill:hsl(1,93%,50%)' />
+    <rect x='110' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='121' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='132' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
+    <rect x='143' y='104' rx='5' ry='5' width='10' height='36' style='fill:dimgray' />
+    <rect x='154' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
     <rect x='165' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='176' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='187' y='71.3895' rx='5' ry='5' width='10' height='68.6105' style='fill:hsl(25,93%,50%)' />
-    <rect x='198' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
-    <rect x='209' y='111.62021' rx='5' ry='5' width='10' height='28.37979' style='fill:hsl(4,93%,50%)' />
-    <rect x='220' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='231' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='242' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='253' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
-    <rect x='264' y='28.599999999999994' rx='5' ry='5' width='10' height='111.4' style='fill:hsl(168,93%,50%)' />
-    <rect x='275' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='176' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
+    <rect x='187' y='99.515' rx='5' ry='5' width='10' height='40.485' style='fill:hsl(146,93%,50%)' />
+    <rect x='198' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
 </svg>
