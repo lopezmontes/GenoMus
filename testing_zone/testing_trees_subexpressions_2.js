@@ -323,12 +323,12 @@ tt("l4P(p(0.4),pRnd(),p(0.2),p(0.2345))");
 // generates a list of 5 parameters
 var l5P = (p1, p2, p3, p4, p5) => indexExprReturnSpecimen ({
     funcType: "listF",
-    encGen: flattenDeep([1, 0.408277, p1.encGen, p2.encGen, p3.encGen, p4.encGen, 0]),
+    encGen: flattenDeep([1, 0.408277, p1.encGen, p2.encGen, p3.encGen, p4.encGen, p5.encGen, 0]),
     decGen: "l5P(" + p1.decGen + ", " + p2.decGen + ", " + p3.decGen + ", " + p4.decGen + ", " + p5.decGen + ")",
     encPhen: p1.encPhen.concat(p2.encPhen).concat(p3.encPhen).concat(p4.encPhen).concat(p5.encPhen)
 });
 
-tt("l5P(p(0.4),pRnd(),p(0.2),p(0.2345),p(.45))");
+tt("l5P(p(0.479),pRnd(),p(0.2),p(0.2345),p(.45))");
 
 // // tt("l5P(p(0.4),pRnd(),pAutoref(345),pRnd(),pAutoref(345))");
 
@@ -339,21 +339,23 @@ var lRnd = (numItemsSeed, seqSeed) => {
     random.use(seedrandom(seqSeed.encPhen));
     return indexExprReturnSpecimen ({
         funcType: "listF",
+        encGen: flattenDeep([1, 0.198521, numItemsSeed.encGen, seqSeed.encGen, 0]),
         decGen: "lRnd(" + numItemsSeed.decGen + ", " + seqSeed.decGen + ")",
         encPhen: Array(numItems).fill().map( () => random.float() )
     });
 };    
 
-// // tt("lRnd(p(.12),p(.3))");
+tt("lRnd(p(.12),p(.3))");
 
 // concatenates two lists sequentially
 var lConcatL = (l1, l2) => indexExprReturnSpecimen ({
     funcType: "listF",
+    encGen: flattenDeep([1, 0.72136, l1.encGen, l2.encGen, 0]),
     decGen: "lConcatL(" + l1.decGen + ", " + l2.decGen + ")",
     encPhen: l1.encPhen.concat(l2.encPhen)
 });
 
-
+tt("lConcatL(l([0.2,0.143,0.23]),l([0.2234,0.1343,0.923,0.7]))");
 // // tt("lConcatL(lRnd(p(.2),p(.3)),lRnd(pAutoref(0),p(.30002)))");
 // // tt("lConcatL(lRnd(p(.209),p(.3)),lAutoref(0))");
 
