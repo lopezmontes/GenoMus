@@ -57,10 +57,18 @@ var r6d = f => Math.round(f*1000000)/1000000;
 
 // flats arrays with any level of nesting
 var flattenDeep = arr1 => arr1.reduce((acc, val) => Array.isArray(val) ? acc.concat(flattenDeep(val)) : acc.concat(val), []);
-
 // wraps and unwraps elements such as voices and scores, putting 1 at the beginning and 0 at the end
 var wrap = a => [1].concat(a.concat(0)); 
 var unwrap = a => a.slice(1,-1); 
+// adjust an integer from quantizedF to a range
+var adjustRange = (q, minQ, maxQ) => {
+    if (q < minQ) { return minQ };
+    if (q > maxQ) { return maxQ };
+    return q;
+}
+// remap a value from its range to another
+var remap = (v, minInitRange, maxInitRange, minNewRange, maxNewRange) => ((v - minInitRange) / (maxInitRange - minInitRange)) * (maxNewRange - minNewRange) + minNewRange;
+
 
 // takes subspecimen s, indexes subexpressions and formats output data
 var indexExprReturnSpecimen = s => {
@@ -260,10 +268,11 @@ var s = v => indexExprReturnSpecimen ({
 
 tt("s(v(e(p(.5),p(.4),p(0),p(.8))))");
 
-// repeats an event a number of times (eventP, paramP)
+// repeats an event a number of times between 2 and 12 (eventP, paramP)
 var vRepeatE = (event, times) => {
     // implement a rescaling reusable
-    var numRepeats = Math.abs(n2q(times.encPhen[0])) % 11 + 2; // number of times rescaled to range [2, 12]
+    var numRepeats = adjustRange(times.encPhen[0], 0, 1, 0.6, 0.84); // number of times rescaled to range [2, 13)
+    if (numRepeats == 13) numRepeats = 12; // avoid 13 times if normalized input = 1
     if (times.encPhen[0] > phenMaxLength) return "phenotype max length exceeded";
     return indexExprReturnSpecimen ({
         funcType: "voiceF",
