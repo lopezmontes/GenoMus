@@ -1176,9 +1176,9 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 
 ---------
 ## Aleatoric processes
-| name               | index                          | description
-| ------------------ | ------------------------------ | -----------
-| `pRnd`             | 130 <sub>.45085 in progress</sub> | returns a random normalized parameter with uniform distribution
+| name               | index                              | description
+| ------------------ | ---------------------------------- | -----------
+| `pRnd`             | 130 <sub>.344419 in progress</sub> | returns a random normalized parameter with uniform distribution
 | `pGaussRnd`        | 131 <sub>not yet implemented</sub> | returns a random normalized parameter with Gaussian (or normal) distribution
 | `pWrappedGaussRnd` | 132 <sub>not yet implemented</sub> | returns a random normalized parameter with a wrapped normal distribution
 | `lRnd`             | 133 <sub>in progress</sub>         | returns a complete random list with uniform distribution of values
@@ -1250,7 +1250,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
  
 | name       | index                          | description
 | ---------- | ------------------------------ | -----------
-| `oSum`     | 110 <sub>.803399 in progress</sub> | returns the sum of two values
+| `oSum`     | 110 <sub>.983739 in progress</sub> | returns the sum of two values
 | `oDiff`    | 111 <sub>not yet implemented</sub> | returns the subtraction of two values
 | `oMult`    | 112 <sub>not yet implemented</sub> | returns the multiplication of two values
 | `oDiv`     | 113 <sub>not yet implemented</sub> | returns the quotient of two values
