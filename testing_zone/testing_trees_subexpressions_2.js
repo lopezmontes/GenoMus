@@ -354,7 +354,7 @@ var lConcatL = (l1, l2) => indexExprReturnSpecimen ({
     decGen: "lConcatL(" + l1.decGen + ", " + l2.decGen + ")",
     encPhen: l1.encPhen.concat(l2.encPhen)
 });
-
+ 
 tt("lConcatL(l([0.2,0.143,0.23]),l([0.2234,0.1343,0.923,0.7]))");
 // // tt("lConcatL(lRnd(p(.2),p(.3)),lRnd(pAutoref(0),p(.30002)))");
 // // tt("lConcatL(lRnd(p(.209),p(.3)),lAutoref(0))");
@@ -362,6 +362,7 @@ tt("lConcatL(l([0.2,0.143,0.23]),l([0.2234,0.1343,0.923,0.7]))");
 // concatenates two events sequentially
 var vConcatE = (e1, e2) => indexExprReturnSpecimen ({
     funcType: "voiceF",
+    encGen: flattenDeep([1, 0.339394, e1.encGen, e2.encGen, 0]),
     decGen: "vConcatE(" + e1.decGen + ", " + e2.decGen + ")",
     encPhen: wrap(e1.encPhen.concat(e2.encPhen)),
     phenLength: 2,
@@ -374,7 +375,7 @@ var vConcatE = (e1, e2) => indexExprReturnSpecimen ({
     }
 });
 
-// // tt("vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))");
+tt("vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))");
 // // tt("s(vConcatE(e(p(.54),p(.5),p(0),p(.834)),e(p(.54),pRnd(),p(0),p(.834))))");
 // // tt("vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0))");
  // tt("s(vConcatE(e(p(.54),pRnd(),p(0),p(.834)),eAutoref(0)))");
@@ -382,6 +383,7 @@ var vConcatE = (e1, e2) => indexExprReturnSpecimen ({
 // concatenates two voices sequentially
 var vConcatV = (v1, v2) => indexExprReturnSpecimen ({
     funcType: "voiceF",
+    encGen: flattenDeep([1, 0.957428, v1.encGen, v2.encGen, 0]),
     decGen: "vConcatV(" + v1.decGen + ", " + v2.decGen + ")",
     encPhen: wrap(unwrap(v1.encPhen).concat(unwrap(v2.encPhen))),
     phenLength: v1.phenLength + v2.phenLength,
@@ -391,12 +393,16 @@ var vConcatV = (v1, v2) => indexExprReturnSpecimen ({
     analysis: v1.analysis,
 });
 
-// // tt("vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0)))")
+tt("vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))");
+tt("vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))");
+
+tt("vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),e(p(.154),p(.14),p(1),p(.1834))))")
  // tt("s(vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0))))")
 
-// concatenates two voices sequentially
+// concatenates two scores sequentially
 var sConcatS = (s1, s2) => indexExprReturnSpecimen ({
     funcType: "scoreF",
+    encGen: flattenDeep([1, 0.575462, s1.encGen, s2.encGen, 0]),
     decGen: "sConcatS(" + s1.decGen + ", " + s2.decGen + ")",
     encPhen: s1.encPhen.concat(s2.encPhen),
     phenLength: s1.phenLength + s2.phenLength,
@@ -405,31 +411,39 @@ var sConcatS = (s1, s2) => indexExprReturnSpecimen ({
     harmony: s1.harmony,
     analysis: s1.analysis,
 });
+tt("sConcatS(s(v(e(p(.5),p(.4),p(0),p(.8)))),s(v(e(p(.5),p(.4),p(0),p(.8)))))");
 
-// // tt("sConcatS(s(vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0)))),sAutoref(234))")
+tt("sConcatS(s(vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),vConcatE(e(p(.54),p(.4),p(0),p(.834)),e(p(.154),p(.14),p(1),p(.1834)))),e(p(.54),p(.4),p(0),p(.834)))))")
 
 // add two numbers
 var oSum = (p1, p2) => indexExprReturnSpecimen ({
     funcType: "operationF",
+    encGen: flattenDeep([1, 0.983739, p1.encGen, p2.encGen, 0]),
     decGen: "oSum(" + p1.decGen + ", " + p2.decGen + ")",
     encPhen: [p1.encPhen[0] + p2.encPhen[0]]
 });
 
-// // tt("oSum(p(34),p(45))");
+tt("oSum(q(34),q(45))");
 
 // // tt("lConcatL(lRnd(p(.2),p(.3)),l2P(pAutoref(0),pAdd(p(74),pAutoref(1))))");
 
-// repeats a parameter a number of times
-var lRepeatP = (p, times) => indexExprReturnSpecimen ({
-    funcType: "listF",
-    decGen: "lRepeatP(" + p.decGen + ", " + times.decGen + ")",
-    encPhen: Array(times.encPhen[0]).fill(p.encPhen[0])
-});
+// repeats a parameter a number of times up to 36 repetitions
+var lRepeatP = (p, times) => {
+    var numRepeats = Math.abs(n2q(times.encPhen[0])); // number of times rescaled to range [2, 12], mapped according to the deviation from the center value 0.5
+    return indexExprReturnSpecimen ({
+        funcType: "listF",
+        encGen: flattenDeep([1, 0.352549, p.encGen, times.encGen, 0]),
+        decGen: "lRepeatP(" + p.decGen + ", " + times.decGen + ")",
+        encPhen: Array(numRepeats).fill(p.encPhen[0])
+    });
+};
 
-// // tt("lRepeatP(pRnd(),p(4))");
+tt("lRepeatP(pRnd(),q(13))");
 
+// repeats and concatenates re-evaluations of a list function (2 tp 36 repeats) 
 var lIterExpr = (l, times) => indexExprReturnSpecimen ({
     funcType: "listF",
+    encGen: flattenDeep([1, 0.867258, l.encGen, times.encGen, 0]),
     decGen: "lIterExpr(" + l.decGen + ", " + times.decGen + ")",
     encPhen: flattenDeep(Array(times.encPhen[0]).fill().map(() => eval(l.decGen).encPhen))
 });

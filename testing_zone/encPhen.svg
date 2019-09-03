@@ -1,13 +1,7 @@
 <svg version='1.1'
     baseProfile='full'
-    width='77' height='140'
+    width='11' height='140'
     xmlns='http://www.w3.org/2000/svg'>
-    <rect x='0' y='0' width=';77' height='140' style='fill:white;' />
-    <rect x='0' y='104' rx='5' ry='5' width='10' height='36' style='fill:dimgray' />
-    <rect x='11' y='111.41' rx='5' ry='5' width='10' height='28.59' style='fill:hsl(182,93%,50%)' />
-    <rect x='22' y='100.1' rx='5' ry='5' width='10' height='39.900000000000006' style='fill:hsl(10,93%,50%)' />
-    <rect x='33' y='100.958' rx='5' ry='5' width='10' height='39.042' style='fill:hsl(182,93%,50%)' />
-    <rect x='44' y='112.541' rx='5' ry='5' width='10' height='27.459' style='fill:hsl(182,93%,50%)' />
-    <rect x='55' y='10.009999999999991' rx='5' ry='5' width='10' height='129.99' style='fill:hsl(177,93%,50%)' />
-    <rect x='66' y='39' rx='5' ry='5' width='10' height='101' style='fill:hsl(132,93%,50%)' />
+    <rect x='0' y='0' width=';11' height='140' style='fill:white;' />
+    <rect x='0' y='-129.87' rx='5' ry='5' width='10' height='269.87' style='fill:hsl(182,93%,50%)' />
 </svg>
