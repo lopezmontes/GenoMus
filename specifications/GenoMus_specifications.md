@@ -971,8 +971,8 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 
 ---------
 ## External references
-| name                   | index                          | description
-| ---------------------- | ------------------------------ | -----------
+| name                   | index                              | description
+| ---------------------- | ---------------------------------- | -----------
 | `sGenotypeFromLibrary` | 276 <sub>not yet implemented</sub> | reads and inserts a genotype from an external library of genotypes
 | `lTextfileData`        | 275 <sub>not yet implemented</sub> | reads and inserts a list of values from an external textfile
 
@@ -1007,8 +1007,8 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 
 ---------
 ## Phrasing
-| name                    | index                          | description
-| ----------------------- | ------------------------------ | -----------
+| name                    | index                              | description
+| ----------------------- | ---------------------------------- | -----------
 | `vInterval`             | 198 <sub>not yet implemented</sub> | repeats previous note changing pitch according to an interval
 | `vMotif`                | 199 <sub>not yet implemented</sub> | creates a sequence of events based on lists
 | `vMotifLoop`            | 200 <sub>not yet implemented</sub> | creates a sequence of events based on repeating lists
@@ -1027,38 +1027,38 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 
 ---------
 ## Poliphony
-| name            | index                          | description
-| --------------- | ------------------------------ | -----------
-| `eTwoPitches`   | 98  <sub>not yet implemented</sub> | creates an event with two pitches
-| `eThreePitches` | 99  <sub>not yet implemented</sub> | creates an event with three pitches
-| `eFourPitches`  | 100  <sub>not yet implemented</sub> | creates an event with four pitches
-| `eFivePitches`  | 101 <sub>not yet implemented</sub> | creates an event with five pitches
-| `eSixPitches`   | 102 <sub>not yet implemented</sub> | creates an event with six pitches
-| `eManyPitches`  | 103 <sub>not yet implemented</sub> | creates an event with more than six pitches, with a maximal of 12 pitches
-| `sTwoV`         | 104 <sub>not yet implemented</sub> | creates an score with two simultaneous voices
-| `sThreeV`       | 105 <sub>not yet implemented</sub> | creates an score with three simultaneous voices
-| `sFourV`        | 106 <sub>not yet implemented</sub> | creates an score with four simultaneous voices
-| `sFiveV`        | 107 <sub>not yet implemented</sub> | creates an score with five simultaneous voices
-| `sSixV`         | 108 <sub>not yet implemented</sub> | creates an score with six simultaneous voices
-| `sAddV`         | 109 <sub>not yet implemented</sub> | adds a new voice vertically to a score
-| `sAddS`         | 110 <sub>not yet implemented</sub> | adds a new score vertically to a score
+| name        | index                              | description
+| ----------- | ---------------------------------- | -----------
+| `e2Pitches` | 98  <sub>not yet implemented</sub> | creates an event with two pitches
+| `e3Pitches` | 99  <sub>not yet implemented</sub> | creates an event with three pitches
+| `e4Pitches` | 100 <sub>not yet implemented</sub> | creates an event with four pitches
+| `e5Pitches` | 101 <sub>not yet implemented</sub> | creates an event with five pitches
+| `e6Pitches` | 102 <sub>not yet implemented</sub> | creates an event with six pitches
+| `eChord`    | 103 <sub>not yet implemented</sub> | creates an event with more than six pitches, with a maximal of 12 pitches
+| `s2V`       | 104 <sub>not yet implemented</sub> | creates an score with two simultaneous voices
+| `s3V`       | 105 <sub>not yet implemented</sub> | creates an score with three simultaneous voices
+| `s4V`       | 106 <sub>not yet implemented</sub> | creates an score with four simultaneous voices
+| `s5V`       | 107 <sub>not yet implemented</sub> | creates an score with five simultaneous voices
+| `s6V`       | 108 <sub>not yet implemented</sub> | creates an score with six simultaneous voices
+| `s7V`       | 109 <sub>not yet implemented</sub> | adds a new voice vertically to a score
+| `sAddS`     | 110 <sub>not yet implemented</sub> | adds a new score vertically to a score
 
 ---------
 ## Counterpoint
-| name                   | index                          | description
-| ---------------------- | ------------------------------ | -----------
-| `sFirstSpecies`        | 163 <sub>not yet implemented</sub> | creates a new voice oposing an event against each event of a previous voice
-| `sSecondSpecies`       | 164 <sub>not yet implemented</sub> | creates a new voice oposing two events against each event of a previous voice
-| `sSecondSpeciesInvert` | 165 <sub>not yet implemented</sub> | creates a new voice oposing an event against each two events of a previous voice
-| `sThirdSpecies`        | 166 <sub>not yet implemented</sub> | creates a new voice oposing a fixed number of events (more than 2) against each event of a previous voice15
-| `sThirdSpeciesInvert`  | 167 <sub>not yet implemented</sub> | creates a new voice oposing an event against a fixed number of events (more than 2) of a previous voice15
-| `sFourthSpecies`       | 168 <sub>not yet implemented</sub> | creates a new voice oposing an event between each two events of a previous voice15
-| `sFifthSpecies`        | 169 <sub>not yet implemented</sub> | creates a new voice adding a new voice that combines freely the first four species
+| name                | index                              | description
+| ------------------- | ---------------------------------- | -----------
+| `s1stSpecies`       | 163 <sub>not yet implemented</sub> | creates a new voice oposing an event against each event of a previous voice
+| `s2ndSpecies`       | 164 <sub>not yet implemented</sub> | creates a new voice oposing two events against each event of a previous voice
+| `s2ndSpeciesInvert` | 165 <sub>not yet implemented</sub> | creates a new voice oposing an event against each two events of a previous voice
+| `s3rdSpecies`       | 166 <sub>not yet implemented</sub> | creates a new voice oposing a fixed number of events (more than 2) against each event of a previous voice15
+| `s3rdSpeciesInvert` | 167 <sub>not yet implemented</sub> | creates a new voice oposing an event against a fixed number of events (more than 2) of a previous voice15
+| `s4thSpecies`       | 168 <sub>not yet implemented</sub> | creates a new voice oposing an event between each two events of a previous voice15
+| `s5thSpecies`       | 169 <sub>not yet implemented</sub> | creates a new voice adding a new voice that combines freely the first four species
 
 ---------
 ## Harmony
-| name                   | index                          | description
-| ---------------------- | ------------------------------ | -----------
+| name                   | index                              | description
+| ---------------------- | ---------------------------------- | -----------
 | `vDiatonize`           | 170 <sub>not yet implemented</sub> | diatonizes a voice according to a harmonic grid
 | `sDiatonize`           | 171 <sub>not yet implemented</sub> | diatonizes a score according to a harmonic grid
 | `hChromaticScale`      | 172 <sub>not yet implemented</sub> | returns a complete chromatic scale
@@ -1090,8 +1090,8 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 
 ---------
 ## Rhythm
-| name                | index                          | description
-| ------------------- | ------------------------------ | -----------
+| name                | index                              | description
+| ------------------- | ---------------------------------- | -----------
 | `vTempo`            | 154 <sub>not yet implemented</sub> | changes the relative tempo of a voice 
 | `sTempo`            | 155 <sub>not yet implemented</sub> | changes the relative tempo of a score
 | `vAccel`            | 156 <sub>not yet implemented</sub> | accelerates tempo along a voice
@@ -1104,8 +1104,8 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 
 ---------
 ## Articulation
-| name                    | index                          | description
-| ----------------------- | ------------------------------ | -----------
+| name                    | index                              | description
+| ----------------------- | ---------------------------------- | -----------
 | `eMarcato`              | 238 <sub>not yet implemented</sub> | changes the articulation/dynamics of an event to marcato
 | `vLegatissimo`          | 239 <sub>not yet implemented</sub> | changes all articulations within a voice to legatissimo
 | `sLegatissimo`          | 240 <sub>not yet implemented</sub> | changes all articulations within a score to legatissimo
@@ -1123,8 +1123,8 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 
 ---------
 ## Dynamics
-| name         | index                          | description
-| ------------ | ------------------------------ | -----------
+| name         | index                              | description
+| ------------ | ---------------------------------- | -----------
 | `eSforzando` | 252 <sub>not yet implemented</sub> | changes the articulation/dynamics of an event to marcato
 | `vCresc`     | 253 <sub>not yet implemented</sub> | creates a crescendo in a voice
 | `sCresc`     | 254 <sub>not yet implemented</sub> | creates a crescendo in a score
@@ -1138,8 +1138,8 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 
 ---------
 ## Spectralism
-| name                | index                          | description
-| ------------------- | ------------------------------ | -----------
+| name                | index                              | description
+| ------------------- | ---------------------------------- | -----------
 | `hHarmonicSeries`   | 262 <sub>not yet implemented</sub> | returns a harmonic series
 | `hSpectralMorphing` | 263 <sub>not yet implemented</sub> | returns a harmonic series with some manipulations
 | `vSpectralize`      | 264 <sub>not yet implemented</sub> | adjusts the pitches of a voice to a harmonic series
@@ -1147,8 +1147,8 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 
 ---------
 ## Serialism
-| name                   | index                          | description
-| ---------------------- | ------------------------------ | -----------
+| name                   | index                              | description
+| ---------------------- | ---------------------------------- | -----------
 | `hDodecaphonicToneRow` | 213 <sub>not yet implemented</sub> | returns a canonic dodecaphonic tone row
 | `hUniquePitchesRow`    | 214 <sub>not yet implemented</sub> | returns a row of 2 to 11 pitches without repetitions
 | `eInvert`              | 215 <sub>not yet implemented</sub> | inverts pitches of an event
@@ -1205,8 +1205,8 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 
 ---------
 ## Algorithmic techniques
-| name                 | index                          | description
-| -------------------- | ------------------------------ | -----------
+| name                 | index                              | description
+| -------------------- | ---------------------------------- | -----------
 | `lBrownian`          | 266 <sub>not yet implemented</sub> | returns a list of values generated by a brownian movement
 | `lMarkovChain`       | 267 <sub>not yet implemented</sub> | returns a list of values generated by a Markov chain
 | `lTuringMachine`     | 268 <sub>not yet implemented</sub> | returns a list of values generated by a Turing machine
@@ -1249,8 +1249,8 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ---------
 ## Mathematical operations
  
-| name       | index                          | description
-| ---------- | ------------------------------ | -----------
+| name       | index                              | description
+| ---------- | ---------------------------------- | -----------
 | `oSum`     | 111 <sub>.601773 in progress</sub> | returns the sum of two values
 | `oDiff`    | 112 <sub>not yet implemented</sub> | returns the subtraction of two values
 | `oMult`    | 113 <sub>not yet implemented</sub> | returns the multiplication of two values
