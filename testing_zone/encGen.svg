@@ -1,32 +1,42 @@
 <svg version='1.1'
     baseProfile='full'
-    width='286' height='140'
+    width='396' height='140'
     xmlns='http://www.w3.org/2000/svg'>
-    <rect x='0' y='0' width=';286' height='140' style='fill:white;' />
+    <rect x='0' y='0' width=';396' height='140' style='fill:white;' />
     <rect x='0' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='11' y='17.256460000000004' rx='5' ry='5' width='10' height='122.74354' style='fill:hsl(37,93%,50%)' />
+    <rect x='11' y='104.84552' rx='5' ry='5' width='10' height='35.15448' style='fill:hsl(44,93%,50%)' />
     <rect x='22' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='33' y='99.31116' rx='5' ry='5' width='10' height='40.68884' style='fill:hsl(2,93%,50%)' />
+    <rect x='33' y='68.62232' rx='5' ry='5' width='10' height='71.37768' style='fill:hsl(4,93%,50%)' />
     <rect x='44' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='55' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='66' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
-    <rect x='77' y='14.299999999999997' rx='5' ry='5' width='10' height='125.7' style='fill:hsl(84,93%,50%)' />
+    <rect x='55' y='17.256460000000004' rx='5' ry='5' width='10' height='122.74354' style='fill:hsl(37,93%,50%)' />
+    <rect x='66' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='77' y='99.31116' rx='5' ry='5' width='10' height='40.68884' style='fill:hsl(2,93%,50%)' />
     <rect x='88' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='99' y='4.881110000000007' rx='5' ry='5' width='10' height='135.11889' style='fill:hsl(131,93%,50%)' />
+    <rect x='99' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
     <rect x='110' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
-    <rect x='121' y='69.47967' rx='5' ry='5' width='10' height='70.52033' style='fill:hsl(182,93%,50%)' />
+    <rect x='121' y='14.299999999999997' rx='5' ry='5' width='10' height='125.7' style='fill:hsl(84,93%,50%)' />
     <rect x='132' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='143' y='71.3895' rx='5' ry='5' width='10' height='68.6105' style='fill:hsl(25,93%,50%)' />
-    <rect x='154' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='165' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='143' y='4.881110000000007' rx='5' ry='5' width='10' height='135.11889' style='fill:hsl(131,93%,50%)' />
+    <rect x='154' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
+    <rect x='165' y='70.46533' rx='5' ry='5' width='10' height='69.53467' style='fill:hsl(69,93%,50%)' />
     <rect x='176' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='187' y='4.881110000000007' rx='5' ry='5' width='10' height='135.11889' style='fill:hsl(131,93%,50%)' />
-    <rect x='198' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
-    <rect x='209' y='23.510890000000003' rx='5' ry='5' width='10' height='116.48911' style='fill:hsl(327,93%,50%)' />
-    <rect x='220' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='231' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='242' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='253' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
-    <rect x='264' y='98.319' rx='5' ry='5' width='10' height='41.681' style='fill:hsl(72,93%,50%)' />
-    <rect x='275' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='187' y='71.3895' rx='5' ry='5' width='10' height='68.6105' style='fill:hsl(25,93%,50%)' />
+    <rect x='198' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='209' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='220' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='231' y='4.881110000000007' rx='5' ry='5' width='10' height='135.11889' style='fill:hsl(131,93%,50%)' />
+    <rect x='242' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
+    <rect x='253' y='2.9861000000000217' rx='5' ry='5' width='10' height='137.01389999999998' style='fill:hsl(232,93%,50%)' />
+    <rect x='264' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='275' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='286' y='75.86696' rx='5' ry='5' width='10' height='64.13304' style='fill:hsl(12,93%,50%)' />
+    <rect x='297' y='54.60000000000001' rx='5' ry='5' width='10' height='85.39999999999999' style='fill:hsl(256,93%,50%)' />
+    <rect x='308' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='319' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='330' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='341' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='352' y='10.01182' rx='5' ry='5' width='10' height='129.98818' style='fill:hsl(29,93%,50%)' />
+    <rect x='363' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='374' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='385' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
 </svg>

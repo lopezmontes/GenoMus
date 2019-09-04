@@ -5,7 +5,7 @@ const seedrandom = require('seedrandom');
 const fs = require('fs');
 
 // initial conditions
-var phenMaxLength = 1000;   
+var phenMaxLength = 2000;   
 
 // global variable to store subexpressions
 var subexpressions = [];
@@ -270,7 +270,7 @@ tt("s(v(e(p(.5),p(.4),p(0),p(.8))))");
 // repeats an event a number of times between 2 and 12 (eventP, paramP)
 var vRepeatE = (event, times) => {
     var numRepeats = adjustRange(Math.abs(n2q(adjustRange(times.encPhen[0], q2n(-12), q2n(12)))), 2, 12); // number of times rescaled to range [2, 12], mapped according to the deviation from the center value 0.5
-    if (numRepeats > phenMaxLength) return "phenotype max length exceeded";
+    if (numRepeats > phenMaxLength) return -1;
     return indexExprReturnSpecimen ({
         funcType: "voiceF",
         encGen: flattenDeep([1, 0.811529, event.encGen, times.encGen, 0]),
@@ -487,15 +487,26 @@ tt("lIterL(l3P(p(0.333),pRnd(),pAutoref(1)),q(6))");
 
 
 // repeats and concatenates as a voice re-evaluations of an event function (2 to 36 repeats) 
-var vIterE = (param, times) => {
+var vIterE = (event, times) => {
     var numIterations = adjustRange(Math.abs(n2q(times.encPhen[0])), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5 using the quantizedF map
+    if (numIterations > phenMaxLength) return -1;
     return indexExprReturnSpecimen ({
         funcType: "listF",
-        encGen: flattenDeep([1, 0.63119, param.encGen, times.encGen, 0]),
-        decGen: "lIterP(" + param.decGen + "," + times.decGen + ")",
-        encPhen: flattenDeep(Array(numIterations).fill().map(() => eval(param.decGen).encPhen))
+        encGen: flattenDeep([1, 0.867258, event.encGen, times.encGen, 0]),
+        decGen: "vIterE(" + event.decGen + "," + times.decGen + ")",
+        encPhen: wrap(flattenDeep(Array(numIterations).fill().map(() => eval(event.decGen).encPhen))),
+        phenLength: numIterations,
+        tempo: event.tempo,
+        rhythm: event.rhythm,
+        harmony: event.harmony,
+        analysis: event.analysis
     });
 };
+
+tt("vIterE(e(p(.89),pRnd(),pAutoref(0),pRnd()),q(36))");
+tt("s(vIterE(e(p(.89),pRnd(),pAutoref(0),pRnd()),q(36)))");
+tt("sConcatS(s(vIterE(e(p(.89),pRnd(),pAutoref(0),pRnd()),q(36))),sAutoref(0))");
+
 
 
 // autoreferences framework for different functionTypes
