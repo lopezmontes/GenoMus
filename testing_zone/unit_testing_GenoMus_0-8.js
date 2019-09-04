@@ -396,7 +396,7 @@ var vConcatV = (v1, v2) => indexExprReturnSpecimen ({
 tt("vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))");
 tt("vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))");
 
-tt("vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),e(p(.154),p(.14),p(1),p(.1834))))")
+tt("vConc atV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),e(p(.154),p(.14),p(1),p(.1834))))")
 tt("s(vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0))))")
 
 // concatenates two scores sequentially
@@ -412,7 +412,7 @@ var sConcatS = (s1, s2) => indexExprReturnSpecimen ({
     analysis: s1.analysis,
 });
 
-tt("sConcatS(s(v(e(p(.5),p(.4),p(0),p(.8)))),s(v(e(p(.5),p(.4),p(0),p(.8)))))");
+tt("sConcatS(s(v(e(p(.5),p(.4),p(.26),p(.26)))),s(v(e(p(.4565),p(.674),p(.25),p(.8)))))");
 
 tt("sConcatS(s(vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),vConcatE(e(p(.54),p(.4),p(0),p(.834)),e(p(.154),p(.14),p(1),p(.1834)))),e(p(.54),p(.4),p(0),p(.834)))))")
 
@@ -453,6 +453,8 @@ tt("lRepeatP(pRnd(),q(13))");
 }; */
 
 
+
+
 // repeats and concatenates re-evaluations of a list function (2 tp 36 repeats) 
 var lIterL = (l, times) => {
     var numIterations = adjustRange(Math.abs(n2q(times.encPhen[0])), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5 using the quantizedF map
@@ -465,7 +467,6 @@ var lIterL = (l, times) => {
 };
 
 tt("lIterL(l2P(p(0.333),pRnd()),p(.6))");
-
 tt("lIterL(l3P(p(0.333),pRnd(),pRnd()),p(.6))");
 tt("lIterL(l3P(p(0.333),pRnd(),pAutoref(1)),q(6))");
 

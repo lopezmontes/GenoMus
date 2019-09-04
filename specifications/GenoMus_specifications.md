@@ -950,9 +950,9 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 
 ---------
 ## Internal autoreferences
-| name        | index                          | description
-| ----------- | ------------------------------ | -----------
-| `pAutoref`  | 25 <sub>.45085 in progress</sub> | points to a previous parameter
+| name        | index                             | description
+| ----------- | --------------------------------- | -----------
+| `pAutoref`  | 25 <sub>.45085 in progress</sub>  | points to a previous parameter
 | `lAutoref`  | 26 <sub>.068884 in progress</sub> | points to a previous list
 | `eAutoref`  | 27 <sub>.686918 in progress</sub> | points to a previous event
 | `vAutoref`  | 28 <sub>.304952 in progress</sub> | points to a previous voice
@@ -963,7 +963,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `vClone`    | 33 <sub>not yet implemented</sub> | copy and paste a previous voice branch without subsequent linking
 | `sClone`    | 34 <sub>not yet implemented</sub> | copy and paste a previous score brach without subsequent linking
 | `lIterP`    | 35 <sub>not yet implemented</sub> | repeats and concatenates as a list re-evaluations of a parameter function 
-| `lIterL`    | 36 <sub>0.249224 in progress</sub> | repeats and concatenates as a list re-evaluations of a list function 
+| `lIterL`    | 36 <sub>.249224 in progress</sub> | repeats and concatenates as a list re-evaluations of a list function 
 | `vIterE`    | 37 <sub>not yet implemented</sub> | repeats and concatenates as a voice re-evaluations of an event function 
 | `vIterV`    | 38 <sub>not yet implemented</sub> | repeats and concatenates as a voice re-evaluations of a voice function
 | `sIterV`    | 39 <sub>not yet implemented</sub> | repeats and overlays in a score re-evaluations of a voice function
