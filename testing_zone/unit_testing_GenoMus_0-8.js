@@ -270,8 +270,7 @@ tt("s(v(e(p(.5),p(.4),p(0),p(.8))))");
 
 // repeats an event a number of times between 2 and 12 (eventP, paramP)
 var vRepeatE = (event, times) => {
-    var numRepeats = Math.abs(n2q(adjustRange(times.encPhen[0], q2n(-12), q2n(12)))); // number of times rescaled to range [2, 12], mapped according to the deviation from the center value 0.5
-    if (numRepeats < 2) numRepeats = 2;
+    var numRepeats = adjustRange(Math.abs(n2q(adjustRange(times.encPhen[0], q2n(-12), q2n(12)))), 2, 12); // number of times rescaled to range [2, 12], mapped according to the deviation from the center value 0.5
     if (numRepeats > phenMaxLength) return "phenotype max length exceeded";
     return indexExprReturnSpecimen ({
         funcType: "voiceF",
@@ -294,7 +293,7 @@ tt("vRepeatE(e(p(.5),pRnd(),p(0),pRnd()),p(.5))");
 var l2P = (p1, p2) => indexExprReturnSpecimen ({
     funcType: "listF",
     encGen: flattenDeep([1, 0.554175, p1.encGen, p2.encGen, 0]),
-    decGen: "l2P(" + p1.decGen + ", " + p2.decGen + ")",
+    decGen: "l2P(" + p1.decGen + "," + p2.decGen + ")",
     encPhen: p1.encPhen.concat(p2.encPhen)
 });
 
@@ -302,7 +301,7 @@ var l2P = (p1, p2) => indexExprReturnSpecimen ({
 var l3P = (p1, p2, p3) => indexExprReturnSpecimen ({
     funcType: "listF",
     encGen: flattenDeep([1, 0.172209, p1.encGen, p2.encGen, p3.encGen, 0]),
-    decGen: "l3P(" + p1.decGen + ", " + p2.decGen + ", " + p3.decGen + ")",
+    decGen: "l3P(" + p1.decGen + "," + p2.decGen + "," + p3.decGen + ")",
     encPhen: p1.encPhen.concat(p2.encPhen).concat(p3.encPhen)
 });
 
@@ -314,7 +313,7 @@ tt("l3P(p(0.4),p(.345),p(.84))");
 var l4P = (p1, p2, p3, p4) => indexExprReturnSpecimen ({
     funcType: "listF",
     encGen: flattenDeep([1, 0.790243, p1.encGen, p2.encGen, p3.encGen, p4.encGen, 0]),
-    decGen: "l4P(" + p1.decGen + ", " + p2.decGen + ", " + p3.decGen + ", " + p4.decGen + ")",
+    decGen: "l4P(" + p1.decGen + "," + p2.decGen + "," + p3.decGen + "," + p4.decGen + ")",
     encPhen: p1.encPhen.concat(p2.encPhen).concat(p3.encPhen).concat(p4.encPhen)
 });
 
@@ -324,7 +323,7 @@ tt("l4P(p(0.4),pRnd(),p(0.2),p(0.2345))");
 var l5P = (p1, p2, p3, p4, p5) => indexExprReturnSpecimen ({
     funcType: "listF",
     encGen: flattenDeep([1, 0.408277, p1.encGen, p2.encGen, p3.encGen, p4.encGen, p5.encGen, 0]),
-    decGen: "l5P(" + p1.decGen + ", " + p2.decGen + ", " + p3.decGen + ", " + p4.decGen + ", " + p5.decGen + ")",
+    decGen: "l5P(" + p1.decGen + "," + p2.decGen + "," + p3.decGen + "," + p4.decGen + "," + p5.decGen + ")",
     encPhen: p1.encPhen.concat(p2.encPhen).concat(p3.encPhen).concat(p4.encPhen).concat(p5.encPhen)
 });
 
@@ -340,7 +339,7 @@ var lRnd = (numItemsSeed, seqSeed) => {
     return indexExprReturnSpecimen ({
         funcType: "listF",
         encGen: flattenDeep([1, 0.198521, numItemsSeed.encGen, seqSeed.encGen, 0]),
-        decGen: "lRnd(" + numItemsSeed.decGen + ", " + seqSeed.decGen + ")",
+        decGen: "lRnd(" + numItemsSeed.decGen + "," + seqSeed.decGen + ")",
         encPhen: Array(numItems).fill().map( () => random.float() )
     });
 };    
@@ -351,7 +350,7 @@ tt("lRnd(p(.12),p(.3))");
 var lConcatL = (l1, l2) => indexExprReturnSpecimen ({
     funcType: "listF",
     encGen: flattenDeep([1, 0.72136, l1.encGen, l2.encGen, 0]),
-    decGen: "lConcatL(" + l1.decGen + ", " + l2.decGen + ")",
+    decGen: "lConcatL(" + l1.decGen + "," + l2.decGen + ")",
     encPhen: l1.encPhen.concat(l2.encPhen)
 });
  
@@ -363,7 +362,7 @@ tt("lConcatL(l([0.2,0.143,0.23]),l([0.2234,0.1343,0.923,0.7]))");
 var vConcatE = (e1, e2) => indexExprReturnSpecimen ({
     funcType: "voiceF",
     encGen: flattenDeep([1, 0.339394, e1.encGen, e2.encGen, 0]),
-    decGen: "vConcatE(" + e1.decGen + ", " + e2.decGen + ")",
+    decGen: "vConcatE(" + e1.decGen + "," + e2.decGen + ")",
     encPhen: wrap(e1.encPhen.concat(e2.encPhen)),
     phenLength: 2,
     tempo: e1.tempo,
@@ -384,7 +383,7 @@ tt("vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))");
 var vConcatV = (v1, v2) => indexExprReturnSpecimen ({
     funcType: "voiceF",
     encGen: flattenDeep([1, 0.957428, v1.encGen, v2.encGen, 0]),
-    decGen: "vConcatV(" + v1.decGen + ", " + v2.decGen + ")",
+    decGen: "vConcatV(" + v1.decGen + "," + v2.decGen + ")",
     encPhen: wrap(unwrap(v1.encPhen).concat(unwrap(v2.encPhen))),
     phenLength: v1.phenLength + v2.phenLength,
     tempo: v1.tempo,
@@ -403,7 +402,7 @@ tt("vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))
 var sConcatS = (s1, s2) => indexExprReturnSpecimen ({
     funcType: "scoreF",
     encGen: flattenDeep([1, 0.575462, s1.encGen, s2.encGen, 0]),
-    decGen: "sConcatS(" + s1.decGen + ", " + s2.decGen + ")",
+    decGen: "sConcatS(" + s1.decGen + "," + s2.decGen + ")",
     encPhen: s1.encPhen.concat(s2.encPhen),
     phenLength: s1.phenLength + s2.phenLength,
     tempo: s1.tempo,
@@ -411,6 +410,7 @@ var sConcatS = (s1, s2) => indexExprReturnSpecimen ({
     harmony: s1.harmony,
     analysis: s1.analysis,
 });
+
 tt("sConcatS(s(v(e(p(.5),p(.4),p(0),p(.8)))),s(v(e(p(.5),p(.4),p(0),p(.8)))))");
 
 tt("sConcatS(s(vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),vConcatE(e(p(.54),p(.4),p(0),p(.834)),e(p(.154),p(.14),p(1),p(.1834)))),e(p(.54),p(.4),p(0),p(.834)))))")
@@ -419,7 +419,7 @@ tt("sConcatS(s(vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0
 var oSum = (p1, p2) => indexExprReturnSpecimen ({
     funcType: "operationF",
     encGen: flattenDeep([1, 0.983739, p1.encGen, p2.encGen, 0]),
-    decGen: "oSum(" + p1.decGen + ", " + p2.decGen + ")",
+    decGen: "oSum(" + p1.decGen + "," + p2.decGen + ")",
     encPhen: [p1.encPhen[0] + p2.encPhen[0]]
 });
 
@@ -427,13 +427,13 @@ tt("oSum(q(34),q(45))");
 
 // // tt("lConcatL(lRnd(p(.2),p(.3)),l2P(pAutoref(0),pAdd(p(74),pAutoref(1))))");
 
-// repeats a parameter a number of times up to 36 repetitions
+// repeats a parameter a number of times between 2 and 36 repetitions
 var lRepeatP = (p, times) => {
-    var numRepeats = Math.abs(n2q(times.encPhen[0])); // number of times rescaled to range [2, 12], mapped according to the deviation from the center value 0.5
+    var numRepeats = adjustRange(Math.abs(n2q(times.encPhen[0])), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5
     return indexExprReturnSpecimen ({
         funcType: "listF",
         encGen: flattenDeep([1, 0.352549, p.encGen, times.encGen, 0]),
-        decGen: "lRepeatP(" + p.decGen + ", " + times.decGen + ")",
+        decGen: "lRepeatP(" + p.decGen + "," + times.decGen + ")",
         encPhen: Array(numRepeats).fill(p.encPhen[0])
     });
 };
@@ -441,14 +441,17 @@ var lRepeatP = (p, times) => {
 tt("lRepeatP(pRnd(),q(13))");
 
 // repeats and concatenates re-evaluations of a list function (2 tp 36 repeats) 
-var lIterExpr = (l, times) => indexExprReturnSpecimen ({
-    funcType: "listF",
-    encGen: flattenDeep([1, 0.867258, l.encGen, times.encGen, 0]),
-    decGen: "lIterExpr(" + l.decGen + ", " + times.decGen + ")",
-    encPhen: flattenDeep(Array(times.encPhen[0]).fill().map(() => eval(l.decGen).encPhen))
-});
+var lIterExpr = (l, times) => {
+    var numIterations = adjustRange(Math.abs(n2q(times.encPhen[0])), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5 using the quantizedF map
+    return indexExprReturnSpecimen ({
+        funcType: "listF",
+        encGen: flattenDeep([1, 0.867258, l.encGen, times.encGen, 0]),
+        decGen: "lIterExpr(" + l.decGen + "," + times.decGen + ")",
+        encPhen: flattenDeep(Array(numIterations).fill().map(() => eval(l.decGen).encPhen))
+    });
+};
 
- // tt("lIterExpr(l3P(p(0.333),pRnd(),pRnd()),p(4))");
+ tt("lIterExpr(l3P(p(0.333),pRnd(),pRnd()),p(4))");
 
 // autoreferences framework for different functionTypes
 var autoref = (funcName, funcType, index, silentElement) => {

@@ -94,7 +94,7 @@ var p = x => indexExprReturnSpecimen ({
     encPhen: [x]
 });
 
-// // tt("p(0.9433)");
+// // // tt("p(0.9433)");
 
 // returns a random normalized parameter
 var pRnd = () => {
@@ -162,17 +162,17 @@ var q = x => {
     });
 };
 
-// tt("n(4)");
-// tt("m(60)");
-// tt("a(60)");
-// tt("i(96)");
+// // tt("n(4)");
+// // tt("m(60)");
+// // tt("a(60)");
+// // tt("i(96)");
 
 
-// tt("e(n(1/8),m(73),p(0),p(.8))");
-// tt("s(v(e(n(1/16),m(69),a(0.4),i(80))))"); // EXAMPLE 2
+// // tt("e(n(1/8),m(73),p(0),p(.8))");
+// // tt("s(v(e(n(1/16),m(69),a(0.4),i(80))))"); // EXAMPLE 2
 
 
-// // tt("e(pRnd(),pRnd(),pRnd(),pRnd())");
+// // // tt("e(pRnd(),pRnd(),pRnd(),pRnd())");
 
 // list identity function
 var l = paramList => indexExprReturnSpecimen ({
@@ -194,7 +194,7 @@ var ln = notevalueList => {
     });
 };
 
- tt("ln([1/8,1,1/2,1/8,1,1/2,1/4,1,1/2])");
+ // tt("ln([1/8,1,1/2,1/8,1,1/2,1/4,1,1/2])");
 
 
 // list of midipitch values identity function
@@ -209,9 +209,9 @@ var lm = midipitchList => {
     });
 };
 
-// tt("lm([45,47,67,45,46])");
+// // tt("lm([45,47,67,45,46])");
 
-// // tt("l([0.4,0.23,0.56,0.25])");
+// // // tt("l([0.4,0.23,0.56,0.25])");
 
 // piano event identity function
 var e = (notevalue, midiPitch, articulation, intensity) => indexExprReturnSpecimen ({
@@ -236,7 +236,7 @@ var e = (notevalue, midiPitch, articulation, intensity) => indexExprReturnSpecim
     }
 });
 
-tt("e(p(.5),p(.4),p(0.6),p(.8))");
+// tt("e(p(.5),p(.4),p(0.6),p(.8))");
 
 // voice identity function
 var v = e => indexExprReturnSpecimen ({
@@ -251,7 +251,7 @@ var v = e => indexExprReturnSpecimen ({
     analysis: e.analysis
 });
 
-tt("v(e(p(.5),p(.4),p(0),p(.8)))");
+// tt("v(e(p(.5),p(.4),p(0),p(.8)))");
 
 // score identity function
 var s = v => indexExprReturnSpecimen ({
@@ -266,7 +266,7 @@ var s = v => indexExprReturnSpecimen ({
     analysis: v.analysis
 });
 
-tt("s(v(e(p(.5),p(.4),p(0),p(.8))))");
+// tt("s(v(e(p(.5),p(.4),p(0),p(.8))))");
 
 // repeats an event a number of times between 2 and 12 (eventP, paramP)
 var vRepeatE = (event, times) => {
@@ -287,7 +287,7 @@ var vRepeatE = (event, times) => {
 }
 
 tt("vRepeatE(e(p(.5),pRnd(),p(0),pRnd()),p(.5))");
-// tt("vRepeatE(eAutoref(8),p(3))");
+// // tt("vRepeatE(eAutoref(8),p(3))");
 
 
 // generates a list of 2 parameters
@@ -306,9 +306,9 @@ var l3P = (p1, p2, p3) => indexExprReturnSpecimen ({
     encPhen: p1.encPhen.concat(p2.encPhen).concat(p3.encPhen)
 });
 
-tt("l2P(p(0.4),p(.345))");
-tt("l3P(p(0.4),p(.345),p(.84))");
-// // tt("l2P(p(0.4),pAutoref(345))");
+// tt("l2P(p(0.4),p(.345))");
+// tt("l3P(p(0.4),p(.345),p(.84))");
+// // // tt("l2P(p(0.4),pAutoref(345))");
 
 // generates a list of 4 parameters
 var l4P = (p1, p2, p3, p4) => indexExprReturnSpecimen ({
@@ -318,7 +318,7 @@ var l4P = (p1, p2, p3, p4) => indexExprReturnSpecimen ({
     encPhen: p1.encPhen.concat(p2.encPhen).concat(p3.encPhen).concat(p4.encPhen)
 });
 
-tt("l4P(p(0.4),pRnd(),p(0.2),p(0.2345))");
+// tt("l4P(p(0.4),pRnd(),p(0.2),p(0.2345))");
 
 // generates a list of 5 parameters
 var l5P = (p1, p2, p3, p4, p5) => indexExprReturnSpecimen ({
@@ -328,9 +328,9 @@ var l5P = (p1, p2, p3, p4, p5) => indexExprReturnSpecimen ({
     encPhen: p1.encPhen.concat(p2.encPhen).concat(p3.encPhen).concat(p4.encPhen).concat(p5.encPhen)
 });
 
-tt("l5P(p(0.479),pRnd(),p(0.2),p(0.2345),p(.45))");
+// tt("l5P(p(0.479),pRnd(),p(0.2),p(0.2345),p(.45))");
 
-// // tt("l5P(p(0.4),pRnd(),pAutoref(345),pRnd(),pAutoref(345))");
+// // // tt("l5P(p(0.4),pRnd(),pAutoref(345),pRnd(),pAutoref(345))");
 
 // random list up to 12 values (paramF, paramF)
 var lRnd = (numItemsSeed, seqSeed) => {
@@ -345,7 +345,7 @@ var lRnd = (numItemsSeed, seqSeed) => {
     });
 };    
 
-tt("lRnd(p(.12),p(.3))");
+// tt("lRnd(p(.12),p(.3))");
 
 // concatenates two lists sequentially
 var lConcatL = (l1, l2) => indexExprReturnSpecimen ({
@@ -355,9 +355,9 @@ var lConcatL = (l1, l2) => indexExprReturnSpecimen ({
     encPhen: l1.encPhen.concat(l2.encPhen)
 });
  
-tt("lConcatL(l([0.2,0.143,0.23]),l([0.2234,0.1343,0.923,0.7]))");
-// // tt("lConcatL(lRnd(p(.2),p(.3)),lRnd(pAutoref(0),p(.30002)))");
-// // tt("lConcatL(lRnd(p(.209),p(.3)),lAutoref(0))");
+// tt("lConcatL(l([0.2,0.143,0.23]),l([0.2234,0.1343,0.923,0.7]))");
+// // // tt("lConcatL(lRnd(p(.2),p(.3)),lRnd(pAutoref(0),p(.30002)))");
+// // // tt("lConcatL(lRnd(p(.209),p(.3)),lAutoref(0))");
 
 // concatenates two events sequentially
 var vConcatE = (e1, e2) => indexExprReturnSpecimen ({
@@ -375,10 +375,10 @@ var vConcatE = (e1, e2) => indexExprReturnSpecimen ({
     }
 });
 
-tt("vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))");
-// // tt("s(vConcatE(e(p(.54),p(.5),p(0),p(.834)),e(p(.54),pRnd(),p(0),p(.834))))");
-// // tt("vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0))");
- // tt("s(vConcatE(e(p(.54),pRnd(),p(0),p(.834)),eAutoref(0)))");
+// tt("vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))");
+// // // tt("s(vConcatE(e(p(.54),p(.5),p(0),p(.834)),e(p(.54),pRnd(),p(0),p(.834))))");
+// // // tt("vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0))");
+ // // tt("s(vConcatE(e(p(.54),pRnd(),p(0),p(.834)),eAutoref(0)))");
 
 // concatenates two voices sequentially
 var vConcatV = (v1, v2) => indexExprReturnSpecimen ({
@@ -393,11 +393,11 @@ var vConcatV = (v1, v2) => indexExprReturnSpecimen ({
     analysis: v1.analysis,
 });
 
-tt("vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))");
-tt("vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))");
+// tt("vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))");
+// tt("vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))");
 
-tt("vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),e(p(.154),p(.14),p(1),p(.1834))))")
- // tt("s(vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0))))")
+// tt("vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),e(p(.154),p(.14),p(1),p(.1834))))")
+ // // tt("s(vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0))))")
 
 // concatenates two scores sequentially
 var sConcatS = (s1, s2) => indexExprReturnSpecimen ({
@@ -411,9 +411,9 @@ var sConcatS = (s1, s2) => indexExprReturnSpecimen ({
     harmony: s1.harmony,
     analysis: s1.analysis,
 });
-tt("sConcatS(s(v(e(p(.5),p(.4),p(0),p(.8)))),s(v(e(p(.5),p(.4),p(0),p(.8)))))");
+// tt("sConcatS(s(v(e(p(.5),p(.4),p(0),p(.8)))),s(v(e(p(.5),p(.4),p(0),p(.8)))))");
 
-tt("sConcatS(s(vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),vConcatE(e(p(.54),p(.4),p(0),p(.834)),e(p(.154),p(.14),p(1),p(.1834)))),e(p(.54),p(.4),p(0),p(.834)))))")
+// tt("sConcatS(s(vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),vConcatE(e(p(.54),p(.4),p(0),p(.834)),e(p(.154),p(.14),p(1),p(.1834)))),e(p(.54),p(.4),p(0),p(.834)))))")
 
 // add two numbers
 var oSum = (p1, p2) => indexExprReturnSpecimen ({
@@ -423,9 +423,9 @@ var oSum = (p1, p2) => indexExprReturnSpecimen ({
     encPhen: [p1.encPhen[0] + p2.encPhen[0]]
 });
 
-tt("oSum(q(34),q(45))");
+// tt("oSum(q(34),q(45))");
 
-// // tt("lConcatL(lRnd(p(.2),p(.3)),l2P(pAutoref(0),pAdd(p(74),pAutoref(1))))");
+// // // tt("lConcatL(lRnd(p(.2),p(.3)),l2P(pAutoref(0),pAdd(p(74),pAutoref(1))))");
 
 // repeats a parameter a number of times up to 36 repetitions
 var lRepeatP = (p, times) => {
@@ -438,7 +438,7 @@ var lRepeatP = (p, times) => {
     });
 };
 
-tt("lRepeatP(pRnd(),q(13))");
+// tt("lRepeatP(pRnd(),q(13))");
 
 // repeats and concatenates re-evaluations of a list function (2 tp 36 repeats) 
 var lIterExpr = (l, times) => indexExprReturnSpecimen ({
@@ -448,7 +448,7 @@ var lIterExpr = (l, times) => indexExprReturnSpecimen ({
     encPhen: flattenDeep(Array(times.encPhen[0]).fill().map(() => eval(l.decGen).encPhen))
 });
 
- // tt("lIterExpr(l3P(p(0.333),pRnd(),pRnd()),p(4))");
+ // // tt("lIterExpr(l3P(p(0.333),pRnd(),pRnd()),p(4))");
 
 // autoreferences framework for different functionTypes
 var autoref = (funcName, funcType, index, silentElement) => {
@@ -480,8 +480,8 @@ var sAutoref = index => autoref("sAutoref", "scoreF", index, "s(v(e(p(0),p(0),p(
 //////////
 // testing
 
-// // tt("e(pAutoref(5),p(.4),pAutoref(0),p(.8))");
-// // tt("pAdd(pAdd(p(39),pAutoref(1)),pAutoref(1))");
+// // // tt("e(pAutoref(5),p(.4),pAutoref(0),p(.8))");
+// // // tt("pAdd(pAdd(p(39),pAutoref(1)),pAutoref(1))");
 
 
 //////////// PARAMETER MAPPING
