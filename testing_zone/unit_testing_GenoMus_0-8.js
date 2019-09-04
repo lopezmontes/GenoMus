@@ -453,6 +453,8 @@ tt("lRepeatP(pRnd(),q(13))");
 }; */
 
 
+
+
 // repeats and concatenates as a list re-evaluations of a parameter function (2 to 36 repeats) 
 var lIterP = (param, times) => {
     var numIterations = adjustRange(Math.abs(n2q(times.encPhen[0])), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5 using the quantizedF map
@@ -465,7 +467,7 @@ var lIterP = (param, times) => {
 };
 
 tt("lIterP(p(.34),p(0.5))");
-
+tt("lIterP(pRnd(),p(0.8))");
 
 // repeats and concatenates as a list re-evaluations of a list function (2 to 36 repeats) 
 var lIterL = (list, times) => {
@@ -482,6 +484,18 @@ tt("lIterL(l([.3,.5,.45]),q(5))");
 tt("lIterL(l2P(p(0.333),pRnd()),p(.6))");
 tt("lIterL(l3P(p(0.333),pRnd(),pRnd()),p(.6))");
 tt("lIterL(l3P(p(0.333),pRnd(),pAutoref(1)),q(6))");
+
+
+// repeats and concatenates as a voice re-evaluations of an event function (2 to 36 repeats) 
+var vIterE = (param, times) => {
+    var numIterations = adjustRange(Math.abs(n2q(times.encPhen[0])), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5 using the quantizedF map
+    return indexExprReturnSpecimen ({
+        funcType: "listF",
+        encGen: flattenDeep([1, 0.63119, param.encGen, times.encGen, 0]),
+        decGen: "lIterP(" + param.decGen + "," + times.decGen + ")",
+        encPhen: flattenDeep(Array(numIterations).fill().map(() => eval(param.decGen).encPhen))
+    });
+};
 
 
 // autoreferences framework for different functionTypes

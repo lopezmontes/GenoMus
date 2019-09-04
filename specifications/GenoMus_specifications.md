@@ -964,7 +964,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `sClone`    | 34 <sub>not yet implemented</sub> | copy and paste a previous score brach without subsequent linking
 | `lIterP`    | 35 <sub>.63119 in progress</sub>  | repeats and concatenates as a list re-evaluations of a parameter function 
 | `lIterL`    | 36 <sub>.249224 in progress</sub> | repeats and concatenates as a list re-evaluations of a list function 
-| `vIterE`    | 37 <sub>not yet implemented</sub> | repeats and concatenates as a voice re-evaluations of an event function 
+| `vIterE`    | 37 <sub>.867258 in progress</sub> | repeats and concatenates as a voice re-evaluations of an event function 
 | `vIterV`    | 38 <sub>not yet implemented</sub> | repeats and concatenates as a voice re-evaluations of a voice function
 | `sIterV`    | 39 <sub>not yet implemented</sub> | repeats and overlays in a score re-evaluations of a voice function
 | `sIterS`    | 40 <sub>not yet implemented</sub> | repeats and concatenates as a score re-evaluations of a score function
