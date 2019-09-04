@@ -962,314 +962,315 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `eClone`    | 32 <sub>not yet implemented</sub> | copy and paste a previous event branch without subsequent linking
 | `vClone`    | 33 <sub>not yet implemented</sub> | copy and paste a previous voice branch without subsequent linking
 | `sClone`    | 34 <sub>not yet implemented</sub> | copy and paste a previous score brach without subsequent linking
-| `pIterExpr` | 35 <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a parameter function 
-| `lIterExpr` | 36 <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of an list function 
-| `eIterExpr` | 37 <sub>.867258 in progress</sub> | repeats and concatenates re-evaluations of a event function 
-| `vIterExpr` | 38 <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a voice function
-| `sIterExpr` | 39 <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a score function
+| `lIterP`    | 35 <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a parameter function 
+| `lIterL`    | 36 <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of an list function 
+| `vIterE`    | 37 <sub>.867258 in progress</sub> | repeats and concatenates re-evaluations of a event function 
+| `vIterV`    | 38 <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a voice function
+| `sIterV`    | 39 <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a score function
+| `sIterS`    | 40 <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a score function
 
 ---------
 ## External references
 | name                   | index                          | description
 | ---------------------- | ------------------------------ | -----------
-| `sGenotypeFromLibrary` | 275 <sub>not yet implemented</sub> | reads and inserts a genotype from an external library of genotypes
-| `lTextfileData`        | 276 <sub>not yet implemented</sub> | reads and inserts a list of values from an external textfile
+| `sGenotypeFromLibrary` | 276 <sub>not yet implemented</sub> | reads and inserts a genotype from an external library of genotypes
+| `lTextfileData`        | 275 <sub>not yet implemented</sub> | reads and inserts a list of values from an external textfile
 
 ---------
 ## Form
 | name        | index                             | description
 | ----------- | --------------------------------- | -----------
-| `lConcatL`  | 40 <sub>. in progress</sub> | concatenates two lists sequentially
-| `vConcatE`  | 41 <sub>. in progress</sub> | concatenates two events sequentially
-| `vConcatV`  | 42 <sub>.957428 in progress</sub> | concatenates two voices sequentially
-| `sConcatS`  | 43 <sub>.575462 in progress</sub> | concatenates two scores sequentially
-| `eAddPitch` | 44 <sub>. in progress</sub> | adds a pitch to an event
-| `vRepeatE`  | 45 <sub>.811529 in progress</sub> | repeats an event a number of times
-| `lRepeatL`  | 46 <sub>not yet implemented</sub> | repeats a list a number of times
-| `vRepeatV`  | 47 <sub>not yet implemented</sub> | repeats a voice a number of times
-| `sRepeatS`  | 48 <sub>not yet implemented</sub> | repeats a score a number of times
-| `lAAp`      | 49 <sub>not yet implemented</sub> | single repetition of a parameter
-| `lAAl`      | 50 <sub>not yet implemented</sub> | single repetition of a list
-| `vAAe`      | 51 <sub>not yet implemented</sub> | single repetition of an event
-| `vAAv`      | 52 <sub>not yet implemented</sub> | single repetition of a voice
-| `sAA`       | 53 <sub>not yet implemented</sub> | single repetition of a score
-| `lABAp`     | 54 <sub>not yet implemented</sub> | A-B-A structure of parameters
-| `lABAl`     | 55 <sub>not yet implemented</sub> | A-B-A structure of lists
-| `vABAe`     | 56 <sub>not yet implemented</sub> | A-B-A structure of events
-| `vABAv`     | 57 <sub>not yet implemented</sub> | A-B-A structure of voices
-| `sABA`      | 58 <sub>not yet implemented</sub> | A-B-A structure of events
-| `lABCABp`   | 59 <sub>not yet implemented</sub> | A-B-C-B-A structure of parameters
-| `lABCABl`   | 60 <sub>not yet implemented</sub> | A-B-C-B-A structure of lists
-| `vABCABe`   | 61 <sub>not yet implemented</sub> | A-B-C-B-A structure of events
-| `vABCABv`   | 62 <sub>not yet implemented</sub> | A-B-C-B-A structure of voices
-| `sABCAB`    | 63 <sub>not yet implemented</sub> | A-B-C-B-A structure of events
+| `lConcatL`  | 41 <sub>. in progress</sub> | concatenates two lists sequentially
+| `vConcatE`  | 42 <sub>. in progress</sub> | concatenates two events sequentially
+| `vConcatV`  | 43 <sub>.957428 in progress</sub> | concatenates two voices sequentially
+| `sConcatS`  | 44 <sub>.575462 in progress</sub> | concatenates two scores sequentially
+| `eAddPitch` | 45 <sub>. in progress</sub> | adds a pitch to an event
+| `vRepeatE`  | 46 <sub>.811529 in progress</sub> | repeats an event a number of times
+| `lRepeatL`  | 47 <sub>not yet implemented</sub> | repeats a list a number of times
+| `vRepeatV`  | 48 <sub>not yet implemented</sub> | repeats a voice a number of times
+| `sRepeatS`  | 49 <sub>not yet implemented</sub> | repeats a score a number of times
+| `lAAp`      | 50 <sub>not yet implemented</sub> | single repetition of a parameter
+| `lAAl`      | 51 <sub>not yet implemented</sub> | single repetition of a list
+| `vAAe`      | 52 <sub>not yet implemented</sub> | single repetition of an event
+| `vAAv`      | 53 <sub>not yet implemented</sub> | single repetition of a voice
+| `sAA`       | 54 <sub>not yet implemented</sub> | single repetition of a score
+| `lABAp`     | 55 <sub>not yet implemented</sub> | A-B-A structure of parameters
+| `lABAl`     | 56 <sub>not yet implemented</sub> | A-B-A structure of lists
+| `vABAe`     | 57 <sub>not yet implemented</sub> | A-B-A structure of events
+| `vABAv`     | 58 <sub>not yet implemented</sub> | A-B-A structure of voices
+| `sABA`      | 59 <sub>not yet implemented</sub> | A-B-A structure of events
+| `lABCABp`   | 60 <sub>not yet implemented</sub> | A-B-C-B-A structure of parameters
+| `lABCABl`   | 61 <sub>not yet implemented</sub> | A-B-C-B-A structure of lists
+| `vABCABe`   | 62 <sub>not yet implemented</sub> | A-B-C-B-A structure of events
+| `vABCABv`   | 63 <sub>not yet implemented</sub> | A-B-C-B-A structure of voices
+| `sABCAB`    | 64 <sub>not yet implemented</sub> | A-B-C-B-A structure of events
 
 ---------
 ## Phrasing
 | name                    | index                          | description
 | ----------------------- | ------------------------------ | -----------
-| `vInterval`             | 197 <sub>not yet implemented</sub> | repeats previous note changing pitch according to an interval
-| `vMotif`                | 198 <sub>not yet implemented</sub> | creates a sequence of events based on lists
-| `vMotifLoop`            | 199 <sub>not yet implemented</sub> | creates a sequence of events based on repeating lists
-| `vPerpetuumMobile`      | 200 <sub>not yet implemented</sub> | creates a sequence of events based on repeating lists but with a single notevalue
-| `vPerpetuumMobileLoop`  | 201 <sub>not yet implemented</sub> | creates a sequence of events based on lists but with a single notevalue
-| `vAcciaccatura`         | 202 <sub>not yet implemented</sub> | adds an acciaccatura to an event
-| `vAppoggiatura`         | 203 <sub>not yet implemented</sub> | adds an appoggiatura to an event
-| `vTrill`                | 204 <sub>not yet implemented</sub> | converts an event in a trill of two pitches
-| `vJitter`               | 205 <sub>not yet implemented</sub> | converts an event in a group of randomly alterning pitches
-| `vGliss`                | 206 <sub>not yet implemented</sub> | connects two pitches with a scale (diatonic of chromatic)
-| `sPedalNote`            | 207 <sub>not yet implemented</sub> | adds a new voice consisting of a single sustained note to a score  
-| `vArpeggio`             | 208 <sub>not yet implemented</sub> | creates an arpeggio according to a harmonic grid
-| `vProgression`          | 209 <sub>not yet implemented</sub> | creates a progression repeating a motif at a transposition interval with chormatic transposition
-| `vDiatonic Progression` | 210 <sub>not yet implemented</sub> | creates a progression repeating a motif at a transposition interval adapting pitches to the harmonic grid
-| `sEchoV`                | 211 <sub>not yet implemented</sub> | adds a new voice repeating a voice at a time interval
+| `vInterval`             | 198 <sub>not yet implemented</sub> | repeats previous note changing pitch according to an interval
+| `vMotif`                | 199 <sub>not yet implemented</sub> | creates a sequence of events based on lists
+| `vMotifLoop`            | 200 <sub>not yet implemented</sub> | creates a sequence of events based on repeating lists
+| `vPerpetuumMobile`      | 201 <sub>not yet implemented</sub> | creates a sequence of events based on repeating lists but with a single notevalue
+| `vPerpetuumMobileLoop`  | 202 <sub>not yet implemented</sub> | creates a sequence of events based on lists but with a single notevalue
+| `vAcciaccatura`         | 203 <sub>not yet implemented</sub> | adds an acciaccatura to an event
+| `vAppoggiatura`         | 204 <sub>not yet implemented</sub> | adds an appoggiatura to an event
+| `vTrill`                | 205 <sub>not yet implemented</sub> | converts an event in a trill of two pitches
+| `vJitter`               | 206 <sub>not yet implemented</sub> | converts an event in a group of randomly alterning pitches
+| `vGliss`                | 207 <sub>not yet implemented</sub> | connects two pitches with a scale (diatonic of chromatic)
+| `sPedalNote`            | 208 <sub>not yet implemented</sub> | adds a new voice consisting of a single sustained note to a score  
+| `vArpeggio`             | 209 <sub>not yet implemented</sub> | creates an arpeggio according to a harmonic grid
+| `vProgression`          | 210 <sub>not yet implemented</sub> | creates a progression repeating a motif at a transposition interval with chormatic transposition
+| `vDiatonic Progression` | 211 <sub>not yet implemented</sub> | creates a progression repeating a motif at a transposition interval adapting pitches to the harmonic grid
+| `sEchoV`                | 212 <sub>not yet implemented</sub> | adds a new voice repeating a voice at a time interval
 
 ---------
 ## Poliphony
 | name            | index                          | description
 | --------------- | ------------------------------ | -----------
-| `eTwoPitches`   | 97  <sub>not yet implemented</sub> | creates an event with two pitches
-| `eThreePitches` | 98  <sub>not yet implemented</sub> | creates an event with three pitches
-| `eFourPitches`  | 99  <sub>not yet implemented</sub> | creates an event with four pitches
-| `eFivePitches`  | 100 <sub>not yet implemented</sub> | creates an event with five pitches
-| `eSixPitches`   | 101 <sub>not yet implemented</sub> | creates an event with six pitches
-| `eManyPitches`  | 102 <sub>not yet implemented</sub> | creates an event with more than six pitches, with a maximal of 12 pitches
-| `sTwoV`         | 103 <sub>not yet implemented</sub> | creates an score with two simultaneous voices
-| `sThreeV`       | 104 <sub>not yet implemented</sub> | creates an score with three simultaneous voices
-| `sFourV`        | 105 <sub>not yet implemented</sub> | creates an score with four simultaneous voices
-| `sFiveV`        | 106 <sub>not yet implemented</sub> | creates an score with five simultaneous voices
-| `sSixV`         | 107 <sub>not yet implemented</sub> | creates an score with six simultaneous voices
-| `sAddV`         | 108 <sub>not yet implemented</sub> | adds a new voice vertically to a score
-| `sAddS`         | 109 <sub>not yet implemented</sub> | adds a new score vertically to a score
+| `eTwoPitches`   | 98  <sub>not yet implemented</sub> | creates an event with two pitches
+| `eThreePitches` | 99  <sub>not yet implemented</sub> | creates an event with three pitches
+| `eFourPitches`  | 100  <sub>not yet implemented</sub> | creates an event with four pitches
+| `eFivePitches`  | 101 <sub>not yet implemented</sub> | creates an event with five pitches
+| `eSixPitches`   | 102 <sub>not yet implemented</sub> | creates an event with six pitches
+| `eManyPitches`  | 103 <sub>not yet implemented</sub> | creates an event with more than six pitches, with a maximal of 12 pitches
+| `sTwoV`         | 104 <sub>not yet implemented</sub> | creates an score with two simultaneous voices
+| `sThreeV`       | 105 <sub>not yet implemented</sub> | creates an score with three simultaneous voices
+| `sFourV`        | 106 <sub>not yet implemented</sub> | creates an score with four simultaneous voices
+| `sFiveV`        | 107 <sub>not yet implemented</sub> | creates an score with five simultaneous voices
+| `sSixV`         | 108 <sub>not yet implemented</sub> | creates an score with six simultaneous voices
+| `sAddV`         | 109 <sub>not yet implemented</sub> | adds a new voice vertically to a score
+| `sAddS`         | 110 <sub>not yet implemented</sub> | adds a new score vertically to a score
 
 ---------
 ## Counterpoint
 | name                   | index                          | description
 | ---------------------- | ------------------------------ | -----------
-| `sFirstSpecies`        | 162 <sub>not yet implemented</sub> | creates a new voice oposing an event against each event of a previous voice
-| `sSecondSpecies`       | 163 <sub>not yet implemented</sub> | creates a new voice oposing two events against each event of a previous voice
-| `sSecondSpeciesInvert` | 164 <sub>not yet implemented</sub> | creates a new voice oposing an event against each two events of a previous voice
-| `sThirdSpecies`        | 165 <sub>not yet implemented</sub> | creates a new voice oposing a fixed number of events (more than 2) against each event of a previous voice15
-| `sThirdSpeciesInvert`  | 166 <sub>not yet implemented</sub> | creates a new voice oposing an event against a fixed number of events (more than 2) of a previous voice15
-| `sFourthSpecies`       | 167 <sub>not yet implemented</sub> | creates a new voice oposing an event between each two events of a previous voice15
-| `sFifthSpecies`        | 168 <sub>not yet implemented</sub> | creates a new voice adding a new voice that combines freely the first four species
+| `sFirstSpecies`        | 163 <sub>not yet implemented</sub> | creates a new voice oposing an event against each event of a previous voice
+| `sSecondSpecies`       | 164 <sub>not yet implemented</sub> | creates a new voice oposing two events against each event of a previous voice
+| `sSecondSpeciesInvert` | 165 <sub>not yet implemented</sub> | creates a new voice oposing an event against each two events of a previous voice
+| `sThirdSpecies`        | 166 <sub>not yet implemented</sub> | creates a new voice oposing a fixed number of events (more than 2) against each event of a previous voice15
+| `sThirdSpeciesInvert`  | 167 <sub>not yet implemented</sub> | creates a new voice oposing an event against a fixed number of events (more than 2) of a previous voice15
+| `sFourthSpecies`       | 168 <sub>not yet implemented</sub> | creates a new voice oposing an event between each two events of a previous voice15
+| `sFifthSpecies`        | 169 <sub>not yet implemented</sub> | creates a new voice adding a new voice that combines freely the first four species
 
 ---------
 ## Harmony
 | name                   | index                          | description
 | ---------------------- | ------------------------------ | -----------
-| `vDiatonize`           | 169 <sub>not yet implemented</sub> | diatonizes a voice according to a harmonic grid
-| `sDiatonize`           | 170 <sub>not yet implemented</sub> | diatonizes a score according to a harmonic grid
-| `hChromaticScale`      | 171 <sub>not yet implemented</sub> | returns a complete chromatic scale
-| `hNaturalScale`        | 172 <sub>not yet implemented</sub> | returns modes derived from the natural scale
-| `hMelodicMinorScale`   | 173 <sub>not yet implemented</sub> | returns modes derived from the melodic minor scale
-| `hPentatonic`          | 174 <sub>not yet implemented</sub> | returns modes derived from the major pentatonic scale
-| `hBluesScale`          | 175 <sub>not yet implemented</sub> | returns a pentatonic scale with blue notes
-| `hJapanesePentatonic`  | 176 <sub>not yet implemented</sub> | returns modes derived from japanese pentatonic scales
-| `hHexatonicScale`      | 177 <sub>not yet implemented</sub> | returns a whole tone scale
-| `hOctatonicScale`      | 178 <sub>not yet implemented</sub> | returns a half-whole diminished scale 
-| `hLimitedTranspoScale` | 179 <sub>not yet implemented</sub> | returns modes of limited transposition
-| `hPCSet`               | 180 <sub>not yet implemented</sub> | returns any mode generated by a list of pitches 
-| `hCluster`             | 181 <sub>not yet implemented</sub> | returns a group of consecutives chromatic tones
-| `hOrientalizer`        | 182 <sub>not yet implemented</sub> | takes a mode and transforms it moving notes in the middle of two consecutives whole tones to get 3 half-tone intervals.
-| `hBebopizer`           | 183 <sub>not yet implemented</sub> | takes a mode and returns it after inserting some chromatic steps
-| `hDefectiveMode`       | 184 <sub>not yet implemented</sub> | takes a mode and returns it after deleting some pitches 
-| `hMajorChord`          | 185 <sub>not yet implemented</sub> | returns a major chord 
-| `hlMinorChord`         | 186 <sub>not yet implemented</sub> | returns a minor chord 
-| `hDominantChord`       | 187 <sub>not yet implemented</sub> | returns a dominant seventh chord
-| `hSeventhChord`        | 188 <sub>not yet implemented</sub> | returns a four-note chord with triadic structure
-| `hNinthChord`          | 189 <sub>not yet implemented</sub> | returns a five-note chord with triadic structure
-| `hTwoPitchesChord`     | 190 <sub>not yet implemented</sub> | returns a pitch class sequence with two pitches 
-| `hThreePCS`            | 191 <sub>not yet implemented</sub> | returns a pitch class sequence with three pitches
-| `hFourPCS`             | 192 <sub>not yet implemented</sub> | returns a pitch class sequence with four pitches
-| `hFivePCS`             | 193 <sub>not yet implemented</sub> | returns a pitch class sequence with five pitches
-| `hSixPCS`              | 194 <sub>not yet implemented</sub> | returns a pitch class sequence with six pitches
-| `lExpandChord`         | 195 <sub>not yet implemented</sub> | takes a pitch class set and expands it across register, sometimes adding duplications
-| `sHarmonizer`          | 196 <sub>not yet implemented</sub> | takes a voice and add a new one simultaneously, at an specified interval and according to the current harmonic grid 
+| `vDiatonize`           | 170 <sub>not yet implemented</sub> | diatonizes a voice according to a harmonic grid
+| `sDiatonize`           | 171 <sub>not yet implemented</sub> | diatonizes a score according to a harmonic grid
+| `hChromaticScale`      | 172 <sub>not yet implemented</sub> | returns a complete chromatic scale
+| `hNaturalScale`        | 173 <sub>not yet implemented</sub> | returns modes derived from the natural scale
+| `hMelodicMinorScale`   | 174 <sub>not yet implemented</sub> | returns modes derived from the melodic minor scale
+| `hPentatonic`          | 175 <sub>not yet implemented</sub> | returns modes derived from the major pentatonic scale
+| `hBluesScale`          | 176 <sub>not yet implemented</sub> | returns a pentatonic scale with blue notes
+| `hJapanesePentatonic`  | 177 <sub>not yet implemented</sub> | returns modes derived from japanese pentatonic scales
+| `hHexatonicScale`      | 178 <sub>not yet implemented</sub> | returns a whole tone scale
+| `hOctatonicScale`      | 179 <sub>not yet implemented</sub> | returns a half-whole diminished scale 
+| `hLimitedTranspoScale` | 180 <sub>not yet implemented</sub> | returns modes of limited transposition
+| `hPCSet`               | 181 <sub>not yet implemented</sub> | returns any mode generated by a list of pitches 
+| `hCluster`             | 182 <sub>not yet implemented</sub> | returns a group of consecutives chromatic tones
+| `hOrientalizer`        | 183 <sub>not yet implemented</sub> | takes a mode and transforms it moving notes in the middle of two consecutives whole tones to get 3 half-tone intervals.
+| `hBebopizer`           | 184 <sub>not yet implemented</sub> | takes a mode and returns it after inserting some chromatic steps
+| `hDefectiveMode`       | 185 <sub>not yet implemented</sub> | takes a mode and returns it after deleting some pitches 
+| `hMajorChord`          | 186 <sub>not yet implemented</sub> | returns a major chord 
+| `hlMinorChord`         | 187 <sub>not yet implemented</sub> | returns a minor chord 
+| `hDominantChord`       | 188 <sub>not yet implemented</sub> | returns a dominant seventh chord
+| `hSeventhChord`        | 189 <sub>not yet implemented</sub> | returns a four-note chord with triadic structure
+| `hNinthChord`          | 190 <sub>not yet implemented</sub> | returns a five-note chord with triadic structure
+| `hTwoPitchesChord`     | 191 <sub>not yet implemented</sub> | returns a pitch class sequence with two pitches 
+| `hThreePCS`            | 192 <sub>not yet implemented</sub> | returns a pitch class sequence with three pitches
+| `hFourPCS`             | 193 <sub>not yet implemented</sub> | returns a pitch class sequence with four pitches
+| `hFivePCS`             | 194 <sub>not yet implemented</sub> | returns a pitch class sequence with five pitches
+| `hSixPCS`              | 195 <sub>not yet implemented</sub> | returns a pitch class sequence with six pitches
+| `lExpandChord`         | 196 <sub>not yet implemented</sub> | takes a pitch class set and expands it across register, sometimes adding duplications
+| `sHarmonizer`          | 197 <sub>not yet implemented</sub> | takes a voice and add a new one simultaneously, at an specified interval and according to the current harmonic grid 
 
 ---------
 ## Rhythm
 | name                | index                          | description
 | ------------------- | ------------------------------ | -----------
-| `vTempo`            | 153 <sub>not yet implemented</sub> | changes the relative tempo of a voice 
-| `sTempo`            | 154 <sub>not yet implemented</sub> | changes the relative tempo of a score
-| `vAccel`            | 155 <sub>not yet implemented</sub> | accelerates tempo along a voice
-| `sAccel`            | 156 <sub>not yet implemented</sub> | accelerates tempo along a score
-| `vRit`              | 157 <sub>not yet implemented</sub> | slows tempo along a voice
-| `sRit`              | 158 <sub>not yet implemented</sub> | slows tempo along a score
-| `vSimplifyRhythm`   | 159 <sub>not yet implemented</sub> | reduces the rhythmic complexity of a voice
-| `sSimplifyRhythm`   | 160 <sub>not yet implemented</sub> | reduces the rhythmic complexity of a score
-| `sIsorhythm`        | 161 <sub>not yet implemented</sub> | forces a isorhythmic texture for all voices within a score
+| `vTempo`            | 154 <sub>not yet implemented</sub> | changes the relative tempo of a voice 
+| `sTempo`            | 155 <sub>not yet implemented</sub> | changes the relative tempo of a score
+| `vAccel`            | 156 <sub>not yet implemented</sub> | accelerates tempo along a voice
+| `sAccel`            | 157 <sub>not yet implemented</sub> | accelerates tempo along a score
+| `vRit`              | 158 <sub>not yet implemented</sub> | slows tempo along a voice
+| `sRit`              | 159 <sub>not yet implemented</sub> | slows tempo along a score
+| `vSimplifyRhythm`   | 160 <sub>not yet implemented</sub> | reduces the rhythmic complexity of a voice
+| `sSimplifyRhythm`   | 161 <sub>not yet implemented</sub> | reduces the rhythmic complexity of a score
+| `sIsorhythm`        | 162 <sub>not yet implemented</sub> | forces a isorhythmic texture for all voices within a score
 
 ---------
 ## Articulation
 | name                    | index                          | description
 | ----------------------- | ------------------------------ | -----------
-| `eMarcato`              | 237 <sub>not yet implemented</sub> | changes the articulation/dynamics of an event to marcato
-| `vLegatissimo`          | 238 <sub>not yet implemented</sub> | changes all articulations within a voice to legatissimo
-| `sLegatissimo`          | 239 <sub>not yet implemented</sub> | changes all articulations within a score to legatissimo
-| `vNonLegato`            | 240 <sub>not yet implemented</sub> | changes all articulations within a voice to non-legato
-| `sNonLegato`            | 241 <sub>not yet implemented</sub> | changes all articulations within a score to non-legato
-| `vLegato`               | 242 <sub>not yet implemented</sub> | changes all articulations within a voice to legato
-| `sLegato`               | 243 <sub>not yet implemented</sub> | changes all articulations within a score to legato
-| `vStaccato`             | 244 <sub>not yet implemented</sub> | changes all articulations within a voice to staccato
-| `sStaccato`             | 245 <sub>not yet implemented</sub> | changes all articulations within a score to staccato
-| `vStaccatissimo`        | 246 <sub>not yet implemented</sub> | changes all articulations within a voice to staccatissimo
-| `sStaccatissimo`        | 247 <sub>not yet implemented</sub> | changes all articulations within a score to staccatissimo
-| `sPedalSustain`         | 248 <sub>not yet implemented</sub> | extends all articulations within a voice to simulate a pedal sustain
-| `vShortenArticulations` | 249 <sub>not yet implemented</sub> | shortens all articulations within a voice according to a factor
-| `vProlongArticulations` | 250 <sub>not yet implemented</sub> | extends all articulations within a voice according to a factor
+| `eMarcato`              | 238 <sub>not yet implemented</sub> | changes the articulation/dynamics of an event to marcato
+| `vLegatissimo`          | 239 <sub>not yet implemented</sub> | changes all articulations within a voice to legatissimo
+| `sLegatissimo`          | 240 <sub>not yet implemented</sub> | changes all articulations within a score to legatissimo
+| `vNonLegato`            | 241 <sub>not yet implemented</sub> | changes all articulations within a voice to non-legato
+| `sNonLegato`            | 242 <sub>not yet implemented</sub> | changes all articulations within a score to non-legato
+| `vLegato`               | 243 <sub>not yet implemented</sub> | changes all articulations within a voice to legato
+| `sLegato`               | 244 <sub>not yet implemented</sub> | changes all articulations within a score to legato
+| `vStaccato`             | 245 <sub>not yet implemented</sub> | changes all articulations within a voice to staccato
+| `sStaccato`             | 246 <sub>not yet implemented</sub> | changes all articulations within a score to staccato
+| `vStaccatissimo`        | 247 <sub>not yet implemented</sub> | changes all articulations within a voice to staccatissimo
+| `sStaccatissimo`        | 248 <sub>not yet implemented</sub> | changes all articulations within a score to staccatissimo
+| `sPedalSustain`         | 249 <sub>not yet implemented</sub> | extends all articulations within a voice to simulate a pedal sustain
+| `vShortenArticulations` | 250 <sub>not yet implemented</sub> | shortens all articulations within a voice according to a factor
+| `vProlongArticulations` | 251 <sub>not yet implemented</sub> | extends all articulations within a voice according to a factor
 
 ---------
 ## Dynamics
 | name         | index                          | description
 | ------------ | ------------------------------ | -----------
-| `eSforzando` | 251 <sub>not yet implemented</sub> | changes the articulation/dynamics of an event to marcato
-| `vCresc`     | 252 <sub>not yet implemented</sub> | creates a crescendo in a voice
-| `sCresc`     | 253 <sub>not yet implemented</sub> | creates a crescendo in a score
-| `vDim`       | 254 <sub>not yet implemented</sub> | creates a diminuendo in a voice
-| `sDim`       | 255 <sub>not yet implemented</sub> | creates a diminuendo in a score
-| `vLouder`    | 256 <sub>not yet implemented</sub> | increments the global dynamics of a voice
-| `sLouder`    | 257 <sub>not yet implemented</sub> | increments the global dynamics of a score
-| `vSofter`    | 258 <sub>not yet implemented</sub> | reduces the global dynamics of a voice
-| `sSofter`    | 259 <sub>not yet implemented</sub> | reduces the global dynamics of a score
-| `eMute`      | 260 <sub>not yet implemented</sub> | reduces to 0 the dynamics of an event
+| `eSforzando` | 252 <sub>not yet implemented</sub> | changes the articulation/dynamics of an event to marcato
+| `vCresc`     | 253 <sub>not yet implemented</sub> | creates a crescendo in a voice
+| `sCresc`     | 254 <sub>not yet implemented</sub> | creates a crescendo in a score
+| `vDim`       | 255 <sub>not yet implemented</sub> | creates a diminuendo in a voice
+| `sDim`       | 256 <sub>not yet implemented</sub> | creates a diminuendo in a score
+| `vLouder`    | 257 <sub>not yet implemented</sub> | increments the global dynamics of a voice
+| `sLouder`    | 258 <sub>not yet implemented</sub> | increments the global dynamics of a score
+| `vSofter`    | 259 <sub>not yet implemented</sub> | reduces the global dynamics of a voice
+| `sSofter`    | 260 <sub>not yet implemented</sub> | reduces the global dynamics of a score
+| `eMute`      | 261 <sub>not yet implemented</sub> | reduces to 0 the dynamics of an event
 
 ---------
 ## Spectralism
 | name                | index                          | description
 | ------------------- | ------------------------------ | -----------
-| `hHarmonicSeries`   | 261 <sub>not yet implemented</sub> | returns a harmonic series
-| `hSpectralMorphing` | 262 <sub>not yet implemented</sub> | returns a harmonic series with some manipulations
-| `vSpectralize`      | 263 <sub>not yet implemented</sub> | adjusts the pitches of a voice to a harmonic series
-| `sSpectralize`      | 264 <sub>not yet implemented</sub> | adjusts the pitches of a score to a harmonic series
+| `hHarmonicSeries`   | 262 <sub>not yet implemented</sub> | returns a harmonic series
+| `hSpectralMorphing` | 263 <sub>not yet implemented</sub> | returns a harmonic series with some manipulations
+| `vSpectralize`      | 264 <sub>not yet implemented</sub> | adjusts the pitches of a voice to a harmonic series
+| `sSpectralize`      | 265 <sub>not yet implemented</sub> | adjusts the pitches of a score to a harmonic series
 
 ---------
 ## Serialism
 | name                   | index                          | description
 | ---------------------- | ------------------------------ | -----------
-| `hDodecaphonicToneRow` | 212 <sub>not yet implemented</sub> | returns a canonic dodecaphonic tone row
-| `hUniquePitchesRow`    | 213 <sub>not yet implemented</sub> | returns a row of 2 to 11 pitches without repetitions
-| `eInvert`              | 214 <sub>not yet implemented</sub> | inverts pitches of an event
-| `vInvert`              | 215 <sub>not yet implemented</sub> | inverts pitches of a voice
-| `sInvert`              | 216 <sub>not yet implemented</sub> | inverts pitches of a score
-| `eTransp`              | 217 <sub>not yet implemented</sub> | transposes pitches of an event
-| `vTransp`              | 218 <sub>not yet implemented</sub> | transposes pitches of a voice
-| `sTransp`              | 219 <sub>not yet implemented</sub> | transposes pitches of a score
-| `eTranspOctav`         | 220 <sub>not yet implemented</sub> | transposes pitches of an event only octaves
-| `vTranspOctav`         | 221 <sub>not yet implemented</sub> | transposes pitches of a voice only octaves
-| `sTranspOctav`         | 222 <sub>not yet implemented</sub> | transposes pitches of a score only octaves
-| `vRetrog`              | 223 <sub>not yet implemented</sub> | retrogrades pitches of a voice
-| `sRetrog`              | 224 <sub>not yet implemented</sub> | retrogrades pitches of a score
-| `vRetrogInvert`        | 225 <sub>not yet implemented</sub> | retrogrades and inverts pitches of a voice
-| `sRetrogInvert`        | 226 <sub>not yet implemented</sub> | retrogrades and inverts pitches of a score
-| `eRotate`              | 227 <sub>not yet implemented</sub> | rotates pitches of an event according to its intervallic structure
-| `eExpand`              | 228 <sub>not yet implemented</sub> | expands pitches of an event according to a factor
-| `vExpand`              | 229 <sub>not yet implemented</sub> | expands pitches of a voice according to a factor
-| `sExpand`              | 230 <sub>not yet implemented</sub> | expands pitches of a score according to a factor
-| `vExtrude`             | 231 <sub>not yet implemented</sub> | deforms pitches of a voice according to a curve
-| `sExtrude`             | 232 <sub>not yet implemented</sub> | deforms pitches of a score according to a curve
-| `vReverse`             | 233 <sub>not yet implemented</sub> | reverses the order of a voice events
-| `sReverse`             | 234 <sub>not yet implemented</sub> | reverses the order of a score events
-| `vPalindrome`          | 235 <sub>not yet implemented</sub> | concatenates to a given voice all its events in reverse order
-| `sPalindrome`          | 236 <sub>not yet implemented</sub> | concatenates to a given score all its events in reverse order
+| `hDodecaphonicToneRow` | 213 <sub>not yet implemented</sub> | returns a canonic dodecaphonic tone row
+| `hUniquePitchesRow`    | 214 <sub>not yet implemented</sub> | returns a row of 2 to 11 pitches without repetitions
+| `eInvert`              | 215 <sub>not yet implemented</sub> | inverts pitches of an event
+| `vInvert`              | 216 <sub>not yet implemented</sub> | inverts pitches of a voice
+| `sInvert`              | 217 <sub>not yet implemented</sub> | inverts pitches of a score
+| `eTransp`              | 218 <sub>not yet implemented</sub> | transposes pitches of an event
+| `vTransp`              | 219 <sub>not yet implemented</sub> | transposes pitches of a voice
+| `sTransp`              | 220 <sub>not yet implemented</sub> | transposes pitches of a score
+| `eTranspOctav`         | 221 <sub>not yet implemented</sub> | transposes pitches of an event only octaves
+| `vTranspOctav`         | 222 <sub>not yet implemented</sub> | transposes pitches of a voice only octaves
+| `sTranspOctav`         | 223 <sub>not yet implemented</sub> | transposes pitches of a score only octaves
+| `vRetrog`              | 224 <sub>not yet implemented</sub> | retrogrades pitches of a voice
+| `sRetrog`              | 225 <sub>not yet implemented</sub> | retrogrades pitches of a score
+| `vRetrogInvert`        | 226 <sub>not yet implemented</sub> | retrogrades and inverts pitches of a voice
+| `sRetrogInvert`        | 227 <sub>not yet implemented</sub> | retrogrades and inverts pitches of a score
+| `eRotate`              | 228 <sub>not yet implemented</sub> | rotates pitches of an event according to its intervallic structure
+| `eExpand`              | 229 <sub>not yet implemented</sub> | expands pitches of an event according to a factor
+| `vExpand`              | 230 <sub>not yet implemented</sub> | expands pitches of a voice according to a factor
+| `sExpand`              | 231 <sub>not yet implemented</sub> | expands pitches of a score according to a factor
+| `vExtrude`             | 232 <sub>not yet implemented</sub> | deforms pitches of a voice according to a curve
+| `sExtrude`             | 233 <sub>not yet implemented</sub> | deforms pitches of a score according to a curve
+| `vReverse`             | 234 <sub>not yet implemented</sub> | reverses the order of a voice events
+| `sReverse`             | 235 <sub>not yet implemented</sub> | reverses the order of a score events
+| `vPalindrome`          | 236 <sub>not yet implemented</sub> | concatenates to a given voice all its events in reverse order
+| `sPalindrome`          | 237 <sub>not yet implemented</sub> | concatenates to a given score all its events in reverse order
 
 ---------
 ## Aleatoric processes
 | name               | index                              | description
 | ------------------ | ---------------------------------- | -----------
-| `pRnd`             | 130 <sub>.344419 in progress</sub> | returns a random normalized parameter with uniform distribution
-| `pGaussRnd`        | 131 <sub>not yet implemented</sub> | returns a random normalized parameter with Gaussian (or normal) distribution
-| `pWrappedGaussRnd` | 132 <sub>not yet implemented</sub> | returns a random normalized parameter with a wrapped normal distribution
-| `lRnd`             | 133 <sub>in progress</sub>         | returns a complete random list with uniform distribution of values
-| `lGaussRnd`        | 134 <sub>not yet implemented</sub> | returns a complete random list with with Gaussian distribution of parameters
-| `lWrappedGaussRnd` | 135 <sub>not yet implemented</sub> | returns a complete random list with a wrapped normal distribution of values
-| `eRnd`             | 136 <sub>not yet implemented</sub> | returns a complete random event with uniform distribution of parameters
-| `eGaussRnd`        | 137 <sub>not yet implemented</sub> | returns a complete random event with with Gaussian distribution of parameters
-| `eWrappedGaussRnd` | 138 <sub>not yet implemented</sub> | returns a complete random event with a wrapped normal distribution of parameters
-| `vRnd`             | 139 <sub>not yet implemented</sub> | returns a complete random voice with uniform distribution of parameters
-| `vGaussRnd`        | 140 <sub>not yet implemented</sub> | returns a complete random voice with with Gaussian distribution of parameters
-| `vWrappedGaussRnd` | 141 <sub>not yet implemented</sub> | returns a complete random voice with a wrapped normal distribution of parameters
-| `sRnd`             | 142 <sub>not yet implemented</sub> | returns a complete random score with uniform distribution of parameters
-| `sGaussRnd`        | 143 <sub>not yet implemented</sub> | returns a complete random score with with Gaussian distribution of parameters
-| `sWrappedGaussRnd` | 144 <sub>not yet implemented</sub> | returns a complete random score with a wrapped normal distribution of parameters
-| `pRndRange`        | 145 <sub>not yet implemented</sub> | rescales a random normalized parameter to a new range
-| `lRndDynamicRange` | 146 <sub>not yet implemented</sub> | rescales a list of random values a changing range
-| `eMutate`          | 147 <sub>not yet implemented</sub> | changes parameters of an event according to probability and range of mutations
-| `lMutate`          | 148 <sub>not yet implemented</sub> | changes values of a list according to probability and range of mutations
-| `vMutate`          | 149 <sub>not yet implemented</sub> | changes parameters of a voice according to probability and range of mutations
-| `sMutate`          | 150 <sub>not yet implemented</sub> | changes parameters of a score according to probability and range of mutations
-| `lPermutate`       | 151 <sub>not yet implemented</sub> | permutates value positions of a list
-| `vPermutate`       | 152 <sub>not yet implemented</sub> | permutates events positions of a voice
+| `pRnd`             | 131 <sub>.344419 in progress</sub> | returns a random normalized parameter with uniform distribution
+| `pGaussRnd`        | 132 <sub>not yet implemented</sub> | returns a random normalized parameter with Gaussian (or normal) distribution
+| `pWrappedGaussRnd` | 133 <sub>not yet implemented</sub> | returns a random normalized parameter with a wrapped normal distribution
+| `lRnd`             | 134 <sub>in progress</sub>         | returns a complete random list with uniform distribution of values
+| `lGaussRnd`        | 135 <sub>not yet implemented</sub> | returns a complete random list with with Gaussian distribution of parameters
+| `lWrappedGaussRnd` | 136 <sub>not yet implemented</sub> | returns a complete random list with a wrapped normal distribution of values
+| `eRnd`             | 137 <sub>not yet implemented</sub> | returns a complete random event with uniform distribution of parameters
+| `eGaussRnd`        | 138 <sub>not yet implemented</sub> | returns a complete random event with with Gaussian distribution of parameters
+| `eWrappedGaussRnd` | 139 <sub>not yet implemented</sub> | returns a complete random event with a wrapped normal distribution of parameters
+| `vRnd`             | 140 <sub>not yet implemented</sub> | returns a complete random voice with uniform distribution of parameters
+| `vGaussRnd`        | 141 <sub>not yet implemented</sub> | returns a complete random voice with with Gaussian distribution of parameters
+| `vWrappedGaussRnd` | 142 <sub>not yet implemented</sub> | returns a complete random voice with a wrapped normal distribution of parameters
+| `sRnd`             | 143 <sub>not yet implemented</sub> | returns a complete random score with uniform distribution of parameters
+| `sGaussRnd`        | 144 <sub>not yet implemented</sub> | returns a complete random score with with Gaussian distribution of parameters
+| `sWrappedGaussRnd` | 145 <sub>not yet implemented</sub> | returns a complete random score with a wrapped normal distribution of parameters
+| `pRndRange`        | 146 <sub>not yet implemented</sub> | rescales a random normalized parameter to a new range
+| `lRndDynamicRange` | 147 <sub>not yet implemented</sub> | rescales a list of random values a changing range
+| `eMutate`          | 148 <sub>not yet implemented</sub> | changes parameters of an event according to probability and range of mutations
+| `lMutate`          | 149 <sub>not yet implemented</sub> | changes values of a list according to probability and range of mutations
+| `vMutate`          | 150 <sub>not yet implemented</sub> | changes parameters of a voice according to probability and range of mutations
+| `sMutate`          | 151 <sub>not yet implemented</sub> | changes parameters of a score according to probability and range of mutations
+| `lPermutate`       | 152 <sub>not yet implemented</sub> | permutates value positions of a list
+| `vPermutate`       | 153 <sub>not yet implemented</sub> | permutates events positions of a voice
 
 ---------
 ## Algorithmic techniques
 | name                 | index                          | description
 | -------------------- | ------------------------------ | -----------
-| `lBrownian`          | 265 <sub>not yet implemented</sub> | returns a list of values generated by a brownian movement
-| `lMarkovChain`       | 266 <sub>not yet implemented</sub> | returns a list of values generated by a Markov chain
-| `lTuringMachine`     | 267 <sub>not yet implemented</sub> | returns a list of values generated by a Turing machine
-| `lLindenmayerSystem` | 268 <sub>not yet implemented</sub> | returns a list of values generated by a Lindenmayer system
-| `lHilbertCurve`      | 269 <sub>not yet implemented</sub> | returns a list of values generated by a Hilbert curve
-| `lCellularAutomata`  | 270 <sub>not yet implemented</sub> | returns a list of values generated by iterating an automaton
-| `lFibonacci`         | 271 <sub>not yet implemented</sub> | returns a Fibonacci sequence starting with two initial 
-| `lRecursion`         | 272 <sub>not yet implemented</sub> | returns a sequence generated by a recursive formula
-| `lLogisticMap`       | 273 <sub>not yet implemented</sub> | returns a sequence generated with the logistic map
-| `rEuclideanRhythm`   | 274 <sub>not yet implemented</sub> | returns an Euclidean rhythmic grid
+| `lBrownian`          | 266 <sub>not yet implemented</sub> | returns a list of values generated by a brownian movement
+| `lMarkovChain`       | 267 <sub>not yet implemented</sub> | returns a list of values generated by a Markov chain
+| `lTuringMachine`     | 268 <sub>not yet implemented</sub> | returns a list of values generated by a Turing machine
+| `lLindenmayerSystem` | 269 <sub>not yet implemented</sub> | returns a list of values generated by a Lindenmayer system
+| `lHilbertCurve`      | 270 <sub>not yet implemented</sub> | returns a list of values generated by a Hilbert curve
+| `lCellularAutomata`  | 271 <sub>not yet implemented</sub> | returns a list of values generated by iterating an automaton
+| `lFibonacci`         | 272 <sub>not yet implemented</sub> | returns a Fibonacci sequence starting with two initial 
+| `lRecursion`         | 273 <sub>not yet implemented</sub> | returns a sequence generated by a recursive formula
+| `lLogisticMap`       | 274 <sub>not yet implemented</sub> | returns a sequence generated with the logistic map
+| `rEuclideanRhythm`   | 275 <sub>not yet implemented</sub> | returns an Euclidean rhythmic grid
 
 ---------
 ## List manipulation
 | name                      | index                             | description
 | ------------------------- | --------------------------------- | -----------
-| `l2P`, `l3P`, ..., `l12P` | 64, 65, ..., 74 <sub>in progress</sub> | generates a list of x parameters
-| `lRepeatP`                | 75 <sub>.352549 in progress</sub> | repeats a parameter a number of times
-| `lLine`                   | 76 <sub>not yet implemented</sub> | generates a straight progression between two values
-| `lLinseg`                 | 77 <sub>not yet implemented</sub> | generates a series of straight segments between several values
-| `lExpon`                  | 78 <sub>not yet implemented</sub> | generates an exponential progression between two values
-| `lExpseg`                 | 79 <sub>not yet implemented</sub> | generates a series of exponential progressions between several values
-| `lOscil`                  | 80 <sub>not yet implemented</sub> | generates a periodic sinusoidal oscillation between two values
-| `lPhasor`                 | 81 <sub>not yet implemented</sub> | generates periodic straight transitions from first value to second one
-| `lTriangular`             | 82 <sub>not yet implemented</sub> | generates periodic straight transitions from first value to second one and vice versa
-| `lRemap  `                | 83 <sub>not yet implemented</sub> | remaps a list to a new range  
-| `lSmooth`                 | 84 <sub>not yet implemented</sub> | smooths distances between contiguous items in a list according to a factor
-| `lRough`                  | 85 <sub>not yet implemented</sub> | sharpens distances between contiguous items in a list according to a factor
-| `lInvert`                 | 86 <sub>not yet implemented</sub> | inverts values of a list
-| `lTransp`                 | 87 <sub>not yet implemented</sub> | transposes values of a list
-| `lRetrog`                 | 88 <sub>not yet implemented</sub> | retrogrades values of a list
-| `lRetrogInvert`           | 89 <sub>not yet implemented</sub> | retrogrades and inverts values of a list
-| `lPalindrome`             | 80 <sub>not yet implemented</sub> | concatenates to a list its values in reverse order
-| `lRotate`                 | 91 <sub>not yet implemented</sub> | rotates values of a list
-| `lExpand`                 | 92 <sub>not yet implemented</sub> | expands values of a list according to a factor
-| `lExtrude`                | 93 <sub>not yet implemented</sub> | deforms values of a list according to a curve
-| `lPolynomicGesture`       | 94 <sub>not yet implemented</sub> | generates a list by evaluating a polynomial
-| `lBezierGesture`          | 95 <sub>not yet implemented</sub> | generates a list based on a Bézier curve
-| `lTrigonoGesture`         | 96 <sub>not yet implemented</sub> | generates a list based on a trigonometric compound expression
+| `l2P`, `l3P`, ..., `l12P` | 65, 66, ..., 75 <sub>in progress</sub> | generates a list of x parameters
+| `lRepeatP`                | 76 <sub>.352549 in progress</sub> | repeats a parameter a number of times
+| `lLine`                   | 77 <sub>not yet implemented</sub> | generates a straight progression between two values
+| `lLinseg`                 | 78 <sub>not yet implemented</sub> | generates a series of straight segments between several values
+| `lExpon`                  | 79 <sub>not yet implemented</sub> | generates an exponential progression between two values
+| `lExpseg`                 | 80 <sub>not yet implemented</sub> | generates a series of exponential progressions between several values
+| `lOscil`                  | 81 <sub>not yet implemented</sub> | generates a periodic sinusoidal oscillation between two values
+| `lPhasor`                 | 82 <sub>not yet implemented</sub> | generates periodic straight transitions from first value to second one
+| `lTriangular`             | 83 <sub>not yet implemented</sub> | generates periodic straight transitions from first value to second one and vice versa
+| `lRemap  `                | 84 <sub>not yet implemented</sub> | remaps a list to a new range  
+| `lSmooth`                 | 85 <sub>not yet implemented</sub> | smooths distances between contiguous items in a list according to a factor
+| `lRough`                  | 86 <sub>not yet implemented</sub> | sharpens distances between contiguous items in a list according to a factor
+| `lInvert`                 | 87 <sub>not yet implemented</sub> | inverts values of a list
+| `lTransp`                 | 88 <sub>not yet implemented</sub> | transposes values of a list
+| `lRetrog`                 | 89 <sub>not yet implemented</sub> | retrogrades values of a list
+| `lRetrogInvert`           | 90 <sub>not yet implemented</sub> | retrogrades and inverts values of a list
+| `lPalindrome`             | 91 <sub>not yet implemented</sub> | concatenates to a list its values in reverse order
+| `lRotate`                 | 92 <sub>not yet implemented</sub> | rotates values of a list
+| `lExpand`                 | 93 <sub>not yet implemented</sub> | expands values of a list according to a factor
+| `lExtrude`                | 94 <sub>not yet implemented</sub> | deforms values of a list according to a curve
+| `lPolynomicGesture`       | 95 <sub>not yet implemented</sub> | generates a list by evaluating a polynomial
+| `lBezierGesture`          | 96 <sub>not yet implemented</sub> | generates a list based on a Bézier curve
+| `lTrigonoGesture`         | 97 <sub>not yet implemented</sub> | generates a list based on a trigonometric compound expression
 
 ---------
 ## Mathematical operations
  
 | name       | index                          | description
 | ---------- | ------------------------------ | -----------
-| `oSum`     | 110 <sub>.983739 in progress</sub> | returns the sum of two values
-| `oDiff`    | 111 <sub>not yet implemented</sub> | returns the subtraction of two values
-| `oMult`    | 112 <sub>not yet implemented</sub> | returns the multiplication of two values
-| `oDiv`     | 113 <sub>not yet implemented</sub> | returns the quotient of two values
-| `oMod`     | 114 <sub>not yet implemented</sub> | returns the modulo (the remainder of the first value divided by the second one)
-| `oPow`     | 115 <sub>not yet implemented</sub> | returns an exponentiation using first value as base and second as exponent 
-| `oLog`     | 116 <sub>not yet implemented</sub> | returns the logarithm to base second value of the first value
-| `oAbs`     | 117 <sub>not yet implemented</sub> | returns the absolute value of the input
-| `oFract`   | 118 <sub>not yet implemented</sub> | returns the fractional value of the input
-| `oFloor`   | 119 <sub>not yet implemented</sub> | returns the greates integer less or equal to the input
-| `oCeil`    | 120 <sub>not yet implemented</sub> | returns the least integer greater or equal to the input
-| `oSin`     | 121 <sub>not yet implemented</sub> | returns the sine of a value
-| `oCos`     | 122 <sub>not yet implemented</sub> | returns the cosine of a value
-| `oTan`     | 123 <sub>not yet implemented</sub> | returns the tangent of a value
-| `oArcsin`  | 124 <sub>not yet implemented</sub> | returns the arcsine of a value
-| `oArccos`  | 125 <sub>not yet implemented</sub> | returns the arccosine of a value
-| `oArctan`  | 126 <sub>not yet implemented</sub> | returns the arctangent of a value
-| `oSinh`    | 127 <sub>not yet implemented</sub> | returns the hyperbolic sine of a value
-| `oCosh`    | 128 <sub>not yet implemented</sub> | returns the hyperbolic cosine of a value
-| `oTanh`    | 129 <sub>not yet implemented</sub> | returns the hyperbolic tangent of a value
+| `oSum`     | 111 <sub>.983739 in progress</sub> | returns the sum of two values
+| `oDiff`    | 112 <sub>not yet implemented</sub> | returns the subtraction of two values
+| `oMult`    | 113 <sub>not yet implemented</sub> | returns the multiplication of two values
+| `oDiv`     | 114 <sub>not yet implemented</sub> | returns the quotient of two values
+| `oMod`     | 115 <sub>not yet implemented</sub> | returns the modulo (the remainder of the first value divided by the second one)
+| `oPow`     | 116 <sub>not yet implemented</sub> | returns an exponentiation using first value as base and second as exponent 
+| `oLog`     | 117 <sub>not yet implemented</sub> | returns the logarithm to base second value of the first value
+| `oAbs`     | 118 <sub>not yet implemented</sub> | returns the absolute value of the input
+| `oFract`   | 119 <sub>not yet implemented</sub> | returns the fractional value of the input
+| `oFloor`   | 120 <sub>not yet implemented</sub> | returns the greates integer less or equal to the input
+| `oCeil`    | 121 <sub>not yet implemented</sub> | returns the least integer greater or equal to the input
+| `oSin`     | 122 <sub>not yet implemented</sub> | returns the sine of a value
+| `oCos`     | 123 <sub>not yet implemented</sub> | returns the cosine of a value
+| `oTan`     | 124 <sub>not yet implemented</sub> | returns the tangent of a value
+| `oArcsin`  | 125 <sub>not yet implemented</sub> | returns the arcsine of a value
+| `oArccos`  | 126 <sub>not yet implemented</sub> | returns the arccosine of a value
+| `oArctan`  | 127 <sub>not yet implemented</sub> | returns the arctangent of a value
+| `oSinh`    | 128 <sub>not yet implemented</sub> | returns the hyperbolic sine of a value
+| `oCosh`    | 129 <sub>not yet implemented</sub> | returns the hyperbolic cosine of a value
+| `oTanh`    | 130 <sub>not yet implemented</sub> | returns the hyperbolic tangent of a value
 
 ---------
 ## Manual operators of genotypes 
