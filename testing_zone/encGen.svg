@@ -14,15 +14,15 @@
     <rect x='88' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
     <rect x='99' y='85.22553' rx='5' ry='5' width='10' height='54.774469999999994' style='fill:hsl(130,93%,50%)' />
     <rect x='110' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
-    <rect x='121' y='128.20067' rx='5' ry='5' width='10' height='11.79933' style='fill:hsl(284,93%,50%)' />
+    <rect x='121' y='96.90382' rx='5' ry='5' width='10' height='43.09618' style='fill:hsl(182,93%,50%)' />
     <rect x='132' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='143' y='85.22553' rx='5' ry='5' width='10' height='54.774469999999994' style='fill:hsl(130,93%,50%)' />
-    <rect x='154' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
-    <rect x='165' y='88.87086' rx='5' ry='5' width='10' height='51.12914' style='fill:hsl(200,93%,50%)' />
+    <rect x='143' y='71.3895' rx='5' ry='5' width='10' height='68.6105' style='fill:hsl(25,93%,50%)' />
+    <rect x='154' y='49.65558' rx='5' ry='5' width='10' height='90.34442' style='fill:hsl(1,93%,50%)' />
+    <rect x='165' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
     <rect x='176' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
     <rect x='187' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='198' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='209' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
-    <rect x='220' y='-390' rx='5' ry='5' width='10' height='530' style='fill:hsl(182,93%,50%)' />
+    <rect x='198' y='75.86696' rx='5' ry='5' width='10' height='64.13304' style='fill:hsl(12,93%,50%)' />
+    <rect x='209' y='54.60000000000001' rx='5' ry='5' width='10' height='85.39999999999999' style='fill:hsl(256,93%,50%)' />
+    <rect x='220' y='39' rx='5' ry='5' width='10' height='101' style='fill:hsl(132,93%,50%)' />
     <rect x='231' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
 </svg>

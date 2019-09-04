@@ -953,18 +953,18 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | name        | index                          | description
 | ----------- | ------------------------------ | -----------
 | `pAutoref`  | 25 <sub>.45085 in progress</sub> | points to a previous parameter
-| `eAutoref`  | 26 <sub>.068884 in progress</sub> | points to a previous event
-| `lAutoref`  | 27 <sub>.686918 in progress</sub> | points to a previous list
+| `lAutoref`  | 26 <sub>.068884 in progress</sub> | points to a previous list
+| `eAutoref`  | 27 <sub>.686918 in progress</sub> | points to a previous event
 | `vAutoref`  | 28 <sub>.304952 in progress</sub> | points to a previous voice
 | `sAutoref`  | 29 <sub>.922986 in progress</sub> | points to a previous score
 | `pClone`    | 30 <sub>not yet implemented</sub> | copy and paste a previous parameter branch without subsequent linking
-| `eClone`    | 31 <sub>not yet implemented</sub> | copy and paste a previous event branch without subsequent linking
-| `lClone`    | 32 <sub>not yet implemented</sub> | copy and paste a previous list branch without subsequent linking
+| `lClone`    | 31 <sub>not yet implemented</sub> | copy and paste a previous list branch without subsequent linking
+| `eClone`    | 32 <sub>not yet implemented</sub> | copy and paste a previous event branch without subsequent linking
 | `vClone`    | 33 <sub>not yet implemented</sub> | copy and paste a previous voice branch without subsequent linking
 | `sClone`    | 34 <sub>not yet implemented</sub> | copy and paste a previous score brach without subsequent linking
 | `pIterExpr` | 35 <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a parameter function 
-| `eIterExpr` | 36 <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of an event function 
-| `lIterExpr` | 37 <sub>.867258 in progress</sub> | repeats and concatenates re-evaluations of a list function 
+| `lIterExpr` | 36 <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of an list function 
+| `eIterExpr` | 37 <sub>.867258 in progress</sub> | repeats and concatenates re-evaluations of a event function 
 | `vIterExpr` | 38 <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a voice function
 | `sIterExpr` | 39 <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a score function
 

@@ -286,7 +286,7 @@ var vRepeatE = (event, times) => {
 }
 
 tt("vRepeatE(e(p(.5),pRnd(),p(0),pRnd()),p(.5))");
-// tt("vRepeatE(eAutoref(8),p(3))");
+tt("vRepeatE(eAutoref(8),p(.5))");
 
 
 // generates a list of 2 parameters
@@ -306,8 +306,10 @@ var l3P = (p1, p2, p3) => indexExprReturnSpecimen ({
 });
 
 tt("l2P(p(0.4),p(.345))");
+tt("l2P(p(0.4),pAutoref(345))");
 tt("l3P(p(0.4),p(.345),p(.84))");
-// // tt("l2P(p(0.4),pAutoref(345))");
+tt("l3P(p(0.4),p(.345),pAutoref(59))");
+
 
 // generates a list of 4 parameters
 var l4P = (p1, p2, p3, p4) => indexExprReturnSpecimen ({
@@ -329,7 +331,7 @@ var l5P = (p1, p2, p3, p4, p5) => indexExprReturnSpecimen ({
 
 tt("l5P(p(0.479),pRnd(),p(0.2),p(0.2345),p(.45))");
 
-// // tt("l5P(p(0.4),pRnd(),pAutoref(345),pRnd(),pAutoref(345))");
+tt("l5P(p(0.4),pRnd(),pAutoref(8),pRnd(),pAutoref(0))");
 
 // random list up to 12 values (paramF, paramF)
 var lRnd = (numItemsSeed, seqSeed) => {
@@ -355,8 +357,8 @@ var lConcatL = (l1, l2) => indexExprReturnSpecimen ({
 });
  
 tt("lConcatL(l([0.2,0.143,0.23]),l([0.2234,0.1343,0.923,0.7]))");
-// // tt("lConcatL(lRnd(p(.2),p(.3)),lRnd(pAutoref(0),p(.30002)))");
-// // tt("lConcatL(lRnd(p(.209),p(.3)),lAutoref(0))");
+tt("lConcatL(lRnd(p(.2),p(.3)),lRnd(pAutoref(0),p(.30002)))");
+tt("lConcatL(lRnd(p(.209),p(.3)),lAutoref(0))");
 
 // concatenates two events sequentially
 var vConcatE = (e1, e2) => indexExprReturnSpecimen ({
@@ -376,7 +378,7 @@ var vConcatE = (e1, e2) => indexExprReturnSpecimen ({
 
 tt("vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))");
 // // tt("s(vConcatE(e(p(.54),p(.5),p(0),p(.834)),e(p(.54),pRnd(),p(0),p(.834))))");
-// // tt("vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0))");
+tt("vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0))");
  // tt("s(vConcatE(e(p(.54),pRnd(),p(0),p(.834)),eAutoref(0)))");
 
 // concatenates two voices sequentially
@@ -396,7 +398,7 @@ tt("vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))");
 tt("vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))");
 
 tt("vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),e(p(.154),p(.14),p(1),p(.1834))))")
- // tt("s(vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0))))")
+tt("s(vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0))))")
 
 // concatenates two scores sequentially
 var sConcatS = (s1, s2) => indexExprReturnSpecimen ({
@@ -451,39 +453,40 @@ var lIterExpr = (l, times) => {
     });
 };
 
- tt("lIterExpr(l3P(p(0.333),pRnd(),pRnd()),p(4))");
+tt("lIterExpr(l3P(p(0.333),pRnd(),pRnd()),p(.6))");
+tt("lIterExpr(l3P(p(0.333),pRnd(),pAutoref(1)),q(6))");
 
 // autoreferences framework for different functionTypes
-var autoref = (funcName, funcType, index, silentElement) => {
+var autoref = (funcName, funcType, encodedFunctionIndex, subexprIndex, silentElement) => {
     var subexprLength = subexpressions[funcType].length;
     // if no autoreferences available, returns default, a silent element to sustain the function tree
     if (subexprLength == 0) return eval(silentElement);    
-    index = index % subexprLength;
-    var evaluatedSubexp = eval(subexpressions[funcType][index]);
-    return {
+    subexprIndex %= subexprLength;
+    var evaluatedSubexp = eval(subexpressions[funcType][subexprIndex]);
+    return indexExprReturnSpecimen ({
         funcType: funcType,
-        encGen: evaluatedSubexp.encGen,
-        decGen: funcName + "(" + index + ")",
+        encGen: flattenDeep([1, encodedFunctionIndex, z2n(subexprIndex), 0]),
+        decGen: funcName + "(" + subexprIndex + ")",
         encPhen: evaluatedSubexp.encPhen,
         phenLength: evaluatedSubexp.phenLength,
         tempo: evaluatedSubexp.tempo,
         rhythm: evaluatedSubexp.rhythm,
         harmony: evaluatedSubexp.harmony,
         analysis: evaluatedSubexp.analysis
-    }
+    });
 };
 
 // autoreferences functions for each output type
-var pAutoref = index => autoref("pAutoref", "paramF", index, "p(.5)" );
-var lAutoref = index => autoref("lAutoref", "listF", index, "l([.5])" );
-var eAutoref = index => autoref("eAutoref", "eventF", index, "e(p(0),p(0),p(0),p(0))" );
-var vAutoref = index => autoref("vAutoref", "voiceF", index, "v(e(p(0),p(0),p(0),p(0)))" );
-var sAutoref = index => autoref("sAutoref", "scoreF", index, "s(v(e(p(0),p(0),p(0),p(0))))" );
+var pAutoref = subexprIndex => autoref("pAutoref", "paramF", 0.45085, subexprIndex, "p(.5)" );
+var lAutoref = subexprIndex => autoref("lAutoref", "listF", 0.068884, subexprIndex, "l([.5])" );
+var eAutoref = subexprIndex => autoref("eAutoref", "eventF", 0.686918, subexprIndex, "e(p(0),p(0),p(0),p(0))" );
+var vAutoref = subexprIndex => autoref("vAutoref", "voiceF", 0.304952, subexprIndex, "v(e(p(0),p(0),p(0),p(0)))" );
+var sAutoref = subexprIndex => autoref("sAutoref", "scoreF", 0.922986, subexprIndex, "s(v(e(p(0),p(0),p(0),p(0))))" );
 
 //////////
 // testing
 
-// // tt("e(pAutoref(5),p(.4),pAutoref(0),p(.8))");
+tt("e(pAutoref(5),p(.4),pAutoref(0),p(.8))");
 // // tt("pAdd(pAdd(p(39),pAutoref(1)),pAutoref(1))");
 
 
