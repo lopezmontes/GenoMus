@@ -962,12 +962,12 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `eClone`    | 32 <sub>not yet implemented</sub> | copy and paste a previous event branch without subsequent linking
 | `vClone`    | 33 <sub>not yet implemented</sub> | copy and paste a previous voice branch without subsequent linking
 | `sClone`    | 34 <sub>not yet implemented</sub> | copy and paste a previous score brach without subsequent linking
-| `lIterP`    | 35 <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a parameter function 
-| `lIterL`    | 36 <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of an list function 
-| `vIterE`    | 37 <sub>.867258 in progress</sub> | repeats and concatenates re-evaluations of a event function 
-| `vIterV`    | 38 <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a voice function
-| `sIterV`    | 39 <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a score function
-| `sIterS`    | 40 <sub>not yet implemented</sub> | repeats and concatenates re-evaluations of a score function
+| `lIterP`    | 35 <sub>not yet implemented</sub> | repeats and concatenates as a list re-evaluations of a parameter function 
+| `lIterL`    | 36 <sub>0.249224 in progress</sub> | repeats and concatenates as a list re-evaluations of a list function 
+| `vIterE`    | 37 <sub>not yet implemented</sub> | repeats and concatenates as a voice re-evaluations of an event function 
+| `vIterV`    | 38 <sub>not yet implemented</sub> | repeats and concatenates as a voice re-evaluations of a voice function
+| `sIterV`    | 39 <sub>not yet implemented</sub> | repeats and overlays in a score re-evaluations of a voice function
+| `sIterS`    | 40 <sub>not yet implemented</sub> | repeats and concatenates as a score re-evaluations of a score function
 
 ---------
 ## External references
@@ -980,12 +980,12 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## Form
 | name        | index                             | description
 | ----------- | --------------------------------- | -----------
-| `lConcatL`  | 41 <sub>. in progress</sub> | concatenates two lists sequentially
-| `vConcatE`  | 42 <sub>. in progress</sub> | concatenates two events sequentially
-| `vConcatV`  | 43 <sub>.957428 in progress</sub> | concatenates two voices sequentially
-| `sConcatS`  | 44 <sub>.575462 in progress</sub> | concatenates two scores sequentially
-| `eAddPitch` | 45 <sub>. in progress</sub> | adds a pitch to an event
-| `vRepeatE`  | 46 <sub>.811529 in progress</sub> | repeats an event a number of times
+| `lConcatL`  | 41 <sub>.957428 in progress</sub> | concatenates two lists sequentially
+| `vConcatE`  | 42 <sub>.957428 in progress</sub> | concatenates two events sequentially
+| `vConcatV`  | 43 <sub>.575462 in progress</sub> | concatenates two voices sequentially
+| `sConcatS`  | 44 <sub>.193496 in progress</sub> | concatenates two scores sequentially
+| `eAddPitch` | 45 <sub>.811529 in progress</sub> | adds a pitch to an event
+| `vRepeatE`  | 46 <sub>.429563 in progress</sub> | repeats an event a number of times
 | `lRepeatL`  | 47 <sub>not yet implemented</sub> | repeats a list a number of times
 | `vRepeatV`  | 48 <sub>not yet implemented</sub> | repeats a voice a number of times
 | `sRepeatS`  | 49 <sub>not yet implemented</sub> | repeats a score a number of times
@@ -1179,10 +1179,10 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## Aleatoric processes
 | name               | index                              | description
 | ------------------ | ---------------------------------- | -----------
-| `pRnd`             | 131 <sub>.344419 in progress</sub> | returns a random normalized parameter with uniform distribution
+| `pRnd`             | 131 <sub>.962453 in progress</sub> | returns a random normalized parameter with uniform distribution
 | `pGaussRnd`        | 132 <sub>not yet implemented</sub> | returns a random normalized parameter with Gaussian (or normal) distribution
 | `pWrappedGaussRnd` | 133 <sub>not yet implemented</sub> | returns a random normalized parameter with a wrapped normal distribution
-| `lRnd`             | 134 <sub>in progress</sub>         | returns a complete random list with uniform distribution of values
+| `lRnd`             | 134 <sub>.816554 in progress</sub> | returns a complete random list with uniform distribution of values
 | `lGaussRnd`        | 135 <sub>not yet implemented</sub> | returns a complete random list with with Gaussian distribution of parameters
 | `lWrappedGaussRnd` | 136 <sub>not yet implemented</sub> | returns a complete random list with a wrapped normal distribution of values
 | `eRnd`             | 137 <sub>not yet implemented</sub> | returns a complete random event with uniform distribution of parameters
@@ -1223,7 +1223,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | name                      | index                             | description
 | ------------------------- | --------------------------------- | -----------
 | `l2P`, `l3P`, ..., `l12P` | 65, 66, ..., 75 <sub>in progress</sub> | generates a list of x parameters
-| `lRepeatP`                | 76 <sub>.352549 in progress</sub> | repeats a parameter a number of times
+| `lRepeatP`                | 76 <sub>.970583 in progress</sub> | repeats a parameter a number of times
 | `lLine`                   | 77 <sub>not yet implemented</sub> | generates a straight progression between two values
 | `lLinseg`                 | 78 <sub>not yet implemented</sub> | generates a series of straight segments between several values
 | `lExpon`                  | 79 <sub>not yet implemented</sub> | generates an exponential progression between two values
@@ -1251,7 +1251,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
  
 | name       | index                          | description
 | ---------- | ------------------------------ | -----------
-| `oSum`     | 111 <sub>.983739 in progress</sub> | returns the sum of two values
+| `oSum`     | 111 <sub>.601773 in progress</sub> | returns the sum of two values
 | `oDiff`    | 112 <sub>not yet implemented</sub> | returns the subtraction of two values
 | `oMult`    | 113 <sub>not yet implemented</sub> | returns the multiplication of two values
 | `oDiv`     | 114 <sub>not yet implemented</sub> | returns the quotient of two values

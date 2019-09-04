@@ -52,8 +52,7 @@ var tt = function (decGenotype) {
 ////// AUX FUNCTIONS
 
 
-// round fractional part to 6 digits
-var r6d = f => Math.round(f*1000000)/1000000;
+
 
 // flats arrays with any level of nesting
 var flattenDeep = arr1 => arr1.reduce((acc, val) => Array.isArray(val) ? acc.concat(flattenDeep(val)) : acc.concat(val), []);
@@ -101,7 +100,7 @@ var pRnd = () => {
     var randomValue = r6d(random.float());
     return indexExprReturnSpecimen ({
         funcType: "paramF",
-        encGen: [1, 0.344419, 0.5, randomValue],
+        encGen: [1, 0.962453, 0.5, randomValue],
         decGen: "pRnd()",
         encPhen: [randomValue]
     });
@@ -274,7 +273,7 @@ var vRepeatE = (event, times) => {
     if (numRepeats > phenMaxLength) return "phenotype max length exceeded";
     return indexExprReturnSpecimen ({
         funcType: "voiceF",
-        encGen: flattenDeep([1, 0.068884, event.encGen, times.encGen, 0]),
+        encGen: flattenDeep([1, 0.811529, event.encGen, times.encGen, 0]),
         decGen: "vRepeatE(" 
             + event.decGen + "," 
             + times.decGen + ")",
@@ -292,7 +291,7 @@ tt("vRepeatE(eAutoref(8),p(.5))");
 // generates a list of 2 parameters
 var l2P = (p1, p2) => indexExprReturnSpecimen ({
     funcType: "listF",
-    encGen: flattenDeep([1, 0.554175, p1.encGen, p2.encGen, 0]),
+    encGen: flattenDeep([1, 0.172209, p1.encGen, p2.encGen, 0]),
     decGen: "l2P(" + p1.decGen + "," + p2.decGen + ")",
     encPhen: p1.encPhen.concat(p2.encPhen)
 });
@@ -300,7 +299,7 @@ var l2P = (p1, p2) => indexExprReturnSpecimen ({
 // generates a list of 3 parameters
 var l3P = (p1, p2, p3) => indexExprReturnSpecimen ({
     funcType: "listF",
-    encGen: flattenDeep([1, 0.172209, p1.encGen, p2.encGen, p3.encGen, 0]),
+    encGen: flattenDeep([1, 0.790243, p1.encGen, p2.encGen, p3.encGen, 0]),
     decGen: "l3P(" + p1.decGen + "," + p2.decGen + "," + p3.decGen + ")",
     encPhen: p1.encPhen.concat(p2.encPhen).concat(p3.encPhen)
 });
@@ -314,7 +313,7 @@ tt("l3P(p(0.4),p(.345),pAutoref(59))");
 // generates a list of 4 parameters
 var l4P = (p1, p2, p3, p4) => indexExprReturnSpecimen ({
     funcType: "listF",
-    encGen: flattenDeep([1, 0.790243, p1.encGen, p2.encGen, p3.encGen, p4.encGen, 0]),
+    encGen: flattenDeep([1, 0.408277, p1.encGen, p2.encGen, p3.encGen, p4.encGen, 0]),
     decGen: "l4P(" + p1.decGen + "," + p2.decGen + "," + p3.decGen + "," + p4.decGen + ")",
     encPhen: p1.encPhen.concat(p2.encPhen).concat(p3.encPhen).concat(p4.encPhen)
 });
@@ -324,7 +323,7 @@ tt("l4P(p(0.4),pRnd(),p(0.2),p(0.2345))");
 // generates a list of 5 parameters
 var l5P = (p1, p2, p3, p4, p5) => indexExprReturnSpecimen ({
     funcType: "listF",
-    encGen: flattenDeep([1, 0.408277, p1.encGen, p2.encGen, p3.encGen, p4.encGen, p5.encGen, 0]),
+    encGen: flattenDeep([1, 0.026311, p1.encGen, p2.encGen, p3.encGen, p4.encGen, p5.encGen, 0]),
     decGen: "l5P(" + p1.decGen + "," + p2.decGen + "," + p3.decGen + "," + p4.decGen + "," + p5.decGen + ")",
     encPhen: p1.encPhen.concat(p2.encPhen).concat(p3.encPhen).concat(p4.encPhen).concat(p5.encPhen)
 });
@@ -340,7 +339,7 @@ var lRnd = (numItemsSeed, seqSeed) => {
     random.use(seedrandom(seqSeed.encPhen));
     return indexExprReturnSpecimen ({
         funcType: "listF",
-        encGen: flattenDeep([1, 0.198521, numItemsSeed.encGen, seqSeed.encGen, 0]),
+        encGen: flattenDeep([1, 0.816554, numItemsSeed.encGen, seqSeed.encGen, 0]),
         decGen: "lRnd(" + numItemsSeed.decGen + "," + seqSeed.decGen + ")",
         encPhen: Array(numItems).fill().map( () => random.float() )
     });
@@ -351,7 +350,7 @@ tt("lRnd(p(.12),p(.3))");
 // concatenates two lists sequentially
 var lConcatL = (l1, l2) => indexExprReturnSpecimen ({
     funcType: "listF",
-    encGen: flattenDeep([1, 0.72136, l1.encGen, l2.encGen, 0]),
+    encGen: flattenDeep([1, 0.957428, l1.encGen, l2.encGen, 0]),
     decGen: "lConcatL(" + l1.decGen + "," + l2.decGen + ")",
     encPhen: l1.encPhen.concat(l2.encPhen)
 });
@@ -363,7 +362,7 @@ tt("lConcatL(lRnd(p(.209),p(.3)),lAutoref(0))");
 // concatenates two events sequentially
 var vConcatE = (e1, e2) => indexExprReturnSpecimen ({
     funcType: "voiceF",
-    encGen: flattenDeep([1, 0.339394, e1.encGen, e2.encGen, 0]),
+    encGen: flattenDeep([1, 0.957428, e1.encGen, e2.encGen, 0]),
     decGen: "vConcatE(" + e1.decGen + "," + e2.decGen + ")",
     encPhen: wrap(e1.encPhen.concat(e2.encPhen)),
     phenLength: 2,
@@ -384,7 +383,7 @@ tt("vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0))");
 // concatenates two voices sequentially
 var vConcatV = (v1, v2) => indexExprReturnSpecimen ({
     funcType: "voiceF",
-    encGen: flattenDeep([1, 0.957428, v1.encGen, v2.encGen, 0]),
+    encGen: flattenDeep([1, 0.575462, v1.encGen, v2.encGen, 0]),
     decGen: "vConcatV(" + v1.decGen + "," + v2.decGen + ")",
     encPhen: wrap(unwrap(v1.encPhen).concat(unwrap(v2.encPhen))),
     phenLength: v1.phenLength + v2.phenLength,
@@ -403,7 +402,7 @@ tt("s(vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)
 // concatenates two scores sequentially
 var sConcatS = (s1, s2) => indexExprReturnSpecimen ({
     funcType: "scoreF",
-    encGen: flattenDeep([1, 0.575462, s1.encGen, s2.encGen, 0]),
+    encGen: flattenDeep([1, 0.193496, s1.encGen, s2.encGen, 0]),
     decGen: "sConcatS(" + s1.decGen + "," + s2.decGen + ")",
     encPhen: s1.encPhen.concat(s2.encPhen),
     phenLength: s1.phenLength + s2.phenLength,
@@ -420,7 +419,7 @@ tt("sConcatS(s(vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0
 // add two numbers
 var oSum = (p1, p2) => indexExprReturnSpecimen ({
     funcType: "operationF",
-    encGen: flattenDeep([1, 0.983739, p1.encGen, p2.encGen, 0]),
+    encGen: flattenDeep([1, 0.601773, p1.encGen, p2.encGen, 0]),
     decGen: "oSum(" + p1.decGen + "," + p2.decGen + ")",
     encPhen: [p1.encPhen[0] + p2.encPhen[0]]
 });
@@ -434,7 +433,7 @@ var lRepeatP = (p, times) => {
     var numRepeats = adjustRange(Math.abs(n2q(times.encPhen[0])), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5
     return indexExprReturnSpecimen ({
         funcType: "listF",
-        encGen: flattenDeep([1, 0.352549, p.encGen, times.encGen, 0]),
+        encGen: flattenDeep([1, 0.970583, p.encGen, times.encGen, 0]),
         decGen: "lRepeatP(" + p.decGen + "," + times.decGen + ")",
         encPhen: Array(numRepeats).fill(p.encPhen[0])
     });
@@ -443,7 +442,7 @@ var lRepeatP = (p, times) => {
 tt("lRepeatP(pRnd(),q(13))");
 
 // repeats and concatenates re-evaluations of a list function (2 tp 36 repeats) 
-var lIterExpr = (l, times) => {
+/* var lIterL = (l, times) => {
     var numIterations = adjustRange(Math.abs(n2q(times.encPhen[0])), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5 using the quantizedF map
     return indexExprReturnSpecimen ({
         funcType: "listF",
@@ -451,10 +450,25 @@ var lIterExpr = (l, times) => {
         decGen: "lIterExpr(" + l.decGen + "," + times.decGen + ")",
         encPhen: flattenDeep(Array(numIterations).fill().map(() => eval(l.decGen).encPhen))
     });
+}; */
+
+
+// repeats and concatenates re-evaluations of a list function (2 tp 36 repeats) 
+var lIterL = (l, times) => {
+    var numIterations = adjustRange(Math.abs(n2q(times.encPhen[0])), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5 using the quantizedF map
+    return indexExprReturnSpecimen ({
+        funcType: "listF",
+        encGen: flattenDeep([1, 0.249224, l.encGen, times.encGen, 0]),
+        decGen: "lIterL(" + l.decGen + "," + times.decGen + ")",
+        encPhen: flattenDeep(Array(numIterations).fill().map(() => eval(l.decGen).encPhen))
+    });
 };
 
-tt("lIterExpr(l3P(p(0.333),pRnd(),pRnd()),p(.6))");
-tt("lIterExpr(l3P(p(0.333),pRnd(),pAutoref(1)),q(6))");
+tt("lIterL(l2P(p(0.333),pRnd()),p(.6))");
+
+tt("lIterL(l3P(p(0.333),pRnd(),pRnd()),p(.6))");
+tt("lIterL(l3P(p(0.333),pRnd(),pAutoref(1)),q(6))");
+
 
 // autoreferences framework for different functionTypes
 var autoref = (funcName, funcType, encodedFunctionIndex, subexprIndex, silentElement) => {
@@ -494,6 +508,8 @@ tt("e(pAutoref(5),p(.4),pAutoref(0),p(.8))");
 // parameters mapping functions and abbreviated versions with short names and rounded output
 
 const PHI = (1 + Math.sqrt(5)) / 2;
+// round fractional part to 6 digits
+var r6d = f => Math.round(f*1000000)/1000000;
 
 var norm2notevalue = p => decimalToFraction(Math.pow(2, 10 * p - 8));
 var p2n = norm2notevalue;
