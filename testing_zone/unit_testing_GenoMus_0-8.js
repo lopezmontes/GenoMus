@@ -742,14 +742,11 @@ var decodeGenotype = encGen => {
     
 }
 
-var functions_index = JSON.parse(fs.readFileSync('functions_library.json'));
 
-console.log(Object.keys(functions_index.outputType['scoreF']));
+////////// FUNCTION LIBRARIES HANDLING
 
-var enumerateFunctionNames = flattenDeep(availableTypes.map(x => Object.keys(functions_index.outputType[x])));
-var enumerateFunctionIndexes = availableTypes.map(x => Object.keys(functions_index.outputType[x]).length);
-
-
+// create JSON files from data in JavaScript Object 
+var createJSON = (objectData, filename) => fs.writeFileSync(filename, JSON.stringify(objectData));
 
 var indexFunctionCodes = (library) => {
     var function_library = JSON.parse(fs.readFileSync(library));
@@ -768,4 +765,9 @@ var indexFunctionCodes = (library) => {
     return functionIndexes;    
 }
 
-indexFunctionCodes ('functions_library.json');
+// stores all d
+var functionEncodedIndexes = indexFunctionCodes ('functions_library.json');
+
+// export encoded indexes as a JSON file
+createJSON(functionEncodedIndexes), 'function_indexes.json');
+
