@@ -1,0 +1,42 @@
+{   
+    "scoreF": {
+        "s": {
+            "functionIndex": 4,
+            "arguments": ["voiceF"],
+            "description": "Score identity function",
+            "metadata": {
+                "date": 20190905,
+                "creator": "lm"
+            }
+        },
+        "sAutoref": {
+            "functionIndex": 29,
+            "arguments": ["leaf"],
+            "description": "Points to a previous score.",
+            "metadata": {
+                "date": 20190905,
+                "creator": "lm"
+            }
+        },
+        "sIterS": {
+            "functionIndex": 40,
+            "arguments": ["leaf"],
+            "description": "Repeats and concatenates as a score re-evaluations of a score function.",
+            "metadata": {
+                "date": 20190905,
+                "creator": "lm"
+            }
+        }            
+    },
+    "voiceF": {
+        "v": {
+            "functionIndex": 3,
+            "arguments": ["eventF"],
+            "description": "Voice identity function",
+            "metadata": {
+                "date": 20190905,
+                "creator": "lm"
+            }
+        }
+    }
+}
