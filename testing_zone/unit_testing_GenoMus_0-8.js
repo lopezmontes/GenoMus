@@ -783,7 +783,8 @@ var createFunctionIndexesCatalogues = (library) => {
     var completCatalogue = { 
         decodedIndexes: decodedIndexesOrdered,
         encodedIndexes: encodedIndexesOrdered,
-        functionNames: functionNamesOrdered
+        functionNames: functionNamesOrdered,
+        functionLibrary: functionLibrary
     }
     return completCatalogue;
 }
