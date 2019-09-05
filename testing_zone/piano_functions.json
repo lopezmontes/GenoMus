@@ -37,6 +37,15 @@
                 "date": 20190905,
                 "creator": "lm"
             }
+        },
+        "vAutoref": {
+            "functionIndex": 28,
+            "arguments": ["leafAutoref"],
+            "description": "points to a previous voice",
+            "metadata": {
+                "date": 20190906,
+                "creator": "lm"
+            }
         }
     },
     "eventF": {
@@ -46,6 +55,15 @@
             "description": "piano event identity function",
             "metadata": {
                 "date": 20190905,
+                "creator": "lm"
+            }
+        },
+        "eAutoref": {
+            "functionIndex": 27,
+            "arguments": ["leafAutoref"],
+            "description": "points to a previous event",
+            "metadata": {
+                "date": 20190906,
                 "creator": "lm"
             }
         }
@@ -59,7 +77,52 @@
                 "date": 20190905,
                 "creator": "lm"
             }
-        }
+        },
+        "ln": {
+            "functionIndex": 15,
+            "arguments": ["leafArray"],
+            "description": "list of notevalues identity function",
+            "metadata": {
+                "date": 20190906,
+                "creator": "lm"
+            }
+        },
+        "lm": {
+            "functionIndex": 17,
+            "arguments": ["leafArray"],
+            "description": "list of midipitches identity function",
+            "metadata": {
+                "date": 20190906,
+                "creator": "lm"
+            }
+        },
+        "lAutoref": {
+            "functionIndex": 26,
+            "arguments": ["leafAutoref"],
+            "description": "points to a previous list",
+            "metadata": {
+                "date": 20190906,
+                "creator": "lm"
+            }
+        },
+        "lIterP": {
+            "functionIndex": 35,
+            "arguments": ["paramF", "paramF"],
+            "description": "repeats and concatenates as a list re-evaluations of a parameter function",
+            "metadata": {
+                "date": 20190906,
+                "creator": "lm"
+            }
+        },
+        "lIterL": {
+            "functionIndex": 36,
+            "arguments": ["listF", "paramF"],
+            "description": "repeats and concatenates as a list re-evaluations of a list function",
+            "metadata": {
+                "date": 20190906,
+                "creator": "lm"
+            }
+        }           
     },
     "paramF": {
         "p": {
@@ -110,7 +173,26 @@
                 "date": 20190906,
                 "creator": "lm"
             },
-            "identifier": 0.55
+            "identifier": 0.56
+        },
+        "q": {
+            "functionIndex": 12,
+            "arguments": ["leaf"],
+            "description": "quantized integer parameter identity function",
+            "metadata": {
+                "date": 20190906,
+                "creator": "lm"
+            },
+            "identifier": 0.58
+        },
+        "pAutoref": {
+            "functionIndex": 25,
+            "arguments": ["leafAutoref"],
+            "description": "points to a previous parameter",
+            "metadata": {
+                "date": 20190906,
+                "creator": "lm"
+            }
         }
     }
 }
