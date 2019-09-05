@@ -26,7 +26,16 @@
                 "date": 20190905,
                 "creator": "lm"
             }
-        }            
+        },
+        "sConcatS": {
+            "functionIndex": 43,
+            "arguments": ["voiceF", "voiceF"],
+            "description": "concatenates two scores sequentially",
+            "metadata": {
+                "date": 20190906,
+                "creator": "lm"
+            }
+        }           
     },
     "voiceF": {
         "v": {
@@ -51,6 +60,33 @@
             "functionIndex": 37,
             "arguments": ["voiceF", "paramF"],
             "description": "repeats and concatenates as a voice re-evaluations of an event function",
+            "metadata": {
+                "date": 20190906,
+                "creator": "lm"
+            }
+        },
+        "vConcatE": {
+            "functionIndex": 42,
+            "arguments": ["eventF", "eventF"],
+            "description": "repeats and concatenates as a list re-evaluations of a list function",
+            "metadata": {
+                "date": 20190906,
+                "creator": "lm"
+            }
+        },
+        "vConcatV": {
+            "functionIndex": 43,
+            "arguments": ["voiceF", "voiceF"],
+            "description": "repeats and concatenates as a list re-evaluations of a list function",
+            "metadata": {
+                "date": 20190906,
+                "creator": "lm"
+            }
+        },
+        "vRepeatE": {
+            "functionIndex": 46,
+            "arguments": ["voiceF", "paramF"],
+            "description": "repeats an event a number of times",
             "metadata": {
                 "date": 20190906,
                 "creator": "lm"
@@ -135,12 +171,66 @@
         "lConcatL": {
             "functionIndex": 41,
             "arguments": ["listF", "listF"],
-            "description": "repeats and concatenates as a list re-evaluations of a list function",
+            "description": "concatenates two lists sequentially",
             "metadata": {
                 "date": 20190906,
                 "creator": "lm"
             }
-        }           
+        },
+        "l2P": {
+            "functionIndex": 65,
+            "arguments": ["paramF", "paramF"],
+            "description": "generates a list of 2 parameters",
+            "metadata": {
+                "date": 20190906,
+                "creator": "lm"
+            }
+        },
+        "l3P": {
+            "functionIndex": 66,
+            "arguments": ["paramF", "paramF", "paramF"],
+            "description": "generates a list of 2 parameters",
+            "metadata": {
+                "date": 20190906,
+                "creator": "lm"
+            }
+        },
+        "l4P": {
+            "functionIndex": 67,
+            "arguments": ["paramF", "paramF", "paramF", "paramF"],
+            "description": "generates a list of 2 parameters",
+            "metadata": {
+                "date": 20190906,
+                "creator": "lm"
+            }
+        },
+        "l5P": {
+            "functionIndex": 68,
+            "arguments": ["paramF", "paramF", "paramF", "paramF", "paramF"],
+            "description": "generates a list of 2 parameters",
+            "metadata": {
+                "date": 20190906,
+                "creator": "lm"
+            }
+        },
+        "lRepeatP": {
+            "functionIndex": 76,
+            "arguments": ["paramF", "paramF"],
+            "description": "repeats a parameter a number of times",
+            "metadata": {
+                "date": 20190906,
+                "creator": "lm"
+            }
+        },
+        "lRnd": {
+            "functionIndex": 134,
+            "arguments": ["paramF", "paramF"],
+            "description": "returns a complete random list with uniform distribution of values based on two seeds",
+            "metadata": {
+                "date": 20190906,
+                "creator": "lm"
+            }
+        }                    
     },
     "paramF": {
         "p": {
@@ -211,6 +301,27 @@
                 "date": 20190906,
                 "creator": "lm"
             }
+        },
+        "pRnd": {
+            "functionIndex": 131,
+            "arguments": [],
+            "description": "returns a random normalized parameter with uniform distribution",
+            "metadata": {
+                "date": 20190906,
+                "creator": "lm"
+            }
+        }
+    },
+    "operationF": {
+        "oSum": {
+            "functionIndex": 111,
+            "arguments": ["paramF", "paramF"],
+            "description": "returns the sum of two values",
+            "metadata": {
+                "date": 20190906,
+                "creator": "lm"
+            },
+            "identifier": 0.5
         }
     }
 }
