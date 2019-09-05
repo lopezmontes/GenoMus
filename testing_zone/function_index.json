@@ -1,0 +1,32 @@
+{
+    "decodedIndexes": {
+        "3": "v",
+        "4": "s",
+        "29": "sAutoref",
+        "40": "sIterS"
+    },
+    "encodedIndexes": {
+        "0.472136": "s",
+        "0.72136": "sIterS",
+        "0.854102": "v",
+        "0.922986": "sAutoref"
+    },
+    "functionNames": {
+        "s": {
+            "encIndex": 0.472136,
+            "intIndex": 4
+        },
+        "sAutoref": {
+            "encIndex": 0.922986,
+            "intIndex": 29
+        },
+        "sIterS": {
+            "encIndex": 0.72136,
+            "intIndex": 40
+        },
+        "v": {
+            "encIndex": 0.854102,
+            "intIndex": 3
+        }
+    }
+}

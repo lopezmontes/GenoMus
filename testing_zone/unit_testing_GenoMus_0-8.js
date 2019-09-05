@@ -748,9 +748,12 @@ var decodeGenotype = encGen => {
 // create JSON files from data in JavaScript Object 
 var createJSON = (objectData, filename) => fs.writeFileSync(filename, JSON.stringify(objectData));
 
-var indexFunctionCodes = (library) => {
+// create different catalogues of available functions
+var createFunctionIndexesCatalogues = (library) => {
     var function_library = JSON.parse(fs.readFileSync(library));
-    var functionIndexes = {};
+    var functionDecodedIndexes = {};
+    var functionEncodedIndexes = {};
+    var functionNamesDictionary = {};
     var availableTypes = Object.keys(functions_index);
     var availableTypesLength = availableTypes.length;
     var availableFunctionsLength, readName, readIndex;
@@ -759,15 +762,37 @@ var indexFunctionCodes = (library) => {
         for (var n = 0; n < availableFunctionsLength; n++) {  
             readName = Object.keys(function_library[availableTypes[t]])[n];
             readIndex = Object.values(function_library[availableTypes[t]])[n].functionIndex;
-            functionIndexes[z2n(readIndex).toString()] = readName;
+            functionDecodedIndexes[readIndex.toString()] = readName;
+            functionEncodedIndexes[z2n(readIndex).toString()] = readName;
+            functionNamesDictionary[readName] = { encIndex: z2n(readIndex), intIndex: readIndex };
         }
     }
-    return functionIndexes;    
+    var decodedIndexesOrdered = {};
+    Object.keys(functionDecodedIndexes).sort().forEach(function(key) {
+        decodedIndexesOrdered[key] = functionDecodedIndexes[key];
+    });
+    var encodedIndexesOrdered = {};
+    Object.keys(functionEncodedIndexes).sort().forEach(function(key) {
+        encodedIndexesOrdered[key] = functionEncodedIndexes[key];
+    });
+    var functionNamesOrdered = {};
+    Object.keys(functionNamesDictionary).sort().forEach(function(key) {
+        functionNamesOrdered[key] = functionNamesDictionary[key];
+    });
+    var completCatalogue = { 
+        decodedIndexes: decodedIndexesOrdered,
+        encodedIndexes: encodedIndexesOrdered,
+        functionNames: functionNamesDictionary
+    }
+    // createJSON(decodedIndexesOrdered, 'function_integer_indexes.json');
+    // createJSON(encodedIndexesOrdered, 'function_encoded_indexes.json');
+    // createJSON(functionNamesOrdered, 'function_names_dictionary.json');
+    // createJSON(completCatalogue, 'function_names_dictionary.json');
+    return completCatalogue;
 }
 
-// stores all d
-var functionEncodedIndexes = indexFunctionCodes ('functions_library.json');
-
-// export encoded indexes as a JSON file
-createJSON(functionEncodedIndexes), 'function_indexes.json');
+// generates the catalogues of function indexes
+var functionIndexCatalogues = createFunctionIndexesCatalogues ('function_library.json');
+// export the catalogues of function indexes, ordered by function name, encoded indexes and integer indexes
+createJSON(functionIndexCatalogues, 'function_index.json');
 
