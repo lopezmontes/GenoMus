@@ -93,7 +93,7 @@ var p = x => indexExprReturnSpecimen ({
     encPhen: [x]
 });
 
-// // tt("p(0.9433)");
+tt("p(0.9433)");
 
 // returns a random normalized parameter
 var pRnd = () => {
@@ -161,17 +161,17 @@ var q = x => {
     });
 };
 
-// tt("n(4)");
-// tt("m(60)");
-// tt("a(60)");
-// tt("i(96)");
+tt("n(2)");
+tt("m(60)");
+tt("a(2)");
+tt("i(96)");
 
 
-// tt("e(n(1/8),m(73),p(0),p(.8))");
-// tt("s(v(e(n(1/16),m(69),a(0.4),i(80))))"); // EXAMPLE 2
+tt("e(n(1/8),m(73),p(0),p(.8))");
+tt("s(v(e(n(1/16),m(69),a(0.4),i(80))))"); // EXAMPLE 2
 
 
-// // tt("e(pRnd(),pRnd(),pRnd(),pRnd())");
+tt("e(pRnd(),pRnd(),pRnd(),pRnd())");
 
 // list identity function
 var l = paramList => indexExprReturnSpecimen ({
@@ -193,7 +193,7 @@ var ln = notevalueList => {
     });
 };
 
- tt("ln([1/8,1,1/2,1/8,1,1/2,1/4,1,1/2])");
+tt("ln([1/8,1,1/2,1/8,1,1/2,1/4,1,1/2])");
 
 
 // list of midipitch values identity function
@@ -208,9 +208,9 @@ var lm = midipitchList => {
     });
 };
 
-// tt("lm([45,47,67,45,46])");
+tt("lm([45,47,67,45,46])");
 
-// // tt("l([0.4,0.23,0.56,0.25])");
+tt("l([0.4,Math.random(),0.56,0.25])");
 
 // piano event identity function
 var e = (notevalue, midiPitch, articulation, intensity) => indexExprReturnSpecimen ({
@@ -329,7 +329,6 @@ var l5P = (p1, p2, p3, p4, p5) => indexExprReturnSpecimen ({
 });
 
 tt("l5P(p(0.479),pRnd(),p(0.2),p(0.2345),p(.45))");
-
 tt("l5P(p(0.4),pRnd(),pAutoref(8),pRnd(),pAutoref(0))");
 
 // random list up to 12 values (paramF, paramF)
@@ -376,9 +375,9 @@ var vConcatE = (e1, e2) => indexExprReturnSpecimen ({
 });
 
 tt("vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))");
-// // tt("s(vConcatE(e(p(.54),p(.5),p(0),p(.834)),e(p(.54),pRnd(),p(0),p(.834))))");
+tt("s(vConcatE(e(p(.54),p(.5),p(0),p(.834)),e(p(.54),pRnd(),p(0),p(.834))))");
 tt("vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0))");
- // tt("s(vConcatE(e(p(.54),pRnd(),p(0),p(.834)),eAutoref(0)))");
+tt("s(vConcatE(e(p(.54),pRnd(),p(0),p(.834)),eAutoref(0)))");
 
 // concatenates two voices sequentially
 var vConcatV = (v1, v2) => indexExprReturnSpecimen ({
@@ -394,9 +393,9 @@ var vConcatV = (v1, v2) => indexExprReturnSpecimen ({
 });
 
 tt("vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))");
-tt("vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))");
+tt("s(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))))");
 
-tt("vConc atV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),e(p(.154),p(.14),p(1),p(.1834))))")
+tt("vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),e(p(.154),p(.14),p(1),p(.1834))))")
 tt("s(vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0))))")
 
 // concatenates two scores sequentially
@@ -412,9 +411,8 @@ var sConcatS = (s1, s2) => indexExprReturnSpecimen ({
     analysis: s1.analysis,
 });
 
-tt("sConcatS(s(v(e(p(.5),p(.4),p(.26),p(.26)))),s(v(e(p(.4565),p(.674),p(.25),p(.8)))))");
+tt("sConcatS(s(v(e(p(.5),p(.4),pRnd(),p(.26)))),s(v(e(p(.4565),p(.674),p(.25),p(.8)))))");
 
-tt("sConcatS(s(vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),vConcatE(e(p(.54),p(.4),p(0),p(.834)),e(p(.154),p(.14),p(1),p(.1834)))),e(p(.54),p(.4),p(0),p(.834)))))")
 
 // add two numbers
 var oSum = (p1, p2) => indexExprReturnSpecimen ({
@@ -466,7 +464,7 @@ var lIterP = (param, times) => {
     });
 };
 
-tt("lIterP(p(.34),p(0.5))");
+tt("lIterP(p(.34),p(0.9))");
 tt("lIterP(pRnd(),p(0.8))");
 
 // repeats and concatenates as a list re-evaluations of a list function (2 to 36 repeats) 
@@ -540,7 +538,7 @@ var sAutoref = subexprIndex => autoref("sAutoref", "scoreF", 0.922986, subexprIn
 // testing
 
 tt("e(pAutoref(5),p(.4),pAutoref(0),p(.8))");
-// // tt("pAdd(pAdd(p(39),pAutoref(1)),pAutoref(1))");
+tt("oSum(oSum(p(39),pAutoref(1)),pAutoref(1))");
 
 
 //////////// PARAMETER MAPPING
@@ -687,11 +685,17 @@ var testRepetitions = function (n) {
 
 
 var visualizeSpecimen = (normArray, filename) => {
-    var lineColor, lineHeight = 140, lineWidth = 10, lineColor;
-    var specimenLength = normArray.length;
-    var graphWidth = specimenLength*(lineWidth+1);
-    var graphHeight = lineHeight;
+    var maxLinesPerRow = 130, graphWidth, graphHeight;
+    var lineColor, lineMaxHeight = 140, lineWidth = 10, lineOffset = 1, rowOffset = 15, lineColor;
     var roundedCornerRadius = lineWidth * 0.5;
+    var specimenLength = normArray.length;
+    var totalRows = Math.ceil(specimenLength/maxLinesPerRow);
+    if ( specimenLength > maxLinesPerRow ) {
+        graphWidth = maxLinesPerRow * (lineWidth + lineOffset);
+    } else {
+        graphWidth = specimenLength*(lineWidth+1);
+    }
+    graphHeight = lineMaxHeight * totalRows + rowOffset * (totalRows - 1);
     var lines = "";
     var SVGheader = "<svg version='1.1'\n    baseProfile='full'\n    width='" +
         graphWidth + "' height='" + graphHeight +
@@ -699,7 +703,7 @@ var visualizeSpecimen = (normArray, filename) => {
         graphWidth + "' height='" + graphHeight +
         "' style='fill:white;' />\n";
     for (var i = 0; i < specimenLength; i++) {
-        lineHeight = normArray[i] * (graphHeight - lineWidth) + lineWidth;
+        lineHeight = normArray[i] * (lineMaxHeight - lineWidth) + lineWidth;
         if (normArray[i] == 0 || normArray[i] == 1 ) {
             lineColor = "black";
         } else
@@ -709,8 +713,8 @@ var visualizeSpecimen = (normArray, filename) => {
             lineColor = "hsl(" + (norm2goldeninteger(normArray[i])%360) + "," + 93 + "%," + 50 + "%)";
         }
         lines = lines + 
-            "    <rect x='" + (i * (lineWidth + 1)) + 
-            "' y='" + (graphHeight - lineHeight) + 
+            "    <rect x='" + (i * (lineWidth + lineOffset) - Math.floor(i/maxLinesPerRow) * maxLinesPerRow * (lineWidth + lineOffset) ) + 
+            "' y='" + ( Math.floor(i/maxLinesPerRow) * (lineMaxHeight + rowOffset) + lineMaxHeight - lineHeight) + 
             "' rx='" + roundedCornerRadius + "' ry='" + roundedCornerRadius + "' width='" + lineWidth + "' height='" + lineHeight + 
             "' style='fill:" + lineColor + "' />\n";
     }
@@ -718,7 +722,14 @@ var visualizeSpecimen = (normArray, filename) => {
     fs.writeFileSync(filename + '.svg', SVGcode);
 };
 
+tt("sConcatS(s(vIterE(e(p(.89),pRnd(),pAutoref(0),pRnd()),q(36))),sAutoref(0))");
+
+
+
 visualizeSpecimen(largeSpecimen, "automatic_visualization");
+
+
+
 
 
 var minimalSpecimen = {encGen: [1, 1, 0.5, 0.618034, 0.5, 0.5, 0.5, 0, 0]};
