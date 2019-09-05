@@ -11,7 +11,7 @@
         },
         "sAutoref": {
             "functionIndex": 29,
-            "arguments": ["leaf"],
+            "arguments": ["leafAutoref"],
             "description": "points to a previous score",
             "metadata": {
                 "date": 20190905,
@@ -20,7 +20,7 @@
         },
         "sIterS": {
             "functionIndex": 40,
-            "arguments": ["leaf"],
+            "arguments": ["scoreF", "paramF"],
             "description": "repeats and concatenates as a score re-evaluations of a score function",
             "metadata": {
                 "date": 20190905,
@@ -46,7 +46,16 @@
                 "date": 20190906,
                 "creator": "lm"
             }
-        }
+        },
+        "vIterE": {
+            "functionIndex": 37,
+            "arguments": ["voiceF", "paramF"],
+            "description": "repeats and concatenates as a voice re-evaluations of an event function",
+            "metadata": {
+                "date": 20190906,
+                "creator": "lm"
+            }
+        } 
     },
     "eventF": {
         "e": {
@@ -117,6 +126,15 @@
         "lIterL": {
             "functionIndex": 36,
             "arguments": ["listF", "paramF"],
+            "description": "repeats and concatenates as a list re-evaluations of a list function",
+            "metadata": {
+                "date": 20190906,
+                "creator": "lm"
+            }
+        },
+        "lConcatL": {
+            "functionIndex": 41,
+            "arguments": ["listF", "listF"],
             "description": "repeats and concatenates as a list re-evaluations of a list function",
             "metadata": {
                 "date": 20190906,
