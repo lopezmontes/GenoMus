@@ -49,5 +49,27 @@
                 "creator": "lm"
             }
         }
+    },
+    "listF": {
+        "l": {
+            "functionIndex": 1,
+            "arguments": ["leafArray"],
+            "description": "list identity function",
+            "metadata": {
+                "date": 20190905,
+                "creator": "lm"
+            }
+        }
+    },
+    "paramF": {
+        "p": {
+            "functionIndex": 0,
+            "arguments": ["leaf"],
+            "description": "normalized parameter identity function",
+            "metadata": {
+                "date": 20190905,
+                "creator": "lm"
+            }
+        }
     }
 }

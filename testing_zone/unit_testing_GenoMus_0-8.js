@@ -750,18 +750,19 @@ var createJSON = (objectData, filename) => fs.writeFileSync(filename, JSON.strin
 
 // create different catalogues of available functions
 var createFunctionIndexesCatalogues = (library) => {
-    var function_library = JSON.parse(fs.readFileSync(library));
+    var functionLibrary = JSON.parse(fs.readFileSync(library));
+    console.log(functionLibrary);
     var functionDecodedIndexes = {};
     var functionEncodedIndexes = {};
     var functionNamesDictionary = {};
-    var availableTypes = Object.keys(functions_index);
+    var availableTypes = Object.keys(functionLibrary);
     var availableTypesLength = availableTypes.length;
     var availableFunctionsLength, readName, readIndex;
     for (var t = 0; t < availableTypesLength; t++) {
-        availableFunctionsLength = Object.keys(function_library[availableTypes[t]]).length;
+        availableFunctionsLength = Object.keys(functionLibrary[availableTypes[t]]).length;
         for (var n = 0; n < availableFunctionsLength; n++) {  
-            readName = Object.keys(function_library[availableTypes[t]])[n];
-            readIndex = Object.values(function_library[availableTypes[t]])[n].functionIndex;
+            readName = Object.keys(functionLibrary[availableTypes[t]])[n];
+            readIndex = Object.values(functionLibrary[availableTypes[t]])[n].functionIndex;
             functionDecodedIndexes[readIndex.toString()] = readName;
             functionEncodedIndexes[z2n(readIndex).toString()] = readName;
             functionNamesDictionary[readName] = { encIndex: z2n(readIndex), intIndex: readIndex };
@@ -782,12 +783,8 @@ var createFunctionIndexesCatalogues = (library) => {
     var completCatalogue = { 
         decodedIndexes: decodedIndexesOrdered,
         encodedIndexes: encodedIndexesOrdered,
-        functionNames: functionNamesDictionary
+        functionNames: functionNamesOrdered
     }
-    // createJSON(decodedIndexesOrdered, 'function_integer_indexes.json');
-    // createJSON(encodedIndexesOrdered, 'function_encoded_indexes.json');
-    // createJSON(functionNamesOrdered, 'function_names_dictionary.json');
-    // createJSON(completCatalogue, 'function_names_dictionary.json');
     return completCatalogue;
 }
 
@@ -796,8 +793,3 @@ var functionIndexCatalogues = createFunctionIndexesCatalogues ('function_library
 // export the catalogues of function indexes, ordered by function name, encoded indexes and integer indexes
 createJSON(functionIndexCatalogues, 'function_index.json');
 
-functionIndexCatalogues;
-
-var testlect = JSON.parse(fs.readFileSync('function_library.json'));
-
-testlect;
