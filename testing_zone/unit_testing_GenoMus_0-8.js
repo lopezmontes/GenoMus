@@ -796,3 +796,8 @@ var functionIndexCatalogues = createFunctionIndexesCatalogues ('function_library
 // export the catalogues of function indexes, ordered by function name, encoded indexes and integer indexes
 createJSON(functionIndexCatalogues, 'function_index.json');
 
+functionIndexCatalogues;
+
+var testlect = JSON.parse(fs.readFileSync('function_library.json'));
+
+testlect;
