@@ -751,21 +751,21 @@ var enumerateFunctionIndexes = availableTypes.map(x => Object.keys(functions_ind
 
 
 
-var functionCodes = (library) => {
+var indexFunctionCodes = (library) => {
     var function_library = JSON.parse(fs.readFileSync(library));
+    var functionIndexes = {};
     var availableTypes = Object.keys(functions_index);
     var availableTypesLength = availableTypes.length;
-    var availableFunctionsLength;
-
+    var availableFunctionsLength, readName, readIndex;
     for (var t = 0; t < availableTypesLength; t++) {
-        // console.log(Object.keys(function_library[availableTypes[t]]));
         availableFunctionsLength = Object.keys(function_library[availableTypes[t]]).length;
-        for (var n = 0; n < availableFunctionsLength; n++) {
-            console.log(Object.keys(function_library[availableTypes[t]])[n]);
-            console.log(Object.values(function_library[availableTypes[t]])[n].functionIndex);        
+        for (var n = 0; n < availableFunctionsLength; n++) {  
+            readName = Object.keys(function_library[availableTypes[t]])[n];
+            readIndex = Object.values(function_library[availableTypes[t]])[n].functionIndex;
+            functionIndexes[z2n(readIndex).toString()] = readName;
         }
     }
-    // return function_library;    
+    return functionIndexes;    
 }
 
-functionCodes ('functions_library.json');
+indexFunctionCodes ('functions_library.json');
