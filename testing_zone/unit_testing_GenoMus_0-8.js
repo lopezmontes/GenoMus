@@ -97,15 +97,12 @@ var p = x => indexExprReturnSpecimen({
 tt("p(0.9433)");
 
 // returns a random normalized parameter
-var pRnd = () => {
-    var randomValue = r6d(random.float());
-    return indexExprReturnSpecimen({
-        funcType: "paramF",
-        encGen: [1, 0.962453, 0.5, randomValue, 0],
-        decGen: "pRnd()",
-        encPhen: [randomValue]
-    });
-};
+var pRnd = () => indexExprReturnSpecimen({
+    funcType: "paramF",
+    encGen: [1, 0.962453, 0],
+    decGen: "pRnd()",
+    encPhen: [r6d(random.float())]
+});
 
 // notevalue identity function
 var n = x => {
@@ -274,7 +271,7 @@ var vRepeatE = (event, times) => {
     if (numRepeats > phenMaxLength) return -1;
     return indexExprReturnSpecimen({
         funcType: "voiceF",
-        encGen: flattenDeep([1, 0.957428, event.encGen, times.encGen, 0]),
+        encGen: flattenDeep([1, 0.429563, event.encGen, times.encGen, 0]),
         decGen: "vRepeatE("
             + event.decGen + ","
             + times.decGen + ")",
@@ -308,7 +305,7 @@ var l3P = (p1, p2, p3) => indexExprReturnSpecimen({
 tt("l2P(p(0.4),p(.345))");
 tt("l2P(p(0.4),pAutoref(345))");
 tt("l3P(p(0.4),p(.345),p(.84))");
-tt("l3P(p(0.4),p(.345),pAutoref(59))");
+tt("l3P(p(0.4),p(.345),pAutoref(1))");
 
 
 // generates a list of 4 parameters
@@ -330,7 +327,7 @@ var l5P = (p1, p2, p3, p4, p5) => indexExprReturnSpecimen({
 });
 
 tt("l5P(p(0.479),pRnd(),p(0.2),p(0.2345),p(.45))");
-tt("l5P(p(0.4),pRnd(),pAutoref(8),pRnd(),pAutoref(0))");
+tt("l5P(p(0.4),pRnd(),pAutoref(0),pRnd(),pAutoref(3))");
 
 // random list up to 12 values (paramF, paramF)
 var lRnd = (numItemsSeed, seqSeed) => {
@@ -350,7 +347,7 @@ tt("lRnd(p(.12),p(.3))");
 // concatenates two lists sequentially
 var lConcatL = (l1, l2) => indexExprReturnSpecimen({
     funcType: "listF",
-    encGen: flattenDeep([1, 0.957428, l1.encGen, l2.encGen, 0]),
+    encGen: flattenDeep([1, 0.339394,, l1.encGen, l2.encGen, 0]),
     decGen: "lConcatL(" + l1.decGen + "," + l2.decGen + ")",
     encPhen: l1.encPhen.concat(l2.encPhen)
 });
@@ -423,7 +420,7 @@ var oSum = (p1, p2) => indexExprReturnSpecimen({
     encPhen: [p1.encPhen[0] + p2.encPhen[0]]
 });
 
-tt("oSum(q(34),q(45))");
+tt("oSum(q(34),q(49))");
 
 // // tt("lConcatL(lRnd(p(.2),p(.3)),l2P(pAutoref(0),pAdd(p(74),pAutoref(1))))");
 
@@ -517,7 +514,7 @@ var autoref = (funcName, funcType, encodedFunctionIndex, subexprIndex, silentEle
     var evaluatedSubexp = eval(subexpressions[funcType][subexprIndex]);
     return indexExprReturnSpecimen({
         funcType: funcType,
-        encGen: flattenDeep([1, encodedFunctionIndex, z2p(subexprIndex), 0]),
+        encGen: flattenDeep([1, encodedFunctionIndex, 0.57, z2p(subexprIndex), 0]),
         decGen: funcName + "(" + subexprIndex + ")",
         encPhen: evaluatedSubexp.encPhen,
         phenLength: evaluatedSubexp.phenLength,
@@ -799,7 +796,6 @@ var decodeGenotype = encGen => {
     var encGenLength = encGen.length;
     var decodedGenotype = "";
     var pos = 0;
-    var foo = 0;
     while (pos < encGenLength) {
         switch (encGen[pos]) {
             case 0:
@@ -860,4 +856,3 @@ var decodeGenotype = encGen => {
     }
     return decodedGenotype.replace(/\,\)/g,")").replace(/\,\]/g,"]").slice(0, -1);
 }
-

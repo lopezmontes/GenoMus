@@ -28,7 +28,7 @@
             }
         },
         "sConcatS": {
-            "functionIndex": 43,
+            "functionIndex": 44,
             "arguments": ["voiceF", "voiceF"],
             "description": "concatenates two scores sequentially",
             "metadata": {
