@@ -985,7 +985,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `vConcatV`  | 43 <sub>.575462 in progress</sub> | concatenates two voices sequentially
 | `sConcatS`  | 44 <sub>.193496 in progress</sub> | concatenates two scores sequentially
 | `eAddPitch` | 45 <sub>.811529 in progress</sub> | adds a pitch to an event
-| `vRepeatE`  | 46 <sub>.429563 in progress</sub> | repeats an event a number of times
+| `vRepeatE`  | 46 <sub>.957428s in progress</sub> | repeats an event a number of times
 | `lRepeatL`  | 47 <sub>not yet implemented</sub> | repeats a list a number of times
 | `vRepeatV`  | 48 <sub>not yet implemented</sub> | repeats a voice a number of times
 | `sRepeatS`  | 49 <sub>not yet implemented</sub> | repeats a score a number of times
