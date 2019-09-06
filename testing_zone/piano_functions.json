@@ -49,7 +49,7 @@
         },
         "vAutoref": {
             "functionIndex": 28,
-            "arguments": ["leafAutoref"],
+            "arguments": ["autorefLeaf"],
             "description": "points to a previous voice",
             "metadata": {
                 "date": 20190906,
@@ -105,7 +105,7 @@
         },
         "eAutoref": {
             "functionIndex": 27,
-            "arguments": ["leafAutoref"],
+            "arguments": ["autorefLeaf"],
             "description": "points to a previous event",
             "metadata": {
                 "date": 20190906,
@@ -116,7 +116,7 @@
     "listF": {
         "l": {
             "functionIndex": 1,
-            "arguments": ["leafArray"],
+            "arguments": ["leaves"],
             "description": "list identity function",
             "metadata": {
                 "date": 20190905,
@@ -125,7 +125,7 @@
         },
         "ln": {
             "functionIndex": 15,
-            "arguments": ["leafArray"],
+            "arguments": ["notevalueLeaves"],
             "description": "list of notevalues identity function",
             "metadata": {
                 "date": 20190906,
@@ -134,7 +134,7 @@
         },
         "lm": {
             "functionIndex": 17,
-            "arguments": ["leafArray"],
+            "arguments": ["midipitchLeaves"],
             "description": "list of midipitches identity function",
             "metadata": {
                 "date": 20190906,
@@ -143,7 +143,7 @@
         },
         "lAutoref": {
             "functionIndex": 26,
-            "arguments": ["leafAutoref"],
+            "arguments": ["autorefLeaf"],
             "description": "points to a previous list",
             "metadata": {
                 "date": 20190906,
@@ -245,7 +245,7 @@
         },
         "n": {
             "functionIndex": 5,
-            "arguments": ["leaf"],
+            "arguments": ["notevalueLeaf"],
             "description": "notevalue parameter identity function",
             "metadata": {
                 "date": 20190906,
@@ -255,7 +255,7 @@
         },
         "m": {
             "functionIndex": 7,
-            "arguments": ["leaf"],
+            "arguments": ["midipitchLeaf"],
             "description": "midipitch parameter identity function",
             "metadata": {
                 "date": 20190906,
@@ -265,7 +265,7 @@
         },
         "a": {
             "functionIndex": 9,
-            "arguments": ["leaf"],
+            "arguments": ["articulationLeaf"],
             "description": "articulation parameter identity function",
             "metadata": {
                 "date": 20190906,
@@ -275,7 +275,7 @@
         },
         "i": {
             "functionIndex": 10,
-            "arguments": ["leaf"],
+            "arguments": ["intensityLeaf"],
             "description": "intensity parameter identity function",
             "metadata": {
                 "date": 20190906,
@@ -285,7 +285,7 @@
         },
         "q": {
             "functionIndex": 12,
-            "arguments": ["leaf"],
+            "arguments": ["quantizedLeaf"],
             "description": "quantized integer parameter identity function",
             "metadata": {
                 "date": 20190906,
@@ -295,7 +295,7 @@
         },
         "pAutoref": {
             "functionIndex": 25,
-            "arguments": ["leafAutoref"],
+            "arguments": ["autorefLeaf"],
             "description": "points to a previous parameter",
             "metadata": {
                 "date": 20190906,

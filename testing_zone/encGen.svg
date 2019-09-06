@@ -1,10 +1,11 @@
 <svg version='1.1'
     baseProfile='full'
-    width='44' height='140'
+    width='55' height='140'
     xmlns='http://www.w3.org/2000/svg'>
-    <rect x='0' y='0' width=';44' height='140' style='fill:white;' />
+    <rect x='0' y='0' width=';55' height='140' style='fill:white;' />
     <rect x='0' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='11' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='22' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
-    <rect x='33' y='7.370999999999981' rx='5' ry='5' width='10' height='132.62900000000002' style='fill:hsl(107,93%,50%)' />
+    <rect x='11' y='106.5558' rx='5' ry='5' width='10' height='33.444199999999995' style='fill:hsl(10,93%,50%)' />
+    <rect x='22' y='57.19999999999999' rx='5' ry='5' width='10' height='82.80000000000001' style='fill:hsl(267,93%,50%)' />
+    <rect x='33' y='31.732219999999998' rx='5' ry='5' width='10' height='108.26778' style='fill:hsl(182,93%,50%)' />
+    <rect x='44' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
 </svg>
