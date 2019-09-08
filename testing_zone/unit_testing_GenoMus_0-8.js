@@ -743,46 +743,38 @@ encodeGenotype = decGen => {
             decGen = decGen.substr(1);
         }
         else if (/^\)/.test(decGen)) {
-            console.log("es )");
             encodedGenotype.push(0);
             decGen = decGen.substr(1);
         }
         else if (/^\]/.test(decGen)) {
-            console.log("es ]");
             encodedGenotype.push(0.2);
             decGen = decGen.substr(1);
         }
         else if (/^\[/.test(decGen)) {
-            console.log("es [");
             encodedGenotype.push(0.8);
             decGen = decGen.substr(1);
         }
         else if (/^[a-zA-Z]/.test(decGen)) {
-            console.log("es funcion");
             do {
                 readToken += decGen[0];
                 decGen = decGen.substr(1);
             } while (decGen[pos] != "(");
-            console.log("leido " + readToken);
             if (GenoMusPianoFunctionLibrary.functionNames[readToken] == undefined) {
                 console.log("Error: Invalid function name. Not found in the library.");
                 return encodedGenotype;
             }
             else {
                 leafType = GenoMusPianoFunctionLibrary.functionNames[readToken].arguments[0];
-                console.log("leaf type: " + leafType);
                 encodedGenotype.push(1, GenoMusPianoFunctionLibrary.functionNames[readToken].encIndex);
             }
             readToken = "";
             decGen = decGen.substr(1);
         }
         else if ((/^\d/.test(decGen) || /^./.test(decGen) || /^\//.test(decGen)) && /^\,/.test(decGen) == false && /^\)/.test(decGen) == false && /^\]/.test(decGen) == false) {
-            console.log("es numero");
             while ((/^\d/.test(decGen) || /^./.test(decGen) || /^\//.test(decGen)) && /^\,/.test(decGen) == false && /^\)/.test(decGen) == false && /^\]/.test(decGen) == false) {
                 readToken += decGen[0];
                 decGen = decGen.substr(1);
             };
-            console.log("read token is " + readToken);
             switch (leafType) {
                 case "leaf":
                     encodedGenotype.push(0.5, parseFloat(readToken)); break;
@@ -812,7 +804,6 @@ encodeGenotype = decGen => {
             decGen = decGen.substr(1);
         }
     } while (decGen.length > 0);
-    console.log(decGen);
     return encodedGenotype;
 }
 
