@@ -628,54 +628,31 @@ var decodeGenotype = encGen => {
     while (pos < encGenLength) {
         switch (encGen[pos]) {
             case 0:
-                decodedGenotype += "),";
-                break;
+                decodedGenotype += "),"; break;
             case 0.2:
-                decodedGenotype += "],";
-                break;
+                decodedGenotype += "],"; break;
             case 0.5:
-                pos++;
-                decodedGenotype += encGen[pos] + ",";
-                break;
+                pos++; decodedGenotype += encGen[pos] + ","; break;
             case 0.51:
-                pos++;
-                decodedGenotype += p2n(encGen[pos]) + ",";
-                break;
+                pos++; decodedGenotype += p2n(encGen[pos]) + ","; break;
             case 0.52:
-                pos++;
-                decodedGenotype += p2d(encGen[pos]) + ",";
-                break;
+                pos++; decodedGenotype += p2d(encGen[pos]) + ","; break;
             case 0.53:
-                pos++;
-                decodedGenotype += p2m(encGen[pos]) + ",";
-                break;
+                pos++; decodedGenotype += p2m(encGen[pos]) + ","; break;
             case 0.54:
-                pos++;
-                decodedGenotype += p2f(encGen[pos]) + ",";
-                break;
+                pos++; decodedGenotype += p2f(encGen[pos]) + ","; break;
             case 0.55:
-                pos++;
-                decodedGenotype += p2a(encGen[pos]) + ",";
-                break;
+                pos++; decodedGenotype += p2a(encGen[pos]) + ","; break;
             case 0.56:
-                pos++;
-                decodedGenotype += p2i(encGen[pos]) + ",";
-                break;
+                pos++; decodedGenotype += p2i(encGen[pos]) + ","; break;
             case 0.57:
-                pos++;
-                decodedGenotype += p2z(encGen[pos]) + ",";
-                break;
+                pos++; decodedGenotype += p2z(encGen[pos]) + ","; break;
             case 0.58:
-                pos++;
-                decodedGenotype += p2q(encGen[pos]) + ",";
-                break;
+                pos++; decodedGenotype += p2q(encGen[pos]) + ","; break;
             case 0.8:
-                decodedGenotype += "[";
-                break;
+                decodedGenotype += "["; break;
             case 1:
-                pos++;
-                decodedGenotype += GenoMusPianoFunctionLibrary.encodedIndexes[encGen[pos]] + "(";
-                break;
+                pos++; decodedGenotype += GenoMusPianoFunctionLibrary.encodedIndexes[encGen[pos]] + "("; break;
             default: 
                 console.log("Error: not recognized token reading input decoded genotype.");
                 console.log("Readed value:" + encGen[pos]);
