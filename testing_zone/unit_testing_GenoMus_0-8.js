@@ -687,6 +687,8 @@ var decodeGenotype = encGen => {
 }
 
 
+
+
 ////// VISUALIZATION
 
 var visualizeSpecimen = (normArray, filename) => {
@@ -727,6 +729,33 @@ var visualizeSpecimen = (normArray, filename) => {
     fs.writeFileSync(filename + '.svg', SVGcode);
 };
 
+
+// Encode genotypes from decoded genotypes
+encodeGenotype = decGen => {
+    var encodedGenotype = [];
+    decGen = decGen.replace(/ /g,"");
+    var pos = 0;
+    if ( /^\)/.test(decGen) ) {
+        console.log("es )");
+    }
+    else if ( /^\]/.test(decGen) ) {
+        console.log("es ]");
+    } 
+    else if ( /^\[/.test(decGen) ) {
+        console.log("es [");
+    } 
+    else if ( /^[a-zA-Z]/.test(decGen) ) {
+        console.log("es funcion");
+    } 
+    else if ( /^\d/.test(decGen) || /^./.test(decGen) ) {
+        console.log("es numero");
+    } 
+    else {
+        console.log("Error: invalidad character in decoded genotype.")
+    }
+    console.log(decGen);
+    return encodedGenotype;
+}
 
 ///////////////////////////////
 ///////// proto regression test
