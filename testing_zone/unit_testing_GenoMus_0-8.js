@@ -730,7 +730,7 @@ var visualizeSpecimen = (normArray, filename) => {
 };
 
 
-// Encode genotypes from decoded genotypes
+// ENCODING GENOTYPES
 encodeGenotype = decGen => {
     var encodedGenotype = [];
     var funcIndex, readFuncName = "";
