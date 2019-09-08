@@ -297,7 +297,7 @@ var lRnd = (numItemsSeed, seqSeed) => {
 // concatenates two lists sequentially
 var lConcatL = (l1, l2) => indexExprReturnSpecimen({
     funcType: "listF",
-    encGen: flattenDeep([1, 0.339394,, l1.encGen, l2.encGen, 0]),
+    encGen: flattenDeep([1, 0.339394, , l1.encGen, l2.encGen, 0]),
     decGen: "lConcatL(" + l1.decGen + "," + l2.decGen + ")",
     encPhen: l1.encPhen.concat(l2.encPhen)
 });
@@ -436,7 +436,7 @@ const PHI = (1 + Math.sqrt(5)) / 2;
 // round fractional part to 6 digits
 var r6d = f => Math.round(f * 1000000) / 1000000;
 
-var norm2notevalue = p => decimalToFraction(Math.pow(2, 10 * p - 8));
+var norm2notevalue = p => decimal2fraction(Math.pow(2, 10 * p - 8));
 var p2n = norm2notevalue;
 var notevalue2norm = n => r6d((Math.log10(n) + 8 * Math.log10(2)) / (10 * Math.log10(2)));
 var n2p = notevalue2norm;
@@ -499,7 +499,7 @@ var quantizedLookupTable = [0, 0.0005, 0.001, 0.003, 0.006, 0.008, 0.01, 0.015, 
 // Still to refine to avoid too weird numbers
 var gcd = (a, b) => (b) ? gcd(b, a % b) : a;
 
-var decimalToFraction = function (_decimal) {
+var decimal2fraction = function (_decimal) {
     if (_decimal == parseInt(_decimal)) {
         var output = parseInt(_decimal);
         if (output.length < 7) {
@@ -529,6 +529,30 @@ var decimalToFraction = function (_decimal) {
         }
     }
 };
+var d2f = decimal2fraction;
+
+// adapted from https://gist.github.com/drifterz28/6971440
+function fraction2decimal(fraction) {
+    var result, wholeNum = 0, frac, deci = 0;
+    if(fraction.search('/') >= 0){
+        if(fraction.search('-') >= 0){
+            var wholeNum = fraction.split('-');
+            frac = wholeNum[1];
+            wholeNum = parseInt(wholeNum, 10);
+        }else{
+            frac = fraction;
+        }
+        if(fraction.search('/') >=0){
+            frac =  frac.split('/');
+            deci = parseInt(frac[0], 10) / parseInt(frac[1], 10);
+        }
+        result = wholeNum + deci;
+    }else{
+        result = +fraction;
+    }
+    return r6d(result);
+}
+var f2d = fraction2decimal;
 
 var checkGoldenIntegerConversions = function (max) {
     var noError = true;
@@ -653,14 +677,14 @@ var decodeGenotype = encGen => {
                 decodedGenotype += "["; break;
             case 1:
                 pos++; decodedGenotype += GenoMusPianoFunctionLibrary.encodedIndexes[encGen[pos]] + "("; break;
-            default: 
+            default:
                 console.log("Error: not recognized token reading input decoded genotype.");
                 console.log("Readed value:" + encGen[pos]);
                 return decodedGenotype;
         }
         pos++;
     }
-    return decodedGenotype.replace(/\,\)/g,")").replace(/\,\]/g,"]").slice(0, -1);
+    return decodedGenotype.replace(/\,\)/g, ")").replace(/\,\]/g, "]").slice(0, -1);
 }
 
 
@@ -710,50 +734,83 @@ var visualizeSpecimen = (normArray, filename) => {
 // ENCODING GENOTYPES
 encodeGenotype = decGen => {
     var encodedGenotype = [];
-    var leafType, readFuncName = "";
-    decGen = decGen.replace(/ /g,"");
+    var leafType, leafIndex, readToken = "";
+    decGen = decGen.replace(/ /g, "");
     var pos = 0;
     do {
-        if ( /^\,/.test(decGen) ) {
-            // ignores commas to be read as a number
+        if (/^\,/.test(decGen) || /^\(/.test(decGen)) {
+            // ignores commas and open parenthesis, to not be read as a number
+            decGen = decGen.substr(1);
         }
-        else if ( /^\)/.test(decGen) ) {
+        else if (/^\)/.test(decGen)) {
             console.log("es )");
             encodedGenotype.push(0);
+            decGen = decGen.substr(1);
         }
-        else if ( /^\]/.test(decGen) ) {
+        else if (/^\]/.test(decGen)) {
             console.log("es ]");
             encodedGenotype.push(0.2);
-        } 
-        else if ( /^\[/.test(decGen) ) {
+            decGen = decGen.substr(1);
+        }
+        else if (/^\[/.test(decGen)) {
             console.log("es [");
             encodedGenotype.push(0.8);
-        } 
-        else if ( /^[a-zA-Z]/.test(decGen) ) {
+            decGen = decGen.substr(1);
+        }
+        else if (/^[a-zA-Z]/.test(decGen)) {
             console.log("es funcion");
             do {
-                readFuncName += decGen[0];
+                readToken += decGen[0];
                 decGen = decGen.substr(1);
             } while (decGen[pos] != "(");
-            console.log("leido " + readFuncName);
-            if (GenoMusPianoFunctionLibrary.functionNames[readFuncName] == undefined) {
+            console.log("leido " + readToken);
+            if (GenoMusPianoFunctionLibrary.functionNames[readToken] == undefined) {
                 console.log("Error: Invalid function name. Not found in the library.");
                 return encodedGenotype;
-            } 
-            else {
-                leafType = GenoMusPianoFunctionLibrary.functionNames[readFuncName].arguments[0];
-                console.log("leaf type: " + leafType);
-                encodedGenotype.push(1, GenoMusPianoFunctionLibrary.functionNames[readFuncName].encIndex);
             }
-            readFuncName = "";
-        } 
-        else if ( /^\d/.test(decGen) || /^./.test(decGen) ) {
-            console.log("es numero");
-        } 
-        else {
-            console.log("Error: invalidad character in decoded genotype.")
+            else {
+                leafType = GenoMusPianoFunctionLibrary.functionNames[readToken].arguments[0];
+                console.log("leaf type: " + leafType);
+                encodedGenotype.push(1, GenoMusPianoFunctionLibrary.functionNames[readToken].encIndex);
+            }
+            readToken = "";
+            decGen = decGen.substr(1);
         }
-        decGen = decGen.substr(1);
+        else if ((/^\d/.test(decGen) || /^./.test(decGen)) && /^\,/.test(decGen) == false && /^\)/.test(decGen) == false) {
+            console.log("es numero");
+            while ((/^\d/.test(decGen) || /^./.test(decGen)) && /^\,/.test(decGen) == false && /^\)/.test(decGen) == false) {
+                readToken += decGen[0];
+                decGen = decGen.substr(1);
+            };
+            console.log("read token is " + readToken);
+            switch (leafType) {
+                case "leaf":
+                    encodedGenotype.push(0.5, parseFloat(readToken)); break;
+                case "notevalueLeaf":
+                    encodedGenotype.push(0.51, n2p(parseFloat(readToken))); break;
+                case "durationLeaf":
+                    encodedGenotype.push(0.52, d2p(parseFloat(readToken))); break;
+                case "midipitchLeaf":
+                    encodedGenotype.push(0.53, m2p(parseFloat(readToken))); break;
+                case "frequencyLeaf":
+                    encodedGenotype.push(0.54, f2p(parseFloat(readToken))); break;
+                case "articulationLeaf":
+                    encodedGenotype.push(0.55, a2p(parseFloat(readToken))); break;
+                case "intensityLeaf":
+                    encodedGenotype.push(0.56, i2p(parseFloat(readToken))); break;
+                case "goldenintegerLeaf":
+                    encodedGenotype.push(0.57, z2p(parseFloat(readToken))); break;
+                case "quantizedLeaf":
+                    encodedGenotype.push(0.58, q2p(parseFloat(readToken))); break;
+                default:
+                    console.log("Error: leaf type not found.");
+                    return encodedGenotype;
+            }
+            readToken = "";
+        }
+        else {
+            decGen = decGen.substr(1);
+        }
     } while (decGen.length > 0);
     console.log(decGen);
     return encodedGenotype;
@@ -761,8 +818,13 @@ encodeGenotype = decGen => {
 
 encodeGenotype(",e(\n   n( 1 /8 ), m(  73 ), p (0) ,\n p(.8))");
 encodeGenotype("e(\n   n( 1 /8 ), ml(  73 ), p (0) ,\n p(.8))");
-e(   n( 1 /8 ), m(  73 ), p (0) , p(.8));
+e(n(1 / 8), m(73), p(0), p(.8));
 
+encodeGenotype("e(p(.56),p(.44),p(0.62),p(.85))");
+
+
+s(v(e(n(1/16),m(69),a(0.4),i(80))));
+encodeGenotype("s(v(e(n(1/16),m(69),a(0.4),i(80))))");
 ///////////////////////////////
 ///////// proto regression test
 
