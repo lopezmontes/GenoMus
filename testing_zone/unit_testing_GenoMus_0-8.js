@@ -733,29 +733,52 @@ var visualizeSpecimen = (normArray, filename) => {
 // Encode genotypes from decoded genotypes
 encodeGenotype = decGen => {
     var encodedGenotype = [];
+    var funcIndex, readFuncName = "";
     decGen = decGen.replace(/ /g,"");
     var pos = 0;
-    if ( /^\)/.test(decGen) ) {
-        console.log("es )");
-    }
-    else if ( /^\]/.test(decGen) ) {
-        console.log("es ]");
-    } 
-    else if ( /^\[/.test(decGen) ) {
-        console.log("es [");
-    } 
-    else if ( /^[a-zA-Z]/.test(decGen) ) {
-        console.log("es funcion");
-    } 
-    else if ( /^\d/.test(decGen) || /^./.test(decGen) ) {
-        console.log("es numero");
-    } 
-    else {
-        console.log("Error: invalidad character in decoded genotype.")
-    }
+    do {
+        if ( /^\)/.test(decGen) ) {
+            console.log("es )");
+            encodedGenotype.push(0);
+        }
+        else if ( /^\]/.test(decGen) ) {
+            console.log("es ]");
+            encodedGenotype.push(0.2);
+        } 
+        else if ( /^\[/.test(decGen) ) {
+            console.log("es [");
+            encodedGenotype.push(0.8);
+        } 
+        else if ( /^[a-zA-Z]/.test(decGen) ) {
+            console.log("es funcion");
+            do {
+                readFuncName += decGen[0];
+                decGen = decGen.substr(1);
+            } while (decGen[pos] != "(");
+            console.log("leido " + readFuncName);
+            if (GenoMusPianoFunctionLibrary.functionNames[readFuncName] == undefined) {
+                console.log("Error: Invalid function name. Not found in the library.");
+                return encodedGenotype;
+            } 
+            else {
+                encodedGenotype.push(1, GenoMusPianoFunctionLibrary.functionNames[readFuncName].encIndex);
+            }
+            readFuncName = "";
+        } 
+        else if ( /^\d/.test(decGen) || /^./.test(decGen) ) {
+            console.log("es numero");
+        } 
+        else {
+            console.log("Error: invalidad character in decoded genotype.")
+        }
+        decGen = decGen.substr(1);
+    } while (decGen.length > 0);
     console.log(decGen);
     return encodedGenotype;
 }
+
+encodeGenotype("e(\n   n( 1 /8 ), m(  73 ), p (0) ,\n p(.8))");
+e(   n( 1 /8 ), m(  73 ), p (0) , p(.8));
 
 ///////////////////////////////
 ///////// proto regression test
