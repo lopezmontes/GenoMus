@@ -710,11 +710,14 @@ var visualizeSpecimen = (normArray, filename) => {
 // ENCODING GENOTYPES
 encodeGenotype = decGen => {
     var encodedGenotype = [];
-    var funcIndex, readFuncName = "";
+    var leafType, readFuncName = "";
     decGen = decGen.replace(/ /g,"");
     var pos = 0;
     do {
-        if ( /^\)/.test(decGen) ) {
+        if ( /^\,/.test(decGen) ) {
+            // ignores commas to be read as a number
+        }
+        else if ( /^\)/.test(decGen) ) {
             console.log("es )");
             encodedGenotype.push(0);
         }
@@ -738,6 +741,8 @@ encodeGenotype = decGen => {
                 return encodedGenotype;
             } 
             else {
+                leafType = GenoMusPianoFunctionLibrary.functionNames[readFuncName].arguments[0];
+                console.log("leaf type: " + leafType);
                 encodedGenotype.push(1, GenoMusPianoFunctionLibrary.functionNames[readFuncName].encIndex);
             }
             readFuncName = "";
@@ -754,7 +759,8 @@ encodeGenotype = decGen => {
     return encodedGenotype;
 }
 
-encodeGenotype("e(\n   n( 1 /8 ), m(  73 ), p (0) ,\n p(.8))");
+encodeGenotype(",e(\n   n( 1 /8 ), m(  73 ), p (0) ,\n p(.8))");
+encodeGenotype("e(\n   n( 1 /8 ), ml(  73 ), p (0) ,\n p(.8))");
 e(   n( 1 /8 ), m(  73 ), p (0) , p(.8));
 
 ///////////////////////////////
