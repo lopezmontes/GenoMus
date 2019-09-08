@@ -643,99 +643,12 @@ var GenoMusPianoFunctionLibrary = createFunctionIndexesCatalogues('piano_functio
 // export the catalogues of function indexes, ordered by function name, encoded indexes and integer indexes
 createJSON(GenoMusPianoFunctionLibrary, 'GenoMus_piano_function_library.json');
 
-
-// DECODING GENOTYPES
-var decodeGenotype = encGen => {
-    var encGenLength = encGen.length;
-    var decodedGenotype = "";
-    var pos = 0;
-    while (pos < encGenLength) {
-        switch (encGen[pos]) {
-            case 0:
-                decodedGenotype += "),"; break;
-            case 0.2:
-                decodedGenotype += "],"; break;
-            case 0.5:
-                pos++; decodedGenotype += encGen[pos] + ","; break;
-            case 0.51:
-                pos++; decodedGenotype += p2n(encGen[pos]) + ","; break;
-            case 0.52:
-                pos++; decodedGenotype += p2d(encGen[pos]) + ","; break;
-            case 0.53:
-                pos++; decodedGenotype += p2m(encGen[pos]) + ","; break;
-            case 0.54:
-                pos++; decodedGenotype += p2f(encGen[pos]) + ","; break;
-            case 0.55:
-                pos++; decodedGenotype += p2a(encGen[pos]) + ","; break;
-            case 0.56:
-                pos++; decodedGenotype += p2i(encGen[pos]) + ","; break;
-            case 0.57:
-                pos++; decodedGenotype += p2z(encGen[pos]) + ","; break;
-            case 0.58:
-                pos++; decodedGenotype += p2q(encGen[pos]) + ","; break;
-            case 0.8:
-                decodedGenotype += "["; break;
-            case 1:
-                pos++; decodedGenotype += GenoMusPianoFunctionLibrary.encodedIndexes[encGen[pos]] + "("; break;
-            default:
-                console.log("Error: not recognized token reading input decoded genotype.");
-                console.log("Readed value:" + encGen[pos]);
-                return decodedGenotype;
-        }
-        pos++;
-    }
-    return decodedGenotype.replace(/\,\)/g, ")").replace(/\,\]/g, "]").slice(0, -1);
-}
-
-
-
-
-////// VISUALIZATION
-
-var visualizeSpecimen = (normArray, filename) => {
-    var maxLinesPerRow = 130, graphWidth, graphHeight;
-    var lineColor, lineMaxHeight = 140, lineWidth = 10, lineOffset = 1, rowOffset = 15, lineColor;
-    var roundedCornerRadius = lineWidth * 0.5;
-    var specimenLength = normArray.length;
-    var totalRows = Math.ceil(specimenLength / maxLinesPerRow);
-    if (specimenLength > maxLinesPerRow) {
-        graphWidth = maxLinesPerRow * (lineWidth + lineOffset);
-    } else {
-        graphWidth = specimenLength * (lineWidth + 1);
-    }
-    graphHeight = lineMaxHeight * totalRows + rowOffset * (totalRows - 1);
-    var lines = "";
-    var SVGheader = "<svg version='1.1'\n    baseProfile='full'\n    width='" +
-        graphWidth + "' height='" + graphHeight +
-        "'\n    xmlns='http://www.w3.org/2000/svg'>\n    <rect x='0' y='0' width=';" +
-        graphWidth + "' height='" + graphHeight +
-        "' style='fill:white;' />\n";
-    for (var i = 0; i < specimenLength; i++) {
-        lineHeight = normArray[i] * (lineMaxHeight - lineWidth) + lineWidth;
-        if (normArray[i] == 0 || normArray[i] == 1) {
-            lineColor = "black";
-        } else
-            if (normArray[i] == 0.2 || normArray[i] == 0.5 || normArray[i] == 0.8) {
-                lineColor = "dimgray";
-            } else {
-                lineColor = "hsl(" + (norm2goldeninteger(normArray[i]) % 360) + "," + 93 + "%," + 50 + "%)";
-            }
-        lines = lines +
-            "    <rect x='" + (i * (lineWidth + lineOffset) - Math.floor(i / maxLinesPerRow) * maxLinesPerRow * (lineWidth + lineOffset)) +
-            "' y='" + (Math.floor(i / maxLinesPerRow) * (lineMaxHeight + rowOffset) + lineMaxHeight - lineHeight) +
-            "' rx='" + roundedCornerRadius + "' ry='" + roundedCornerRadius + "' width='" + lineWidth + "' height='" + lineHeight +
-            "' style='fill:" + lineColor + "' />\n";
-    }
-    var SVGcode = SVGheader + lines + "</svg>";
-    fs.writeFileSync(filename + '.svg', SVGcode);
-};
-
-
-// ENCODING GENOTYPES
+////////// ENCODING AND DECODING GENOTYPES
+// Genotypes encoder
 encodeGenotype = decGen => {
     var encodedGenotype = [];
     var leafType, leafIndex, readToken = "";
-    decGen = decGen.replace(/ /g, "");
+    decGen = decGen.replace(/ /g, ""); // remove blanck spaces
     var pos = 0;
     do {
         if (/^\,/.test(decGen) || /^\(/.test(decGen)) {
@@ -806,6 +719,91 @@ encodeGenotype = decGen => {
     } while (decGen.length > 0);
     return encodedGenotype;
 }
+
+// Genotypes decoder
+var decodeGenotype = encGen => {
+    var encGenLength = encGen.length;
+    var decodedGenotype = "";
+    var pos = 0;
+    while (pos < encGenLength) {
+        switch (encGen[pos]) {
+            case 0:
+                decodedGenotype += "),"; break;
+            case 0.2:
+                decodedGenotype += "],"; break;
+            case 0.5:
+                pos++; decodedGenotype += encGen[pos] + ","; break;
+            case 0.51:
+                pos++; decodedGenotype += p2n(encGen[pos]) + ","; break;
+            case 0.52:
+                pos++; decodedGenotype += p2d(encGen[pos]) + ","; break;
+            case 0.53:
+                pos++; decodedGenotype += p2m(encGen[pos]) + ","; break;
+            case 0.54:
+                pos++; decodedGenotype += p2f(encGen[pos]) + ","; break;
+            case 0.55:
+                pos++; decodedGenotype += p2a(encGen[pos]) + ","; break;
+            case 0.56:
+                pos++; decodedGenotype += p2i(encGen[pos]) + ","; break;
+            case 0.57:
+                pos++; decodedGenotype += p2z(encGen[pos]) + ","; break;
+            case 0.58:
+                pos++; decodedGenotype += p2q(encGen[pos]) + ","; break;
+            case 0.8:
+                decodedGenotype += "["; break;
+            case 1:
+                pos++; decodedGenotype += GenoMusPianoFunctionLibrary.encodedIndexes[encGen[pos]] + "("; break;
+            default:
+                console.log("Error: not recognized token reading input decoded genotype.");
+                console.log("Readed value:" + encGen[pos]);
+                return decodedGenotype;
+        }
+        pos++;
+    }
+    return decodedGenotype.replace(/\,\)/g, ")").replace(/\,\]/g, "]").slice(0, -1);
+}
+
+
+////// VISUALIZATION
+
+var visualizeSpecimen = (normArray, filename) => {
+    var maxLinesPerRow = 130, graphWidth, graphHeight;
+    var lineColor, lineMaxHeight = 140, lineWidth = 10, lineOffset = 1, rowOffset = 15, lineColor;
+    var roundedCornerRadius = lineWidth * 0.5;
+    var specimenLength = normArray.length;
+    var totalRows = Math.ceil(specimenLength / maxLinesPerRow);
+    if (specimenLength > maxLinesPerRow) {
+        graphWidth = maxLinesPerRow * (lineWidth + lineOffset);
+    } else {
+        graphWidth = specimenLength * (lineWidth + 1);
+    }
+    graphHeight = lineMaxHeight * totalRows + rowOffset * (totalRows - 1);
+    var lines = "";
+    var SVGheader = "<svg version='1.1'\n    baseProfile='full'\n    width='" +
+        graphWidth + "' height='" + graphHeight +
+        "'\n    xmlns='http://www.w3.org/2000/svg'>\n    <rect x='0' y='0' width=';" +
+        graphWidth + "' height='" + graphHeight +
+        "' style='fill:white;' />\n";
+    for (var i = 0; i < specimenLength; i++) {
+        lineHeight = normArray[i] * (lineMaxHeight - lineWidth) + lineWidth;
+        if (normArray[i] == 0 || normArray[i] == 1) {
+            lineColor = "black";
+        } else
+            if (normArray[i] == 0.2 || normArray[i] == 0.5 || normArray[i] == 0.8) {
+                lineColor = "dimgray";
+            } else {
+                lineColor = "hsl(" + (norm2goldeninteger(normArray[i]) % 360) + "," + 93 + "%," + 50 + "%)";
+            }
+        lines = lines +
+            "    <rect x='" + (i * (lineWidth + lineOffset) - Math.floor(i / maxLinesPerRow) * maxLinesPerRow * (lineWidth + lineOffset)) +
+            "' y='" + (Math.floor(i / maxLinesPerRow) * (lineMaxHeight + rowOffset) + lineMaxHeight - lineHeight) +
+            "' rx='" + roundedCornerRadius + "' ry='" + roundedCornerRadius + "' width='" + lineWidth + "' height='" + lineHeight +
+            "' style='fill:" + lineColor + "' />\n";
+    }
+    var SVGcode = SVGheader + lines + "</svg>";
+    fs.writeFileSync(filename + '.svg', SVGcode);
+};
+
 
 encodeGenotype(",e(\n   n( 1 /8 ), m(  73 ), p (0) ,\n p(.8))");
 encodeGenotype("e(\n   n( 1 /8 ), ml(  73 ), p (0) ,\n p(.8))");
