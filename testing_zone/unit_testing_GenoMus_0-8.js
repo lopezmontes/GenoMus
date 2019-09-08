@@ -776,9 +776,9 @@ encodeGenotype = decGen => {
             readToken = "";
             decGen = decGen.substr(1);
         }
-        else if ((/^\d/.test(decGen) || /^./.test(decGen)) && /^\,/.test(decGen) == false && /^\)/.test(decGen) == false) {
+        else if ((/^\d/.test(decGen) || /^./.test(decGen) || /^\//.test(decGen)) && /^\,/.test(decGen) == false && /^\)/.test(decGen) == false && /^\]/.test(decGen) == false) {
             console.log("es numero");
-            while ((/^\d/.test(decGen) || /^./.test(decGen)) && /^\,/.test(decGen) == false && /^\)/.test(decGen) == false) {
+            while ((/^\d/.test(decGen) || /^./.test(decGen) || /^\//.test(decGen)) && /^\,/.test(decGen) == false && /^\)/.test(decGen) == false && /^\]/.test(decGen) == false) {
                 readToken += decGen[0];
                 decGen = decGen.substr(1);
             };
@@ -787,7 +787,7 @@ encodeGenotype = decGen => {
                 case "leaf":
                     encodedGenotype.push(0.5, parseFloat(readToken)); break;
                 case "notevalueLeaf":
-                    encodedGenotype.push(0.51, n2p(parseFloat(readToken))); break;
+                    encodedGenotype.push(0.51, n2p(fraction2decimal(readToken))); break;
                 case "durationLeaf":
                     encodedGenotype.push(0.52, d2p(parseFloat(readToken))); break;
                 case "midipitchLeaf":
@@ -825,6 +825,13 @@ encodeGenotype("e(p(.56),p(.44),p(0.62),p(.85))");
 
 s(v(e(n(1/16),m(69),a(0.4),i(80))));
 encodeGenotype("s(v(e(n(1/16),m(69),a(0.4),i(80))))");
+encodeGenotype("z(2.6)");
+encodeGenotype("l([0.34,0.1234,0.1234])");
+encodeGenotype("lm([34,62.34,34,103])");
+encodeGenotype("ln([1/2,1/4,1/16,1/16])");
+encodeGenotype("l3P(p(0.4),m(45.5),pAutoref(1))");
+encodeGenotype("vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),e(p(.154),p(.14),p(1),p(.1834))))")
+
 ///////////////////////////////
 ///////// proto regression test
 
