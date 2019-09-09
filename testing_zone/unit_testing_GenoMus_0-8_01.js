@@ -668,6 +668,12 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
             operationF: {}
         }, 
         mandatoryFunctions: {} };
+
+    // add mandatory functions and remove duplicates if needed
+    eligibleFunc.includedFunctions = 
+    [... new Set(eligibleFunc.includedFunctions.concat(eligibleFunc.mandatoryFunctions))];
+    console.log("eligibles: " + eligibleFunc.includedFunctions);
+    // add included functions    
     var totalIncludedFunctions = eligibleFunc.includedFunctions.length;
     if (totalIncludedFunctions == 0) {
         eligibleFuncLib.decodedIndexes = completeLib.decodedIndexes;
@@ -688,6 +694,7 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
             eligibleFuncLib.functionLibrary[functTyp][readFunc] = completeLib.functionLibrary[functTyp][readFunc];
         }
     }
+
 
     return eligibleFuncLib;
 }
