@@ -45,6 +45,8 @@ var tt = function (decGenotype) {
     // visualizeSpecimen(output.encGen, "encGen");
     // visualizeSpecimen(output.encPhen, "encPhen");
     console.log(decodeGenotype(output.encGen));
+    console.log(eval(decGenotype).encGen);
+    console.log(encodeGenotype(decGenotype));
     // return output;
 }
 
@@ -847,7 +849,7 @@ tt("l3P(p(0.4),p(.345),pAutoref(1))");
 tt("l4P(p(0.4),pRnd(),p(0.2),p(0.2345))");
 tt("l5P(p(0.479),pRnd(),p(0.2),p(0.2345),p(.45))");
 tt("l5P(p(0.4),pRnd(),pAutoref(0),pRnd(),pAutoref(3))");
-tt("lRnd(p(.12),p(.3))");
+tt("lRnd(p(.12),m(37))");
 tt("lConcatL(l([0.2,0.143,0.23]),l([0.2234,0.1343,0.923,0.7]))");
 tt("lConcatL(lRnd(p(.2),p(.3)),lRnd(pAutoref(0),p(.30002)))");
 tt("lConcatL(lRnd(p(.209),p(.3)),lAutoref(0))");
@@ -861,7 +863,7 @@ tt("vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))
 tt("s(vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0))))")
 tt("sConcatS(s(v(e(p(.5),p(.4),pRnd(),p(.26)))),s(v(e(p(.4565),p(.674),p(.25),p(.8)))))");
 tt("oSum(q(34),q(49))");
-tt("lConcatL(lRnd(p(.2),p(.3)),l2P(pAutoref(0),pAdd(p(74),pAutoref(1))))");
+tt("lConcatL(lRnd(p(.2),p(.3)),l2P(pAutoref(0),oSum(p(74),pAutoref(1))))");
 tt("lRepeatP(pRnd(),q(13))");
 tt("lIterP(p(.34),p(0.9))");
 tt("lIterP(pRnd(),p(0.8))");
@@ -871,7 +873,6 @@ tt("lIterL(l3P(p(0.333),pRnd(),pRnd()),p(.6))");
 tt("lIterL(l3P(p(0.333),pRnd(),pAutoref(1)),q(6))");
 tt("vIterE(e(p(.89),pRnd(),pAutoref(0),pRnd()),q(36))");
 tt("s(vIterE(e(p(.89),pRnd(),pAutoref(0),pRnd()),q(36)))");
-tt("sConcatS(s(vIterE(e(p(.89),pRnd(),pAutoref(0),pRnd()),q(36))),sAutoref(0))");
 tt("sConcatS(s(vIterE(e(p(.89),pRnd(),pAutoref(0),pRnd()),q(36))),sAutoref(0))");
 tt("e(pAutoref(5),p(.4),pAutoref(0),p(.8))");
 tt("oSum(oSum(p(39),pAutoref(1)),pAutoref(1))");
