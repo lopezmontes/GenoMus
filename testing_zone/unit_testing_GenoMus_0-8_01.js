@@ -669,6 +669,9 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
         }, 
         mandatoryFunctions: {} };
     var totalIncludedFunctions = eligibleFunc.includedFunctions.length;
+    if (totalIncludedFunctions == 0) {
+        
+    }
     var totalExcludedFunctions = eligibleFunc.excludedFunctions.length;
     var totalMandatoryFunctions = eligibleFunc.mandatoryFunctions.length;
     var readFunc; functTyp;
