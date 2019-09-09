@@ -670,19 +670,23 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
         mandatoryFunctions: {} };
     var totalIncludedFunctions = eligibleFunc.includedFunctions.length;
     if (totalIncludedFunctions == 0) {
-        
+        eligibleFuncLib.decodedIndexe = completeLib.decodedIndexes;
+        eligibleFuncLib.encodedIndexes = completeLib.encodedIndexes;
+        eligibleFuncLib.functionNames = completeLib.functionNames;
     }
-    var totalExcludedFunctions = eligibleFunc.excludedFunctions.length;
-    var totalMandatoryFunctions = eligibleFunc.mandatoryFunctions.length;
-    var readFunc; functTyp;
-    for (var i = 0; i < totalIncludedFunctions; i++) {
-        readFunc = completeLib.decodedIndexes[eligibleFunc.includedFunctions[i]];
-        // functTyp = completeLib.functionNames[readFunc].
-        eligibleFuncLib.decodedIndexes[eligibleFunc.includedFunctions[i].toString()] = readFunc;
-        eligibleFuncLib.encodedIndexes[z2p(eligibleFunc.includedFunctions[i]).toString()] = readFunc;
-        eligibleFuncLib.functionNames[readFunc] = completeLib.functionNames[readFunc];
-        eligibleFuncLib.functionNames[readFunc] = completeLib.functionNames[readFunc];
+    else {
+        var totalExcludedFunctions = eligibleFunc.excludedFunctions.length;
+        var totalMandatoryFunctions = eligibleFunc.mandatoryFunctions.length;
+        var readFunc; functTyp;
+        for (var i = 0; i < totalIncludedFunctions; i++) {
+            readFunc = completeLib.decodedIndexes[eligibleFunc.includedFunctions[i]];
+            // functTyp = completeLib.functionNames[readFunc].
+            eligibleFuncLib.decodedIndexes[eligibleFunc.includedFunctions[i].toString()] = readFunc;
+            eligibleFuncLib.encodedIndexes[z2p(eligibleFunc.includedFunctions[i]).toString()] = readFunc;
+            eligibleFuncLib.functionNames[readFunc] = completeLib.functionNames[readFunc];
+        }
     }
+
     return eligibleFuncLib;
 }
 
