@@ -1,0 +1,56 @@
+{
+    "decodedIndexes": {
+        "0": "p",
+        "1": "l",
+        "2": "e",
+        "25": "pAutoref"
+    },
+    "encodedIndexes": {
+        "0": "p",
+        "0.45085": "pAutoref",
+        "0.236068": "e",
+        "0.618034": "l"
+    },
+    "functionNames": {
+        "p": {
+            "encIndex": 0,
+            "intIndex": 0,
+            "arguments": [
+                "leaf"
+            ]
+        },
+        "pAutoref": {
+            "encIndex": 0.45085,
+            "intIndex": 25,
+            "arguments": [
+                "goldenintegerLeaf"
+            ]
+        },
+        "e": {
+            "encIndex": 0.236068,
+            "intIndex": 2,
+            "arguments": [
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF"
+            ]
+        },
+        "l": {
+            "encIndex": 0.618034,
+            "intIndex": 1,
+            "arguments": [
+                "leaf"
+            ]
+        }
+    },
+    "functionLibrary": {
+        "scoreF": {},
+        "voiceF": {},
+        "eventF": {},
+        "listF": {},
+        "paramF": {},
+        "operationF": {}
+    },
+    "mandatoryFunctions": {}
+}

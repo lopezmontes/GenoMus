@@ -40,14 +40,14 @@ initSubexpressionsArrays();
 // test decoded genotypes
 var tt = function (decGenotype) {
     initSubexpressionsArrays();
-    var output = (eval(decGenotype));
-    // console.log(subexpressions);
-    // visualizeSpecimen(output.encGen, "encGen");
-    // visualizeSpecimen(output.encPhen, "encPhen");
+    var output = (evalDecGen(decGenotype));
+    console.log(subexpressions);
+    visualizeSpecimen(output.encGen, "encGen");
+    visualizeSpecimen(output.encPhen, "encPhen");
     console.log(decodeGenotype(output.encGen));
     console.log(eval(decGenotype).encGen);
     console.log(encodeGenotype(decGenotype));
-    // return output;
+    return output;
 }
 
 
@@ -598,7 +598,7 @@ var testRepetitions = function (n) {
 // create JSON files from data in JavaScript Object 
 var createJSON = (objectData, filename) => fs.writeFileSync(filename, JSON.stringify(objectData));
 
-// create different catalogues of available functions
+// create the complet catalogue of all available functions
 var createFunctionIndexesCatalogues = (library) => {
     var functionLibrary = JSON.parse(fs.readFileSync(library));
     console.log(functionLibrary);
@@ -607,16 +607,17 @@ var createFunctionIndexesCatalogues = (library) => {
     var functionNamesDictionary = {};
     var availableTypes = Object.keys(functionLibrary);
     var availableTypesLength = availableTypes.length;
-    var availableFunctionsLength, readName, readIndex;
+    var availableFunctionsLength, readName, readIndex, readFuncType;
     for (var t = 0; t < availableTypesLength; t++) {
         availableFunctionsLength = Object.keys(functionLibrary[availableTypes[t]]).length;
         for (var n = 0; n < availableFunctionsLength; n++) {
             readName = Object.keys(functionLibrary[availableTypes[t]])[n];
             readIndex = Object.values(functionLibrary[availableTypes[t]])[n].functionIndex;
             readArguments = Object.values(functionLibrary[availableTypes[t]])[n].arguments;
+            readFuncType = Object.values(functionLibrary[availableTypes[t]])[n].functionType;
             functionDecodedIndexes[readIndex.toString()] = readName;
             functionEncodedIndexes[z2p(readIndex).toString()] = readName;
-            functionNamesDictionary[readName] = { encIndex: z2p(readIndex), intIndex: readIndex, arguments: readArguments };
+            functionNamesDictionary[readName] = { encIndex: z2p(readIndex), intIndex: readIndex, functionType: readFuncType, arguments: readArguments };
         }
     }
     var decodedIndexesOrdered = {};
@@ -644,6 +645,48 @@ var createFunctionIndexesCatalogues = (library) => {
 var GenoMusPianoFunctionLibrary = createFunctionIndexesCatalogues('piano_functions.json');
 // export the catalogues of function indexes, ordered by function name, encoded indexes and integer indexes
 createJSON(GenoMusPianoFunctionLibrary, 'GenoMus_piano_function_library.json');
+
+// eligible functions
+var eligibleFunctions = {
+    includedFunctions: [0,25,2,1],
+    excludedFunctions: [23,35],
+    mandatoryFunctions: [62,35,25]
+};
+
+// create the library with eligible functions extracting them from the complete library
+var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
+    var eligibleFuncLib = { 
+        decodedIndexes: {}, 
+        encodedIndexes: {}, 
+        functionNames: {}, 
+        functionLibrary: {
+            scoreF: {},
+            voiceF: {},
+            eventF: {},
+            listF: {},
+            paramF: {},
+            operationF: {}
+        }, 
+        mandatoryFunctions: {} };
+    var totalIncludedFunctions = eligibleFunc.includedFunctions.length;
+    var totalExcludedFunctions = eligibleFunc.excludedFunctions.length;
+    var totalMandatoryFunctions = eligibleFunc.mandatoryFunctions.length;
+    var readFunc; functTyp;
+    for (var i = 0; i < totalIncludedFunctions; i++) {
+        readFunc = completeLib.decodedIndexes[eligibleFunc.includedFunctions[i]];
+        // functTyp = completeLib.functionNames[readFunc].
+        eligibleFuncLib.decodedIndexes[eligibleFunc.includedFunctions[i].toString()] = readFunc;
+        eligibleFuncLib.encodedIndexes[z2p(eligibleFunc.includedFunctions[i]).toString()] = readFunc;
+        eligibleFuncLib.functionNames[readFunc] = completeLib.functionNames[readFunc];
+        eligibleFuncLib.functionNames[readFunc] = completeLib.functionNames[readFunc];
+    }
+    return eligibleFuncLib;
+}
+
+var eligibleFunctionsLibrary = createEligibleFunctionLibrary(GenoMusPianoFunctionLibrary, eligibleFunctions);
+
+createJSON(eligibleFunctionsLibrary, 'eligible_functions_library.json');
+
 
 ////////// ENCODING AND DECODING GENOTYPES
 // Genotypes encoder
@@ -675,8 +718,8 @@ encodeGenotype = decGen => {
                 decGen = decGen.substr(1);
             } while (decGen[pos] != "(");
             if (GenoMusPianoFunctionLibrary.functionNames[readToken] == undefined) {
-                console.log("Error: Invalid function name. Not found in the library.");
-                return encodedGenotype;
+                console.log("Error: invalid function name. Not found in the library.");
+                return [-1];
             }
             else {
                 leafType = GenoMusPianoFunctionLibrary.functionNames[readToken].arguments[0];
@@ -711,7 +754,7 @@ encodeGenotype = decGen => {
                     encodedGenotype.push(0.58, q2p(parseFloat(readToken))); break;
                 default:
                     console.log("Error: leaf type not found.");
-                    return encodedGenotype;
+                    return [-1];
             }
             readToken = "";
         }
@@ -765,6 +808,17 @@ var decodeGenotype = encGen => {
     return decodedGenotype.replace(/\,\)/g, ")").replace(/\,\]/g, "]").slice(0, -1);
 }
 
+// encodes and decodes a genotype to filter bad or dangerous expressions before being evaluated
+var evalDecGen = decGen => {
+    var encodedGenotype = encodeGenotype(decGen);
+    if (encodedGenotype[0] == -1) {
+        console.log("Error: not a valid decoded genotype.");
+        return -1;
+    }
+    else {
+        return eval(decodeGenotype(encodedGenotype));
+    }
+}
 
 ////// VISUALIZATION
 
@@ -825,6 +879,61 @@ encodeGenotype("vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(
 
 ///////////////////////////////
 ///////// proto regression test
+
+
+evalDecGen("p(0.9433)");
+evalDecGen("n(2)");
+evalDecGen("m(60)");
+evalDecGen("a(2)");
+evalDecGen("i(96)");
+evalDecGen("e(n(1/8),m(73),p(0),p(.8))");
+evalDecGen("s(v(e(n(1/16),m(69),a(0.4),i(80))))"); // EXAMPLE 2
+evalDecGen("e(pRnd(),pRnd(),pRnd(),pRnd())");
+evalDecGen("ln([1/8,1,1/2,1/8,1,1/2,1/4,1,1/2])");
+evalDecGen("lm([45,47,67,45,46])");
+evalDecGen("l([0.4,Math.random(),0.56,0.25])");
+evalDecGen("e(p(.5),p(.4),p(0.6),p(.8))");
+evalDecGen("v(e(p(.5),p(.4),p(0),p(.8)))");
+evalDecGen("s(v(e(p(.5),p(.4),p(0),p(.8))))");
+evalDecGen("vRepeatE(e(p(.5),pRnd(),p(0),pRnd()),p(.5))");
+evalDecGen("vRepeatE(eAutoref(8),p(.5))");
+evalDecGen("l2P(p(0.4),p(.345))");
+evalDecGen("l2P(p(0.4),pAutoref(345))");
+evalDecGen("l3P(p(0.4),p(.345),p(.84))");
+evalDecGen("l3P(p(0.4),p(.345),pAutoref(1))");
+evalDecGen("l4P(p(0.4),pRnd(),p(0.2),p(0.2345))");
+evalDecGen("l5P(p(0.479),pRnd(),p(0.2),p(0.2345),p(.45))");
+evalDecGen("l5P(p(0.4),pRnd(),pAutoref(0),pRnd(),pAutoref(3))");
+evalDecGen("lRnd(p(.12),m(37))");
+evalDecGen("lConcatL(l([0.2,0.143,0.23]),l([0.2234,0.1343,0.923,0.7]))");
+evalDecGen("lConcatL(lRnd(p(.2),p(.3)),lRnd(pAutoref(0),p(.30002)))");
+evalDecGen("lConcatL(lRnd(p(.209),p(.3)),lAutoref(0))");
+evalDecGen("vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))");
+evalDecGen("s(vConcatE(e(p(.54),p(.5),p(0),p(.834)),e(p(.54),pRnd(),p(0),p(.834))))");
+evalDecGen("vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0))");
+evalDecGen("s(vConcatE(e(p(.54),pRnd(),p(0),p(.834)),eAutoref(0)))");
+evalDecGen("vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))");
+evalDecGen("s(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))))");
+evalDecGen("vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),e(p(.154),p(.14),p(1),p(.1834))))")
+evalDecGen("s(vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0))))")
+evalDecGen("sConcatS(s(v(e(p(.5),p(.4),pRnd(),p(.26)))),s(v(e(p(.4565),p(.674),p(.25),p(.8)))))");
+evalDecGen("oSum(q(34),q(49))");
+evalDecGen("lConcatL(lRnd(p(.2),p(.3)),l2P(pAutoref(0),oSum(p(74),pAutoref(1))))");
+evalDecGen("lRepeatP(pRnd(),q(13))");
+evalDecGen("lIterP(p(.34),p(0.9))");
+evalDecGen("lIterP(pRnd(),p(0.8))");
+evalDecGen("lIterL(l([.3,.5,.45]),q(5))");
+evalDecGen("lIterL(l2P(p(0.333),pRnd()),p(.6))");
+evalDecGen("lIterL(l3P(p(0.333),pRnd(),pRnd()),p(.6))");
+evalDecGen("lIterL(l3P(p(0.333),pRnd(),pAutoref(1)),q(6))");
+evalDecGen("vIterE(e(p(.89),pRnd(),pAutoref(0),pRnd()),q(36))");
+evalDecGen("s(vIterE(e(p(.89),pRnd(),pAutoref(0),pRnd()),q(36)))");
+evalDecGen("sConcatS(s(vIterE(e(p(.89),pRnd(),pAutoref(0),pRnd()),q(36))),sAutoref(0))");
+evalDecGen("e(pAutoref(5),p(.4),pAutoref(0),p(.8))");
+evalDecGen("oSum(oSum(p(39),pAutoref(1)),pAutoref(1))");
+
+
+
 
 tt("p(0.9433)");
 tt("n(2)");
