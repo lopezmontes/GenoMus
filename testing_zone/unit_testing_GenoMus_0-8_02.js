@@ -495,7 +495,7 @@ var p2z = norm2goldeninteger;
 var quantizedLookupTable = [0, 0.0005, 0.001, 0.003, 0.006, 0.008, 0.01, 0.015, 0.02, 0.025, 0.03, 0.04, 0.045, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11, 0.12, 0.14, 0.15, 0.16, 0.18, 0.2, 0.21, 0.23, 0.25, 0.27, 0.3, 0.32, 0.33, 0.36, 0.4, 0.45, 0.5, 0.55, 0.6, 0.64, 0.67, 0.68, 0.7, 0.73, 0.75, 0.77, 0.79, 0.8, 0.82, 0.84, 0.85, 0.86, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.955, 0.96, 0.97, 0.975, 0.98, 0.985, 0.99, 0.992, 0.994, 0.997, 0.999, 0.9995, 1];
 
 
-// aux functions
+// AUX FUNCTIONS
 
 // greates common divisor, taken and adapted from https://gist.github.com/redteam-snippets/3934258. 
 // Still to refine to avoid too weird numbers
@@ -646,9 +646,7 @@ var GenoMusPianoFunctionLibrary = createFunctionIndexesCatalogues('piano_functio
 // export the catalogues of function indexes, ordered by function name, encoded indexes and integer indexes
 createJSON(GenoMusPianoFunctionLibrary, 'GenoMus_piano_function_library.json');
 
-
-
-// create the library with eligible functions extracting them from the complete library
+// create the library with eligible functions extracted from the complete library
 var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
     var allDecIndexes = JSON.parse(JSON.stringify( completeLib.decodedIndexes ));
     var allFuncNames = JSON.parse(JSON.stringify( completeLib.functionNames ));
@@ -738,6 +736,7 @@ createJSON(eligibleFunctionsLibrary, 'eligible_functions_library.json');
 
 
 ////////// ENCODING AND DECODING GENOTYPES
+
 // Genotypes encoder
 encodeGenotype = decGen => {
     var encodedGenotype = [];
@@ -910,79 +909,9 @@ var visualizeSpecimen = (normArray, filename) => {
 };
 
 
-encodeGenotype(",e(\n   n( 1 /8 ), m(  73 ), p (0) ,\n p(.8))");
-encodeGenotype("e(\n   n( 1 /8 ), ml(  73 ), p (0) ,\n p(.8))");
-e(n(1 / 8), m(73), p(0), p(.8));
 
-encodeGenotype("e(p(.56),p(.44),p(0.62),p(.85))");
-
-
-s(v(e(n(1/16),m(69),a(0.4),i(80))));
-encodeGenotype("s(v(e(n(1/16),m(69),a(0.4),i(80))))");
-encodeGenotype("z(2.6)");
-encodeGenotype("l([0.34,0.1234,0.1234])");
-encodeGenotype("lm([34,62.34,34,103])");
-encodeGenotype("ln([1/2,1/4,1/16,1/16])");
-encodeGenotype("l3P(p(0.4),m(45.5),pAutoref(1))");
-encodeGenotype("vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),e(p(.154),p(.14),p(1),p(.1834))))")
-
-///////////////////////////////
-///////// proto regression test
-
-
-evalDecGen("p(0.9433)");
-evalDecGen("n(2)");
-evalDecGen("m(60)");
-evalDecGen("a(2)");
-evalDecGen("i(96)");
-evalDecGen("e(n(1/8),m(73),p(0),p(.8))");
-evalDecGen("s(v(e(n(1/16),m(69),a(0.4),i(80))))"); // EXAMPLE 2
-evalDecGen("e(pRnd(),pRnd(),pRnd(),pRnd())");
-evalDecGen("ln([1/8,1,1/2,1/8,1,1/2,1/4,1,1/2])");
-evalDecGen("lm([45,47,67,45,46])");
-evalDecGen("l([0.4,Math.random(),0.56,0.25])");
-evalDecGen("e(p(.5),p(.4),p(0.6),p(.8))");
-evalDecGen("v(e(p(.5),p(.4),p(0),p(.8)))");
-evalDecGen("s(v(e(p(.5),p(.4),p(0),p(.8))))");
-evalDecGen("vRepeatE(e(p(.5),pRnd(),p(0),pRnd()),p(.5))");
-evalDecGen("vRepeatE(eAutoref(8),p(.5))");
-evalDecGen("l2P(p(0.4),p(.345))");
-evalDecGen("l2P(p(0.4),pAutoref(345))");
-evalDecGen("l3P(p(0.4),p(.345),p(.84))");
-evalDecGen("l3P(p(0.4),p(.345),pAutoref(1))");
-evalDecGen("l4P(p(0.4),pRnd(),p(0.2),p(0.2345))");
-evalDecGen("l5P(p(0.479),pRnd(),p(0.2),p(0.2345),p(.45))");
-evalDecGen("l5P(p(0.4),pRnd(),pAutoref(0),pRnd(),pAutoref(3))");
-evalDecGen("lRnd(p(.12),m(37))");
-evalDecGen("lConcatL(l([0.2,0.143,0.23]),l([0.2234,0.1343,0.923,0.7]))");
-evalDecGen("lConcatL(lRnd(p(.2),p(.3)),lRnd(pAutoref(0),p(.30002)))");
-evalDecGen("lConcatL(lRnd(p(.209),p(.3)),lAutoref(0))");
-evalDecGen("vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))");
-evalDecGen("s(vConcatE(e(p(.54),p(.5),p(0),p(.834)),e(p(.54),pRnd(),p(0),p(.834))))");
-evalDecGen("vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0))");
-evalDecGen("s(vConcatE(e(p(.54),pRnd(),p(0),p(.834)),eAutoref(0)))");
-evalDecGen("vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834)))");
-evalDecGen("s(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))))");
-evalDecGen("vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),e(p(.154),p(.14),p(1),p(.1834))))")
-evalDecGen("s(vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),eAutoref(0))))")
-evalDecGen("sConcatS(s(v(e(p(.5),p(.4),pRnd(),p(.26)))),s(v(e(p(.4565),p(.674),p(.25),p(.8)))))");
-evalDecGen("oSum(q(34),q(49))");
-evalDecGen("lConcatL(lRnd(p(.2),p(.3)),l2P(pAutoref(0),oSum(p(74),pAutoref(1))))");
-evalDecGen("lRepeatP(pRnd(),q(13))");
-evalDecGen("lIterP(p(.34),p(0.9))");
-evalDecGen("lIterP(pRnd(),p(0.8))");
-evalDecGen("lIterL(l([.3,.5,.45]),q(5))");
-evalDecGen("lIterL(l2P(p(0.333),pRnd()),p(.6))");
-evalDecGen("lIterL(l3P(p(0.333),pRnd(),pRnd()),p(.6))");
-evalDecGen("lIterL(l3P(p(0.333),pRnd(),pAutoref(1)),q(6))");
-evalDecGen("vIterE(e(p(.89),pRnd(),pAutoref(0),pRnd()),q(36))");
-evalDecGen("s(vIterE(e(p(.89),pRnd(),pAutoref(0),pRnd()),q(36)))");
-evalDecGen("sConcatS(s(vIterE(e(p(.89),pRnd(),pAutoref(0),pRnd()),q(36))),sAutoref(0))");
-evalDecGen("e(pAutoref(5),p(.4),pAutoref(0),p(.8))");
-evalDecGen("oSum(oSum(p(39),pAutoref(1)),pAutoref(1))");
-
-
-
+////////////////////////////////
+///////// proto regression tests
 
 tt("p(0.9433)");
 tt("n(2)");
@@ -1040,3 +969,19 @@ var testColorsSpecimen = { encGen: [0, 0.000001, .000002, .000003, .000004, 0, 0
 var realPhenotype = { encGen: [1, 0.54102, 1, 0.159054, 1, 0.159054, 1, 0.472136, 1, 0.777088, 1, 0.236068, 1, 0.09017, 0.51, 0.4, 0, 1, 0.506578, 0.8, 0.53, 0.56, 0.53, 0.62, 0.53, 0.65, 0.2, 0, 1, 0.562306, 0.55, 0.369267, 0, 1, 0.18034, 0.56, 0.19685, 0, 0, 1, 0.798374, 0.57, 0.832816, 0, 0, 0, 1, 0.777088, 1, 0.236068, 1, 0.09017, 0.51, 0.441504, 0, 1, 0.506578, 0.8, 0.53, 0.5, 0.53, 0.53, 0.2, 0, 1, 0.562306, 0.55, 0.369267, 0, 1, 0.18034, 0.56, 0.11811, 0, 0, 1, 0.798374, 0.57, 0.124612, 0, 0, 0, 1, 0.304952, 1, 0.27051, 1, 0.8, 0.51, 0.7, 0.51, 0.61, 0.2, 0, 1, 0.506578, 0.8, 0.53, 0.41, 0.53, 0.44, 0.53, 0.41, 0.53, 0.34, 0.2, 0, 1, 0.562306, 0.55, 0.667539, 0, 1, 0.18034, 0.56, 0.503937, 0, 0, 0, 1, 0.159054, 1, 0.472136, 1, 0.304952, 1, 0.27051, 1, 0.8, 0.51, 0.7, 0.51, 0.61, 0.2, 0, 1, 0.506578, 0.8, 0.53, 0.51, 0.53, 0.55, 0.53, 0.51, 0.53, 0.461, 0.2, 0, 1, 0.562306, 0.55, 0.667539, 0, 1, 0.18034, 0.56, 0.330709, 0, 0, 0, 1, 0.777088, 1, 0.236068, 1, 0.09017, 0.51, 0.5, 0, 1, 0.326238, 0.53, 0.38, 0, 1, 0.562306, 0.55, 0.51729, 0, 1, 0.18034, 0.56, 0.251969, 0, 0, 1, 0.798374, 0.57, 0.416408, 0, 0, 0, 0] };
 var largeSpecimen = { encGen: [1, 1, 0.4, 0.854102, 0.56, 0.62, 0.65, 0.369267, 0.19685, 0.4, 0.854102, 0.56, 0.62, 0.65, 0.369267, 0.19685, 0.4, 0.854102, 0.56, 0.62, 0.65, 0.369267, 0.19685, 0.4, 0.854102, 0.56, 0.62, 0.65, 0.369267, 0.19685, 0.4, 0.854102, 0.56, 0.62, 0.65, 0.369267, 0.19685, 0.4, 0.854102, 0.56, 0.62, 0.65, 0.369267, 0.19685, 0.4, 0.854102, 0.56, 0.62, 0.65, 0.369267, 0.19685, 0.4, 0.854102, 0.56, 0.62, 0.65, 0.369267, 0.19685, 0.4, 0.854102, 0.56, 0.62, 0.65, 0.369267, 0.19685, 0.4, 0.854102, 0.56, 0.62, 0.65, 0.369267, 0.19685, 0.4, 0.854102, 0.56, 0.62, 0.65, 0.369267, 0.19685, 0.4, 0.854102, 0.56, 0.62, 0.65, 0.369267, 0.19685, 0.4, 0.854102, 0.56, 0.62, 0.65, 0.369267, 0.19685, 0.4, 0.854102, 0.56, 0.62, 0.65, 0.369267, 0.19685, 0.4, 0.854102, 0.56, 0.62, 0.65, 0.369267, 0.19685, 0.4, 0.854102, 0.56, 0.62, 0.65, 0.369267, 0.19685, 0.4, 0.854102, 0.56, 0.62, 0.65, 0.369267, 0.19685, 0.4, 0.854102, 0.56, 0.62, 0.65, 0.369267, 0.19685, 0.4, 0.854102, 0.56, 0.62, 0.65, 0.369267, 0.19685, 0.4, 0.854102, 0.56, 0.62, 0.65, 0.369267, 0.19685, 0.4, 0.854102, 0.56, 0.62, 0.65, 0.369267, 0.19685, 0.4, 0.854102, 0.56, 0.62, 0.65, 0.369267, 0.19685, 0.4, 0.854102, 0.56, 0.62, 0.65, 0.369267, 0.19685, 0.4, 0.854102, 0.56, 0.62, 0.65, 0.369267, 0.19685, 0, 1, 0.441504, 0.124612, 0.5, 0.53, 0.369267, 0.11811, 0.441504, 0.124612, 0.5, 0.53, 0.369267, 0.11811, 0.441504, 0.124612, 0.5, 0.53, 0.369267, 0.11811, 0.441504, 0.124612, 0.5, 0.53, 0.369267, 0.11811, 0.441504, 0.124612, 0.5, 0.53, 0.369267, 0.11811, 0.441504, 0.124612, 0.5, 0.53, 0.369267, 0.11811, 0.441504, 0.124612, 0.5, 0.53, 0.369267, 0.11811, 0.441504, 0.124612, 0.5, 0.53, 0.369267, 0.11811, 0.441504, 0.124612, 0.5, 0.53, 0.369267, 0.11811, 0.441504, 0.124612, 0.5, 0.53, 0.369267, 0.11811, 0.441504, 0.124612, 0.5, 0.53, 0.369267, 0.11811, 0.441504, 0.124612, 0.5, 0.53, 0.369267, 0.11811, 0, 1, 0.7, 0.618034, 0.41, 0.667539, 0.503937, 0.6, 0.618034, 0.44, 0.667539, 0.503937, 0.7, 0.618034, 0.41, 0.667539, 0.503937, 0.6, 0.618034, 0.34, 0.667539, 0.503937, 0, 0, 1, 1, 0.7, 0.618034, 0.51, 0.667539, 0.330709, 0.6, 0.618034, 0.55, 0.667539, 0.330709, 0.7, 0.618034, 0.51, 0.667539, 0.330709, 0.6, 0.618034, 0.46, 0.667539, 0.330709, 0, 1, 0.5, 0.618034, 0.38, 0.51729, 0.251969, 0.5, 0.618034, 0.38, 0.51729, 0.251969, 0.5, 0.618034, 0.38, 0.51729, 0.251969, 0.5, 0.618034, 0.38, 0.51729, 0.251969, 0.5, 0.618034, 0.38, 0.51729, 0.251969, 0.5, 0.618034, 0.38, 0.51729, 0.251969, 0.5, 0.618034, 0.38, 0.51729, 0.251969, 0.5, 0.618034, 0.38, 0.51729, 0.251969, 0.5, 0.618034, 0.38, 0.51729, 0.251969, 0.5, 0.618034, 0.38, 0.51729, 0.251969, 0.5, 0.618034, 0.38, 0.51729, 0.251969, 0.5, 0.618034, 0.38, 0.51729, 0.251969, 0, 0] };
 visualizeSpecimen(largeSpecimen, "automatic_visualization");
+
+encodeGenotype(",e(\n   n( 1 /8 ), m(  73 ), p (0) ,\n p(.8))");
+encodeGenotype("e(\n   n( 1 /8 ), ml(  73 ), p (0) ,\n p(.8))");
+e(n(1 / 8), m(73), p(0), p(.8));
+
+encodeGenotype("e(p(.56),p(.44),p(0.62),p(.85))");
+
+
+s(v(e(n(1/16),m(69),a(0.4),i(80))));
+encodeGenotype("s(v(e(n(1/16),m(69),a(0.4),i(80))))");
+encodeGenotype("z(2.6)");
+encodeGenotype("l([0.34,0.1234,0.1234])");
+encodeGenotype("lm([34,62.34,34,103])");
+encodeGenotype("ln([1/2,1/4,1/16,1/16])");
+encodeGenotype("l3P(p(0.4),m(45.5),pAutoref(1))");
+encodeGenotype("vConcatV(vConcatE(e(p(.54),p(.9),p(0),p(.834)),e(p(.54),p(.7),p(0),p(.834))),vConcatE(e(p(.54),p(.4),p(0),p(.834)),e(p(.154),p(.14),p(1),p(.1834))))")
