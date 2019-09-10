@@ -43,9 +43,9 @@ var tt = decGenotype => {
     console.log(subexpressions);
     visualizeSpecimen(output.encGen, "encGen");
     visualizeSpecimen(output.encPhen, "encPhen");
-    console.log(decodeGenotype(output.encGen));
-    console.log(eval(decGenotype).encGen);
-    console.log(encodeGenotype(decGenotype));
+    console.log("manually decoded genotype: " + decodeGenotype(output.encGen));
+    console.log("automat. encoded genotype: " + eval(decGenotype).encGen);
+    console.log("manually encoded genotype: " + encodeGenotype(decGenotype));
     return output;
 }
 
