@@ -709,8 +709,7 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
         excludedFuncs.map(x => {
             delete eligibleFuncLib.decodedIndexes[x];
             delete eligibleFuncLib.encodedIndexes[z2p(x)];
-            console.log("excluded: " + x);
-            console.log(allDecIndexes);
+
             delete eligibleFuncLib.functionNames[allDecIndexes[x]];
         });
     }
