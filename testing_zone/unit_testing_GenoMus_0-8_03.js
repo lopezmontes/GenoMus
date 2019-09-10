@@ -651,10 +651,7 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
     var allFuncNames = JSON.parse(JSON.stringify( completeLib.functionNames ));
     var allFuncLibr = JSON.parse(JSON.stringify( completeLib.functionLibrary )); 
     var includedFuncs = JSON.parse(JSON.stringify( eligibleFunc.includedFunctions ));
-    if (includedFuncs.length == 0) {
-        includedFuncs = Object.keys(allDecIndexes);
-        includedFuncs = includedFuncs.map(x => parseInt(x));
-    }
+    if (includedFuncs.length == 0) includedFuncs = Object.keys(allDecIndexes).map(x => parseInt(x));
     var mandatoryFuncs = JSON.parse(JSON.stringify( eligibleFunc.mandatoryFunctions ));
     var excludedFuncs = JSON.parse(JSON.stringify( eligibleFunc.excludedFunctions ));
     var eligibleFuncLib = {
@@ -726,8 +723,8 @@ var eligibleFunctions2 = {
 };
 var eligibleFunctions3 = {
     includedFunctions: [],
-    mandatoryFunctions: [43,26],
-    excludedFunctions: [43,0,111]
+    mandatoryFunctions: [1,2,3,43,26],
+    excludedFunctions: [43,0,111,3,2]
 };
 var eligibleFunctions4 = {
     includedFunctions: [0,1,2,3,4,5,7],
@@ -736,12 +733,12 @@ var eligibleFunctions4 = {
 };
 
 // generates the catalogues of elegible functions to be used for genotype generation
-var eligibleFunctionsLibrary = createEligibleFunctionLibrary(GenoMusPianoFunctionLibrary, eligibleFunctions4);
+var eligibleFunctionsLibrary = createEligibleFunctionLibrary(GenoMusPianoFunctionLibrary, eligibleFunctions3);
 // exports the catalogues of elegible function indexes, ordered by function name, encoded indexes and integer indexes, and containing the initial conditions of the subset
 createJSON(eligibleFunctionsLibrary, 'eligible_functions_library.json');
 
 
-////////// ENCODING AND DECODING GENOTYPES
+////////// ENCODING, DECODING AND EVALUATING GENOTYPES
 
 // Genotypes encoder
 encodeGenotype = decGen => {
