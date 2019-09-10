@@ -656,7 +656,7 @@ var eligibleFunctions = {
 var eligibleFunctions = {
     includedFunctions: [],
     mandatoryFunctions: [65,35,29],
-    excludedFunctions: [26,35,57,0]
+    excludedFunctions: [0,3,26,76]
 };
 
 
@@ -665,6 +665,12 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
     var includedFuncs = eligibleFunc.includedFunctions;
     var mandatoryFuncs = eligibleFunc.mandatoryFunctions;
     var excludedFuncs = eligibleFunc.excludedFunctions;
+    var allDecIndexes = completeLib.decodedIndexes;
+    var allEncIndexes = completeLib.encodedIndexes;
+    var allFuncNames = completeLib.functionNames;
+    var allFuncLibr = completeLib.functionLibrary;
+    
+
     var eligibleFuncLib = {
         elegibleFunctions: {
             includedFunctions: includedFuncs,
@@ -697,25 +703,27 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
     // add eligible functions to the new sublibrary functions    
     var totalIncludedFunctions = includedFuncs.length;
     if (totalIncludedFunctions == 0) {
-        eligibleFuncLib.decodedIndexes = completeLib.decodedIndexes;
-        eligibleFuncLib.encodedIndexes = completeLib.encodedIndexes;
-        eligibleFuncLib.functionNames = completeLib.functionNames;
-        eligibleFuncLib.functionLibrary = completeLib.functionLibrary;
+        eligibleFuncLib.decodedIndexes = allDecIndexes;
+        eligibleFuncLib.encodedIndexes = allEncIndexes;
+        eligibleFuncLib.functionNames = allFuncNames;
+        eligibleFuncLib.functionLibrary = allFuncLibr;
         excludedFuncs.map(x => {
             delete eligibleFuncLib.decodedIndexes[x];
             delete eligibleFuncLib.encodedIndexes[z2p(x)];
-            delete eligibleFuncLib.functionNames[completeLib.decodedIndexes[x]];
+            console.log("excluded: " + x);
+            console.log(allDecIndexes);
+            delete eligibleFuncLib.functionNames[allDecIndexes[x]];
         });
     }
     else {
         var readFunc, functTyp;
         for (var i = 0; i < totalIncludedFunctions; i++) {
-            readFunc = completeLib.decodedIndexes[includedFuncs[i]];
-            functTyp = completeLib.functionNames[readFunc].functionType;
+            readFunc = allDecIndexes[includedFuncs[i]];
+            functTyp = allFuncNames[readFunc].functionType;
             eligibleFuncLib.decodedIndexes[includedFuncs[i].toString()] = readFunc;
             eligibleFuncLib.encodedIndexes[z2p(includedFuncs[i]).toString()] = readFunc;
-            eligibleFuncLib.functionNames[readFunc] = completeLib.functionNames[readFunc];
-            eligibleFuncLib.functionLibrary[functTyp][readFunc] = completeLib.functionLibrary[functTyp][readFunc];
+            eligibleFuncLib.functionNames[readFunc] = allFuncNames[readFunc];
+            eligibleFuncLib.functionLibrary[functTyp][readFunc] = allFuncLibr[functTyp][readFunc];
         }
     }
     
