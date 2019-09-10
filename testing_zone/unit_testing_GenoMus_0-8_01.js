@@ -700,7 +700,13 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
             eligibleFuncLib.functionLibrary[functTyp][readFunc] = completeLib.functionLibrary[functTyp][readFunc];
         }
     }
-
+    
+    
+    var encodedIndexesOrdered = {};
+    Object.keys(eligibleFuncLib.encodedIndexes).sort().forEach(function (key) {
+        encodedIndexesOrdered[key] = eligibleFuncLib.encodedIndexes[key];
+    });
+    eligibleFuncLib.encodedIndexes = encodedIndexesOrdered;
 
     return eligibleFuncLib;
 }
