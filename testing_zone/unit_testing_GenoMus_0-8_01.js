@@ -662,13 +662,13 @@ var eligibleFunctions = {
 
 // create the library with eligible functions extracting them from the complete library
 var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
-    var includedFuncs =  JSON.parse(JSON.stringify( eligibleFunc.includedFunctions );
-    var mandatoryFuncs =  JSON.parse(JSON.stringify( eligibleFunc.mandatoryFunctions );
-    var excludedFuncs =  JSON.parse(JSON.stringify( eligibleFunc.excludedFunctions );
-    var allDecIndexes =  JSON.parse(JSON.stringify( completeLib.decodedIndexes );
-    var allEncIndexes =  JSON.parse(JSON.stringify( completeLib.encodedIndexes );
-    var allFuncNames =  JSON.parse(JSON.stringify( completeLib.functionNames );
-    var allFuncLibr =  JSON.parse(JSON.stringify( completeLib.functionLibrary );
+    var includedFuncs =  JSON.parse(JSON.stringify( eligibleFunc.includedFunctions ));
+    var mandatoryFuncs =  JSON.parse(JSON.stringify( eligibleFunc.mandatoryFunctions ));
+    var excludedFuncs =  JSON.parse(JSON.stringify( eligibleFunc.excludedFunctions ));
+    var allDecIndexes =  JSON.parse(JSON.stringify( completeLib.decodedIndexes ));
+    var allEncIndexes =  JSON.parse(JSON.stringify( completeLib.encodedIndexes ));
+    var allFuncNames =  JSON.parse(JSON.stringify( completeLib.functionNames ));
+    var allFuncLibr =  JSON.parse(JSON.stringify( completeLib.functionLibrary ));
 
     var eligibleFuncLib = {
         elegibleFunctions: {
