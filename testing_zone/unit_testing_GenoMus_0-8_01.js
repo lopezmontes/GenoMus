@@ -707,7 +707,7 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
     
     var decodedIndexesOrdered = {};
     Object.keys(eligibleFuncLib.decodedIndexes).sort().forEach(function (key) {
-        decodedIndexesOrdered[key] = eligibleFuncLib.encodedIndexes[key];
+        decodedIndexesOrdered[key] = eligibleFuncLib.decodedIndexes[key];
     });
     eligibleFuncLib.decodedIndexes = decodedIndexesOrdered;
 
