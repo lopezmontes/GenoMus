@@ -10,7 +10,7 @@ var phenMaxLength = 2000;
 
 // global variable to store subexpressions
 var subexpressions = [];
-function initSubexpressionsArrays() {
+var initSubexpressionsArrays = () => {
     subexpressions["paramF"] = [];
     subexpressions["listF"] = [];
     subexpressions["eventF"] = [];
@@ -34,11 +34,10 @@ function initSubexpressionsArrays() {
     subexpressions["lquantizedF"] = [];
     subexpressions["operationF"] = [];
 }
-
 initSubexpressionsArrays();
 
 // test decoded genotypes
-var tt = function (decGenotype) {
+var tt = decGenotype => {
     initSubexpressionsArrays();
     var output = (evalDecGen(decGenotype));
     console.log(subexpressions);
@@ -643,7 +642,7 @@ var createFunctionIndexesCatalogues = (library) => {
 
 // generates the catalogues of function indexes
 var GenoMusPianoFunctionLibrary = createFunctionIndexesCatalogues('piano_functions.json');
-// export the catalogues of function indexes, ordered by function name, encoded indexes and integer indexes
+// exports the catalogues of function indexes, ordered by function name, encoded indexes and integer indexes
 createJSON(GenoMusPianoFunctionLibrary, 'GenoMus_piano_function_library.json');
 
 // create the library with eligible functions extracted from the complete library
@@ -730,8 +729,15 @@ var eligibleFunctions3 = {
     mandatoryFunctions: [43,26],
     excludedFunctions: [43,0,111]
 };
+var eligibleFunctions4 = {
+    includedFunctions: [0,1,2,3,4,5,7],
+    mandatoryFunctions: [43,26],
+    excludedFunctions: [2,3,5]
+};
 
-var eligibleFunctionsLibrary = createEligibleFunctionLibrary(GenoMusPianoFunctionLibrary, eligibleFunctions);
+// generates the catalogues of elegible functions to be used for genotype generation
+var eligibleFunctionsLibrary = createEligibleFunctionLibrary(GenoMusPianoFunctionLibrary, eligibleFunctions4);
+// exports the catalogues of elegible function indexes, ordered by function name, encoded indexes and integer indexes, and containing the initial conditions of the subset
 createJSON(eligibleFunctionsLibrary, 'eligible_functions_library.json');
 
 
@@ -973,10 +979,7 @@ visualizeSpecimen(largeSpecimen, "automatic_visualization");
 encodeGenotype(",e(\n   n( 1 /8 ), m(  73 ), p (0) ,\n p(.8))");
 encodeGenotype("e(\n   n( 1 /8 ), ml(  73 ), p (0) ,\n p(.8))");
 e(n(1 / 8), m(73), p(0), p(.8));
-
 encodeGenotype("e(p(.56),p(.44),p(0.62),p(.85))");
-
-
 s(v(e(n(1/16),m(69),a(0.4),i(80))));
 encodeGenotype("s(v(e(n(1/16),m(69),a(0.4),i(80))))");
 encodeGenotype("z(2.6)");
