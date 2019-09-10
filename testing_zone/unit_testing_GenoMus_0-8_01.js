@@ -706,19 +706,17 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
         }
     }
     
-    
+    // sort lists
     var decodedIndexesOrdered = {};
     Object.keys(eligibleFuncLib.decodedIndexes).sort().forEach(function (key) {
         decodedIndexesOrdered[key] = eligibleFuncLib.decodedIndexes[key];
     });
     eligibleFuncLib.decodedIndexes = decodedIndexesOrdered;
-
     var encodedIndexesOrdered = {};
     Object.keys(eligibleFuncLib.encodedIndexes).sort().forEach(function (key) {
         encodedIndexesOrdered[key] = eligibleFuncLib.encodedIndexes[key];
     });
     eligibleFuncLib.encodedIndexes = encodedIndexesOrdered;
-
     var functionNamesOrdered = {};
     Object.keys(eligibleFuncLib.functionNames).sort().forEach(function (key) {
         functionNamesOrdered[key] = eligibleFuncLib.functionNames[key];
