@@ -662,13 +662,13 @@ var eligibleFunctions = {
 
 // create the library with eligible functions extracting them from the complete library
 var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
-    var includedFuncs = eligibleFunc.includedFunctions;
-    var mandatoryFuncs = eligibleFunc.mandatoryFunctions;
-    var excludedFuncs = eligibleFunc.excludedFunctions;
-    var allDecIndexes = completeLib.decodedIndexes;
-    var allEncIndexes = completeLib.encodedIndexes;
-    var allFuncNames = completeLib.functionNames;
-    var allFuncLibr = completeLib.functionLibrary;
+    var includedFuncs =  JSON.parse(JSON.stringify( eligibleFunc.includedFunctions );
+    var mandatoryFuncs =  JSON.parse(JSON.stringify( eligibleFunc.mandatoryFunctions );
+    var excludedFuncs =  JSON.parse(JSON.stringify( eligibleFunc.excludedFunctions );
+    var allDecIndexes =  JSON.parse(JSON.stringify( completeLib.decodedIndexes );
+    var allEncIndexes =  JSON.parse(JSON.stringify( completeLib.encodedIndexes );
+    var allFuncNames =  JSON.parse(JSON.stringify( completeLib.functionNames );
+    var allFuncLibr =  JSON.parse(JSON.stringify( completeLib.functionLibrary );
 
     var eligibleFuncLib = {
         elegibleFunctions: {
@@ -709,7 +709,9 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
         excludedFuncs.map(x => {
             delete eligibleFuncLib.decodedIndexes[x];
             delete eligibleFuncLib.encodedIndexes[z2p(x)];
-            delete eligibleFuncLib.functionNames[allDecIndexes[x]];
+            console.log("allDecIndexes");
+            console.log(allDecIndexes);
+
         });
     }
     else {
