@@ -659,6 +659,7 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
     var mandatoryFuncs = eligibleFunc.mandatoryFunctions;
     var excludedFuncs = eligibleFunc.excludedFunctions;
     var eligibleFuncLib = { 
+        mandatoryFunctions: {}, 
         decodedIndexes: {}, 
         encodedIndexes: {}, 
         functionNames: {}, 
@@ -670,7 +671,7 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
             paramF: {},
             operationF: {}
         }, 
-        mandatoryFunctions: {} };
+    };
 
     // add mandatory functions and remove duplicates if needed
     includedFuncs = 
@@ -681,6 +682,7 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
     console.log("will delete: " + positionsForRemove);
     positionsForRemove.map(x => { if ( x > -1) includedFuncs.splice(x, 1) });
     console.log("final elegibles: " + includedFuncs);
+    eligibleFuncLib.mandatoryFunctions = mandatoryFuncs.sort();
 
     // add eligible functions to the new sublibrary functions    
     var totalIncludedFunctions = includedFuncs.length;
