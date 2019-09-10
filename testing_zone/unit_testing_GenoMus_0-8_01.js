@@ -705,7 +705,7 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
             delete eligibleFuncLib.decodedIndexes[x];
             delete eligibleFuncLib.encodedIndexes[z2p(x)];
             delete eligibleFuncLib.functionNames[completeLib.decodedIndexes[x]];
-        }
+        });
     }
     else {
         var readFunc, functTyp;
