@@ -649,8 +649,8 @@ createJSON(GenoMusPianoFunctionLibrary, 'GenoMus_piano_function_library.json');
 // eligible functions
 var eligibleFunctions = {
     includedFunctions: [0,28,3,35,26,111],
-    excludedFunctions: [26,35],
-    mandatoryFunctions: [65,35,29]
+    mandatoryFunctions: [65,35,29],
+    excludedFunctions: [26,35,57,0]
 };
 
 // create the library with eligible functions extracting them from the complete library
@@ -673,7 +673,13 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
     eligibleFunc.includedFunctions = 
     [... new Set(eligibleFunc.includedFunctions.concat(eligibleFunc.mandatoryFunctions))];
     console.log("eligibles: " + eligibleFunc.includedFunctions);
-    // add included functions    
+    // remove excluded functions from the collection
+    var positionsForRemove = eligibleFunc.excludedFunctions.map(x => eligibleFunc.includedFunctions.indexOf(x));
+    console.log("will delete: " + positionsForRemove);
+    positionsForRemove.map(x => { eligibleFunc.includedFunctions.splice(x, 1) });
+    console.log("final elegibles: " + eligibleFunc.includedFunctions);
+
+    // add eligible functions to the new sublibrary functions    
     var totalIncludedFunctions = eligibleFunc.includedFunctions.length;
     if (totalIncludedFunctions == 0) {
         eligibleFuncLib.decodedIndexes = completeLib.decodedIndexes;
