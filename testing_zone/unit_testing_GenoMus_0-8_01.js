@@ -655,6 +655,7 @@ var eligibleFunctions = {
 
 // create the library with eligible functions extracting them from the complete library
 var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
+    var includedFuncs = 
     var eligibleFuncLib = { 
         decodedIndexes: {}, 
         encodedIndexes: {}, 
@@ -670,17 +671,17 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
         mandatoryFunctions: {} };
 
     // add mandatory functions and remove duplicates if needed
-    eligibleFunc.includedFunctions = 
-    [... new Set(eligibleFunc.includedFunctions.concat(eligibleFunc.mandatoryFunctions))];
-    console.log("eligibles: " + eligibleFunc.includedFunctions);
+    includedFuncs = 
+    [... new Set(includedFuncs.concat(eligibleFunc.mandatoryFunctions))];
+    console.log("eligibles: " + includedFuncs);
     // remove excluded functions from the collection
-    var positionsForRemove = eligibleFunc.excludedFunctions.map(x => eligibleFunc.includedFunctions.indexOf(x));
+    var positionsForRemove = eligibleFunc.excludedFunctions.map(x => includedFuncs.indexOf(x));
     console.log("will delete: " + positionsForRemove);
-    positionsForRemove.map(x => { eligibleFunc.includedFunctions.splice(x, 1) });
-    console.log("final elegibles: " + eligibleFunc.includedFunctions);
+    positionsForRemove.map(x => { if ( x > -1) includedFuncs.splice(x, 1) });
+    console.log("final elegibles: " + includedFuncs);
 
     // add eligible functions to the new sublibrary functions    
-    var totalIncludedFunctions = eligibleFunc.includedFunctions.length;
+    var totalIncludedFunctions = includedFuncs.length;
     if (totalIncludedFunctions == 0) {
         eligibleFuncLib.decodedIndexes = completeLib.decodedIndexes;
         eligibleFuncLib.encodedIndexes = completeLib.encodedIndexes;
@@ -692,22 +693,34 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
         var totalMandatoryFunctions = eligibleFunc.mandatoryFunctions.length;
         var readFunc, functTyp;
         for (var i = 0; i < totalIncludedFunctions; i++) {
-            readFunc = completeLib.decodedIndexes[eligibleFunc.includedFunctions[i]];
+            readFunc = completeLib.decodedIndexes[includedFuncs[i]];
             functTyp = completeLib.functionNames[readFunc].functionType;
-            eligibleFuncLib.decodedIndexes[eligibleFunc.includedFunctions[i].toString()] = readFunc;
-            eligibleFuncLib.encodedIndexes[z2p(eligibleFunc.includedFunctions[i]).toString()] = readFunc;
+            eligibleFuncLib.decodedIndexes[includedFuncs[i].toString()] = readFunc;
+            eligibleFuncLib.encodedIndexes[z2p(includedFuncs[i]).toString()] = readFunc;
             eligibleFuncLib.functionNames[readFunc] = completeLib.functionNames[readFunc];
             eligibleFuncLib.functionLibrary[functTyp][readFunc] = completeLib.functionLibrary[functTyp][readFunc];
         }
     }
     
     
+    var decodedIndexesOrdered = {};
+    Object.keys(eligibleFuncLib.decodedIndexes).sort().forEach(function (key) {
+        decodedIndexesOrdered[key] = eligibleFuncLib.encodedIndexes[key];
+    });
+    eligibleFuncLib.decodedIndexes = decodedIndexesOrdered;
+
     var encodedIndexesOrdered = {};
     Object.keys(eligibleFuncLib.encodedIndexes).sort().forEach(function (key) {
         encodedIndexesOrdered[key] = eligibleFuncLib.encodedIndexes[key];
     });
     eligibleFuncLib.encodedIndexes = encodedIndexesOrdered;
 
+    var functionNamesOrdered = {};
+    Object.keys(eligibleFuncLib.functionNames).sort().forEach(function (key) {
+        functionNamesOrdered[key] = eligibleFuncLib.functionNames[key];
+    });
+    eligibleFuncLib.functionNames = functionNamesOrdered;
+    
     return eligibleFuncLib;
 }
 
