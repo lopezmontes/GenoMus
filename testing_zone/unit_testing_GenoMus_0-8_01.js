@@ -669,7 +669,6 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
     var allEncIndexes = completeLib.encodedIndexes;
     var allFuncNames = completeLib.functionNames;
     var allFuncLibr = completeLib.functionLibrary;
-    
 
     var eligibleFuncLib = {
         elegibleFunctions: {
