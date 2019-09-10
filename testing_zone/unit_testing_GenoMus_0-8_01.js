@@ -655,7 +655,9 @@ var eligibleFunctions = {
 
 // create the library with eligible functions extracting them from the complete library
 var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
-    var includedFuncs = 
+    var includedFuncs = eligibleFunc.includedFunctions;
+    var mandatoryFuncs = eligibleFunc.mandatoryFunctions;
+    var excludedFuncs = eligibleFunc.excludedFunctions;
     var eligibleFuncLib = { 
         decodedIndexes: {}, 
         encodedIndexes: {}, 
@@ -672,10 +674,10 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
 
     // add mandatory functions and remove duplicates if needed
     includedFuncs = 
-    [... new Set(includedFuncs.concat(eligibleFunc.mandatoryFunctions))];
+    [... new Set(includedFuncs.concat(mandatoryFuncs))];
     console.log("eligibles: " + includedFuncs);
     // remove excluded functions from the collection
-    var positionsForRemove = eligibleFunc.excludedFunctions.map(x => includedFuncs.indexOf(x));
+    var positionsForRemove = excludedFuncs.map(x => includedFuncs.indexOf(x));
     console.log("will delete: " + positionsForRemove);
     positionsForRemove.map(x => { if ( x > -1) includedFuncs.splice(x, 1) });
     console.log("final elegibles: " + includedFuncs);
@@ -689,8 +691,8 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
         eligibleFuncLib.functionLibrary = completeLib.functionLibrary;
     }
     else {
-        var totalExcludedFunctions = eligibleFunc.excludedFunctions.length;
-        var totalMandatoryFunctions = eligibleFunc.mandatoryFunctions.length;
+        var totalExcludedFunctions = excludedFuncs.length;
+        var totalMandatoryFunctions = mandatoryFuncs.length;
         var readFunc, functTyp;
         for (var i = 0; i < totalIncludedFunctions; i++) {
             readFunc = completeLib.decodedIndexes[includedFuncs[i]];
