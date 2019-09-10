@@ -653,6 +653,11 @@ var eligibleFunctions = {
     excludedFunctions: [26,35,57,0]
 };
 
+var eligibleFunctions = {
+    includedFunctions: [],
+    mandatoryFunctions: [65,35,29],
+    excludedFunctions: [26,35,57,0]
+};
 // create the library with eligible functions extracting them from the complete library
 var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
     var includedFuncs = eligibleFunc.includedFunctions;
@@ -678,7 +683,7 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
     };
 
     // add mandatory functions and remove duplicates if needed
-    includedFuncs = 
+    if (includedFuncs.length > 0) includedFuncs = 
     [... new Set(includedFuncs.concat(mandatoryFuncs))];
     console.log("eligibles: " + includedFuncs);
     // remove excluded functions from the collection
