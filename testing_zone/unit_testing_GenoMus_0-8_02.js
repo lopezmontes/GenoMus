@@ -646,24 +646,8 @@ var GenoMusPianoFunctionLibrary = createFunctionIndexesCatalogues('piano_functio
 // export the catalogues of function indexes, ordered by function name, encoded indexes and integer indexes
 createJSON(GenoMusPianoFunctionLibrary, 'GenoMus_piano_function_library.json');
 
-// eligible functions
-var eligibleFunctions = {
-    includedFunctions: [0,28,3,35,26,111],
-    mandatoryFunctions: [65,35,29],
-    excludedFunctions: [26,35,57,0]
-};
 
-var eligibleFunctions = {
-    includedFunctions: [],
-    mandatoryFunctions: [65,35,4,29],
-    excludedFunctions: [26,35,57,0,4,5]
-};
 
-var eligibleFunctions = {
-    includedFunctions: [],
-    mandatoryFunctions: [43,26],
-    excludedFunctions: [43,0,111]
-};
 // create the library with eligible functions extracting them from the complete library
 var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
     var allDecIndexes = JSON.parse(JSON.stringify( completeLib.decodedIndexes ));
@@ -732,8 +716,24 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
     return eligibleFuncLib;
 }
 
-var eligibleFunctionsLibrary = createEligibleFunctionLibrary(GenoMusPianoFunctionLibrary, eligibleFunctions);
+// eligible functions configurations tests
+var eligibleFunctions = {
+    includedFunctions: [0,28,3,35,26,111],
+    mandatoryFunctions: [65,35,29],
+    excludedFunctions: [26,35,57,0]
+};
+var eligibleFunctions2 = {
+    includedFunctions: [],
+    mandatoryFunctions: [65,35,4,29],
+    excludedFunctions: [26,35,57,0,4,5]
+};
+var eligibleFunctions3 = {
+    includedFunctions: [],
+    mandatoryFunctions: [43,26],
+    excludedFunctions: [43,0,111]
+};
 
+var eligibleFunctionsLibrary = createEligibleFunctionLibrary(GenoMusPianoFunctionLibrary, eligibleFunctions);
 createJSON(eligibleFunctionsLibrary, 'eligible_functions_library.json');
 
 
