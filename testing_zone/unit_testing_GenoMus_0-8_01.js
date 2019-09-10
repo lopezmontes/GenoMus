@@ -658,6 +658,8 @@ var eligibleFunctions = {
     mandatoryFunctions: [65,35,29],
     excludedFunctions: [26,35,57,0]
 };
+
+
 // create the library with eligible functions extracting them from the complete library
 var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
     var includedFuncs = eligibleFunc.includedFunctions;
@@ -699,6 +701,11 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
         eligibleFuncLib.encodedIndexes = completeLib.encodedIndexes;
         eligibleFuncLib.functionNames = completeLib.functionNames;
         eligibleFuncLib.functionLibrary = completeLib.functionLibrary;
+        excludedFuncs.map(x => {
+            delete eligibleFuncLib.decodedIndexes[x];
+            delete eligibleFuncLib.encodedIndexes[z2p(x)];
+            delete eligibleFuncLib.functionNames[completeLib.decodedIndexes[x]];
+        }
     }
     else {
         var readFunc, functTyp;
