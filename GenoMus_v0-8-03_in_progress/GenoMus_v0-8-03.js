@@ -1,11 +1,23 @@
 // GENOMUS 0.8 UNIT TESTING
 ///////////////////////////
 
+
+
+
+// DEPENDENCIES
+// random generators with different distributions based on seedrandom
 const random = require('random');
 const seedrandom = require('seedrandom');
+// files handling
 const fs = require('fs');
+// connection with Max interface
+const maxAPI = require('max-api');
 
-// initial conditions
+
+
+
+/////////////////////
+// INITIAL CONDITIONS
 var phenMaxLength = 2000;
 
 // global variable to store subexpressions
@@ -36,16 +48,31 @@ var initSubexpressionsArrays = () => {
 }
 initSubexpressionsArrays();
 
-// test decoded genotypes
+// test decoded genotypes with Terminal
 var tt = decGenotype => {
     initSubexpressionsArrays();
     var output = (evalDecGen(decGenotype));
     console.log(subexpressions);
     visualizeSpecimen(output.encGen, "encGen");
     visualizeSpecimen(output.encPhen, "encPhen");
+    console.log("received decoded genotype: " + decGenotype);
     console.log("manually decoded genotype: " + decodeGenotype(output.encGen));
     console.log("automat. encoded genotype: " + eval(decGenotype).encGen);
     console.log("manually encoded genotype: " + encodeGenotype(decGenotype));
+    return output;
+}
+
+// test decoded genotypes in Max
+var mt = decGenotype => {
+    initSubexpressionsArrays();
+    var output = (evalDecGen(decGenotype));
+    maxAPI.post(subexpressions);
+    // visualizeSpecimen(output.encGen, "encGen");
+    // visualizeSpecimen(output.encPhen, "encPhen");
+    maxAPI.post("received decoded genotype: " + decGenotype);
+    maxAPI.post("manually decoded genotype: " + decodeGenotype(output.encGen));
+    maxAPI.post("automat. encoded genotype: " + eval(decGenotype).encGen);
+    maxAPI.post("manually encoded genotype: " + encodeGenotype(decGenotype));
     return output;
 }
 
@@ -194,9 +221,10 @@ var e = (notevalue, midiPitch, articulation, intensity) => indexExprReturnSpecim
         + articulation.decGen + ","
         + intensity.decGen + ")",
     encPhen: [notevalue.encPhen[0],
-    goldeninteger2norm(1), midiPitch.encPhen[0],
-    articulation.encPhen[0],
-    intensity.encPhen[0]],
+        goldeninteger2norm(1), 
+        midiPitch.encPhen[0],
+        articulation.encPhen[0],
+        intensity.encPhen[0]],
     phenLength: 1,
     tempo: 0.6,
     harmony: {
@@ -212,7 +240,7 @@ var v = e => indexExprReturnSpecimen({
     funcType: "voiceF",
     encGen: flattenDeep([1, 0.854102, e.encGen, 0]),
     decGen: "v(" + e.decGen + ")",
-    encPhen: wrap(e.encPhen),
+    encPhen: [0.618034].concat(e.encPhen),
     phenLength: 1,
     tempo: e.tempo,
     rhythm: e.rhythm,
@@ -225,7 +253,7 @@ var s = v => indexExprReturnSpecimen({
     funcType: "scoreF",
     encGen: flattenDeep([1, 0.472136, v.encGen, 0]),
     decGen: "s(" + v.decGen + ")",
-    encPhen: wrap(v.encPhen),
+    encPhen: [0.618034].concat(v.encPhen),
     phenLength: v.phenLength,
     tempo: v.tempo,
     rhythm: v.rhythm,
@@ -910,3 +938,230 @@ var visualizeSpecimen = (normArray, filename) => {
     var SVGcode = SVGheader + lines + "</svg>";
     fs.writeFileSync(filename + '.svg', SVGcode);
 };
+
+
+
+
+
+
+
+
+
+// EXPRESSIONS PROCESSING
+
+// compress an expanded expression
+var compressExpr = expandedFormExpr => {
+    var temporaryExpr = "";
+    for (var charIndx = 0; charIndx < expandedFormExpr.length; charIndx++) {
+        if (expandedFormExpr.charAt(charIndx) != " " && expandedFormExpr.charAt(charIndx) != "\n") {
+            temporaryExpr = temporaryExpr + expandedFormExpr.charAt(charIndx);
+        }
+    }
+    temporaryExpr = temporaryExpr.replace(/,/g, ", ");
+    expandedFormExpr = temporaryExpr;
+    return expandedFormExpr;
+}
+
+// expand and indent a compressed expression in a human readable format
+var expandExpr = compressedFormExpr => {
+    //compressedFormExpr = compressedFormExpr.toString();
+    compressedFormExpr = compressExpr(compressedFormExpr);
+
+    compressExpr(compressedFormExpr);
+    var expandedExpression = "";
+    // compressedFormExpr = compressedFormExpr.replace(/\s+/g," ");
+    // compressedFormExpr = compressedFormExpr.replace(/(\r\n|\n|\r|)/gm,"");
+    compressedFormExpr = compressedFormExpr.replace(/\(/g, "(\n");
+    compressedFormExpr = compressedFormExpr.replace(/, /g, ",\n");
+    compressedFormExpr = compressedFormExpr.replace(/\n\)/g, ")");
+    compressedFormExpr = compressedFormExpr.replace(/\bp\(\n/g, "p(");
+    compressedFormExpr = compressedFormExpr.replace(/AutoRef\(\n/g, "AutoRef(");    
+    var parenthCount = 0;
+    for (var charIndx = 0; charIndx < compressedFormExpr.length; charIndx++) {
+        expandedExpression = expandedExpression + compressedFormExpr.charAt(charIndx);
+        if (compressedFormExpr.charAt(charIndx) == "(") {
+            parenthCount++
+        }
+        if (compressedFormExpr.charAt(charIndx) == ")") {
+            parenthCount--
+        }
+        if (compressedFormExpr.charAt(charIndx) == "\n") {
+            var tabulation = "    ";
+            for (n = 0; n < parenthCount; n++) {
+                expandedExpression = expandedExpression + tabulation;
+            }
+        }
+    }
+    // rewrite expandedExpr maintaining matrices in a single line
+    var matrixCompactExpr = "";
+    var matrixOpen = 0;
+    for (charIndx = 0; charIndx < expandedExpression.length; charIndx++) {
+        if (expandedExpression.charAt(charIndx) == "[") {
+            matrixOpen++
+        };
+        if (expandedExpression.charAt(charIndx) == "]") {
+            matrixOpen--
+        };
+        if (matrixOpen > 0) {
+            if (expandedExpression.charAt(charIndx) != "\n" && expandedExpression.charAt(charIndx) != " ") {
+                matrixCompactExpr = matrixCompactExpr + expandedExpression.charAt(charIndx);
+            }
+        } else {
+            matrixCompactExpr = matrixCompactExpr + expandedExpression.charAt(charIndx);
+        }
+    }
+    compressedFormExpr = matrixCompactExpr;
+    //compressedFormExpr = compressedFormExpr.substring(1,compressedFormExpr.length-1);
+    return compressedFormExpr;
+    // outlet(0, compressedFormExpr);
+    // outlet(1, eval(compressedFormExpr)[0]);
+}
+
+
+   
+/////////////////
+// BACH FORMAT CONVERTER
+
+
+var encPhen2bachRoll = encPhen => {
+    var wholeNoteDur = 4000/3; // default value for tempo, 1/4 note = 1 seg 
+    var roll = [];
+    var arrLength = encPhen.length;
+    var numVoices, numEvents, numPitches, pos = 0;
+    var eventDur, totalVoiceDeltaTime;
+    // write voices within a score
+    numVoices = p2z(encPhen[pos]);
+    console.log("numVoices:" + numVoices);
+    pos++;
+    for (var v = 0; v < numVoices; v++) {
+        numEvents = p2z(encPhen[pos]);
+        console.log("numEvents:" + numEvents);
+        roll.push("(");
+        pos++;
+        // write events within a voice
+        totalVoiceDeltaTime = 0;
+        for (var e = 0; e < numEvents; e++) {
+            // write event
+            roll.push("(");
+            // writes start time
+            roll.push(totalVoiceDeltaTime);
+            eventDur = wholeNoteDur * eval(p2n(encPhen[pos]));
+            console.log("eventDur:" + eventDur);
+            pos++;
+            // loads number of pitches within an event
+            numPitches = p2z(encPhen[pos]);
+            console.log("numPitches:" + numPitches);
+            pos++;
+            // writes individual notes parameters
+            for (var p = 0; p < numPitches; p++) {
+                roll.push("(");
+                // add pitch
+                roll.push(p2m(encPhen[pos]) * 100);
+                pos++;
+                // add duration of sound according to articulation % value
+                roll.push(eventDur * p2a(encPhen[pos]));
+                pos++;
+                // add dynamics (converts from 0-1 to 127 standard MIDI velocity)
+                roll.push(p2i(encPhen[pos]));
+                pos++;
+                roll.push(")");
+            }
+            totalVoiceDeltaTime = totalVoiceDeltaTime + eventDur;
+            roll.push(")");        
+        }
+    roll.push(")");
+    }
+    return roll;
+}
+
+encPhen2bachRoll([ 0.618034, 0.618034, 0.6, 0.618034, 0.48, 1, 1 ]);
+
+// OLD
+var encodedPhenotype2bachScore = encodedPhenotype => {
+    var wholeNoteDur = 4000; // default value for tempo, 1/4 note = 1 seg 
+    var roll = ["("];
+    var arrLength = encodedPhenotype.length;
+    for (var i = 0; i < arrLength; i++) {
+        // score flag
+        if (encodedPhenotype[i] == 1) {
+            i++;
+            // voice flag
+            if (encodedPhenotype[i] == 1) {
+                // accumulated duration of voice
+                var totalVoiceDeltaTime = 0;
+                //roll.push("(");
+                i++;
+                // write voice events. 0 marks end of voice
+                while (encodedPhenotype[i] != 0 && i <= arrLength) {
+                    // writes event start time
+                    roll.push("(");
+                    roll.push(totalVoiceDeltaTime);
+                    var eventDur = wholeNoteDur * p2n(encodedPhenotype[i]);
+                    i++;
+                    // loads notes in chord
+                    var numNotesInChord = p2z(encodedPhenotype[i]);
+                    // writes individual notes parameters
+                    for (var n = 0; n < numNotesInChord; n++) {
+                        roll.push("(");
+                        // add pitch
+                        roll.push(p2m(encodedPhenotype[i])*100);
+                        i++;
+                        // add duration of sound according to articulation % value
+                        roll.push(eventDur * p2a(encodedPhenotype[i]));
+                        i++;
+                        // add dynamics (converts from 0-1 to 127 standard MIDI velocity)
+                        roll.push(p2i(encodedPhenotype[i]));
+                        i++;
+                        roll.push(")");
+                    }
+                    totalVoiceDeltaTime = totalVoiceDeltaTime + eventDur;
+                    roll.push(")");
+                }
+                //roll.push(")");
+            }
+            else {
+                //maxAPI.post("bad format");
+                return -1;
+            }
+        }
+        else {
+            //maxAPI.post("bad format");
+            return -1;
+        }        
+        //post(encodedPhenotype[i] + "\n");
+        //roll.push(encodedPhenotype[i]);
+    }
+    roll.push(")");
+    return roll;
+}
+
+
+
+
+// WRITE SPECIMEN JSON FILES
+
+var specimenDataStructure = (specimen) => ({
+    encodedGenotype: specimen.encGen,
+    decodedGenotype: specimen.decGen,
+    formattedGenotype: expandExpr(specimen.decGen),
+    encodedPhenotype: specimen.encPhen,
+    roll: encPhen2bachRoll(specimen.encPhen)
+});
+
+
+// MAX COMMUNICATION
+
+// gets data from manual text input from max patch
+maxAPI.addHandler("text", (...args) => {
+    // make a string from params array
+    var receivedText = "";
+    for (var i = 0; i < args.length; i++) {
+        receivedText += args[i];
+    } 
+    var evaluation = evalDecGen(receivedText);
+    // maxAPI.post(mt(receivedText));
+    // maxAPI.post(evaluation);
+
+    // write JSON file   
+    createJSON(specimenDataStructure(evaluation), 'genotipo.json');
+});

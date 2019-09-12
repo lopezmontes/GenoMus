@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 664.0, 79.0, 1218.0, 889.0 ],
+		"rect" : [ 822.0, 79.0, 1044.0, 889.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -672,7 +672,7 @@
 					"patching_rect" : [ 19.333287398020389, 14.666666507720947, 230.000003218650818, 35.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 19.333287398020389, 45.666666507720947, 230.000003218650818, 35.0 ],
-					"text" : "GenoMus v. 0.8.00",
+					"text" : "GenoMus v. 0.8.03",
 					"textcolor" : [ 0.643137254901961, 0.631372549019608, 0.631372549019608, 1.0 ]
 				}
 
@@ -712,7 +712,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 836.0, 79.0, 622.0, 937.0 ],
+						"rect" : [ 213.0, 173.0, 622.0, 937.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -841,8 +841,8 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 362.66667417685187, 306.583341002464294, 104.0, 17.0 ],
-									"text" : "zl filter expandedGenotype"
+									"patching_rect" : [ 362.66667417685187, 306.583341002464294, 102.0, 17.0 ],
+									"text" : "zl filter formattedGenotype"
 								}
 
 							}
@@ -866,10 +866,10 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 162.333335280418396, 179.750006437301636, 133.0, 22.0 ],
+									"patching_rect" : [ 162.333335280418396, 179.750006437301636, 131.0, 22.0 ],
 									"presentation" : 1,
 									"presentation_rect" : [ 162.333335280418396, 2.750006437301636, 133.0, 22.0 ],
-									"text" : "get expandedGenotype"
+									"text" : "get formattedGenotype"
 								}
 
 							}
@@ -954,7 +954,6 @@
 									"fontname" : "Courier New",
 									"fontsize" : 10.0,
 									"id" : "obj-43",
-									"linecount" : 90,
 									"maxclass" : "textedit",
 									"numinlets" : 1,
 									"numoutlets" : 4,
@@ -962,9 +961,8 @@
 									"parameter_enable" : 0,
 									"patching_rect" : [ 0.833334445953369, 203.750006437301636, 660.0, 1189.0 ],
 									"presentation" : 1,
-									"presentation_linecount" : 90,
 									"presentation_rect" : [ 0.833334445953369, 26.750006437301636, 696.0, 3563.450018703937531 ],
-									"text" : "\"sThreeVoices(\n    vChordsWrapper(\n        cMonorhythmicalMotif(\n            pAutoRef(0),\n            aLoop(\n                aRandomArray(\n                    pAutoRef(1)),\n                pRandRange(\n                    p(0.693534),\n                    p(0.956572))),\n            pAutoRef(1),\n            pAutoRef(4))),\n    vMutate(\n        vChordsWrapper(\n            cConcateDouble(\n                cRandomOctavesChord(\n                    pGaussRand(),\n                    pRand(),\n                    p(0.916041),\n                    pAutoRef(3)),\n                cRepeatBlock(\n                    cConcateDouble(\n                        cRandomOctavesChord(\n                            pAutoRef(1),\n                            p(0.41637),\n                            pGaussRand(),\n                            p(0.982914)),\n                        cConcate(\n                            cRandomFourPitchesChord(\n                                p(0.259881)),\n                            cRepeatBlock(\n                                cMelodicMotif(\n                                    aRndRangeArray(\n                                        pAutoRef(2),\n                                        pAutoRef(3),\n                                        pRand()),\n                                    aRndRangeArray(\n                                        pRand(),\n                                        pGaussRand(),\n                                        pRand()),\n                                    aSteps(\n                                        pAutoRef(5),\n                                        pRandRange(\n                                            pAutoRef(1),\n                                            pRand()),\n                                        pGaussRand()),\n                                    aRandomArray(\n                                        pAutoRef(8))),\n                                pRand())),\n                        cRandomOctavesChord(\n                            pRandRange(\n                                pGaussRand(),\n                                pRandRange(\n                                    pRandRange(\n                                        pRandRange(\n                                            pRandRange(\n                                                pRandRange(\n                                                    pGaussRand(),\n                                                    pAutoRef(9)),\n                                                pRand()),\n                                            pAutoRef(7)),\n                                        pAutoRef(12)),\n                                    pAutoRef(3))),\n                            pRand(),\n                            pAutoRef(15),\n                            pAutoRef(13)),\n                        cIterExpr(\n                            cRandomMajorChord(\n                                pAutoRef(3),\n                                pRandRange(\n                                    pRand(),\n                                    pRand()),\n                                pGaussRand(),\n                                pRandRange(\n                                    p(0.47126),\n                                    pRand())),\n                            pRand())),\n                    pRand()),\n                cRandomThreePitchesChord(\n                    pAutoRef(12)),\n                cRandomFourPitchesChord(\n                    pRand()))),\n        pGaussRand(),\n        pRand()),\n    vChordsWrapper(\n        cRandomOctavesChord(\n            p(0.501345),\n            pAutoRef(6),\n            pRand(),\n            pRand())))\"",
+									"text" : "p(.83445)",
 									"textcolor" : [ 0.8000000119, 0.8000000119, 0.8000000119, 1.0 ]
 								}
 
@@ -2040,7 +2038,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 131.0, 507.0, 416.0, 530.0 ],
+						"rect" : [ 1984.0, 696.0, 442.0, 850.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -2114,7 +2112,13 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 7.833366334438324, 34.66669774055481, 298.0, 31.0 ],
-									"text" : "node.script GenoMus_v0-7-05.js"
+									"saved_object_attributes" : 									{
+										"autostart" : 0,
+										"defer" : 0,
+										"watch" : 0
+									}
+,
+									"text" : "node.script GenoMus_v0-8-03.js"
 								}
 
 							}
@@ -5203,6 +5207,20 @@
 , 			{
 				"name" : "fit_jweb_to_bounds.js",
 				"bootpath" : "C74:/packages/Node For Max/patchers/debug-monitor",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "GenoMus_v0-8-03.js",
+				"bootpath" : "~/Dropbox/tesis/GenoMus/GenoMus_v0-8-03_in_progress",
+				"patcherrelativepath" : ".",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "expandCompressedGenotype.js",
+				"bootpath" : "~/Dropbox/tesis/GenoMus/GenoMus_v0-8-03_in_progress",
+				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1
 			}

@@ -1,11 +1,13 @@
 <svg version='1.1'
     baseProfile='full'
-    width='55' height='140'
+    width='77' height='140'
     xmlns='http://www.w3.org/2000/svg'>
-    <rect x='0' y='0' width=';55' height='140' style='fill:white;' />
-    <rect x='0' y='87.1' rx='5' ry='5' width='10' height='52.9' style='fill:hsl(257,93%,50%)' />
-    <rect x='11' y='84.5' rx='5' ry='5' width='10' height='55.5' style='fill:hsl(246,93%,50%)' />
-    <rect x='22' y='58.5' rx='5' ry='5' width='10' height='81.5' style='fill:hsl(307,93%,50%)' />
-    <rect x='33' y='87.1' rx='5' ry='5' width='10' height='52.9' style='fill:hsl(257,93%,50%)' />
-    <rect x='44' y='85.8' rx='5' ry='5' width='10' height='54.2' style='fill:hsl(286,93%,50%)' />
+    <rect x='0' y='0' width=';77' height='140' style='fill:white;' />
+    <rect x='0' y='49.65558' rx='5' ry='5' width='10' height='90.34442' style='fill:hsl(1,93%,50%)' />
+    <rect x='11' y='49.65558' rx='5' ry='5' width='10' height='90.34442' style='fill:hsl(1,93%,50%)' />
+    <rect x='22' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
+    <rect x='33' y='49.65558' rx='5' ry='5' width='10' height='90.34442' style='fill:hsl(1,93%,50%)' />
+    <rect x='44' y='78' rx='5' ry='5' width='10' height='62' style='fill:hsl(264,93%,50%)' />
+    <rect x='55' y='52' rx='5' ry='5' width='10' height='88' style='fill:hsl(176,93%,50%)' />
+    <rect x='66' y='26' rx='5' ry='5' width='10' height='114' style='fill:dimgray' />
 </svg>
