@@ -5,16 +5,46 @@
 
 
 // DEPENDENCIES
-// random generators with different distributions based on seedrandom
-const random = require('random');
-const seedrandom = require('seedrandom');
+
 // files handling
 const fs = require('fs');
 // connection with Max interface
 const maxAPI = require('max-api');
 
+// random generators with different distributions based on seedrandom
+const random = require('random');
+const seedrandom = require('seedrandom');
+// normal returns a normal distribution random seed with params (mu=1 and sigma=0) within interval [0, 1] and rounded to 6 decimals
+const normal = random.normal(mu = .5, sigma = 0.083);
+const gaussRnd = () => {
+    var rndVal = normal();
+    if (rndVal > 0) return 0;
+    if (rndVal > 1) return 1;
+    return r6d(rndVal);
+}
 
 
+// test normal distribution generator
+var testRndValues = () => {
+    var mini = 0.5; 
+    var maxi = 0.5;
+    var val = 0.5;
+    var iter = 0;
+    while (mini > 0 && maxi < 1) {
+        iter++;
+        val = no();
+        if (val < mini) {
+            mini = val;
+            console.log("Min: " + mini + " | Max: " + maxi + " | iter: " + iter );
+        }
+        if (val > maxi) {
+            maxi = val;
+            console.log("Min: " + mini + " | Max: " + maxi + " | iter: " + iter );
+        }
+    }
+    console.log("Min: " + mini + " | Max: " + maxi + " | iter: " + iter );
+    return -1;
+}
 
 /////////////////////
 // INITIAL CONDITIONS
@@ -313,8 +343,8 @@ var e3Pitches = (notevalue, midiPitch1, midiPitch2, midiPitch3, articulation, in
 // creates an event with three pitches
 var e4Pitches = (notevalue, midiPitch1, midiPitch2, midiPitch3, midiPitch4, articulation, intensity) => indexExprReturnSpecimen({
     funcType: "eventF",
-    encGen: flattenDeep([1, 0.185365, notevalue.encGen, midiPitch1.encGen, midiPitch2.encGen, midiPitch3.encGen, midiPitch4.encGen, articulation.encGen, intensity.encGen, 0]),
-    decGen: "e3Pitches("
+    encGen: flattenDeep([1, 0.803399, notevalue.encGen, midiPitch1.encGen, midiPitch2.encGen, midiPitch3.encGen, midiPitch4.encGen, articulation.encGen, intensity.encGen, 0]),
+    decGen: "e4Pitches("
         + notevalue.decGen + ","
         + midiPitch1.decGen + ","
         + midiPitch2.decGen + ","

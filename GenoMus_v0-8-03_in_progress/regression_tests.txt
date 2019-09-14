@@ -7,8 +7,8 @@ s(v(e2Pitches(p(0.2),m(61),m(47),a(0.999998),i(100.000054))))
 3 pitches note:
 s(v(e3Pitches(p(0.2),m(61),m(47),m(75),a(0.999998),i(100.000054))))
 
-3 pitches note:
-s(v(e3Pitches(p(0.2),pRnd(),pRnd(),pRnd(),pRnd(),a(0.999998),i(100.000054))))
+4 pitches note:
+s(v(e4Pitches(p(0.2),pRnd(),pRnd(),pRnd(),pRnd(),a(0.999998),i(100.000054))))
 
 Two notes:
 s(vConcatV(v(e(p(0.5),m(61),a(0.999998),i(100.000054))),v(e(p(0.24),m(66),a(0.999998),i(100.000054)))))
