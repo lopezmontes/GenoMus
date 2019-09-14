@@ -183,16 +183,14 @@ var testRepetitions = function (n) {
 ///////// RANDOM HANDLING
 
 // normal returns a normal distribution random seed with params (mu=1 and sigma=0) within interval [0, 1] and rounded to 6 decimals
-const normal = random.normal(mu = 0, sigma = 0.15);
+const normal = random.normal(mu = 0.5, sigma = 0.15);
 const gaussRnd = () => {
     var rndVal;
     do {
         rndVal = normal();
-    } while (rndVal < -0.5 || rndVal > 0.5)
-    return r6d(rndVal + 0.5);
+    } while (rndVal < 0 || rndVal > 1)
+    return r6d(rndVal);
 }
-
-gaussRnd();
 
 // test normal distribution generator
 var testRndValues = () => {
