@@ -14,37 +14,215 @@ const maxAPI = require('max-api');
 // random generators with different distributions based on seedrandom
 const random = require('random');
 const seedrandom = require('seedrandom');
-// normal returns a normal distribution random seed with params (mu=1 and sigma=0) within interval [0, 1] and rounded to 6 decimals
-const normal = random.normal(mu = .5, sigma = 0.083);
-const gaussRnd = () => {
-    var rndVal = normal();
-    if (rndVal > 0) return 0;
-    if (rndVal > 1) return 1;
-    return r6d(rndVal);
+
+
+
+
+//////////// PARAMETER MAPPING
+// parameters mapping functions and abbreviated versions with short names and rounded output
+
+const PHI = (1 + Math.sqrt(5)) / 2;
+// round fractional part to 6 digits
+var r6d = f => Math.round(f * 1000000) / 1000000;
+
+var norm2notevalue = p => decimal2fraction(Math.pow(2, 10 * p - 8));
+var p2n = norm2notevalue;
+var notevalue2norm = n => r6d((Math.log10(n) + 8 * Math.log10(2)) / (10 * Math.log10(2)));
+var n2p = notevalue2norm;
+var norm2duration = p => r6d(Math.pow(2, 10 * p - 6));
+var p2d = norm2duration;
+var duration2norm = s => r6d((Math.log10(s) + 6 * Math.log10(2)) / (10 * Math.log10(2)));
+var d2p = duration2norm;
+var norm2midipitch = p => r6d(100 * p + 12);
+var p2m = norm2midipitch;
+var midipitch2norm = m => r6d((m - 12) / 100);
+var m2p = midipitch2norm;
+var norm2frequency = p => p < 0.003 ? 0.000001 : r6d(20000 * Math.pow(p, 4));
+var p2f = norm2frequency;
+var frequency2norm = f => r6d(Math.pow((f / 20000), (1 / 4)));
+var f2p = frequency2norm;
+var norm2articulation = p => r6d(3 * Math.pow(p, Math.E));
+var p2a = norm2articulation;
+var articulation2norm = a => r6d(Math.pow((a / 3), (1 / Math.E)));
+var a2p = articulation2norm;
+var norm2intensity = p => r6d(127 * p);
+var p2i = norm2intensity;
+var intensity2norm = i => r6d(i / 127);
+var i2p = intensity2norm;
+var norm2quantized = p => {
+    if (p > 1) { p = 1 };
+    if (p < 0) { p = 0 };
+    var s = r6d(-1 * Math.round(((((Math.asin(Math.pow(Math.abs((2 * p - 1)), (17 / 11)))) / Math.PI)) + 0.5) * 72 - 36));
+    if (p < .5) {
+        return s;
+    }
+    else {
+        return -1 * s;
+    }
+}
+var p2q = norm2quantized;
+var quantized2norm = q => {
+    if (q > 36) { q = 36 };
+    if (q < -36) { q = -36 };
+    return quantizedLookupTable[Math.round(q) + 36];
+}
+var q2p = quantized2norm;
+var goldeninteger2norm = p => r6d(p * PHI % 1);
+var z2p = goldeninteger2norm;
+var norm2goldeninteger = z => {
+    var p = 0;
+    var c = 0;
+    while (Math.abs(p - z) > 0.0000009 && c < 514262) {
+        c++;
+        p = (p + PHI) % 1;
+    }
+    return c;
+}
+var p2z = norm2goldeninteger;
+var quantizedLookupTable = [0, 0.0005, 0.001, 0.003, 0.006, 0.008, 0.01, 0.015, 0.02, 0.025, 0.03, 0.04, 0.045, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11, 0.12, 0.14, 0.15, 0.16, 0.18, 0.2, 0.21, 0.23, 0.25, 0.27, 0.3, 0.32, 0.33, 0.36, 0.4, 0.45, 0.5, 0.55, 0.6, 0.64, 0.67, 0.68, 0.7, 0.73, 0.75, 0.77, 0.79, 0.8, 0.82, 0.84, 0.85, 0.86, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.955, 0.96, 0.97, 0.975, 0.98, 0.985, 0.99, 0.992, 0.994, 0.997, 0.999, 0.9995, 1];
+
+
+// AUX FUNCTIONS
+
+// greates common divisor, taken and adapted from https://gist.github.com/redteam-snippets/3934258. 
+// Still to refine to avoid too weird numbers
+var gcd = (a, b) => (b) ? gcd(b, a % b) : a;
+
+var decimal2fraction = function (_decimal) {
+    if (_decimal == parseInt(_decimal)) {
+        var output = parseInt(_decimal);
+        if (output.length < 7) {
+            return output;
+        }
+        else {
+            return _decimal;
+        }
+    }
+    else {
+        var top = _decimal.toString().includes(".") ? _decimal.toString().replace(/\d+[.]/, '') : 0;
+        var bottom = Math.pow(10, top.toString().replace('-', '').length);
+        if (_decimal >= 1) {
+            top = +top + (Math.floor(_decimal) * bottom);
+        }
+        else if (_decimal <= -1) {
+            top = +top + (Math.ceil(_decimal) * bottom);
+        }
+
+        var x = Math.abs(gcd(top, bottom));
+        var output = (top / x) + '/' + (bottom / x);
+        if (output.length < 7) {
+            return output;
+        }
+        else {
+            return _decimal;
+        }
+    }
+};
+var d2f = decimal2fraction;
+
+// adapted from https://gist.github.com/drifterz28/6971440
+function fraction2decimal(fraction) {
+    var result, wholeNum = 0, frac, deci = 0;
+    if(fraction.search('/') >= 0){
+        if(fraction.search('-') >= 0){
+            var wholeNum = fraction.split('-');
+            frac = wholeNum[1];
+            wholeNum = parseInt(wholeNum, 10);
+        }else{
+            frac = fraction;
+        }
+        if(fraction.search('/') >=0){
+            frac =  frac.split('/');
+            deci = parseInt(frac[0], 10) / parseInt(frac[1], 10);
+        }
+        result = wholeNum + deci;
+    }else{
+        result = +fraction;
+    }
+    return r6d(result);
+}
+var f2d = fraction2decimal;
+
+var checkGoldenIntegerConversions = function (max) {
+    var noError = true;
+    var i = 0;
+    do {
+        i++;
+        if (norm2goldeninteger(goldeninteger2norm(i)) != i) {
+            noError = false;
+            console.log("Error with value " + i + "\ngoldeninteger2norm -> " + goldeninteger2norm(i) + "\nnorm2goldeninteger -> " + norm2goldeninteger(goldeninteger2norm(i)));
+        }
+        if (i % 10000 == 0) {
+            console.log("No error found until " + i);
+        }
+    } while (i < max);
+    return ("Validity of converter: " + noError);
 }
 
+// function to test how many encoded indexes can be generated without recurrences
+var testRepetitions = function (n) {
+    var usedNumbers = [];
+    var newValue = 0;
+    for (var a = 0; a < n; a++) {
+        newValue = goldeninteger2norm(a);
+        for (var b = 0; b < usedNumbers.length; b++) {
+            if (newValue == usedNumbers[b]) {
+                console.log("Repetition of " + newValue + " found at iteration " + a + ". Founded the same number at index " + b + ".");
+                return -1;
+            }
+        }
+        if (a % 10000 == 0) {
+            console.log("Tested " + b + " indexes. Recurrences not found so far.");
+        }
+        usedNumbers.push(newValue);
+    }
+    return 1;
+}
+
+
+///////// RANDOM HANDLING
+
+// normal returns a normal distribution random seed with params (mu=1 and sigma=0) within interval [0, 1] and rounded to 6 decimals
+const normal = random.normal(mu = 0, sigma = 0.15);
+const gaussRnd = () => {
+    var rndVal;
+    do {
+        rndVal = normal();
+    } while (rndVal < -0.5 || rndVal > 0.5)
+    return r6d(rndVal + 0.5);
+}
+
+gaussRnd();
 
 // test normal distribution generator
 var testRndValues = () => {
     var mini = 0.5; 
     var maxi = 0.5;
-    var val = 0.5;
+    var pos = 0;
+    var neg = 0;
+    var val;
     var iter = 0;
     while (mini > 0 && maxi < 1) {
         iter++;
-        val = no();
+        val = gaussRnd();
+        if (val < .5) neg++;
+        if (val > .5) pos++;
+        
         if (val < mini) {
             mini = val;
-            console.log("Min: " + mini + " | Max: " + maxi + " | iter: " + iter );
+            console.log("Min: " + mini + " | Max: " + maxi + " Negat: " + neg + " | Pos: " + pos + " | iter: " + iter );
         }
         if (val > maxi) {
             maxi = val;
-            console.log("Min: " + mini + " | Max: " + maxi + " | iter: " + iter );
+            console.log("Min: " + mini + " | Max: " + maxi + " Negat: " + neg + " | Pos: " + pos + " | iter: " + iter );
         }
     }
-    console.log("Min: " + mini + " | Max: " + maxi + " | iter: " + iter );
+    console.log("Min: " + mini + " | Max: " + maxi + " Negat: " + neg + " | Pos: " + pos + " | iter: " + iter );
     return -1;
 }
+
+// testRndValues();
+
 
 /////////////////////
 // INITIAL CONDITIONS
@@ -146,12 +324,20 @@ var p = x => indexExprReturnSpecimen({
     encPhen: [x]
 });
 
-// returns a random normalized parameter
+// returns a random normalized parameter with uniform distribution
 var pRnd = () => indexExprReturnSpecimen({
     funcType: "paramF",
     encGen: [1, 0.962453, 0],
     decGen: "pRnd()",
     encPhen: [r6d(random.float())]
+});
+
+// returns a random normalized parameter with normal distribution
+var pGaussRnd = () => indexExprReturnSpecimen({
+    funcType: "paramF",
+    encGen: [1, 0.580487, 0],
+    decGen: "pGaussRnd()",
+    encPhen: [gaussRnd()]
 });
 
 // notevalue identity function
@@ -416,7 +602,7 @@ var l5P = (p1, p2, p3, p4, p5) => indexExprReturnSpecimen({
     encPhen: p1.encPhen.concat(p2.encPhen).concat(p3.encPhen).concat(p4.encPhen).concat(p5.encPhen)
 });
 
-// random list up to 12 values (paramF, paramF)
+// random list up to 12 values with uniform distribution within interval [0, 1]
 var lRnd = (numItemsSeed, seqSeed) => {
     random.use(seedrandom(numItemsSeed.encPhen));
     var numItems = random.int(1, 12);
@@ -425,7 +611,20 @@ var lRnd = (numItemsSeed, seqSeed) => {
         funcType: "listF",
         encGen: flattenDeep([1, 0.816554, numItemsSeed.encGen, seqSeed.encGen, 0]),
         decGen: "lRnd(" + numItemsSeed.decGen + "," + seqSeed.decGen + ")",
-        encPhen: Array(numItems).fill().map(() => random.float())
+        encPhen: Array(numItems).fill().map(() => r6d(random.float()))
+    });
+};
+
+// random list up to 12 values with normal distribution within interval [0, 1]
+var lGaussRnd = (numItemsSeed, seqSeed) => {
+    random.use(seedrandom(numItemsSeed.encPhen));
+    var numItems = random.int(1, 12);
+    random.use(seedrandom(seqSeed.encPhen));
+    return indexExprReturnSpecimen({
+        funcType: "listF",
+        encGen: flattenDeep([1, 0.434588, numItemsSeed.encGen, seqSeed.encGen, 0]),
+        decGen: "lGaussRnd(" + numItemsSeed.decGen + "," + seqSeed.decGen + ")",
+        encPhen: Array(numItems).fill().map(() => gaussRnd())
     });
 };
 
@@ -605,167 +804,6 @@ var lAutoref = subexprIndex => autoref("lAutoref", "listF", 0.068884, subexprInd
 var eAutoref = subexprIndex => autoref("eAutoref", "eventF", 0.686918, subexprIndex, "e(p(0),p(0),p(0),p(0))");
 var vAutoref = subexprIndex => autoref("vAutoref", "voiceF", 0.304952, subexprIndex, "v(e(p(0),p(0),p(0),p(0)))");
 var sAutoref = subexprIndex => autoref("sAutoref", "scoreF", 0.922986, subexprIndex, "s(v(e(p(0),p(0),p(0),p(0))))");
-
-//////////// PARAMETER MAPPING
-// parameters mapping functions and abbreviated versions with short names and rounded output
-
-const PHI = (1 + Math.sqrt(5)) / 2;
-// round fractional part to 6 digits
-var r6d = f => Math.round(f * 1000000) / 1000000;
-
-var norm2notevalue = p => decimal2fraction(Math.pow(2, 10 * p - 8));
-var p2n = norm2notevalue;
-var notevalue2norm = n => r6d((Math.log10(n) + 8 * Math.log10(2)) / (10 * Math.log10(2)));
-var n2p = notevalue2norm;
-var norm2duration = p => r6d(Math.pow(2, 10 * p - 6));
-var p2d = norm2duration;
-var duration2norm = s => r6d((Math.log10(s) + 6 * Math.log10(2)) / (10 * Math.log10(2)));
-var d2p = duration2norm;
-var norm2midipitch = p => r6d(100 * p + 12);
-var p2m = norm2midipitch;
-var midipitch2norm = m => r6d((m - 12) / 100);
-var m2p = midipitch2norm;
-var norm2frequency = p => p < 0.003 ? 0.000001 : r6d(20000 * Math.pow(p, 4));
-var p2f = norm2frequency;
-var frequency2norm = f => r6d(Math.pow((f / 20000), (1 / 4)));
-var f2p = frequency2norm;
-var norm2articulation = p => r6d(3 * Math.pow(p, Math.E));
-var p2a = norm2articulation;
-var articulation2norm = a => r6d(Math.pow((a / 3), (1 / Math.E)));
-var a2p = articulation2norm;
-var norm2intensity = p => r6d(127 * p);
-var p2i = norm2intensity;
-var intensity2norm = i => r6d(i / 127);
-var i2p = intensity2norm;
-var norm2quantized = p => {
-    if (p > 1) { p = 1 };
-    if (p < 0) { p = 0 };
-    var s = r6d(-1 * Math.round(((((Math.asin(Math.pow(Math.abs((2 * p - 1)), (17 / 11)))) / Math.PI)) + 0.5) * 72 - 36));
-    if (p < .5) {
-        return s;
-    }
-    else {
-        return -1 * s;
-    }
-}
-var p2q = norm2quantized;
-var quantized2norm = q => {
-    if (q > 36) { q = 36 };
-    if (q < -36) { q = -36 };
-    return quantizedLookupTable[Math.round(q) + 36];
-}
-var q2p = quantized2norm;
-var goldeninteger2norm = p => r6d(p * PHI % 1);
-var z2p = goldeninteger2norm;
-var norm2goldeninteger = z => {
-    var p = 0;
-    var c = 0;
-    while (Math.abs(p - z) > 0.0000009 && c < 514262) {
-        c++;
-        p = (p + PHI) % 1;
-    }
-    return c;
-}
-var p2z = norm2goldeninteger;
-var quantizedLookupTable = [0, 0.0005, 0.001, 0.003, 0.006, 0.008, 0.01, 0.015, 0.02, 0.025, 0.03, 0.04, 0.045, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11, 0.12, 0.14, 0.15, 0.16, 0.18, 0.2, 0.21, 0.23, 0.25, 0.27, 0.3, 0.32, 0.33, 0.36, 0.4, 0.45, 0.5, 0.55, 0.6, 0.64, 0.67, 0.68, 0.7, 0.73, 0.75, 0.77, 0.79, 0.8, 0.82, 0.84, 0.85, 0.86, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.955, 0.96, 0.97, 0.975, 0.98, 0.985, 0.99, 0.992, 0.994, 0.997, 0.999, 0.9995, 1];
-
-
-// AUX FUNCTIONS
-
-// greates common divisor, taken and adapted from https://gist.github.com/redteam-snippets/3934258. 
-// Still to refine to avoid too weird numbers
-var gcd = (a, b) => (b) ? gcd(b, a % b) : a;
-
-var decimal2fraction = function (_decimal) {
-    if (_decimal == parseInt(_decimal)) {
-        var output = parseInt(_decimal);
-        if (output.length < 7) {
-            return output;
-        }
-        else {
-            return _decimal;
-        }
-    }
-    else {
-        var top = _decimal.toString().includes(".") ? _decimal.toString().replace(/\d+[.]/, '') : 0;
-        var bottom = Math.pow(10, top.toString().replace('-', '').length);
-        if (_decimal >= 1) {
-            top = +top + (Math.floor(_decimal) * bottom);
-        }
-        else if (_decimal <= -1) {
-            top = +top + (Math.ceil(_decimal) * bottom);
-        }
-
-        var x = Math.abs(gcd(top, bottom));
-        var output = (top / x) + '/' + (bottom / x);
-        if (output.length < 7) {
-            return output;
-        }
-        else {
-            return _decimal;
-        }
-    }
-};
-var d2f = decimal2fraction;
-
-// adapted from https://gist.github.com/drifterz28/6971440
-function fraction2decimal(fraction) {
-    var result, wholeNum = 0, frac, deci = 0;
-    if(fraction.search('/') >= 0){
-        if(fraction.search('-') >= 0){
-            var wholeNum = fraction.split('-');
-            frac = wholeNum[1];
-            wholeNum = parseInt(wholeNum, 10);
-        }else{
-            frac = fraction;
-        }
-        if(fraction.search('/') >=0){
-            frac =  frac.split('/');
-            deci = parseInt(frac[0], 10) / parseInt(frac[1], 10);
-        }
-        result = wholeNum + deci;
-    }else{
-        result = +fraction;
-    }
-    return r6d(result);
-}
-var f2d = fraction2decimal;
-
-var checkGoldenIntegerConversions = function (max) {
-    var noError = true;
-    var i = 0;
-    do {
-        i++;
-        if (norm2goldeninteger(goldeninteger2norm(i)) != i) {
-            noError = false;
-            console.log("Error with value " + i + "\ngoldeninteger2norm -> " + goldeninteger2norm(i) + "\nnorm2goldeninteger -> " + norm2goldeninteger(goldeninteger2norm(i)));
-        }
-        if (i % 10000 == 0) {
-            console.log("No error found until " + i);
-        }
-    } while (i < max);
-    return ("Validity of converter: " + noError);
-}
-
-// function to test how many encoded indexes can be generated without recurrences
-var testRepetitions = function (n) {
-    var usedNumbers = [];
-    var newValue = 0;
-    for (var a = 0; a < n; a++) {
-        newValue = goldeninteger2norm(a);
-        for (var b = 0; b < usedNumbers.length; b++) {
-            if (newValue == usedNumbers[b]) {
-                console.log("Repetition of " + newValue + " found at iteration " + a + ". Founded the same number at index " + b + ".");
-                return -1;
-            }
-        }
-        if (a % 10000 == 0) {
-            console.log("Tested " + b + " indexes. Recurrences not found so far.");
-        }
-        usedNumbers.push(newValue);
-    }
-    return 1;
-}
 
 
 ////////// FUNCTION LIBRARIES HANDLING
