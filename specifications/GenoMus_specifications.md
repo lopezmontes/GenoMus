@@ -933,8 +933,8 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `f`           | **frequencyF**      | 8 <sub>.944272</sub>  | `"f(440)"` &rarr; `[0.385129]`
 | `a`           | **articulationF**   | 9 <sub>.562306</sub>  | `"a(.5)"` &rarr; `[0.51729]` <sub>in progress</sub>
 | `i`           | **intensityF**      | 10 <sub>.18034</sub>  | `"i(127)"` &rarr; `[1]` <sub>in progress</sub>
-| `z`           | **goldenintegerF**  | 11 <sub>.798374</sub> | `"z(1)"` &rarr; `[0.618034]`
-| `q`           | **quantizedF**      | 12 <sub>.416408</sub> | `"q(-2)"` &rarr; `[0.4]`
+| `z`           | **goldenintegerF**  | 11 <sub>.798374</sub> | `"z(1)"` &rarr; `[0.618034]` <sub>in progress</sub>
+| `q`           | **quantizedF**      | 12 <sub>.416408</sub> | `"q(-2)"` &rarr; `[0.4]` <sub>in progress</sub>
 | `r`           | **rhythmF**         | 13 <sub>.034442</sub> | `"r([0,6,20,[2,1],16])"` &rarr; `[0,0.3,1,[1,0.5],0.8]`
 | `h`           | **harmonyF**        | 14 <sub>.652476</sub> | `"h([0.03,0.02,0.69])"` &rarr; `[3,2,9]`
 | `ln`          | **lnotevalueF**     | 15 <sub>.27051</sub>  | `"ln([1/8,1,1/2])"` &rarr; `[0.5,0.8,0.7]` <sub>in progress</sub>
@@ -1029,9 +1029,9 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## Poliphony
 | name        | index                              | description
 | ----------- | ---------------------------------- | -----------
-| `e2Pitches` | 98  <sub>not yet implemented</sub> | creates an event with two pitches
-| `e3Pitches` | 99  <sub>not yet implemented</sub> | creates an event with three pitches
-| `e4Pitches` | 100 <sub>not yet implemented</sub> | creates an event with four pitches
+| `e2Pitches` | 98  <sub>.567331 in progress</sub> | creates an event with two pitches
+| `e3Pitches` | 99  <sub>.185365 in progress</sub> | creates an event with three pitches
+| `e4Pitches` | 100 <sub>.803399 in progress</sub> | creates an event with four pitches
 | `e5Pitches` | 101 <sub>not yet implemented</sub> | creates an event with five pitches
 | `e6Pitches` | 102 <sub>not yet implemented</sub> | creates an event with six pitches
 | `eChord`    | 103 <sub>not yet implemented</sub> | creates an event with more than six pitches, with a maximal of 12 pitches
@@ -1040,7 +1040,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `s4V`       | 106 <sub>not yet implemented</sub> | creates an score with four simultaneous voices
 | `s5V`       | 107 <sub>not yet implemented</sub> | creates an score with five simultaneous voices
 | `s6V`       | 108 <sub>not yet implemented</sub> | creates an score with six simultaneous voices
-| `s7V`       | 109 <sub>not yet implemented</sub> | adds a new voice vertically to a score
+| `sAddV`     | 109 <sub>not yet implemented</sub> | adds a new voice vertically to a score
 | `sAddS`     | 110 <sub>not yet implemented</sub> | adds a new score vertically to a score
 
 ---------
@@ -1180,10 +1180,10 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | name               | index                              | description
 | ------------------ | ---------------------------------- | -----------
 | `pRnd`             | 131 <sub>.962453 in progress</sub> | returns a random normalized parameter with uniform distribution
-| `pGaussRnd`        | 132 <sub>not yet implemented</sub> | returns a random normalized parameter with Gaussian (or normal) distribution
+| `pGaussRnd`        | 132 <sub>.580487 in progress</sub> | returns a random normalized parameter with Gaussian (or normal) distribution
 | `pWrappedGaussRnd` | 133 <sub>not yet implemented</sub> | returns a random normalized parameter with a wrapped normal distribution
 | `lRnd`             | 134 <sub>.816554 in progress</sub> | returns a complete random list with uniform distribution of values
-| `lGaussRnd`        | 135 <sub>not yet implemented</sub> | returns a complete random list with with Gaussian distribution of parameters
+| `lGaussRnd`        | 135 <sub>.434588 in progress</sub> | returns a complete random list with with Gaussian distribution of parameters
 | `lWrappedGaussRnd` | 136 <sub>not yet implemented</sub> | returns a complete random list with a wrapped normal distribution of values
 | `eRnd`             | 137 <sub>not yet implemented</sub> | returns a complete random event with uniform distribution of parameters
 | `eGaussRnd`        | 138 <sub>not yet implemented</sub> | returns a complete random event with with Gaussian distribution of parameters
