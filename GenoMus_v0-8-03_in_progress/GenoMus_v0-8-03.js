@@ -261,6 +261,82 @@ var s = v => indexExprReturnSpecimen({
     analysis: v.analysis
 });
 
+// creates an event with two pitches
+var e2Pitches = (notevalue, midiPitch1, midiPitch2, articulation, intensity) => indexExprReturnSpecimen({
+    funcType: "eventF",
+    encGen: flattenDeep([1, 0.567331, notevalue.encGen, midiPitch1.encGen, midiPitch2.encGen, articulation.encGen, intensity.encGen, 0]),
+    decGen: "e2Pitches("
+        + notevalue.decGen + ","
+        + midiPitch1.decGen + ","
+        + midiPitch2.decGen + ","
+        + articulation.decGen + ","
+        + intensity.decGen + ")",
+    encPhen: [notevalue.encPhen[0],
+        0.236068, midiPitch1.encPhen[0], midiPitch2.encPhen[0],
+        articulation.encPhen[0],
+        intensity.encPhen[0]],
+    phenLength: 1,
+    tempo: 0.6,
+    harmony: {
+        root: Math.min(midiPitch1.encPhen[0], midiPitch2.encPhen[0]),
+        chord: [midiPitch1.encPhen[0], midiPitch2.encPhen[0]],
+        mode: [midiPitch1.encPhen[0], midiPitch2.encPhen[0]].sort((a, b) => a - b),
+        chromaticism: 1
+    }
+});
+
+// creates an event with three pitches
+var e3Pitches = (notevalue, midiPitch1, midiPitch2, midiPitch3, articulation, intensity) => indexExprReturnSpecimen({
+    funcType: "eventF",
+    encGen: flattenDeep([1, 0.185365, notevalue.encGen, midiPitch1.encGen, midiPitch2.encGen, midiPitch3.encGen, articulation.encGen, intensity.encGen, 0]),
+    decGen: "e3Pitches("
+        + notevalue.decGen + ","
+        + midiPitch1.decGen + ","
+        + midiPitch2.decGen + ","
+        + midiPitch3.decGen + ","
+        + articulation.decGen + ","
+        + intensity.decGen + ")",
+    encPhen: [notevalue.encPhen[0],
+        0.854102, midiPitch1.encPhen[0], midiPitch2.encPhen[0], midiPitch3.encPhen[0],
+        articulation.encPhen[0],
+        intensity.encPhen[0]],
+    phenLength: 1,
+    tempo: 0.6,
+    harmony: {
+        root: Math.min(midiPitch1.encPhen[0], midiPitch2.encPhen[0], midiPitch3.encPhen[0]),
+        chord: [midiPitch1.encPhen[0], midiPitch2.encPhen[0], midiPitch3.encPhen[0]],
+        mode: [midiPitch1.encPhen[0], midiPitch2.encPhen[0], midiPitch3.encPhen[0]].sort((a, b) => a - b),
+        chromaticism: 1
+    }
+});
+
+// creates an event with three pitches
+var e4Pitches = (notevalue, midiPitch1, midiPitch2, midiPitch3, midiPitch4, articulation, intensity) => indexExprReturnSpecimen({
+    funcType: "eventF",
+    encGen: flattenDeep([1, 0.185365, notevalue.encGen, midiPitch1.encGen, midiPitch2.encGen, midiPitch3.encGen, midiPitch4.encGen, articulation.encGen, intensity.encGen, 0]),
+    decGen: "e3Pitches("
+        + notevalue.decGen + ","
+        + midiPitch1.decGen + ","
+        + midiPitch2.decGen + ","
+        + midiPitch3.decGen + ","
+        + midiPitch4.decGen + ","
+        + articulation.decGen + ","
+        + intensity.decGen + ")",
+    encPhen: [notevalue.encPhen[0],
+        0.472136, midiPitch1.encPhen[0], midiPitch2.encPhen[0], midiPitch3.encPhen[0], midiPitch4.encPhen[0],
+        articulation.encPhen[0],
+        intensity.encPhen[0]],
+    phenLength: 1,
+    tempo: 0.6,
+    harmony: {
+        root: Math.min(midiPitch1.encPhen[0], midiPitch2.encPhen[0], midiPitch3.encPhen[0], midiPitch4.encPhen[0]),
+        chord: [midiPitch1.encPhen[0], midiPitch2.encPhen[0], midiPitch3.encPhen[0], midiPitch4.encPhen[0]],
+        mode: [midiPitch1.encPhen[0], midiPitch2.encPhen[0], midiPitch3.encPhen[0], midiPitch4.encPhen[0]].sort((a, b) => a - b),
+        chromaticism: 1
+    }
+});
+
+
 // repeats an event a number of times between 2 and 12 (eventP, paramP)
 var vRepeatE = (event, times) => {
     var numRepeats = adjustRange(Math.abs(p2q(adjustRange(times.encPhen[0], q2p(-12), q2p(12)))), 2, 12); // number of times rescaled to range [2, 12], mapped according to the deviation from the center value 0.5
@@ -271,7 +347,7 @@ var vRepeatE = (event, times) => {
         decGen: "vRepeatE("
             + event.decGen + ","
             + times.decGen + ")",
-        encPhen: wrap(flattenDeep(Array(numRepeats).fill(event.encPhen))),
+        encPhen: flattenDeep([z2p(numRepeats)].concat(Array(numRepeats).fill(event.encPhen))),
         phenLength: numRepeats,
         tempo: event.tempo,
         harmony: event.harmony
@@ -336,13 +412,13 @@ var vConcatE = (e1, e2) => indexExprReturnSpecimen({
     funcType: "voiceF",
     encGen: flattenDeep([1, 0.957428, e1.encGen, e2.encGen, 0]),
     decGen: "vConcatE(" + e1.decGen + "," + e2.decGen + ")",
-    encPhen: wrap(e1.encPhen.concat(e2.encPhen)),
+    encPhen: [z2p(2)].concat(e1.encPhen.concat(e2.encPhen)),
     phenLength: 2,
     tempo: e1.tempo,
     harmony: {
         root: Math.min(e1.harmony.root, e2.harmony.root),
         chord: [e1.harmony.root, e2.harmony.root],
-        mode: [e1.harmony.root, e2.harmony.root].sort(),
+        mode: [e1.harmony.root, e2.harmony.root].sort((a, b) => a - b),
         chromaticism: 1
     }
 });
@@ -352,7 +428,7 @@ var vConcatV = (v1, v2) => indexExprReturnSpecimen({
     funcType: "voiceF",
     encGen: flattenDeep([1, 0.575462, v1.encGen, v2.encGen, 0]),
     decGen: "vConcatV(" + v1.decGen + "," + v2.decGen + ")",
-    encPhen: wrap(unwrap(v1.encPhen).concat(unwrap(v2.encPhen))),
+    encPhen: [z2p(v1.phenLength + v2.phenLength)].concat(v1.encPhen.slice(1)).concat(v2.encPhen.slice(1)),
     phenLength: v1.phenLength + v2.phenLength,
     tempo: v1.tempo,
     rhythm: v1.rhythm,
@@ -372,6 +448,48 @@ var sConcatS = (s1, s2) => indexExprReturnSpecimen({
     harmony: s1.harmony,
     analysis: s1.analysis,
 });
+
+
+
+
+//////////
+
+var mergeScores = (scoEncPhen1, scoEncPhen2) => {
+    var maxVoices = p2z(Math.max(scoEncPhen1[0], scoEncPhen1[0]));
+    var voice
+    var eventsInVoice;
+    var voiceDur, newScoreDur = 0;
+    var pos = 1;
+    for (var vo = 0; vo < maxVoices; vo++) {
+        eventsInVoice = p2z(scoEncPhen1[pos]);
+        console.log("parseo eventos = " + eventsInVoice);
+        pos++;
+        voiceDur = 0;
+        for (var ev = 0; ev < eventsInVoice; ev++) {
+            voiceDur += scoEncPhen1[pos];
+            pos++;
+            pos += p2z(scoEncPhen1[pos]) + 3;
+        }
+        if (newScoreDur < voiceDur) newScoreDur = voiceDur;
+    }
+    pos = 1;
+    for (var vo = 0; vo < maxVoices; vo++) {
+        eventsInVoice = p2z(scoEncPhen2[pos]);
+        console.log("parseo eventos = " + eventsInVoice);
+        pos++;
+        voiceDur = 0;
+        for (var ev = 0; ev < eventsInVoice; ev++) {
+            voiceDur += scoEncPhen2[pos];
+            pos++;
+            pos += p2z(scoEncPhen2[pos]) + 3;
+        }
+        if (newScoreDur < voiceDur) newScoreDur = voiceDur;
+    }
+    console.log("new score dur = " + newScoreDur);
+    return maxVoices;
+}
+
+
 
 // add two numbers
 var oSum = (p1, p2) => indexExprReturnSpecimen({
@@ -668,10 +786,6 @@ var createFunctionIndexesCatalogues = (library) => {
     return completCatalogue;
 }
 
-// generates the catalogues of function indexes
-var GenoMusPianoFunctionLibrary = createFunctionIndexesCatalogues('piano_functions.json');
-// exports the catalogues of function indexes, ordered by function name, encoded indexes and integer indexes
-createJSON(GenoMusPianoFunctionLibrary, 'GenoMus_piano_function_library.json');
 
 // create the library with eligible functions extracted from the complete library
 var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
@@ -737,33 +851,6 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
     eligibleFuncLib.elegibleFunctions = includedFuncs.sort((a, b) => a - b);
     return eligibleFuncLib;
 }
-
-// eligible functions configurations tests
-var eligibleFunctions = {
-    includedFunctions: [0,28,3,35,26,111],
-    mandatoryFunctions: [65,35,29],
-    excludedFunctions: [26,35,57,0]
-};
-var eligibleFunctions2 = {
-    includedFunctions: [],
-    mandatoryFunctions: [65,35,4,29],
-    excludedFunctions: [26,35,57,0,4,5]
-};
-var eligibleFunctions3 = {
-    includedFunctions: [],
-    mandatoryFunctions: [1,2,3,43,26],
-    excludedFunctions: [43,0,111,3,2]
-};
-var eligibleFunctions4 = {
-    includedFunctions: [0,1,2,3,4,5,7],
-    mandatoryFunctions: [43,26],
-    excludedFunctions: [2,3,5]
-};
-
-// generates the catalogues of elegible functions to be used for genotype generation
-var eligibleFunctionsLibrary = createEligibleFunctionLibrary(GenoMusPianoFunctionLibrary, eligibleFunctions3);
-// exports the catalogues of elegible function indexes, ordered by function name, encoded indexes and integer indexes, and containing the initial conditions of the subset
-createJSON(eligibleFunctionsLibrary, 'eligible_functions_library.json');
 
 
 ////////// ENCODING, DECODING AND EVALUATING GENOTYPES
@@ -1019,23 +1106,22 @@ var expandExpr = compressedFormExpr => {
 
 
    
-/////////////////
-// BACH FORMAT CONVERTER
+////////////////////
+// PHENOTYPE DECODER
 
-
+// bach roll converter
 var encPhen2bachRoll = encPhen => {
-    var wholeNoteDur = 4000/3; // default value for tempo, 1/4 note = 1 seg 
+    var wholeNoteDur = 4000; // default value for tempo, 1/4 note = 1 seg 
     var roll = [];
     var arrLength = encPhen.length;
     var numVoices, numEvents, numPitches, pos = 0;
     var eventDur, totalVoiceDeltaTime;
+    var pitchSet, articul, intens;
     // write voices within a score
     numVoices = p2z(encPhen[pos]);
-    console.log("numVoices:" + numVoices);
     pos++;
     for (var v = 0; v < numVoices; v++) {
         numEvents = p2z(encPhen[pos]);
-        console.log("numEvents:" + numEvents);
         roll.push("(");
         pos++;
         // write events within a voice
@@ -1046,24 +1132,32 @@ var encPhen2bachRoll = encPhen => {
             // writes start time
             roll.push(totalVoiceDeltaTime);
             eventDur = wholeNoteDur * eval(p2n(encPhen[pos]));
-            console.log("eventDur:" + eventDur);
             pos++;
             // loads number of pitches within an event
             numPitches = p2z(encPhen[pos]);
-            console.log("numPitches:" + numPitches);
+            pos++;
+            // read the pitches;
+            pitchSet = [];
+            for (var pit = 0; pit < numPitches; pit++ ) {
+                pitchSet.push(p2m(encPhen[pos]) * 100);
+                pos++;
+            }
+            console.log("leidos pitches " + pitchSet);
+            // read articulation
+            articul = eventDur * p2a(encPhen[pos]);
+            pos++;
+            // read intensity
+            intens = p2i(encPhen[pos]);
             pos++;
             // writes individual notes parameters
-            for (var p = 0; p < numPitches; p++) {
+            for (var pit = 0; pit < numPitches; pit++) {
                 roll.push("(");
-                // add pitch
-                roll.push(p2m(encPhen[pos]) * 100);
-                pos++;
-                // add duration of sound according to articulation % value
-                roll.push(eventDur * p2a(encPhen[pos]));
-                pos++;
-                // add dynamics (converts from 0-1 to 127 standard MIDI velocity)
-                roll.push(p2i(encPhen[pos]));
-                pos++;
+                // adds a pitch of the chord
+                roll.push(pitchSet[pit]);
+                // adds duration of sound according to articulation % value
+                roll.push(articul);
+                // adds dynamics (converts from 0-1 to 127 standard MIDI velocity)
+                roll.push(intens);
                 roll.push(")");
             }
             totalVoiceDeltaTime = totalVoiceDeltaTime + eventDur;
@@ -1074,68 +1168,7 @@ var encPhen2bachRoll = encPhen => {
     return roll;
 }
 
-encPhen2bachRoll([ 0.618034, 0.618034, 0.6, 0.618034, 0.48, 1, 1 ]);
-
-// OLD
-var encodedPhenotype2bachScore = encodedPhenotype => {
-    var wholeNoteDur = 4000; // default value for tempo, 1/4 note = 1 seg 
-    var roll = ["("];
-    var arrLength = encodedPhenotype.length;
-    for (var i = 0; i < arrLength; i++) {
-        // score flag
-        if (encodedPhenotype[i] == 1) {
-            i++;
-            // voice flag
-            if (encodedPhenotype[i] == 1) {
-                // accumulated duration of voice
-                var totalVoiceDeltaTime = 0;
-                //roll.push("(");
-                i++;
-                // write voice events. 0 marks end of voice
-                while (encodedPhenotype[i] != 0 && i <= arrLength) {
-                    // writes event start time
-                    roll.push("(");
-                    roll.push(totalVoiceDeltaTime);
-                    var eventDur = wholeNoteDur * p2n(encodedPhenotype[i]);
-                    i++;
-                    // loads notes in chord
-                    var numNotesInChord = p2z(encodedPhenotype[i]);
-                    // writes individual notes parameters
-                    for (var n = 0; n < numNotesInChord; n++) {
-                        roll.push("(");
-                        // add pitch
-                        roll.push(p2m(encodedPhenotype[i])*100);
-                        i++;
-                        // add duration of sound according to articulation % value
-                        roll.push(eventDur * p2a(encodedPhenotype[i]));
-                        i++;
-                        // add dynamics (converts from 0-1 to 127 standard MIDI velocity)
-                        roll.push(p2i(encodedPhenotype[i]));
-                        i++;
-                        roll.push(")");
-                    }
-                    totalVoiceDeltaTime = totalVoiceDeltaTime + eventDur;
-                    roll.push(")");
-                }
-                //roll.push(")");
-            }
-            else {
-                //maxAPI.post("bad format");
-                return -1;
-            }
-        }
-        else {
-            //maxAPI.post("bad format");
-            return -1;
-        }        
-        //post(encodedPhenotype[i] + "\n");
-        //roll.push(encodedPhenotype[i]);
-    }
-    roll.push(")");
-    return roll;
-}
-
-
+// encPhen2bachRoll([ 0.618034, 0.618034, 0.6, 0.618034, 0.48, 1, 1 ]);
 
 
 // WRITE SPECIMEN JSON FILES
@@ -1149,6 +1182,31 @@ var specimenDataStructure = (specimen) => ({
 });
 
 
+
+// generates the catalogues of function indexes
+var GenoMusPianoFunctionLibrary = createFunctionIndexesCatalogues('piano_functions.json');
+// exports the catalogues of function indexes, ordered by function name, encoded indexes and integer indexes
+/*
+createJSON(GenoMusPianoFunctionLibrary, 'GenoMus_piano_function_library.json');
+*/
+
+// eligible functions (all functions available)
+var eligibleFunctions = {
+    includedFunctions: [],
+    mandatoryFunctions: [],
+    excludedFunctions: []
+};
+
+// generates the catalogues of elegible functions to be used for genotype generation
+var eligibleFunctionsLibrary = createEligibleFunctionLibrary(GenoMusPianoFunctionLibrary, eligibleFunctions);
+// exports the catalogues of elegible function indexes, ordered by function name, encoded indexes and integer indexes, and containing the initial conditions of the subset
+/*
+createJSON(eligibleFunctionsLibrary, 'eligible_functions_library.json');
+*/
+
+
+
+
 // MAX COMMUNICATION
 
 // gets data from manual text input from max patch
@@ -1159,8 +1217,8 @@ maxAPI.addHandler("text", (...args) => {
         receivedText += args[i];
     } 
     var evaluation = evalDecGen(receivedText);
-    // maxAPI.post(mt(receivedText));
-    // maxAPI.post(evaluation);
+    maxAPI.post(mt(receivedText));
+    maxAPI.post(evaluation);
 
     // write JSON file   
     createJSON(specimenDataStructure(evaluation), 'genotipo.json');

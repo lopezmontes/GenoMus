@@ -132,7 +132,7 @@
     "eventF": {
         "e": {
             "functionIndex": 2,
-            "functionType": "voiceF",
+            "functionType": "eventF",
             "arguments": [
                 "paramF",
                 "paramF",
@@ -147,13 +147,64 @@
         },
         "eAutoref": {
             "functionIndex": 27,
-            "functionType": "voiceF",
+            "functionType": "eventF",
             "arguments": [
                 "goldenintegerLeaf"
             ],
             "metadata": {
                 "description": "points to a previous event",
                 "date": 20190906,
+                "creator": "lm"
+            }
+        },
+        "e2Pitches": {
+            "functionIndex": 98,
+            "functionType": "eventF",
+            "arguments": [
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF"
+            ],
+            "metadata": {
+                "description": "creates an event with two pitches",
+                "date": 20190914,
+                "creator": "lm"
+            }
+        },
+        "e3Pitches": {
+            "functionIndex": 99,
+            "functionType": "eventF",
+            "arguments": [
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF"
+            ],
+            "metadata": {
+                "description": "creates an event with three pitches",
+                "date": 20190914,
+                "creator": "lm"
+            }
+        },
+        "e4Pitches": {
+            "functionIndex": 100,
+            "functionType": "eventF",
+            "arguments": [
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF"
+            ],
+            "metadata": {
+                "description": "creates an event with four pitches",
+                "date": 20190914,
                 "creator": "lm"
             }
         }
