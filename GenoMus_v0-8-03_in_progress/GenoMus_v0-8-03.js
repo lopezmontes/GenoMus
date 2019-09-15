@@ -639,7 +639,7 @@ var vConcatE = (e1, e2) => indexExprReturnSpecimen({
     funcType: "voiceF",
     encGen: flattenDeep([1, 0.957428, e1.encGen, e2.encGen, 0]),
     decGen: "vConcatE(" + e1.decGen + "," + e2.decGen + ")",
-    encPhen: [z2p(2)].concat(e1.encPhen.concat(e2.encPhen)),
+    encPhen: [0.236068].concat(e1.encPhen.concat(e2.encPhen)),
     phenLength: 2,
     tempo: e1.tempo,
     harmony: {
@@ -655,7 +655,9 @@ var vConcatV = (v1, v2) => indexExprReturnSpecimen({
     funcType: "voiceF",
     encGen: flattenDeep([1, 0.575462, v1.encGen, v2.encGen, 0]),
     decGen: "vConcatV(" + v1.decGen + "," + v2.decGen + ")",
-    encPhen: [z2p(v1.phenLength + v2.phenLength)].concat(v1.encPhen.slice(1)).concat(v2.encPhen.slice(1)),
+    encPhen: [z2p(p2z(v1.encPhen[0]) + p2z(v2.encPhen[0]))]
+        .concat((v1.encPhen).slice(1))
+        .concat((v2.encPhen).slice(1)),
     phenLength: v1.phenLength + v2.phenLength,
     tempo: v1.tempo,
     rhythm: v1.rhythm,
@@ -676,10 +678,49 @@ var sConcatS = (s1, s2) => indexExprReturnSpecimen({
     analysis: s1.analysis,
 });
 
+// creates an score with two simultaneous voices
+var s2V = (v1, v2) => indexExprReturnSpecimen({
+    funcType: "scoreF",
+    encGen: flattenDeep([1, 0.275535, v1.encGen, v2.encGen, 0]),
+    decGen: "s2V(" + v1.decGen + "," + v2.decGen + ")",
+    encPhen: [0.236068].concat(v1.encPhen).concat(v2.encPhen),
+    phenLength: v1.phenLength + v2.phenLength,
+    tempo: v1.tempo,
+    rhythm: v1.rhythm,
+    harmony: v1.harmony,
+    analysis: v1.analysis,
+});
 
 
+// creates an score with two simultaneous voices
+var sAddV = (s, v) => indexExprReturnSpecimen({
+    funcType: "scoreF",
+    encGen: flattenDeep([1, 0.365705, s.encGen, v.encGen, 0]),
+    decGen: "sAddV(" + s.decGen + "," + v.decGen + ")",
+    encPhen: [z2p(p2z(s.encPhen[0]) + 1)]
+        .concat(s.encPhen.slice(1))
+        .concat(v.encPhen),
+    phenLength: s.phenLength + v.phenLength,
+    tempo: s.tempo,
+    rhythm: s.rhythm,
+    harmony: s.harmony,
+    analysis: s.analysis,
+});
 
-//////////
+// creates an score with two simultaneous scores
+var sAddS = (s1, s2) => indexExprReturnSpecimen({
+    funcType: "scoreF",
+    encGen: flattenDeep([1, 0.983739, s1.encGen, s2.encGen, 0]),
+    decGen: "sAddS(" + s1.decGen + "," + s2.decGen + ")",
+    encPhen: [z2p(p2z(s1.encPhen[0]) + s2.encPhen[0])]
+        .concat(s1.encPhen.slice(1))
+        .concat(s2.encPhen.slice(1)),
+    phenLength: s1.phenLength + s2.phenLength,
+    tempo: s1.tempo,
+    rhythm: s1.rhythm,
+    harmony: s1.harmony,
+    analysis: s1.analysis,
+});
 
 var mergeScores = (scoEncPhen1, scoEncPhen2) => {
     var maxVoices = p2z(Math.max(scoEncPhen1[0], scoEncPhen1[0]));
@@ -1252,9 +1293,7 @@ var specimenDataStructure = (specimen) => ({
 // generates the catalogues of function indexes
 var GenoMusPianoFunctionLibrary = createFunctionIndexesCatalogues('piano_functions.json');
 // exports the catalogues of function indexes, ordered by function name, encoded indexes and integer indexes
-/*
 createJSON(GenoMusPianoFunctionLibrary, 'GenoMus_piano_function_library.json');
-*/
 
 // eligible functions (all functions available)
 var eligibleFunctions = {
@@ -1266,9 +1305,7 @@ var eligibleFunctions = {
 // generates the catalogues of elegible functions to be used for genotype generation
 var eligibleFunctionsLibrary = createEligibleFunctionLibrary(GenoMusPianoFunctionLibrary, eligibleFunctions);
 // exports the catalogues of elegible function indexes, ordered by function name, encoded indexes and integer indexes, and containing the initial conditions of the subset
-/*
 createJSON(eligibleFunctionsLibrary, 'eligible_functions_library.json');
-*/
 
 
 

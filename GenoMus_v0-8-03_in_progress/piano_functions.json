@@ -41,8 +41,8 @@
             "functionType": "scoreF",
             "functionIndex": 44,
             "arguments": [
-                "voiceF",
-                "voiceF"
+                "scoreF",
+                "scoreF"
             ],
             "metadata": {
                 "description": "concatenates two scores sequentially",
@@ -59,6 +59,32 @@
             ],
             "metadata": {
                 "description": "creates an score with two simultaneous voices",
+                "date": 20190915,
+                "creator": "lm"
+            }
+        },
+        "sAddV": {
+            "functionType": "scoreF",
+            "functionIndex": 109,
+            "arguments": [
+                "scoreF",
+                "voiceF"
+            ],
+            "metadata": {
+                "description": "adds a new voice vertically to a score",
+                "date": 20190915,
+                "creator": "lm"
+            }
+        },
+        "sAddS": {
+            "functionType": "scoreF",
+            "functionIndex": 110,
+            "arguments": [
+                "scoreF",
+                "scoreF"
+            ],
+            "metadata": {
+                "description": "adds a new score vertically to a score",
                 "date": 20190915,
                 "creator": "lm"
             }
