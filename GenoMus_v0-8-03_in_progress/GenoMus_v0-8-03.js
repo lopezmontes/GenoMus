@@ -678,6 +678,19 @@ var sConcatS = (s1, s2) => indexExprReturnSpecimen({
     analysis: s1.analysis,
 });
 
+//
+var mergeScores = (scoEncPhen1, scoEncPhen2) => {
+    var numVoicesSco1 = p2z(scoEncPhen1[0]);
+    console.log("numVoicesSco1: " + numVoicesSco1);
+    var numVoicesSco2 = p2z(scoEncPhen2[0]);
+    console.log("numVoicesSco2: " + numVoicesSco2);
+    var maxVoices = Math.max(numVoicesSco1, numVoicesSco2);
+    console.log("maxVoices: " + maxVoices);
+    // searches longest voice of first score to apply time correction to the events of second score
+    var largestVoiceDur;
+}
+
+
 // creates an score with two simultaneous voices
 var s2V = (v1, v2) => indexExprReturnSpecimen({
     funcType: "scoreF",
@@ -722,40 +735,6 @@ var sAddS = (s1, s2) => indexExprReturnSpecimen({
     analysis: s1.analysis,
 });
 
-var mergeScores = (scoEncPhen1, scoEncPhen2) => {
-    var maxVoices = p2z(Math.max(scoEncPhen1[0], scoEncPhen1[0]));
-    var voice
-    var eventsInVoice;
-    var voiceDur, newScoreDur = 0;
-    var pos = 1;
-    for (var vo = 0; vo < maxVoices; vo++) {
-        eventsInVoice = p2z(scoEncPhen1[pos]);
-        console.log("parseo eventos = " + eventsInVoice);
-        pos++;
-        voiceDur = 0;
-        for (var ev = 0; ev < eventsInVoice; ev++) {
-            voiceDur += scoEncPhen1[pos];
-            pos++;
-            pos += p2z(scoEncPhen1[pos]) + 3;
-        }
-        if (newScoreDur < voiceDur) newScoreDur = voiceDur;
-    }
-    pos = 1;
-    for (var vo = 0; vo < maxVoices; vo++) {
-        eventsInVoice = p2z(scoEncPhen2[pos]);
-        console.log("parseo eventos = " + eventsInVoice);
-        pos++;
-        voiceDur = 0;
-        for (var ev = 0; ev < eventsInVoice; ev++) {
-            voiceDur += scoEncPhen2[pos];
-            pos++;
-            pos += p2z(scoEncPhen2[pos]) + 3;
-        }
-        if (newScoreDur < voiceDur) newScoreDur = voiceDur;
-    }
-    console.log("new score dur = " + newScoreDur);
-    return maxVoices;
-}
 
 
 
