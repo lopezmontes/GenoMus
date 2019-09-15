@@ -1,0 +1,8 @@
+Pasos de implementación y testeo:
+
+concatEvents: dos eventos se unen en una voz: Ej: vConcatE
+concatVoices: dos voces consecutivas se fusionan en una sola. Ej: vConcatV
+joinVoices: dos voces se unen verticalmente dando lugar a un score. Ej: s2V, s3V, ...
+addVoice: se añade verticalmente una voz a un score preexistente. Ej: sAddV
+concatScores: dos scores consecutivos se unen en un único score. Ej: sConcatS
+joinScores: dos scores se unen verticalmente en un único score. Ej: sAddS
