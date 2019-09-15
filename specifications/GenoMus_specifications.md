@@ -1040,8 +1040,8 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `s4V`       | 106 <sub>not yet implemented</sub> | creates an score with four simultaneous voices
 | `s5V`       | 107 <sub>not yet implemented</sub> | creates an score with five simultaneous voices
 | `s6V`       | 108 <sub>not yet implemented</sub> | creates an score with six simultaneous voices
-| `sAddV`     | 109 <sub>not yet implemented</sub> | adds a new voice vertically to a score
-| `sAddS`     | 110 <sub>not yet implemented</sub> | adds a new score vertically to a score
+| `sAddV`     | 109 <sub>.365705 in progress</sub> | adds a new voice vertically to a score
+| `sAddS`     | 110 <sub>.983739 in progress</sub> | adds a new score vertically to a score
 
 ---------
 ## Counterpoint

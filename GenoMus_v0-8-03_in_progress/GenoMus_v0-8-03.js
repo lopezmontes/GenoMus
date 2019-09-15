@@ -712,7 +712,7 @@ var sAddS = (s1, s2) => indexExprReturnSpecimen({
     funcType: "scoreF",
     encGen: flattenDeep([1, 0.983739, s1.encGen, s2.encGen, 0]),
     decGen: "sAddS(" + s1.decGen + "," + s2.decGen + ")",
-    encPhen: [z2p(p2z(s1.encPhen[0]) + s2.encPhen[0])]
+    encPhen: [z2p(p2z(s1.encPhen[0]) + p2z(s2.encPhen[0]))]
         .concat(s1.encPhen.slice(1))
         .concat(s2.encPhen.slice(1)),
     phenLength: s1.phenLength + s2.phenLength,
