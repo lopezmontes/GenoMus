@@ -49,7 +49,20 @@
                 "date": 20190906,
                 "creator": "lm"
             }
-        }
+        },
+        "s2V": {
+            "functionType": "scoreF",
+            "functionIndex": 104,
+            "arguments": [
+                "voiceF",
+                "voiceF"
+            ],
+            "metadata": {
+                "description": "creates an score with two simultaneous voices",
+                "date": 20190915,
+                "creator": "lm"
+            }
+        }    
     },
     "voiceF": {
         "v": {

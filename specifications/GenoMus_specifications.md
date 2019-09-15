@@ -1035,7 +1035,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `e5Pitches` | 101 <sub>not yet implemented</sub> | creates an event with five pitches
 | `e6Pitches` | 102 <sub>not yet implemented</sub> | creates an event with six pitches
 | `eChord`    | 103 <sub>not yet implemented</sub> | creates an event with more than six pitches, with a maximal of 12 pitches
-| `s2V`       | 104 <sub>not yet implemented</sub> | creates an score with two simultaneous voices
+| `s2V`       | 104 <sub>.275535 in progress</sub> | creates an score with two simultaneous voices
 | `s3V`       | 105 <sub>not yet implemented</sub> | creates an score with three simultaneous voices
 | `s4V`       | 106 <sub>not yet implemented</sub> | creates an score with four simultaneous voices
 | `s5V`       | 107 <sub>not yet implemented</sub> | creates an score with five simultaneous voices
