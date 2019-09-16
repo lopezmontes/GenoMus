@@ -670,7 +670,7 @@ var sConcatS = (s1, s2) => indexExprReturnSpecimen({
     funcType: "scoreF",
     encGen: flattenDeep([1, 0.193496, s1.encGen, s2.encGen, 0]),
     decGen: "sConcatS(" + s1.decGen + "," + s2.decGen + ")",
-    encPhen: s1.encPhen.concat(s2.encPhen),
+    encPhen: mergeScores(s1.encPhen, s2.encPhen),
     phenLength: s1.phenLength + s2.phenLength,
     tempo: s1.tempo,
     rhythm: s1.rhythm,
@@ -683,11 +683,112 @@ var mergeScores = (scoEncPhen1, scoEncPhen2) => {
     var numVoicesSco1 = p2z(scoEncPhen1[0]);
     console.log("numVoicesSco1: " + numVoicesSco1);
     var numVoicesSco2 = p2z(scoEncPhen2[0]);
+    var numVoicesSco1Length = scoEncPhen1.length; 
+    var numVoicesSco2Length = scoEncPhen1.length; 
     console.log("numVoicesSco2: " + numVoicesSco2);
     var maxVoices = Math.max(numVoicesSco1, numVoicesSco2);
+    var minVoices = Math.min(numVoicesSco1, numVoicesSco2);
     console.log("maxVoices: " + maxVoices);
+    console.log("minVoices: " + minVoices);
+    var newEncodedPhenotype = [z2p(maxVoices)];
     // searches longest voice of first score to apply time correction to the events of second score
-    var largestVoiceDur;
+    var largestVoiceDur = 0;
+    var currentVoiceDur = 0;
+    var eventsInVoice = 0;
+    var pos = 1;
+    var posSco1 = 1;
+    var posSco2 = 1;
+    var numEventsVoiceSco1 = 0;
+    var numEventsVoiceSco2 = 0;
+    var numPitchesEventVoiceSco1, numPitchesEventVoiceSco2;
+    var timeGap;
+    for (var v = 0; v < numVoicesSco1; v++) {
+        currentVoiceDur = 0;
+        eventsInVoice = p2z(scoEncPhen1[pos]);
+        console.log("eventsInVoice: " + eventsInVoice);
+        pos++;
+        for (var e = 0; e < eventsInVoice; e++) {
+            // read event durations and adds it to measure the voice duration
+            currentVoiceDur += eval(p2n(scoEncPhen1[pos]));
+            pos = pos + p2z(scoEncPhen1[pos+1]) + 4;
+            console.log("currentVoiceDur: " + currentVoiceDur);
+        }
+        if (largestVoiceDur < currentVoiceDur) largestVoiceDur = currentVoiceDur;
+    }
+    console.log("largestVoiceDur: " + largestVoiceDur);
+
+    // joins common voices of two scores
+    for (var v = 0; v < minVoices; v++) {
+        numEventsVoiceSco1 = p2z(scoEncPhen1[posSco1]);
+        numEventsVoiceSco2 = p2z(scoEncPhen2[posSco2]);
+        newEncodedPhenotype.push(z2p(numEventsVoiceSco1 + numEventsVoiceSco2));
+        // measures total voice dur to add a silent element to fill the voice gaps
+        currentVoiceDur = 0;
+        for (var e = 0; e < numEventsVoiceSco1; e++) {
+            posSco1++; newEncodedPhenotype.push(scoEncPhen1[posSco1]);
+            currentVoiceDur += eval(p2n(scoEncPhen1[posSco1]));
+            console.log("currentVoiceDur: " + currentVoiceDur);
+            posSco1++; newEncodedPhenotype.push(scoEncPhen1[posSco1]);
+            numPitchesEventVoiceSco1 = p2z(scoEncPhen1[posSco1]);
+            for (var p = 0; p < numPitchesEventVoiceSco1; p++) {
+                posSco1++; newEncodedPhenotype.push(scoEncPhen1[posSco1]);
+            }
+            posSco1++; newEncodedPhenotype.push(scoEncPhen1[posSco1]);
+            posSco1++; newEncodedPhenotype.push(scoEncPhen1[posSco1]);
+            // fills the gap if needed adding time to the last event duration
+            if (e == numEventsVoiceSco1 - 1) {
+                timeGap = largestVoiceDur - currentVoiceDur;
+                console.log("gap is " + (largestVoiceDur - currentVoiceDur));
+                console.log("cambiare valor " + (newEncodedPhenotype[newEncodedPhenotype.length - (4 + numPitchesEventVoiceSco1)]));
+                newEncodedPhenotype[newEncodedPhenotype.length - (4 + numPitchesEventVoiceSco1)] =
+                   n2p(eval(p2n(newEncodedPhenotype[newEncodedPhenotype.length 
+                   - (4 + numPitchesEventVoiceSco1)])) + timeGap);
+            }
+        }
+        for (var e = 0; e < numEventsVoiceSco2; e++) {
+            posSco2++; newEncodedPhenotype.push(scoEncPhen2[posSco2]);
+            posSco2++; newEncodedPhenotype.push(scoEncPhen2[posSco2]);
+            numPitchesEventVoiceSco2 = p2z(scoEncPhen2[posSco2]);
+            for (var p = 0; p < numPitchesEventVoiceSco2; p++) {
+               posSco2++; newEncodedPhenotype.push(scoEncPhen2[posSco2]);
+            }
+            posSco2++; newEncodedPhenotype.push(scoEncPhen2[posSco2]);
+            posSco2++; newEncodedPhenotype.push(scoEncPhen2[posSco2]);
+        }
+        posSco1++;
+        posSco2++;
+    }
+    // adds rest of voices if needed, distinguishing two cases: first voice has more voices than second one and vice versa
+    if (numVoicesSco1 > numVoicesSco2) {
+        // copies the voices without changes
+        while (posSco1 < numVoicesSco1Length) {
+            newEncodedPhenotype.push(scoEncPhen1[posSco1]); posSco1++;
+        }
+    }
+    else if (numVoicesSco2 > numVoicesSco1) {  
+        var numRemainingVoices = maxVoices - minVoices;
+        console.log("remaining voices: " + numRemainingVoices);
+        for (var v = 0; v < numRemainingVoices; v++) {
+            numEventsVoiceSco2 = p2z(scoEncPhen2[posSco2]);
+            console.log("numEventsVoiceSco2: " + numEventsVoiceSco2);
+
+            // increment the number of total events of the voice, to include a nes silent event at the beginning
+            newEncodedPhenotype.push(z2p(numEventsVoiceSco2 + 1)); posSco2++;
+            // add the silent element to start these voices' events just after first score
+            newEncodedPhenotype = newEncodedPhenotype.concat([n2p(largestVoiceDur), 0.618034, 0, 0, 0]);
+            for (var e = 0; e < numEventsVoiceSco2; e++) {
+                newEncodedPhenotype.push(scoEncPhen2[posSco2]); posSco2++; // add duration
+                numPitchesEventVoiceSco2 = p2z(scoEncPhen2[posSco2]);
+                newEncodedPhenotype.push(scoEncPhen2[posSco2]); posSco2++; // add number of pitches
+                for (var p = 0; p < numPitchesEventVoiceSco2; p++) {
+                    newEncodedPhenotype.push(scoEncPhen2[posSco2]); posSco2++; // add pitches
+                }
+                newEncodedPhenotype.push(scoEncPhen2[posSco2]); posSco2++; // add articulation
+                newEncodedPhenotype.push(scoEncPhen2[posSco2]); posSco2++; // add intensity
+            }                
+        }        
+    }  
+    return newEncodedPhenotype;
 }
 
 
