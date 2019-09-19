@@ -25,7 +25,8 @@ const PHI = (1 + Math.sqrt(5)) / 2;
 // round fractional part to 6 digits
 var r6d = f => Math.round(f * 1000000) / 1000000;
 
-var norm2notevalue = p => decimal2fraction(Math.pow(2, 10 * p - 8));
+// var norm2notevalue = p => decimal2fraction(Math.pow(2, 10 * p - 8));
+var norm2notevalue = p => r6d(Math.pow(2, 10 * p - 8));
 var p2n = norm2notevalue;
 var notevalue2norm = n => r6d((Math.log10(n) + 8 * Math.log10(2)) / (10 * Math.log10(2)));
 var n2p = notevalue2norm;
@@ -273,8 +274,8 @@ var mt = decGenotype => {
     initSubexpressionsArrays();
     var output = (evalDecGen(decGenotype));
     maxAPI.post(subexpressions);
-    // visualizeSpecimen(output.encGen, "encGen");
-    // visualizeSpecimen(output.encPhen, "encPhen");
+    visualizeSpecimen(output.encGen, "encGen");
+    visualizeSpecimen(output.encPhen, "encPhen");
     maxAPI.post("received decoded genotype: " + decGenotype);
     maxAPI.post("manually decoded genotype: " + decodeGenotype(output.encGen));
     maxAPI.post("automat. encoded genotype: " + eval(decGenotype).encGen);
@@ -435,7 +436,7 @@ var e = (notevalue, midiPitch, articulation, intensity) => indexExprReturnSpecim
         + articulation.decGen + ","
         + intensity.decGen + ")",
     encPhen: [notevalue.encPhen[0],
-        goldeninteger2norm(1), 
+        0.618034, 
         midiPitch.encPhen[0],
         articulation.encPhen[0],
         intensity.encPhen[0]],
@@ -888,7 +889,7 @@ var vIterE = (event, times) => {
         funcType: "listF",
         encGen: flattenDeep([1, 0.867258, event.encGen, times.encGen, 0]),
         decGen: "vIterE(" + event.decGen + "," + times.decGen + ")",
-        encPhen: wrap(flattenDeep(Array(numIterations).fill().map(() => eval(event.decGen).encPhen))),
+        encPhen: [z2p(numIterations)].concat(flattenDeep(Array(numIterations).fill().map(() => eval(event.decGen).encPhen))),
         phenLength: numIterations,
         tempo: event.tempo,
         rhythm: event.rhythm,
@@ -942,11 +943,11 @@ var createFunctionIndexesCatalogues = (library) => {
     var availableFunctionsLength, readName, readIndex, readFuncType;
     for (var t = 0; t < availableTypesLength; t++) {
         availableFunctionsLength = Object.keys(functionLibrary[availableTypes[t]]).length;
-        for (var n = 0; n < availableFunctionsLength; n++) {
-            readName = Object.keys(functionLibrary[availableTypes[t]])[n];
-            readIndex = Object.values(functionLibrary[availableTypes[t]])[n].functionIndex;
-            readArguments = Object.values(functionLibrary[availableTypes[t]])[n].arguments;
-            readFuncType = Object.values(functionLibrary[availableTypes[t]])[n].functionType;
+        for (var num = 0; num < availableFunctionsLength; num++) {
+            readName = Object.keys(functionLibrary[availableTypes[t]])[num];
+            readIndex = Object.values(functionLibrary[availableTypes[t]])[num].functionIndex;
+            readArguments = Object.values(functionLibrary[availableTypes[t]])[num].arguments;
+            readFuncType = Object.values(functionLibrary[availableTypes[t]])[num].functionType;
             functionDecodedIndexes[readIndex.toString()] = readName;
             functionEncodedIndexes[z2p(readIndex).toString()] = readName;
             functionNamesDictionary[readName] = { encIndex: z2p(readIndex), intIndex: readIndex, functionType: readFuncType, arguments: readArguments };
@@ -1164,6 +1165,7 @@ var decodeGenotype = encGen => {
 // encodes and decodes a genotype to filter bad or dangerous expressions before being evaluated
 var evalDecGen = decGen => {
     var encodedGenotype = encodeGenotype(decGen);
+    maxAPI.post("encoded previo: " + encodedGenotype);
     if (encodedGenotype[0] == -1) {
         console.log("Error: not a valid decoded genotype.");
         return -1;
@@ -1261,7 +1263,7 @@ var expandExpr = compressedFormExpr => {
         }
         if (compressedFormExpr.charAt(charIndx) == "\n") {
             var tabulation = "    ";
-            for (n = 0; n < parenthCount; n++) {
+            for (nv = 0; nv < parenthCount; nv++) {
                 expandedExpression = expandedExpression + tabulation;
             }
         }
@@ -1318,7 +1320,11 @@ var encPhen2bachRoll = encPhen => {
             roll.push("(");
             // writes start time
             roll.push(totalVoiceDeltaTime);
-            eventDur = wholeNoteDur * eval(p2n(encPhen[pos]));
+            console.log("encPhen[pos]: " + encPhen[pos]);
+
+//            eventDur = wholeNoteDur * eval(p2n(encPhen[pos]));
+            eventDur = wholeNoteDur * p2n(encPhen[pos]);
+            console.log("eventDur: " + eventDur);
             pos++;
             // loads number of pitches within an event
             numPitches = p2z(encPhen[pos]);
@@ -1356,7 +1362,7 @@ var encPhen2bachRoll = encPhen => {
 }
 
 // encPhen2bachRoll([ 0.618034, 0.618034, 0.6, 0.618034, 0.48, 1, 1 ]);
-
+// encPhen2bachRoll(evalDecGen("s(v(e(p(0.5),p(.5),p(.5),p(.5))))").encPhen);
 
 // WRITE SPECIMEN JSON FILES
 
@@ -1399,7 +1405,9 @@ maxAPI.addHandler("text", (...args) => {
     for (var i = 0; i < args.length; i++) {
         receivedText += args[i];
     } 
+    // maxAPI.post("Recibido en node:\n" + receivedText);
     var evaluation = evalDecGen(receivedText);
+    //var evaluation = eval(receivedText);
     maxAPI.post(mt(receivedText));
     maxAPI.post(evaluation);
 
