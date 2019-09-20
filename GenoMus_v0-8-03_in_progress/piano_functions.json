@@ -415,12 +415,12 @@
                 "paramF"
             ],
             "metadata": {
-                "description": "returns a complete random list with uniform distribution of values based on two seeds",
-                "date": 20190906,
+                "description": "returns a complete random list with normal distribution of values based on two seeds",
+                "date": 20190914,
                 "creator": "lm"
             }
         },
-        "lGaussRnd": {
+        "lUniformRnd": {
             "functionIndex": 135,
             "functionType": "listF",
             "arguments": [
@@ -428,8 +428,8 @@
                 "paramF"
             ],
             "metadata": {
-                "description": "returns a complete random list with normal distribution of values based on two seeds",
-                "date": 20190914,
+                "description": "returns a complete random list with uniform distribution of values based on two seeds",
+                "date": 20190906,
                 "creator": "lm"
             }
         }
@@ -530,18 +530,18 @@
             "functionType": "paramF",
             "arguments": [],
             "metadata": {
-                "description": "returns a random normalized parameter with uniform distribution",
-                "date": 20190906,
+                "description": "returns a random normalized parameter with Gaussian (or normal) distribution",
+                "date": 20190914,
                 "creator": "lm"
             }
         },
-        "pGaussRnd": {
+        "pUniformRnd": {
             "functionIndex": 132,
             "functionType": "paramF",
             "arguments": [],
             "metadata": {
-                "description": "returns a random normalized parameter with Gaussian (or normal) distribution",
-                "date": 20190914,
+                "description": "returns a random normalized parameter with uniform distribution",
+                "date": 20190906,
                 "creator": "lm"
             }
         }

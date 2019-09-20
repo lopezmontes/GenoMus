@@ -288,17 +288,14 @@ var mt = decGenotype => {
 
 // flats arrays with any level of nesting
 var flattenDeep = arr1 => arr1.reduce((acc, val) => Array.isArray(val) ? acc.concat(flattenDeep(val)) : acc.concat(val), []);
-// wraps and unwraps elements such as voices and scores, putting 1 at the beginning and 0 at the end
-var wrap = a => [1].concat(a.concat(0));
-var unwrap = a => a.slice(1, -1);
+// remap a value from its range to another
+var remap = (v, minInitRange, maxInitRange, minNewRange, maxNewRange) => ((v - minInitRange) / (maxInitRange - minInitRange)) * (maxNewRange - minNewRange) + minNewRange;
 // adjust a value from quantizedF to a range without rescaling
 var adjustRange = (q, minQ, maxQ) => {
     if (q < minQ) { return minQ };
     if (q > maxQ) { return maxQ };
     return q;
 }
-// remap a value from its range to another
-var remap = (v, minInitRange, maxInitRange, minNewRange, maxNewRange) => ((v - minInitRange) / (maxInitRange - minInitRange)) * (maxNewRange - minNewRange) + minNewRange;
 // takes subspecimen s, indexes subexpressions and formats output data
 var indexExprReturnSpecimen = s => {
     var subexpressionsIndexed = subexpressions[s.funcType].length;
@@ -323,21 +320,22 @@ var p = x => indexExprReturnSpecimen({
     encPhen: [x]
 });
 
-// returns a random normalized parameter with uniform distribution
+// returns a random normalized parameter with normal distribution
 var pRnd = () => indexExprReturnSpecimen({
     funcType: "paramF",
     encGen: [1, 0.962453, 0],
     decGen: "pRnd()",
+    encPhen: [gaussRnd()]
+});
+
+// returns a random normalized parameter with uniform distribution
+var pUniformRnd = () => indexExprReturnSpecimen({
+    funcType: "paramF",
+    encGen: [1, 0.580487, 0],
+    decGen: "pUniformRnd()",
     encPhen: [r6d(random.float())]
 });
 
-// returns a random normalized parameter with normal distribution
-var pGaussRnd = () => indexExprReturnSpecimen({
-    funcType: "paramF",
-    encGen: [1, 0.580487, 0],
-    decGen: "pGaussRnd()",
-    encPhen: [gaussRnd()]
-});
 
 // notevalue identity function
 var n = x => {
@@ -602,6 +600,19 @@ var l5P = (p1, p2, p3, p4, p5) => indexExprReturnSpecimen({
 });
 
 // random list up to 12 values with uniform distribution within interval [0, 1]
+var lUniformRnd = (numItemsSeed, seqSeed) => {
+    random.use(seedrandom(numItemsSeed.encPhen));
+    var numItems = random.int(1, 12);
+    random.use(seedrandom(seqSeed.encPhen));
+    return indexExprReturnSpecimen({
+        funcType: "listF",
+        encGen: flattenDeep([1, 0.434588, numItemsSeed.encGen, seqSeed.encGen, 0]),
+        decGen: "lUniformRnd(" + numItemsSeed.decGen + "," + seqSeed.decGen + ")",
+        encPhen: Array(numItems).fill().map(() => r6d(random.float()))
+    });
+};
+
+// random list up to 12 values with normal distribution within interval [0, 1]
 var lRnd = (numItemsSeed, seqSeed) => {
     random.use(seedrandom(numItemsSeed.encPhen));
     var numItems = random.int(1, 12);
@@ -610,19 +621,6 @@ var lRnd = (numItemsSeed, seqSeed) => {
         funcType: "listF",
         encGen: flattenDeep([1, 0.816554, numItemsSeed.encGen, seqSeed.encGen, 0]),
         decGen: "lRnd(" + numItemsSeed.decGen + "," + seqSeed.decGen + ")",
-        encPhen: Array(numItems).fill().map(() => r6d(random.float()))
-    });
-};
-
-// random list up to 12 values with normal distribution within interval [0, 1]
-var lGaussRnd = (numItemsSeed, seqSeed) => {
-    random.use(seedrandom(numItemsSeed.encPhen));
-    var numItems = random.int(1, 12);
-    random.use(seedrandom(seqSeed.encPhen));
-    return indexExprReturnSpecimen({
-        funcType: "listF",
-        encGen: flattenDeep([1, 0.434588, numItemsSeed.encGen, seqSeed.encGen, 0]),
-        decGen: "lGaussRnd(" + numItemsSeed.decGen + "," + seqSeed.decGen + ")",
         encPhen: Array(numItems).fill().map(() => gaussRnd())
     });
 };
@@ -679,18 +677,13 @@ var sConcatS = (s1, s2) => indexExprReturnSpecimen({
     analysis: s1.analysis,
 });
 
-//
 var mergeScores = (scoEncPhen1, scoEncPhen2) => {
     var numVoicesSco1 = p2z(scoEncPhen1[0]);
-    console.log("numVoicesSco1: " + numVoicesSco1);
     var numVoicesSco2 = p2z(scoEncPhen2[0]);
     var numVoicesSco1Length = scoEncPhen1.length; 
     var numVoicesSco2Length = scoEncPhen1.length; 
-    console.log("numVoicesSco2: " + numVoicesSco2);
     var maxVoices = Math.max(numVoicesSco1, numVoicesSco2);
     var minVoices = Math.min(numVoicesSco1, numVoicesSco2);
-    console.log("maxVoices: " + maxVoices);
-    console.log("minVoices: " + minVoices);
     var newEncodedPhenotype = [z2p(maxVoices)];
     // searches longest voice of first score to apply time correction to the events of second score
     var largestVoiceDur = 0;
@@ -706,18 +699,14 @@ var mergeScores = (scoEncPhen1, scoEncPhen2) => {
     for (var v = 0; v < numVoicesSco1; v++) {
         currentVoiceDur = 0;
         eventsInVoice = p2z(scoEncPhen1[pos]);
-        console.log("eventsInVoice: " + eventsInVoice);
         pos++;
         for (var e = 0; e < eventsInVoice; e++) {
             // read event durations and adds it to measure the voice duration
             currentVoiceDur += eval(p2n(scoEncPhen1[pos]));
             pos = pos + p2z(scoEncPhen1[pos+1]) + 4;
-            console.log("currentVoiceDur: " + currentVoiceDur);
         }
         if (largestVoiceDur < currentVoiceDur) largestVoiceDur = currentVoiceDur;
     }
-    console.log("largestVoiceDur: " + largestVoiceDur);
-
     // joins common voices of two scores
     for (var v = 0; v < minVoices; v++) {
         numEventsVoiceSco1 = p2z(scoEncPhen1[posSco1]);
@@ -728,7 +717,6 @@ var mergeScores = (scoEncPhen1, scoEncPhen2) => {
         for (var e = 0; e < numEventsVoiceSco1; e++) {
             posSco1++; newEncodedPhenotype.push(scoEncPhen1[posSco1]);
             currentVoiceDur += eval(p2n(scoEncPhen1[posSco1]));
-            console.log("currentVoiceDur: " + currentVoiceDur);
             posSco1++; newEncodedPhenotype.push(scoEncPhen1[posSco1]);
             numPitchesEventVoiceSco1 = p2z(scoEncPhen1[posSco1]);
             for (var p = 0; p < numPitchesEventVoiceSco1; p++) {
@@ -739,8 +727,6 @@ var mergeScores = (scoEncPhen1, scoEncPhen2) => {
             // fills the gap if needed adding time to the last event duration
             if (e == numEventsVoiceSco1 - 1) {
                 timeGap = largestVoiceDur - currentVoiceDur;
-                console.log("gap is " + (largestVoiceDur - currentVoiceDur));
-                console.log("cambiare valor " + (newEncodedPhenotype[newEncodedPhenotype.length - (4 + numPitchesEventVoiceSco1)]));
                 newEncodedPhenotype[newEncodedPhenotype.length - (4 + numPitchesEventVoiceSco1)] =
                    n2p(eval(p2n(newEncodedPhenotype[newEncodedPhenotype.length 
                    - (4 + numPitchesEventVoiceSco1)])) + timeGap);
@@ -768,11 +754,8 @@ var mergeScores = (scoEncPhen1, scoEncPhen2) => {
     }
     else if (numVoicesSco2 > numVoicesSco1) {  
         var numRemainingVoices = maxVoices - minVoices;
-        console.log("remaining voices: " + numRemainingVoices);
         for (var v = 0; v < numRemainingVoices; v++) {
             numEventsVoiceSco2 = p2z(scoEncPhen2[posSco2]);
-            console.log("numEventsVoiceSco2: " + numEventsVoiceSco2);
-
             // increment the number of total events of the voice, to include a nes silent event at the beginning
             newEncodedPhenotype.push(z2p(numEventsVoiceSco2 + 1)); posSco2++;
             // add the silent element to start these voices' events just after first score
@@ -791,7 +774,6 @@ var mergeScores = (scoEncPhen1, scoEncPhen2) => {
     }  
     return newEncodedPhenotype;
 }
-
 
 // creates an score with two simultaneous voices
 var s2V = (v1, v2) => indexExprReturnSpecimen({
@@ -836,9 +818,6 @@ var sAddS = (s1, s2) => indexExprReturnSpecimen({
     harmony: s1.harmony,
     analysis: s1.analysis,
 });
-
-
-
 
 // add two numbers
 var oSum = (p1, p2) => indexExprReturnSpecimen({
@@ -1251,7 +1230,17 @@ var expandExpr = compressedFormExpr => {
     compressedFormExpr = compressedFormExpr.replace(/, /g, ",\n");
     compressedFormExpr = compressedFormExpr.replace(/\n\)/g, ")");
     compressedFormExpr = compressedFormExpr.replace(/\bp\(\n/g, "p(");
-    compressedFormExpr = compressedFormExpr.replace(/AutoRef\(\n/g, "AutoRef(");    
+    compressedFormExpr = compressedFormExpr.replace(/\bn\(\n/g, "n(");
+    compressedFormExpr = compressedFormExpr.replace(/\bm\(\n/g, "m(");
+    compressedFormExpr = compressedFormExpr.replace(/\ba\(\n/g, "a(");
+    compressedFormExpr = compressedFormExpr.replace(/\bi\(\n/g, "i(");
+    compressedFormExpr = compressedFormExpr.replace(/\bq\(\n/g, "q(");
+    compressedFormExpr = compressedFormExpr.replace(/\bz\(\n/g, "z(");
+    compressedFormExpr = compressedFormExpr.replace(/pAutoref\(\n/g, "pAutoref(");    
+    compressedFormExpr = compressedFormExpr.replace(/lAutoref\(\n/g, "lAutoref(");    
+    compressedFormExpr = compressedFormExpr.replace(/eAutoref\(\n/g, "eAutoref(");    
+    compressedFormExpr = compressedFormExpr.replace(/vAutoref\(\n/g, "vAutoref(");    
+    compressedFormExpr = compressedFormExpr.replace(/sAutoref\(\n/g, "sAutoref(");     
     var parenthCount = 0;
     for (var charIndx = 0; charIndx < compressedFormExpr.length; charIndx++) {
         expandedExpression = expandedExpression + compressedFormExpr.charAt(charIndx);
@@ -1408,8 +1397,8 @@ maxAPI.addHandler("text", (...args) => {
     // maxAPI.post("Recibido en node:\n" + receivedText);
     var evaluation = evalDecGen(receivedText);
     //var evaluation = eval(receivedText);
-    maxAPI.post(mt(receivedText));
-    maxAPI.post(evaluation);
+    // maxAPI.post(mt(receivedText));
+    // maxAPI.post(evaluation);
 
     // write JSON file   
     createJSON(specimenDataStructure(evaluation), 'genotipo.json');
