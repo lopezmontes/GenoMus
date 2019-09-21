@@ -558,7 +558,9 @@
         "pRnd": {
             "functionIndex": 131,
             "functionType": "paramF",
-            "arguments": [],
+            "arguments": [
+                "voidLeaf"
+            ],
             "metadata": {
                 "description": "returns a random normalized parameter with Gaussian (or normal) distribution",
                 "date": 20190914,

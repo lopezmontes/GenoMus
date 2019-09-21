@@ -259,17 +259,17 @@ var testRndValues = () => {
 // testRndValues();
 
 
-/////////////////////
-// INITIAL CONDITIONS
-var deepestRamificationLevel = 10;
-var phenMinLength = 0;
-var phenMaxLength = 2000;
-var leaves = []; // stores all numeric parameters
-var encodedLeaves = [];
-var newFunctionThreshold = .6; // [0-1] Higher is less likely to ramificate too much
-// stores the last used genotype and its leaves, to mutate it
-var currentEncodedGenotype;
-var currentLeavesStructure;
+// /////////////////////
+// // INITIAL CONDITIONS
+// var deepestRamificationLevel = 10;
+// var phenMinLength = 0;
+// var phenMaxLength = 2000;
+// var leaves = []; // stores all numeric parameters
+// var encodedLeaves = [];
+// var newFunctionThreshold = .6; // [0-1] Higher is less likely to ramificate too much
+// // stores the last used genotype and its leaves, to mutate it
+// var currentEncodedGenotype;
+// var currentLeavesStructure;
 
 // global variable to store subexpressions
 var subexpressions = [];
@@ -1515,7 +1515,7 @@ var eligibleFunctions = {
 };
 
 var testingFunctions = {
-    includedFunctions: [0,2,3,4,98,99,100,42,46,43,109,44,104,110],
+    includedFunctions: [0,2,3,4,98,99,100,42,46,43,109,44,104,110,131],
     mandatoryFunctions: [],
     excludedFunctions: []
 };
@@ -1666,6 +1666,16 @@ function createSpecimen () {
 
 // MAX COMMUNICATION
 
+maxAPI.addHandler('minLength', (integ) => {
+    phenMinLength = integ;
+    maxAPI.post("Phenotype minimal length: " + phenMinLength);
+})
+
+maxAPI.addHandler('maxLength', (integ) => {
+    phenMaxLength = integ;
+    maxAPI.post("Phenotype maximal length: " + phenMaxLength);
+})
+
 // gets data from manual text input from max patch
 maxAPI.addHandler("text", (...args) => {
     // make a string from params array
@@ -1686,5 +1696,6 @@ maxAPI.addHandler("text", (...args) => {
 // creates a new genotype from scratch
 maxAPI.addHandler('newGenotype', () => {
     var newSpec = createSpecimen(); 
+    maxAPI.post(newSpec.phenLength);
     createJSON(specimenDataStructure(newSpec), 'genotipo.json');
 })
