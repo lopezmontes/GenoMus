@@ -1,9 +1,6 @@
 // GENOMUS 0.8 UNIT TESTING
 ///////////////////////////
 
-
-
-
 // DEPENDENCIES
 
 // files handling
@@ -16,6 +13,45 @@ const random = require('random');
 const seedrandom = require('seedrandom');
 
 
+/////////////////////
+// INITIAL CONDITIONS
+var deepestRamificationLevel = 10;
+var phenMinLength = 0;
+var phenMaxLength = 2000;
+var leaves = []; // stores all numeric parameters
+var encodedLeaves = [];
+var newFunctionThreshold = .6; // [0-1] Higher is less likely to ramificate too much
+// stores the last used genotype and its leaves, to mutate it
+var currentEncodedGenotype;
+var currentLeavesStructure;
+
+// global variable to store subexpressions
+var subexpressions = [];
+var initSubexpressionsArrays = () => {
+    subexpressions["paramF"] = [];
+    subexpressions["listF"] = [];
+    subexpressions["eventF"] = [];
+    subexpressions["voiceF"] = [];
+    subexpressions["scoreF"] = [];
+    subexpressions["notevalueF"] = [];
+    subexpressions["lnotevalueF"] = [];
+    subexpressions["durationF"] = [];
+    subexpressions["ldurationF"] = [];
+    subexpressions["midipitchF"] = [];
+    subexpressions["lmidipitchF"] = [];
+    subexpressions["frequencyF"] = [];
+    subexpressions["lfrequencyF"] = [];
+    subexpressions["articulationF"] = [];
+    subexpressions["larticulationF"] = [];
+    subexpressions["intensityF"] = [];
+    subexpressions["lintensityF"] = [];
+    subexpressions["goldenintegerF"] = [];
+    subexpressions["lgoldenintegerF"] = [];
+    subexpressions["quantizedF"] = [];
+    subexpressions["lquantizedF"] = [];
+    subexpressions["operationF"] = [];
+}
+initSubexpressionsArrays();
 
 
 //////////// PARAMETER MAPPING
@@ -225,7 +261,15 @@ var testRndValues = () => {
 
 /////////////////////
 // INITIAL CONDITIONS
+var deepestRamificationLevel = 10;
+var phenMinLength = 0;
 var phenMaxLength = 2000;
+var leaves = []; // stores all numeric parameters
+var encodedLeaves = [];
+var newFunctionThreshold = .6; // [0-1] Higher is less likely to ramificate too much
+// stores the last used genotype and its leaves, to mutate it
+var currentEncodedGenotype;
+var currentLeavesStructure;
 
 // global variable to store subexpressions
 var subexpressions = [];
@@ -1467,7 +1511,7 @@ createJSON(GenoMusPianoFunctionLibrary, 'GenoMus_piano_function_library.json');
 var eligibleFunctions = {
     includedFunctions: [],
     mandatoryFunctions: [],
-    excludedFunctions: []
+    excludedFunctions: [9,27,10,26,17,15,7,5,25,12,29,28,131,132]
 };
 
 // generates the catalogues of elegible functions to be used for genotype generation
@@ -1475,6 +1519,136 @@ var eligibleFunctionsLibrary = createEligibleFunctionLibrary(GenoMusPianoFunctio
 // exports the catalogues of elegible function indexes, ordered by function name, encoded indexes and integer indexes, and containing the initial conditions of the subset
 createJSON(eligibleFunctionsLibrary, 'eligible_functions_library.json');
 
+
+
+///////////////
+// CORE FUNCTIONS FOR SPECIMEN CREATION AND EVOLUTION
+
+function createGenotype () {
+    var usedSeed;
+    var evaluatedGenotype = [0,"empty"];
+    // get library of functions data
+    var functions_index = JSON.parse(fs.readFileSync('eligible_functions_library.json'));  
+    var startdate = new Date();
+    var iterations = 0;
+    var maxIterations = 4000;
+    var stringLengthLimit = 30000;
+    var newLeaf;
+    do {
+        iterations++;
+        do {            
+            initSubexpressionsArrays();
+            var encodedGenotype = []; // compulsory start with a function
+            // stores number of levels to be filled
+            var notFilledParameters = [];
+            // stores functions names in process of writing; forces starting with a score type function
+            var expectedFunctions = ["scoreF"];
+            var chosenFunction;
+            var openFunctionTypes = [];
+            var nextFunctionType = "scoreF";
+            var pos = -1; // active readed position in encodedGenotype
+            var newDecodedGenotype = "";
+            var numElegibleFunctions;
+            do {
+                encodedGenotype.push(Math.round(Math.random()*1e6)/1e6);
+                pos++;
+                // new ramification of genotype
+                // maxAPI.post("last written function is " + chosenFunction);
+
+//              if (((p==0 || nextFunctionType != "leaf") || encodedGenotype[p] > newFunctionThreshold) && chosenFunction != "cAutoRef" && chosenFunction != "vAutoRef") {
+                if (nextFunctionType != "leaf") {
+                    // choose among elegible functions
+                    numElegibleFunctions = Object.keys(functions_index.functionLibrary[nextFunctionType]).length;
+                    chosenFunction = Object.keys(functions_index.functionLibrary[nextFunctionType])[Math.floor(encodedGenotype[pos]*numElegibleFunctions)];
+                    openFunctionTypes[openFunctionTypes.length] = nextFunctionType;
+                    // writes the new function
+                    newDecodedGenotype += chosenFunction + "(";
+                    // read the expected parameters of the chosen function
+                    notFilledParameters[notFilledParameters.length] = Object.keys(functions_index.functionLibrary[nextFunctionType][chosenFunction].arguments).length;                    
+                    expectedFunctions[notFilledParameters.length-1] = chosenFunction;    
+                }
+                // add a numerical leaf value
+                else {
+                    encodedGenotype[pos] = 0; // change value to 0 for make genotypes syntax independent from leaf newFunctionThreshold value
+                    newLeaf = Math.round(Math.random()*1e6)/1e6;
+                    encodedGenotype.push(newLeaf);
+                    pos++;
+                    // add primitive function, leaves of functions tree
+                    if (chosenFunction == "pAutoRef" || chosenFunction == "aAutoRef" || chosenFunction == "cAutoRef" || chosenFunction == "vAutoRef") {
+                        newDecodedGenotype += parseInt(encodedGenotype[pos]*1e5); 
+                    }
+                    else {
+                        newDecodedGenotype += encodedGenotype[pos];  
+                    }
+                    // chosenFunction = "p";
+                    if (chosenFunction == "p") {
+                        encodedLeaves.push([pos, encodedGenotype[pos]]);
+                    }
+                    notFilledParameters[notFilledParameters.length-1]--;
+                    // control ramifications tree
+                    // if number of parameters of this level if filled, deletes this count level and add ")"
+                    if (notFilledParameters[notFilledParameters.length-1] == 0) {
+                        do {
+                            if (notFilledParameters.length > 1) {
+                                notFilledParameters.pop();
+                                expectedFunctions.pop();
+                                openFunctionTypes.pop();
+                            }
+                            newDecodedGenotype += ")";
+                            notFilledParameters[notFilledParameters.length-1]--;
+                        } while (notFilledParameters[notFilledParameters.length-1] == 0)
+                    }
+                    if (notFilledParameters[0] > 0) newDecodedGenotype += ",";                    
+                }
+                console.log(newDecodedGenotype);
+                nextFunctionType = functions_index.functionLibrary[openFunctionTypes[openFunctionTypes.length-1]][expectedFunctions[expectedFunctions.length-1]].arguments[ functions_index.functionLibrary[openFunctionTypes[openFunctionTypes.length-1]][expectedFunctions[expectedFunctions.length-1]].arguments.length - notFilledParameters[notFilledParameters.length-1]];
+            } while (notFilledParameters[0] > 0 && notFilledParameters.length < deepestRamificationLevel && newDecodedGenotype.length < stringLengthLimit);
+        //    maxAPI.post("iteration num.:" + iterations);
+        } while (notFilledParameters[0] != -1)
+        // console.log("New gen: " + decodedGenotype);
+            
+        // console.log("New phen: " + evaluatedGenotype);
+        // currentGenotype = evaluatedGenotype;
+        // maxAPI.post("dec: " + decodedGenotype);
+        // maxAPI.post("Pheno length: " + evaluatedGenotype[0].length); 
+        // update seed according to last value of Math.random(), to keep the iterations repeatable
+        // track seed used for genotype creation    
+        usedSeed = Math.random();
+        // creates and saves new derived seed value only for evaluations (to be independent of seed for genotype creation)
+        evaluationSeed = Math.round(Math.random()*1e14); 
+        // seeding before genotype evaluation
+        rng = Math.random(); // PARCHE
+        // rng = seedrandom(evaluationSeed); 
+        // evaluatedGenotype = evalAndReturnExpression(decodedGenotype);
+        // creates new seed for genotype creation before new iteration, if necessary
+        currentSeed = Math.round(Math.random()*1e14); 
+        rng = Math.random(); // PARCHE
+    } while ((evaluatedGenotype[0].length < phenMinLength || evaluatedGenotype[0].length > phenMaxLength) && iterations < maxIterations)
+    var stopdate = new Date();
+    // maxAPI.post(encodedGenotype);
+    // maxAPI.post("Phenotype: " + evaluatedGenotype[0]);    
+    
+    // maxAPI.post("iterations: " + iterations);
+    // maxAPI.post("time ellapsed: " + Math.abs(stopdate-startdate) + " ms");
+    // maxAPI.post("seeds: " + usedSeed + ", " + evaluationSeed);    
+    
+    console.log("iterations: " + iterations);
+    console.log("time ellapsed: " + Math.abs(stopdate-startdate) + " ms");
+    return newDecodedGenotype;
+    
+    // return array with:
+    // first array with metadata: [date, iterations, time ellapsed]
+    // second array with encodedGenotype
+    // third array with pair [encodedPhenotype, decodedGenotype] 
+    var metadata = [version, parseInt(getFileDateName()), iterations, Math.abs(stopdate-startdate), evaluatedGenotype[0].length];
+    var expandedExpression = expandExpr(evaluatedGenotype[1]);
+    var outputData = [metadata, encodedGenotype, evaluatedGenotype, expandedExpression, subexpressions, leaves, encodedLeaves, usedSeed, evaluationSeed];
+    // maxAPI.post("out: " + outputData);
+    // maxAPI.post("pair:" + outputData[2]);   
+    currentEncodedGenotype = encodedGenotype;
+    currentLeavesStructure = encodedLeaves;
+    return outputData;
+}
 
 
 
