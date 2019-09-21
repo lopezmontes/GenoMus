@@ -158,7 +158,7 @@
             "functionIndex": 46,
             "functionType": "voiceF",
             "arguments": [
-                "voiceF",
+                "eventF",
                 "paramF"
             ],
             "metadata": {
@@ -283,7 +283,7 @@
             "functionIndex": 1,
             "functionType": "listF",
             "arguments": [
-                "leaf"
+                "listLeaf"
             ],
             "metadata": {
                 "description": "list identity function",

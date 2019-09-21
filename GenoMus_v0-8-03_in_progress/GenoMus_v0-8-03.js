@@ -15,9 +15,9 @@ const seedrandom = require('seedrandom');
 
 /////////////////////
 // INITIAL CONDITIONS
-var deepestRamificationLevel = 5;
-var phenMinLength = 0;
-var phenMaxLength = 2000;
+var deepestRamificationLevel = 15;
+var phenMinLength = 15;
+var phenMaxLength = 20;
 var leaves = []; // stores all numeric parameters
 var encodedLeaves = [];
 var newFunctionThreshold = .6; // [0-1] Higher is less likely to ramificate too much
@@ -1511,11 +1511,17 @@ createJSON(GenoMusPianoFunctionLibrary, 'GenoMus_piano_function_library.json');
 var eligibleFunctions = {
     includedFunctions: [],
     mandatoryFunctions: [],
-    excludedFunctions: [9,27,10,26,17,15,7,5,25,12,29,28,131,132]
+    excludedFunctions: [1,9,27,10,26,17,15,7,5,25,12,29,28,131,132,40,36,35]
+};
+
+var testingFunctions = {
+    includedFunctions: [0,2,3,4,98,99,100,42,46,43,109,44,104,110],
+    mandatoryFunctions: [],
+    excludedFunctions: []
 };
 
 // generates the catalogues of elegible functions to be used for genotype generation
-var eligibleFunctionsLibrary = createEligibleFunctionLibrary(GenoMusPianoFunctionLibrary, eligibleFunctions);
+var eligibleFunctionsLibrary = createEligibleFunctionLibrary(GenoMusPianoFunctionLibrary, testingFunctions);
 // exports the catalogues of elegible function indexes, ordered by function name, encoded indexes and integer indexes, and containing the initial conditions of the subset
 createJSON(eligibleFunctionsLibrary, 'eligible_functions_library.json');
 
@@ -1537,7 +1543,7 @@ function createGenotype () {
     do {
         do {   
             iterations++;
-            console.log("iteration num.:" + iterations);         
+            // console.log("iteration num.:" + iterations);         
             initSubexpressionsArrays();
             var encodedGenotype = []; // compulsory start with a function
             // stores number of levels to be filled
@@ -1571,7 +1577,7 @@ function createGenotype () {
                 // add a numerical leaf value
                 else {
                     encodedGenotype[pos] = 0; // change value to 0 for make genotypes syntax independent from leaf newFunctionThreshold value
-                    newLeaf = Math.round(Math.random()*1e6)/1e6;
+                    newLeaf = r6d(normal());
                     encodedGenotype.push(newLeaf);
                     pos++;
                     // add primitive function, leaves of functions tree
@@ -1601,10 +1607,12 @@ function createGenotype () {
                     }
                     if (notFilledParameters[0] > 0) newDecodedGenotype += ",";                    
                 }
-                console.log(newDecodedGenotype);
+                // console.log(newDecodedGenotype);
                 nextFunctionType = functions_index.functionLibrary[openFunctionTypes[openFunctionTypes.length-1]][expectedFunctions[expectedFunctions.length-1]].arguments[ functions_index.functionLibrary[openFunctionTypes[openFunctionTypes.length-1]][expectedFunctions[expectedFunctions.length-1]].arguments.length - notFilledParameters[notFilledParameters.length-1]];
-            } while (notFilledParameters[0] > 0 && notFilledParameters.length < deepestRamificationLevel && newDecodedGenotype.length < stringLengthLimit);
-
+            } while (
+                notFilledParameters[0] > 0 && 
+                notFilledParameters.length < deepestRamificationLevel && 
+                newDecodedGenotype.length < stringLengthLimit);
         } while (notFilledParameters[0] != -1)
         // console.log("New gen: " + decodedGenotype);
             
@@ -1624,17 +1632,19 @@ function createGenotype () {
         // creates new seed for genotype creation before new iteration, if necessary
         currentSeed = Math.round(Math.random()*1e14); 
         rng = Math.random(); // PARCHE
-    } while ((evaluatedGenotype[0].length < phenMinLength || evaluatedGenotype[0].length > phenMaxLength) && iterations < maxIterations)
+    } while (
+        (evaluatedGenotype[0].length < phenMinLength || evaluatedGenotype[0].length > phenMaxLength) && 
+        iterations < maxIterations)
     var stopdate = new Date();
     // maxAPI.post(encodedGenotype);
     // maxAPI.post("Phenotype: " + evaluatedGenotype[0]);    
     
-    // maxAPI.post("iterations: " + iterations);
-    // maxAPI.post("time ellapsed: " + Math.abs(stopdate-startdate) + " ms");
+    maxAPI.post("iterations: " + iterations);
+    maxAPI.post("time ellapsed: " + Math.abs(stopdate-startdate) + " ms");
     // maxAPI.post("seeds: " + usedSeed + ", " + evaluationSeed);    
     
-    console.log("iterations: " + iterations);
-    console.log("time ellapsed: " + Math.abs(stopdate-startdate) + " ms");
+    // console.log("iterations: " + iterations);
+    // console.log("time ellapsed: " + Math.abs(stopdate-startdate) + " ms");
     return newDecodedGenotype;
     
     // return array with:
@@ -1671,3 +1681,16 @@ maxAPI.addHandler("text", (...args) => {
     // write JSON file   
     createJSON(specimenDataStructure(evaluation), 'genotipo.json');
 });
+
+// creates a new genotype from scratch
+maxAPI.addHandler('newGenotype', () => {
+    var newGen = createGenotype();
+    maxAPI.post(newGen);
+    var evaluation = evalDecGen(newGen);
+    maxAPI.post(evaluation);
+//    maxAPI.post(mt(receivedText));
+    // maxAPI.post(evaluation);
+    
+    // write JSON file   
+    createJSON(specimenDataStructure(evaluation), 'genotipo.json');
+})
