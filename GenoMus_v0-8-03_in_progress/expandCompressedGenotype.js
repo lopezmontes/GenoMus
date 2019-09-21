@@ -14,6 +14,7 @@ function genotype(compressedFormExpr) {
     compressedFormExpr = compressedFormExpr.replace(/\bi\(\n/g, "i(");
     compressedFormExpr = compressedFormExpr.replace(/\bq\(\n/g, "q(");
     compressedFormExpr = compressedFormExpr.replace(/\bz\(\n/g, "z(");
+    compressedFormExpr = compressedFormExpr.replace(/\bl\(\n/g, "l(");
     compressedFormExpr = compressedFormExpr.replace(/pAutoref\(\n/g, "pAutoref(");    
     compressedFormExpr = compressedFormExpr.replace(/lAutoref\(\n/g, "lAutoref(");    
     compressedFormExpr = compressedFormExpr.replace(/eAutoref\(\n/g, "eAutoref(");    

@@ -273,7 +273,6 @@ var tt = decGenotype => {
 var mt = decGenotype => {
     initSubexpressionsArrays();
     var output = (evalDecGen(decGenotype));
-    maxAPI.post(subexpressions);
     visualizeSpecimen(output.encGen, "encGen");
     visualizeSpecimen(output.encPhen, "encPhen");
     maxAPI.post("received decoded genotype: " + decGenotype);
@@ -865,7 +864,7 @@ var vIterE = (event, times) => {
     var numIterations = adjustRange(Math.abs(p2q(times.encPhen[0])), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5 using the quantizedF map
     if (numIterations > phenMaxLength) return -1;
     return indexExprReturnSpecimen({
-        funcType: "listF",
+        funcType: "voiceF",
         encGen: flattenDeep([1, 0.867258, event.encGen, times.encGen, 0]),
         decGen: "vIterE(" + event.decGen + "," + times.decGen + ")",
         encPhen: [z2p(numIterations)].concat(flattenDeep(Array(numIterations).fill().map(() => eval(event.decGen).encPhen))),
@@ -876,6 +875,73 @@ var vIterE = (event, times) => {
         analysis: event.analysis
     });
 };
+
+// creates a voice based on lists without no loops (shortest list determines number of events)
+var vMotif = (listNotevalues, listPitches, listArticulations, listIntensities) => {
+    var seqLength = Math.min(
+        listNotevalues.encPhen.length, 
+        listPitches.encPhen.length, 
+        listArticulations.encPhen.length, 
+        listIntensities.encPhen.length);
+    if (seqLength > phenMaxLength) return -1;
+    var eventsSeq = [z2p(seqLength)];
+    for (var ev = 0; ev < seqLength; ev++) {
+        eventsSeq.push(listNotevalues.encPhen[ev]);
+        eventsSeq.push(0.618034);
+        eventsSeq.push(listPitches.encPhen[ev]);
+        eventsSeq.push(listArticulations.encPhen[ev]);
+        eventsSeq.push(listIntensities.encPhen[ev]);
+    }
+    return indexExprReturnSpecimen({
+        funcType: "voiceF",
+        encGen: flattenDeep([1, 0.988764, 
+            listNotevalues.encGen,
+            listPitches.encGen,
+            listArticulations.encGen,
+            listIntensities.encGen, 0]),
+        decGen: "vMotif(" +
+            listNotevalues.decGen + "," + 
+            listPitches.decGen + "," + 
+            listArticulations.decGen + "," + 
+            listIntensities.decGen + ")",
+        encPhen: eventsSeq,
+        phenLength: seqLength,
+    });    
+}
+
+// creates a voice based on lists without loops (largest list determines number of events)
+var vMotifLoop = (listNotevalues, listPitches, listArticulations, listIntensities) => {
+    var totalNotevalues = listNotevalues.encPhen.length; 
+    var totalPitches = listPitches.encPhen.length; 
+    var totalArticulations = listArticulations.encPhen.length; 
+    var totalIntensities = listIntensities.encPhen.length;
+    var seqLength = Math.max(totalNotevalues, totalPitches, totalArticulations, totalIntensities);
+    if (seqLength > phenMaxLength) return -1;
+    var eventsSeq = [z2p(seqLength)];
+    for (var ev = 0; ev < seqLength; ev++) {
+        eventsSeq.push(listNotevalues.encPhen[ev % totalNotevalues]);
+        eventsSeq.push(0.618034);
+        eventsSeq.push(listPitches.encPhen[ev % totalPitches]);
+        eventsSeq.push(listArticulations.encPhen[ev % totalArticulations]);
+        eventsSeq.push(listIntensities.encPhen[ev % totalIntensities]);
+    }
+    return indexExprReturnSpecimen({
+        funcType: "voiceF",
+        encGen: flattenDeep([1, 0.606798, 
+            listNotevalues.encGen,
+            listPitches.encGen,
+            listArticulations.encGen,
+            listIntensities.encGen, 0]),
+        decGen: "vMotifLoop(" +
+            listNotevalues.decGen + "," + 
+            listPitches.decGen + "," + 
+            listArticulations.decGen + "," + 
+            listIntensities.decGen + ")",
+        encPhen: eventsSeq,
+        phenLength: seqLength,
+    });    
+}
+
 
 // autoreferences framework for different functionTypes
 var autoref = (funcName, funcType, encodedFunctionIndex, subexprIndex, silentElement) => {
@@ -1144,13 +1210,15 @@ var decodeGenotype = encGen => {
 // encodes and decodes a genotype to filter bad or dangerous expressions before being evaluated
 var evalDecGen = decGen => {
     var encodedGenotype = encodeGenotype(decGen);
-    maxAPI.post("encoded previo: " + encodedGenotype);
+    // maxAPI.post("encoded previo: " + encodedGenotype);
     if (encodedGenotype[0] == -1) {
         console.log("Error: not a valid decoded genotype.");
         return -1;
     }
     else {
-        return eval(decodeGenotype(encodedGenotype));
+        initSubexpressionsArrays();
+        var output = eval(decodeGenotype(encodedGenotype));
+        return output;
     }
 }
 
@@ -1236,6 +1304,7 @@ var expandExpr = compressedFormExpr => {
     compressedFormExpr = compressedFormExpr.replace(/\bi\(\n/g, "i(");
     compressedFormExpr = compressedFormExpr.replace(/\bq\(\n/g, "q(");
     compressedFormExpr = compressedFormExpr.replace(/\bz\(\n/g, "z(");
+    compressedFormExpr = compressedFormExpr.replace(/\bl\(\n/g, "l(");
     compressedFormExpr = compressedFormExpr.replace(/pAutoref\(\n/g, "pAutoref(");    
     compressedFormExpr = compressedFormExpr.replace(/lAutoref\(\n/g, "lAutoref(");    
     compressedFormExpr = compressedFormExpr.replace(/eAutoref\(\n/g, "eAutoref(");    
@@ -1360,7 +1429,31 @@ var specimenDataStructure = (specimen) => ({
     decodedGenotype: specimen.decGen,
     formattedGenotype: expandExpr(specimen.decGen),
     encodedPhenotype: specimen.encPhen,
-    roll: encPhen2bachRoll(specimen.encPhen)
+    roll: encPhen2bachRoll(specimen.encPhen),
+    subexpressions: {
+        paramF: subexpressions["paramF"],
+        listF: subexpressions["listF"],
+        eventF: subexpressions["eventF"],
+        voiceF: subexpressions["voiceF"],
+        scoreF: subexpressions["scoreF"],
+        notevalueF: subexpressions["notevalueF"],
+        lnotevalueF: subexpressions["lnotevalueF"],
+        durationF: subexpressions["durationF"],
+        ldurationF: subexpressions["ldurationF"],
+        midipitchF: subexpressions["midipitchF"],
+        lmidipitchF: subexpressions["lmidipitchF"],
+        frequencyF: subexpressions["frequencyF"],
+        lfrequencyF: subexpressions["lfrequencyF"],
+        articulationF: subexpressions["articulationF"],
+        larticulationF: subexpressions["larticulationF"],
+        intensityF: subexpressions["intensityF"],
+        lintensityF: subexpressions["lintensityF"],
+        goldenintegerF: subexpressions["goldenintegerF"],
+        lgoldenintegerF: subexpressions["lgoldenintegerF"],
+        quantizedF: subexpressions["quantizedF"],
+        lquantizedF: subexpressions["lquantizedF"],
+        operationF: subexpressions["operationF"]
+    }
 });
 
 
@@ -1397,9 +1490,9 @@ maxAPI.addHandler("text", (...args) => {
     // maxAPI.post("Recibido en node:\n" + receivedText);
     var evaluation = evalDecGen(receivedText);
     //var evaluation = eval(receivedText);
-    // maxAPI.post(mt(receivedText));
+    maxAPI.post(mt(receivedText));
     // maxAPI.post(evaluation);
-
+    
     // write JSON file   
     createJSON(specimenDataStructure(evaluation), 'genotipo.json');
 });

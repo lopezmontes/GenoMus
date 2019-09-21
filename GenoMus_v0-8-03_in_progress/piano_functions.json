@@ -166,6 +166,36 @@
                 "date": 20190906,
                 "creator": "lm"
             }
+        },
+        "vMotif": {
+            "functionIndex": 199,
+            "functionType": "voiceF",
+            "arguments": [
+                "listF",
+                "listF",
+                "listF",
+                "listF"
+            ],
+            "metadata": {
+                "description": "creates a sequence of events based on lists",
+                "date": 20190920,
+                "creator": "lm"
+            }
+        },
+        "vMotifLoop": {
+            "functionIndex": 200,
+            "functionType": "voiceF",
+            "arguments": [
+                "listF",
+                "listF",
+                "listF",
+                "listF"
+            ],
+            "metadata": {
+                "description": "creates a sequence of events based on repeating lists",
+                "date": 20190920,
+                "creator": "lm"
+            }
         }
     },
     "eventF": {
