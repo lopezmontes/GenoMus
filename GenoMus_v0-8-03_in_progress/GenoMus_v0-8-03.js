@@ -598,10 +598,10 @@ var l5P = (p1, p2, p3, p4, p5) => indexExprReturnSpecimen({
     encPhen: p1.encPhen.concat(p2.encPhen).concat(p3.encPhen).concat(p4.encPhen).concat(p5.encPhen)
 });
 
-// random list up to 12 values with uniform distribution within interval [0, 1]
+// random list up to 24 values with uniform distribution within interval [0, 1]
 var lUniformRnd = (numItemsSeed, seqSeed) => {
     random.use(seedrandom(numItemsSeed.encPhen));
-    var numItems = random.int(1, 12);
+    var numItems = random.int(1, 24);
     random.use(seedrandom(seqSeed.encPhen));
     return indexExprReturnSpecimen({
         funcType: "listF",
@@ -611,10 +611,10 @@ var lUniformRnd = (numItemsSeed, seqSeed) => {
     });
 };
 
-// random list up to 12 values with normal distribution within interval [0, 1]
+// random list up to 24 values with normal distribution within interval [0, 1]
 var lRnd = (numItemsSeed, seqSeed) => {
     random.use(seedrandom(numItemsSeed.encPhen));
-    var numItems = random.int(1, 12);
+    var numItems = random.int(1, 24);
     random.use(seedrandom(seqSeed.encPhen));
     return indexExprReturnSpecimen({
         funcType: "listF",

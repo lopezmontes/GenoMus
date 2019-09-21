@@ -1010,8 +1010,8 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | name                    | index                              | description
 | ----------------------- | ---------------------------------- | -----------
 | `vInterval`             | 198 <sub>not yet implemented</sub> | repeats previous note changing pitch according to an interval
-| `vMotif`                | 199 <sub>not yet implemented</sub> | creates a sequence of events based on lists
-| `vMotifLoop`            | 200 <sub>not yet implemented</sub> | creates a sequence of events based on repeating lists
+| `vMotif`                | 199 <sub>.988764 in progress</sub> | creates a sequence of events based on lists
+| `vMotifLoop`            | 200 <sub>.606798 in progress</sub> | creates a sequence of events based on repeating lists
 | `vPerpetuumMobile`      | 201 <sub>not yet implemented</sub> | creates a sequence of events based on repeating lists but with a single notevalue
 | `vPerpetuumMobileLoop`  | 202 <sub>not yet implemented</sub> | creates a sequence of events based on lists but with a single notevalue
 | `vAcciaccatura`         | 203 <sub>not yet implemented</sub> | adds an acciaccatura to an event
