@@ -1530,9 +1530,9 @@ createJSON(eligibleFunctionsLibrary, 'eligible_functions_library.json');
 ///////////////
 // CORE FUNCTIONS FOR SPECIMEN CREATION AND EVOLUTION
 
-function createGenotype () {
+function createSpecimen () {
     var usedSeed;
-    var evaluatedGenotype = [0,"empty"];
+    var specimen;
     // get library of functions data
     var functions_index = JSON.parse(fs.readFileSync('eligible_functions_library.json'));  
     var startdate = new Date();
@@ -1629,11 +1629,12 @@ function createGenotype () {
         rng = Math.random(); // PARCHE
         // rng = seedrandom(evaluationSeed); 
         // evaluatedGenotype = evalAndReturnExpression(decodedGenotype);
+        specimen = evalDecGen(newDecodedGenotype);
         // creates new seed for genotype creation before new iteration, if necessary
         currentSeed = Math.round(Math.random()*1e14); 
         rng = Math.random(); // PARCHE
     } while (
-        (evaluatedGenotype[0].length < phenMinLength || evaluatedGenotype[0].length > phenMaxLength) && 
+        (specimen.phenLength < phenMinLength || specimen.phenLength > phenMaxLength) && 
         iterations < maxIterations)
     var stopdate = new Date();
     // maxAPI.post(encodedGenotype);
@@ -1651,9 +1652,9 @@ function createGenotype () {
     // first array with metadata: [date, iterations, time ellapsed]
     // second array with encodedGenotype
     // third array with pair [encodedPhenotype, decodedGenotype] 
-    var metadata = [version, parseInt(getFileDateName()), iterations, Math.abs(stopdate-startdate), evaluatedGenotype[0].length];
-    var expandedExpression = expandExpr(evaluatedGenotype[1]);
-    var outputData = [metadata, encodedGenotype, evaluatedGenotype, expandedExpression, subexpressions, leaves, encodedLeaves, usedSeed, evaluationSeed];
+    var metadata = [version, parseInt(getFileDateName()), iterations, Math.abs(stopdate-startdate), specimen[0].length];
+    var expandedExpression = expandExpr(specimen[1]);
+    var outputData = [metadata, encodedGenotype, specimen, expandedExpression, subexpressions, leaves, encodedLeaves, usedSeed, evaluationSeed];
     // maxAPI.post("out: " + outputData);
     // maxAPI.post("pair:" + outputData[2]);   
     currentEncodedGenotype = encodedGenotype;
@@ -1684,7 +1685,7 @@ maxAPI.addHandler("text", (...args) => {
 
 // creates a new genotype from scratch
 maxAPI.addHandler('newGenotype', () => {
-    var newGen = createGenotype();
+    var newGen = createSpecimen();
     maxAPI.post(newGen);
     var evaluation = evalDecGen(newGen);
     maxAPI.post(evaluation);
