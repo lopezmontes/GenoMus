@@ -15,7 +15,7 @@ const seedrandom = require('seedrandom');
 
 /////////////////////
 // INITIAL CONDITIONS
-var deepestRamificationLevel = 10;
+var deepestRamificationLevel = 5;
 var phenMinLength = 0;
 var phenMaxLength = 2000;
 var leaves = []; // stores all numeric parameters
@@ -1535,8 +1535,9 @@ function createGenotype () {
     var stringLengthLimit = 30000;
     var newLeaf;
     do {
-        iterations++;
-        do {            
+        do {   
+            iterations++;
+            console.log("iteration num.:" + iterations);         
             initSubexpressionsArrays();
             var encodedGenotype = []; // compulsory start with a function
             // stores number of levels to be filled
@@ -1603,7 +1604,7 @@ function createGenotype () {
                 console.log(newDecodedGenotype);
                 nextFunctionType = functions_index.functionLibrary[openFunctionTypes[openFunctionTypes.length-1]][expectedFunctions[expectedFunctions.length-1]].arguments[ functions_index.functionLibrary[openFunctionTypes[openFunctionTypes.length-1]][expectedFunctions[expectedFunctions.length-1]].arguments.length - notFilledParameters[notFilledParameters.length-1]];
             } while (notFilledParameters[0] > 0 && notFilledParameters.length < deepestRamificationLevel && newDecodedGenotype.length < stringLengthLimit);
-        //    maxAPI.post("iteration num.:" + iterations);
+
         } while (notFilledParameters[0] != -1)
         // console.log("New gen: " + decodedGenotype);
             
