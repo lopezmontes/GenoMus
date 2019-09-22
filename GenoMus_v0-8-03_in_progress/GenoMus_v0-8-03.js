@@ -15,7 +15,7 @@ const seedrandom = require('seedrandom');
 
 /////////////////////
 // INITIAL CONDITIONS
-var deepestRamificationLevel = 10;
+var genMaxDepth = 10;
 var phenMinLength = 20;
 var phenMaxLength = 20000;
 var leaves = []; // stores all numeric parameters
@@ -1557,7 +1557,8 @@ function createSpecimen() {
                 }
                 // adds a leaf
                 else {
-                    preEncGen[pos] = 0; // changes value to 0 for make genotypes syntax independent from leaf newFunctionThreshold value (prescindible??)
+                    // changes value to 0 for make genotypes syntax independent from leaf newFunctionThreshold value (prescindible??)
+                    preEncGen[pos] = 0;
                     newLeaf = r6d(normal());
                     preEncGen.push(newLeaf);
                     pos++;
@@ -1623,7 +1624,7 @@ function createSpecimen() {
                         .arguments.length - notFilledParameters[notFilledParameters.length - 1]];
             } while (
                 notFilledParameters[0] > 0 &&
-                notFilledParameters.length < deepestRamificationLevel &&
+                notFilledParameters.length < genMaxDepth &&
                 newDecodedGenotype.length < stringLengthLimit);
         } while (notFilledParameters[0] != -1)
         // console.log("New gen: " + decodedGenotype);
@@ -1688,6 +1689,11 @@ maxAPI.addHandler('minLength', (integ) => {
 maxAPI.addHandler('maxLength', (integ) => {
     phenMaxLength = integ;
     maxAPI.post("Phenotype maximal length: " + phenMaxLength);
+})
+
+maxAPI.addHandler('depth', (integ) => {
+    genMaxDepth = integ;
+    maxAPI.post("deepest ramification level: " + genMaxDepth);
 })
 
 // gets decoded genotype from manual text input on max patch
