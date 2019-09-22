@@ -190,7 +190,7 @@
             "functionIndex": 2,
             "functionType": "eventF",
             "arguments": [
-                "paramF",
+                "notevalueF",
                 "midipitchF",
                 "paramF",
                 "paramF"
@@ -217,7 +217,7 @@
             "functionIndex": 98,
             "functionType": "eventF",
             "arguments": [
-                "paramF",
+                "notevalueF",
                 "midipitchF",
                 "midipitchF",
                 "paramF",
@@ -233,7 +233,7 @@
             "functionIndex": 99,
             "functionType": "eventF",
             "arguments": [
-                "paramF",
+                "notevalueF",
                 "midipitchF",
                 "midipitchF",
                 "midipitchF",
@@ -250,7 +250,7 @@
             "functionIndex": 100,
             "functionType": "eventF",
             "arguments": [
-                "paramF",
+                "notevalueF",
                 "midipitchF",
                 "midipitchF",
                 "midipitchF",
@@ -465,19 +465,6 @@
             },
             "leafIdentifier": 0.5
         },
-        "n": {
-            "functionIndex": 5,
-            "functionType": "paramF",
-            "arguments": [
-                "notevalueLeaf"
-            ],
-            "metadata": {
-                "description": "notevalue parameter identity function",
-                "date": 20190906,
-                "creator": "lm"
-            },
-            "leafIdentifier": 0.51
-        },
         "a": {
             "functionIndex": 9,
             "functionType": "paramF",
@@ -550,6 +537,21 @@
                 "date": 20190906,
                 "creator": "lm"
             }
+        }
+    },
+    "notevalueF": {
+        "n": {
+            "functionIndex": 5,
+            "functionType": "notevalueF",
+            "arguments": [
+                "notevalueLeaf"
+            ],
+            "metadata": {
+                "description": "notevalue parameter identity function",
+                "date": 20190906,
+                "creator": "lm"
+            },
+            "leafIdentifier": 0.51
         }
     },
     "midipitchF": {

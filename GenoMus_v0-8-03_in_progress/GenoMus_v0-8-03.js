@@ -1089,6 +1089,7 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
             eventF: {},
             listF: {},
             paramF: {},
+            notevalueF: {},
             midipitchF: {},
             operationF: {}
         },
@@ -1520,7 +1521,7 @@ var eligibleFunctions = {
 
 var testingFunctions = {
     includedFunctions: [0, 2, 3, 4, 98, 99, 100, 42, 46, 43, 109, 44, 104,
-        110, 131, 37, 134, 135, 199, 200, 65, 66, 67, 68, 76, 35, 36, 41, 7],
+        110, 131, 37, 134, 135, 199, 200, 65, 66, 67, 68, 76, 35, 36, 41, 5, 7],
     mandatoryFunctions: [],
     excludedFunctions: []
 };
@@ -1567,6 +1568,7 @@ function createSpecimen() {
                 //              if (((p==0 || nextFunctionType != "leaf") || encodedGenotype[p] > newFunctionThreshold) && chosenFunction != "cAutoRef" && chosenFunction != "vAutoRef") {
                 if (nextFunctionType != "leaf" &&
                     nextFunctionType != "voidLeaf" &&
+                    nextFunctionType != "notevalueLeaf" &&
                     nextFunctionType != "midipitchLeaf") {
                     // choose among elegible functions
                     numElegibleFunctions = Object.keys
@@ -1589,9 +1591,9 @@ function createSpecimen() {
                     preEncGen.push(newLeaf);
                     pos++;
                     // adds primitive function, leaves of functions tree
-                    if (nextFunctionType == "midipitchLeaf") {
-                        newLeaf = r6d(Math.random());
-                        // preEncGen.push(newLeaf);
+                    if (nextFunctionType == "notevalueLeaf") {
+                        newDecodedGenotype += p2n(newLeaf);
+                    } else if (nextFunctionType == "midipitchLeaf") {
                         newDecodedGenotype += Math.round(p2m(newLeaf));
                     }
                     else if (chosenFunction == "pAutoRef" ||
@@ -1715,8 +1717,8 @@ maxAPI.addHandler("text", (...args) => {
     createJSON(specimenDataStructure(evaluation), 'genotipo.json');
 });
 
-// creates a new genotype from scratch
-maxAPI.addHandler('newGenotype', () => {
+// creates a new specimen from scratch
+maxAPI.addHandler('newSpecimen', () => {
     var newSpec = createSpecimen();
     maxAPI.post(newSpec.phenLength);
     createJSON(specimenDataStructure(newSpec), 'genotipo.json');
