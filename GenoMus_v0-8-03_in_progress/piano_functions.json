@@ -24,19 +24,6 @@
                 "creator": "lm"
             }
         },
-        "sIterS": {
-            "functionIndex": 40,
-            "functionType": "scoreF",
-            "arguments": [
-                "scoreF",
-                "paramF"
-            ],
-            "metadata": {
-                "description": "repeats and concatenates as a score re-evaluations of a score function",
-                "date": 20190905,
-                "creator": "lm"
-            }
-        },
         "sConcatS": {
             "functionType": "scoreF",
             "functionIndex": 44,
@@ -119,7 +106,7 @@
             "functionIndex": 37,
             "functionType": "voiceF",
             "arguments": [
-                "voiceF",
+                "eventF",
                 "paramF"
             ],
             "metadata": {
@@ -204,7 +191,7 @@
             "functionType": "eventF",
             "arguments": [
                 "paramF",
-                "paramF",
+                "midipitchF",
                 "paramF",
                 "paramF"
             ],
@@ -231,8 +218,8 @@
             "functionType": "eventF",
             "arguments": [
                 "paramF",
-                "paramF",
-                "paramF",
+                "midipitchF",
+                "midipitchF",
                 "paramF",
                 "paramF"
             ],
@@ -247,9 +234,9 @@
             "functionType": "eventF",
             "arguments": [
                 "paramF",
-                "paramF",
-                "paramF",
-                "paramF",
+                "midipitchF",
+                "midipitchF",
+                "midipitchF",
                 "paramF",
                 "paramF"
             ],
@@ -264,10 +251,10 @@
             "functionType": "eventF",
             "arguments": [
                 "paramF",
-                "paramF",
-                "paramF",
-                "paramF",
-                "paramF",
+                "midipitchF",
+                "midipitchF",
+                "midipitchF",
+                "midipitchF",
                 "paramF",
                 "paramF"
             ],
@@ -491,19 +478,6 @@
             },
             "leafIdentifier": 0.51
         },
-        "m": {
-            "functionIndex": 7,
-            "functionType": "paramF",
-            "arguments": [
-                "midipitchLeaf"
-            ],
-            "metadata": {
-                "description": "midipitch parameter identity function",
-                "date": 20190906,
-                "creator": "lm"
-            },
-            "leafIdentifier": 0.53
-        },
         "a": {
             "functionIndex": 9,
             "functionType": "paramF",
@@ -576,6 +550,21 @@
                 "date": 20190906,
                 "creator": "lm"
             }
+        }
+    },
+    "midipitchF": {
+        "m": {
+            "functionIndex": 7,
+            "functionType": "midipitchF",
+            "arguments": [
+                "midipitchLeaf"
+            ],
+            "metadata": {
+                "description": "midipitch parameter identity function",
+                "date": 20190906,
+                "creator": "lm"
+            },
+            "leafIdentifier": 0.53
         }
     },
     "operationF": {
