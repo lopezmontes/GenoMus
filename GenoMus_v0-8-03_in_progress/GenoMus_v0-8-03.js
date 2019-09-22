@@ -1090,8 +1090,25 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
             listF: {},
             paramF: {},
             notevalueF: {},
+            durationF: {},
             midipitchF: {},
-            operationF: {}
+            frequencyF: {},
+            articulationF: {},
+            intensityF: {},
+            goldenintegerF: {},
+            quantizedF: {},
+            rhythmF: {},
+            harmonyF: {},
+            lnotevalueF: {},
+            ldurationF: {},
+            lmidipitchF: {},
+            lfrequencyF: {},
+            larticulationF: {},
+            lintensityF: {},
+            lgoldenintegerF: {},
+            lquantizedF: {},
+            operationF: {},
+            booleanF: {},
         },
     };
     // add mandatory functions and remove duplicates if needed
@@ -1566,10 +1583,16 @@ function createSpecimen() {
                 pos++;
                 // new ramification of genotype
                 //              if (((p==0 || nextFunctionType != "leaf") || encodedGenotype[p] > newFunctionThreshold) && chosenFunction != "cAutoRef" && chosenFunction != "vAutoRef") {
-                if (nextFunctionType != "leaf" &&
-                    nextFunctionType != "voidLeaf" &&
+                if (nextFunctionType != "voidLeaf" &&
+                    nextFunctionType != "leaf" &&
                     nextFunctionType != "notevalueLeaf" &&
-                    nextFunctionType != "midipitchLeaf") {
+                    nextFunctionType != "durationLeaf" &&
+                    nextFunctionType != "midipitchLeaf" &&
+                    nextFunctionType != "frequencyLeaf" &&
+                    nextFunctionType != "articulationLeaf" &&
+                    nextFunctionType != "intensityLeaf" &&
+                    nextFunctionType != "goldenintegerLeaf" &&
+                    nextFunctionType != "quantizedLeaf") {
                     // choose among elegible functions
                     numElegibleFunctions = Object.keys
                         (functions_catalogue.functionLibrary[nextFunctionType]).length;
