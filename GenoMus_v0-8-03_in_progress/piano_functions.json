@@ -192,8 +192,8 @@
             "arguments": [
                 "notevalueF",
                 "midipitchF",
-                "paramF",
-                "paramF"
+                "articulationF",
+                "intensityF"
             ],
             "metadata": {
                 "description": "piano event identity function",
@@ -220,8 +220,8 @@
                 "notevalueF",
                 "midipitchF",
                 "midipitchF",
-                "paramF",
-                "paramF"
+                "articulationF",
+                "intensityF"
             ],
             "metadata": {
                 "description": "creates an event with two pitches",
@@ -237,8 +237,8 @@
                 "midipitchF",
                 "midipitchF",
                 "midipitchF",
-                "paramF",
-                "paramF"
+                "articulationF",
+                "intensityF"
             ],
             "metadata": {
                 "description": "creates an event with three pitches",
@@ -255,8 +255,8 @@
                 "midipitchF",
                 "midipitchF",
                 "midipitchF",
-                "paramF",
-                "paramF"
+                "articulationF",
+                "intensityF"
             ],
             "metadata": {
                 "description": "creates an event with four pitches",
@@ -465,45 +465,6 @@
             },
             "leafIdentifier": 0.5
         },
-        "a": {
-            "functionIndex": 9,
-            "functionType": "paramF",
-            "arguments": [
-                "articulationLeaf"
-            ],
-            "metadata": {
-                "description": "articulation parameter identity function",
-                "date": 20190906,
-                "creator": "lm"
-            },
-            "leafIdentifier": 0.55
-        },
-        "i": {
-            "functionIndex": 10,
-            "functionType": "paramF",
-            "arguments": [
-                "intensityLeaf"
-            ],
-            "metadata": {
-                "description": "intensity parameter identity function",
-                "date": 20190906,
-                "creator": "lm"
-            },
-            "leafIdentifier": 0.56
-        },
-        "q": {
-            "functionIndex": 12,
-            "functionType": "paramF",
-            "arguments": [
-                "quantizedLeaf"
-            ],
-            "metadata": {
-                "description": "quantized integer parameter identity function",
-                "date": 20190906,
-                "creator": "lm"
-            },
-            "leafIdentifier": 0.58
-        },
         "pAutoref": {
             "functionIndex": 25,
             "functionType": "paramF",
@@ -567,6 +528,51 @@
                 "creator": "lm"
             },
             "leafIdentifier": 0.53
+        }
+    },
+    "articulationF": {
+        "a": {
+            "functionIndex": 9,
+            "functionType": "articulationF",
+            "arguments": [
+                "articulationLeaf"
+            ],
+            "metadata": {
+                "description": "articulation parameter identity function",
+                "date": 20190906,
+                "creator": "lm"
+            },
+            "leafIdentifier": 0.55
+        }
+    },
+    "intensityF": {
+        "i": {
+            "functionIndex": 10,
+            "functionType": "intensityF",
+            "arguments": [
+                "intensityLeaf"
+            ],
+            "metadata": {
+                "description": "intensity parameter identity function",
+                "date": 20190906,
+                "creator": "lm"
+            },
+            "leafIdentifier": 0.56
+        }
+    },
+    "quantizedF": {
+        "q": {
+            "functionIndex": 12,
+            "functionType": "quantizedF",
+            "arguments": [
+                "quantizedLeaf"
+            ],
+            "metadata": {
+                "description": "quantized integer parameter identity function",
+                "date": 20190906,
+                "creator": "lm"
+            },
+            "leafIdentifier": 0.58
         }
     },
     "operationF": {
