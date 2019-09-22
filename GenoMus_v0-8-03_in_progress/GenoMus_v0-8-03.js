@@ -1654,8 +1654,6 @@ function createSpecimen() {
         // rng = seedrandom(evaluationSeed); 
         // evaluatedGenotype = evalAndReturnExpression(decodedGenotype);
         newSpecimen = evalDecGen(newDecodedGenotype);
-        visualizeSpecimen(newSpecimen.encGen, "encGen");
-        visualizeSpecimen(newSpecimen.encPhen, "encPhen");
         // creates new seed for genotype creation before new iteration, if necessary
         currentSeed = Math.round(Math.random() * 1e14);
         rng = Math.random(); // PARCHE
@@ -1663,6 +1661,8 @@ function createSpecimen() {
         (newSpecimen.phenLength < phenMinLength || newSpecimen.phenLength > phenMaxLength) &&
         iterations < maxIterations)
     var stopdate = new Date();
+    visualizeSpecimen(newSpecimen.encGen, "encGen");
+    visualizeSpecimen(newSpecimen.encPhen, "encPhen");
     // maxAPI.post(encodedGenotype);
     // maxAPI.post("Phenotype: " + evaluatedGenotype[0]);    
     maxAPI.post("new genotype: " + newDecodedGenotype);
