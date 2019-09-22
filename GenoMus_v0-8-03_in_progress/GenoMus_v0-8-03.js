@@ -336,61 +336,45 @@ var pUniformRnd = () => indexExprReturnSpecimen({
     encPhen: [r6d(random.float())]
 });
 
-
 // notevalue identity function
-var n = x => {
-    eval("p(" + notevalue2norm(x) + ")");
-    return indexExprReturnSpecimen({
-        funcType: "notevalueF",
-        encGen: [1, 0.09017, 0.51, notevalue2norm(x), 0],
-        decGen: "n(" + x + ")",
-        encPhen: [notevalue2norm(x)]
-    });
-};
+var n = x => indexExprReturnSpecimen({
+    funcType: "notevalueF",
+    encGen: [1, 0.09017, 0.51, notevalue2norm(x), 0],
+    decGen: "n(" + x + ")",
+    encPhen: [notevalue2norm(x)]
+});
 
 // midipitch identity function
-var m = x => {
-    eval("p(" + midipitch2norm(x) + ")");
-    return indexExprReturnSpecimen({
-        funcType: "midipitchF",
-        encGen: [1, 0.326238, 0.53, midipitch2norm(x), 0],
-        decGen: "m(" + x + ")",
-        encPhen: [midipitch2norm(x)]
-    });
-};
+var m = x => indexExprReturnSpecimen({
+    funcType: "midipitchF",
+    encGen: [1, 0.326238, 0.53, midipitch2norm(x), 0],
+    decGen: "m(" + x + ")",
+    encPhen: [midipitch2norm(x)]
+});
 
 // articulation identity function
-var a = x => {
-    eval("p(" + articulation2norm(x) + ")");
-    return indexExprReturnSpecimen({
-        funcType: "articulationF",
-        encGen: [1, 0.562306, 0.55, articulation2norm(x), 0],
-        decGen: "a(" + x + ")",
-        encPhen: [articulation2norm(x)]
-    });
-};
+var a = x => indexExprReturnSpecimen({
+    funcType: "articulationF",
+    encGen: [1, 0.562306, 0.55, articulation2norm(x), 0],
+    decGen: "a(" + x + ")",
+    encPhen: [articulation2norm(x)]
+});
 
 // intensity identity function
-var i = x => {
-    eval("p(" + intensity2norm(x) + ")");
-    return indexExprReturnSpecimen({
-        funcType: "intensityF",
-        encGen: [1, 0.18034, 0.56, intensity2norm(x), 0],
-        decGen: "i(" + x + ")",
-        encPhen: [intensity2norm(x)]
-    });
-};
+var i = x => indexExprReturnSpecimen({
+    funcType: "intensityF",
+    encGen: [1, 0.18034, 0.56, intensity2norm(x), 0],
+    decGen: "i(" + x + ")",
+    encPhen: [intensity2norm(x)]
+});
 
 // intensity identity function
-var q = x => {
-    eval("p(" + quantized2norm(x) + ")");
-    return indexExprReturnSpecimen({
-        funcType: "intensityF",
-        encGen: [1, 0.416408, 0.58, quantized2norm(x), 0],
-        decGen: "q(" + x + ")",
-        encPhen: [quantized2norm(x)]
-    });
-};
+var q = x => indexExprReturnSpecimen({
+    funcType: "intensityF",
+    encGen: [1, 0.416408, 0.58, quantized2norm(x), 0],
+    decGen: "q(" + x + ")",
+    encPhen: [quantized2norm(x)]
+});
 
 // list identity function
 var l = paramList => indexExprReturnSpecimen({
@@ -1657,7 +1641,7 @@ function createSpecimen() {
         rng = Math.random(); // PARCHE
         // rng = seedrandom(evaluationSeed); 
         // evaluatedGenotype = evalAndReturnExpression(decodedGenotype);
-        newSpecimen = evalDecGen(newDecodedGenotype);
+        newSpecimen = eval(newDecodedGenotype);
         // creates new seed for genotype creation before new iteration, if necessary
         currentSeed = Math.round(Math.random() * 1e14);
         rng = Math.random(); // PARCHE
