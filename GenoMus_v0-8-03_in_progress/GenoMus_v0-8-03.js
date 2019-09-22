@@ -1594,7 +1594,7 @@ function createSpecimen() {
                     if (nextFunctionType == "notevalueLeaf") {
                         newDecodedGenotype += p2n(newLeaf);
                     } else if (nextFunctionType == "midipitchLeaf") {
-                        newDecodedGenotype += Math.round(p2m(newLeaf));
+                        newDecodedGenotype += p2m(newLeaf);
                     }
                     else if (chosenFunction == "pAutoRef" ||
                         chosenFunction == "aAutoRef" ||
