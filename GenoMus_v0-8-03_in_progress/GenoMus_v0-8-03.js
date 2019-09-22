@@ -1484,7 +1484,8 @@ var eligibleFunctions = {
 
 var testingFunctions = {
     includedFunctions: [0, 2, 3, 4, 98, 99, 100, 42, 46, 43, 109, 44, 104,
-        110, 131, 37, 134, 135, 199, 200, 65, 66, 67, 68, 76, 35, 36, 41, 5, 7, 9, 10, 12, 25, 26, 27, 28, 29, 277, 279, 281, 282, 284],
+        110, 131, 37, 134, 135, 199, 200, 65, 66, 67, 68, 76, 35, 36, 41, 5,
+        7, 9, 10, 12, 25, 26, 27, 28, 29, 277, 279, 281, 282, 284],
     mandatoryFunctions: [],
     excludedFunctions: []
 };
@@ -1540,7 +1541,8 @@ function createSpecimen() {
                     nextFunctionType != "goldenintegerLeaf" &&
                     nextFunctionType != "quantizedLeaf" &&
                     nextFunctionType != "operationLeaf" &&
-                    nextFunctionType != "booleanLeaf") {
+                    nextFunctionType != "booleanLeaf" &&
+                    nextFunctionType != "listLeaf") {
                     // choose among elegible functions
                     numElegibleFunctions = Object.keys
                         (functions_catalogue.functionLibrary[nextFunctionType]).length;
@@ -1583,8 +1585,19 @@ function createSpecimen() {
                         newDecodedGenotype += newLeaf;
                     } else if (nextFunctionType == "booleanLeaf") {
                         newDecodedGenotype += Math.round(newLeaf);
+                    } else if (nextFunctionType == "listLeaf") {
+                        newDecodedGenotype += "[" + Math.round(newLeaf);
+                        var extendList = true;
+                        while (extendList) {
+                            newLeaf = r6d(normal());
+                            preEncGen.push(newLeaf);
+                            newDecodedGenotype += "," + newLeaf;
+                            if (Math.random() < .5) extendList = false;
+                            maxAPI.post("prov: " + newDecodedGenotype);
+                        }
+                        newDecodedGenotype += "]";
                     }
-                    else if (chosenFunction == "pAutoRef" ||
+                        else if (chosenFunction == "pAutoRef" ||
                         chosenFunction == "lAutoRef" ||
                         chosenFunction == "eAutoRef" ||
                         chosenFunction == "vAutoRef" ||
