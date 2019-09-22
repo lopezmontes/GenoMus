@@ -16,7 +16,7 @@ const seedrandom = require('seedrandom');
 /////////////////////
 // INITIAL CONDITIONS
 var deepestRamificationLevel = 15;
-var phenMinLength = 0;
+var phenMinLength = 10;
 var phenMaxLength = 20000;
 var leaves = []; // stores all numeric parameters
 var encodedLeaves = [];
@@ -255,49 +255,6 @@ var testRndValues = () => {
     console.log("Min: " + mini + " | Max: " + maxi + " Negat: " + neg + " | Pos: " + pos + " | iter: " + iter);
     return -1;
 }
-
-// testRndValues();
-
-
-// /////////////////////
-// // INITIAL CONDITIONS
-// var deepestRamificationLevel = 10;
-// var phenMinLength = 0;
-// var phenMaxLength = 2000;
-// var leaves = []; // stores all numeric parameters
-// var encodedLeaves = [];
-// var newFunctionThreshold = .6; // [0-1] Higher is less likely to ramificate too much
-// // stores the last used genotype and its leaves, to mutate it
-// var currentEncodedGenotype;
-// var currentLeavesStructure;
-
-// global variable to store subexpressions
-// var subexpressions = [];
-// var initSubexpressionsArrays = () => {
-//     subexpressions["paramF"] = [];
-//     subexpressions["listF"] = [];
-//     subexpressions["eventF"] = [];
-//     subexpressions["voiceF"] = [];
-//     subexpressions["scoreF"] = [];
-//     subexpressions["notevalueF"] = [];
-//     subexpressions["lnotevalueF"] = [];
-//     subexpressions["durationF"] = [];
-//     subexpressions["ldurationF"] = [];
-//     subexpressions["midipitchF"] = [];
-//     subexpressions["lmidipitchF"] = [];
-//     subexpressions["frequencyF"] = [];
-//     subexpressions["lfrequencyF"] = [];
-//     subexpressions["articulationF"] = [];
-//     subexpressions["larticulationF"] = [];
-//     subexpressions["intensityF"] = [];
-//     subexpressions["lintensityF"] = [];
-//     subexpressions["goldenintegerF"] = [];
-//     subexpressions["lgoldenintegerF"] = [];
-//     subexpressions["quantizedF"] = [];
-//     subexpressions["lquantizedF"] = [];
-//     subexpressions["operationF"] = [];
-// }
-// initSubexpressionsArrays();
 
 // test decoded genotypes with Terminal
 var tt = decGenotype => {
@@ -1539,7 +1496,7 @@ var eligibleFunctions = {
 
 var testingFunctions = {
     includedFunctions: [0, 2, 3, 4, 98, 99, 100, 42, 46, 43, 109, 44, 104,
-        110, 131, 37, 134, 135, 199, 200, 65, 66, 67, 68, 76, 35, 36, 41, 5, 7, 9, 10, 12],
+        110, 131, 37, 134, 135, 199, 200, 65, 66, 67, 68, 76, 35, 36, 41, 5, 7, 9, 10, 12, 25, 26, 27, 28, 29],
     mandatoryFunctions: [],
     excludedFunctions: []
 };
@@ -1639,9 +1596,10 @@ function createSpecimen() {
                         newDecodedGenotype += Math.round(newLeaf);
                     }
                     else if (chosenFunction == "pAutoRef" ||
-                        chosenFunction == "aAutoRef" ||
-                        chosenFunction == "cAutoRef" ||
-                        chosenFunction == "vAutoRef") {
+                        chosenFunction == "lAutoRef" ||
+                        chosenFunction == "eAutoRef" ||
+                        chosenFunction == "vAutoRef" ||
+                        chosenFunction == "sAutoRef") {
                         newDecodedGenotype += parseInt(preEncGen[pos] * 1e5);
                     }
                     else {
@@ -1696,6 +1654,8 @@ function createSpecimen() {
         // rng = seedrandom(evaluationSeed); 
         // evaluatedGenotype = evalAndReturnExpression(decodedGenotype);
         newSpecimen = evalDecGen(newDecodedGenotype);
+        visualizeSpecimen(newSpecimen.encGen, "encGen");
+        visualizeSpecimen(newSpecimen.encPhen, "encPhen");
         // creates new seed for genotype creation before new iteration, if necessary
         currentSeed = Math.round(Math.random() * 1e14);
         rng = Math.random(); // PARCHE
@@ -1742,7 +1702,7 @@ maxAPI.addHandler('maxLength', (integ) => {
     maxAPI.post("Phenotype maximal length: " + phenMaxLength);
 })
 
-// gets data from manual text input from max patch
+// gets decoded genotype from manual text input on max patch
 maxAPI.addHandler("text", (...args) => {
     // make a string from params array
     var receivedText = "";
@@ -1750,13 +1710,9 @@ maxAPI.addHandler("text", (...args) => {
         receivedText += args[i];
     }
     // maxAPI.post("Recibido en node:\n" + receivedText);
-    var evaluation = evalDecGen(receivedText);
-    //var evaluation = eval(receivedText);
-    maxAPI.post(mt(receivedText));
-    // maxAPI.post(evaluation);
-
+    var newSpecimen = evalDecGen(receivedText);
     // write JSON file   
-    createJSON(specimenDataStructure(evaluation), 'genotipo.json');
+    createJSON(specimenDataStructure(newSpecimen), 'genotipo.json');
 });
 
 // creates a new specimen from scratch
