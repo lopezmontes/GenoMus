@@ -513,6 +513,18 @@
                 "creator": "lm"
             },
             "leafIdentifier": 0.51
+        },
+        "nAutoref": {
+            "functionIndex": 277,
+            "functionType": "notevalueF",
+            "arguments": [
+                "goldenintegerLeaf"
+            ],
+            "metadata": {
+                "description": "points to a previous notevalue parameter",
+                "date": 20190922,
+                "creator": "lm"
+            }
         }
     },
     "midipitchF": {
@@ -528,6 +540,18 @@
                 "creator": "lm"
             },
             "leafIdentifier": 0.53
+        },
+        "mAutoref": {
+            "functionIndex": 279,
+            "functionType": "midipitchF",
+            "arguments": [
+                "goldenintegerLeaf"
+            ],
+            "metadata": {
+                "description": "points to a previous midipitch parameter",
+                "date": 20190922,
+                "creator": "lm"
+            }
         }
     },
     "articulationF": {
@@ -543,6 +567,18 @@
                 "creator": "lm"
             },
             "leafIdentifier": 0.55
+        },
+        "aAutoref": {
+            "functionIndex": 281,
+            "functionType": "articulationF",
+            "arguments": [
+                "goldenintegerLeaf"
+            ],
+            "metadata": {
+                "description": "points to a previous articulation parameter",
+                "date": 20190922,
+                "creator": "lm"
+            }
         }
     },
     "intensityF": {
@@ -558,6 +594,18 @@
                 "creator": "lm"
             },
             "leafIdentifier": 0.56
+        },
+        "iAutoref": {
+            "functionIndex": 282,
+            "functionType": "intensityF",
+            "arguments": [
+                "goldenintegerLeaf"
+            ],
+            "metadata": {
+                "description": "points to a previous intensity parameter",
+                "date": 20190922,
+                "creator": "lm"
+            }
         }
     },
     "quantizedF": {
@@ -573,6 +621,18 @@
                 "creator": "lm"
             },
             "leafIdentifier": 0.58
+        },
+        "qAutoref": {
+            "functionIndex": 284,
+            "functionType": "quantizedF",
+            "arguments": [
+                "goldenintegerLeaf"
+            ],
+            "metadata": {
+                "description": "points to a previous quantized parameter",
+                "date": 20190922,
+                "creator": "lm"
+            }
         }
     },
     "operationF": {

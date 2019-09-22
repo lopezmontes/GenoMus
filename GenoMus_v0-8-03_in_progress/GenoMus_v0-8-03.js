@@ -15,8 +15,8 @@ const seedrandom = require('seedrandom');
 
 /////////////////////
 // INITIAL CONDITIONS
-var deepestRamificationLevel = 15;
-var phenMinLength = 10;
+var deepestRamificationLevel = 10;
+var phenMinLength = 20;
 var phenMaxLength = 20000;
 var leaves = []; // stores all numeric parameters
 var encodedLeaves = [];
@@ -970,7 +970,11 @@ var lAutoref = subexprIndex => autoref("lAutoref", "listF", 0.068884, subexprInd
 var eAutoref = subexprIndex => autoref("eAutoref", "eventF", 0.686918, subexprIndex, "e(p(0),p(0),p(0),p(0))");
 var vAutoref = subexprIndex => autoref("vAutoref", "voiceF", 0.304952, subexprIndex, "v(e(p(0),p(0),p(0),p(0)))");
 var sAutoref = subexprIndex => autoref("sAutoref", "scoreF", 0.922986, subexprIndex, "s(v(e(p(0),p(0),p(0),p(0))))");
-
+var nAutoref = subexprIndex => autoref("nAutoref", "notevalueF", 0.195415, subexprIndex, "n(.000001)");
+var mAutoref = subexprIndex => autoref("mAutoref", "midipitchF", 0.431483, subexprIndex, "m(0)");
+var aAutoref = subexprIndex => autoref("aAutoref", "articulationF", 0.667551, subexprIndex, "a(0)");
+var iAutoref = subexprIndex => autoref("iAutoref", "intensityF", 0.285585, subexprIndex, "i(0)");
+var qAutoref = subexprIndex => autoref("qAutoref", "quantizedF", 0.521653, subexprIndex, "q(0)");
 
 ////////// FUNCTION LIBRARIES HANDLING
 
@@ -1496,7 +1500,7 @@ var eligibleFunctions = {
 
 var testingFunctions = {
     includedFunctions: [0, 2, 3, 4, 98, 99, 100, 42, 46, 43, 109, 44, 104,
-        110, 131, 37, 134, 135, 199, 200, 65, 66, 67, 68, 76, 35, 36, 41, 5, 7, 9, 10, 12, 25, 26, 27, 28, 29],
+        110, 131, 37, 134, 135, 199, 200, 65, 66, 67, 68, 76, 35, 36, 41, 5, 7, 9, 10, 12, 25, 26, 27, 28, 29, 277, 279, 281, 282, 284],
     mandatoryFunctions: [],
     excludedFunctions: []
 };

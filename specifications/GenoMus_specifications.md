@@ -950,31 +950,42 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 
 ---------
 ## Internal autoreferences
-| name        | index                             | description
-| ----------- | --------------------------------- | -----------
-| `pAutoref`  | 25 <sub>.45085 in progress</sub>  | points to a previous parameter
-| `lAutoref`  | 26 <sub>.068884 in progress</sub> | points to a previous list
-| `eAutoref`  | 27 <sub>.686918 in progress</sub> | points to a previous event
-| `vAutoref`  | 28 <sub>.304952 in progress</sub> | points to a previous voice
-| `sAutoref`  | 29 <sub>.922986 in progress</sub> | points to a previous score
-| `pClone`    | 30 <sub>not yet implemented</sub> | copy and paste a previous parameter branch without subsequent linking
-| `lClone`    | 31 <sub>not yet implemented</sub> | copy and paste a previous list branch without subsequent linking
-| `eClone`    | 32 <sub>not yet implemented</sub> | copy and paste a previous event branch without subsequent linking
-| `vClone`    | 33 <sub>not yet implemented</sub> | copy and paste a previous voice branch without subsequent linking
-| `sClone`    | 34 <sub>not yet implemented</sub> | copy and paste a previous score brach without subsequent linking
-| `lIterP`    | 35 <sub>.63119 in progress</sub>  | repeats and concatenates as a list re-evaluations of a parameter function 
-| `lIterL`    | 36 <sub>.249224 in progress</sub> | repeats and concatenates as a list re-evaluations of a list function 
-| `vIterE`    | 37 <sub>.867258 in progress</sub> | repeats and concatenates as a voice re-evaluations of an event function 
-| `vIterV`    | 38 <sub>not yet implemented</sub> | repeats and concatenates as a voice re-evaluations of a voice function
-| `sIterV`    | 39 <sub>not yet implemented</sub> | repeats and overlays in a score re-evaluations of a voice function
-| `sIterS`    | 40 <sub>not yet implemented</sub> | repeats and concatenates as a score re-evaluations of a score function
+| name        | index                               | description
+| ----------- | ----------------------------------- | -----------
+| `pAutoref`  | 25  <sub>.45085 in progress</sub>   | points to a previous parameter
+| `lAutoref`  | 26  <sub>.068884 in progress</sub>  | points to a previous list
+| `eAutoref`  | 27  <sub>.686918 in progress</sub>  | points to a previous event
+| `vAutoref`  | 28  <sub>.304952 in progress</sub>  | points to a previous voice
+| `sAutoref`  | 29  <sub>.922986 in progress</sub>  | points to a previous score
+| `pClone`    | 30  <sub>not yet implemented</sub>  | copy and paste a previous parameter branch without subsequent linking
+| `lClone`    | 31  <sub>not yet implemented</sub>  | copy and paste a previous list branch without subsequent linking
+| `eClone`    | 32  <sub>not yet implemented</sub>  | copy and paste a previous event branch without subsequent linking
+| `vClone`    | 33  <sub>not yet implemented</sub>  | copy and paste a previous voice branch without subsequent linking
+| `sClone`    | 34  <sub>not yet implemented</sub>  | copy and paste a previous score brach without subsequent linking
+| `lIterP`    | 35  <sub>.63119 in progress</sub>   | repeats and concatenates as a list re-evaluations of a parameter function 
+| `lIterL`    | 36  <sub>.249224 in progress</sub>  | repeats and concatenates as a list re-evaluations of a list function 
+| `vIterE`    | 37  <sub>.867258 in progress</sub>  | repeats and concatenates as a voice re-evaluations of an event function 
+| `vIterV`    | 38  <sub>not yet implemented</sub>  | repeats and concatenates as a voice re-evaluations of a voice function
+| `sIterV`    | 39  <sub>not yet implemented</sub>  | repeats and overlays in a score re-evaluations of a voice function
+| `sIterS`    | 40  <sub>not yet implemented</sub>  | repeats and concatenates as a score re-evaluations of a score function
+| `nAutoref`  | 277 <sub>.195415 in progress</sub>  | points to a previous notevalue parameter
+| `dAutoref`  | 278 <sub>not yet implemented</sub>  | points to a previous notevalue parameter
+| `mAutoref`  | 279 <sub>.431483 in progress</sub>  | points to a previous notevalue parameter
+| `fAutoref`  | 280 <sub>not yet implemented</sub>  | points to a previous notevalue parameter
+| `aAutoref`  | 281 <sub>.667551 in progress</sub>  | points to a previous notevalue parameter
+| `iAutoref`  | 282 <sub>.285585 in progress</sub>  | points to a previous notevalue parameter
+| `gAutoref`  | 283 <sub>not yet implemented</sub>  | points to a previous notevalue parameter
+| `qAutoref`  | 284 <sub>.521653 in progress</sub>  | points to a previous notevalue parameter
+| `oAutoref`  | 285 <sub>not yet implemented</sub>  | points to a previous notevalue parameter
+
+
 
 ---------
 ## External references
 | name                   | index                              | description
 | ---------------------- | ---------------------------------- | -----------
-| `sGenotypeFromLibrary` | 276 <sub>not yet implemented</sub> | reads and inserts a genotype from an external library of genotypes
-| `lTextfileData`        | 275 <sub>not yet implemented</sub> | reads and inserts a list of values from an external textfile
+| `sGenotypeFromLibrary` | 275 <sub>not yet implemented</sub> | reads and inserts a genotype from an external library of genotypes
+| `lTextfileData`        | 276 <sub>not yet implemented</sub> | reads and inserts a list of values from an external textfile
 
 ---------
 ## Form
