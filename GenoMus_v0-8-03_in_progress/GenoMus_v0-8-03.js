@@ -59,7 +59,7 @@ initSubexpressionsArrays();
 
 const PHI = (1 + Math.sqrt(5)) / 2;
 // round fractional part to 6 digits
-var r6d = f => Math.round(f * 1000000) / 1000000;
+var r6d = f => Math.round(f * 1e6) / 1e6;
 
 // var norm2notevalue = p => decimal2fraction(Math.pow(2, 10 * p - 8));
 var norm2notevalue = p => r6d(Math.pow(2, 10 * p - 8));
@@ -1515,7 +1515,7 @@ var eligibleFunctions = {
 };
 
 var testingFunctions = {
-    includedFunctions: [0,2,3,4,98,99,100,42,46,43,109,44,104,110,131],
+    includedFunctions: [0,2,3,4,98,99,100,42,46,43,109,44,104,110],
     mandatoryFunctions: [],
     excludedFunctions: []
 };
@@ -1531,11 +1531,11 @@ createJSON(eligibleFunctionsLibrary, 'eligible_functions_library.json');
 // CORE FUNCTIONS FOR SPECIMEN CREATION AND EVOLUTION
 
 function createSpecimen () {
-    var usedSeed;
-    var newSpecimen;
-    // get library of functions data
-    var functions_index = JSON.parse(fs.readFileSync('eligible_functions_library.json'));  
     var startdate = new Date();
+    var newSpecimen;
+    var usedSeed;
+    // loads library of elegible functions
+    var functions_catalogue = JSON.parse(fs.readFileSync('eligible_functions_library.json'));  
     var iterations = 0;
     var maxIterations = 4000;
     var stringLengthLimit = 30000;
@@ -1543,7 +1543,6 @@ function createSpecimen () {
     do {
         do {   
             iterations++;
-            // console.log("iteration num.:" + iterations);         
             initSubexpressionsArrays();
             var encodedGenotype = []; // compulsory start with a function
             // stores number of levels to be filled
@@ -1560,18 +1559,20 @@ function createSpecimen () {
                 encodedGenotype.push(Math.round(Math.random()*1e6)/1e6);
                 pos++;
                 // new ramification of genotype
-                // maxAPI.post("last written function is " + chosenFunction);
-
 //              if (((p==0 || nextFunctionType != "leaf") || encodedGenotype[p] > newFunctionThreshold) && chosenFunction != "cAutoRef" && chosenFunction != "vAutoRef") {
                 if (nextFunctionType != "leaf") {
                     // choose among elegible functions
-                    numElegibleFunctions = Object.keys(functions_index.functionLibrary[nextFunctionType]).length;
-                    chosenFunction = Object.keys(functions_index.functionLibrary[nextFunctionType])[Math.floor(encodedGenotype[pos]*numElegibleFunctions)];
+                    numElegibleFunctions = Object.keys
+                        (functions_catalogue.functionLibrary[nextFunctionType]).length;
+                    chosenFunction = Object.keys
+                        (functions_catalogue.functionLibrary[nextFunctionType])
+                        [Math.floor(encodedGenotype[pos]*numElegibleFunctions)];
                     openFunctionTypes[openFunctionTypes.length] = nextFunctionType;
                     // writes the new function
                     newDecodedGenotype += chosenFunction + "(";
                     // read the expected parameters of the chosen function
-                    notFilledParameters[notFilledParameters.length] = Object.keys(functions_index.functionLibrary[nextFunctionType][chosenFunction].arguments).length;                    
+                    notFilledParameters[notFilledParameters.length] = Object.keys
+                        (functions_catalogue.functionLibrary[nextFunctionType][chosenFunction].arguments).length;                    
                     expectedFunctions[notFilledParameters.length-1] = chosenFunction;    
                 }
                 // add a numerical leaf value
@@ -1581,7 +1582,10 @@ function createSpecimen () {
                     encodedGenotype.push(newLeaf);
                     pos++;
                     // add primitive function, leaves of functions tree
-                    if (chosenFunction == "pAutoRef" || chosenFunction == "aAutoRef" || chosenFunction == "cAutoRef" || chosenFunction == "vAutoRef") {
+                    if (chosenFunction == "pAutoRef" || 
+                        chosenFunction == "aAutoRef" ||     
+                        chosenFunction == "cAutoRef" || 
+                        chosenFunction == "vAutoRef") {
                         newDecodedGenotype += parseInt(encodedGenotype[pos]*1e5); 
                     }
                     else {
@@ -1608,7 +1612,13 @@ function createSpecimen () {
                     if (notFilledParameters[0] > 0) newDecodedGenotype += ",";                    
                 }
                 // console.log(newDecodedGenotype);
-                nextFunctionType = functions_index.functionLibrary[openFunctionTypes[openFunctionTypes.length-1]][expectedFunctions[expectedFunctions.length-1]].arguments[ functions_index.functionLibrary[openFunctionTypes[openFunctionTypes.length-1]][expectedFunctions[expectedFunctions.length-1]].arguments.length - notFilledParameters[notFilledParameters.length-1]];
+                nextFunctionType = functions_catalogue.functionLibrary
+                    [openFunctionTypes[openFunctionTypes.length-1]]
+                    [expectedFunctions[expectedFunctions.length-1]]
+                    .arguments[ functions_catalogue.functionLibrary
+                    [openFunctionTypes[openFunctionTypes.length-1]]
+                    [expectedFunctions[expectedFunctions.length-1]]
+                    .arguments.length - notFilledParameters[notFilledParameters.length-1]];
             } while (
                 notFilledParameters[0] > 0 && 
                 notFilledParameters.length < deepestRamificationLevel && 
