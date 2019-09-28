@@ -1447,8 +1447,8 @@ var specimenDataStructure = (specimen) => ({
     metadata: {
         iterations: specimen.metadata.iterations,
         milliseconsElapsed: specimen.metadata.milliseconsElapsed,      
-        numVoices: specimen.phenVoices,
-        numEvents: specimen.phenLength
+        voices: specimen.phenVoices,
+        events: specimen.phenLength
     },
     encodedGenotype: specimen.encGen,
     decodedGenotype: specimen.decGen,
@@ -1689,7 +1689,6 @@ function createSpecimen() {
     // maxAPI.post("Phenotype: " + evaluatedGenotype[0]);    
     
      //////
-    maxAPI.post("new genotype: " + newDecodedGenotype);
     maxAPI.post("iterations: " + iterations);
     maxAPI.post("time ellapsed: " + Math.abs(stopdate - startdate) + " ms");
      //////
@@ -1763,6 +1762,6 @@ maxAPI.addHandler("text", (...args) => {
 // creates a new specimen from scratch
 maxAPI.addHandler('newSpecimen', () => {
     var newSpec = createSpecimen();
-    // maxAPI.post(newSpec.phenLength);
+    maxAPI.post("new genotype: " + newSpec.decGen);
     createJSON(specimenDataStructure(newSpec), 'genotipo.json');
 })
