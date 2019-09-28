@@ -6,158 +6,240 @@
     <rect x='0' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
     <rect x='11' y='104.84552' rx='5' ry='5' width='10' height='35.15448' style='fill:hsl(44,93%,50%)' />
     <rect x='22' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='33' y='94.18045000000001' rx='5' ry='5' width='10' height='45.81955' style='fill:hsl(104,93%,50%)' />
+    <rect x='33' y='68.62232' rx='5' ry='5' width='10' height='71.37768' style='fill:hsl(4,93%,50%)' />
     <rect x='44' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='55' y='51.11626000000001' rx='5' ry='5' width='10' height='88.88373999999999' style='fill:hsl(200,93%,50%)' />
+    <rect x='55' y='18.96674' rx='5' ry='5' width='10' height='121.03326' style='fill:hsl(3,93%,50%)' />
     <rect x='66' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='77' y='49.65558' rx='5' ry='5' width='10' height='90.34442' style='fill:hsl(1,93%,50%)' />
-    <rect x='88' y='26' rx='5' ry='5' width='10' height='114' style='fill:dimgray' />
-    <rect x='99' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
+    <rect x='77' y='99.31116' rx='5' ry='5' width='10' height='40.68884' style='fill:hsl(2,93%,50%)' />
+    <rect x='88' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='99' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
     <rect x='110' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
-    <rect x='121' y='104' rx='5' ry='5' width='10' height='36' style='fill:dimgray' />
+    <rect x='121' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
     <rect x='132' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
     <rect x='143' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='154' y='3.8242099999999937' rx='5' ry='5' width='10' height='136.17579' style='fill:hsl(76,93%,50%)' />
-    <rect x='165' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='154' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='165' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
     <rect x='176' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='187' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
-    <rect x='198' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
+    <rect x='187' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='198' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
     <rect x='209' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='220' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='220' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
     <rect x='231' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='242' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
-    <rect x='253' y='49.18641000000001' rx='5' ry='5' width='10' height='90.81358999999999' style='fill:hsl(182,93%,50%)' />
+    <rect x='242' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='253' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
     <rect x='264' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='275' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='286' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='297' y='3.8242099999999937' rx='5' ry='5' width='10' height='136.17579' style='fill:hsl(76,93%,50%)' />
-    <rect x='308' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='319' y='4.881110000000007' rx='5' ry='5' width='10' height='135.11889' style='fill:hsl(131,93%,50%)' />
+    <rect x='275' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
+    <rect x='286' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='297' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='308' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='319' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
     <rect x='330' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
     <rect x='341' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='352' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='363' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
-    <rect x='374' y='61.578140000000005' rx='5' ry='5' width='10' height='78.42186' style='fill:hsl(69,93%,50%)' />
-    <rect x='385' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='396' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='352' y='104.84552' rx='5' ry='5' width='10' height='35.15448' style='fill:hsl(44,93%,50%)' />
+    <rect x='363' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='374' y='2.113929999999982' rx='5' ry='5' width='10' height='137.88607000000002' style='fill:hsl(110,93%,50%)' />
+    <rect x='385' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='396' y='2.113929999999982' rx='5' ry='5' width='10' height='137.88607000000002' style='fill:hsl(110,93%,50%)' />
     <rect x='407' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='418' y='126.57957' rx='5' ry='5' width='10' height='13.42043' style='fill:hsl(68,93%,50%)' />
+    <rect x='418' y='104.84552' rx='5' ry='5' width='10' height='35.15448' style='fill:hsl(44,93%,50%)' />
     <rect x='429' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='440' y='4.881110000000007' rx='5' ry='5' width='10' height='135.11889' style='fill:hsl(131,93%,50%)' />
-    <rect x='451' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='462' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='473' y='71.3895' rx='5' ry='5' width='10' height='68.6105' style='fill:hsl(25,93%,50%)' />
-    <rect x='484' y='55.900000000000006' rx='5' ry='5' width='10' height='84.1' style='fill:hsl(182,93%,50%)' />
-    <rect x='495' y='99.31116' rx='5' ry='5' width='10' height='40.68884' style='fill:hsl(2,93%,50%)' />
+    <rect x='440' y='94.18045000000001' rx='5' ry='5' width='10' height='45.81955' style='fill:hsl(104,93%,50%)' />
+    <rect x='451' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='462' y='74.15681000000001' rx='5' ry='5' width='10' height='65.84318999999999' style='fill:hsl(46,93%,50%)' />
+    <rect x='473' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='484' y='40.70066' rx='5' ry='5' width='10' height='99.29934' style='fill:hsl(27,93%,50%)' />
+    <rect x='495' y='55.900000000000006' rx='5' ry='5' width='10' height='84.1' style='fill:hsl(182,93%,50%)' />
     <rect x='506' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='517' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='528' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='539' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
-    <rect x='550' y='81.92847' rx='5' ry='5' width='10' height='58.07153' style='fill:hsl(157,93%,50%)' />
-    <rect x='561' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='572' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='583' y='4.881110000000007' rx='5' ry='5' width='10' height='135.11889' style='fill:hsl(131,93%,50%)' />
-    <rect x='594' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='605' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='616' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='627' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
-    <rect x='638' y='50.910470000000004' rx='5' ry='5' width='10' height='89.08953' style='fill:hsl(62,93%,50%)' />
-    <rect x='649' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='660' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='671' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='682' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='693' y='74.15681000000001' rx='5' ry='5' width='10' height='65.84318999999999' style='fill:hsl(46,93%,50%)' />
-    <rect x='704' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='715' y='99.31116' rx='5' ry='5' width='10' height='40.68884' style='fill:hsl(2,93%,50%)' />
-    <rect x='726' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='517' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='528' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='539' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='550' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
+    <rect x='561' y='56.99109' rx='5' ry='5' width='10' height='83.00891' style='fill:hsl(51,93%,50%)' />
+    <rect x='572' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='583' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='594' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='605' y='74.15681000000001' rx='5' ry='5' width='10' height='65.84318999999999' style='fill:hsl(46,93%,50%)' />
+    <rect x='616' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='627' y='56.24696999999999' rx='5' ry='5' width='10' height='83.75303000000001' style='fill:hsl(98,93%,50%)' />
+    <rect x='638' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='649' y='118.2779' rx='5' ry='5' width='10' height='21.722099999999998' style='fill:hsl(5,93%,50%)' />
+    <rect x='660' y='63.7' rx='5' ry='5' width='10' height='76.3' style='fill:hsl(249,93%,50%)' />
+    <rect x='671' y='285.11041' rx='5' ry='5' width='10' height='-145.11041' style='fill:hsl(182,93%,50%)' />
+    <rect x='682' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='693' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='704' y='87.58906' rx='5' ry='5' width='10' height='52.41094' style='fill:hsl(7,93%,50%)' />
+    <rect x='715' y='61.099999999999994' rx='5' ry='5' width='10' height='78.9' style='fill:hsl(169,93%,50%)' />
+    <rect x='726' y='31.334159999999997' rx='5' ry='5' width='10' height='108.66584' style='fill:hsl(348,93%,50%)' />
     <rect x='737' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='748' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
-    <rect x='759' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='770' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='781' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='748' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='759' y='87.58906' rx='5' ry='5' width='10' height='52.41094' style='fill:hsl(7,93%,50%)' />
+    <rect x='770' y='61.099999999999994' rx='5' ry='5' width='10' height='78.9' style='fill:hsl(169,93%,50%)' />
+    <rect x='781' y='37.330799999999996' rx='5' ry='5' width='10' height='102.6692' style='fill:hsl(8,93%,50%)' />
     <rect x='792' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='803' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
-    <rect x='814' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='825' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='836' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='803' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='814' y='56.900220000000004' rx='5' ry='5' width='10' height='83.09978' style='fill:hsl(9,93%,50%)' />
+    <rect x='825' y='58.5' rx='5' ry='5' width='10' height='81.5' style='fill:hsl(307,93%,50%)' />
+    <rect x='836' y='64.00497999999999' rx='5' ry='5' width='10' height='75.99502000000001' style='fill:hsl(212,93%,50%)' />
     <rect x='847' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='858' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
-    <rect x='869' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='880' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='891' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='858' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='869' y='106.5558' rx='5' ry='5' width='10' height='33.444199999999995' style='fill:hsl(10,93%,50%)' />
+    <rect x='880' y='57.19999999999999' rx='5' ry='5' width='10' height='82.80000000000001' style='fill:hsl(267,93%,50%)' />
+    <rect x='891' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
     <rect x='902' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='913' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
-    <rect x='924' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='913' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='924' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
     <rect x='935' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='946' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='957' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='968' y='71.3895' rx='5' ry='5' width='10' height='68.6105' style='fill:hsl(25,93%,50%)' />
-    <rect x='979' y='55.900000000000006' rx='5' ry='5' width='10' height='84.1' style='fill:hsl(182,93%,50%)' />
-    <rect x='990' y='49.65558' rx='5' ry='5' width='10' height='90.34442' style='fill:hsl(1,93%,50%)' />
-    <rect x='1001' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='1012' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='1023' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='1034' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='1045' y='104.84552' rx='5' ry='5' width='10' height='35.15448' style='fill:hsl(44,93%,50%)' />
-    <rect x='1056' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='1067' y='94.18045000000001' rx='5' ry='5' width='10' height='45.81955' style='fill:hsl(104,93%,50%)' />
-    <rect x='1078' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='1089' y='18.96674' rx='5' ry='5' width='10' height='121.03326' style='fill:hsl(3,93%,50%)' />
+    <rect x='946' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
+    <rect x='957' y='24.109539999999996' rx='5' ry='5' width='10' height='115.89046' style='fill:hsl(188,93%,50%)' />
+    <rect x='968' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='979' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='990' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='1001' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='1012' y='68.62232' rx='5' ry='5' width='10' height='71.37768' style='fill:hsl(4,93%,50%)' />
+    <rect x='1023' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='1034' y='90.35624' rx='5' ry='5' width='10' height='49.64376' style='fill:hsl(28,93%,50%)' />
+    <rect x='1045' y='55.900000000000006' rx='5' ry='5' width='10' height='84.1' style='fill:hsl(182,93%,50%)' />
+    <rect x='1056' y='99.31116' rx='5' ry='5' width='10' height='40.68884' style='fill:hsl(2,93%,50%)' />
+    <rect x='1067' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='1078' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='1089' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
     <rect x='1100' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='1111' y='56.24696999999999' rx='5' ry='5' width='10' height='83.75303000000001' style='fill:hsl(98,93%,50%)' />
-    <rect x='1122' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='1133' y='118.2779' rx='5' ry='5' width='10' height='21.722099999999998' style='fill:hsl(5,93%,50%)' />
-    <rect x='1144' y='63.7' rx='5' ry='5' width='10' height='76.3' style='fill:hsl(249,93%,50%)' />
-    <rect x='1155' y='55.150679999999994' rx='5' ry='5' width='10' height='84.84932' style='fill:hsl(202,93%,50%)' />
-    <rect x='1166' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='1177' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='1188' y='87.58906' rx='5' ry='5' width='10' height='52.41094' style='fill:hsl(7,93%,50%)' />
-    <rect x='1199' y='61.099999999999994' rx='5' ry='5' width='10' height='78.9' style='fill:hsl(169,93%,50%)' />
-    <rect x='1210' y='145.6' rx='5' ry='5' width='10' height='-5.6' style='fill:hsl(182,93%,50%)' />
-    <rect x='1221' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='1111' y='10.01182' rx='5' ry='5' width='10' height='129.98818' style='fill:hsl(29,93%,50%)' />
+    <rect x='1122' y='55.900000000000006' rx='5' ry='5' width='10' height='84.1' style='fill:hsl(182,93%,50%)' />
+    <rect x='1133' y='49.65558' rx='5' ry='5' width='10' height='90.34442' style='fill:hsl(1,93%,50%)' />
+    <rect x='1144' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='1155' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='1166' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='1177' y='94.18045000000001' rx='5' ry='5' width='10' height='45.81955' style='fill:hsl(104,93%,50%)' />
+    <rect x='1188' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='1199' y='1.4606799999999964' rx='5' ry='5' width='10' height='138.53932' style='fill:hsl(199,93%,50%)' />
+    <rect x='1210' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='1221' y='3.8242099999999937' rx='5' ry='5' width='10' height='136.17579' style='fill:hsl(76,93%,50%)' />
     <rect x='1232' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='1243' y='73.90720999999999' rx='5' ry='5' width='10' height='66.09279000000001' style='fill:hsl(279,93%,50%)' />
+    <rect x='1243' y='71.3895' rx='5' ry='5' width='10' height='68.6105' style='fill:hsl(25,93%,50%)' />
     <rect x='1254' y='55.900000000000006' rx='5' ry='5' width='10' height='84.1' style='fill:hsl(182,93%,50%)' />
-    <rect x='1265' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='1265' y='49.65558' rx='5' ry='5' width='10' height='90.34442' style='fill:hsl(1,93%,50%)' />
     <rect x='1276' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
     <rect x='1287' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='1298' y='56.900220000000004' rx='5' ry='5' width='10' height='83.09978' style='fill:hsl(9,93%,50%)' />
-    <rect x='1309' y='58.5' rx='5' ry='5' width='10' height='81.5' style='fill:hsl(307,93%,50%)' />
-    <rect x='1320' y='74.9827' rx='5' ry='5' width='10' height='65.0173' style='fill:hsl(112,93%,50%)' />
+    <rect x='1298' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='1309' y='65' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
+    <rect x='1320' y='60.82894999999999' rx='5' ry='5' width='10' height='79.17105000000001' style='fill:hsl(124,93%,50%)' />
     <rect x='1331' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='1342' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='1353' y='106.5558' rx='5' ry='5' width='10' height='33.444199999999995' style='fill:hsl(10,93%,50%)' />
-    <rect x='1364' y='57.19999999999999' rx='5' ry='5' width='10' height='82.80000000000001' style='fill:hsl(267,93%,50%)' />
-    <rect x='1375' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='1386' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='1342' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='1353' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='1364' y='107.61283' rx='5' ry='5' width='10' height='32.38717' style='fill:hsl(65,93%,50%)' />
+    <rect x='1375' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='1386' y='4.881110000000007' rx='5' ry='5' width='10' height='135.11889' style='fill:hsl(131,93%,50%)' />
     <rect x='1397' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='1408' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='1419' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='0' y='172.25646' rx='5' ry='5' width='10' height='122.74354' style='fill:hsl(37,93%,50%)' />
-    <rect x='11' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='22' y='195.70066' rx='5' ry='5' width='10' height='99.29934' style='fill:hsl(27,93%,50%)' />
-    <rect x='33' y='210.9' rx='5' ry='5' width='10' height='84.1' style='fill:hsl(182,93%,50%)' />
-    <rect x='44' y='204.65558' rx='5' ry='5' width='10' height='90.34442' style='fill:hsl(1,93%,50%)' />
-    <rect x='55' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='1408' y='0' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='1419' y='130' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='0' y='220' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
+    <rect x='11' y='244.71404' rx='5' ry='5' width='10' height='50.28596' style='fill:hsl(258,93%,50%)' />
+    <rect x='22' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='33' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='44' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='55' y='240.87878' rx='5' ry='5' width='10' height='54.121219999999994' style='fill:hsl(41,93%,50%)' />
     <rect x='66' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='77' y='159.88111' rx='5' ry='5' width='10' height='135.11889' style='fill:hsl(131,93%,50%)' />
-    <rect x='88' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='77' y='178.84798' rx='5' ry='5' width='10' height='116.15202' style='fill:hsl(134,93%,50%)' />
+    <rect x='88' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
     <rect x='99' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='110' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='121' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='132' y='223.62232' rx='5' ry='5' width='10' height='71.37768' style='fill:hsl(4,93%,50%)' />
+    <rect x='110' y='220' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
+    <rect x='121' y='191.61059999999998' rx='5' ry='5' width='10' height='103.38940000000001' style='fill:hsl(182,93%,50%)' />
+    <rect x='132' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
     <rect x='143' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='154' y='172.25646' rx='5' ry='5' width='10' height='122.74354' style='fill:hsl(37,93%,50%)' />
-    <rect x='165' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='176' y='195.70066' rx='5' ry='5' width='10' height='99.29934' style='fill:hsl(27,93%,50%)' />
-    <rect x='187' y='210.9' rx='5' ry='5' width='10' height='84.1' style='fill:hsl(182,93%,50%)' />
-    <rect x='198' y='254.31116' rx='5' ry='5' width='10' height='40.68884' style='fill:hsl(2,93%,50%)' />
-    <rect x='209' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='220' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
-    <rect x='231' y='159.88111' rx='5' ry='5' width='10' height='135.11889' style='fill:hsl(131,93%,50%)' />
-    <rect x='242' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='253' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='154' y='226.3895' rx='5' ry='5' width='10' height='68.6105' style='fill:hsl(25,93%,50%)' />
+    <rect x='165' y='210.9' rx='5' ry='5' width='10' height='84.1' style='fill:hsl(182,93%,50%)' />
+    <rect x='176' y='192.93348' rx='5' ry='5' width='10' height='102.06652' style='fill:hsl(6,93%,50%)' />
+    <rect x='187' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='198' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='209' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='220' y='178.84798' rx='5' ry='5' width='10' height='116.15202' style='fill:hsl(134,93%,50%)' />
+    <rect x='231' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='242' y='226.3895' rx='5' ry='5' width='10' height='68.6105' style='fill:hsl(25,93%,50%)' />
+    <rect x='253' y='210.9' rx='5' ry='5' width='10' height='84.1' style='fill:hsl(182,93%,50%)' />
     <rect x='264' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
     <rect x='275' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
-    <rect x='286' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='286' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='297' y='226.3895' rx='5' ry='5' width='10' height='68.6105' style='fill:hsl(25,93%,50%)' />
+    <rect x='308' y='210.9' rx='5' ry='5' width='10' height='84.1' style='fill:hsl(182,93%,50%)' />
+    <rect x='319' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='330' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='341' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='352' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='363' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='374' y='262.61283000000003' rx='5' ry='5' width='10' height='32.38717' style='fill:hsl(65,93%,50%)' />
+    <rect x='385' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='396' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='407' y='220' rx='5' ry='5' width='10' height='75' style='fill:dimgray' />
+    <rect x='418' y='226.45879' rx='5' ry='5' width='10' height='68.54121' style='fill:hsl(218,93%,50%)' />
+    <rect x='429' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='440' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='451' y='159.88111' rx='5' ry='5' width='10' height='135.11889' style='fill:hsl(131,93%,50%)' />
+    <rect x='462' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='473' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='484' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='495' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='506' y='229.15681' rx='5' ry='5' width='10' height='65.84318999999999' style='fill:hsl(46,93%,50%)' />
+    <rect x='517' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='528' y='180.55813' rx='5' ry='5' width='10' height='114.44187' style='fill:hsl(100,93%,50%)' />
+    <rect x='539' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='550' y='273.2779' rx='5' ry='5' width='10' height='21.722099999999998' style='fill:hsl(5,93%,50%)' />
+    <rect x='561' y='218.7' rx='5' ry='5' width='10' height='76.3' style='fill:hsl(249,93%,50%)' />
+    <rect x='572' y='222.47234' rx='5' ry='5' width='10' height='72.52766' style='fill:hsl(273,93%,50%)' />
+    <rect x='583' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='594' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='605' y='228.90721' rx='5' ry='5' width='10' height='66.09279000000001' style='fill:hsl(279,93%,50%)' />
+    <rect x='616' y='210.9' rx='5' ry='5' width='10' height='84.1' style='fill:hsl(182,93%,50%)' />
+    <rect x='627' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='638' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='649' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='660' y='228.90721' rx='5' ry='5' width='10' height='66.09279000000001' style='fill:hsl(279,93%,50%)' />
+    <rect x='671' y='210.9' rx='5' ry='5' width='10' height='84.1' style='fill:hsl(182,93%,50%)' />
+    <rect x='682' y='204.65558' rx='5' ry='5' width='10' height='90.34442' style='fill:hsl(1,93%,50%)' />
+    <rect x='693' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='704' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='715' y='242.58906000000002' rx='5' ry='5' width='10' height='52.41094' style='fill:hsl(7,93%,50%)' />
+    <rect x='726' y='216.1' rx='5' ry='5' width='10' height='78.9' style='fill:hsl(169,93%,50%)' />
+    <rect x='737' y='234.04754' rx='5' ry='5' width='10' height='60.95246' style='fill:hsl(248,93%,50%)' />
+    <rect x='748' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='759' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='770' y='242.58906000000002' rx='5' ry='5' width='10' height='52.41094' style='fill:hsl(7,93%,50%)' />
+    <rect x='781' y='216.1' rx='5' ry='5' width='10' height='78.9' style='fill:hsl(169,93%,50%)' />
+    <rect x='792' y='235.51445999999999' rx='5' ry='5' width='10' height='59.48554' style='fill:hsl(87,93%,50%)' />
+    <rect x='803' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='814' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='825' y='211.90022' rx='5' ry='5' width='10' height='83.09978' style='fill:hsl(9,93%,50%)' />
+    <rect x='836' y='213.5' rx='5' ry='5' width='10' height='81.5' style='fill:hsl(307,93%,50%)' />
+    <rect x='847' y='218.58638' rx='5' ry='5' width='10' height='76.41362000000001' style='fill:hsl(292,93%,50%)' />
+    <rect x='858' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='869' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='880' y='247.87395' rx='5' ry='5' width='10' height='47.12605' style='fill:hsl(282,93%,50%)' />
+    <rect x='891' y='210.9' rx='5' ry='5' width='10' height='84.1' style='fill:hsl(182,93%,50%)' />
+    <rect x='902' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='913' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='924' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='935' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='946' y='159.88111' rx='5' ry='5' width='10' height='135.11889' style='fill:hsl(131,93%,50%)' />
+    <rect x='957' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='968' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='979' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='990' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='1001' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='1012' y='223.62232' rx='5' ry='5' width='10' height='71.37768' style='fill:hsl(4,93%,50%)' />
+    <rect x='1023' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='1034' y='172.25646' rx='5' ry='5' width='10' height='122.74354' style='fill:hsl(37,93%,50%)' />
+    <rect x='1045' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='1056' y='195.70066' rx='5' ry='5' width='10' height='99.29934' style='fill:hsl(27,93%,50%)' />
+    <rect x='1067' y='210.9' rx='5' ry='5' width='10' height='84.1' style='fill:hsl(182,93%,50%)' />
+    <rect x='1078' y='173.96674000000002' rx='5' ry='5' width='10' height='121.03326' style='fill:hsl(3,93%,50%)' />
+    <rect x='1089' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='1100' y='155' rx='5' ry='5' width='10' height='140' style='fill:black' />
+    <rect x='1111' y='226.3895' rx='5' ry='5' width='10' height='68.6105' style='fill:hsl(25,93%,50%)' />
+    <rect x='1122' y='210.9' rx='5' ry='5' width='10' height='84.1' style='fill:hsl(182,93%,50%)' />
+    <rect x='1133' y='261.5558' rx='5' ry='5' width='10' height='33.444199999999995' style='fill:hsl(10,93%,50%)' />
+    <rect x='1144' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='1155' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='1166' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='1177' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
+    <rect x='1188' y='285' rx='5' ry='5' width='10' height='10' style='fill:black' />
 </svg>
