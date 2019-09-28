@@ -15,10 +15,10 @@ const seedrandom = require('seedrandom');
 
 /////////////////////
 // INITIAL CONDITIONS
-var genMaxDepth = 10;
+var genMaxDepth = 30;
 var phenMinPolyphony = 1;
 var phenMaxPolyphony = 50;
-var phenMinLength = 20;
+var phenMinLength = 5;
 var phenMaxLength = 20000;
 var leaves = []; // stores all numeric parameters
 var encodedLeaves = [];
