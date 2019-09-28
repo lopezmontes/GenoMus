@@ -452,6 +452,7 @@ var s = v => indexExprReturnSpecimen({
     decGen: "s(" + v.decGen + ")",
     encPhen: [0.618034].concat(v.encPhen),
     phenLength: v.phenLength,
+    phenVoices: 1,
     tempo: v.tempo,
     rhythm: v.rhythm,
     harmony: v.harmony,
@@ -655,6 +656,7 @@ var sConcatS = (s1, s2) => indexExprReturnSpecimen({
     decGen: "sConcatS(" + s1.decGen + "," + s2.decGen + ")",
     encPhen: mergeScores(s1.encPhen, s2.encPhen),
     phenLength: s1.phenLength + s2.phenLength,
+    phenVoices: Math.max(s1.phenVoices, s2.phenVoices),
     tempo: s1.tempo,
     rhythm: s1.rhythm,
     harmony: s1.harmony,
@@ -766,6 +768,7 @@ var s2V = (v1, v2) => indexExprReturnSpecimen({
     decGen: "s2V(" + v1.decGen + "," + v2.decGen + ")",
     encPhen: [0.236068].concat(v1.encPhen).concat(v2.encPhen),
     phenLength: v1.phenLength + v2.phenLength,
+    phenVoices: 2,
     tempo: v1.tempo,
     rhythm: v1.rhythm,
     harmony: v1.harmony,
@@ -781,6 +784,7 @@ var sAddV = (s, v) => indexExprReturnSpecimen({
     encPhen: [z2p(p2z(s.encPhen[0]) + 1)]
         .concat(s.encPhen.slice(1))
         .concat(v.encPhen),
+    phenVoices: s.phenVoices + 1,
     phenLength: s.phenLength + v.phenLength,
     tempo: s.tempo,
     rhythm: s.rhythm,
@@ -796,6 +800,7 @@ var sAddS = (s1, s2) => indexExprReturnSpecimen({
     encPhen: [z2p(p2z(s1.encPhen[0]) + p2z(s2.encPhen[0]))]
         .concat(s1.encPhen.slice(1))
         .concat(s2.encPhen.slice(1)),
+    phenVoices: s1.phenVoices + s2.phenVoices,
     phenLength: s1.phenLength + s2.phenLength,
     tempo: s1.tempo,
     rhythm: s1.rhythm,
@@ -941,6 +946,7 @@ var autoref = (funcName, funcType, encodedFunctionIndex, subexprIndex, silentEle
         decGen: funcName + "(" + subexprIndex + ")",
         encPhen: evaluatedSubexp.encPhen,
         phenLength: evaluatedSubexp.phenLength,
+        phenVoices: evaluatedSubexp.phenVoices, 
         tempo: evaluatedSubexp.tempo,
         rhythm: evaluatedSubexp.rhythm,
         harmony: evaluatedSubexp.harmony,
@@ -1436,11 +1442,14 @@ var encPhen2bachRoll = encPhen => {
 // WRITE SPECIMEN JSON FILES
 
 var specimenDataStructure = (specimen) => ({
+    metadata: {
+        numVoices: specimen.phenVoices,
+        numEvents: specimen.phenLength
+    },
     encodedGenotype: specimen.encGen,
     decodedGenotype: specimen.decGen,
     formattedGenotype: expandExpr(specimen.decGen),
     encodedPhenotype: specimen.encPhen,
-    roll: encPhen2bachRoll(specimen.encPhen),
     subexpressions: {
         paramF: subexpressions["paramF"],
         listF: subexpressions["listF"],
@@ -1465,7 +1474,8 @@ var specimenDataStructure = (specimen) => ({
         lquantizedF: subexpressions["lquantizedF"],
         operationF: subexpressions["operationF"],
         booleanF: subexpressions["booleanF"]
-    }
+    },
+    roll: encPhen2bachRoll(specimen.encPhen)
 });
 
 
