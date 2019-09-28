@@ -16,6 +16,8 @@ const seedrandom = require('seedrandom');
 /////////////////////
 // INITIAL CONDITIONS
 var genMaxDepth = 10;
+var phenMinPolyphony = 1;
+var phenMaxPolyphony = 50;
 var phenMinLength = 20;
 var phenMaxLength = 20000;
 var leaves = []; // stores all numeric parameters
@@ -1670,8 +1672,14 @@ function createSpecimen() {
         currentSeed = Math.round(Math.random() * 1e14);
         rng = Math.random(); // PARCHE
     } while (
-        (newSpecimen.phenLength < phenMinLength || newSpecimen.phenLength > phenMaxLength) &&
-        iterations < maxIterations)
+        // test if preconditions are fullfilled
+        (
+            newSpecimen.phenLength < phenMinLength
+            || newSpecimen.phenLength > phenMaxLength
+            || newSpecimen.phenVoices < phenMinPolyphony
+            || newSpecimen.phenVoices > phenMaxPolyphony            
+        ) 
+        && iterations < maxIterations)
     var stopdate = new Date();
     visualizeSpecimen(newSpecimen.encGen, "encGen");
     visualizeSpecimen(newSpecimen.encPhen, "encPhen");
@@ -1707,6 +1715,16 @@ function createSpecimen() {
 
 
 // MAX COMMUNICATION
+
+maxAPI.addHandler('minVoices', (integ) => {
+    phenMinPolyphony = integ;
+    maxAPI.post("Phenotype minimal polyphony: " + phenMinPolyphony + " voices");
+})
+
+maxAPI.addHandler('maxVoices', (integ) => {
+    phenMaxPolyphony = integ;
+    maxAPI.post("Phenotype maximal polyphony: " + phenMaxPolyphony + " voices");
+})
 
 maxAPI.addHandler('minLength', (integ) => {
     phenMinLength = integ;
