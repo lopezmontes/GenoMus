@@ -615,7 +615,7 @@ var lRnd = (numItemsSeed, seqSeed) => {
 // concatenates two lists sequentially
 var lConcatL = (l1, l2) => indexExprReturnSpecimen({
     funcType: "listF",
-    encGen: flattenDeep([1, 0.339394, , l1.encGen, l2.encGen, 0]),
+    encGen: flattenDeep([1, 0.339394, l1.encGen, l2.encGen, 0]),
     decGen: "lConcatL(" + l1.decGen + "," + l2.decGen + ")",
     encPhen: l1.encPhen.concat(l2.encPhen)
 });
@@ -959,11 +959,11 @@ var autoref = (funcName, funcType, encodedFunctionIndex, subexprIndex, silentEle
 // autoreferences functions for each output type
 var pAutoref = subexprIndex => autoref("pAutoref", "paramF", 0.45085, subexprIndex, "p(.5)");
 var lAutoref = subexprIndex => autoref("lAutoref", "listF", 0.068884, subexprIndex, "l([.5])");
-var eAutoref = subexprIndex => autoref("eAutoref", "eventF", 0.686918, subexprIndex, "e(p(0),p(0),p(0),p(0))");
-var vAutoref = subexprIndex => autoref("vAutoref", "voiceF", 0.304952, subexprIndex, "v(e(p(0),p(0),p(0),p(0)))");
-var sAutoref = subexprIndex => autoref("sAutoref", "scoreF", 0.922986, subexprIndex, "s(v(e(p(0),p(0),p(0),p(0))))");
+var eAutoref = subexprIndex => autoref("eAutoref", "eventF", 0.686918, subexprIndex, "e(p(0),m(43),p(0),p(0))");
+var vAutoref = subexprIndex => autoref("vAutoref", "voiceF", 0.304952, subexprIndex, "v(e(p(0),m(43),p(0),p(0)))");
+var sAutoref = subexprIndex => autoref("sAutoref", "scoreF", 0.922986, subexprIndex, "s(v(e(p(0),m(43),p(0),p(0))))");
 var nAutoref = subexprIndex => autoref("nAutoref", "notevalueF", 0.195415, subexprIndex, "n(.000001)");
-var mAutoref = subexprIndex => autoref("mAutoref", "midipitchF", 0.431483, subexprIndex, "m(0)");
+var mAutoref = subexprIndex => autoref("mAutoref", "midipitchF", 0.431483, subexprIndex, "m(43)");
 var aAutoref = subexprIndex => autoref("aAutoref", "articulationF", 0.667551, subexprIndex, "a(0)");
 var iAutoref = subexprIndex => autoref("iAutoref", "intensityF", 0.285585, subexprIndex, "i(0)");
 var qAutoref = subexprIndex => autoref("qAutoref", "quantizedF", 0.521653, subexprIndex, "q(0)");
@@ -1501,7 +1501,7 @@ var testingFunctions = {
         110, 131, 37, 134, 135, 199, 200, 65, 66, 67, 68, 76, 35, 36, 41, 5,
         7, 9, 10, 12, 25, 26, 27, 28, 29, 277, 279, 281, 282, 284],
     mandatoryFunctions: [],
-    excludedFunctions: []
+    excludedFunctions: [25,277,279,281,282,283,284]
 };
 
 // generates the catalogues of elegible functions to be used for genotype generation
@@ -1524,7 +1524,9 @@ function createSpecimen() {
     var maxIterations = 50000;
     var stringLengthLimit = 1000000;
     var newLeaf;
+    // searches a random genotype which satisfied the requirements
     do {
+        // starts a new decoded genotype
         do {
             iterations++;
             initSubexpressionsArrays();
@@ -1539,6 +1541,7 @@ function createSpecimen() {
             var pos = -1; // active readed position in encodedGenotype
             var newDecodedGenotype = "";
             var numElegibleFunctions;
+            // adds a new token to the decoded genotype
             do {
                 preEncGen.push(r6d(Math.random()));
                 pos++;
@@ -1651,7 +1654,7 @@ function createSpecimen() {
                         .arguments.length - notFilledParameters[notFilledParameters.length - 1]];
             } while (
                 notFilledParameters[0] > 0 &&
-                notFilledParameters.length < genMaxDepth &&
+             //   notFilledParameters.length < genMaxDepth &&
                 newDecodedGenotype.length < stringLengthLimit);
         } while (notFilledParameters[0] != -1)
         // console.log("New gen: " + decodedGenotype);
@@ -1669,6 +1672,9 @@ function createSpecimen() {
         rng = Math.random(); // PARCHE
         // rng = seedrandom(evaluationSeed); 
         // evaluatedGenotype = evalAndReturnExpression(decodedGenotype);
+
+        // maxAPI.post("New genotype: " + newDecodedGenotype);
+
         newSpecimen = eval(newDecodedGenotype);
         // creates new seed for genotype creation before new iteration, if necessary
         currentSeed = Math.round(Math.random() * 1e14);
@@ -1681,7 +1687,7 @@ function createSpecimen() {
             || newSpecimen.phenVoices < phenMinPolyphony
             || newSpecimen.phenVoices > phenMaxPolyphony            
         ) 
-        && iterations < maxIterations)
+        && iterations < maxIterations);
     var stopdate = new Date();
     visualizeSpecimen(newSpecimen.encGen, "encGen");
     visualizeSpecimen(newSpecimen.encPhen, "encPhen");
@@ -1689,8 +1695,8 @@ function createSpecimen() {
     // maxAPI.post("Phenotype: " + evaluatedGenotype[0]);    
     
      //////
-    maxAPI.post("iterations: " + iterations);
-    maxAPI.post("time ellapsed: " + Math.abs(stopdate - startdate) + " ms");
+    // maxAPI.post("iterations: " + iterations);
+    // maxAPI.post("time ellapsed: " + Math.abs(stopdate - startdate) + " ms");
      //////
     
     // maxAPI.post("seeds: " + usedSeed + ", " + evaluationSeed);    
@@ -1755,6 +1761,10 @@ maxAPI.addHandler("text", (...args) => {
     }
     // maxAPI.post("Recibido en node:\n" + receivedText);
     var newSpecimen = evalDecGen(receivedText);
+    newSpecimen.metadata = {
+        iterations: 0,
+        milliseconsElapsed: 0
+    };
     // write JSON file   
     createJSON(specimenDataStructure(newSpecimen), 'genotipo.json');
 });
@@ -1762,6 +1772,6 @@ maxAPI.addHandler("text", (...args) => {
 // creates a new specimen from scratch
 maxAPI.addHandler('newSpecimen', () => {
     var newSpec = createSpecimen();
-    maxAPI.post("new genotype: " + newSpec.decGen);
+    // maxAPI.post("new genotype: " + newSpec.decGen);
     createJSON(specimenDataStructure(newSpec), 'genotipo.json');
 })
