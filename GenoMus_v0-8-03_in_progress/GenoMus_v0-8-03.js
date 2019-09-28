@@ -1729,6 +1729,6 @@ maxAPI.addHandler("text", (...args) => {
 // creates a new specimen from scratch
 maxAPI.addHandler('newSpecimen', () => {
     var newSpec = createSpecimen();
-    maxAPI.post(newSpec.phenLength);
+    // maxAPI.post(newSpec.phenLength);
     createJSON(specimenDataStructure(newSpec), 'genotipo.json');
 })
