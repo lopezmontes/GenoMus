@@ -1667,9 +1667,13 @@ function createSpecimen() {
     visualizeSpecimen(newSpecimen.encPhen, "encPhen");
     // maxAPI.post(encodedGenotype);
     // maxAPI.post("Phenotype: " + evaluatedGenotype[0]);    
+    
+    /* //////
     maxAPI.post("new genotype: " + newDecodedGenotype);
     maxAPI.post("iterations: " + iterations);
     maxAPI.post("time ellapsed: " + Math.abs(stopdate - startdate) + " ms");
+    */ //////
+    
     // maxAPI.post("seeds: " + usedSeed + ", " + evaluationSeed);    
 
     // console.log("iterations: " + iterations);
