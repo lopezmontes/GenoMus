@@ -1445,6 +1445,8 @@ var encPhen2bachRoll = encPhen => {
 
 var specimenDataStructure = (specimen) => ({
     metadata: {
+        iterations: specimen.metadata.iterations,
+        milliseconsElapsed: specimen.metadata.milliseconsElapsed,      
         numVoices: specimen.phenVoices,
         numEvents: specimen.phenLength
     },
@@ -1519,8 +1521,8 @@ function createSpecimen() {
     // loads library of elegible functions
     var functions_catalogue = JSON.parse(fs.readFileSync('eligible_functions_library.json'));
     var iterations = 0;
-    var maxIterations = 4000;
-    var stringLengthLimit = 30000;
+    var maxIterations = 50000;
+    var stringLengthLimit = 1000000;
     var newLeaf;
     do {
         do {
@@ -1686,16 +1688,20 @@ function createSpecimen() {
     // maxAPI.post(encodedGenotype);
     // maxAPI.post("Phenotype: " + evaluatedGenotype[0]);    
     
-    /* //////
+     //////
     maxAPI.post("new genotype: " + newDecodedGenotype);
     maxAPI.post("iterations: " + iterations);
     maxAPI.post("time ellapsed: " + Math.abs(stopdate - startdate) + " ms");
-    */ //////
+     //////
     
     // maxAPI.post("seeds: " + usedSeed + ", " + evaluationSeed);    
 
     // console.log("iterations: " + iterations);
     // console.log("time ellapsed: " + Math.abs(stopdate-startdate) + " ms");
+    newSpecimen.metadata = {
+        iterations: iterations,
+        milliseconsElapsed: Math.abs(stopdate - startdate)
+    };
     return newSpecimen;
 
     // return array with:
