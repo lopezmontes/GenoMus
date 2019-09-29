@@ -1806,7 +1806,7 @@ maxAPI.addHandler('newSpecimen', () => {
     maxAPI.outletBang();
 });
 
-// console verstion to test the process only with node
-var newSpecimenProcess = () => {
+// // console verstion to test the process only with node
+// var newSpecimenProcess = () => {
 
-};
+// };
