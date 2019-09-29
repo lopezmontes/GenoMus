@@ -154,6 +154,33 @@
                 "creator": "lm"
             }
         },
+        "vABAv": {
+            "functionIndex": 58,
+            "functionType": "voiceF",
+            "arguments": [
+                "voiceF",
+                "voiceF"
+            ],
+            "metadata": {
+                "description": "creates a voice with an A-B-A structure of voices",
+                "date": 20190929,
+                "creator": "lm"
+            }
+        },
+        "vABCABv": {
+            "functionIndex": 63,
+            "functionType": "voiceF",
+            "arguments": [
+                "voiceF",
+                "voiceF",
+                "voiceF"
+            ],
+            "metadata": {
+                "description": "creates a voice with an A-B-C-B-A structure of voices",
+                "date": 20190929,
+                "creator": "lm"
+            }
+        },
         "vMotif": {
             "functionIndex": 199,
             "functionType": "voiceF",

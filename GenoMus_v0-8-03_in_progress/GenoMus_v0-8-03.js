@@ -15,11 +15,11 @@ const seedrandom = require('seedrandom');
 
 /////////////////////
 // INITIAL CONDITIONS
-var genMaxDepth = 30;
+var genMaxDepth = 18;
 var phenMinPolyphony = 1;
-var phenMaxPolyphony = 50;
+var phenMaxPolyphony = 20;
 var phenMinLength = 5;
-var phenMaxLength = 20000;
+var phenMaxLength = 10000;
 var leaves = []; // stores all numeric parameters
 var encodedLeaves = [];
 var newFunctionThreshold = .6; // [0-1] Higher is less likely to ramificate too much
@@ -747,7 +747,7 @@ var mergeScores = (scoEncPhen1, scoEncPhen2) => {
             // increment the number of total events of the voice, to include a nes silent event at the beginning
             newEncodedPhenotype.push(z2p(numEventsVoiceSco2 + 1)); posSco2++;
             // add the silent element to start these voices' events just after first score
-            newEncodedPhenotype = newEncodedPhenotype.concat([n2p(largestVoiceDur), 0.618034, 0, 0, 0]);
+            newEncodedPhenotype = newEncodedPhenotype.concat([n2p(largestVoiceDur), 0.618034, 0.31, 0, 0]);
             for (var e = 0; e < numEventsVoiceSco2; e++) {
                 newEncodedPhenotype.push(scoEncPhen2[posSco2]); posSco2++; // add duration
                 numPitchesEventVoiceSco2 = p2z(scoEncPhen2[posSco2]);
@@ -933,6 +933,40 @@ var vMotifLoop = (listNotevalues, listPitches, listArticulations, listIntensitie
         phenLength: seqLength,
     });
 }
+
+// A-B-A structure of voices
+var vABAv = (v1, v2) => indexExprReturnSpecimen({
+    funcType: "voiceF",
+    encGen: flattenDeep([1, 0.845971, v1.encGen, v2.encGen, 0]),
+    decGen: "vABAv(" + v1.decGen + "," + v2.decGen + ")",
+    encPhen: [z2p(p2z(v1.encPhen[0]) * 2 + p2z(v2.encPhen[0]))]
+        .concat((v1.encPhen).slice(1))
+        .concat((v2.encPhen).slice(1))
+        .concat((v1.encPhen).slice(1)),
+    phenLength: v1.phenLength * 2 + v2.phenLength,
+    tempo: v1.tempo,
+    rhythm: v1.rhythm,
+    harmony: v1.harmony,
+    analysis: v1.analysis,
+});
+
+// A-B-C-A-B structure of voices
+var vABCABv = (v1, v2, v3) => indexExprReturnSpecimen({
+    funcType: "voiceF",
+    encGen: flattenDeep([1, 0.936141, v1.encGen, v2.encGen, v3.encGen, 0]),
+    decGen: "vABCABv(" + v1.decGen + "," + v2.decGen + "," + v3.decGen + ")",
+    encPhen: [z2p(p2z(v1.encPhen[0]) * 2 + p2z(v2.encPhen[0]) * 2 + p2z(v3.encPhen[0]))]
+        .concat((v1.encPhen).slice(1))
+        .concat((v2.encPhen).slice(1))
+        .concat((v3.encPhen).slice(1))
+        .concat((v1.encPhen).slice(1))
+        .concat((v2.encPhen).slice(1)),
+    phenLength: v1.phenLength * 2 + v2.phenLength * 2 + v3.phenLength,
+    tempo: v1.tempo,
+    rhythm: v1.rhythm,
+    harmony: v1.harmony,
+    analysis: v1.analysis,
+});
 
 
 // autoreferences framework for different functionTypes
@@ -1499,7 +1533,7 @@ var eligibleFunctions = {
 var testingFunctions = {
     includedFunctions: [0, 2, 3, 4, 98, 99, 100, 42, 46, 43, 109, 44, 104,
         110, 131, 37, 134, 135, 199, 200, 65, 66, 67, 68, 76, 35, 36, 41, 5,
-        7, 9, 10, 12, 25, 26, 27, 28, 29, 277, 279, 281, 282, 284],
+        7, 9, 10, 12, 25, 26, 27, 28, 29, 277, 279, 281, 282, 284, 58, 63],
     mandatoryFunctions: [],
     excludedFunctions: [25,277,279,281,282,283,284]
 };
@@ -1521,8 +1555,8 @@ function createSpecimen() {
     // loads library of elegible functions
     var functions_catalogue = JSON.parse(fs.readFileSync('eligible_functions_library.json'));
     var iterations = 0;
-    var maxIterations = 50000;
-    var stringLengthLimit = 1000000;
+    var maxIterations = 1000;
+    var stringLengthLimit = 100000;
     var newLeaf;
     // searches a random genotype which satisfied the requirements
     do {
@@ -1685,7 +1719,7 @@ function createSpecimen() {
             newSpecimen.phenLength < phenMinLength
             || newSpecimen.phenLength > phenMaxLength
             || newSpecimen.phenVoices < phenMinPolyphony
-            || newSpecimen.phenVoices > phenMaxPolyphony            
+            || newSpecimen.phenVoices > phenMaxPolyphony   
         ) 
         && iterations < maxIterations);
     var stopdate = new Date();
@@ -1774,4 +1808,5 @@ maxAPI.addHandler('newSpecimen', () => {
     var newSpec = createSpecimen();
     // maxAPI.post("new genotype: " + newSpec.decGen);
     createJSON(specimenDataStructure(newSpec), 'genotipo.json');
+    maxAPI.outletBang();
 })
