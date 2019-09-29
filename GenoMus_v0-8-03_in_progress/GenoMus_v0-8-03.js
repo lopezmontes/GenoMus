@@ -180,6 +180,7 @@ function fraction2decimal(fraction) {
     }
     return r6d(result);
 }
+
 var f2d = fraction2decimal;
 
 var checkGoldenIntegerConversions = function (max) {
@@ -196,7 +197,7 @@ var checkGoldenIntegerConversions = function (max) {
         }
     } while (i < max);
     return ("Validity of converter: " + noError);
-}
+};
 
 // function to test how many encoded indexes can be generated without recurrences
 var testRepetitions = function (n) {
@@ -216,7 +217,7 @@ var testRepetitions = function (n) {
         usedNumbers.push(newValue);
     }
     return 1;
-}
+};
 
 
 ///////// RANDOM HANDLING
@@ -229,7 +230,7 @@ const gaussRnd = () => {
         rndVal = normal();
     } while (rndVal < 0 || rndVal > 1)
     return r6d(rndVal);
-}
+};
 
 // test normal distribution generator
 var testRndValues = () => {
@@ -256,7 +257,7 @@ var testRndValues = () => {
     }
     console.log("Min: " + mini + " | Max: " + maxi + " Negat: " + neg + " | Pos: " + pos + " | iter: " + iter);
     return -1;
-}
+};
 
 // test decoded genotypes with Terminal
 var tt = decGenotype => {
@@ -270,7 +271,7 @@ var tt = decGenotype => {
     console.log("automat. encoded genotype: " + eval(decGenotype).encGen);
     console.log("manually encoded genotype: " + encodeGenotype(decGenotype));
     return output;
-}
+};
 
 // test decoded genotypes in Max
 var mt = decGenotype => {
@@ -283,7 +284,7 @@ var mt = decGenotype => {
     maxAPI.post("automat. encoded genotype: " + eval(decGenotype).encGen);
     maxAPI.post("manually encoded genotype: " + encodeGenotype(decGenotype));
     return output;
-}
+};
 
 
 ////// AUX FUNCTIONS
@@ -297,7 +298,7 @@ var adjustRange = (q, minQ, maxQ) => {
     if (q < minQ) { return minQ };
     if (q > maxQ) { return maxQ };
     return q;
-}
+};
 // takes subspecimen s, indexes subexpressions and formats output data
 var indexExprReturnSpecimen = s => {
     var subexpressionsIndexed = subexpressions[s.funcType].length;
@@ -552,7 +553,7 @@ var vRepeatE = (event, times) => {
         tempo: event.tempo,
         harmony: event.harmony
     });
-}
+};
 
 // generates a list of 2 parameters
 var l2P = (p1, p2) => indexExprReturnSpecimen({
@@ -761,7 +762,7 @@ var mergeScores = (scoEncPhen1, scoEncPhen2) => {
         }
     }
     return newEncodedPhenotype;
-}
+};
 
 // creates an score with two simultaneous voices
 var s2V = (v1, v2) => indexExprReturnSpecimen({
@@ -776,7 +777,6 @@ var s2V = (v1, v2) => indexExprReturnSpecimen({
     harmony: v1.harmony,
     analysis: v1.analysis,
 });
-
 
 // creates an score with two simultaneous voices
 var sAddV = (s, v) => indexExprReturnSpecimen({
@@ -899,7 +899,7 @@ var vMotif = (listNotevalues, listPitches, listArticulations, listIntensities) =
         encPhen: eventsSeq,
         phenLength: seqLength,
     });
-}
+};
 
 // creates a voice based on lists without loops (largest list determines number of events)
 var vMotifLoop = (listNotevalues, listPitches, listArticulations, listIntensities) => {
@@ -932,7 +932,7 @@ var vMotifLoop = (listNotevalues, listPitches, listArticulations, listIntensitie
         encPhen: eventsSeq,
         phenLength: seqLength,
     });
-}
+};
 
 // A-B-A structure of voices
 var vABAv = (v1, v2) => indexExprReturnSpecimen({
@@ -967,7 +967,6 @@ var vABCABv = (v1, v2, v3) => indexExprReturnSpecimen({
     harmony: v1.harmony,
     analysis: v1.analysis,
 });
-
 
 // autoreferences framework for different functionTypes
 var autoref = (funcName, funcType, encodedFunctionIndex, subexprIndex, silentElement) => {
@@ -1048,8 +1047,7 @@ var createFunctionIndexesCatalogues = (library) => {
         functionLibrary: functionLibrary
     }
     return completCatalogue;
-}
-
+};
 
 // create the library with eligible functions extracted from the complete library
 var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
@@ -1133,13 +1131,12 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
     eligibleFuncLib.functionNames = functionNamesOrdered;
     eligibleFuncLib.elegibleFunctions = includedFuncs.sort((a, b) => a - b);
     return eligibleFuncLib;
-}
-
+};
 
 ////////// ENCODING, DECODING AND EVALUATING GENOTYPES
 
 // Genotypes encoder
-encodeGenotype = decGen => {
+var encodeGenotype = decGen => {
     var encodedGenotype = [];
     var leafType, leafIndex, readToken = "";
     decGen = decGen.replace(/ /g, ""); // remove blanck spaces
@@ -1215,7 +1212,7 @@ encodeGenotype = decGen => {
         }
     } while (decGen.length > 0);
     return encodedGenotype;
-}
+};
 
 // Genotypes decoder
 var decodeGenotype = encGen => {
@@ -1258,7 +1255,7 @@ var decodeGenotype = encGen => {
         pos++;
     }
     return decodedGenotype.replace(/\,\)/g, ")").replace(/\,\]/g, "]").slice(0, -1);
-}
+};
 
 // encodes and decodes a genotype to filter bad or dangerous expressions before being evaluated
 var evalDecGen = decGen => {
@@ -1273,7 +1270,7 @@ var evalDecGen = decGen => {
         var output = eval(decodeGenotype(encodedGenotype));
         return output;
     }
-}
+};
 
 ////// VISUALIZATION
 
@@ -1336,7 +1333,7 @@ var compressExpr = expandedFormExpr => {
     temporaryExpr = temporaryExpr.replace(/,/g, ", ");
     expandedFormExpr = temporaryExpr;
     return expandedFormExpr;
-}
+};
 
 // expand and indent a compressed expression in a human readable format
 var expandExpr = compressedFormExpr => {
@@ -1402,7 +1399,7 @@ var expandExpr = compressedFormExpr => {
     return compressedFormExpr;
     // outlet(0, compressedFormExpr);
     // outlet(1, eval(compressedFormExpr)[0]);
-}
+};
 
 
 
@@ -1470,7 +1467,7 @@ var encPhen2bachRoll = encPhen => {
         roll.push(")");
     }
     return roll;
-}
+};
 
 // encPhen2bachRoll([ 0.618034, 0.618034, 0.6, 0.618034, 0.48, 1, 1 ]);
 // encPhen2bachRoll(evalDecGen("s(v(e(p(0.5),p(.5),p(.5),p(.5))))").encPhen);
@@ -1548,7 +1545,7 @@ createJSON(eligibleFunctionsLibrary, 'eligible_functions_library.json');
 ///////////////
 // CORE FUNCTIONS FOR SPECIMEN CREATION AND EVOLUTION
 
-function createSpecimen() {
+var createSpecimen = () => {
     var startdate = new Date();
     var newSpecimen;
     var usedSeed;
@@ -1755,36 +1752,34 @@ function createSpecimen() {
     currentEncodedGenotype = preEncGen;
     currentLeavesStructure = encodedLeaves;
     return outputData;
-}
-
-
+};
 
 // MAX COMMUNICATION
 
 maxAPI.addHandler('minVoices', (integ) => {
     phenMinPolyphony = integ;
     maxAPI.post("Phenotype minimal polyphony: " + phenMinPolyphony + " voices");
-})
+});
 
 maxAPI.addHandler('maxVoices', (integ) => {
     phenMaxPolyphony = integ;
     maxAPI.post("Phenotype maximal polyphony: " + phenMaxPolyphony + " voices");
-})
+});
 
 maxAPI.addHandler('minLength', (integ) => {
     phenMinLength = integ;
     maxAPI.post("Phenotype minimal length: " + phenMinLength);
-})
+});
 
 maxAPI.addHandler('maxLength', (integ) => {
     phenMaxLength = integ;
     maxAPI.post("Phenotype maximal length: " + phenMaxLength);
-})
+});
 
 maxAPI.addHandler('depth', (integ) => {
     genMaxDepth = integ;
     maxAPI.post("deepest ramification level: " + genMaxDepth);
-})
+});
 
 // gets decoded genotype from manual text input on max patch
 maxAPI.addHandler("text", (...args) => {
@@ -1809,4 +1804,9 @@ maxAPI.addHandler('newSpecimen', () => {
     // maxAPI.post("new genotype: " + newSpec.decGen);
     createJSON(specimenDataStructure(newSpec), 'genotipo.json');
     maxAPI.outletBang();
-})
+});
+
+// console verstion to test the process only with node
+var newSpecimenProcess = () => {
+
+};
