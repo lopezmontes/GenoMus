@@ -26,6 +26,9 @@ var newFunctionThreshold = .6; // [0-1] Higher is less likely to ramificate too 
 // stores the last used genotype and its leaves, to mutate it
 var currentEncodedGenotype;
 var currentLeavesStructure;
+var genotypeLog = {};
+var genCount = 0;
+
 
 // global variable to store subexpressions
 var subexpressions = [];
@@ -1743,6 +1746,11 @@ var createSpecimen = () => {
         iterations: iterations,
         milliseconsElapsed: Math.abs(stopdate - startdate)
     };
+
+
+    // log for debugging
+    genotypeLog["gen" + genCount++] = newSpecimen.decGen;
+    createJSON(genotypeLog, 'genotipeLog.json');
     return newSpecimen;
 
     // return array with:
@@ -1787,26 +1795,40 @@ maxAPI.addHandler('depth', (integ) => {
 });
 
 // gets decoded genotype from manual text input on max patch
-maxAPI.addHandler("text", (...args) => {
-    // make a string from params array
-    var receivedText = "";
-    for (var i = 0; i < args.length; i++) {
-        receivedText += args[i];
-    }
-    // maxAPI.post("Recibido en node:\n" + receivedText);
-    var newSpecimen = evalDecGen(receivedText);
-    newSpecimen.metadata = {
-        iterations: 0,
-        milliseconsElapsed: 0
-    };
-    // write JSON file   
-    createJSON(specimenDataStructure(newSpecimen), 'genotipo.json');
-});
+// maxAPI.addHandler("text", (...args) => {
+//     // make a string from params array
+//     var receivedText = "";
+//     for (var i = 0; i < args.length; i++) {
+//         receivedText += args[i];
+//     }
+//     // maxAPI.post("Recibido en node:\n" + receivedText);
+//     var newSpecimen = evalDecGen(receivedText);
+//     newSpecimen.metadata = {
+//         iterations: 0,
+//         milliseconsElapsed: 0
+//     };
+//     // write JSON file   
+//     createJSON(specimenDataStructure(newSpecimen), 'genotipo.json');
+// });
 
 // creates a new specimen from scratch and send the dict data to Max
 maxAPI.addHandlers({
 	newSpecimen: async () => {
         const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(createSpecimen()));
         await maxAPI.outlet(dict);
-	}
+    },
+	text: async (...args) => {
+    // make a string from params array
+        var receivedText = "";
+        for (var i = 0; i < args.length; i++) {
+            receivedText += args[i];
+        }        
+        var newSpecimen = evalDecGen(receivedText);
+        newSpecimen.metadata = {
+            iterations: 0,
+            milliseconsElapsed: 0
+        };
+        const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(newSpecimen));
+        await maxAPI.outlet(dict);
+    }
 });
