@@ -1720,8 +1720,13 @@ var createSpecimen = () => {
         ) 
         && iterations < maxIterations);
     var stopdate = new Date();
-    visualizeSpecimen(newSpecimen.encGen, "encGen");
-    visualizeSpecimen(newSpecimen.encPhen, "encPhen");
+    
+    ///////// visualizations
+    // visualizeSpecimen(newSpecimen.encGen, "encGen");
+    // visualizeSpecimen(newSpecimen.encPhen, "encPhen");
+    /////////
+    
+    
     // maxAPI.post(encodedGenotype);
     // maxAPI.post("Phenotype: " + evaluatedGenotype[0]);    
     
@@ -1798,15 +1803,10 @@ maxAPI.addHandler("text", (...args) => {
     createJSON(specimenDataStructure(newSpecimen), 'genotipo.json');
 });
 
-// creates a new specimen from scratch
-maxAPI.addHandler('newSpecimen', () => {
-    var newSpec = createSpecimen();
-    // maxAPI.post("new genotype: " + newSpec.decGen);
-    createJSON(specimenDataStructure(newSpec), 'genotipo.json');
-    maxAPI.outletBang();
+// creates a new specimen from scratch and send the dict data to Max
+maxAPI.addHandlers({
+	newSpecimen: async () => {
+        const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(createSpecimen()));
+        await maxAPI.outlet(dict);
+	}
 });
-
-// // console verstion to test the process only with node
-// var newSpecimenProcess = () => {
-
-// };
