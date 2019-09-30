@@ -160,7 +160,7 @@ To enable automatic chaining of functions, all functions inside a genotype share
 key                | data type                      | description
 | ---------------- | ------------------------------ | -----------
 **funcType**       | string                         | [**Function type**](#genotype-function-types) according to its output.
-**encGen**         | array of floats &isinv; [0, 1] | **Encoded genotype** excerpt. umeric representation of the following functional expression.
+**encGen**         | array of floats &isinv; [0, 1] | **Encoded genotype** excerpt. Numeric representation of the following functional expression.
 **decGen**         | string                         | **Decoded genotype** excerpt. Functional expression of the genotype branch computed until that node, including the function itself.
 **encPhen**        | array of floats &isinv; [0, 1] | **Encoded phenotype** excerpt. Transformation of the input data made with the compositional procedures of the function itself.
 **phenLength**     | integer                        | **Number of events** generated so far. Useful for subsequent functions to avoid overly large processes.
