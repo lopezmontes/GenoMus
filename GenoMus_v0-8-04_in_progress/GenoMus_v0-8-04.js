@@ -15,11 +15,12 @@ const seedrandom = require('seedrandom');
 
 /////////////////////
 // INITIAL CONDITIONS
+var decGenStringLengthLimit = 7000;
 var genMaxDepth = 18;
 var phenMinPolyphony = 1;
 var phenMaxPolyphony = 20;
 var phenMinLength = 5;
-var phenMaxLength = 10000;
+var phenMaxLength = 1000;
 var leaves = []; // stores all numeric parameters
 var encodedLeaves = [];
 var newFunctionThreshold = .6; // [0-1] Higher is less likely to ramificate too much
@@ -1373,7 +1374,7 @@ var expandExpr = compressedFormExpr => {
             parenthCount--
         }
         if (compressedFormExpr.charAt(charIndx) == "\n") {
-            var tabulation = "    ";
+            var tabulation = "  ";
             for (nv = 0; nv < parenthCount; nv++) {
                 expandedExpression = expandedExpression + tabulation;
             }
@@ -1556,7 +1557,6 @@ var createSpecimen = () => {
     var functions_catalogue = JSON.parse(fs.readFileSync('eligible_functions_library.json'));
     var iterations = 0;
     var maxIterations = 1000;
-    var stringLengthLimit = 100000;
     var newLeaf;
     // searches a random genotype which satisfied the requirements
     do {
@@ -1647,12 +1647,16 @@ var createSpecimen = () => {
                             maxAPI.post("prov: " + newDecodedGenotype);
                         }
                         newDecodedGenotype += "]";
-                    }
-                        else if (chosenFunction == "pAutoRef" ||
+                    } else if (chosenFunction == "pAutoRef" ||
                         chosenFunction == "lAutoRef" ||
                         chosenFunction == "eAutoRef" ||
                         chosenFunction == "vAutoRef" ||
-                        chosenFunction == "sAutoRef") {
+                        chosenFunction == "sAutoRef" ||
+                        chosenFunction == "nAutoref" ||
+                        chosenFunction == "mAutoRef" ||
+                        chosenFunction == "aAutoRef" ||
+                        chosenFunction == "iAutoRef" ||
+                        chosenFunction == "qAutoref") {
                         newDecodedGenotype += parseInt(preEncGen[pos] * 1e5);
                     }
                     else {
@@ -1689,7 +1693,7 @@ var createSpecimen = () => {
             } while (
                 notFilledParameters[0] > 0 &&
              //   notFilledParameters.length < genMaxDepth &&
-                newDecodedGenotype.length < stringLengthLimit);
+                newDecodedGenotype.length < decGenStringLengthLimit);
         } while (notFilledParameters[0] != -1)
         // console.log("New gen: " + decodedGenotype);
 
