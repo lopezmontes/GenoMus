@@ -383,13 +383,30 @@ var q = x => indexExprReturnSpecimen({
     encPhen: [quantized2norm(x)]
 });
 
-// list identity function
-var l = paramList => indexExprReturnSpecimen({
+// OLD list identity function
+/* var l = paramList => indexExprReturnSpecimen({
     funcType: "listF",
     encGen: flattenDeep([1, 0.618034, 0.8].concat(paramList.map(x => [0.5, x]).concat([0.2, 0]))),
     decGen: "l([" + paramList + "])",
     encPhen: paramList
-});
+}); */
+
+// list identity function
+var l = (...pList) => {
+    var list2array = pList;
+    var list2string = "";
+    var listLength = pList.length;
+    for (var el = 0; el < listLength; el++) {
+        list2string += pList[el] + ",";
+    }
+    list2string.substring(0, list2string.length - 1);
+    return indexExprReturnSpecimen({
+        funcType: "listF",
+        encGen: flattenDeep([1, 0.618034].concat(list2array.map(x => [0.5, x]).concat([0]))),
+        decGen: "l(" + list2string + ")",
+        encPhen: list2array
+    });
+};
 
 // list of notevalues identity function
 var ln = notevalueList => {
@@ -1364,6 +1381,15 @@ var expandExpr = compressedFormExpr => {
     compressedFormExpr = compressedFormExpr.replace(/eAutoref\(\n/g, "eAutoref(");
     compressedFormExpr = compressedFormExpr.replace(/vAutoref\(\n/g, "vAutoref(");
     compressedFormExpr = compressedFormExpr.replace(/sAutoref\(\n/g, "sAutoref(");
+    compressedFormExpr = compressedFormExpr.replace(/nAutoref\(\n/g, "nAutoref(");
+    compressedFormExpr = compressedFormExpr.replace(/dAutoref\(\n/g, "dAutoref(");
+    compressedFormExpr = compressedFormExpr.replace(/mAutoref\(\n/g, "mAutoref(");
+    compressedFormExpr = compressedFormExpr.replace(/fAutoref\(\n/g, "fAutoref(");
+    compressedFormExpr = compressedFormExpr.replace(/aAutoref\(\n/g, "aAutoref(");
+    compressedFormExpr = compressedFormExpr.replace(/iAutoref\(\n/g, "iAutoref(");
+    compressedFormExpr = compressedFormExpr.replace(/gAutoref\(\n/g, "gAutoref(");
+    compressedFormExpr = compressedFormExpr.replace(/qAutoref\(\n/g, "qAutoref(");
+    compressedFormExpr = compressedFormExpr.replace(/oAutoref\(\n/g, "oAutoref(");
     var parenthCount = 0;
     for (var charIndx = 0; charIndx < compressedFormExpr.length; charIndx++) {
         expandedExpression = expandedExpression + compressedFormExpr.charAt(charIndx);
@@ -1532,7 +1558,7 @@ var eligibleFunctions = {
 };
 
 var testingFunctions = {
-    includedFunctions: [0,2,3,4,5,7,9,10,12,25,26,27,28,29,35,36,37,41,42,43,44,46,58,63,65,
+    includedFunctions: [0,1,2,3,4,5,7,9,10,12,25,26,27,28,29,35,36,37,41,42,43,44,46,58,63,65,
         66,67,68,76,98,99,100,104,109,110,131,134,135,199,200,277,279,281,282,284],
     mandatoryFunctions: [],
     excludedFunctions: []
@@ -1639,16 +1665,16 @@ var createSpecimen = () => {
                     } else if (nextFunctionType == "booleanLeaf") {
                         newDecodedGenotype += Math.round(newLeaf);
                     } else if (nextFunctionType == "listLeaf") {
-                        newDecodedGenotype += "[" + Math.round(newLeaf);
+                        newDecodedGenotype += newLeaf;
                         var extendList = true;
                         while (extendList) {
                             newLeaf = r6d(normal());
                             preEncGen.push(newLeaf);
                             newDecodedGenotype += "," + newLeaf;
                             if (Math.random() < .2) extendList = false;
-                            maxAPI.post("prov: " + newDecodedGenotype);
+                            newDecodedGenotype.substring(0, newDecodedGenotype.length - 1);
                         }
-                        newDecodedGenotype += "]";
+                        // newDecodedGenotype += "]";
                     } else if (chosenFunction == "pAutoRef" ||
                         chosenFunction == "lAutoRef" ||
                         chosenFunction == "eAutoRef" ||
@@ -1842,25 +1868,3 @@ maxAPI.addHandlers({
         await maxAPI.outlet(dict);
     }
 });
-
-
-////
-var nlist = (...par) => par;
-
-
-// list identity function
-var lexp = (...pList) => {
-    var list2array = pList;
-    var list2string = "";
-    var listLength = pList.length;
-    for (var el = 0; el < listLength; el++) {
-        list2string += pList[el] + ",";
-    }
-    list2string.substring(0, list2string.length - 1);
-    return indexExprReturnSpecimen({
-        funcType: "listF",
-        encGen: flattenDeep([1, 0.618034].concat(list2array.map(x => [0.5, x]).concat([0]))),
-        decGen: "l(" + list2string + ")",
-        encPhen: list2array
-    });
-};
