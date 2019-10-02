@@ -1845,4 +1845,22 @@ maxAPI.addHandlers({
 
 
 ////
-var nlist = (...par) => par.map(x => x*2);
+var nlist = (...par) => par;
+
+
+// list identity function
+var lexp = (...pList) => {
+    var list2array = pList;
+    var list2string = "";
+    var listLength = pList.length;
+    for (var el = 0; el < listLength; el++) {
+        list2string += pList[el] + ",";
+    }
+    list2string.substring(0, list2string.length - 1);
+    return indexExprReturnSpecimen({
+        funcType: "listF",
+        encGen: flattenDeep([1, 0.618034].concat(list2array.map(x => [0.5, x]).concat([0]))),
+        decGen: "l(" + list2string + ")",
+        encPhen: list2array
+    });
+};
