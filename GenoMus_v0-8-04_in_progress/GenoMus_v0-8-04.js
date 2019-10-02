@@ -70,7 +70,7 @@ var r6d = f => Math.round(f * 1e6) / 1e6;
 // var norm2notevalue = p => decimal2fraction(Math.pow(2, 10 * p - 8));
 var norm2notevalue = p => r6d(Math.pow(2, 10 * p - 8));
 var p2n = norm2notevalue;
-var notevalue2norm = n => r6d((Math.log10(n) + 8 * Math.log10(2)) / (10 * Math.log10(2)));
+var notevalue2norm = n => n < 0.003907 ? 0 : r6d((Math.log10(n) + 8 * Math.log10(2)) / (10 * Math.log10(2)));
 var n2p = notevalue2norm;
 var norm2duration = p => r6d(Math.pow(2, 10 * p - 6));
 var p2d = norm2duration;
@@ -268,8 +268,8 @@ var tt = decGenotype => {
     initSubexpressionsArrays();
     var output = (evalDecGen(decGenotype));
     console.log(subexpressions);
-    visualizeSpecimen(output.encGen, "encGen");
-    visualizeSpecimen(output.encPhen, "encPhen");
+    // visualizeSpecimen(output.encGen, "encGen");
+    // visualizeSpecimen(output.encPhen, "encPhen");
     console.log("received decoded genotype: " + decGenotype);
     console.log("manually decoded genotype: " + decodeGenotype(output.encGen));
     console.log("automat. encoded genotype: " + eval(decGenotype).encGen);
@@ -426,9 +426,9 @@ var e = (notevalue, midiPitch, articulation, intensity) => indexExprReturnSpecim
         + intensity.decGen + ")",
     encPhen: [notevalue.encPhen[0],
         0.618034,
-    midiPitch.encPhen[0],
-    articulation.encPhen[0],
-    intensity.encPhen[0]],
+        midiPitch.encPhen[0],
+        articulation.encPhen[0],
+        intensity.encPhen[0]],
     phenLength: 1,
     tempo: 0.6,
     harmony: {
@@ -1532,11 +1532,10 @@ var eligibleFunctions = {
 };
 
 var testingFunctions = {
-    includedFunctions: [0, 2, 3, 4, 98, 99, 100, 42, 46, 43, 109, 44, 104,
-        110, 131, 37, 134, 135, 199, 200, 65, 66, 67, 68, 76, 35, 36, 41, 5,
-        7, 9, 10, 12, 25, 26, 27, 28, 29, 277, 279, 281, 282, 284, 58, 63],
+    includedFunctions: [0,2,3,4,5,7,9,10,12,25,26,27,28,29,35,36,37,41,42,43,44,46,58,63,65,
+        66,67,68,76,98,99,100,104,109,110,131,134,135,199,200,277,279,281,282,284],
     mandatoryFunctions: [],
-    excludedFunctions: [25,277,279,281,282,283,284]
+    excludedFunctions: []
 };
 
 // generates the catalogues of elegible functions to be used for genotype generation
@@ -1604,6 +1603,9 @@ var createSpecimen = () => {
                     // writes the new function
                     newDecodedGenotype += chosenFunction + "(";
                     // read the expected parameters of the chosen function
+                    // maxAPI.post("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType]));
+                    //maxAPI.post("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType][chosenFunction]));
+                    // maxAPI.post("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType][chosenFunction].arguments).length);
                     notFilledParameters[notFilledParameters.length] = Object.keys
                         (functions_catalogue.functionLibrary[nextFunctionType][chosenFunction].arguments).length;
                     expectedFunctions[notFilledParameters.length - 1] = chosenFunction;
@@ -1643,7 +1645,7 @@ var createSpecimen = () => {
                             newLeaf = r6d(normal());
                             preEncGen.push(newLeaf);
                             newDecodedGenotype += "," + newLeaf;
-                            if (Math.random() < .5) extendList = false;
+                            if (Math.random() < .2) extendList = false;
                             maxAPI.post("prov: " + newDecodedGenotype);
                         }
                         newDecodedGenotype += "]";
@@ -1711,6 +1713,8 @@ var createSpecimen = () => {
         // rng = seedrandom(evaluationSeed); 
         // evaluatedGenotype = evalAndReturnExpression(decodedGenotype);
 
+        genotypeLog["gen" + genCount++] = newDecodedGenotype;
+        createJSON(genotypeLog, 'genotipeLog.json');        
         // maxAPI.post("New genotype: " + newDecodedGenotype);
 
         newSpecimen = eval(newDecodedGenotype);
@@ -1753,8 +1757,10 @@ var createSpecimen = () => {
 
 
     // log for debugging
-    genotypeLog["gen" + genCount++] = newSpecimen.decGen;
-    createJSON(genotypeLog, 'genotipeLog.json');
+    // genotypeLog["gen" + genCount++] = newSpecimen.decGen;
+    // createJSON(genotypeLog, 'genotipeLog.json');
+
+
     return newSpecimen;
 
     // return array with:
@@ -1836,3 +1842,7 @@ maxAPI.addHandlers({
         await maxAPI.outlet(dict);
     }
 });
+
+
+////
+var nlist = (...par) => par.map(x => x*2);
