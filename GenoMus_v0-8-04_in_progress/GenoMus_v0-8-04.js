@@ -383,28 +383,31 @@ var q = x => indexExprReturnSpecimen({
     encPhen: [quantized2norm(x)]
 });
 
-// OLD list identity function
-/* var l = paramList => indexExprReturnSpecimen({
-    funcType: "listF",
-    encGen: flattenDeep([1, 0.618034, 0.8].concat(paramList.map(x => [0.5, x]).concat([0.2, 0]))),
-    decGen: "l([" + paramList + "])",
-    encPhen: paramList
-}); */
-
 // list identity function
 var l = (...pList) => {
-    var list2array = pList;
     var list2string = "";
     var listLength = pList.length;
-    for (var el = 0; el < listLength; el++) {
-        list2string += pList[el] + ",";
-    }
-    list2string.substring(0, list2string.length - 1);
+    for (var el = 0; el < listLength; el++) list2string += pList[el] + ",";
+    list2string = list2string.substring(0, list2string.length - 1);
     return indexExprReturnSpecimen({
         funcType: "listF",
-        encGen: flattenDeep([1, 0.618034].concat(list2array.map(x => [0.5, x]).concat([0]))),
+        encGen: flattenDeep([1, 0.618034].concat(pList.map(x => [0.5, x]).concat([0]))),
         decGen: "l(" + list2string + ")",
-        encPhen: list2array
+        encPhen: pList
+    });
+};
+
+// list of midipitches identity function
+var lm = (...pList) => {
+    var list2string = "";
+    var listLength = pList.length;
+    for (var el = 0; el < listLength; el++) list2string += pList[el] + ",";
+    list2string = list2string.substring(0, list2string.length - 1);
+    return indexExprReturnSpecimen({
+        funcType: "lmidipitchF",
+        encGen: flattenDeep([1, 0.506578].concat(pList.map(x => [0.53, m2p(x)]).concat([0]))),
+        decGen: "lm(" + list2string + ")",
+        encPhen: pList.map(x => m2p(x))
     });
 };
 
@@ -420,8 +423,8 @@ var ln = notevalueList => {
     });
 };
 
-// list of midipitch values identity function
-var lm = midipitchList => {
+// OLD list of midipitch values identity function
+/* var lm = midipitchList => {
     var normalizedParams = midipitchList.map(x => midipitch2norm(x));
     eval("l([" + normalizedParams + "])");
     return indexExprReturnSpecimen({
@@ -430,7 +433,7 @@ var lm = midipitchList => {
         decGen: "lm([" + midipitchList + "])",
         encPhen: normalizedParams
     });
-};
+}; */
 
 // piano event identity function
 var e = (notevalue, midiPitch, articulation, intensity) => indexExprReturnSpecimen({
@@ -1021,6 +1024,7 @@ var mAutoref = subexprIndex => autoref("mAutoref", "midipitchF", 0.431483, subex
 var aAutoref = subexprIndex => autoref("aAutoref", "articulationF", 0.667551, subexprIndex, "a(0)");
 var iAutoref = subexprIndex => autoref("iAutoref", "intensityF", 0.285585, subexprIndex, "i(0)");
 var qAutoref = subexprIndex => autoref("qAutoref", "quantizedF", 0.521653, subexprIndex, "q(0)");
+var lmAutoref = subexprIndex => autoref("lmAutoref", "lmidipitchF", 0.506578, subexprIndex, "lm(43)");
 
 ////////// FUNCTION LIBRARIES HANDLING
 
@@ -1203,13 +1207,15 @@ var encodeGenotype = decGen => {
             switch (leafType) {
                 case "voidLeaf":
                     break;
-                case "leaf":
+                case ("leaf"):
+                case ("listLeaf"):
                     encodedGenotype.push(0.5, parseFloat(readToken)); break;
                 case "notevalueLeaf":
                     encodedGenotype.push(0.51, n2p(fraction2decimal(readToken))); break;
                 case "durationLeaf":
                     encodedGenotype.push(0.52, d2p(parseFloat(readToken))); break;
                 case "midipitchLeaf":
+                case "lmidipitchLeaf":
                     encodedGenotype.push(0.53, m2p(parseFloat(readToken))); break;
                 case "frequencyLeaf":
                     encodedGenotype.push(0.54, f2p(parseFloat(readToken))); break;
@@ -1220,8 +1226,7 @@ var encodeGenotype = decGen => {
                 case "goldenintegerLeaf":
                     encodedGenotype.push(0.57, z2p(parseFloat(readToken))); break;
                 case "quantizedLeaf":
-                    encodedGenotype.push(0.58, q2p(parseFloat(readToken))); break;
-
+                    encodedGenotype.push(0.58, q2p(parseFloat(readToken))); break;  
                 default:
                     console.log("Error: leaf type not found.");
                     return [-1];
@@ -1275,6 +1280,7 @@ var decodeGenotype = encGen => {
         }
         pos++;
     }
+    // removes trailing commas after returning decoded genotype
     return decodedGenotype.replace(/\,\)/g, ")").replace(/\,\]/g, "]").slice(0, -1);
 };
 
@@ -1390,6 +1396,7 @@ var expandExpr = compressedFormExpr => {
     compressedFormExpr = compressedFormExpr.replace(/gAutoref\(\n/g, "gAutoref(");
     compressedFormExpr = compressedFormExpr.replace(/qAutoref\(\n/g, "qAutoref(");
     compressedFormExpr = compressedFormExpr.replace(/oAutoref\(\n/g, "oAutoref(");
+    compressedFormExpr = compressedFormExpr.replace(/oAutoref\(\n/g, "lmAutoref(");
     var parenthCount = 0;
     for (var charIndx = 0; charIndx < compressedFormExpr.length; charIndx++) {
         expandedExpression = expandedExpression + compressedFormExpr.charAt(charIndx);
@@ -1558,7 +1565,7 @@ var eligibleFunctions = {
 };
 
 var testingFunctions = {
-    includedFunctions: [0,1,2,3,4,5,7,9,10,12,25,26,27,28,29,35,36,37,41,42,43,44,46,58,63,65,
+    includedFunctions: [0,1,2,3,4,5,7,9,10,12,17,25,26,27,28,29,35,36,37,41,42,43,44,46,58,63,65,
         66,67,68,76,98,99,100,104,109,110,131,134,135,199,200,277,279,281,282,284],
     mandatoryFunctions: [],
     excludedFunctions: []
@@ -1605,7 +1612,9 @@ var createSpecimen = () => {
                 preEncGen.push(r6d(Math.random()));
                 pos++;
                 // new ramification of genotype
-                //              if (((p==0 || nextFunctionType != "leaf") || encodedGenotype[p] > newFunctionThreshold) && chosenFunction != "cAutoRef" && chosenFunction != "vAutoRef") {
+                //////maxAPI.post("---------\nnextFunctionType: " + nextFunctionType);
+                console.log("---------\nnextFunctionType: " + nextFunctionType);
+
                 if (nextFunctionType != "voidLeaf" &&
                     nextFunctionType != "leaf" &&
                     nextFunctionType != "notevalueLeaf" &&
@@ -1618,20 +1627,31 @@ var createSpecimen = () => {
                     nextFunctionType != "quantizedLeaf" &&
                     nextFunctionType != "operationLeaf" &&
                     nextFunctionType != "booleanLeaf" &&
-                    nextFunctionType != "listLeaf") {
+                    nextFunctionType != "listLeaf" &&
+                    nextFunctionType != "lmidipitchLeaf") {
                     // choose among elegible functions
                     numElegibleFunctions = Object.keys
                         (functions_catalogue.functionLibrary[nextFunctionType]).length;
+                    var valorElectivo = Math.floor(preEncGen[pos] * numElegibleFunctions);    
+                    console.log("valor electivo: " + valorElectivo);
                     chosenFunction = Object.keys
                         (functions_catalogue.functionLibrary[nextFunctionType])
-                    [Math.floor(preEncGen[pos] * numElegibleFunctions)];
+                    [valorElectivo];
                     openFunctionTypes[openFunctionTypes.length] = nextFunctionType;
                     // writes the new function
                     newDecodedGenotype += chosenFunction + "(";
                     // read the expected parameters of the chosen function
-                    // maxAPI.post("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType]));
-                    //maxAPI.post("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType][chosenFunction]));
-                    // maxAPI.post("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType][chosenFunction].arguments).length);
+                    //////maxAPI.post("chosen function: " + chosenFunction);
+                    //////maxAPI.post("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType]));
+                    //////maxAPI.post("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType][chosenFunction]));
+                    //////maxAPI.post("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType][chosenFunction].arguments).length);
+
+                    console.log("chosen function: " + chosenFunction);
+                    console.log("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType]));
+                    console.log("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType][chosenFunction]));
+                    console.log("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType][chosenFunction].arguments).length);
+ 
+ 
                     notFilledParameters[notFilledParameters.length] = Object.keys
                         (functions_catalogue.functionLibrary[nextFunctionType][chosenFunction].arguments).length;
                     expectedFunctions[notFilledParameters.length - 1] = chosenFunction;
@@ -1644,7 +1664,9 @@ var createSpecimen = () => {
                     preEncGen.push(newLeaf);
                     pos++;
                     // adds primitive function, leaves of functions tree
-                    if (nextFunctionType == "notevalueLeaf") {
+                    if (nextFunctionType == "leaf") {
+                        newDecodedGenotype += newLeaf;
+                    } else if (nextFunctionType == "notevalueLeaf") {
                         newDecodedGenotype += p2n(newLeaf);
                     } else if (nextFunctionType == "durationLeaf") {
                         newDecodedGenotype += p2d(newLeaf);
@@ -1672,9 +1694,16 @@ var createSpecimen = () => {
                             preEncGen.push(newLeaf);
                             newDecodedGenotype += "," + newLeaf;
                             if (Math.random() < .2) extendList = false;
-                            newDecodedGenotype.substring(0, newDecodedGenotype.length - 1);
                         }
-                        // newDecodedGenotype += "]";
+                    } else if (nextFunctionType == "lmidipitchLeaf") {
+                        newDecodedGenotype += p2m(newLeaf);
+                        var extendList = true;
+                        while (extendList) {
+                            newLeaf = r6d(p2m(normal()));
+                            preEncGen.push(newLeaf);
+                            newDecodedGenotype += "," + newLeaf;
+                            if (Math.random() < .2) extendList = false;
+                        }
                     } else if (chosenFunction == "pAutoRef" ||
                         chosenFunction == "lAutoRef" ||
                         chosenFunction == "eAutoRef" ||
@@ -1684,16 +1713,18 @@ var createSpecimen = () => {
                         chosenFunction == "mAutoRef" ||
                         chosenFunction == "aAutoRef" ||
                         chosenFunction == "iAutoRef" ||
-                        chosenFunction == "qAutoref") {
+                        chosenFunction == "qAutoRef" ||
+                        chosenFunction == "lmAutoref") {
                         newDecodedGenotype += parseInt(preEncGen[pos] * 1e5);
                     }
                     else {
                         newDecodedGenotype += preEncGen[pos];
                     }
-                    // chosenFunction = "p";
-                    if (chosenFunction == "p") {
-                        encodedLeaves.push([pos, preEncGen[pos]]);
-                    }
+                    // TODO: indexing leaves;
+                    // if (chosenFunction == "p") {
+                    //    encodedLeaves.push([pos, preEncGen[pos]]);
+                    //}
+
                     notFilledParameters[notFilledParameters.length - 1]--;
                     // controls ramifications tree
                     // if number of parameters of this level if filled, deletes this count level and add ")"
@@ -1722,8 +1753,15 @@ var createSpecimen = () => {
                 notFilledParameters[0] > 0 &&
              //   notFilledParameters.length < genMaxDepth &&
                 newDecodedGenotype.length < decGenStringLengthLimit);
-        } while (notFilledParameters[0] != -1)
+        } while (notFilledParameters[0] != -1);
+        
+        // removes trailing commas
+        
+        newDecodedGenotype.substring(0, newDecodedGenotype.length - 1);
+
         // console.log("New gen: " + decodedGenotype);
+
+
 
         // console.log("New phen: " + evaluatedGenotype);
         // currentGenotype = evaluatedGenotype;
@@ -1868,3 +1906,12 @@ maxAPI.addHandlers({
         await maxAPI.outlet(dict);
     }
 });
+
+var testCreation = () => {
+    while (true) { console.log( createSpecimen())  };
+};
+
+//////// TESTING
+
+createSpecimen();
+testCreation();

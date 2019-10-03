@@ -301,7 +301,7 @@
             ],
             "metadata": {
                 "description": "list identity function",
-                "date": 20190905,
+                "date": 20191002,
                 "creator": "lm"
             }
         },
@@ -577,6 +577,20 @@
             "metadata": {
                 "description": "points to a previous midipitch parameter",
                 "date": 20190922,
+                "creator": "lm"
+            }
+        }
+    },
+    "lmidipitchF": {
+        "lm": {
+            "functionIndex": 17,
+            "functionType": "lmidipitchF",
+            "arguments": [
+                "lmidipitchLeaf"
+            ],
+            "metadata": {
+                "description": "midipitch list identity function",
+                "date": 20191002,
                 "creator": "lm"
             }
         }
