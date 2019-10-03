@@ -66,6 +66,15 @@ initSubexpressionsArrays();
 const PHI = (1 + Math.sqrt(5)) / 2;
 // round fractional part to 6 digits
 var r6d = f => Math.round(f * 1e6) / 1e6;
+var checkRange = x => {
+    if (x < 0) {
+        return 0;
+    } else if (x > 1) {
+        return 1;
+    } else {
+        return x;
+    }
+}; 
 
 // var norm2notevalue = p => decimal2fraction(Math.pow(2, 10 * p - 8));
 var norm2notevalue = p => r6d(Math.pow(2, 10 * p - 8));
@@ -1589,7 +1598,7 @@ var createSpecimen = () => {
     var functions_catalogue = JSON.parse(fs.readFileSync('eligible_functions_library.json'));
     var iterations = 0;
     var maxIterations = 1000;
-    var newLeaf;
+    var newRawValue, newLeaf;
     // searches a random genotype which satisfied the requirements
     do {
         // starts a new decoded genotype
@@ -1609,11 +1618,11 @@ var createSpecimen = () => {
             var numElegibleFunctions;
             // adds a new token to the decoded genotype
             do {
-                preEncGen.push(r6d(Math.random()));
+                preEncGen.push(checkRange(r6d(Math.random())));
                 pos++;
                 // new ramification of genotype
                 //////maxAPI.post("---------\nnextFunctionType: " + nextFunctionType);
-                console.log("---------\nnextFunctionType: " + nextFunctionType);
+ //               console.log("---------\nnextFunctionType: " + nextFunctionType);
 
                 if (nextFunctionType != "voidLeaf" &&
                     nextFunctionType != "leaf" &&
@@ -1632,7 +1641,9 @@ var createSpecimen = () => {
                     // choose among elegible functions
                     numElegibleFunctions = Object.keys
                         (functions_catalogue.functionLibrary[nextFunctionType]).length;
-                    var valorElectivo = Math.floor(preEncGen[pos] * numElegibleFunctions);    
+                    console.log("valor encoded crudo: " + preEncGen[pos]);
+                    console.log("numElegibleFunctions: " + numElegibleFunctions);
+                    var valorElectivo = Math.floor(preEncGen[pos] * numElegibleFunctions) % numElegibleFunctions;    
                     console.log("valor electivo: " + valorElectivo);
                     chosenFunction = Object.keys
                         (functions_catalogue.functionLibrary[nextFunctionType])
@@ -1646,10 +1657,10 @@ var createSpecimen = () => {
                     //////maxAPI.post("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType][chosenFunction]));
                     //////maxAPI.post("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType][chosenFunction].arguments).length);
 
-                    console.log("chosen function: " + chosenFunction);
-                    console.log("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType]));
-                    console.log("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType][chosenFunction]));
-                    console.log("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType][chosenFunction].arguments).length);
+                    // console.log("chosen function: " + chosenFunction);
+                    // console.log("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType]));
+                    // console.log("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType][chosenFunction]));
+                    // console.log("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType][chosenFunction].arguments).length);
  
  
                     notFilledParameters[notFilledParameters.length] = Object.keys
@@ -1660,7 +1671,7 @@ var createSpecimen = () => {
                 else {
                     // changes value to 0 for make genotypes syntax independent from leaf newFunctionThreshold value (prescindible??)
                     preEncGen[pos] = 0;
-                    newLeaf = r6d(normal());
+                    newLeaf = checkRange(r6d(normal()));
                     preEncGen.push(newLeaf);
                     pos++;
                     // adds primitive function, leaves of functions tree
@@ -1690,7 +1701,7 @@ var createSpecimen = () => {
                         newDecodedGenotype += newLeaf;
                         var extendList = true;
                         while (extendList) {
-                            newLeaf = r6d(normal());
+                            newLeaf = checkRange(r6d(normal()));
                             preEncGen.push(newLeaf);
                             newDecodedGenotype += "," + newLeaf;
                             if (Math.random() < .2) extendList = false;
@@ -1699,7 +1710,7 @@ var createSpecimen = () => {
                         newDecodedGenotype += p2m(newLeaf);
                         var extendList = true;
                         while (extendList) {
-                            newLeaf = r6d(p2m(normal()));
+                            newLeaf = r6d(p2m(checkRange(normal())));
                             preEncGen.push(newLeaf);
                             newDecodedGenotype += "," + newLeaf;
                             if (Math.random() < .2) extendList = false;
@@ -1913,5 +1924,5 @@ var testCreation = () => {
 
 //////// TESTING
 
-createSpecimen();
-testCreation();
+// createSpecimen();
+// testCreation();
