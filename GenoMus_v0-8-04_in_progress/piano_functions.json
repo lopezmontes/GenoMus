@@ -186,7 +186,7 @@
             "functionType": "voiceF",
             "arguments": [
                 "listF",
-                "listF",
+                "lmidipitchF",
                 "listF",
                 "listF"
             ],
@@ -201,7 +201,7 @@
             "functionType": "voiceF",
             "arguments": [
                 "listF",
-                "listF",
+                "lmidipitchF",
                 "listF",
                 "listF"
             ],

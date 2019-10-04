@@ -15,12 +15,12 @@ const seedrandom = require('seedrandom');
 
 /////////////////////
 // INITIAL CONDITIONS
-var decGenStringLengthLimit = 7000;
+var decGenStringLengthLimit = 7000000;
 var genMaxDepth = 18;
 var phenMinPolyphony = 1;
-var phenMaxPolyphony = 20;
+var phenMaxPolyphony = 30;
 var phenMinLength = 5;
-var phenMaxLength = 1000;
+var phenMaxLength = 10000;
 var leaves = []; // stores all numeric parameters
 var encodedLeaves = [];
 var newFunctionThreshold = .6; // [0-1] Higher is less likely to ramificate too much
@@ -1006,7 +1006,7 @@ var autoref = (funcName, funcType, encodedFunctionIndex, subexprIndex, silentEle
     var subexprLength = subexpressions[funcType].length;
     // if no autoreferences available, returns default, a silent element to sustain the function tree
     if (subexprLength == 0) return eval(silentElement);
-    subexprIndex %= subexprLength;
+    subexprIndex = Math.abs(subexprIndex % subexprLength); // maybe abs is not needed (only for debugging)
     var evaluatedSubexp = eval(subexpressions[funcType][subexprIndex]);
     return indexExprReturnSpecimen({
         funcType: funcType,
@@ -1641,10 +1641,10 @@ var createSpecimen = () => {
                     // choose among elegible functions
                     numElegibleFunctions = Object.keys
                         (functions_catalogue.functionLibrary[nextFunctionType]).length;
-                    console.log("valor encoded crudo: " + preEncGen[pos]);
-                    console.log("numElegibleFunctions: " + numElegibleFunctions);
+                    // console.log("valor encoded crudo: " + preEncGen[pos]);
+                    // console.log("numElegibleFunctions: " + numElegibleFunctions);
                     var valorElectivo = Math.floor(preEncGen[pos] * numElegibleFunctions) % numElegibleFunctions;    
-                    console.log("valor electivo: " + valorElectivo);
+                    // console.log("valor electivo: " + valorElectivo);
                     chosenFunction = Object.keys
                         (functions_catalogue.functionLibrary[nextFunctionType])
                     [valorElectivo];
@@ -1919,7 +1919,7 @@ maxAPI.addHandlers({
 });
 
 var testCreation = () => {
-    while (true) { console.log( createSpecimen())  };
+    while (true) { console.log( createSpecimen() )};
 };
 
 //////// TESTING
