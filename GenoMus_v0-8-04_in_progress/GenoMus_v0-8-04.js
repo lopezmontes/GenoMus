@@ -1430,7 +1430,7 @@ var expandExpr = compressedFormExpr => {
     compressedFormExpr = compressedFormExpr.replace(/gAutoref\(\n/g, "gAutoref(");
     compressedFormExpr = compressedFormExpr.replace(/qAutoref\(\n/g, "qAutoref(");
     compressedFormExpr = compressedFormExpr.replace(/oAutoref\(\n/g, "oAutoref(");
-    compressedFormExpr = compressedFormExpr.replace(/oAutoref\(\n/g, "lmAutoref(");
+    compressedFormExpr = compressedFormExpr.replace(/lmAutoref\(\n/g, "lmAutoref(");
     var parenthCount = 0;
     for (var charIndx = 0; charIndx < compressedFormExpr.length; charIndx++) {
         expandedExpression = expandedExpression + compressedFormExpr.charAt(charIndx);
