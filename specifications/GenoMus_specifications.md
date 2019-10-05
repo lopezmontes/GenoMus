@@ -957,6 +957,23 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `eAutoref`  | 27  <sub>.686918 in progress</sub>  | points to a previous event
 | `vAutoref`  | 28  <sub>.304952 in progress</sub>  | points to a previous voice
 | `sAutoref`  | 29  <sub>.922986 in progress</sub>  | points to a previous score
+| `nAutoref`  | 277 <sub>.195415 in progress</sub>  | points to a previous notevalue parameter
+| `dAutoref`  | 278 <sub>not yet implemented</sub>  | points to a previous notevalue parameter
+| `mAutoref`  | 279 <sub>.431483 in progress</sub>  | points to a previous notevalue parameter
+| `fAutoref`  | 280 <sub>not yet implemented</sub>  | points to a previous notevalue parameter
+| `aAutoref`  | 281 <sub>.667551 in progress</sub>  | points to a previous notevalue parameter
+| `iAutoref`  | 282 <sub>.285585 in progress</sub>  | points to a previous notevalue parameter
+| `gAutoref`  | 283 <sub>not yet implemented</sub>  | points to a previous notevalue parameter
+| `qAutoref`  | 284 <sub>.521653 in progress</sub>  | points to a previous notevalue parameter
+| `oAutoref`  | 285 <sub>not yet implemented</sub>  | points to a previous notevalue parameter
+| `lnAutoref` | 286 <sub>.757721 in progress</suv>  | points to a previous bla list
+| `ldAutoref` | 287 <sub>.375755 in progress</suv>  | points to a previous bla list
+| `lmAutoref` | 288 <sub>.993789 in progress</suv>  | points to a previous bla list
+| `lfAutoref` | 289 <sub>.611823 in progress</suv>  | points to a previous bla list
+| `laAutoref` | 290 <sub>.229857 in progress</suv>  | points to a previous bla list
+| `liAutoref` | 291 <sub>.847891 in progress</suv>  | points to a previous bla list
+| `lzAutoref` | 292 <sub>.465925 in progress</suv>  | points to a previous bla list
+| `lqAutoref` | 293 <sub>.083959 in progress</suv>  | points to a previous bla list
 | `pClone`    | 30  <sub>not yet implemented</sub>  | copy and paste a previous parameter branch without subsequent linking
 | `lClone`    | 31  <sub>not yet implemented</sub>  | copy and paste a previous list branch without subsequent linking
 | `eClone`    | 32  <sub>not yet implemented</sub>  | copy and paste a previous event branch without subsequent linking
@@ -968,15 +985,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `vIterV`    | 38  <sub>not yet implemented</sub>  | repeats and concatenates as a voice re-evaluations of a voice function
 | `sIterV`    | 39  <sub>not yet implemented</sub>  | repeats and overlays in a score re-evaluations of a voice function
 | `sIterS`    | 40  <sub>not yet implemented</sub>  | repeats and concatenates as a score re-evaluations of a score function
-| `nAutoref`  | 277 <sub>.195415 in progress</sub>  | points to a previous notevalue parameter
-| `dAutoref`  | 278 <sub>not yet implemented</sub>  | points to a previous notevalue parameter
-| `mAutoref`  | 279 <sub>.431483 in progress</sub>  | points to a previous notevalue parameter
-| `fAutoref`  | 280 <sub>not yet implemented</sub>  | points to a previous notevalue parameter
-| `aAutoref`  | 281 <sub>.667551 in progress</sub>  | points to a previous notevalue parameter
-| `iAutoref`  | 282 <sub>.285585 in progress</sub>  | points to a previous notevalue parameter
-| `gAutoref`  | 283 <sub>not yet implemented</sub>  | points to a previous notevalue parameter
-| `qAutoref`  | 284 <sub>.521653 in progress</sub>  | points to a previous notevalue parameter
-| `oAutoref`  | 285 <sub>not yet implemented</sub>  | points to a previous notevalue parameter
+
 
 
 

@@ -76,7 +76,7 @@ var checkRange = x => {
     } else {
         return x;
     }
-}; 
+};
 
 // var norm2notevalue = p => decimal2fraction(Math.pow(2, 10 * p - 8));
 var norm2notevalue = p => r6d(Math.pow(2, 10 * p - 8));
@@ -421,17 +421,17 @@ var listIdentityFunc = (fName, fTyp, fIndx, encGenId, converter, ...argList) => 
         encGen: flattenDeep([1, fIndx].concat(convertedList.map(x => [encGenId, x]).concat([0]))),
         decGen: fName + "(" + list2str + ")",
         encPhen: convertedList
-    });    
+    });
 }
 // list identity functions
-var ln = (...pList) => listIdentityFunc ("ln", "lnotevalueF", 0.27051, 0.51, n2p, ...pList);
-var ld = (...pList) => listIdentityFunc ("ld", "ldurationF", 0.888544, 0.52, d2p, ...pList);
-var lm = (...pList) => listIdentityFunc ("lm", "lmidipitchF", 0.506578, 0.53, m2p, ...pList);
-var lf = (...pList) => listIdentityFunc ("lf", "lfrequencyF", 0.124612, 0.54, f2p, ...pList);
-var la = (...pList) => listIdentityFunc ("la", "larticulationF", 0.742646, 0.55, a2p, ...pList);
-var li = (...pList) => listIdentityFunc ("li", "lintensityF", 0.36068, 0.56, i2p, ...pList);
-var lz = (...pList) => listIdentityFunc ("lz", "lgoldenintegerF", 0.978714, 0.57, z2p, ...pList);
-var lq = (...pList) => listIdentityFunc ("lq", "lquantizedF", 0.596748, 0.58, q2p, ...pList);
+var ln = (...pList) => listIdentityFunc("ln", "lnotevalueF", 0.27051, 0.51, n2p, ...pList);
+var ld = (...pList) => listIdentityFunc("ld", "ldurationF", 0.888544, 0.52, d2p, ...pList);
+var lm = (...pList) => listIdentityFunc("lm", "lmidipitchF", 0.506578, 0.53, m2p, ...pList);
+var lf = (...pList) => listIdentityFunc("lf", "lfrequencyF", 0.124612, 0.54, f2p, ...pList);
+var la = (...pList) => listIdentityFunc("la", "larticulationF", 0.742646, 0.55, a2p, ...pList);
+var li = (...pList) => listIdentityFunc("li", "lintensityF", 0.36068, 0.56, i2p, ...pList);
+var lz = (...pList) => listIdentityFunc("lz", "lgoldenintegerF", 0.978714, 0.57, z2p, ...pList);
+var lq = (...pList) => listIdentityFunc("lq", "lquantizedF", 0.596748, 0.58, q2p, ...pList);
 
 // piano event identity function
 var e = (notevalue, midiPitch, articulation, intensity) => indexExprReturnSpecimen({
@@ -444,9 +444,9 @@ var e = (notevalue, midiPitch, articulation, intensity) => indexExprReturnSpecim
         + intensity.decGen + ")",
     encPhen: [notevalue.encPhen[0],
         0.618034,
-        midiPitch.encPhen[0],
-        articulation.encPhen[0],
-        intensity.encPhen[0]],
+    midiPitch.encPhen[0],
+    articulation.encPhen[0],
+    intensity.encPhen[0]],
     phenLength: 1,
     tempo: 0.6,
     harmony: {
@@ -567,7 +567,7 @@ var vRepeatE = (event, times) => {
     if (numRepeats > phenMaxLength) {
         validGenotype = false;
         console.log("Aborted genotype due to exceeding the max length");
-        return v(e(p(0),m(43),p(0),p(0)));
+        return v(e(p(0), m(43), p(0), p(0)));
     }
     return indexExprReturnSpecimen({
         funcType: "voiceF",
@@ -885,7 +885,7 @@ var vIterE = (event, times) => {
     if (numIterations > phenMaxLength) {
         validGenotype = false;
         console.log("Aborted genotype due to exceeding the max length");
-        return v(e(p(0),m(43),p(0),p(0)));
+        return v(e(p(0), m(43), p(0), p(0)));
     }
     return indexExprReturnSpecimen({
         funcType: "voiceF",
@@ -911,7 +911,7 @@ var vMotif = (listNotevalues, listPitches, listArticulations, listIntensities) =
     if (seqLength > phenMaxLength) {
         validGenotype = false;
         console.log("Aborted genotype due to exceeding the max length");
-        return v(e(p(0),m(43),p(0),p(0)));
+        return v(e(p(0), m(43), p(0), p(0)));
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -949,7 +949,7 @@ var vMotifLoop = (listNotevalues, listPitches, listArticulations, listIntensitie
     if (seqLength > phenMaxLength) {
         validGenotype = false;
         console.log("Aborted genotype due to exceeding the max length");
-        return v(e(p(0),m(43),p(0),p(0)));
+        return v(e(p(0), m(43), p(0), p(0)));
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -1026,7 +1026,7 @@ var autoref = (funcName, funcType, encodedFunctionIndex, subexprIndex, silentEle
         decGen: funcName + "(" + subexprIndex + ")",
         encPhen: evaluatedSubexp.encPhen,
         phenLength: evaluatedSubexp.phenLength,
-        phenVoices: evaluatedSubexp.phenVoices, 
+        phenVoices: evaluatedSubexp.phenVoices,
         tempo: evaluatedSubexp.tempo,
         rhythm: evaluatedSubexp.rhythm,
         harmony: evaluatedSubexp.harmony,
@@ -1045,7 +1045,14 @@ var mAutoref = subexprIndex => autoref("mAutoref", "midipitchF", 0.431483, subex
 var aAutoref = subexprIndex => autoref("aAutoref", "articulationF", 0.667551, subexprIndex, "a(0)");
 var iAutoref = subexprIndex => autoref("iAutoref", "intensityF", 0.285585, subexprIndex, "i(0)");
 var qAutoref = subexprIndex => autoref("qAutoref", "quantizedF", 0.521653, subexprIndex, "q(0)");
+var lnAutoref = subexprIndex => autoref("lnAutoref", "lnotevalueF", 0.27051, subexprIndex, "ln(1/256)"); // could 0 duration cause troubles??
+var ldAutoref = subexprIndex => autoref("ldAutoref", "ldurationF", 0.888544, subexprIndex, "ld(0)"); // could 0 cause troubles??
 var lmAutoref = subexprIndex => autoref("lmAutoref", "lmidipitchF", 0.506578, subexprIndex, "lm(43)");
+var lfAutoref = subexprIndex => autoref("lfAutoref", "lfrequencyF", 0.506578, subexprIndex, "lf(.000001)");
+var laAutoref = subexprIndex => autoref("laAutoref", "larticulationF", 0.506578, subexprIndex, "la(0)"); // could 0 cause troubles??
+var liAutoref = subexprIndex => autoref("liAutoref", "lintensityF", 0.506578, subexprIndex, "li(0)");
+var lzAutoref = subexprIndex => autoref("lzAutoref", "lgoldenintegerF", 0.506578, subexprIndex, "lg(0)");
+var lqAutoref = subexprIndex => autoref("lqAutoref", "lquantizedF", 0.506578, subexprIndex, "lq(0)");
 
 ////////// FUNCTION LIBRARIES HANDLING
 
@@ -1232,22 +1239,29 @@ var encodeGenotype = decGen => {
                 case ("listLeaf"):
                     encodedGenotype.push(0.5, parseFloat(readToken)); break;
                 case "notevalueLeaf":
+                case "lnotevalueLeaf":
                     encodedGenotype.push(0.51, n2p(fraction2decimal(readToken))); break;
                 case "durationLeaf":
+                case "ldurationLeaf":
                     encodedGenotype.push(0.52, d2p(parseFloat(readToken))); break;
                 case "midipitchLeaf":
                 case "lmidipitchLeaf":
                     encodedGenotype.push(0.53, m2p(parseFloat(readToken))); break;
                 case "frequencyLeaf":
+                case "lfrequencyLeaf":
                     encodedGenotype.push(0.54, f2p(parseFloat(readToken))); break;
                 case "articulationLeaf":
+                case "larticulationLeaf":
                     encodedGenotype.push(0.55, a2p(parseFloat(readToken))); break;
                 case "intensityLeaf":
+                case "lintensityLeaf":
                     encodedGenotype.push(0.56, i2p(parseFloat(readToken))); break;
                 case "goldenintegerLeaf":
+                case "lgoldenintegerLeaf":
                     encodedGenotype.push(0.57, z2p(parseFloat(readToken))); break;
                 case "quantizedLeaf":
-                    encodedGenotype.push(0.58, q2p(parseFloat(readToken))); break;  
+                case "lquantizedLeaf":
+                    encodedGenotype.push(0.58, q2p(parseFloat(readToken))); break;
                 default:
                     console.log("Error: leaf type not found.");
                     return [-1];
@@ -1535,7 +1549,7 @@ var encPhen2bachRoll = encPhen => {
 var specimenDataStructure = (specimen) => ({
     metadata: {
         iterations: specimen.metadata.iterations,
-        milliseconsElapsed: specimen.metadata.milliseconsElapsed,      
+        milliseconsElapsed: specimen.metadata.milliseconsElapsed,
         voices: specimen.phenVoices,
         events: specimen.phenLength,
         genotypeLength: specimen.metadata.genotypeLength
@@ -1587,8 +1601,8 @@ var eligibleFunctions = {
 };
 
 var testingFunctions = {
-    includedFunctions: [0,1,2,3,4,5,7,9,10,12,17,25,26,27,28,29,35,36,37,41,42,43,44,46,58,63,65,
-        66,67,68,76,98,99,100,104,109,110,131,134,135,199,200,277,279,281,282,284],
+    includedFunctions: [0, 1, 2, 3, 4, 5, 7, 9, 10, 12, 17, 25, 26, 27, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 58, 63, 65,
+        66, 67, 68, 76, 98, 99, 100, 104, 109, 110, 131, 134, 135, 199, 200, 277, 279, 281, 282, 284],
     mandatoryFunctions: [],
     excludedFunctions: [] // 25,26,27,28,29,277,279,281,282,284]
 };
@@ -1637,7 +1651,7 @@ var createSpecimen = () => {
                 pos++;
                 // new ramification of genotype
                 //////maxAPI.post("---------\nnextFunctionType: " + nextFunctionType);
- //               console.log("---------\nnextFunctionType: " + nextFunctionType);
+                //               console.log("---------\nnextFunctionType: " + nextFunctionType);
 
                 if (nextFunctionType != "voidLeaf" &&
                     nextFunctionType != "leaf" &&
@@ -1652,13 +1666,20 @@ var createSpecimen = () => {
                     nextFunctionType != "operationLeaf" &&
                     nextFunctionType != "booleanLeaf" &&
                     nextFunctionType != "listLeaf" &&
-                    nextFunctionType != "lmidipitchLeaf") {
+                    nextFunctionType != "lnotevalueLeaf" &&
+                    nextFunctionType != "ldurationLeaf" &&
+                    nextFunctionType != "lmidipitchLeaf" &&
+                    nextFunctionType != "lfrequencyLeaf" &&
+                    nextFunctionType != "larticulationLeaf" &&
+                    nextFunctionType != "lintensityLeaf" &&
+                    nextFunctionType != "lgoldenintegerLeaf" &&
+                    nextFunctionType != "lquantizedLeaf") {
                     // choose among elegible functions
                     numElegibleFunctions = Object.keys
                         (functions_catalogue.functionLibrary[nextFunctionType]).length;
                     // console.log("valor encoded crudo: " + preEncGen[pos]);
                     // console.log("numElegibleFunctions: " + numElegibleFunctions);
-                    var valorElectivo = Math.floor(preEncGen[pos] * numElegibleFunctions) % numElegibleFunctions;    
+                    var valorElectivo = Math.floor(preEncGen[pos] * numElegibleFunctions) % numElegibleFunctions;
                     // console.log("valor electivo: " + valorElectivo);
                     chosenFunction = Object.keys
                         (functions_catalogue.functionLibrary[nextFunctionType])
@@ -1676,8 +1697,8 @@ var createSpecimen = () => {
                     // console.log("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType]));
                     // console.log("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType][chosenFunction]));
                     // console.log("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType][chosenFunction].arguments).length);
- 
- 
+
+
                     notFilledParameters[notFilledParameters.length] = Object.keys
                         (functions_catalogue.functionLibrary[nextFunctionType][chosenFunction].arguments).length;
                     expectedFunctions[notFilledParameters.length - 1] = chosenFunction;
@@ -1721,6 +1742,15 @@ var createSpecimen = () => {
                             newDecodedGenotype += "," + newLeaf;
                             if (Math.random() < .2) extendList = false;
                         }
+                    } else if (nextFunctionType == "lnotevalueLeaf") {
+                        newDecodedGenotype += n2m(newLeaf);
+                        var extendList = true;
+                        while (extendList) {
+                            newLeaf = r6d(p2n(checkRange(normal())));
+                            preEncGen.push(newLeaf);
+                            newDecodedGenotype += "," + newLeaf;
+                            if (Math.random() < .2) extendList = false;
+                        }
                     } else if (nextFunctionType == "lmidipitchLeaf") {
                         newDecodedGenotype += p2m(newLeaf);
                         var extendList = true;
@@ -1740,6 +1770,7 @@ var createSpecimen = () => {
                         chosenFunction == "aAutoRef" ||
                         chosenFunction == "iAutoRef" ||
                         chosenFunction == "qAutoRef" ||
+                        chosenFunction == "lnAutoRef" ||
                         chosenFunction == "lmAutoref") {
                         newDecodedGenotype += parseInt(preEncGen[pos] * 1e5);
                     }
@@ -1781,9 +1812,9 @@ var createSpecimen = () => {
                 notFilledParameters.length < genMaxDepth &&
                 newDecodedGenotype.length < decGenStringLengthLimit);
         } while (notFilledParameters[0] != -1);
-        
+
         // removes trailing commas
-        
+
         newDecodedGenotype.substring(0, newDecodedGenotype.length - 1);
 
         // console.log("New gen: " + decodedGenotype);
@@ -1805,7 +1836,7 @@ var createSpecimen = () => {
         // evaluatedGenotype = evalAndReturnExpression(decodedGenotype);
 
         genotypeLog["gen" + genCount++] = newDecodedGenotype;
-        createJSON(genotypeLog, 'genotipeLog.json');        
+        createJSON(genotypeLog, 'genotipeLog.json');
         // maxAPI.post("New genotype: " + newDecodedGenotype);
 
         newSpecimen = eval(newDecodedGenotype);
@@ -1818,25 +1849,25 @@ var createSpecimen = () => {
             newSpecimen.phenLength < phenMinLength
             || newSpecimen.phenLength > phenMaxLength
             || newSpecimen.phenVoices < phenMinPolyphony
-            || newSpecimen.phenVoices > phenMaxPolyphony   
-        ) 
+            || newSpecimen.phenVoices > phenMaxPolyphony
+        )
         && iterations < maxIterations);
     var stopdate = new Date();
-    
+
     ///////// visualizations
     // visualizeSpecimen(newSpecimen.encGen, "encGen");
     // visualizeSpecimen(newSpecimen.encPhen, "encPhen");
     /////////
-    
-    
+
+
     // maxAPI.post(encodedGenotype);
     // maxAPI.post("Phenotype: " + evaluatedGenotype[0]);    
-    
-     //////
+
+    //////
     // maxAPI.post("iterations: " + iterations);
     // maxAPI.post("time ellapsed: " + Math.abs(stopdate - startdate) + " ms");
-     //////
-    
+    //////
+
     // maxAPI.post("seeds: " + usedSeed + ", " + evaluationSeed);    
 
     // console.log("iterations: " + iterations);
@@ -1915,16 +1946,16 @@ maxAPI.addHandler('depth', (integ) => {
 
 // creates a new specimen from scratch and send the dict data to Max
 maxAPI.addHandlers({
-	newSpecimen: async () => {
+    newSpecimen: async () => {
         const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(createSpecimen()));
         await maxAPI.outlet(dict);
     },
-	text: async (...args) => {
-    // make a string from params array
+    text: async (...args) => {
+        // make a string from params array
         var receivedText = "";
         for (var i = 0; i < args.length; i++) {
             receivedText += args[i];
-        }        
+        }
         var newSpecimen = evalDecGen(receivedText);
         newSpecimen.metadata = {
             iterations: 0,
@@ -1936,10 +1967,10 @@ maxAPI.addHandlers({
 });
 
 var testCreation = () => {
-    while (true) { 
+    while (true) {
         var newExample = createSpecimen();
-        console.log( newExample.decGen );
-        console.log( newExample.metadata );
+        console.log(newExample.decGen);
+        console.log(newExample.metadata);
     };
 };
 
