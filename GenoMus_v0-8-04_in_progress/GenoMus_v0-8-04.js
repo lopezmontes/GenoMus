@@ -1602,7 +1602,7 @@ var eligibleFunctions = {
 
 var testingFunctions = {
     includedFunctions: [0, 1, 2, 3, 4, 5, 7, 9, 10, 12, 17, 25, 26, 27, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 58, 63, 65,
-        66, 67, 68, 76, 98, 99, 100, 104, 109, 110, 131, 134, 135, 199, 200, 277, 279, 281, 282, 284, 15, 286, 17, 288],
+        66, 67, 68, 76, 98, 99, 100, 104, 109, 110, 131, 134, 135, 199, 200, 277, 279, 281, 282, 284, 15, 286, 17, 288, 19, 290],
     mandatoryFunctions: [],
     excludedFunctions: [] // 25,26,27,28,29,277,279,281,282,284]
 };
@@ -1760,6 +1760,15 @@ var createSpecimen = () => {
                             newDecodedGenotype += "," + newLeaf;
                             if (Math.random() < .2) extendList = false;
                         }
+                    } else if (nextFunctionType == "larticulationLeaf") {
+                        newDecodedGenotype += p2a(newLeaf);
+                        var extendList = true;
+                        while (extendList) {
+                            newLeaf = r6d(p2a(checkRange(normal())));
+                            preEncGen.push(newLeaf);
+                            newDecodedGenotype += "," + newLeaf;
+                            if (Math.random() < .2) extendList = false;
+                        }
                     } else if (chosenFunction == "pAutoRef" ||
                         chosenFunction == "lAutoRef" ||
                         chosenFunction == "eAutoRef" ||
@@ -1771,7 +1780,13 @@ var createSpecimen = () => {
                         chosenFunction == "iAutoRef" ||
                         chosenFunction == "qAutoRef" ||
                         chosenFunction == "lnAutoRef" ||
-                        chosenFunction == "lmAutoref") {
+                        chosenFunction == "ldAutoRef" ||
+                        chosenFunction == "lmAutoRef" ||
+                        chosenFunction == "lfAutoRef" ||
+                        chosenFunction == "laAutoRef" ||
+                        chosenFunction == "liAutoRef" ||
+                        chosenFunction == "lzAutoRef" ||
+                        chosenFunction == "lqAutoref") {
                         newDecodedGenotype += parseInt(preEncGen[pos] * 1e5);
                     }
                     else {
