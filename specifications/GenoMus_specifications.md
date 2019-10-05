@@ -923,7 +923,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | function name | function type       | function index        | example decoded genotype &rarr; encoded phenotype
 | ------------- | ------------------- | --------------------- | -------------------------------------------------
 | `p`           | **paramF**          | 0 <sub>0</sub>        | `"p(.5)"` &rarr; `[0.5]` <sub>in progress</sub>
-| `l`           | **listF**           | 1 <sub>.618034</sub>  | `"l([0,.3,1,.8])"` &rarr; `[0,0.3,1,0.8]` <sub>in progress</sub>
+| `l`           | **listF**           | 1 <sub>.618034</sub>  | `"l(0,.3,1,.8)"` &rarr; `[0,0.3,1,0.8]` <sub>in progress</sub>
 | `e`           | **eventF**          | 2 <sub>.236068</sub>  | `"e(p(.5),p(.4),p(0.6),p(.8))"` &rarr; `[0.5,0.618034,0.4,0.6,0.8]` <sub>in progress</sub>
 | `v`           | **voiceF**          | 3 <sub>.854102</sub>  | `"v(e(p(.5),p(.4),p(0),p(.8)))"` &rarr; `[0,0.5,0.618034,0.4,0,0.8,1]` <sub>in progress</sub> 
 | `s`           | **scoreF**          | 4 <sub>.472136</sub>  | `"s(v(e(p(.5),p(.4),p(0),p(.8))))"` &rarr; `[0,0,0.5,0.618034,0.4,0,0.8,1,1]` <sub>in progress</sub> 
@@ -937,14 +937,14 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `q`           | **quantizedF**      | 12 <sub>.416408</sub> | `"q(-2)"` &rarr; `[0.4]` <sub>in progress</sub>
 | `r`           | **rhythmF**         | 13 <sub>.034442</sub> | `"r([0,6,20,[2,1],16])"` &rarr; `[0,0.3,1,[1,0.5],0.8]`
 | `h`           | **harmonyF**        | 14 <sub>.652476</sub> | `"h([0.03,0.02,0.69])"` &rarr; `[3,2,9]`
-| `ln`          | **lnotevalueF**     | 15 <sub>.27051</sub>  | `"ln([1/8,1,1/2])"` &rarr; `[0.5,0.8,0.7]` <sub>in progress</sub>
-| `ld`          | **ldurationF**      | 16 <sub>.888544</sub> | `"ld([8,1,2])"` &rarr; `[0.9,0.6,0.7]`
-| `lm`          | **lmidipitchF**     | 17 <sub>.506578</sub> | `"lm([70,69,71])"` &rarr; `[0.58,0.57,0.59]` <sub>in progress</sub>
-| `lf`          | **lfrequencyF**     | 18 <sub>.124612</sub> | `"lf([162,32,4802])"` &rarr; `[0.3,0.2,0.7]`
-| `la`          | **larticulationF**  | 19 <sub>.742646</sub> | `"la([1,1,0.5])"` &rarr; `[0.667539,0.667539,0.51729]`
-| `li`          | **lintensityF**     | 20 <sub>.36068</sub>  | `"li([80,90])"` &rarr; `[0.629921,0.708402]`
-| `lz`          | **lgoldenintegerF** | 21 <sub>.978714</sub> | `"lz([10,8,6,3])"` &rarr; `[0.18034,0.944272,0.708204,0.854102]`
-| `lq`          | **lquantizedF**     | 22 <sub>.596748</sub> | `"lq([10,-10,0,-3,2])"` &rarr; `[0.79,0.21,0.5,0.36,0.6]`
+| `ln`          | **lnotevalueF**     | 15 <sub>.27051</sub>  | `"ln(1/8,1,1/2)"` &rarr; `[0.5,0.8,0.7]` <sub>in progress</sub>
+| `ld`          | **ldurationF**      | 16 <sub>.888544</sub> | `"ld(8,1,2)"` &rarr; `[0.9,0.6,0.7]` <sub>in progress</sub>
+| `lm`          | **lmidipitchF**     | 17 <sub>.506578</sub> | `"lm(70,69,71)"` &rarr; `[0.58,0.57,0.59]` <sub>in progress</sub>
+| `lf`          | **lfrequencyF**     | 18 <sub>.124612</sub> | `"lf(162,32,4802)"` &rarr; `[0.3,0.2,0.7]` <sub>in progress</sub>
+| `la`          | **larticulationF**  | 19 <sub>.742646</sub> | `"la(1,1,0.5)"` &rarr; `[0.667539,0.667539,0.51729]` <sub>in progress</sub>
+| `li`          | **lintensityF**     | 20 <sub>.36068</sub>  | `"li(80,90)"` &rarr; `[0.629921,0.708402]` <sub>in progress</sub>
+| `lz`          | **lgoldenintegerF** | 21 <sub>.978714</sub> | `"lz(10,8,6,3)"` &rarr; `[0.18034,0.944272,0.708204,0.854102]` <sub>in progress</sub>
+| `lq`          | **lquantizedF**     | 22 <sub>.596748</sub> | `"lq(10,-10,0,-3,2)"` &rarr; `[0.79,0.21,0.5,0.36,0.6]` <sub>in progress</sub>
 | `o`           | **operationF**      | 23 <sub>.214782</sub> | `"o(.5)"` &rarr; `[0.5]`
 | `b`           | **booleanF**        | 24 <sub>.832816</sub> | `"b(.5)"` &rarr; `[1]`
 

@@ -408,34 +408,7 @@ var l = (...pList) => {
     });
 };
 
-// list of midipitches identity function
-/* var lm = (...pList) => {
-    var list2str = "";
-    var listLength = pList.length;
-    for (var el = 0; el < listLength; el++) list2str += pList[el] + ",";
-    list2str = list2str.substring(0, list2str.length - 1);
-    return indexExprReturnSpecimen({
-        funcType: "lmidipitchF",
-        encGen: flattenDeep([1, 0.506578].concat(pList.map(x => [0.53, m2p(x)]).concat([0]))),
-        decGen: "lm(" + list2str + ")",
-        encPhen: pList.map(x => m2p(x))
-    });
-}; */
-
-// list of notevalues identity function
-/* var ln = (...pList) => {
-    var list2str = "";
-    var listLength = pList.length;
-    for (var el = 0; el < listLength; el++) list2str += pList[el] + ",";
-    list2str = list2str.substring(0, list2str.length - 1);
-    return indexExprReturnSpecimen({
-        funcType: "lnotevalueF",
-        encGen: flattenDeep([1, 0.27051].concat(pList.map(x => [0.51, n2p(x)]).concat([0]))),
-        decGen: "ln(" + list2str + ")",
-        encPhen: pList.map(x => n2p(x))
-    });
-}; */
-
+// framework for list identity functions
 var listIdentityFunc = (fName, fTyp, fIndx, encGenId, converter, ...argList) => {
     var list2str = "";
     var listLength = argList.length;
@@ -450,22 +423,15 @@ var listIdentityFunc = (fName, fTyp, fIndx, encGenId, converter, ...argList) => 
         encPhen: convertedList
     });    
 }
-
+// list identity functions
 var ln = (...pList) => listIdentityFunc ("ln", "lnotevalueF", 0.27051, 0.51, n2p, ...pList);
+var ld = (...pList) => listIdentityFunc ("ld", "ldurationF", 0.888544, 0.52, d2p, ...pList);
 var lm = (...pList) => listIdentityFunc ("lm", "lmidipitchF", 0.506578, 0.53, m2p, ...pList);
-
-var lnOLD = notevalueList => {
-    var normalizedParams = notevalueList.map(x => notevalue2norm(x));
-    eval("l([" + normalizedParams + "])");
-    return indexExprReturnSpecimen({
-        funcType: "lnotevalueF",
-        encGen: flattenDeep([1, 0.27051, 0.8].concat(normalizedParams.map(x => [0.51, x]).concat([0.2, 0]))),
-        decGen: "ln([" + notevalueList + "])",
-        encPhen: normalizedParams
-    });
-};
-
-var testLength = (...losargs) => arguments.length;
+var lf = (...pList) => listIdentityFunc ("lf", "lfrequencyF", 0.124612, 0.54, f2p, ...pList);
+var la = (...pList) => listIdentityFunc ("la", "larticulationF", 0.742646, 0.55, a2p, ...pList);
+var li = (...pList) => listIdentityFunc ("li", "lintensityF", 0.36068, 0.56, i2p, ...pList);
+var lz = (...pList) => listIdentityFunc ("lz", "lgoldenintegerF", 0.978714, 0.57, z2p, ...pList);
+var lq = (...pList) => listIdentityFunc ("lq", "lquantizedF", 0.596748, 0.58, q2p, ...pList);
 
 // piano event identity function
 var e = (notevalue, midiPitch, articulation, intensity) => indexExprReturnSpecimen({
