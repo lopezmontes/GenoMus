@@ -1623,13 +1623,14 @@ var createSpecimen = () => {
     // loads library of elegible functions
     var functions_catalogue = JSON.parse(fs.readFileSync('eligible_functions_library.json'));
     var iterations = 0;
-    var maxIterations = 1000;
+    var maxIterations = 10000;
     var newRawValue, newLeaf;
     // searches a random genotype which satisfied the requirements
     do {
         // starts a new decoded genotype
         do {
             iterations++;
+            if (iterations % 100 == 0) maxAPI.post("it: " + iterations);
             initSubexpressionsArrays();
             validGenotype = true;
             var preEncGen = []; // compulsory start with a function
