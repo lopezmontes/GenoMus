@@ -1045,14 +1045,14 @@ var mAutoref = subexprIndex => autoref("mAutoref", "midipitchF", 0.431483, subex
 var aAutoref = subexprIndex => autoref("aAutoref", "articulationF", 0.667551, subexprIndex, "a(0)");
 var iAutoref = subexprIndex => autoref("iAutoref", "intensityF", 0.285585, subexprIndex, "i(0)");
 var qAutoref = subexprIndex => autoref("qAutoref", "quantizedF", 0.521653, subexprIndex, "q(0)");
-var lnAutoref = subexprIndex => autoref("lnAutoref", "lnotevalueF", 0.27051, subexprIndex, "ln(1/256)"); // could 0 duration cause troubles??
-var ldAutoref = subexprIndex => autoref("ldAutoref", "ldurationF", 0.888544, subexprIndex, "ld(0)"); // could 0 cause troubles??
-var lmAutoref = subexprIndex => autoref("lmAutoref", "lmidipitchF", 0.506578, subexprIndex, "lm(43)");
-var lfAutoref = subexprIndex => autoref("lfAutoref", "lfrequencyF", 0.506578, subexprIndex, "lf(.000001)");
-var laAutoref = subexprIndex => autoref("laAutoref", "larticulationF", 0.506578, subexprIndex, "la(0)"); // could 0 cause troubles??
-var liAutoref = subexprIndex => autoref("liAutoref", "lintensityF", 0.506578, subexprIndex, "li(0)");
-var lzAutoref = subexprIndex => autoref("lzAutoref", "lgoldenintegerF", 0.506578, subexprIndex, "lg(0)");
-var lqAutoref = subexprIndex => autoref("lqAutoref", "lquantizedF", 0.506578, subexprIndex, "lq(0)");
+var lnAutoref = subexprIndex => autoref("lnAutoref", "lnotevalueF", 0.757721, subexprIndex, "ln(1/256)"); // could 0 duration cause troubles??
+var ldAutoref = subexprIndex => autoref("ldAutoref", "ldurationF", 0.375755, subexprIndex, "ld(0)"); // could 0 cause troubles??
+var lmAutoref = subexprIndex => autoref("lmAutoref", "lmidipitchF", 0.993789, subexprIndex, "lm(43)");
+var lfAutoref = subexprIndex => autoref("lfAutoref", "lfrequencyF", 0.611823, subexprIndex, "lf(.000001)");
+var laAutoref = subexprIndex => autoref("laAutoref", "larticulationF", 0.229857, subexprIndex, "la(0)"); // could 0 cause troubles??
+var liAutoref = subexprIndex => autoref("liAutoref", "lintensityF", 0.847891, subexprIndex, "li(0)");
+var lzAutoref = subexprIndex => autoref("lzAutoref", "lgoldenintegerF", 0.465925, subexprIndex, "lg(0)");
+var lqAutoref = subexprIndex => autoref("lqAutoref", "lquantizedF", 0.083959, subexprIndex, "lq(0)");
 
 ////////// FUNCTION LIBRARIES HANDLING
 
@@ -1602,7 +1602,7 @@ var eligibleFunctions = {
 
 var testingFunctions = {
     includedFunctions: [0, 1, 2, 3, 4, 5, 7, 9, 10, 12, 17, 25, 26, 27, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 58, 63, 65,
-        66, 67, 68, 76, 98, 99, 100, 104, 109, 110, 131, 134, 135, 199, 200, 277, 279, 281, 282, 284],
+        66, 67, 68, 76, 98, 99, 100, 104, 109, 110, 131, 134, 135, 199, 200, 277, 279, 281, 282, 284, 15, 286, 17, 288],
     mandatoryFunctions: [],
     excludedFunctions: [] // 25,26,27,28,29,277,279,281,282,284]
 };
@@ -1743,7 +1743,7 @@ var createSpecimen = () => {
                             if (Math.random() < .2) extendList = false;
                         }
                     } else if (nextFunctionType == "lnotevalueLeaf") {
-                        newDecodedGenotype += n2m(newLeaf);
+                        newDecodedGenotype += p2n(newLeaf);
                         var extendList = true;
                         while (extendList) {
                             newLeaf = r6d(p2n(checkRange(normal())));

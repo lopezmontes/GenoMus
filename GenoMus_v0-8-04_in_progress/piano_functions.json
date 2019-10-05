@@ -185,7 +185,7 @@
             "functionIndex": 199,
             "functionType": "voiceF",
             "arguments": [
-                "listF",
+                "lnotevalueF",
                 "lmidipitchF",
                 "listF",
                 "listF"
@@ -200,7 +200,7 @@
             "functionIndex": 200,
             "functionType": "voiceF",
             "arguments": [
-                "listF",
+                "lnotevalueF",
                 "lmidipitchF",
                 "listF",
                 "listF"
@@ -554,6 +554,32 @@
             }
         }
     },
+    "lnotevalueF": {
+        "ln": {
+            "functionIndex": 15,
+            "functionType": "lnotevalueF",
+            "arguments": [
+                "lnotevalueLeaf"
+            ],
+            "metadata": {
+                "description": "notevalue list identity function",
+                "date": 20191005,
+                "creator": "lm"
+            }
+        },
+        "lnAutoref": {
+            "functionIndex": 286,
+            "functionType": "lnotevalueF",
+            "arguments": [
+                "goldenintegerLeaf"
+            ],
+            "metadata": {
+                "description": "points to a previous notevalue list",
+                "date": 20191005,
+                "creator": "lm"
+            }
+        }
+    },
     "midipitchF": {
         "m": {
             "functionIndex": 7,
@@ -591,6 +617,18 @@
             "metadata": {
                 "description": "midipitch list identity function",
                 "date": 20191002,
+                "creator": "lm"
+            }
+        },
+        "lmAutoref": {
+            "functionIndex": 288,
+            "functionType": "lnotevalueF",
+            "arguments": [
+                "goldenintegerLeaf"
+            ],
+            "metadata": {
+                "description": "points to a previous notevalue list",
+                "date": 20191005,
                 "creator": "lm"
             }
         }
