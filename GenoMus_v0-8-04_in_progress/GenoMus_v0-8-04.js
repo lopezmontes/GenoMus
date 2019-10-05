@@ -15,12 +15,14 @@ const seedrandom = require('seedrandom');
 
 /////////////////////
 // INITIAL CONDITIONS
-var decGenStringLengthLimit = 7000000;
+var version = "0.8.4";
+var validGenotype = true;
+var decGenStringLengthLimit = 70000000;
 var genMaxDepth = 18;
 var phenMinPolyphony = 1;
 var phenMaxPolyphony = 30;
-var phenMinLength = 5;
-var phenMaxLength = 10000;
+var phenMinLength = 500;
+var phenMaxLength = 2000;
 var leaves = []; // stores all numeric parameters
 var encodedLeaves = [];
 var newFunctionThreshold = .6; // [0-1] Higher is less likely to ramificate too much
@@ -574,7 +576,12 @@ var e4Pitches = (notevalue, midiPitch1, midiPitch2, midiPitch3, midiPitch4, arti
 // repeats an event a number of times between 2 and 12 (eventP, paramP)
 var vRepeatE = (event, times) => {
     var numRepeats = adjustRange(Math.abs(p2q(adjustRange(times.encPhen[0], q2p(-12), q2p(12)))), 2, 12); // number of times rescaled to range [2, 12], mapped according to the deviation from the center value 0.5
-    if (numRepeats > phenMaxLength) return -1;
+    //////////// if (numRepeats > phenMaxLength) return -1;
+    if (numRepeats > phenMaxLength) {
+        validGenotype = false;
+        console.log("Aborted genotype due to exceeding the max length");
+        return v(e(p(0),m(43),p(0),p(0)));
+    }
     return indexExprReturnSpecimen({
         funcType: "voiceF",
         encGen: flattenDeep([1, 0.429563, event.encGen, times.encGen, 0]),
@@ -887,7 +894,12 @@ var lIterL = (list, times) => {
 // repeats and concatenates as a voice re-evaluations of an event function (2 to 36 repeats) 
 var vIterE = (event, times) => {
     var numIterations = adjustRange(Math.abs(p2q(times.encPhen[0])), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5 using the quantizedF map
-    if (numIterations > phenMaxLength) return -1;
+    ///////////// if (numIterations > phenMaxLength) return -1;
+    if (numIterations > phenMaxLength) {
+        validGenotype = false;
+        console.log("Aborted genotype due to exceeding the max length");
+        return v(e(p(0),m(43),p(0),p(0)));
+    }
     return indexExprReturnSpecimen({
         funcType: "voiceF",
         encGen: flattenDeep([1, 0.867258, event.encGen, times.encGen, 0]),
@@ -908,7 +920,12 @@ var vMotif = (listNotevalues, listPitches, listArticulations, listIntensities) =
         listPitches.encPhen.length,
         listArticulations.encPhen.length,
         listIntensities.encPhen.length);
-    if (seqLength > phenMaxLength) return -1;
+    /////////// if (seqLength > phenMaxLength) return -1;
+    if (seqLength > phenMaxLength) {
+        validGenotype = false;
+        console.log("Aborted genotype due to exceeding the max length");
+        return v(e(p(0),m(43),p(0),p(0)));
+    }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
         eventsSeq.push(listNotevalues.encPhen[ev]);
@@ -941,7 +958,12 @@ var vMotifLoop = (listNotevalues, listPitches, listArticulations, listIntensitie
     var totalArticulations = listArticulations.encPhen.length;
     var totalIntensities = listIntensities.encPhen.length;
     var seqLength = Math.max(totalNotevalues, totalPitches, totalArticulations, totalIntensities);
-    if (seqLength > phenMaxLength) return -1;
+    //////////// if (seqLength > phenMaxLength) return -1;
+    if (seqLength > phenMaxLength) {
+        validGenotype = false;
+        console.log("Aborted genotype due to exceeding the max length");
+        return v(e(p(0),m(43),p(0),p(0)));
+    }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
         eventsSeq.push(listNotevalues.encPhen[ev % totalNotevalues]);
@@ -984,22 +1006,25 @@ var vABAv = (v1, v2) => indexExprReturnSpecimen({
 });
 
 // A-B-C-A-B structure of voices
-var vABCABv = (v1, v2, v3) => indexExprReturnSpecimen({
-    funcType: "voiceF",
-    encGen: flattenDeep([1, 0.936141, v1.encGen, v2.encGen, v3.encGen, 0]),
-    decGen: "vABCABv(" + v1.decGen + "," + v2.decGen + "," + v3.decGen + ")",
-    encPhen: [z2p(p2z(v1.encPhen[0]) * 2 + p2z(v2.encPhen[0]) * 2 + p2z(v3.encPhen[0]))]
-        .concat((v1.encPhen).slice(1))
-        .concat((v2.encPhen).slice(1))
-        .concat((v3.encPhen).slice(1))
-        .concat((v1.encPhen).slice(1))
-        .concat((v2.encPhen).slice(1)),
-    phenLength: v1.phenLength * 2 + v2.phenLength * 2 + v3.phenLength,
-    tempo: v1.tempo,
-    rhythm: v1.rhythm,
-    harmony: v1.harmony,
-    analysis: v1.analysis,
-});
+var vABCABv = (v1, v2, v3) => {
+    // console.log("elementos conflictos: " + v1.encPhen + " Seg: " + v2.encPhen + " Ter: " + v3.encPhen)
+    return indexExprReturnSpecimen({
+        funcType: "voiceF",
+        encGen: flattenDeep([1, 0.936141, v1.encGen, v2.encGen, v3.encGen, 0]),
+        decGen: "vABCABv(" + v1.decGen + "," + v2.decGen + "," + v3.decGen + ")",
+        encPhen: [z2p(p2z(v1.encPhen[0]) * 2 + p2z(v2.encPhen[0]) * 2 + p2z(v3.encPhen[0]))]
+            .concat((v1.encPhen).slice(1))
+            .concat((v2.encPhen).slice(1))
+            .concat((v3.encPhen).slice(1))
+            .concat((v1.encPhen).slice(1))
+            .concat((v2.encPhen).slice(1)),
+        phenLength: v1.phenLength * 2 + v2.phenLength * 2 + v3.phenLength,
+        tempo: v1.tempo,
+        rhythm: v1.rhythm,
+        harmony: v1.harmony,
+        analysis: v1.analysis,
+    });
+};
 
 // autoreferences framework for different functionTypes
 var autoref = (funcName, funcType, encodedFunctionIndex, subexprIndex, silentElement) => {
@@ -1525,7 +1550,8 @@ var specimenDataStructure = (specimen) => ({
         iterations: specimen.metadata.iterations,
         milliseconsElapsed: specimen.metadata.milliseconsElapsed,      
         voices: specimen.phenVoices,
-        events: specimen.phenLength
+        events: specimen.phenLength,
+        genotypeLength: specimen.metadata.genotypeLength
     },
     encodedGenotype: specimen.encGen,
     decodedGenotype: specimen.decGen,
@@ -1577,7 +1603,7 @@ var testingFunctions = {
     includedFunctions: [0,1,2,3,4,5,7,9,10,12,17,25,26,27,28,29,35,36,37,41,42,43,44,46,58,63,65,
         66,67,68,76,98,99,100,104,109,110,131,134,135,199,200,277,279,281,282,284],
     mandatoryFunctions: [],
-    excludedFunctions: []
+    excludedFunctions: [] // 25,26,27,28,29,277,279,281,282,284]
 };
 
 // generates the catalogues of elegible functions to be used for genotype generation
@@ -1605,6 +1631,7 @@ var createSpecimen = () => {
         do {
             iterations++;
             initSubexpressionsArrays();
+            validGenotype = true;
             var preEncGen = []; // compulsory start with a function
             // stores number of levels to be filled
             var notFilledParameters = [];
@@ -1762,7 +1789,8 @@ var createSpecimen = () => {
                         .arguments.length - notFilledParameters[notFilledParameters.length - 1]];
             } while (
                 notFilledParameters[0] > 0 &&
-             //   notFilledParameters.length < genMaxDepth &&
+                validGenotype == true &&
+                notFilledParameters.length < genMaxDepth &&
                 newDecodedGenotype.length < decGenStringLengthLimit);
         } while (notFilledParameters[0] != -1);
         
@@ -1827,7 +1855,8 @@ var createSpecimen = () => {
     // console.log("time ellapsed: " + Math.abs(stopdate-startdate) + " ms");
     newSpecimen.metadata = {
         iterations: iterations,
-        milliseconsElapsed: Math.abs(stopdate - startdate)
+        milliseconsElapsed: Math.abs(stopdate - startdate),
+        genotypeLength: newDecodedGenotype.length
     };
 
 
@@ -1919,7 +1948,11 @@ maxAPI.addHandlers({
 });
 
 var testCreation = () => {
-    while (true) { console.log( createSpecimen() )};
+    while (true) { 
+        var newExample = createSpecimen();
+        console.log( newExample.decGen );
+        console.log( newExample.metadata );
+    };
 };
 
 //////// TESTING
