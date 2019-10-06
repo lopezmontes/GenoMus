@@ -1032,7 +1032,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `vInterval`             | 198 <sub>not yet implemented</sub> | repeats previous note changing pitch according to an interval
 | `vMotif`                | 199 <sub>.988764 in progress</sub> | creates a sequence of events based on lists
 | `vMotifLoop`            | 200 <sub>.606798 in progress</sub> | creates a sequence of events based on repeating lists
-| `vPerpetuumMobile`      | 201 <sub>not yet implemented</sub> | creates a sequence of events based on repeating lists but with a single notevalue
+| `vPerpetuumMobile`      | 201 <sub>.606798 in progress</sub> | creates a sequence of events based on repeating lists but with a single notevalue
 | `vPerpetuumMobileLoop`  | 202 <sub>not yet implemented</sub> | creates a sequence of events based on lists but with a single notevalue
 | `vAcciaccatura`         | 203 <sub>not yet implemented</sub> | adds an acciaccatura to an event
 | `vAppoggiatura`         | 204 <sub>not yet implemented</sub> | adds an appoggiatura to an event
@@ -1199,9 +1199,17 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## Aleatoric processes
 | name               | index                              | description
 | ------------------ | ---------------------------------- | -----------
-| `pRnd`             | 131 <sub>.962453 in progress</sub> | returns a random normalized parameter with uniform distribution
-| `pGaussRnd`        | 132 <sub>.580487 in progress</sub> | returns a random normalized parameter with Gaussian (or normal) distribution
+| `pRnd`             | 131 <sub>.962453 in progress</sub> | returns a random normalized parameter with Gaussian (or normal) distribution
+| `pUniformRnd`      | 132 <sub>.580487 in progress</sub> | returns a random normalized parameter with uniform distribution
 | `pWrappedGaussRnd` | 133 <sub>not yet implemented</sub> | returns a random normalized parameter with a wrapped normal distribution
+| `nRnd`             | 310 <sub>.590537 in progress</sub> | returns a random notevalue with with Gaussian (or normal) distribution
+| `dRnd`             | 311 <sub>.208571 in progress</sub> | returns a random duration with with Gaussian (or normal) distribution
+| `mRnd`             | 312 <sub>.826604 in progress</sub> | returns a random midipitch with with Gaussian (or normal) distribution
+| `fRnd`             | 313 <sub>.444638 in progress</sub> | returns a random frequency with with Gaussian (or normal) distribution
+| `aRnd`             | 314 <sub>.062672 in progress</sub> | returns a random articulation with with Gaussian (or normal) distribution
+| `iRnd`             | 315 <sub>.680706 in progress</sub> | returns a random intensity with with Gaussian (or normal) distribution
+| `zRnd`             | 316 <sub>.29874 in progress</sub> | returns a random goldeninteger with with Gaussian (or normal) distribution
+| `qRnd`             | 317 <sub>.916774 in progress</sub> | returns a random quantized parameter with with Gaussian (or normal) distribution
 | `lRnd`             | 134 <sub>.816554 in progress</sub> | returns a complete random list with uniform distribution of values
 | `lGaussRnd`        | 135 <sub>.434588 in progress</sub> | returns a complete random list with with Gaussian distribution of parameters
 | `lWrappedGaussRnd` | 136 <sub>not yet implemented</sub> | returns a complete random list with a wrapped normal distribution of values
@@ -1259,7 +1267,15 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `lOscil`                  | 81 <sub>not yet implemented</sub>      | generates a periodic sinusoidal oscillation between two values
 | `lPhasor`                 | 82 <sub>not yet implemented</sub>      | generates periodic straight transitions from first value to second one
 | `lTriangular`             | 83 <sub>not yet implemented</sub>      | generates periodic straight transitions from first value to second one and vice versa
-| `lRemap  `                | 84 <sub>not yet implemented</sub>      | remaps a list to a new range  
+| `lRemap`                  | 84 <sub>.914855 in progress</sub>      | remaps a list to a new range  
+| `lnRemap  `               | 302 <sub>.646265 in progress</sub>     | remaps a notevalue list to a new range  
+| `ldRemap  `               | 303 <sub>.264299 in progress</sub>     | remaps a duration list to a new range  
+| `lmRemap  `               | 304 <sub>.882333 in progress</sub>     | remaps a midipitch list to a new range  
+| `lfRemap  `               | 305 <sub>.500367 in progress</sub>     | remaps a frequency list to a new range  
+| `laRemap  `               | 306 <sub>.118401 in progress</sub>     | remaps an articulation list to a new range  
+| `liRemap  `               | 307 <sub>.736435 in progress</sub>     | remaps an intensity list to a new range  
+| `lzRemap  `               | 308 <sub>.354469 in progress</sub>     | remaps a goldeninteger list to a new range  
+| `lqRemap  `               | 309 <sub>.972503 in progress</sub>     | remaps a quantized list to a new range  
 | `lSmooth`                 | 85 <sub>not yet implemented</sub>      | smooths distances between contiguous items in a list according to a factor
 | `lRough`                  | 86 <sub>not yet implemented</sub>      | sharpens distances between contiguous items in a list according to a factor
 | `lInvert`                 | 87 <sub>not yet implemented</sub>      | inverts values of a list

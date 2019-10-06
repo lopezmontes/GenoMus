@@ -223,6 +223,36 @@
                 "date": 20190920,
                 "creator": "lm"
             }
+        },
+        "vPerpetuumMobile": {
+            "functionIndex": 201,
+            "functionType": "voiceF",
+            "arguments": [
+                "notevalueF",
+                "lmidipitchF",
+                "larticulationF",
+                "lintensityF"
+            ],
+            "metadata": {
+                "description": "creates a sequence of events based on repeating lists but with a single notevalue",
+                "date": 20191007,
+                "creator": "lm"
+            }
+        },
+        "vPerpetuumMobileLoop": {
+            "functionIndex": 202,
+            "functionType": "voiceF",
+            "arguments": [
+                "notevalueF",
+                "lmidipitchF",
+                "larticulationF",
+                "lintensityF"
+            ],
+            "metadata": {
+                "description": "creates a sequence of events based on repeating lists but with a single notevalue",
+                "date": 20191007,
+                "creator": "lm"
+            }
         }
     },
     "eventF": {
@@ -503,6 +533,20 @@
                 "date": 20190906,
                 "creator": "lm"
             }
+        },
+        "lRemap": {
+            "functionIndex": 84,
+            "functionType": "listF",
+            "arguments": [
+                "listF",
+                "paramF",
+                "paramF"
+            ],
+            "description": "remaps a list to a new range",
+            "metadata": {
+                "date": 20191007,
+                "creator": "lm"
+            }
         }
     },
     "paramF": {
@@ -579,6 +623,18 @@
                 "date": 20190922,
                 "creator": "lm"
             }
+        },
+        "nRnd": {
+            "functionIndex": 310,
+            "functionType": "notevalueF",
+            "arguments": [
+                "voidLeaf"
+            ],
+            "metadata": {
+                "description": "returns a random notevalue with with Gaussian (or normal) distribution",
+                "date": 20191007,
+                "creator": "lm"
+            }
         }
     },
     "lnotevalueF": {
@@ -619,6 +675,20 @@
                 "date": 20191006,
                 "creator": "lm"
             }
+        },
+        "lnRemap": {
+            "functionIndex": 302,
+            "functionType": "lnotevalueF",
+            "arguments": [
+                "lnotevalueF",
+                "notevalueF",
+                "notevalueF"
+            ],
+            "description": "remaps a notevalue list to a new range",
+            "metadata": {
+                "date": 20191007,
+                "creator": "lm"
+            }
         }
     },
     "midipitchF": {
@@ -644,6 +714,18 @@
             "metadata": {
                 "description": "points to a previous midipitch parameter",
                 "date": 20190922,
+                "creator": "lm"
+            }
+        },
+        "mRnd": {
+            "functionIndex": 312,
+            "functionType": "midipitchF",
+            "arguments": [
+                "voidLeaf"
+            ],
+            "metadata": {
+                "description": "returns a random midipitch with with Gaussian (or normal) distribution",
+                "date": 20191007,
                 "creator": "lm"
             }
         }
@@ -686,6 +768,20 @@
                 "date": 20191006,
                 "creator": "lm"
             }
+        },
+        "lmRemap": {
+            "functionIndex": 304,
+            "functionType": "lmidipitchF",
+            "arguments": [
+                "lmidipitchF",
+                "midipitchF",
+                "midipitchF"
+            ],
+            "description": "remaps a midipitch list to a new range",
+            "metadata": {
+                "date": 20191007,
+                "creator": "lm"
+            }
         }
     },
     "articulationF": {
@@ -711,6 +807,18 @@
             "metadata": {
                 "description": "points to a previous articulation parameter",
                 "date": 20190922,
+                "creator": "lm"
+            }
+        },
+        "aRnd": {
+            "functionIndex": 314,
+            "functionType": "articulationF",
+            "arguments": [
+                "voidLeaf"
+            ],
+            "metadata": {
+                "description": "returns a random articulation with with Gaussian (or normal) distribution",
+                "date": 20191007,
                 "creator": "lm"
             }
         }
@@ -753,6 +861,20 @@
                 "date": 20191006,
                 "creator": "lm"
             }
+        },
+        "laRemap": {
+            "functionIndex": 306,
+            "functionType": "larticulationF",
+            "arguments": [
+                "larticulationF",
+                "articulationF",
+                "articulationF"
+            ],
+            "description": "remaps an articulation list to a new range",
+            "metadata": {
+                "date": 20191007,
+                "creator": "lm"
+            }
         }
     },   
     "intensityF": {
@@ -778,6 +900,18 @@
             "metadata": {
                 "description": "points to a previous intensity parameter",
                 "date": 20190922,
+                "creator": "lm"
+            }
+        },
+        "iRnd": {
+            "functionIndex": 315,
+            "functionType": "intensityF",
+            "arguments": [
+                "voidLeaf"
+            ],
+            "metadata": {
+                "description": "returns a random intensity with with Gaussian (or normal) distribution",
+                "date": 20191007,
                 "creator": "lm"
             }
         }
@@ -820,6 +954,20 @@
                 "date": 20191006,
                 "creator": "lm"
             }
+        },
+        "liRemap": {
+            "functionIndex": 307,
+            "functionType": "lintensityF",
+            "arguments": [
+                "lintensityF",
+                "intensityF",
+                "intensityF"
+            ],
+            "description": "remaps an intensity list to a new range",
+            "metadata": {
+                "date": 20191007,
+                "creator": "lm"
+            }
         }
     },
     "goldenintegerF": {
@@ -835,6 +983,18 @@
                 "creator": "lm"
             },
             "leafIdentifier": 0.57
+        },
+        "zRnd": {
+            "functionIndex": 316,
+            "functionType": "goldenintegerF",
+            "arguments": [
+                "voidLeaf"
+            ],
+            "metadata": {
+                "description": "returns a random golden integer with with Gaussian (or normal) distribution",
+                "date": 20191007,
+                "creator": "lm"
+            }
         }
     }, 
     "quantizedF": {
@@ -860,6 +1020,18 @@
             "metadata": {
                 "description": "points to a previous quantized parameter",
                 "date": 20190922,
+                "creator": "lm"
+            }
+        },
+        "qRnd": {
+            "functionIndex": 317,
+            "functionType": "quantizedF",
+            "arguments": [
+                "voidLeaf"
+            ],
+            "metadata": {
+                "description": "returns a random quantized parameter with with Gaussian (or normal) distribution",
+                "date": 20191007,
                 "creator": "lm"
             }
         }

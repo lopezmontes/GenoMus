@@ -349,13 +349,30 @@ var p = x => indexExprReturnSpecimen({
     encPhen: [x]
 });
 
-// returns a random normalized parameter with normal distribution
+/* // returns a random normalized parameter with normal distribution
 var pRnd = () => indexExprReturnSpecimen({
     funcType: "paramF",
     encGen: [1, 0.962453, 0],
     decGen: "pRnd()",
     encPhen: [gaussRnd()]
+}); */
+
+// returns a random normalized notevalue with normal distribution
+var rndFramework = (fName, fTyp, fIndex) => indexExprReturnSpecimen({
+    funcType: fTyp,
+    encGen: [1, fIndex, 0],
+    decGen: fName + "()",
+    encPhen: [gaussRnd()]
 });
+var pRnd = () => rndFramework("pRnd", "paramF", .962453);
+var nRnd = () => rndFramework("nRnd", "notevalueF", .590537);
+var dRnd = () => rndFramework("dRnd", "durationF", .208571);
+var mRnd = () => rndFramework("mRnd", "midipitchF", .826604);
+var fRnd = () => rndFramework("fRnd", "frequencyF", .444638);
+var aRnd = () => rndFramework("aRnd", "articulationF", .062672);
+var iRnd = () => rndFramework("iRnd", "intensityF", .680706);
+var zRnd = () => rndFramework("zRnd", "goldenintegerF", .29874);
+var qRnd = () => rndFramework("qRnd", "quantizedF", .916774);
 
 // returns a random normalized parameter with uniform distribution
 var pUniformRnd = () => indexExprReturnSpecimen({
@@ -372,6 +389,7 @@ var n = x => indexExprReturnSpecimen({
     decGen: "n(" + x + ")",
     encPhen: [notevalue2norm(x)]
 });
+
 
 // midipitch identity function
 var m = x => indexExprReturnSpecimen({
@@ -1036,6 +1054,80 @@ var vMotifLoop = (listNotevalues, listPitches, listArticulations, listIntensitie
     });
 };
 
+// creates a sequence of events based on repeating lists but with a single notevalue (shortest list determines number of events)
+var vPerpetuumMobile = (noteval, listPitches, listArticulations, listIntensities) => {
+    var seqLength = Math.min(
+        listPitches.encPhen.length,
+        listArticulations.encPhen.length,
+        listIntensities.encPhen.length);
+    /////////// if (seqLength > phenMaxLength) return -1;
+    if (seqLength > phenMaxLength) {
+        validGenotype = false;
+        console.log("Aborted genotype due to exceeding the max length");
+        return v(e(p(0), m(43), p(0), p(0)));
+    }
+    var eventsSeq = [z2p(seqLength)];
+    for (var ev = 0; ev < seqLength; ev++) {
+        eventsSeq.push(noteval.encPhen[0]);
+        eventsSeq.push(0.618034);
+        eventsSeq.push(listPitches.encPhen[ev]);
+        eventsSeq.push(listArticulations.encPhen[ev]);
+        eventsSeq.push(listIntensities.encPhen[ev]);
+    }
+    return indexExprReturnSpecimen({
+        funcType: "voiceF",
+        encGen: flattenDeep([1, 0.224832,
+            noteval.encGen,
+            listPitches.encGen,
+            listArticulations.encGen,
+            listIntensities.encGen, 0]),
+        decGen: "vPerpetuumMobile(" +
+            noteval.decGen + "," +
+            listPitches.decGen + "," +
+            listArticulations.decGen + "," +
+            listIntensities.decGen + ")",
+        encPhen: eventsSeq,
+        phenLength: seqLength,
+    });
+};
+
+// creates a voice based on lists without loops (largest list determines number of events)
+var vPerpetuumMobileLoop = (noteval, listPitches, listArticulations, listIntensities) => {
+    var totalPitches = listPitches.encPhen.length;
+    var totalArticulations = listArticulations.encPhen.length;
+    var totalIntensities = listIntensities.encPhen.length;
+    var seqLength = Math.max(totalPitches, totalArticulations, totalIntensities);
+    //////////// if (seqLength > phenMaxLength) return -1;
+    if (seqLength > phenMaxLength) {
+        validGenotype = false;
+        console.log("Aborted genotype due to exceeding the max length");
+        return v(e(p(0), m(43), p(0), p(0)));
+    }
+    var eventsSeq = [z2p(seqLength)];
+    for (var ev = 0; ev < seqLength; ev++) {
+        eventsSeq.push(noteval.encPhen[0]);
+        eventsSeq.push(0.618034);
+        eventsSeq.push(listPitches.encPhen[ev % totalPitches]);
+        eventsSeq.push(listArticulations.encPhen[ev % totalArticulations]);
+        eventsSeq.push(listIntensities.encPhen[ev % totalIntensities]);
+    }
+    return indexExprReturnSpecimen({
+        funcType: "voiceF",
+        encGen: flattenDeep([1, 0.842866,
+            noteval.encGen,
+            listPitches.encGen,
+            listArticulations.encGen,
+            listIntensities.encGen, 0]),
+        decGen: "vPerpetuumMobileLoop(" +
+            noteval.decGen + "," +
+            listPitches.decGen + "," +
+            listArticulations.decGen + "," +
+            listIntensities.decGen + ")",
+        encPhen: eventsSeq,
+        phenLength: seqLength,
+    });
+};
+
 // repeats a voice a number of times
 var vRepeatV = (voice, times) => {
     var repeats = adjustRange(Math.abs(p2q(times.encPhen)), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5
@@ -1688,9 +1780,10 @@ var eligibleFunctions = {
 var testingFunctions = {
     includedFunctions: [0, 1, 2, 3, 4, 5, 7, 9, 10, 12, 17, 25, 26, 27, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 58, 63, 65,
         66, 67, 68, 76, 98, 99, 100, 104, 109, 110, 131, 134, 135, 199, 200, 277, 279, 281, 282, 284, 15, 286, 17, 288,
-        19, 290, 20, 291, 48, 77, 294, 296, 298, 299, 11],
+        19, 290, 20, 291, 48, 77, 294, 296, 298, 299, 11, 84, 302, 304, 306, 307,
+        310, 312, 314, 315, 316, 317, 201, 202],
     mandatoryFunctions: [],
-    excludedFunctions: [] // 25,26,27,28,29,277,279,281,282,284]
+    excludedFunctions: [281, 282] // 25,26,27,28,29,277,279,281,282,284]
 };
 
 // generates the catalogues of elegible functions to be used for genotype generation
