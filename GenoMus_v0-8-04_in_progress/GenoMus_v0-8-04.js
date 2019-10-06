@@ -898,7 +898,7 @@ var lIterL = (list, times) => {
 };
 
 // repeats and concatenates as a list re-evaluations of a parameter function (2 to 36 repeats)
-var lineFramework = (fName, fTyp, fIndex, param1, param2, steps) => {
+var lLineFramework = (fName, fTyp, fIndex, param1, param2, steps) => {
 //  var totalSteps = adjustRange(Math.abs(p2q(steps.encPhen[0])), 3, 36); // number of steps rescaled to range [3, 36], mapped according to the deviation from the center value 0.5 using the quantizedF map
     var totalSteps = (p2z(steps.encPhen[0]) % 47) + 3; // number of steps rescaled to range [3, 50]
     var line = param1.encPhen;  
@@ -911,25 +911,32 @@ var lineFramework = (fName, fTyp, fIndex, param1, param2, steps) => {
         encPhen: line
     });
 };
-var lLine = (param1, param2, steps) => lineFramework ("lLine", "listF", .588617, param1, param2, steps);
-var lnLine = (param1, param2, steps) => lineFramework ("lnLine", "lnotevalueF", .701993, param1, param2, steps);
-var ldLine = (param1, param2, steps) => lineFramework ("ldLine", "ldurationF", .320027, param1, param2, steps);
-var lmLine = (param1, param2, steps) => lineFramework ("lmLine", "lmidipitchF", .938061, param1, param2, steps);
-var lfLine = (param1, param2, steps) => lineFramework ("lfLine", "lfrequencyF", .556095, param1, param2, steps);
-var laLine = (param1, param2, steps) => lineFramework ("laLine", "larticulationF", .174129, param1, param2, steps);
-var liLine = (param1, param2, steps) => lineFramework ("liLine", "lintensityF", .792163, param1, param2, steps);
-var lzLine = (param1, param2, steps) => lineFramework ("lzLine", "lgoldenintegerF", .410197, param1, param2, steps);
-var lqLine = (param1, param2, steps) => lineFramework ("lqLine", "lquantizedF", .028231, param1, param2, steps);
+var lLine = (param1, param2, steps) => lLineFramework ("lLine", "listF", .588617, param1, param2, steps);
+var lnLine = (param1, param2, steps) => lLineFramework ("lnLine", "lnotevalueF", .701993, param1, param2, steps);
+var ldLine = (param1, param2, steps) => lLineFramework ("ldLine", "ldurationF", .320027, param1, param2, steps);
+var lmLine = (param1, param2, steps) => lLineFramework ("lmLine", "lmidipitchF", .938061, param1, param2, steps);
+var lfLine = (param1, param2, steps) => lLineFramework ("lfLine", "lfrequencyF", .556095, param1, param2, steps);
+var laLine = (param1, param2, steps) => lLineFramework ("laLine", "larticulationF", .174129, param1, param2, steps);
+var liLine = (param1, param2, steps) => lLineFramework ("liLine", "lintensityF", .792163, param1, param2, steps);
+var lzLine = (param1, param2, steps) => lLineFramework ("lzLine", "lgoldenintegerF", .410197, param1, param2, steps);
+var lqLine = (param1, param2, steps) => lLineFramework ("lqLine", "lquantizedF", .028231, param1, param2, steps);
 
-var lRemap = (fName, fTyp, fIndex, list, newMin, newMax) => {
-    var 
-    return indexExprReturnSpecimen({
-        funcType: fTyp,
-        encGen: flattenDeep([1, fIndex, list.encGen, newMin.encGen, newMax.encGen, 0]),
-        decGen: fName + "(" + list.decGen + ","  + newMin.decGen + "," + newMax.decGen + ")",
-        encPhen: line
-    });
-};
+var lRemapFramework = (fName, fTyp, fIndex, list, newMin, newMax) => indexExprReturnSpecimen({
+    funcType: fTyp,
+    encGen: flattenDeep([1, fIndex, list.encGen, newMin.encGen, newMax.encGen, 0]),
+    decGen: fName + "(" + list.decGen + ","  + newMin.decGen + "," + newMax.decGen + ")",
+    encPhen: remapArray(list.encPhen, newMin.encPhen[0], newMax.encPhen[0])
+});
+var lRemap = (list, newMin, newMax) => lRemapFramework ("lRemap", "listF", .914855, list, newMin, newMax);
+var lnRemap = (list, newMin, newMax) => lRemapFramework ("lnRemap", "lnotevalueF", .646265, list, newMin, newMax);
+var ldRemap = (list, newMin, newMax) => lRemapFramework ("ldRemap", "ldurationF", .264299, list, newMin, newMax);
+var lmRemap = (list, newMin, newMax) => lRemapFramework ("lmRemap", "lmidipitchF", .882333, list, newMin, newMax);
+var lfRemap = (list, newMin, newMax) => lRemapFramework ("lfRemap", "lfrequencyF", .500367, list, newMin, newMax);
+var laRemap = (list, newMin, newMax) => lRemapFramework ("laRemap", "larticulationF", .118401, list, newMin, newMax);
+var liRemap = (list, newMin, newMax) => lRemapFramework ("liRemap", "lintensityF", .736435, list, newMin, newMax);
+var lzRemap = (list, newMin, newMax) => lRemapFramework ("lzRemap", "lgoldenintegerF", .354469, list, newMin, newMax);
+var lqRemap = (list, newMin, newMax) => lRemapFramework ("lqRemap", "lquantizedF", .972503, list, newMin, newMax);
+
 
 // repeats and concatenates as a voice re-evaluations of an event function (2 to 36 repeats) 
 var vIterE = (event, times) => {
