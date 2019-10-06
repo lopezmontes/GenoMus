@@ -154,6 +154,19 @@
                 "creator": "lm"
             }
         },
+        "vRepeatV": {
+            "functionIndex": 48,
+            "functionType": "voiceF",
+            "arguments": [
+                "voiceF",
+                "paramF"
+            ],
+            "metadata": {
+                "description": "repeats a voice a number of times",
+                "date": 20191006,
+                "creator": "lm"
+            }
+        },
         "vABAv": {
             "functionIndex": 58,
             "functionType": "voiceF",
@@ -451,6 +464,20 @@
                 "creator": "lm"
             }
         },
+        "lLine": {
+            "functionIndex": 77,
+            "functionType": "listF",
+            "arguments": [
+                "paramF",
+                "paramF",
+                "paramF"
+            ],
+            "description": "generates a straight progression between two values",
+            "metadata": {
+                "date": 20191006,
+                "creator": "lm"
+            }
+        },
         "lRnd": {
             "functionIndex": 134,
             "functionType": "listF",
@@ -578,6 +605,20 @@
                 "date": 20191005,
                 "creator": "lm"
             }
+        },
+        "lnLine": {
+            "functionIndex": 294,
+            "functionType": "lnotevalueF",
+            "arguments": [
+                "notevalueF",
+                "notevalueF",
+                "goldenintegerF"
+            ],
+            "description": "generates a straight progression between two notevalue values",
+            "metadata": {
+                "date": 20191006,
+                "creator": "lm"
+            }
         }
     },
     "midipitchF": {
@@ -629,6 +670,20 @@
             "metadata": {
                 "description": "points to a previous notevalue list",
                 "date": 20191005,
+                "creator": "lm"
+            }
+        },
+        "lmLine": {
+            "functionIndex": 296,
+            "functionType": "lmidipitchF",
+            "arguments": [
+                "midipitchF",
+                "midipitchF",
+                "goldenintegerF"
+            ],
+            "description": "generates a straight progression between two midipitch values",
+            "metadata": {
+                "date": 20191006,
                 "creator": "lm"
             }
         }
@@ -684,8 +739,22 @@
                 "date": 20191005,
                 "creator": "lm"
             }
+        },
+        "laLine": {
+            "functionIndex": 298,
+            "functionType": "larticulationF",
+            "arguments": [
+                "articulationF",
+                "articulationF",
+                "goldenintegerF"
+            ],
+            "description": "generates a straight progression between two articulation values",
+            "metadata": {
+                "date": 20191006,
+                "creator": "lm"
+            }
         }
-    },
+    },   
     "intensityF": {
         "i": {
             "functionIndex": 10,
@@ -737,8 +806,37 @@
                 "date": 20191005,
                 "creator": "lm"
             }
+        },
+        "liLine": {
+            "functionIndex": 299,
+            "functionType": "lintensityF",
+            "arguments": [
+                "intensityF",
+                "intensityF",
+                "goldenintegerF"
+            ],
+            "description": "generates a straight progression between two intensity values",
+            "metadata": {
+                "date": 20191006,
+                "creator": "lm"
+            }
         }
     },
+    "goldenintegerF": {
+        "z": {
+            "functionIndex": 11,
+            "functionType": "goldenintegerF",
+            "arguments": [
+                "goldenintegerLeaf"
+            ],
+            "metadata": {
+                "description": "golden integer parameter identity function",
+                "date": 20191006,
+                "creator": "lm"
+            },
+            "leafIdentifier": 0.57
+        }
+    }, 
     "quantizedF": {
         "q": {
             "functionIndex": 12,

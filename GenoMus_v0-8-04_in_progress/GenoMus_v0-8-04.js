@@ -99,9 +99,9 @@ var norm2articulation = p => r6d(3 * Math.pow(p, Math.E));
 var p2a = norm2articulation;
 var articulation2norm = a => r6d(Math.pow((a / 3), (1 / Math.E)));
 var a2p = articulation2norm;
-var norm2intensity = p => Math.round(127 * p);
+var norm2intensity = p => Math.round(100 * p + 27);
 var p2i = norm2intensity;
-var intensity2norm = i => r6d(i / 127);
+var intensity2norm = i => { if (i < 27) {return 0;} else {return r6d((i - 27) / 100)}};
 var i2p = intensity2norm;
 var norm2quantized = p => {
     if (p > 1) { p = 1 };
@@ -386,9 +386,17 @@ var i = x => indexExprReturnSpecimen({
     encPhen: [intensity2norm(x)]
 });
 
-// intensity identity function
+// quantized identity function
+var z = x => indexExprReturnSpecimen({
+    funcType: "goldenintegerF",
+    encGen: [1, .798374, 0.57, goldeninteger2norm(x), 0],
+    decGen: "z(" + x + ")",
+    encPhen: [goldeninteger2norm(x)]
+});
+
+// quantized identity function
 var q = x => indexExprReturnSpecimen({
-    funcType: "intensityF",
+    funcType: "quantizedF",
     encGen: [1, 0.416408, 0.58, quantized2norm(x), 0],
     decGen: "q(" + x + ")",
     encPhen: [quantized2norm(x)]
@@ -878,6 +886,30 @@ var lIterL = (list, times) => {
     });
 };
 
+// repeats and concatenates as a list re-evaluations of a parameter function (2 to 36 repeats)
+var lineFramework = (fName, fTyp, fIndex, param1, param2, steps) => {
+//  var totalSteps = adjustRange(Math.abs(p2q(steps.encPhen[0])), 3, 36); // number of steps rescaled to range [3, 36], mapped according to the deviation from the center value 0.5 using the quantizedF map
+    var totalSteps = (p2z(steps.encPhen[0]) % 47) + 3; // number of steps rescaled to range [3, 50]
+    var line = param1.encPhen;  
+    var offset = (param2.encPhen - param1.encPhen) / (totalSteps - 1);
+    for (el = 0; el < totalSteps - 1; el++) line[el + 1] = r6d(line[0] + offset * (el + 1));
+    return indexExprReturnSpecimen({
+        funcType: fTyp,
+        encGen: flattenDeep([1, fIndex, param1.encGen, param1.encGen, steps.encGen, 0]),
+        decGen: fName + "(" + param1.decGen + ","  + param2.decGen + ", z(" + totalSteps + "))",
+        encPhen: line
+    });
+};
+var lLine = (param1, param2, steps) => lineFramework ("lLine", "listF", .588617, param1, param2, steps);
+var lnLine = (param1, param2, steps) => lineFramework ("lnLine", "lnotevalueF", .701993, param1, param2, steps);
+var ldLine = (param1, param2, steps) => lineFramework ("ldLine", "ldurationF", .320027, param1, param2, steps);
+var lmLine = (param1, param2, steps) => lineFramework ("lmLine", "lmidipitchF", .938061, param1, param2, steps);
+var lfLine = (param1, param2, steps) => lineFramework ("lfLine", "lfrequencyF", .556095, param1, param2, steps);
+var laLine = (param1, param2, steps) => lineFramework ("laLine", "larticulationF", .174129, param1, param2, steps);
+var liLine = (param1, param2, steps) => lineFramework ("liLine", "lintensityF", .792163, param1, param2, steps);
+var lzLine = (param1, param2, steps) => lineFramework ("lzLine", "lgoldenintegerF", .410197, param1, param2, steps);
+var lqLine = (param1, param2, steps) => lineFramework ("lqLine", "lquantizedF", .028231, param1, param2, steps);
+
 // repeats and concatenates as a voice re-evaluations of an event function (2 to 36 repeats) 
 var vIterE = (event, times) => {
     var numIterations = adjustRange(Math.abs(p2q(times.encPhen[0])), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5 using the quantizedF map
@@ -973,6 +1005,31 @@ var vMotifLoop = (listNotevalues, listPitches, listArticulations, listIntensitie
             listIntensities.decGen + ")",
         encPhen: eventsSeq,
         phenLength: seqLength,
+    });
+};
+
+// repeats a voice a number of times
+var vRepeatV = (voice, times) => {
+    var repeats = adjustRange(Math.abs(p2q(times.encPhen)), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5
+    var totalEvents = voice.phenLength * repeats;
+    if (totalEvents > phenMaxLength) {
+        validGenotype = false;
+        console.log("Aborted genotype due to exceeding the max length");
+        return v(e(p(0), m(43), p(0), p(0)));
+    }
+    var repeatedVoice = [];
+    for (var el = 0; el < repeats; el++) repeatedVoice = repeatedVoice.concat(voice.encPhen.slice(1));
+    return indexExprReturnSpecimen({
+        funcType: "voiceF",
+        encGen: flattenDeep([1, 0.665631, voice.encGen, times.encGen, 0]),
+        decGen: "vRepeatV(" + voice.decGen + "," + times.decGen + ")",
+        encPhen: [z2p(totalEvents)]
+            .concat(repeatedVoice),
+        phenLength: totalEvents,
+        tempo: voice.tempo,
+        rhythm: voice.rhythm,
+        harmony: voice.harmony,
+        analysis: voice.analysis,
     });
 };
 
@@ -1602,7 +1659,8 @@ var eligibleFunctions = {
 
 var testingFunctions = {
     includedFunctions: [0, 1, 2, 3, 4, 5, 7, 9, 10, 12, 17, 25, 26, 27, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 58, 63, 65,
-        66, 67, 68, 76, 98, 99, 100, 104, 109, 110, 131, 134, 135, 199, 200, 277, 279, 281, 282, 284, 15, 286, 17, 288, 19, 290, 20, 291],
+        66, 67, 68, 76, 98, 99, 100, 104, 109, 110, 131, 134, 135, 199, 200, 277, 279, 281, 282, 284, 15, 286, 17, 288,
+        19, 290, 20, 291, 48, 77, 294, 296, 298, 299, 11],
     mandatoryFunctions: [],
     excludedFunctions: [] // 25,26,27,28,29,277,279,281,282,284]
 };
@@ -1737,7 +1795,7 @@ var createSpecimen = () => {
                         newDecodedGenotype += newLeaf;
                         var extendList = true;
                         while (extendList) {
-                            newLeaf = checkRange(r6d(normal()));
+                            newLeaf = checkRange(r6d(checkRange(normal())));
                             preEncGen.push(newLeaf);
                             newDecodedGenotype += "," + newLeaf;
                             if (Math.random() < .2) extendList = false;
