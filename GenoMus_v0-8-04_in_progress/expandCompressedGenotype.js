@@ -39,7 +39,7 @@ function genotype(compressedFormExpr) {
             parenthCount--
         }
         if (compressedFormExpr.charAt(charIndx) == "\n") {
-            var tabulation = "  ";
+            var tabulation = "   ";
             for (n = 0; n < parenthCount; n++) {
                 expandedExpression = expandedExpression + tabulation;
             }

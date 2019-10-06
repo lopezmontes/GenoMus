@@ -87,7 +87,7 @@ var norm2duration = p => r6d(Math.pow(2, 10 * p - 6));
 var p2d = norm2duration;
 var duration2norm = s => r6d((Math.log10(s) + 6 * Math.log10(2)) / (10 * Math.log10(2)));
 var d2p = duration2norm;
-var norm2midipitch = p => r6d(100 * p + 12);
+var norm2midipitch = p => Math.round(100 * p + 12);
 var p2m = norm2midipitch;
 var midipitch2norm = m => r6d((m - 12) / 100);
 var m2p = midipitch2norm;
@@ -99,7 +99,7 @@ var norm2articulation = p => r6d(3 * Math.pow(p, Math.E));
 var p2a = norm2articulation;
 var articulation2norm = a => r6d(Math.pow((a / 3), (1 / Math.E)));
 var a2p = articulation2norm;
-var norm2intensity = p => r6d(127 * p);
+var norm2intensity = p => Math.round(127 * p);
 var p2i = norm2intensity;
 var intensity2norm = i => r6d(i / 127);
 var i2p = intensity2norm;
@@ -1442,7 +1442,7 @@ var expandExpr = compressedFormExpr => {
             parenthCount--
         }
         if (compressedFormExpr.charAt(charIndx) == "\n") {
-            var tabulation = "  ";
+            var tabulation = "   ";
             for (nv = 0; nv < parenthCount; nv++) {
                 expandedExpression = expandedExpression + tabulation;
             }
@@ -1602,7 +1602,7 @@ var eligibleFunctions = {
 
 var testingFunctions = {
     includedFunctions: [0, 1, 2, 3, 4, 5, 7, 9, 10, 12, 17, 25, 26, 27, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 58, 63, 65,
-        66, 67, 68, 76, 98, 99, 100, 104, 109, 110, 131, 134, 135, 199, 200, 277, 279, 281, 282, 284, 15, 286, 17, 288, 19, 290],
+        66, 67, 68, 76, 98, 99, 100, 104, 109, 110, 131, 134, 135, 199, 200, 277, 279, 281, 282, 284, 15, 286, 17, 288, 19, 290, 20, 291],
     mandatoryFunctions: [],
     excludedFunctions: [] // 25,26,27,28,29,277,279,281,282,284]
 };
@@ -1631,7 +1631,7 @@ var createSpecimen = () => {
         // starts a new decoded genotype
         do {
             iterations++;
-            if (iterations % 100 == 0) maxAPI.post("it: " + iterations);
+            // if (iterations % 100 == 0) maxAPI.post("it: " + iterations);
             initSubexpressionsArrays();
             validGenotype = true;
             var preEncGen = []; // compulsory start with a function
@@ -1765,6 +1765,15 @@ var createSpecimen = () => {
                         var extendList = true;
                         while (extendList) {
                             newLeaf = r6d(p2a(checkRange(normal())));
+                            preEncGen.push(newLeaf);
+                            newDecodedGenotype += "," + newLeaf;
+                            if (Math.random() < .2) extendList = false;
+                        }
+                    } else if (nextFunctionType == "lintensityLeaf") {
+                        newDecodedGenotype += p2i(newLeaf);
+                        var extendList = true;
+                        while (extendList) {
+                            newLeaf = r6d(p2i(checkRange(normal())));
                             preEncGen.push(newLeaf);
                             newDecodedGenotype += "," + newLeaf;
                             if (Math.random() < .2) extendList = false;

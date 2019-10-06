@@ -188,7 +188,7 @@
                 "lnotevalueF",
                 "lmidipitchF",
                 "larticulationF",
-                "listF"
+                "lintensityF"
             ],
             "metadata": {
                 "description": "creates a sequence of events based on lists",
@@ -203,7 +203,7 @@
                 "lnotevalueF",
                 "lmidipitchF",
                 "larticulationF",
-                "listF"
+                "lintensityF"
             ],
             "metadata": {
                 "description": "creates a sequence of events based on repeating lists",
@@ -709,6 +709,32 @@
             "metadata": {
                 "description": "points to a previous intensity parameter",
                 "date": 20190922,
+                "creator": "lm"
+            }
+        }
+    },
+    "lintensityF": {
+        "li": {
+            "functionIndex": 20,
+            "functionType": "lintensityF",
+            "arguments": [
+                "lintensityLeaf"
+            ],
+            "metadata": {
+                "description": "intensity list identity function",
+                "date": 20191002,
+                "creator": "lm"
+            }
+        },
+        "liAutoref": {
+            "functionIndex": 291,
+            "functionType": "lintensityF",
+            "arguments": [
+                "goldenintegerLeaf"
+            ],
+            "metadata": {
+                "description": "points to a previous intensity list",
+                "date": 20191005,
                 "creator": "lm"
             }
         }
