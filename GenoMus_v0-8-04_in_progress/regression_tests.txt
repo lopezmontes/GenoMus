@@ -13,9 +13,9 @@ s(v(e4Pitches(p(0.2),pRnd(),pRnd(),pRnd(),pRnd(),a(0.999998),i(100.000054))))
 Two notes:
 s(vConcatV(v(e(p(0.5),m(61),a(0.999998),i(100.000054))),v(e(p(0.24),m(66),a(0.999998),i(100.000054)))))
 
+Lists lines
 
-
-
+s(vMotifLoop(lnLine(n(0.0725),n(0.0325),q(12)),lmLine(m(30),m(90),q(21)),laLine(a(0.300001),a(0.999998),q(4)),liLine(i(60),i(110),q(36))))
 
 
 

@@ -306,14 +306,25 @@ var mt = decGenotype => {
 
 // flats arrays with any level of nesting
 var flattenDeep = arr1 => arr1.reduce((acc, val) => Array.isArray(val) ? acc.concat(flattenDeep(val)) : acc.concat(val), []);
+
 // remap a value from its range to another
-var remap = (v, minInitRange, maxInitRange, minNewRange, maxNewRange) => ((v - minInitRange) / (maxInitRange - minInitRange)) * (maxNewRange - minNewRange) + minNewRange;
+var remap = (v, minInitRange, maxInitRange, minNewRange, maxNewRange) => 
+    r6d(((v - minInitRange) / (maxInitRange - minInitRange)) * (maxNewRange - minNewRange) + minNewRange);
+
+// remap an array from its range to another
+var remapArray = (inputArr, minNewRange, maxNewRange) => {
+    var minim = Math.min(...inputArr);
+    var maxim = Math.max(...inputArr);
+    return inputArr.map(x => remap(x, minim, maxim, minNewRange, maxNewRange));
+};
+
 // adjust a value from quantizedF to a range without rescaling
 var adjustRange = (q, minQ, maxQ) => {
     if (q < minQ) { return minQ };
     if (q > maxQ) { return maxQ };
     return q;
 };
+
 // takes subspecimen s, indexes subexpressions and formats output data
 var indexExprReturnSpecimen = s => {
     var subexpressionsIndexed = subexpressions[s.funcType].length;
@@ -909,6 +920,16 @@ var laLine = (param1, param2, steps) => lineFramework ("laLine", "larticulationF
 var liLine = (param1, param2, steps) => lineFramework ("liLine", "lintensityF", .792163, param1, param2, steps);
 var lzLine = (param1, param2, steps) => lineFramework ("lzLine", "lgoldenintegerF", .410197, param1, param2, steps);
 var lqLine = (param1, param2, steps) => lineFramework ("lqLine", "lquantizedF", .028231, param1, param2, steps);
+
+var lRemap = (fName, fTyp, fIndex, list, newMin, newMax) => {
+    var 
+    return indexExprReturnSpecimen({
+        funcType: fTyp,
+        encGen: flattenDeep([1, fIndex, list.encGen, newMin.encGen, newMax.encGen, 0]),
+        decGen: fName + "(" + list.decGen + ","  + newMin.decGen + "," + newMax.decGen + ")",
+        encPhen: line
+    });
+};
 
 // repeats and concatenates as a voice re-evaluations of an event function (2 to 36 repeats) 
 var vIterE = (event, times) => {
