@@ -701,6 +701,56 @@ var vConcatE = (e1, e2) => indexExprReturnSpecimen({
     }
 });
 
+// returns a voice removing a number of events at the beginning or at the end
+// range of removed elements: 36 elements from the beginning (positive) or from the end (negative)
+var vSlice = (voice, removedEvents) =>{
+    var numRemovedEv = p2q(removedEvents.encPhen);
+    if (numRemovedEv == 0) numRemovedEv = -1; // at least one event from the end will be removed
+    if (Math.abs(numRemovedEv) >= voice.phenLength) numRemovedEv = voice.phenLength - 1; // at least one event will be preserved
+    var newVoiceLength = voice.phenLength - Math.abs(numRemovedEv);
+    var pitchesInEvent;
+    // removing events from the beginning
+    if (numRemovedEv > 0) {
+        var slicedVoice = voice.encPhen.slice(1); // clones voice removing voice length header
+        for (el = 0; el < numRemovedEv; el++) {
+            slicedVoice.shift();
+            pitchesInEvent = p2z(slicedVoice[0]);
+            slicedVoice.shift();
+            for (ev = 0; ev < pitchesInEvent; ev++) {
+                slicedVoice.shift();                
+            }
+            slicedVoice.shift();
+            slicedVoice.shift();
+        }
+    }
+    // removing events from the end
+    else {
+        var slicedVoice = [];
+        var pos = 1;
+        for (el = 0; el < newVoiceLength; el++) {
+            slicedVoice.push(voice.encPhen[pos]); pos++;
+            pitchesInEvent = p2z(voice.encPhen[pos]);
+            slicedVoice.push(voice.encPhen[pos]); pos++;
+            for (ev = 0; ev < pitchesInEvent; ev++) {
+                slicedVoice.push(voice.encPhen[pos]); pos++;
+            }
+            slicedVoice.push(voice.encPhen[pos]); pos++;
+            slicedVoice.push(voice.encPhen[pos]); pos++;
+        }
+    }
+    // writes resulting voice length as new header value
+    slicedVoice.unshift(z2p(newVoiceLength));
+    return indexExprReturnSpecimen({
+        funcType: "voiceF",
+        encGen: flattenDeep([1, 0.534808, voice.encGen, removedEvents.encGen, 0]),
+        decGen: "vSlice(" + voice.decGen + "," + removedEvents.decGen + ")",
+        encPhen: slicedVoice,
+        phenLength: newVoiceLength,
+        tempo: voice.tempo,
+        harmony: voice.harmony
+    });
+};
+
 // concatenates two voices sequentially
 var vConcatV = (v1, v2) => indexExprReturnSpecimen({
     funcType: "voiceF",
@@ -842,7 +892,7 @@ var s2V = (v1, v2) => indexExprReturnSpecimen({
     analysis: v1.analysis,
 });
 
-// creates an score with two simultaneous voices
+// adds a new voice vertically to a score
 var sAddV = (s, v) => indexExprReturnSpecimen({
     funcType: "scoreF",
     encGen: flattenDeep([1, 0.365705, s.encGen, v.encGen, 0]),
@@ -858,7 +908,7 @@ var sAddV = (s, v) => indexExprReturnSpecimen({
     analysis: s.analysis,
 });
 
-// creates an score with two simultaneous scores
+// adds a new score vertically to a score
 var sAddS = (s1, s2) => indexExprReturnSpecimen({
     funcType: "scoreF",
     encGen: flattenDeep([1, 0.983739, s1.encGen, s2.encGen, 0]),
@@ -1781,7 +1831,7 @@ var testingFunctions = {
     includedFunctions: [0, 1, 2, 3, 4, 5, 7, 9, 10, 12, 17, 25, 26, 27, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 58, 63, 65,
         66, 67, 68, 76, 98, 99, 100, 104, 109, 110, 131, 134, 135, 199, 200, 277, 279, 281, 282, 284, 15, 286, 17, 288,
         19, 290, 20, 291, 48, 77, 294, 296, 298, 299, 11, 84, 302, 304, 306, 307,
-        310, 312, 314, 315, 316, 317, 201, 202],
+        310, 312, 314, 315, 316, 317, 201, 202, 318],
     mandatoryFunctions: [],
     excludedFunctions: [281, 282] // 25,26,27,28,29,277,279,281,282,284]
 };

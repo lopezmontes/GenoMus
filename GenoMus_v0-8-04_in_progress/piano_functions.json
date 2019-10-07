@@ -253,6 +253,19 @@
                 "date": 20191007,
                 "creator": "lm"
             }
+        },
+        "vSlice": {
+            "functionIndex": 318,
+            "functionType": "voiceF",
+            "arguments": [
+                "voiceF",
+                "quantizedF"
+            ],
+            "metadata": {
+                "description": "returns a voice removing a number of events at the beginning or at the end",
+                "date": 20191007,
+                "creator": "lm"
+            }
         }
     },
     "eventF": {
