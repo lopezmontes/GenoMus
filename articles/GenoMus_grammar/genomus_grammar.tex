@@ -160,6 +160,55 @@ In any approach to artificial creativity, the representation system used is a co
 \begin{itemize}
 \item Entorno de trabajo con Max
 \item Ejemplo de pieza completa basado en Clapping music (La importancia de la autorreferencia)
+
+{\small \begin{verbatim}
+s2V(                              // complete score: joins the 2 voices vertically
+   vSlice(                        // voice 1: slices last cycle lost during phase lag   
+      vRepeatV(                   // phase G: F 13 times
+         vRepeatV(                // cycle F: E 8 times 
+            vConcatV(             // pattern E: C + D
+               vConcatV(          // motif C: A + B
+                  vMotifLoop(     // core motif A: 3 8th-notes and a silence
+                     ln(          // note values
+                        0.04,
+                        0.04,
+                        0.08),
+                     lm(          // pitch (irrelevant for this piece)
+                        65),
+                     la(          // articulation
+                        0.5),
+                     li(          // intensities (last note louder for clarity)
+                        50,
+                        50,
+                        120)),
+                  vSlice(         // motif B: A with 1st note sliced
+                     vAutoref(0),
+                     q(1))),
+               vSlice(            // motif D: C with 1st note sliced
+                  vAutoref(3),
+                  q(2))),
+            q(8)),
+         q(13)),
+      q(8)),
+   vConcatV(                      // voice 2: F + H
+      vAutoref(7),
+      vRepeatV(                   // phase H: G 12 times 
+         vSlice(                  // cycle G: cycle F with 1st note sliced
+            vAutoref(7),
+            q(1)),
+         q(12))))
+\end{verbatim}}
+
+{\small \begin{verbatim}[ 1, 0.275535, 1, 0.534808, 1, 0.665631, 1, 0.665631, 1, 0.575462, 1, 0.575462, 1, 
+0.606798, 1, 0.27051, 0.51, 0.335614, 0.51, 0.335614, 0.51, 0.435614, 0, 1, 0.506578, 
+0.53, 0.53, 0, 1, 0.742646, 0.55, 0.553176, 0, 1, 0.36068, 0.56, 0.23, 0.56, 0.23, 
+0.56, 0.93, 0, 0, 1, 0.534808, 1, 0.304952, 0.57, 0, 0, 1, 0.416408, 0.58, 0.55, 
+0, 0, 0, 1, 0.534808, 1, 0.304952, 0.57, 0.854102, 0, 1, 0.416408, 0.58, 0.6, 0, 0, 
+0, 1, 0.416408, 0.58, 0.75, 0, 0, 1, 0.416408, 0.58, 0.84, 0, 0, 1, 0.416408, 0.58, 
+0.75, 0, 0, 1, 0.575462, 1, 0.304952, 0.57, 0.326238, 0, 1, 0.665631, 1, 0.534808, 1, 
+0.304952, 0.57, 0.326238, 0, 1, 0.416408, 0.58, 0.55, 0, 0, 1, 0.416408, 0.58, 0.82, 
+0, 0, 0, 0 ]\end{verbatim}}
+
 \item Un ejemplo clasico con varias voces y conteniendo armonia, dinamica y articulacion
 \item Modularidad y posibilidad de manipulacion manual
 \item Ejemplos basicos de tecnicas habituales en CAC (movimiento browniano,
@@ -186,6 +235,11 @@ In any approach to artificial creativity, the representation system used is a co
 
 
 \section{Evaluation and evolution}
+
+\begin{itemize}
+\item Design of evaluation methods as the crucial act of composition
+\item Objective vs. subjective evaluation
+\item What to learn?
 
 \subsection{Evolutionary paradigm}
 
