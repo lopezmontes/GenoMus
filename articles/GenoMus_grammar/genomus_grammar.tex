@@ -14,6 +14,8 @@
 \usepackage{lipsum}
 \usepackage{xcolor}
 
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
 \title{Representing procedural musical structures with an encoded functional grammar optimized for metaprogramming and machine learning}
 
 
@@ -148,8 +150,19 @@ In any approach to artificial creativity, the representation system used is a co
 \begin{itemize}
 \item Proposito de la codificacion en el marco del machine learning
 \item Codificacion como vectores unidimensionales normalizados
+\item Universal valid format
+
+$$ P = \{x_n \in \mathbb{R} \: | \: 0 \leq x_n \leq1 \} $$
+Multidimensional search space of all possible vectors with normalized parameters:
+$$ P^n $$
+Each vector in P is mapped to a valid encoded genotype (that is a valid functional expression which generates an excerpt of music.
+Let G be the set of all possible valid encoded genotypes. To create genotypes, the map $f$ works as a decision tree such as every vector $\vec{p} = (p_1, p_2, ..., p_n) \in P^n$ will be mapped to $G$: 
+$$f:\ P^n\to G$$
+Most of times $n$ doesn't match the number of required items to complete a valid encoded genotype. If $\vec{p}$ has more items than needed, they are ignored. If $f$ needs more items than those supplied by $\vec{p}$, $f$ reads $\vec{p}$ repeatedly from the beginning as a loop, until closing the valid encoded genotype. That implies that even vectors with a single value can be mapped to large functional expressions.  
+
 \item Modularidad y posibilidad de manipulacion manual
 \end{itemize}
+
 
 
 
@@ -237,11 +250,20 @@ s2V(                              // complete score: joins the 2 voices vertical
 \section{Evaluation and evolution}
 
 \begin{itemize}
+\item Esta propuesta de gramatica posibilita la implementacion y competencia de diferentes sistemas de evaluacion
 \item Design of evaluation methods as the crucial act of composition
 \item Objective vs. subjective evaluation
 \item What to learn?
+\item Evolutionary paradigm as the most promising
+\end{itemize}
 
 \subsection{Evolutionary paradigm}
+
+\begin{itemize}
+\item Analogia con el paradigma de los genotipos y fenotipos.
+\item El paradigma de evolucion abierta es mas adecuado a la creatividad artificial, por ser acumulativo y no plantear problemas de formato como las redes neuronales
+\item Planteamientos hibridos para tareas automatizables
+\end{itemize}
 
 
 %------------------------------------------------
