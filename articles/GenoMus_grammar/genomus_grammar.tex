@@ -104,7 +104,7 @@ Many approaches to artificial intelligence applied to the automatic composition 
 \subsection{The next step of computer assisted composition}
 {\color{gray} \textsl{[Repaso rapido de los principales paradigmas de herramientas de CAC para hacer notar como es necesario un metanivel de trabajo]}}
 
-\subsection{A framework for augmented creativity}
+This proposal, beyond the technical details, is a model of augmented creativity from the point of view of the composer. The new paradigm of computation applied to creative tasks is tilting from ordering to the computer "what to do", to saying "what to get", as a starting point to detonate supervised or non-supervised creative processes. So, the goal of GenoMus is to combine a knowledge base of compositional procedures with the maximal freedom of recombination. 
 
 \subsection{Complementary materials to this text}
 
@@ -145,6 +145,8 @@ In any approach to artificial creativity, the representation system used is a co
 
 {\color{gray} \textsl{[Tabla con los tipos de funciones. Figura ilustrando la estructura score/voice/chord]}}
 
+\subsection{Leaves, parameter mapping and readability}
+
 \subsection{Function libraries}
 
 \subsection{Specimen data structure}
@@ -172,6 +174,8 @@ $$f:\ P^n\to G$$
 Most of times $n$ doesn't match the number of required items to complete a valid encoded genotype. If $\vec{p}$ has more items than needed, they are ignored. If $f$ needs more items than those supplied by $\vec{p}$, $f$ reads $\vec{p}$ repeatedly from the beginning as a loop, until closing the valid encoded genotype. That implies that even vectors with a single value can be mapped to large functional expressions.  
 
 \item Modularidad y posibilidad de manipulacion manual
+\item Encoding as safety filter
+
 \end{itemize}
 
 
@@ -260,6 +264,22 @@ s2V(                              // complete score: joins the 2 voices vertical
 
 \section{Evaluation and evolution}
 
+When modeling artistic creativity with algorithms, probably the most evasive issue to address is programming fitness functions. By definition, the assessment of a piece of art can only be made from a subjective point of view, since the goal of art is to provoke inner and personal reactions. These individual responses are very dependent on cultural and social context. However, provided enough data some predictions can be made about the expected rating for a new piece.
+
+In GenoMus, we divide evaluation of each specimen in two categories:
+
+\begin{itemize}
+\item Autoanalytic profile: objective analysis of a set of musical features, such as variability, rhythmic complelxity, tonal stability, global dissonance index, level of inner autoreference, etc. 
+\item Human evaluations: subjective ratings made by human users, attending to aesthetic value, originality, mood and emotional intensity. This informations are stored individually and together as global statistics.
+
+\end{itemize}
+
+The self-analysis contained in every specimen allows to measure distance and similaritiy to  
+other specimens, as well as to classify results and to drive evolution processes.
+
+Defining how to evaluate and select results is now the most creative effort, and can be identified with the act of composition itself, since composing music is ultimately making choices. 
+
+
 \begin{itemize}
 \item Esta propuesta de gramatica posibilita la implementacion y competencia de diferentes sistemas de evaluacion
 \item Design of evaluation methods as the crucial act of composition
@@ -270,11 +290,24 @@ s2V(                              // complete score: joins the 2 voices vertical
 
 \subsection{Evolutionary paradigm}
 
+Determining how to evolve and mutate an specimen towards a best version is crucial question too. Starting from a simple motif, endless evolution paths can lead to satisfying results based on heuristic approaches, using accumulated knowledge from examples, human ratings and automatic self-analysis.
+
+The GenoMus grammar is designed to favor the broadest diversity of combinations and transformations. Genetic algorithms are suitable for the automation of an incremental exploration and selection of multiple ways. A GenoMus decoded genotype tree expression can be trasnformed using these methods:
+
 \begin{itemize}
-\item Analogia con el paradigma de los genotipos y fenotipos.
-\item El paradigma de evolucion abierta es mas adecuado a la creatividad artificial, por ser acumulativo y no plantear problemas de formato como las redes neuronales
-\item Planteamientos hibridos para tareas automatizables
+\item createGen
+\item mutateLeaves
+\item growTrunk
+\item growBranch
+\item insertBranch
+\item flattenBranch
+\item pruneBranch
+\item splitGen
+
 \end{itemize}
+
+Approaches based on neural networks need a very controlled format of data and big training datasets. The encoded genotype format of GenoMus can represent any piece of music as a simple unidimensional sequence of normalized floats, which can be profitable for techniques as recurrent neural networks (ref. to LMSTD), able to learn patterns from sequential streams of data.
+
 
 \section{Scalability}
 \begin{itemize}
