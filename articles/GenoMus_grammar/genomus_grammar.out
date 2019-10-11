@@ -13,11 +13,12 @@
 \BOOKMARK [2][-]{subsection.2.8}{Specimen data structure}{section.2}% 13
 \BOOKMARK [1][-]{section.3}{Encoding of genotypes and phenotypes}{}% 14
 \BOOKMARK [1][-]{section.4}{A minimal example: Clapping music}{}% 15
-\BOOKMARK [2][-]{subsection.4.1}{Procedural model: decoded genotype}{section.4}% 16
-\BOOKMARK [2][-]{subsection.4.2}{Abstract representation: Encoded genotype}{section.4}% 17
-\BOOKMARK [2][-]{subsection.4.3}{Encoded phenotype}{section.4}% 18
-\BOOKMARK [1][-]{section.5}{Evaluation and evolution}{}% 19
-\BOOKMARK [2][-]{subsection.5.1}{Evolutionary paradigm}{section.5}% 20
-\BOOKMARK [1][-]{section.6}{Scalability}{}% 21
-\BOOKMARK [2][-]{subsection.6.1}{Integrating traditional and contemporary techniques}{section.6}% 22
-\BOOKMARK [1][-]{section.7}{Conclusions and future work}{}% 23
+\BOOKMARK [2][-]{subsection.4.1}{Decoded genotype: a procedural function tree of the piece}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.2}{Encoded genotype: an abstract representation of compositional processes}{section.4}% 17
+\BOOKMARK [2][-]{subsection.4.3}{Encoded phenotype: the score as a normalized vector}{section.4}% 18
+\BOOKMARK [2][-]{subsection.4.4}{Decoded phenotype: possible outputs}{section.4}% 19
+\BOOKMARK [1][-]{section.5}{Evaluation and evolution}{}% 20
+\BOOKMARK [2][-]{subsection.5.1}{Evolutionary paradigm}{section.5}% 21
+\BOOKMARK [1][-]{section.6}{Scalability}{}% 22
+\BOOKMARK [2][-]{subsection.6.1}{Integrating traditional and contemporary techniques}{section.6}% 23
+\BOOKMARK [1][-]{section.7}{Conclusions and future work}{}% 24
