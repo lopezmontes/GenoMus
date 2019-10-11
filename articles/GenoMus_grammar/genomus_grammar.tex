@@ -159,11 +159,19 @@ In any approach to artificial creativity, the representation system used is a co
 %------------------------------------------------
 
 
-\section{Encoding of genotypes and phenotypes}
+\section{Encoded genotypes and phenotypes}
+
 \begin{itemize}
 \item Proposito de la codificacion en el marco del machine learning
 \item Codificacion como vectores unidimensionales normalizados
 \item Universal valid format
+\item Modularidad y posibilidad de manipulacion manual
+\item Encoding as safety filter
+
+\end{itemize}
+\subsection{Encoding genotypes with G{\"o}delian resonances}
+
+Any random sequence of numbers generates a valid program. 
 
 $$ P = \{x_n \in \mathbb{R} \: | \: 0 \leq x_n \leq1 \} $$
 Multidimensional search space of all possible vectors with normalized parameters:
@@ -173,10 +181,15 @@ Let G be the set of all possible valid encoded genotypes. To create genotypes, t
 $$f:\ P^n\to G$$
 Most of times $n$ doesn't match the number of required items to complete a valid encoded genotype. If $\vec{p}$ has more items than needed, they are ignored. If $f$ needs more items than those supplied by $\vec{p}$, $f$ reads $\vec{p}$ repeatedly from the beginning as a loop, until closing the valid encoded genotype. That implies that even vectors with a single value can be mapped to large functional expressions.  
 
-\item Modularidad y posibilidad de manipulacion manual
-\item Encoding as safety filter
 
-\end{itemize}
+
+\subsection{Scores represented as normalized vectors}
+\subsection{A unique format for procedures and results}
+\subsection{Safety through encoding}
+
+
+
+
 
 
 
@@ -185,17 +198,14 @@ Most of times $n$ doesn't match the number of required items to complete a valid
 
 \section{A minimal example: \textsl{Clapping music}}
 
-[intro: manual coding to extract procedural and extendable knowledge] 
+Presentacion de la pieza
+
+
+\subsection{Code and interface for the experiments}
+[manual coding to extract procedural and extendable knowledge] 
 
 \subsection{Decoded genotype: a procedural function tree of the piece}
-\subsection{Encoded genotype: an abstract representation of compositional processes}
-\subsection{Encoded phenotype: the score as a normalized vector}
-\subsection{Decoded phenotype: possible outputs}
 
-
-
-\begin{itemize}
-\item Ejemplo de pieza completa basado en Clapping music (La importancia de la autorreferencia)
 
 {\small \begin{verbatim}
 s2V(                              // complete score: joins the 2 voices vertically
@@ -235,6 +245,13 @@ s2V(                              // complete score: joins the 2 voices vertical
          q(12))))
 \end{verbatim}}
 
+Extrapolacion de estructuras y variantes:
+
+{\small \begin{verbatim}ClappingMusic ([.04,.04,.08],[65],[.5],[50,50,120],1,3,2,8,13,8,1,12) =\end{verbatim}}  
+
+
+\subsection{Encoded genotype: an abstract representation of compositional processes}
+
 {\small \begin{verbatim}[ 1, 0.275535, 1, 0.534808, 1, 0.665631, 1, 0.665631, 1, 0.575462, 1, 0.575462, 1, 
 0.606798, 1, 0.27051, 0.51, 0.335614, 0.51, 0.335614, 0.51, 0.435614, 0, 1, 0.506578, 
 0.53, 0.53, 0, 1, 0.742646, 0.55, 0.553176, 0, 1, 0.36068, 0.56, 0.23, 0.56, 0.23, 
@@ -244,6 +261,14 @@ s2V(                              // complete score: joins the 2 voices vertical
 0.75, 0, 0, 1, 0.575462, 1, 0.304952, 0.57, 0.326238, 0, 1, 0.665631, 1, 0.534808, 1, 
 0.304952, 0.57, 0.326238, 0, 1, 0.416408, 0.58, 0.55, 0, 0, 1, 0.416408, 0.58, 0.82, 
 0, 0, 0, 0 ]\end{verbatim}}
+
+Visualization?
+
+\subsection{Encoded phenotype and possible outputs}
+
+
+
+\begin{itemize}
 
 \item Un ejemplo clasico con varias voces y conteniendo armonia, dinamica y articulacion
 \item Modularidad y posibilidad de manipulacion manual
