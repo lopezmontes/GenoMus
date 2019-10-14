@@ -21,7 +21,7 @@
 \contentsline {subsection}{\numberline {4.2}Decoded genotype: a procedural function tree of the piece}{4}{subsection.4.2}
 \contentsline {subsection}{\numberline {4.3}Encoded genotype: an abstract representation of compositional processes}{5}{subsection.4.3}
 \contentsline {subsection}{\numberline {4.4}Encoded phenotype and possible outputs}{5}{subsection.4.4}
-\contentsline {section}{\numberline {5}Evaluation and evolution}{5}{section.5}
+\contentsline {section}{\numberline {5}Evaluation and evolution}{6}{section.5}
 \contentsline {subsection}{\numberline {5.1}Evolutionary paradigm}{6}{subsection.5.1}
 \contentsline {section}{\numberline {6}Scalability}{6}{section.6}
 \contentsline {subsection}{\numberline {6.1}Integrating traditional and contemporary techniques}{7}{subsection.6.1}

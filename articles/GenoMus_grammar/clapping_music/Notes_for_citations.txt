@@ -1,0 +1,265 @@
+El MAS CERCANO
+Introducing a Context-based Model and Language for Representation,Transformation, Visualization, Analysis and Generation of MusicDavid M. Hofmann
+
+Referenciar el manual también
+
+http://www.musicprocessing.net/ released in 2018
+
+-------------------
+
+Nierhaus, 2009: libro Algorithmic Composition: paradigms...
+https://books.google.es/books?hl=es&lr=&id=jaowAtnXsDQC&oi=fnd&pg=PA1&dq=Algorithmic+music+ai+genetic&ots=GOK8gP5kVl&sig=OhHYBwmrcOBC_bnQD1eUhhmtIBk#v=onepage&q=Algorithmic%20music%20ai%20genetic&f=false
+	-> -Pag. 4-5: Buen sumario de los paradigmas
+	-> -5: justifica problema de neural nets con fragmentos largos coherentes 
+-------------------
+OpenDesign_AthenaCL.pdf
+Ariza: An Open Design for Computer-Aided Algorithmic Music Composition
+	-> Ejemplo de sistema basado en programacion textual, para introduccion manual de expresiones complejas
+	-> A menudo son sistemas creados por los propios compositores como medio de extender su estilo
+-------------------
+
+MUY INTERESANTE:
+Burton. A. R. 1998: A Hybrid Neuro-Genetic Pattern Evolution System...
+
+	-> Combinación de evolucion genética para crear elementos y redes neuronales para la evaluacion
+	-> 21: diferentes aproximacines al fitness function: deterministia, formalista, evaluacion humana y neural net
+	-> 32 y ss.: los criterios de evolucion se aplican a la partitura, y no a los procedimientos subyacentes
+	-> 229: un problema frecuentemente encontrado: dos pasajes caso idénticos pueden ser muy buno y muy malo. Para una red neuronal son casi lo mismo
+	
+-------------------
+MUY INTERESANTE:
+Mántaras 2006: Making music with AI:
+	-> 2: En los 50 era lógico excliur la parte expresiva. Los modelos Markovianos son de resultados muy pobres. Ahora debe estar incluida?
+IMPORTANTE:
+	-> referencia a Minsky, que plantea la posibilidad de los multiagentes, que puedan actuar sobre bloques mayores de música, y que sean a veces sólo analíticos
+	-> ‘the rules don’t make the music, it is the music that makes the rules’
+	-> Truly creative! para el final
+
+
+Esto enlaza con 
+“Lerner appears to believe that transformations that could be carriedout by a computer program , such as " mechanical" cut-and-paste,could not possibly generate anything sensible- -and that no programcould tell sense from nonsense anyway . The implication , so far astheoretical psychology is concerned, is that no computational theorycould describe the generation of valuable new ideas, and that only anunanalyzable faculty of " intuition " or "insight" could recognize theirvalue. None of these beliefs is justified .”
+del articulo:
+n. What is Creativity. In M. Boden, editor, Dimensions of Creativity, pages 75–118. MIT Press, 1996.
+
+De ahí también: 
+-------------
+
+G. Papadopoulos, and G. Wiggins. A genetic algorithm for the generation of Jazz melodies. In Proceedings of theSteP’98 Conference, Finland. 1998 -> según Mántaras, usan fitness basado en contorno, interválica, y otras cuestiones cuantificables
+
+-------------------
+
+
+An Algebra for Tree-Based Music Generation, en  -> para la generacion automatica de arboles y gramatica (mirar más a fondo)
+
+-------------------
+
+The Data-Oriented Parsing Approach:Theory and Application in
+p. 330 de 2008_Book_ComputationalIntelligenceAComp -> para justificar el uso de arboles de funciones, ya que este artículo habla de parsear lenguaje (,usical entre otros) para llegar al arbol original.
+
+Mirar sus referencias:
+
+
+-------------------
+
+Sulyok et al. On the Impact of Domain-specific Knowledge in EvolutionaryMusic Composition -> actual 2019 -> para aclarar que no hay consenso entre el uso de la nomenclatura de genotipos y fenotipos	
+
+
+--------------
+
+
+Evolutionary Music Composition in Handbook Optimization -> survey actual de evolutionary music generation (para inicio)
+
+-------------------
+
+MUY SIMILAR A GENOMUS:
+D. Hofmann: A Genetic Programming Approach to Generating Musical Compositions
+in 2015_Book_EvolutionaryAndBiologicallyIns
+
+
+-------------------
+
+A Hybrid Approach to Automated Music Composition en 
+ArtificialIntelligencePerspectives inIntelligent Systems 2016 -> solo por citar una aproximacion hibirda muy actual, pero poco interesante
+
+------------
+
+Gödel-Vector and Gödel-Address as Tools for GenealogicalDetermination of Genetically-Produced Musical Variants . . . . . . . . . . . . 9Carlos de Lemos Almada in
+2017_Book_TheMusical-MathematicalMind.pdf 2017 -> para las resonancias godelianas
+
+-------------
+
+Art. IAMUS -> usa el paradigma genotipo fenotipo, aunque de un modo diferente
+Muy importante: Indirect encoding: IAMUS -> importancia de la evo-devo incremental. El proceso importa, no sólo la codificacion del ADN
+“Using an effective indirect encoding, a smallgenotype can potentially specify a large and complexphenotype, accounting for the scalability problempreviously mentioned. Additionally, a small changein the genotype can potentially provoke a variety ofcoordinated changes in the phenotype”
+
+“They are currentlybeing used to a certain extent for automatingtasks that demand creativity, proposing differentvariations to existing solutions, which evolve towarddesired design targets, resembling an automated formof brainstorming.”
+
+-------------
+desde IAMUS, super importante: indirect encoding: related to L-Systems
+Kenneth O. StanleyRisto Miikkulainen - A Taxonomy for ArtificialEmbryogeny -> In order to meet thischallenge, many researchers are proposing indirectencodings, that is, evolutionary mechanisms where the samegenes are used multiple times in the process of building aphenotype.
+
+-------------
+
+
+Comparison of process in algorithmic music systems -> para afirmar que GenoMus reúne diferentes paradigmas en sus áboles multicapa. Estos paradigmas según el artículo son: Analytic, Transformational and Generative
+
+
+
+-------------
+
+Genetic Algorithms in Musical Style oriented GenerationPauli Laine Mika Kuuskankate -> un ejemplo análogo a la generación automática de árboles de funciones
+
+
+
+
+Teuvo Kohonen, Pauli Laine, Kalev Tiits & Kari Torkkola:"A Nonheuristic Automatic Composing Method'
+
+------------
+Generative Music Evaluation: Why do We Limitto `Human'? Roisn Loughran and Michael O'Neill - > interesantes perspectivas de la
+evaluación, relacionadas con los prejuicios apuntados por Minsky
+
+“The evolution of a population oers so much scope and possibilitythat it is reminiscent of the music creation process | a solution is not linearlydetermined but instead emerges from a uid, incremental process.”
+
+de ahí tomado lo siguiente:
+-------------
+IMPORTANTE distinción entre Genetic Programming and Gen. Algorithms
+Burton, A.R., Vladimirova, T.: Generation of musical sequences with genetic tech-niques. Computer Music Journal 23 (1999) 59{73
+-> An overview of earlierstudies in EC for musical composition is oered in [12], determining that Ge-netic Programming (GP) methods perform better than those that use GeneticAlgorithms (GA). This may be unsurprising as GP methods use a tree-basedstructure whereas GAs are limited to a linear string in their representation.Hence, GP can represent more complex representations and operations | some-thing that would be very useful in representing music.
+
+-------------
+
+Alfonso Ortega de la Puente et al
+Automatic composition of music bymeans of Grammatical Evolution -> aproximación similar en su planteamiento, pero muy limitada
+
+-------------
+
+ACTUAL!
+Algoritmic Music Composition Based onArtificial Intelligence: A SurveyOmar Lopez-Rincon, Oleg Starostenko, Gerardo Ayala-San Martín
+AI-Comp_Survey -> muy buen resumen de las aproximaciones actuales
+
+“Symbolic AI methods still have not enough rules therefore,they hardcoded in limited database knowledge. This could beextended with machine learning techniques but the lack of anautomatic evaluation method makes it difficult to solve.” en las conclusiones
+-------------
+
+
+Motivations and methodologies for automationof the compositional processMARCUS PEARCE, DAVID MEREDITHAND GERAINT WIGGINS
+-> interesante para situar la discusion y encuadrar las motivaciones y posibles peligros.
+Motivations classes:
+1. computer programs are written by the composer as an idiosyncratic extensionto her own compositional processes;2. computer programs are written as general tools to aid any composer in thecomposition of music;3. theories of a musical style are implemented as computer programs;4. cognitive theories of the processes
+
+Failures:
+1. a failure to specify the precise practical or theoretical aims of research;2. a failure to adopt an appropriate methodology for achieving the stated aims;3. a failure to adopt a means of evaluation appropriate for judging the degree towhich the aims have been satisfied.
+-------------
+
+1994 J. A. Biles. Genjam: A Genetic Algorithm for Generating JazzSolos. In Proceedings of the International Computer MusicConference, 1994 -> para el problema del “fitness bottleneck” con la eval. humana	
+
+-------------
+AI Methods for Algorithmic Composition: A Survey, a CriticalView and Future ProspectsGeorge Papadopoulos; GeraintWiggins -> concluye que los avances prometedores vendrán de la integración de sistemas diferentes
+
+-------------
+
+1993. Creativity: a survey of AI approaches - Jon RoweDerek Partridge
+Conditions for creativity:
+Knowledge representation is organised in such away that the number of possible associations ismaximised. A flexible knowledge representationscheme. Similarly Boden (1996) says that representationshould allow to explore and transform theconceptual space.Tolerate ambiguity in representations.Allow multiple representations in order to avoid theproblem of “functional fixity”.The usefulness of new combinations should be assessable.New combinations need to be elaboratable to findout their consequences.
+ 
+El articulo de Boden es: 
+
+What is Creativity. In M. Boden, editor, Dimensions of Creativity, pages 75–118. MIT Press, 1996.
+(citado antes).
+
+------------
+
+
+Algorithmic composition as a modelof creativityBRUCE L. JAC OB
+-> interesante la disgresión filosófica sobre la autoría. De Music composition to music recognition. Dice: Is the same? Yo digo: Can computer solutions get us to new styles, to nwe ways or feeling music?s
+------------
+
+ALGORITHMIC MUSIC COMPOSITION: Robert Crawford tesisA HYBRID APPROACH -> OTro ejemplo de hybrid
+
+
+-----------
+ QUOTES:
+
+1982 Why People Think Computers Can’tMarvin Minsky
+
+I’ll grant that the carliestand simplest programs were little more than simple listsand loops of commands like “Do thzs. Do that. Do thas andthat and thzs agazn until that happens ” That made it hardto imagine how more could emerge from such programs thantheir programmers envisioned. But t!here’s a big differencebct,ween “impossible” and “hard to imagine.” The first isabout at; the second is about <i>you>/i>!
+
+
+A generation later, we should be experimenting on programsthat write better programs to replace themselves. Thenat last it will be clear how foolish was our first idea-thatnever, by their nature, could machines create new things.
+
+I don’t believe there’sany substantial difference between ordinary thought andcreative thought. Then why do we think there’s a difference?I’ll argue that this is really not a ma.tter of what’s in themind of the artist-but of what’s in the mind of the critic;the less one understands an artist’s mind the more creat,iveseems the work the artist does.
+
+
+
+-----------
+
+Fernandez, J.D., Vico, F.: AI methods in algorithmic composition: A comprehen-sive survey. Journal of Articial Intelligence Research
+
+---------------
+
+ COMPOSING WITH GENETIC ALGORITHMS
+Bruce L Jacob . -> Propone trabajar con `building blocks` más grandes, cercano a frases
+
+
+
+---------------
+
+S. J. Gould; Creating the Creators, Discover Magazine, October (1996), 42-54. -> PARA FINAL!
+
+----------------
+
+
+---------------
+
+Xenakis: Formalized Music
+
+
+-------------
+
+Buchanan, Creativity at the Metalevel -> Metalevel
+
+-------------
+
+ M. Minsky. Music, Mind, and Meaning. (1981):
+(Edward Fredkin suggested to me the theory that listening to music might exercise some innate map-making mechanism in the brain. When I mentioned the puzzle of music's repetitiousness, he compared it to the way rodents explore new places: first they go one way a little, then back to home. They do it again a few times, then go a little farther. They try small digressions, but frequently return to base. Both people and mice explore new territories that way, making mental maps lest they get lost. Music might portray this building process, or even exercise those very parts of the mind.)
+
+
+=============
+
+MIRAR:
+
+
+
+@article{Bradshaw1973,
+  doi = {10.2307/3394288},
+  url = {https://doi.org/10.2307/3394288},
+  year = {1973},
+  month = apr,
+  publisher = {{SAGE} Publications},
+  volume = {59},
+  number = {8},
+  pages = {85--88},
+  author = {Merrill Bradshaw},
+  title = {Formalized Music: Thought and Mathematics in Composition},
+  journal = {Music Educators Journal}
+}
+
+
+
+Bod R (2002) Memory-based models of melodic analysis: challenging the Gestaltprinciples. J. New Music Research, 31(1): 27–37.
+
+Schaffrath H (1995) The Essen Folksong Collection in the Humdrum Kern Format.In: Huron D (ed.) Probabilistic Grammars for Music. Center for ComputerAssisted Research in the Humanities, Menlo Park, CA.
+
+Temperley D (2001) The Cognition of Basic Musical Structures. MIT Press,Cambridge, MA
+
+Ando D, Dahlsted P, Nordahl M, Iba H (2007) Interactive GP with tree representationof classical music pieces. In: Giacobini M, Brabazon A, CagnoniS, Di Caro GA, Drechsler R, Farooq M, Fink A, Lutton E, Machado P,Minner S, O’Neill M, Romero J, Rothlauf F, Squillero G, Takagi H, Uyar AS,Yang S (eds) Applications of Evolutionary Computing, EvoWorkshops 2007:EvoCOMNET, EvoFIN, EvoIASP, EvoInteraction, EvoMUSART, EvoSTOC,EvoTransLog, Springer Verlag, Valencia, Spain, LNCS, vol 4448, pp 577–584,DOI doi:10.1007/978-3-540-71805-5 63
+
+McCormack J (2006) New challenges for evolutionary music and art.SIGEvolution 1(1):5–11, URL http://www.sigevolution.org/2006/01/issue.pdf
+
+Spector L, Alpern A (1995) Induction and recapitulation of deep musicalstructure. In: Proceedings of International Joint Conference on Artificial Intelligence,IJCAI’95Workshop on Music and AI,Montreal, Quebec, Canada, URLhttp://hampshire.edu/lspector/pubs/IJCAI95mus-toappear.ps
+
+
+
+
+
+
+

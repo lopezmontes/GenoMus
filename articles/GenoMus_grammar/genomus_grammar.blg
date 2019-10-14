@@ -3,44 +3,44 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: genomus_grammar.aux
 The style file: unsrt.bst
 Database file #1: references.bib
-You've used 3 entries,
+You've used 4 entries,
             1791 wiz_defined-function locations,
-            471 strings with 4202 characters,
-and the built_in function-call counts, 719 in all, are:
-= -- 70
-> -- 16
-< -- 1
-+ -- 7
-- -- 4
-* -- 39
-:= -- 118
-add.period$ -- 10
-call.type$ -- 3
-change.case$ -- 3
+            479 strings with 4416 characters,
+and the built_in function-call counts, 1045 in all, are:
+= -- 106
+> -- 20
+< -- 2
++ -- 9
+- -- 5
+* -- 54
+:= -- 160
+add.period$ -- 14
+call.type$ -- 4
+change.case$ -- 4
 chr.to.int$ -- 0
-cite$ -- 3
-duplicate$ -- 37
-empty$ -- 74
-format.name$ -- 4
-if$ -- 168
+cite$ -- 4
+duplicate$ -- 57
+empty$ -- 110
+format.name$ -- 5
+if$ -- 251
 int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 2
-newline$ -- 18
-num.names$ -- 5
-pop$ -- 7
+int.to.str$ -- 4
+missing$ -- 3
+newline$ -- 23
+num.names$ -- 6
+pop$ -- 13
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 19
+skip$ -- 30
 stack$ -- 0
-substring$ -- 46
-swap$ -- 11
-text.length$ -- 1
+substring$ -- 73
+swap$ -- 19
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 7
-width$ -- 4
-write$ -- 38
+while$ -- 11
+width$ -- 5
+write$ -- 50

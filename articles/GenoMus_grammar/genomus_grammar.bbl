@@ -1,5 +1,11 @@
 \begin{thebibliography}{1}
 
+\bibitem{Hofmann2015}
+David~M. Hofmann.
+\newblock A genetic programming approach to generating musical compositions.
+\newblock In {\em Evolutionary and Biologically Inspired Music, Sound, Art and
+  Design}, pages 89--100. Springer International Publishing, 2015.
+
 \bibitem{compoCombiSimul}
 Eleanor Selfridge-Field.
 \newblock Composition, combinatorics, and simulation: A historical and

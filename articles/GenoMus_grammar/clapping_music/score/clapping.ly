@@ -6,29 +6,46 @@
 
 global = {
   \key c \major
-  \time 56/4
+  \time 3/2
   \override Staff.TimeSignature #'stencil = ##f
 }
 
 
 
-violin = \relative c'' {
+clapA = \relative c'' {
   \override Staff.StaffSymbol.line-count = #1
   \global
   \autoBeamOff
-  \cadenzaOn
+  
   \clef percussion
-  % \override Staff.NoteHead.style = #'baroque
-  % \once \override Stem.length = #0
-  c,4
- 
+  \override Stem.direction = #UP
+  \bar ".|:" 
+  c,8[ 8 8] r8 8[ 8] r8 8 r8 8[ 8] r8 \bar ":|.:"
+  c8[ 8 8] r8 8[ 8] r8 8 r8 8[ 8] r8 \bar ":|.:"
+  c8[ 8 8] r8 8[ 8] r8 8 r8 8[ 8] r8 \bar ":|.:"
+}
+
+clapB = \relative c'' {
+  \override Staff.StaffSymbol.line-count = #1
+  \global
+  \autoBeamOff
+  
+  \clef percussion
+  \override Stem.direction = #DOWN
+  c,8[ 8 8] r8 8[ 8] r8 8 r8 8[ 8] r8
+  8[ 8] r8 8[ 8] r8 8 r8 8[ 8] r8 8
+  8 r8 8[ 8] r8 8 r8 8[ 8] r8 8[ 8]
+
 }
 
 \score {
-  \new Staff \with {
-    instrumentName = ""
-    midiInstrument = "violin"
-  } \violin
+  
+ \new StaffGroup <<
+    \new Staff << \global \clapA >>
+    \new Staff << \global \clapB >>
+
+  >>  
+
   \layout { 
   indent = 0\cm
   }
