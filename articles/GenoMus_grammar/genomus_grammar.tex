@@ -13,6 +13,32 @@
 \usepackage{microtype}      % microtypography
 \usepackage{lipsum}
 \usepackage{xcolor}
+\usepackage{listings}
+\usepackage{graphicx}
+
+\definecolor{backcolour}{rgb}{0.96,0.96,0.96}
+\definecolor{forcomments}{rgb}{0.5,0.5,0.5}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{forcomments},
+    numberstyle=\tiny\color{codegray},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
 
 \renewcommand{\vec}[1]{\mathbf{#1}}
 
@@ -203,49 +229,59 @@ Most of times $n$ doesn't match the number of required items to complete a valid
 Presentacion de la pieza
 
 
+\begin{figure}
+  \includegraphics[width=\linewidth]{figs/clapping_patterns.pdf}
+  \caption{Structures of S. Reich's \emph{Clapping Music}.}
+  \label{fig:boat1}
+\end{figure}
+
+Figure \ref{fig:boat1} shows a boat.
+
 \subsection{Code and interface for the experiments}
 [manual coding to extract procedural and extendable knowledge]\cite{Hofmann2015} 
 
 \subsection{Decoded genotype: a procedural function tree of the piece}
 
 
-{\small \begin{verbatim}
-s2V(                              // complete score: joins the 2 voices vertically
-   vSlice(                        // voice 1: slices last cycle lost during phase lag   
-      vRepeatV(                   // phase G: F 13 times
-         vRepeatV(                // cycle F: E 8 times 
-            vConcatV(             // pattern E: C + D
-               vConcatV(          // motif C: A + B
-                  vMotifLoop(     // core motif A: 3 8th-notes and a silence
-                     ln(          // note values
-                        0.04,
-                        0.04,
-                        0.08),
-                     lm(          // pitch (irrelevant for this piece)
-                        65),
-                     la(          // articulation
-                        0.5),
-                     li(          // intensities (last note louder for clarity)
-                        50,
-                        50,
-                        120)),
-                  vSlice(         // motif B: A with 1st note sliced
-                     vAutoref(0),
-                     q(1))),
-               vSlice(            // motif D: C with 1st note sliced
-                  vAutoref(3),
-                  q(2))),
-            q(8)),
-         q(13)),
-      q(8)),
-   vConcatV(                      // voice 2: F + H
-      vAutoref(7),
-      vRepeatV(                   // phase H: G 12 times 
-         vSlice(                  // cycle G: cycle F with 1st note sliced
-            vAutoref(7),
-            q(1)),
-         q(12))))
-\end{verbatim}}
+\begin{lstlisting}[language=Java, caption=A possible decoded genotype for S. Reich's \emph{Clapping Music}]
+s2V(                           // score L: joins the 2 voices vertically
+  vSlice(                      // voice J: slices last cycle because of phase lag
+    vRepeatV(                  // phase G: F 13 times
+      vRepeatV(                // cycle F: E 8 times 
+        vConcatV(              // pattern E: C + D
+          vConcatV(            // motif C: A + B
+            vMotifLoop(        // core motif A: 3 8th-notes and a silence
+              ln(4),           // note values
+              lm(65),          // pitch (irrelevant for this piece)
+              la(50),          // articulation
+              li(60,60,90,0)), // intensities (last note louder for clarity) 
+            vSlice(            // motif B: A with 1st note sliced
+              vAutoref(0),
+              q(1))),
+          vSlice(              // motif D: C with 1st note sliced
+            vAutoref(3),
+            q(2))),
+        q(8)),
+      q(13)),
+    q(8)),
+  vConcatV(                    // voice K: F + H
+    vAutoref(7),
+    vRepeatV(                  // phase I: H 12 times 
+      vSlice(                  // cycle H: cycle F with 1st note sliced
+        vAutoref(7),
+        q(1)),
+      q(12))))
+\end{lstlisting}
+
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{figs/clapping_tree_graph.pdf}
+  \caption{Structures of S. Reich's \emph{Clapping Music}.}
+  \label{fig:boat2}
+\end{figure}
+
+Figure \ref{fig:boat2} shows a boat.
+
 
 Extrapolacion de estructuras y variantes:
 
@@ -254,15 +290,9 @@ Extrapolacion de estructuras y variantes:
 
 \subsection{Encoded genotype: an abstract representation of compositional processes}
 
-{\small \begin{verbatim}[ 1, 0.275535, 1, 0.534808, 1, 0.665631, 1, 0.665631, 1, 0.575462, 1, 0.575462, 1, 
-0.606798, 1, 0.27051, 0.51, 0.335614, 0.51, 0.335614, 0.51, 0.435614, 0, 1, 0.506578, 
-0.53, 0.53, 0, 1, 0.742646, 0.55, 0.553176, 0, 1, 0.36068, 0.56, 0.23, 0.56, 0.23, 
-0.56, 0.93, 0, 0, 1, 0.534808, 1, 0.304952, 0.57, 0, 0, 1, 0.416408, 0.58, 0.55, 
-0, 0, 0, 1, 0.534808, 1, 0.304952, 0.57, 0.854102, 0, 1, 0.416408, 0.58, 0.6, 0, 0, 
-0, 1, 0.416408, 0.58, 0.75, 0, 0, 1, 0.416408, 0.58, 0.84, 0, 0, 1, 0.416408, 0.58, 
-0.75, 0, 0, 1, 0.575462, 1, 0.304952, 0.57, 0.326238, 0, 1, 0.665631, 1, 0.534808, 1, 
-0.304952, 0.57, 0.326238, 0, 1, 0.416408, 0.58, 0.55, 0, 0, 1, 0.416408, 0.58, 0.82, 
-0, 0, 0, 0 ]\end{verbatim}}
+\begin{lstlisting}[language=Java, caption=Encoded genotype for S. Reich's \emph{Clapping Music}]
+[1, 0.275535, 1, 0.534808, 1, 0.665631, 1, 0.665631, 1, 0.575462, 1, 0.575462, 1, 0.606798, 1, 0.27051, 0.51, 0.335614, 0.51, 0.335614, 0.51, 0.435614, 0, 1, 0.506578, 0.53, 0.53, 0, 1, 0.742646, 0.55, 0.553176, 0, 1, 0.36068, 0.56, 0.23, 0.56, 0.23, 0.56, 0.93, 0, 0, 1, 0.534808, 1, 0.304952, 0.57, 0, 0, 1, 0.416408, 0.58, 0.55, 0, 0, 0, 1, 0.534808, 1, 0.304952, 0.57, 0.854102, 0, 1, 0.416408, 0.58, 0.6, 0, 0, 0, 1, 0.416408, 0.58, 0.75, 0, 0, 1, 0.416408, 0.58,0.84, 0, 0, 1, 0.416408, 0.58, 0.75, 0, 0, 1, 0.575462, 1, 0.304952, 0.57,0.326238, 0, 1, 0.665631, 1, 0.534808, 1, 0.304952, 0.57, 0.326238, 0, 1, 0.416408, 0.58, 0.55, 0, 0, 1, 0.416408, 0.58, 0.82, 0, 0, 0, 0 ]
+\end{lstlisting}
 
 Visualization?
 
