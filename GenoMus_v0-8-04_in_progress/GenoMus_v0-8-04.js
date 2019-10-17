@@ -78,6 +78,8 @@ var checkRange = x => {
     }
 };
 
+
+// avoid number off the limits?
 // var norm2notevalue = p => decimal2fraction(Math.pow(2, 10 * p - 8));
 var norm2notevalue = p => r6d(Math.pow(2, 10 * p - 8));
 var p2n = norm2notevalue;
@@ -95,13 +97,15 @@ var norm2frequency = p => p < 0.003 ? 0.000001 : r6d(20000 * Math.pow(p, 4));
 var p2f = norm2frequency;
 var frequency2norm = f => r6d(Math.pow((f / 20000), (1 / 4)));
 var f2p = frequency2norm;
-var norm2articulation = p => r6d(3 * Math.pow(p, Math.E));
+// var norm2articulation = p => r6d(3 * Math.pow(p, Math.E));
+var norm2articulation = p => Math.floor(300 * Math.pow(p, Math.E));
 var p2a = norm2articulation;
-var articulation2norm = a => r6d(Math.pow((a / 3), (1 / Math.E)));
+// var articulation2norm = a => r6d(Math.pow((a / 3), (1 / Math.E)));
+var articulation2norm = a => r6d(Math.pow((a / 300), (1 / Math.E)));
 var a2p = articulation2norm;
-var norm2intensity = p => Math.round(100 * p + 27);
+var norm2intensity = p => Math.round(100 * p);
 var p2i = norm2intensity;
-var intensity2norm = i => { if (i < 27) {return 0;} else {return r6d((i - 27) / 100)}};
+var intensity2norm = i => r6d(i / 100);
 var i2p = intensity2norm;
 var norm2quantized = p => {
     if (p > 1) { p = 1 };
@@ -1729,7 +1733,7 @@ var encPhen2bachRoll = encPhen => {
             roll.push(totalVoiceDeltaTime);
             console.log("encPhen[pos]: " + encPhen[pos]);
 
-            //            eventDur = wholeNoteDur * eval(p2n(encPhen[pos]));
+            // eventDur = wholeNoteDur * eval(p2n(encPhen[pos]));
             eventDur = wholeNoteDur * p2n(encPhen[pos]);
             console.log("eventDur: " + eventDur);
             pos++;
@@ -1744,21 +1748,24 @@ var encPhen2bachRoll = encPhen => {
             }
             console.log("leidos pitches " + pitchSet);
             // read articulation
-            articul = eventDur * p2a(encPhen[pos]);
+            articul = eventDur * p2a(encPhen[pos]) * .01;
             pos++;
-            // read intensity
-            intens = p2i(encPhen[pos]);
+            // read intensity (uses 27 as dynamic baseline to avoid too pianissimo notes)
+            if (encPhen[pos] == 0) intens = 0;
+            else intens = p2i(encPhen[pos]) + 27;
             pos++;
             // writes individual notes parameters
-            for (var pit = 0; pit < numPitches; pit++) {
-                roll.push("(");
-                // adds a pitch of the chord
-                roll.push(pitchSet[pit]);
-                // adds duration of sound according to articulation % value
-                roll.push(articul);
-                // adds dynamics (converts from 0-1 to 127 standard MIDI velocity)
-                roll.push(intens);
-                roll.push(")");
+            if (intens > 0) {
+                for (var pit = 0; pit < numPitches; pit++) {
+                    roll.push("(");
+                    // adds a pitch of the chord
+                    roll.push(pitchSet[pit]);
+                    // adds duration of sound according to articulation % value
+                    roll.push(articul);
+                    // adds dynamics (converts from 0-1 to 127 standard MIDI velocity)
+                    roll.push(intens);
+                    roll.push(")");
+                }
             }
             totalVoiceDeltaTime = totalVoiceDeltaTime + eventDur;
             roll.push(")");

@@ -251,7 +251,7 @@ s2V(                           // score L: joins the 2 voices vertically
         vConcatV(              // pattern E: C + D
           vConcatV(            // motif C: A + B
             vMotifLoop(        // core motif A: 3 8th-notes and a silence
-              ln(4),           // note values
+              ln(1/8),         // note values
               lm(65),          // pitch (irrelevant for this piece)
               la(50),          // articulation
               li(60,60,90,0)), // intensities (last note louder for clarity) 
@@ -268,19 +268,31 @@ s2V(                           // score L: joins the 2 voices vertically
     vAutoref(7),
     vRepeatV(                  // phase I: H 12 times 
       vSlice(                  // cycle H: cycle F with 1st note sliced
-        vAutoref(7),
+        vAutoref(10),
         q(1)),
       q(12))))
 \end{lstlisting}
 
 
 \begin{figure}
-  \includegraphics[width=\linewidth]{figs/clapping_tree_graph.pdf}
+  \includegraphics[width=\linewidth]{figs/clapping_tree_graph_colours_code.pdf}
   \caption{Structures of S. Reich's \emph{Clapping Music}.}
   \label{fig:boat2}
 \end{figure}
 
 Figure \ref{fig:boat2} shows a boat.
+
+
+\begin{figure}
+\begin{center}
+  \includegraphics[width=13cm]{figs/clappingVisualized.pdf}
+\end{center}  
+  \caption{Structures of S. Reich's \emph{Clapping Music}.}
+  \label{fig:boat3}
+\end{figure}
+
+Figure \ref{fig:boat3} Visualization of the encoded genotype of \emph{Clapping Music}.
+
 
 
 Extrapolacion de estructuras y variantes:
@@ -291,7 +303,7 @@ Extrapolacion de estructuras y variantes:
 \subsection{Encoded genotype: an abstract representation of compositional processes}
 
 \begin{lstlisting}[language=Java, caption=Encoded genotype for S. Reich's \emph{Clapping Music}]
-[1, 0.275535, 1, 0.534808, 1, 0.665631, 1, 0.665631, 1, 0.575462, 1, 0.575462, 1, 0.606798, 1, 0.27051, 0.51, 0.335614, 0.51, 0.335614, 0.51, 0.435614, 0, 1, 0.506578, 0.53, 0.53, 0, 1, 0.742646, 0.55, 0.553176, 0, 1, 0.36068, 0.56, 0.23, 0.56, 0.23, 0.56, 0.93, 0, 0, 1, 0.534808, 1, 0.304952, 0.57, 0, 0, 1, 0.416408, 0.58, 0.55, 0, 0, 0, 1, 0.534808, 1, 0.304952, 0.57, 0.854102, 0, 1, 0.416408, 0.58, 0.6, 0, 0, 0, 1, 0.416408, 0.58, 0.75, 0, 0, 1, 0.416408, 0.58,0.84, 0, 0, 1, 0.416408, 0.58, 0.75, 0, 0, 1, 0.575462, 1, 0.304952, 0.57,0.326238, 0, 1, 0.665631, 1, 0.534808, 1, 0.304952, 0.57, 0.326238, 0, 1, 0.416408, 0.58, 0.55, 0, 0, 1, 0.416408, 0.58, 0.82, 0, 0, 0, 0 ]
+[1, 0.275535, 1, 0.534808, 1, 0.665631, 1, 0.665631, 1, 0.575462, 1, 0.575462, 1, 0.606798, 1, 0.27051, 0.51, 0.5, 0, 1, 0.506578, 0.53, 0.53, 0, 1, 0.742646, 0.55, 0.51346, 0, 1, 0.36068, 0.56, 0.6, 0.56, 0.6, 0.56, 0.9, 0.56, 0, 0, 0, 1, 0.534808, 1, 0.304952, 0.57, 0, 0, 1, 0.416408, 0.58, 0.55, 0, 0, 0, 1, 0.534808, 1, 0.304952, 0.57, 0.854102, 0, 1, 0.416408, 0.58, 0.6, 0, 0, 0, 1, 0.416408, 0.58, 0.75, 0, 0, 1, 0.416408, 0.58, 0.84, 0, 0, 1, 0.416408, 0.58, 0.75, 0, 0, 1, 0.575462, 1, 0.304952, 0.57, 0.326238, 0, 1, 0.665631, 1, 0.534808, 1, 0.304952, 0.57, 0.18034, 0, 1, 0.416408, 0.58, 0.55, 0, 0, 1, 0.416408, 0.58, 0.82, 0, 0, 0, 0]
 \end{lstlisting}
 
 Visualization?

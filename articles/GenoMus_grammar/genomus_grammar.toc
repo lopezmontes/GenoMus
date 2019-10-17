@@ -24,5 +24,5 @@
 \contentsline {section}{\numberline {5}Evaluation and evolution}{6}{section.5}
 \contentsline {subsection}{\numberline {5.1}Evolutionary paradigm}{7}{subsection.5.1}
 \contentsline {section}{\numberline {6}Scalability}{7}{section.6}
-\contentsline {subsection}{\numberline {6.1}Integrating traditional and contemporary techniques}{7}{subsection.6.1}
-\contentsline {section}{\numberline {7}Conclusions and future work}{7}{section.7}
+\contentsline {subsection}{\numberline {6.1}Integrating traditional and contemporary techniques}{8}{subsection.6.1}
+\contentsline {section}{\numberline {7}Conclusions and future work}{8}{section.7}
