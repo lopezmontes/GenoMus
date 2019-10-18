@@ -3,44 +3,46 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: genomus_grammar.aux
 The style file: unsrt.bst
 Database file #1: references.bib
-You've used 4 entries,
+Warning--can't use both author and editor fields in BodenWhatIsCr
+You've used 10 entries,
             1791 wiz_defined-function locations,
-            479 strings with 4416 characters,
-and the built_in function-call counts, 1045 in all, are:
-= -- 106
-> -- 20
-< -- 2
-+ -- 9
-- -- 5
-* -- 54
-:= -- 160
-add.period$ -- 14
-call.type$ -- 4
-change.case$ -- 4
+            516 strings with 5505 characters,
+and the built_in function-call counts, 2481 in all, are:
+= -- 239
+> -- 63
+< -- 6
++ -- 26
+- -- 16
+* -- 115
+:= -- 356
+add.period$ -- 34
+call.type$ -- 10
+change.case$ -- 7
 chr.to.int$ -- 0
-cite$ -- 4
-duplicate$ -- 57
-empty$ -- 110
-format.name$ -- 5
-if$ -- 251
+cite$ -- 11
+duplicate$ -- 148
+empty$ -- 276
+format.name$ -- 16
+if$ -- 604
 int.to.chr$ -- 0
-int.to.str$ -- 4
-missing$ -- 3
-newline$ -- 23
-num.names$ -- 6
-pop$ -- 13
+int.to.str$ -- 10
+missing$ -- 12
+newline$ -- 53
+num.names$ -- 12
+pop$ -- 57
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 30
+skip$ -- 71
 stack$ -- 0
-substring$ -- 73
-swap$ -- 19
-text.length$ -- 2
+substring$ -- 129
+swap$ -- 50
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 11
-width$ -- 5
-write$ -- 50
+warning$ -- 1
+while$ -- 26
+width$ -- 12
+write$ -- 114
+(There was 1 warning)

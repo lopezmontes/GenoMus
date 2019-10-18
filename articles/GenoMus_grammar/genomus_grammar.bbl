@@ -1,4 +1,16 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{BodenWhatIsCr}
+Margaret~A. Boden.
+\newblock {\em Dimensions of Creativity}, chapter What Is Creativity?, pages
+  75--118.
+\newblock The MIT Press, 1996.
+
+\bibitem{Nierhaus:2008:ACP:1524239}
+Gerhard Nierhaus.
+\newblock {\em Algorithmic Composition: Paradigms of Automated Music
+  Generation}.
+\newblock Springer Publishing Company, Incorporated, 1st edition, 2008.
 
 \bibitem{Hofmann2015}
 David~M. Hofmann.
@@ -6,23 +18,48 @@ David~M. Hofmann.
 \newblock In {\em Evolutionary and Biologically Inspired Music, Sound, Art and
   Design}, pages 89--100. Springer International Publishing, 2015.
 
-\bibitem{compoCombiSimul}
-Eleanor Selfridge-Field.
-\newblock Composition, combinatorics, and simulation: A historical and
-  philosophical enquiry.
-\newblock In David Cope, editor, {\em Virtual Music: Computer Synthesis of
-  Musical Style}, pages 187--220. The MIT Press, Cambridge, 2001.
+\bibitem{ArizaOpenDesign}
+Christopher Ariza.
+\newblock {\em An Open Design for Computer-Aided Algorithmic Music Composition:
+  athenaCL}.
+\newblock Dissertation.Com, 2005.
 
-\bibitem{Schmidhuber95low-complexityart}
-J{\"u}rgen Schmidhuber.
-\newblock Low-complexity art.
-\newblock {\em Leonardo, Journal of the International Society for the Arts,
-  Sciencies and Technology}, 30(2):97--103, 1997.
+\bibitem{Drewes_analgebra}
+Frank Drewes and Johanna H{\"o}gberg.
+\newblock An algebra for tree-based music generation.
+\newblock In {\em Proc. 2nd Intl. Conf. on Algebraic Informatics, Lecture Notes
+  in Computer Science. This issue}, 2007.
 
-\bibitem{Lopez-Montes_TFM}
-Jos{\'e} L{\'o}pez-Montes.
-\newblock Genomus: Prospecci{\'o}n de t{\'e}cnicas de creatividad asistida por
-  computadora mediante la metaprogramaci{\'o}n de genotipos musicales.
-\newblock Master's thesis, Universidad Rey Juan Carlos, Madrid, 2013.
+\bibitem{Bod_thedata-oriented}
+Rens Bod.
+\newblock The data-oriented parsing approach: Theory and application.
+\newblock In John Fulcher~John Fulcher and Lakhmi~C. Jain, editors, {\em
+  Computational Intelligence: A Compendium}, pages 330--342. Springer-Verlag
+  Berlin Heidelberg, 2008.
+
+\bibitem{Sulyok2019}
+Csaba Sulyok, Christopher Harte, and Zal{\'{a}}n Bod{\'{o}}.
+\newblock On the impact of domain-specific knowledge in evolutionary music
+  composition.
+\newblock In {\em Proceedings of the Genetic and Evolutionary Computation
+  Conference on GECCO'19}. {ACM} Press, 2019.
+
+\bibitem{BurtonHybrid}
+Anthony~Richard Burton.
+\newblock {\em A Hybrid Neuro-Genetic Pattern Evolution System Applied to
+  Musical Composition}.
+\newblock PhD thesis, University of Surrey, 1998.
+
+\bibitem{Papadopoulos98agenetic}
+George Papadopoulos and Geraint Wiggins.
+\newblock A genetic algorithm for the generation of jazz melodies.
+\newblock In {\em Proceedings of STeP 98}, pages 7--9, 1998.
+
+\bibitem{LopezdeMantaras:2006:MMA:1565082.1565089}
+Ram\'{o}n Lopez~de Mantaras.
+\newblock Making music with ai: Some examples.
+\newblock In {\em Proceedings of the 2006 Conference on Rob Milne: A Tribute to
+  a Pioneering AI Scientist, Entrepreneur and Mountaineer}, pages 90--100,
+  Amsterdam, The Netherlands, The Netherlands, 2006. IOS Press.
 
 \end{thebibliography}

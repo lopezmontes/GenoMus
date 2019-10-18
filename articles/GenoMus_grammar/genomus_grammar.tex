@@ -93,6 +93,10 @@ We present GenoMus, a new model for artificial musical creativity based on a pro
 \bigskip
 
 \section{Introduction}
+
+?Lerner appears to believe that transformations that could be carriedout by a computer program , such as " mechanical" cut-and-paste,could not possibly generate anything sensible- -and that no programcould tell sense from nonsense anyway . The implication , so far astheoretical psychology is concerned, is that no computational theorycould describe the generation of valuable new ideas, and that only anunanalyzable faculty of " intuition " or "insight" could recognize theirvalue. None of these beliefs is justified .?
+del articulo: \cite{BodenWhatIsCr}
+
 \subsection{Composing composers}
 
 Research in artificial musical intelligence demand for formalized
@@ -130,9 +134,16 @@ Many approaches to artificial intelligence applied to the automatic composition 
 \subsection{The next step of computer assisted composition}
 {\color{gray} \textsl{[Repaso rapido de los principales paradigmas de herramientas de CAC para hacer notar como es necesario un metanivel de trabajo]}}
 
+Citar \cite{Nierhaus:2008:ACP:1524239}
+	-> -Pag. 4-5: Buen sumario de los paradigmas
+	-> -5: justifica problema de neural nets con fragmentos largos coherentes 
+
+
 This proposal, beyond the technical details, is a model of augmented creativity from the point of view of the composer. The new paradigm of computation applied to creative tasks is tilting from ordering to the computer "what to do", to saying "what to get", as a starting point to detonate supervised or non-supervised creative processes. So, the goal of GenoMus is to combine a knowledge base of compositional procedures with the maximal freedom of recombination. 
 
 \subsection{Complementary materials to this text}
+
+{\color{gray} \textsl{[Specifications. Code, Max Patches, Examples of specimens, Music excerpts]}}
 
 
 
@@ -141,7 +152,13 @@ This proposal, beyond the technical details, is a model of augmented creativity 
 
 \section{A functional grammar to represent musical procedures}
 
+Similaridad con \cite{Hofmann2015} como el referente mas cercano. Mostrar diferencias. Tambien cercano a \cite{ArizaOpenDesign} como lenguaje creado por un compositor para autoexpansion.
+
 \subsection{Foundations and requirements}
+
+Just con \cite{Drewes_analgebra} -> para la generacion automatica de arboles y gramatica (mirar mas a fondo)
+
+too \cite{Bod_thedata-oriented} -> para justificar el uso de arboles de funciones, ya que este articulo habla de parsear lenguaje (musical entre otros) para llegar al arbol original.
 
 In any approach to artificial creativity, the representation system used is a condition that restricts the search space and determines aesthetic biases a priori, either consciously or unconsciously. On the other hand, the design of algorithms to generate music is ultimately an act of composition. With this in mind, our proposal seeks to be as open as possible, so that it can represent multiple styles. However, since the purpose of the project is not to imitate styles, but to create results of great originality and also serve as a tool for the \emph{augmented creativity} of human composers, this grammar integrates contemporary compositional techniques such as recursive processes, controlled randomness, self-similarity, etc.
 
@@ -157,6 +174,8 @@ A system expressive!!
 
 
 \subsection{Musical genotypes and phenotypes}
+
+para aclarar que no hay consenso entre el uso de la nomenclatura de genotipos y fenotipos \cite{Sulyok2019}
 
 {\color{gray} \textsl{[Marco conceptual basico del paradigma genotipo-fenotipo (referencias de otros proyectos)]}}
 
@@ -306,8 +325,6 @@ Extrapolacion de estructuras y variantes:
 [1, 0.275535, 1, 0.534808, 1, 0.665631, 1, 0.665631, 1, 0.575462, 1, 0.575462, 1, 0.606798, 1, 0.27051, 0.51, 0.5, 0, 1, 0.506578, 0.53, 0.53, 0, 1, 0.742646, 0.55, 0.51346, 0, 1, 0.36068, 0.56, 0.6, 0.56, 0.6, 0.56, 0.9, 0.56, 0, 0, 0, 1, 0.534808, 1, 0.304952, 0.57, 0, 0, 1, 0.416408, 0.58, 0.55, 0, 0, 0, 1, 0.534808, 1, 0.304952, 0.57, 0.854102, 0, 1, 0.416408, 0.58, 0.6, 0, 0, 0, 1, 0.416408, 0.58, 0.75, 0, 0, 1, 0.416408, 0.58, 0.84, 0, 0, 1, 0.416408, 0.58, 0.75, 0, 0, 1, 0.575462, 1, 0.304952, 0.57, 0.326238, 0, 1, 0.665631, 1, 0.534808, 1, 0.304952, 0.57, 0.18034, 0, 1, 0.416408, 0.58, 0.55, 0, 0, 1, 0.416408, 0.58, 0.82, 0, 0, 0, 0]
 \end{lstlisting}
 
-Visualization?
-
 \subsection{Encoded phenotype and possible outputs}
 
 
@@ -332,7 +349,18 @@ Visualization?
 %------------------------------------------------
 
 
+
+
 \section{Evaluation and evolution}
+
+Citar \cite{BurtonHybrid} para
+-> Ejemplo de sistema basado en programacion textual, para introduccion manual de expresiones complejas
+	-> A menudo son sistemas creados por los propios compositores como medio de extender su estilo
+
+El texto de \cite{Papadopoulos98agenetic}
+segun Mantaras, usan fitness basado en contorno, intervalica, y otras cuestiones cuantificables
+
+
 
 When modeling artistic creativity with algorithms, probably the most evasive issue to address is programming fitness functions. By definition, the assessment of a piece of art can only be made from a subjective point of view, since the goal of art is to provoke inner and personal reactions. These individual responses are very dependent on cultural and social context. However, provided enough data some predictions can be made about the expected rating for a new piece.
 
@@ -389,8 +417,17 @@ Approaches based on neural networks need a very controlled format of data and bi
 \end{itemize}
 
 \subsection{Integrating traditional and contemporary techniques}
+
 %------------------------------------------------
 
+{\color{gray} \textsl{[A genotype como un arbol multiagente, que puede incorporar nodos con funciones de todo tipo: analiticos, recursivos, de constraints, etc. Una vez se tiene un marco de funcion, todo puede caber en el arbol de procesos.]}}
+
+Justificar con \cite{LopezdeMantaras:2006:MMA:1565082.1565089}:
+	-> 2: En los 50 era logico excliur la parte expresiva. Los modelos Markovianos son de resultados muy pobres. Ahora debe estar incluida?
+IMPORTANTE:
+	-> referencia a Minsky, que plantea la posibilidad de los multiagentes, que puedan actuar sobre bloques mayores de musica, y que sean a veces solo analiticos
+	-> ?the rules dont make the music, it is the music that makes the rules?
+	-> Truly creative! para el final
 
 \section{Conclusions and future work}
 
@@ -501,7 +538,7 @@ Cuestiones interesantes:
 %\item Aliquam dignissim blandit est, in dictum tortor gravida eget. In ac rutrum magna.
 %\end{itemize}
 
-Ejemplo de citas  \cite{compoCombiSimul,Schmidhuber95low-complexityart} y otra cita \cite{Lopez-Montes_TFM}.
+
 
 \bibliographystyle{unsrt}  
 \bibliography{references}  
