@@ -1,10 +1,55 @@
 \begin{thebibliography}{10}
 
+\bibitem{Minsky:1992:MMM:167765.167797}
+Marvin Minsky.
+\newblock Machine models of music.
+\newblock chapter Music, Mind, and Meaning, pages 327--354. MIT Press,
+  Cambridge, MA, USA, 1992.
+
+\bibitem{DBLP:journals/aim/Minsky82}
+Marvin Minsky.
+\newblock Why people think computers can't.
+\newblock {\em {AI} Magazine}, 3(4):3--15, 1982.
+
+\bibitem{Pearce2002}
+Marcus Pearce, David Meredith, and Geraint Wiggins.
+\newblock Motivations and methodologies for automation of the compositional
+  process.
+\newblock {\em Musicae Scientiae}, 6(2):119--147, September 2002.
+
 \bibitem{BodenWhatIsCr}
 Margaret~A. Boden.
 \newblock {\em Dimensions of Creativity}, chapter What Is Creativity?, pages
   75--118.
 \newblock The MIT Press, 1996.
+
+\bibitem{DBLP:journals/aim/Buchanan01}
+Bruce~G. Buchanan.
+\newblock Creativity at the {Metalevel} ({AAAI-2000} {Presidential} {Address}).
+\newblock {\em {AI} Magazine}, 22(3):13--28, 2001.
+
+\bibitem{JACOB1996}
+Bruce~L. Jacob.
+\newblock Algorithmic composition as a model of creativity.
+\newblock {\em Organised Sound}, 1(3):157--165, December 1996.
+
+\bibitem{LopezRincon2018}
+Omar Lopez-Rincon, Oleg Starostenko, and Gerardo Ayala-San Martin.
+\newblock Algoritmic music composition based on artificial intelligence: A
+  survey.
+\newblock In {\em 2018 International Conference on Electronics, Communications
+  and Computers}. {IEEE}, 2018.
+
+\bibitem{DBLP:journals/corr/RodriguezV14}
+Jose David~Fern{\'{a}}ndez Rodriguez and Francisco~J. Vico.
+\newblock {AI} methods in algorithmic composition: {A} comprehensive survey.
+\newblock {\em CoRR}, abs/1402.0585, 2014.
+
+\bibitem{Dostl2013}
+Martin Dost{\'{a}}l.
+\newblock Evolutionary music composition.
+\newblock In {\em Handbook of Optimization}, pages 935--964. Springer Berlin
+  Heidelberg, 2013.
 
 \bibitem{Nierhaus:2008:ACP:1524239}
 Gerhard Nierhaus.
@@ -24,6 +69,40 @@ Christopher Ariza.
   athenaCL}.
 \newblock Dissertation.Com, 2005.
 
+\bibitem{crawford2015algorithmic}
+Robert Crawford.
+\newblock {\em Algorithmic Music Composition: A Hybrid Approach}.
+\newblock Northern Kentucky University, 2015.
+
+\bibitem{delaPuente2002}
+Alfonso~Ortega de~la Puente, Rafael~S{\'{a}}nchez Alfonso, and Manuel~Alfonseca
+  Moreno.
+\newblock Automatic composition of music by means of grammatical evolution.
+\newblock In {\em Proceedings of the 2002 conference on {APL} array processing
+  languages: lore, problems, and applications - {APL} '02}. {ACM} Press, 2002.
+
+\bibitem{Laine}
+P.~Laine and M.~Kuuskankare.
+\newblock Genetic algorithms in musical style oriented generation.
+\newblock In {\em Proceedings of the First {IEEE} Conference on Evolutionary
+  Computation. {IEEE} World Congress on Computational Intelligence}. {IEEE},
+  1994.
+
+\bibitem{xenakis1971formalized}
+I.~Xenakis.
+\newblock {\em Formalized music:}.
+\newblock Indiana University Press, 1971.
+
+\bibitem{DBLP:journals/air/RoweP93}
+Jon Rowe and Derek Partridge.
+\newblock Creativity: a survey of {AI} approaches.
+\newblock {\em Artif. Intell. Rev.}, 7(1):43--70, 1993.
+
+\bibitem{Herremans:2017:FTM:3145473.3108242}
+Dorien Herremans, Ching-Hua Chuan, and Elaine Chew.
+\newblock A functional taxonomy of music generation systems.
+\newblock {\em ACM Comput. Surv.}, 50(5):69:1--69:30, September 2017.
+
 \bibitem{Drewes_analgebra}
 Frank Drewes and Johanna H{\"o}gberg.
 \newblock An algebra for tree-based music generation.
@@ -37,12 +116,52 @@ Rens Bod.
   Computational Intelligence: A Compendium}, pages 330--342. Springer-Verlag
   Berlin Heidelberg, 2008.
 
+\bibitem{DBLP:conf/icmc/Jacob95}
+Bruce~L. Jacob.
+\newblock Composing with genetic algorithms.
+\newblock In {\em Proceedings of the 1995 International Computer Music
+  Conference, {ICMC} 1995, Banff, AB, Canada, September 3-7, 1995}, 1995.
+
 \bibitem{Sulyok2019}
 Csaba Sulyok, Christopher Harte, and Zal{\'{a}}n Bod{\'{o}}.
 \newblock On the impact of domain-specific knowledge in evolutionary music
   composition.
 \newblock In {\em Proceedings of the Genetic and Evolutionary Computation
   Conference on GECCO'19}. {ACM} Press, 2019.
+
+\bibitem{SnchezQuintana2013}
+Carlos~S{\'{a}}nchez Quintana, Francisco~Moreno Arcas, David~Albarrac{\'{\i}}n
+  Molina, Jos{\'{e}} David~Fern{\'{a}}ndez Rodriguez, and Francisco~J. Vico.
+\newblock Melomics: A case-study of {AI} in spain.
+\newblock {\em {AI} Magazine}, 34(3):99, September 2013.
+
+\bibitem{stanley:alife03}
+Kenneth~O. Stanley and Risto Miikkulainen.
+\newblock A taxonomy for artificial embryogeny.
+\newblock {\em Artificial Life}, 9(2):93--130, 2003.
+
+\bibitem{deLemosAlmada2017}
+Carlos de~Lemos~Almada.
+\newblock G\"{o}del-vector and g\"{o}del-address as tools for genealogical
+  determination of genetically-produced musical variants.
+\newblock In {\em Computational Music Science}, pages 9--16. Springer
+  International Publishing, 2017.
+
+\bibitem{Biles94genjam}
+John Biles.
+\newblock {Gen}{Jam}: A genetic algorithm for generating jazz solos.
+\newblock In {\em Proceedings of the 1994 International Computer Music
+  Conference, IGMA, San Francisco}, pages 131--137, 1994.
+
+\bibitem{Burton1999}
+Anthony~R. Burton and Tanya Vladimirova.
+\newblock Generation of musical sequences with genetic techniques.
+\newblock {\em Computer Music Journal}, 23(4):59--73, December 1999.
+
+\bibitem{LimitHuman}
+R\'{o}is\'{i}n Loughran and Michael O'Neill.
+\newblock Generative music evaluation: Why do we limit to `human'?
+\newblock 2016.
 
 \bibitem{BurtonHybrid}
 Anthony~Richard Burton.
@@ -55,11 +174,30 @@ George Papadopoulos and Geraint Wiggins.
 \newblock A genetic algorithm for the generation of jazz melodies.
 \newblock In {\em Proceedings of STeP 98}, pages 7--9, 1998.
 
+\bibitem{quteprints6544}
+Rene Wooller, Andrew~R Brown, Eduardo Miranda, Joachim Diederich, and Rodney
+  Berry.
+\newblock A framework for comparison of process in algorithmic music systems.
+\newblock In Burraston David and Edmonds Ernest, editors, {\em Generative Arts
+  Practice}, pages 109--124, Sydney, Australia, 2005. Creativity and Cognition
+  Studios.
+
 \bibitem{LopezdeMantaras:2006:MMA:1565082.1565089}
 Ram\'{o}n Lopez~de Mantaras.
 \newblock Making music with ai: Some examples.
 \newblock In {\em Proceedings of the 2006 Conference on Rob Milne: A Tribute to
   a Pioneering AI Scientist, Entrepreneur and Mountaineer}, pages 90--100,
   Amsterdam, The Netherlands, The Netherlands, 2006. IOS Press.
+
+\bibitem{Papadopoulos99aimethods}
+George Papadopoulos and Geraint Wiggins.
+\newblock Ai methods for algorithmic composition: A survey, a critical view and
+  future prospects.
+\newblock In {\em AISB Symposium on Musical Creativity}, pages 110--117, 1999.
+
+\bibitem{CreatCreat}
+Stephen~Jay Gould.
+\newblock Creating the creators.
+\newblock {\em Discover Magazine}, October 1996.
 
 \end{thebibliography}

@@ -3,46 +3,53 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: genomus_grammar.aux
 The style file: unsrt.bst
 Database file #1: references.bib
+Warning--string name "february" is undefined
+--line 251 of file references.bib
+A bad cross reference---entry "DBLP:conf/icmc/Jacob95"
+refers to entry "DBLP:conf/icmc/1995", which doesn't exist
+Warning--I didn't find a database entry for "DBLP:conf/icmc/1995"
+Warning--empty booktitle in Minsky:1992:MMM:167765.167797
 Warning--can't use both author and editor fields in BodenWhatIsCr
-You've used 10 entries,
+Warning--empty booktitle in LimitHuman
+You've used 34 entries,
             1791 wiz_defined-function locations,
-            516 strings with 5505 characters,
-and the built_in function-call counts, 2481 in all, are:
-= -- 239
-> -- 63
-< -- 6
-+ -- 26
-- -- 16
-* -- 115
-:= -- 356
-add.period$ -- 34
-call.type$ -- 10
-change.case$ -- 7
+            683 strings with 9857 characters,
+and the built_in function-call counts, 8199 in all, are:
+= -- 779
+> -- 249
+< -- 13
++ -- 99
+- -- 65
+* -- 454
+:= -- 1201
+add.period$ -- 113
+call.type$ -- 34
+change.case$ -- 29
 chr.to.int$ -- 0
-cite$ -- 11
-duplicate$ -- 148
-empty$ -- 276
-format.name$ -- 16
-if$ -- 604
+cite$ -- 37
+duplicate$ -- 449
+empty$ -- 891
+format.name$ -- 65
+if$ -- 1941
 int.to.chr$ -- 0
-int.to.str$ -- 10
-missing$ -- 12
-newline$ -- 53
-num.names$ -- 12
-pop$ -- 57
+int.to.str$ -- 34
+missing$ -- 38
+newline$ -- 173
+num.names$ -- 38
+pop$ -- 152
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 71
+skip$ -- 211
 stack$ -- 0
-substring$ -- 129
-swap$ -- 50
-text.length$ -- 6
+substring$ -- 489
+swap$ -- 130
+text.length$ -- 13
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 1
-while$ -- 26
-width$ -- 12
-write$ -- 114
-(There was 1 warning)
+warning$ -- 3
+while$ -- 85
+width$ -- 36
+write$ -- 377
+(There was 1 error message)
