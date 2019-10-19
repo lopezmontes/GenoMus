@@ -1,55 +1,59 @@
 This is BibTeX, Version 0.99d (TeX Live 2017)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: genomus_grammar.aux
-The style file: unsrt.bst
+The style file: acm.bst
 Database file #1: references.bib
 Warning--string name "february" is undefined
---line 251 of file references.bib
+--line 342 of file references.bib
+A bad cross reference---entry "DBLP:conf/evoW/McCormack05"
+refers to entry "DBLP:conf/evoW/2005", which doesn't exist
 A bad cross reference---entry "DBLP:conf/icmc/Jacob95"
 refers to entry "DBLP:conf/icmc/1995", which doesn't exist
+Warning--I didn't find a database entry for "DBLP:conf/evoW/2005"
 Warning--I didn't find a database entry for "DBLP:conf/icmc/1995"
-Warning--empty booktitle in Minsky:1992:MMM:167765.167797
+Warning--empty year in Ando
 Warning--can't use both author and editor fields in BodenWhatIsCr
 Warning--empty booktitle in LimitHuman
-You've used 34 entries,
-            1791 wiz_defined-function locations,
-            683 strings with 9857 characters,
-and the built_in function-call counts, 8199 in all, are:
-= -- 779
-> -- 249
-< -- 13
-+ -- 99
-- -- 65
-* -- 454
-:= -- 1201
-add.period$ -- 113
-call.type$ -- 34
-change.case$ -- 29
+Warning--empty year in Spector_inductionand
+You've used 37 entries,
+            2253 wiz_defined-function locations,
+            779 strings with 10900 characters,
+and the built_in function-call counts, 12214 in all, are:
+= -- 1191
+> -- 430
+< -- 0
++ -- 186
+- -- 140
+* -- 841
+:= -- 1886
+add.period$ -- 115
+call.type$ -- 37
+change.case$ -- 174
 chr.to.int$ -- 0
-cite$ -- 37
-duplicate$ -- 449
-empty$ -- 891
-format.name$ -- 65
-if$ -- 1941
+cite$ -- 41
+duplicate$ -- 574
+empty$ -- 1120
+format.name$ -- 140
+if$ -- 2654
 int.to.chr$ -- 0
-int.to.str$ -- 34
-missing$ -- 38
-newline$ -- 173
-num.names$ -- 38
-pop$ -- 152
+int.to.str$ -- 37
+missing$ -- 41
+newline$ -- 187
+num.names$ -- 78
+pop$ -- 250
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 142
 quote$ -- 0
-skip$ -- 211
+skip$ -- 349
 stack$ -- 0
-substring$ -- 489
-swap$ -- 130
-text.length$ -- 13
+substring$ -- 745
+swap$ -- 162
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 3
-while$ -- 85
-width$ -- 36
-write$ -- 377
-(There was 1 error message)
+type$ -- 138
+warning$ -- 4
+while$ -- 132
+width$ -- 39
+write$ -- 380
+(There were 2 error messages)

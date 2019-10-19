@@ -92,20 +92,17 @@ We present GenoMus, a new model for artificial musical creativity based on a pro
 \tableofcontents
 \bigskip
 
+
+
+%------------------------------------------------
 \section{Introduction}
 
 \begin{quotation}
-Edward Fredkin suggested to me the theory that listening to music might exercise some innate map-making mechanism in the brain. When I mentioned the puzzle of music's repetitiousness, he compared it to the way rodents explore new places: first they go one way a little, then back to home. They do it again a few times, then go a little farther. They try small digressions, but frequently return to base. Both people and mice explore new territories that way, making mental maps lest they get lost. Music might portray this building process, or even exercise those very parts of the mind.\cite{Minsky:1992:MMM:167765.167797}\end{quotation}
+Edward Fredkin suggested to me the theory that listening to music might exercise some innate map-making mechanism in the brain. When I mentioned the puzzle of music's repetitiousness, he compared it to the way rodents explore new places: first they go one way a little, then back to home. They do it again a few times, then go a little farther. They try small digressions, but frequently return to base. Both people and mice explore new territories that way, making mental maps lest they get lost. Music might portray this building process, or even exercise those very parts of the mind.\cite{Minsky1981}\end{quotation}
 
-\begin{quotation}
-I?ll grant that the carliestand simplest programs were little more than simple listsand loops of commands like ?Do thzs. Do that. Do thas andthat and thzs agazn until that happens ? That made it hardto imagine how more could emerge from such programs thantheir programmers envisioned. But t!here?s a big differencebct,ween ?impossible? and ?hard to imagine.? The first isabout at; the second is about \emph{you}!\cite{DBLP:journals/aim/Minsky82}
-\end{quotation}
 
-\begin{quotation}
-A generation later, we should be experimenting on programsthat write better programs to replace themselves. Thenat last it will be clear how foolish was our first idea-thatnever, by their nature, could machines create new things.\cite{DBLP:journals/aim/Minsky82}
-\end{quotation}
 
-I don?t believe there?sany substantial difference between ordinary thought andcreative thought. Then why do we think there?s a difference?I?ll argue that this is really not a ma.tter of what?s in themind of the artist-but of what?s in the mind of the critic;the less one understands an artist?s mind the more creat,iveseems the work the artist does.\cite{DBLP:journals/aim/Minsky82}
+{\color{red} 
 
 
 
@@ -117,20 +114,13 @@ Failures:
 1. a failure to specify the precise practical or theoretical aims of research;2. a failure to adopt an appropriate methodology for achieving the stated aims;3. a failure to adopt a means of evaluation appropriate for judging the degree towhich the aims have been satisfied.
 
 
-\begin{quotation}
-Lerner appears to believe that transformations that could be carried
-out by a computer program , such as "mechanical" cut-and-paste,
-could not possibly generate anything sensible- -and that no program
-could tell sense from nonsense anyway. The implication, so far as
-theoretical psychology is concerned, is that no computational theory
-could describe the generation of valuable new ideas, and that only an
-unanalyzable faculty of "intuition" or "insight" could recognize their
-value. None of these beliefs is justified.\cite{BodenWhatIsCr}
-\end{quotation}
 
+}
 
 \subsection{Composing composers}
 
+
+{\color{red}
 Metalevel -> \cite{DBLP:journals/aim/Buchanan01}
 
 
@@ -144,6 +134,8 @@ El survey de Vico \cite{DBLP:journals/corr/RodriguezV14}
 
 
 \cite{Dostl2013} -> survey actual de evolutionary music generation (para inicio)
+}
+
 
 Research in artificial musical intelligence demand for formalized
 grammars of musical structures. Besides, a model of creative
@@ -177,36 +169,43 @@ Many approaches to artificial intelligence applied to the automatic composition 
 
 {\color{gray} \textsl{[Complejidad del diseno de lenguajes de representacion musical en la composicion asistida por ordenador. Cita de algunas aproximaciones analogas.]}}
 
-\subsection{The next step of computer assisted composition}
+\subsection{New challenges for automatic composition}
+
+
+
+
 {\color{gray} \textsl{[Repaso rapido de los principales paradigmas de herramientas de CAC para hacer notar como es necesario un metanivel de trabajo]}}
 
+{\color{red}
 Citar \cite{Nierhaus:2008:ACP:1524239}
 	-> -Pag. 4-5: Buen sumario de los paradigmas
 	-> -5: justifica problema de neural nets con fragmentos largos coherentes 
 
+Muy interesante: Open Problems for Genetic Music: \cite{DBLP:conf/evoW/McCormack05}
+}
 
 This proposal, beyond the technical details, is a model of augmented creativity from the point of view of the composer. The new paradigm of computation applied to creative tasks is tilting from ordering to the computer "what to do", to saying "what to get", as a starting point to detonate supervised or non-supervised creative processes. So, the goal of GenoMus is to combine a knowledge base of compositional procedures with the maximal freedom of recombination. 
 
 
-\subsection{Scope of the framework}
 
 Hacer resumen del proyecto completo, referencias a los antecedentes y dejar claro que trata este texto
 
-\subsection{Complementary materials to this text}
+\subsection{Overview of the framework and complementary materials}
 
 {\color{gray} \textsl{[Specifications. Code, Max Patches, Examples of specimens, Music excerpts]}}
 
 
 
+
 %------------------------------------------------
-
-
 \section{A functional grammar to represent musical procedures}
 
+\begin{quotation}
+Lerner appears to believe that transformations that could be carried
+out by a computer program [...] could not possibly generate anything sensible---and that no program could tell sense from nonsense anyway. The implication [...] is that no computational theory could describe the generation of valuable new ideas, and that only an unanalyzable faculty of ``intuition'' or ``insight'' could recognize their value. None of these beliefs is justified.\cite{BodenWhatIsCr}
+\end{quotation}
 
-
-
-
+{\color{red}
 Similaridad con \cite{Hofmann2015} como el referente mas cercano. Mostrar diferencias. Tambien cercano a \cite{ArizaOpenDesign} como lenguaje creado por un compositor para autoexpansion.
 
 \cite{crawford2015algorithmic} -> solo por citar una aproximacion hibirda muy actual, pero poco interesante
@@ -216,10 +215,12 @@ Similaridad con \cite{Hofmann2015} como el referente mas cercano. Mostrar difere
 \cite{Laine} -> un ejemplo analogo a la generacion automatica de arboles de funciones
 
 Referencia a compositor de referencia -> \cite{xenakis1971formalized}
-t
-
+Ya habla de la posibilidad de expresar la musica como expresiones logical and algebraic a partir de eventos sonicos basicos, a la par que habla de ir "towards a metamusic" 
+}
 
 \subsection{Foundations and requirements}
+
+{\color{red}
 
 
 \cite{DBLP:journals/air/RoweP93} -> Conditions for creativity:
@@ -230,17 +231,30 @@ What is Creativity. In M. Boden, editor, Dimensions of Creativity, pages 75?118.
 \cite{Herremans:2017:FTM:3145473.3108242} -> Quiza recoger su apunte de las conclusiones: falta el long-term approach y el higher-level concept 
 
 
+
+
 Just con \cite{Drewes_analgebra} -> para la generacion automatica de arboles y gramatica (f mas a fondo)
 
+Una aproximacion tambien muy similar en el sentido de generar metaprogramas -> \cite{Spector_inductionand}
+
+Similar pero muy simple -> \cite{Ando}
+
 too \cite{Bod_thedata-oriented} -> para justificar el uso de arboles de funciones, ya que este articulo habla de parsear lenguaje (musical entre otros) para llegar al arbol original.
+
+}
+
+
 
 In any approach to artificial creativity, the representation system used is a condition that restricts the search space and determines aesthetic biases a priori, either consciously or unconsciously. On the other hand, the design of algorithms to generate music is ultimately an act of composition. With this in mind, our proposal seeks to be as open as possible, so that it can represent multiple styles. However, since the purpose of the project is not to imitate styles, but to create results of great originality and also serve as a tool for the \emph{augmented creativity} of human composers, this grammar integrates contemporary compositional techniques such as recursive processes, controlled randomness, self-similarity, etc.
 
 A system expressive!! Outputs not a score but a musical excerpt with expressive nuances and values. Both are not separated.
 
-\cite{DBLP:conf/icmc/Jacob95} -> Propone trabajar con `building blocks` mas grandes, cercano a frases
 
-{\color{gray} \textsl{[]}}
+{\color{red}
+
+\cite{DBLP:conf/icmc/Jacob95} -> Propone trabajar con `building blocks` mas grandes, cercano a frases
+}
+
 
 {\color{gray} \textsl{[Conveniencia del paradigma de programacion funcional para la metaprogramacion. Antecedentes procedimientos compositivos como funciones (referencias a Haskell y LISP en la tradicion)]}}
 
@@ -250,6 +264,9 @@ A system expressive!! Outputs not a score but a musical excerpt with expressive 
 
 
 \subsection{Musical genotypes and phenotypes}
+
+{\color{red}
+
 
 para aclarar que no hay consenso entre el uso de la nomenclatura de genotipos y fenotipos \cite{Sulyok2019}
 
@@ -276,6 +293,7 @@ encodings, that is, evolutionary mechanisms where the same
 genes are used multiple times in the process of building a
 phenotype.
 
+}
 
 {\color{gray} \textsl{[Marco conceptual basico del paradigma genotipo-fenotipo (referencias de otros proyectos)]}}
 
@@ -285,6 +303,13 @@ phenotype.
 {\color{gray} \textsl{[Similitud con la programacion funcional: la pieza musical como funcion de funciones.]}}
 
 \subsection{Species and specimens}
+
+
+{\color{red}
+
+Ejemplo preliminar de aplicacion a la sintesis de sonido -> \cite{microcontrapunctus}
+}
+
 
 \subsection{Anatomy of a genotype function}
 
@@ -304,9 +329,15 @@ phenotype.
 
 
 %------------------------------------------------
-
-
 \section{Encoded genotypes and phenotypes}
+
+\begin{quotation}
+But there's a big difference between ``impossible'' and ``hard to imagine''. The first is about \emph{it}; the second is about \emph{you}!\cite{DBLP:journals/aim/Minsky82}
+\end{quotation}
+
+
+{\color{gray}
+
 
 \begin{itemize}
 \item Proposito de la codificacion en el marco del machine learning
@@ -316,9 +347,17 @@ phenotype.
 \item Encoding as safety filter
 
 \end{itemize}
+
+}
+
 \subsection{Encoding genotypes with G{\"o}delian resonances}
 
+{\color{red}
+
 \cite{deLemosAlmada2017} -> para las resonancias godelianas
+
+}
+
 
 Any random sequence of numbers generates a valid program. 
 
@@ -344,10 +383,17 @@ Most of times $n$ doesn't match the number of required items to complete a valid
 
 
 %------------------------------------------------
-
 \section{A minimal example: \textsl{Clapping music}}
 
+\begin{quotation}
+I believe that music today could surpass itself by research into the outside-time category, which has been atrophied and dominated by thetemporal category. Moreover this method can unify the expression offundamental structures of all Asian, African, and European music. It has aconsiderable advantage: its mechanization---hence tests and models ofall sorts can be fed into computers, which will effect great progress in themusical sciences.\cite{xenakis1971formalized}
+\end{quotation}
+
+{\color{red}
+
 Presentacion de la pieza
+
+}
 
 
 \begin{figure}
@@ -356,10 +402,19 @@ Presentacion de la pieza
   \label{fig:boat1}
 \end{figure}
 
-Figure \ref{fig:boat1} shows a boat.
+{\color{red}
+
+Figure \ref{fig:boat1} is here.
+
+}
 
 \subsection{Code and interface for the experiments}
+
+{\color{red}
+
 [manual coding to extract procedural and extendable knowledge]\cite{Hofmann2015} 
+
+}
 
 \subsection{Decoded genotype: a procedural function tree of the piece}
 
@@ -401,7 +456,6 @@ s2V(                           // score L: joins the 2 voices vertically
   \label{fig:boat2}
 \end{figure}
 
-Figure \ref{fig:boat2} shows a boat.
 
 
 \begin{figure}
@@ -412,7 +466,6 @@ Figure \ref{fig:boat2} shows a boat.
   \label{fig:boat3}
 \end{figure}
 
-Figure \ref{fig:boat3} Visualization of the encoded genotype of \emph{Clapping Music}.
 
 
 
@@ -429,9 +482,12 @@ Extrapolacion de estructuras y variantes:
 
 \subsection{Encoded phenotype and possible outputs}
 
+{\color{red}
 
 
 \begin{itemize}
+
+
 
 \item Un ejemplo clasico con varias voces y conteniendo armonia, dinamica y articulacion
 \item Modularidad y posibilidad de manipulacion manual
@@ -441,21 +497,19 @@ Extrapolacion de estructuras y variantes:
 \item Multimedia
 \end{itemize}
 
-
-%------------------------------------------------
-
-
+}
 
 
 
 %------------------------------------------------
-
-
-
-
 \section{Evaluation and evolution}
 
-\subsection{Flowchart}
+\begin{quotation}
+[...] in general the rules don't make the music, it is the music that makes the rules. Then, instead of relying only on a set of imperfect rules, why not making use of the source of the rules, that is the compositions themselves?\cite{LopezdeMantaras:2006:MMA:1565082.1565089}
+\end{quotation}
+
+
+{\color{red}
 
 
 \cite{Biles94genjam} para el problema del ?fitness bottleneck? con la eval. humana
@@ -488,7 +542,7 @@ Otro ejemplo de hibrido -> \cite{crawford2015algorithmic}
 El texto de \cite{Papadopoulos98agenetic}
 segun Mantaras, usan fitness basado en contorno, intervalica, y otras cuestiones cuantificables
 
-
+}
 
 When modeling artistic creativity with algorithms, probably the most evasive issue to address is programming fitness functions. By definition, the assessment of a piece of art can only be made from a subjective point of view, since the goal of art is to provoke inner and personal reactions. These individual responses are very dependent on cultural and social context. However, provided enough data some predictions can be made about the expected rating for a new piece.
 
@@ -506,6 +560,7 @@ other specimens, as well as to classify results and to drive evolution processes
 Defining how to evaluate and select results is now the most creative effort, and can be identified with the act of composition itself, since composing music is ultimately making choices. 
 
 
+{\color{red}
 
 
 \begin{itemize}
@@ -515,6 +570,10 @@ Defining how to evaluate and select results is now the most creative effort, and
 \item What to learn?
 \item Evolutionary paradigm as the most promising
 \end{itemize}
+
+
+}
+
 
 \subsection{Evolutionary paradigm}
 
@@ -539,6 +598,8 @@ Approaches based on neural networks need a very controlled format of data and bi
 
 \subsection{Scalability}
 
+{\color{gray}
+
 
 \begin{itemize}
 \item Como conjugar universalidad de las expresiones con optimizacion para tener los vectores codificados con mayores diferencias entre si.
@@ -548,13 +609,23 @@ Approaches based on neural networks need a very controlled format of data and bi
 \item Metricas automatizadas de ciertos resultados
 \end{itemize}
 
+}
+
+
 \subsection{Integrating traditional and contemporary techniques}
 
-\cite{quteprints6544} -> para afirmar que GenoMus reune diferentes paradigmas en sus arboles multicapa. Estos paradigmas segun el articulo son: Analytic, Transformational and Generative
+\subsection{Expanding our musical perception}
 
-%------------------------------------------------
+
+{\color{red}
+
+\cite{quteprints6544} -> para afirmar que GenoMus reune diferentes paradigmas en sus arboles multicapa. Estos paradigmas segun el articulo son: Analytic, Transformational and Generative
+}
 
 {\color{gray} \textsl{[A genotype como un arbol multiagente, que puede incorporar nodos con funciones de todo tipo: analiticos, recursivos, de constraints, etc. Una vez se tiene un marco de funcion, todo puede caber en el arbol de procesos.]}}
+
+
+{\color{red}
 
 Justificar con \cite{LopezdeMantaras:2006:MMA:1565082.1565089}:
 	-> 2: En los 50 era logico excliur la parte expresiva. Los modelos Markovianos son de resultados muy pobres. Ahora debe estar incluida?
@@ -562,14 +633,24 @@ IMPORTANTE:
 	-> referencia a Minsky, que plantea la posibilidad de los multiagentes, que puedan actuar sobre bloques mayores de musica, y que sean a veces solo analiticos
 	-> ?the rules dont make the music, it is the music that makes the rules?
 	-> Truly creative! para el final
+}
 
+
+%------------------------------------------------
 \section{Conclusions and ongoing work}
 
+\begin{quotation}
+A generation later, we should be experimenting on programsthat write better programs to replace themselves. Thenat last it will be clear how foolish was our first idea-thatnever, by their nature, could machines create new things.\cite{DBLP:journals/aim/Minsky82}
+\end{quotation}
 
+{\color{red}
 
 \cite{Papadopoulos99aimethods} -> concluye que los avances prometedores vendran de la integracion de sistemas diferentes
 
 De la referencia citada al principio \cite{LopezRincon2018}: ?Symbolic AI methods still have not enough rules therefore,they hardcoded in limited database knowledge. This could beextended with machine learning techniques but the lack of anautomatic evaluation method makes it difficult to solve.?
+
+}
+
 
 The artistic results of every algorithm designed for automated composition
 are strongly constrained by their own representation
@@ -592,98 +673,17 @@ grammar can also be an analytic tool, from the point of
 view of composition as computation, considering that the
 best analysis of a piece is the shortest precise description.
 
+{\color{gray}
+
 Cuestiones interesantes: 
 \begin{itemize}
 \item ?Cuantas funciones primitivas son necesarias para generar musica en un determinado estilo? Hay innumerables expresiones funcionales diferentes que pueden generar la misma musica. Se puede deducir que la expresion funcional mas breve es el mejor analisis. Se pueden ver diferentes paradigmas de ensenanza/aprendizaje de la musica con estos modelos.
 \item ?Como puede hacerse ingenieria inversa automatizada para extraer estructuras desde la musica?
 \end{itemize}
+}
 
-
-\cite{CreatCreat} -> PARA FINAL!
-
-%\section{Headings: first level}
-%\label{sec:headings}
-%
-%\lipsum[4] See Section \ref{sec:headings}.
-%
-%\subsection{Headings: second level}
-%\lipsum[5]
-%\begin{equation}
-%\xi _{ij}(t)=P(x_{t}=i,x_{t+1}=j|y,v,w;\theta)= {\frac {\alpha _{i}(t)a^{w_t}_{ij}\beta _{j}(t+1)b^{v_{t+1}}_{j}(y_{t+1})}{\sum _{i=1}^{N} \sum _{j=1}^{N} \alpha _{i}(t)a^{w_t}_{ij}\beta _{j}(t+1)b^{v_{t+1}}_{j}(y_{t+1})}}
-%\end{equation}
-%
-%\subsubsection{Headings: third level}
-%\lipsum[6]
-%
-%\paragraph{Paragraph}
-%\lipsum[7]
-%
-%\section{Examples of citations, figures, tables, references}
-%\label{sec:others}
-%\lipsum[8] \cite{kour2014real,kour2014fast} and see \cite{hadash2018estimate}.
-%
-%The documentation for \verb+natbib+ may be found at
-%\begin{center}
-%  \url{http://mirrors.ctan.org/macros/latex/contrib/natbib/natnotes.pdf}
-%\end{center}
-%Of note is the command \verb+\citet+, which produces citations
-%appropriate for use in inline text.  For example,
-%\begin{verbatim}
-%   \citet{hasselmo} investigated\dots
-%\end{verbatim}
-%produces
-%\begin{quote}
-%  Hasselmo, et al.\ (1995) investigated\dots
-%\end{quote}
-%
-%\begin{center}
-%  \url{https://www.ctan.org/pkg/booktabs}
-%\end{center}
-%
-%
-%\subsection{Figures}
-%\lipsum[10] 
-%See Figure \ref{fig:fig1}. Here is how you add footnotes. \footnote{Sample of the first footnote.}
-%\lipsum[11] 
-%
-%\begin{figure}
-%  \centering
-%  \fbox{\rule[-.5cm]{4cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
-%  \caption{Sample figure caption.}
-%  \label{fig:fig1}
-%\end{figure}
-%
-%\subsection{Tables}
-%\lipsum[12]
-%See awesome Table~\ref{tab:table}.
-%
-%\begin{table}
-% \caption{Sample table title}
-%  \centering
-%  \begin{tabular}{lll}
-%    \toprule
-%    \multicolumn{2}{c}{Part}                   \\
-%    \cmidrule(r){1-2}
-%    Name     & Description     & Size ($\mu$m) \\
-%    \midrule
-%    Dendrite & Input terminal  & $\sim$100     \\
-%    Axon     & Output terminal & $\sim$10      \\
-%    Soma     & Cell body       & up to $10^6$  \\
-%    \bottomrule
-%  \end{tabular}
-%  \label{tab:table}
-%\end{table}
-%
-%\subsection{Lists}
-%\begin{itemize}
-%\item Lorem ipsum dolor sit amet
-%\item consectetur adipiscing elit. 
-%\item Aliquam dignissim blandit est, in dictum tortor gravida eget. In ac rutrum magna.
-%\end{itemize}
-
-
-
-\bibliographystyle{unsrt}  
+%------------------------------------------------
+\bibliographystyle{acm}  
 \bibliography{references}  
 
 \end{document}

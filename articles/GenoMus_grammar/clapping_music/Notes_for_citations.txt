@@ -234,9 +234,9 @@ Quiza recoger su apunte de las conclusiones: falta el long-term approach y el hi
 Posibles reusos referencias GenoMus TFM:
 Goertzel, Ben.: From Complexity to Creativity: Computational Modelsof Evolutionary, Autopoietic and Cognitive Dynamics. Nueva York: ed.Plenum, 1997. 376 pp. [cita: p. 362]. isbn: 0306455188
 
-López-Montes, José: “eHayku (Study for Threnody)”. En:Asociación de Música Electroacústica de España: AMEE 25:25º Aniversario de la Asociación de Música Electroacústica de España.[CD]. Ed. AMEE, 2012.
+López-Montes, José: “Microcontra”
 
-Roads, Curtis: “Grammars as Representations for Music” (versión expandidadel artículo originalmente publicado en Computer Music Journal,Ed. MIT Press (1979), vol. 3 (1), pp. 48-55). En:Roads, Curtis; Strawn, John: Foundations of Computer Music, Ed.MIT Press, 1985], 730 pp. isbn: 978-0262680516Schaathun, Asbjørn: “Formula-composition modernism in music madeaudible”. En:Thommessen, Olav Anton: Inspirator – Tradisjonsbærer – Rabulist.Oslo: Ed. Norsk Musikforlag, 1996, pp. 132-147.
+Roads, Curtis: “Grammars as Representations for Music” (versión expandidadel artículo originalmente publicado en Computer Music Journal,Ed. MIT Press (1979), vol. 3 (1), pp. 48-55). En:Roads, Curtis; Strawn, John: Foundations of Computer Music, Ed.MIT Press, 1985], 730 pp. isbn: 978-0262680516Schaathun, Asbjørn: “Formula-composition modernism in music made audible”. En:Thommessen, Olav Anton: Inspirator – Tradisjonsbærer – Rabulist.Oslo: Ed. Norsk Musikforlag, 1996, pp. 132-147.
 
 Schmidhuber, Jürgen: “Low-Complexity Art”. Leonardo, Journal ofthe International Society for the Arts, Sciencies and Technology, Ed.MIT Press, 1997, vol. 30 (2), pp. 97-103.
 
@@ -252,31 +252,10 @@ MIRAR:
 
 
 
-@article{Bradshaw1973,
-  doi = {10.2307/3394288},
-  url = {https://doi.org/10.2307/3394288},
-  year = {1973},
-  month = apr,
-  publisher = {{SAGE} Publications},
-  volume = {59},
-  number = {8},
-  pages = {85--88},
-  author = {Merrill Bradshaw},
-  title = {Formalized Music: Thought and Mathematics in Composition},
-  journal = {Music Educators Journal}
-}
 
-
-
-Bod R (2002) Memory-based models of melodic analysis: challenging the Gestaltprinciples. J. New Music Research, 31(1): 27–37.
-
-Schaffrath H (1995) The Essen Folksong Collection in the Humdrum Kern Format.In: Huron D (ed.) Probabilistic Grammars for Music. Center for ComputerAssisted Research in the Humanities, Menlo Park, CA.
-
-Temperley D (2001) The Cognition of Basic Musical Structures. MIT Press,Cambridge, MA
 
 Ando D, Dahlsted P, Nordahl M, Iba H (2007) Interactive GP with tree representationof classical music pieces. In: Giacobini M, Brabazon A, CagnoniS, Di Caro GA, Drechsler R, Farooq M, Fink A, Lutton E, Machado P,Minner S, O’Neill M, Romero J, Rothlauf F, Squillero G, Takagi H, Uyar AS,Yang S (eds) Applications of Evolutionary Computing, EvoWorkshops 2007:EvoCOMNET, EvoFIN, EvoIASP, EvoInteraction, EvoMUSART, EvoSTOC,EvoTransLog, Springer Verlag, Valencia, Spain, LNCS, vol 4448, pp 577–584,DOI doi:10.1007/978-3-540-71805-5 63
 
-McCormack J (2006) New challenges for evolutionary music and art.SIGEvolution 1(1):5–11, URL http://www.sigevolution.org/2006/01/issue.pdf
 
 Spector L, Alpern A (1995) Induction and recapitulation of deep musicalstructure. In: Proceedings of International Joint Conference on Artificial Intelligence,IJCAI’95Workshop on Music and AI,Montreal, Quebec, Canada, URLhttp://hampshire.edu/lspector/pubs/IJCAI95mus-toappear.ps
 

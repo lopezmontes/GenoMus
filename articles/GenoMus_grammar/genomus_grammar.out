@@ -1,30 +1,29 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [2][-]{subsection.1.1}{Composing composers}{section.1}% 2
-\BOOKMARK [2][-]{subsection.1.2}{The next step of computer assisted composition}{section.1}% 3
-\BOOKMARK [2][-]{subsection.1.3}{Scope of the framework}{section.1}% 4
-\BOOKMARK [2][-]{subsection.1.4}{Complementary materials to this text}{section.1}% 5
-\BOOKMARK [1][-]{section.2}{A functional grammar to represent musical procedures}{}% 6
-\BOOKMARK [2][-]{subsection.2.1}{Foundations and requirements}{section.2}% 7
-\BOOKMARK [2][-]{subsection.2.2}{Musical genotypes and phenotypes}{section.2}% 8
-\BOOKMARK [2][-]{subsection.2.3}{Species and specimens}{section.2}% 9
-\BOOKMARK [2][-]{subsection.2.4}{Anatomy of a genotype function}{section.2}% 10
-\BOOKMARK [2][-]{subsection.2.5}{Function types}{section.2}% 11
-\BOOKMARK [2][-]{subsection.2.6}{Leaves, parameter mapping and readability}{section.2}% 12
-\BOOKMARK [2][-]{subsection.2.7}{Function libraries}{section.2}% 13
-\BOOKMARK [2][-]{subsection.2.8}{Specimen data structure}{section.2}% 14
-\BOOKMARK [1][-]{section.3}{Encoded genotypes and phenotypes}{}% 15
-\BOOKMARK [2][-]{subsection.3.1}{Encoding genotypes with G\366delian resonances}{section.3}% 16
-\BOOKMARK [2][-]{subsection.3.2}{Scores represented as normalized vectors}{section.3}% 17
-\BOOKMARK [2][-]{subsection.3.3}{A unique format for procedures and results}{section.3}% 18
-\BOOKMARK [2][-]{subsection.3.4}{Safety through encoding}{section.3}% 19
-\BOOKMARK [1][-]{section.4}{A minimal example: Clapping music}{}% 20
-\BOOKMARK [2][-]{subsection.4.1}{Code and interface for the experiments}{section.4}% 21
-\BOOKMARK [2][-]{subsection.4.2}{Decoded genotype: a procedural function tree of the piece}{section.4}% 22
-\BOOKMARK [2][-]{subsection.4.3}{Encoded genotype: an abstract representation of compositional processes}{section.4}% 23
-\BOOKMARK [2][-]{subsection.4.4}{Encoded phenotype and possible outputs}{section.4}% 24
-\BOOKMARK [1][-]{section.5}{Evaluation and evolution}{}% 25
-\BOOKMARK [2][-]{subsection.5.1}{Flowchart}{section.5}% 26
-\BOOKMARK [2][-]{subsection.5.2}{Evolutionary paradigm}{section.5}% 27
-\BOOKMARK [2][-]{subsection.5.3}{Scalability}{section.5}% 28
-\BOOKMARK [2][-]{subsection.5.4}{Integrating traditional and contemporary techniques}{section.5}% 29
-\BOOKMARK [1][-]{section.6}{Conclusions and ongoing work}{}% 30
+\BOOKMARK [2][-]{subsection.1.2}{New challenges for automatic composition}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Overview of the framework and complementary materials}{section.1}% 4
+\BOOKMARK [1][-]{section.2}{A functional grammar to represent musical procedures}{}% 5
+\BOOKMARK [2][-]{subsection.2.1}{Foundations and requirements}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.2}{Musical genotypes and phenotypes}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.3}{Species and specimens}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.4}{Anatomy of a genotype function}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.5}{Function types}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.6}{Leaves, parameter mapping and readability}{section.2}% 11
+\BOOKMARK [2][-]{subsection.2.7}{Function libraries}{section.2}% 12
+\BOOKMARK [2][-]{subsection.2.8}{Specimen data structure}{section.2}% 13
+\BOOKMARK [1][-]{section.3}{Encoded genotypes and phenotypes}{}% 14
+\BOOKMARK [2][-]{subsection.3.1}{Encoding genotypes with G\366delian resonances}{section.3}% 15
+\BOOKMARK [2][-]{subsection.3.2}{Scores represented as normalized vectors}{section.3}% 16
+\BOOKMARK [2][-]{subsection.3.3}{A unique format for procedures and results}{section.3}% 17
+\BOOKMARK [2][-]{subsection.3.4}{Safety through encoding}{section.3}% 18
+\BOOKMARK [1][-]{section.4}{A minimal example: Clapping music}{}% 19
+\BOOKMARK [2][-]{subsection.4.1}{Code and interface for the experiments}{section.4}% 20
+\BOOKMARK [2][-]{subsection.4.2}{Decoded genotype: a procedural function tree of the piece}{section.4}% 21
+\BOOKMARK [2][-]{subsection.4.3}{Encoded genotype: an abstract representation of compositional processes}{section.4}% 22
+\BOOKMARK [2][-]{subsection.4.4}{Encoded phenotype and possible outputs}{section.4}% 23
+\BOOKMARK [1][-]{section.5}{Evaluation and evolution}{}% 24
+\BOOKMARK [2][-]{subsection.5.1}{Evolutionary paradigm}{section.5}% 25
+\BOOKMARK [2][-]{subsection.5.2}{Scalability}{section.5}% 26
+\BOOKMARK [2][-]{subsection.5.3}{Integrating traditional and contemporary techniques}{section.5}% 27
+\BOOKMARK [2][-]{subsection.5.4}{Expanding our musical perception}{section.5}% 28
+\BOOKMARK [1][-]{section.6}{Conclusions and ongoing work}{}% 29
