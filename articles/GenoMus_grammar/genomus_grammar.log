@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  25 OCT 2019 09:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  25 OCT 2019 22:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -840,59 +840,62 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Warning: Citation `add more...' on page 6 undefined on input line 381.
 
 [6]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 451.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 459.
 
  (/usr/local/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 451.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 459.
  [7]
-<figs/clapping_patterns.pdf, id=260, 577.87482pt x 212.68312pt>
+<figs/clapping_patterns.pdf, id=262, 577.87482pt x 212.68312pt>
 File: figs/clapping_patterns.pdf Graphic file (type pdf)
 
 <use figs/clapping_patterns.pdf>
-Package pdftex.def Info: figs/clapping_patterns.pdf used on input line 567.
+Package pdftex.def Info: figs/clapping_patterns.pdf used on input line 577.
 (pdftex.def)             Requested size: 469.75499pt x 172.89871pt.
+ [8]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 588.
+nput line 598.
 
 
-Package Listings Warning: Text dropped after begin of listing on input line 588
+Package Listings Warning: Text dropped after begin of listing on input line 598
 .
 
-<figs/clapping_tree_graph_colours_code.pdf, id=263, 476.43866pt x 263.4135pt>
+<figs/clapping_tree_graph_colours_code.pdf, id=276, 476.43866pt x 263.4135pt>
 File: figs/clapping_tree_graph_colours_code.pdf Graphic file (type pdf)
 
 <use figs/clapping_tree_graph_colours_code.pdf>
 Package pdftex.def Info: figs/clapping_tree_graph_colours_code.pdf used on inpu
-t line 619.
+t line 629.
 (pdftex.def)             Requested size: 469.75499pt x 259.73512pt.
 
-<figs/clappingVisualized.pdf, id=264, 1033.46097pt x 112.42pt>
+<figs/clappingVisualized.pdf, id=277, 1033.46097pt x 112.42pt>
 File: figs/clappingVisualized.pdf Graphic file (type pdf)
 
 <use figs/clappingVisualized.pdf>
-Package pdftex.def Info: figs/clappingVisualized.pdf used on input line 628.
+Package pdftex.def Info: figs/clappingVisualized.pdf used on input line 638.
 (pdftex.def)             Requested size: 369.88582pt x 40.23616pt.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
-) [8]
-[9 <./figs/clapping_patterns.pdf>] [10 <./figs/clapping_tree_graph_colours_code
-.pdf> <./figs/clappingVisualized.pdf
+) [9 <./figs/clapping_patterns.pdf>]
+Underfull \vbox (badness 1824) has occurred while \output is active []
+
+ [10 <./figs/clapping_tree_graph_colours_code.pdf> <./figs/clappingVisualized.p
+df
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./figs/clappingVisualized.pd
 f): PDF inclusion: multiple pdfs with page group included in a single page
 >] [11] [12] (./genomus_grammar.bbl [13])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 873.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 883.
  [14]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 873.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 883.
  (./genomus_grammar.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 873.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 873.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 883.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 883.
 Package rerunfilecheck Info: File `genomus_grammar.out' has not changed.
-(rerunfilecheck)             Checksum: C08F14E3DF02BDA942EC774B1E11EAD4;2367.
+(rerunfilecheck)             Checksum: D840ECF2C4B4156CEC1C802B17D65C45;2367.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -900,16 +903,16 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 873.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 883.
  ) 
 Here is how much of TeX's memory you used:
- 12136 strings out of 492995
- 176110 string characters out of 6132705
- 674197 words of memory out of 5000000
- 15227 multiletter control sequences out of 15000+600000
- 30130 words of font info for 144 fonts, out of 8000000 for 9000
+ 12144 strings out of 492995
+ 176208 string characters out of 6132705
+ 666194 words of memory out of 5000000
+ 15229 multiletter control sequences out of 15000+600000
+ 31000 words of font info for 147 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 50i,12n,45p,1521b,1199s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 50i,12n,45p,1521b,1928s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.
 enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/fontawesome/FontAwes
@@ -932,14 +935,15 @@ xlive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texl
 ive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texliv
 e/2017/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/
 2017/texmf-dist/fonts/type1/public/cm-super/sfsl1000.pfb></usr/local/texlive/20
-17/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2017
-/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2017/t
-exmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2017/tex
-mf-dist/fonts/type1/public/cm-super/sfxc1200.pfb>
-Output written on genomus_grammar.pdf (14 pages, 591090 bytes).
+17/texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb></usr/local/texlive/2017
+/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2017/t
+exmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2017/tex
+mf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2017/texmf
+-dist/fonts/type1/public/cm-super/sfxc1200.pfb>
+Output written on genomus_grammar.pdf (14 pages, 609261 bytes).
 PDF statistics:
- 485 PDF objects out of 1000 (max. 8388607)
- 431 compressed objects within 5 object streams
- 117 named destinations out of 1000 (max. 500000)
- 26360 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 491 PDF objects out of 1000 (max. 8388607)
+ 436 compressed objects within 5 object streams
+ 118 named destinations out of 1000 (max. 500000)
+ 28408 words of extra memory for PDF output out of 29859 (max. 10000000)
 
