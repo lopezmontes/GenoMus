@@ -15,8 +15,7 @@
 \usepackage{xcolor}
 \usepackage{listings}
 \usepackage{graphicx}
-\usepackage{marvosym}
-
+\usepackage{fontawesome}
 \definecolor{backcolour}{rgb}{0.96,0.96,0.96}
 \definecolor{forcomments}{rgb}{0.5,0.5,0.5}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -47,7 +46,7 @@
 
 
 \author{
-  Jos\'e~L\'opez-Montes\textsuperscript{\Letter} \\
+  Jos\'e~L\'opez-Montes\textsuperscript{\faEnvelopeO} \\
   PhD Student E.T.S. Ingenier\'{i}a Inform\'{a}tica\\
   Departamento Ciencias de la\\Computaci\'{o}n e Inteligencia Artificial\\
   University of Granada\\
@@ -123,10 +122,18 @@ We present GenoMus, a new model for artificial musical creativity based on a pro
 
 \cite{Pearce2002} -> interesante para situar la discusion y encuadrar las motivaciones y posibles peligros.
 Motivations classes:
-1. computer programs are written by the composer as an idiosyncratic extensionto her own compositional processes;2. computer programs are written as general tools to aid any composer in thecomposition of music;3. theories of a musical style are implemented as computer programs;4. cognitive theories of the processes
+1. computer programs are written by the composer as an idiosyncratic extension
+to her own compositional processes;
+2. computer programs are written as general tools to aid any composer in the
+composition of music;
+3. theories of a musical style are implemented as computer programs;
+4. cognitive theories of the processes
 
 Failures:
-1. a failure to specify the precise practical or theoretical aims of research;2. a failure to adopt an appropriate methodology for achieving the stated aims;3. a failure to adopt a means of evaluation appropriate for judging the degree towhich the aims have been satisfied.
+1. a failure to specify the precise practical or theoretical aims of research;
+2. a failure to adopt an appropriate methodology for achieving the stated aims;
+3. a failure to adopt a means of evaluation appropriate for judging the degree to
+which the aims have been satisfied.
 
 
 
@@ -143,7 +150,8 @@ Metalevel -> \cite{DBLP:journals/aim/Buchanan01}
 \cite{JACOB1996} -> interesante la disgresion filosofica sobre la autoria. De Music composition to music recognition. Dice: Is the same? Yo digo: Can computer solutions get us to new styles, to nwe ways or feeling music?s
 
 
-\cite{LopezRincon2018} -> ACTUAL! Algoritmic Music Composition Based onArtificial Intelligence: A Survey
+\cite{LopezRincon2018} -> ACTUAL! Algoritmic Music Composition Based on
+Artificial Intelligence: A Survey
 
 El survey de Vico \cite{DBLP:journals/corr/RodriguezV14}
 
@@ -217,7 +225,12 @@ Hacer resumen del proyecto completo, referencias a los antecedentes y dejar clar
 
 \begin{samepage}
 \begin{quotation}
-\textsl{I believe that music today could surpass itself by research into the outside-time category, which has been atrophied and dominated by thetemporal category. Moreover this method can unify the expression offundamental structures of all Asian, African, and European music. It has aconsiderable advantage: its mechanization---hence tests and models ofall sorts can be fed into computers, which will effect great progress in themusical sciences.}
+\textsl{I believe that music today could surpass itself by research into the outside-time category, which has been atrophied and dominated by the
+temporal category. Moreover this method can unify the expression of
+fundamental structures of all Asian, African, and European music. It has a
+considerable advantage: its mechanization---hence tests and models of
+all sorts can be fed into computers, which will effect great progress in the
+musical sciences.}
 
 ---Iannis Xenakis \cite{xenakis1971formalized}
 \end{quotation}
@@ -318,7 +331,18 @@ Although this framework is presented for the automatic composition of music, the
 
 
 \cite{DBLP:journals/air/RoweP93} -> Conditions for creativity:
-Knowledge representation is organised in such away that the number of possible associations ismaximised. A flexible knowledge representationscheme. Similarly Boden (1996) says that representationshould allow to explore and transform theconceptual space.Tolerate ambiguity in representations.Allow multiple representations in order to avoid theproblem of ?functional fixity?.The usefulness of new combinations should be assessable.New combinations need to be elaboratable to findout their consequences.
+Knowledge representation is organised in such a
+way that the number of possible associations is
+maximised. A flexible knowledge representation
+scheme. Similarly Boden (1996) says that representation
+should allow to explore and transform the
+conceptual space.
+Tolerate ambiguity in representations.
+Allow multiple representations in order to avoid the
+problem of ?functional fixity?.
+The usefulness of new combinations should be assessable.
+New combinations need to be elaboratable to find
+out their consequences.
 El articulo de Boden es: 
 What is Creativity. In M. Boden, editor, Dimensions of Creativity, pages 75?118. MIT Press, 1996. (citado antes).
 
@@ -354,12 +378,14 @@ too \cite{Bod_thedata-oriented} -> para justificar el uso de arboles de funcione
 
 \subsection{Genotypes, phenotypes, specimens and species}
 
+Although its target is not only genetic algorithms, the \textsl{GenoMus} framework uses the evolutionary metaphor, as many other automatic composition systems \cite{Sulyok2019, SnchezQuintana2013}. Each system has its particular definition of evolutionary terms, sometimes denoting even opposite 
+
 {\color{red}
 
 
-para aclarar que no hay consenso entre el uso de la nomenclatura de genotipos y fenotipos \cite{Sulyok2019}
 
-\cite{SnchezQuintana2013} -> usa el paradigma genotipo fenotipo, aunque de un modo diferente
+
+ -> usa el paradigma genotipo fenotipo, aunque de un modo diferente
 Muy importante: Indirect encoding: IAMUS -> importancia de la evo-devo incremental. El proceso importa, no solo la codificacion del ADN
 ?Using an effective indirect encoding, a small
 genotype can potentially specify a large and complex
@@ -402,38 +428,30 @@ Ejemplo preliminar de aplicacion a la sintesis de sonido -> \cite{microcontrapun
 
 \subsection{Formal definition of the \textsl{GenoMus} framework}
 
-A \textsl{GenoMus} framework for a species $s$ is defined as the set $$G_s = \{P, \vec{e}, T, i, F_s, L, \vec{d}, M\}$$ where
+A \textsl{GenoMus} framework for a species $s$ is defined as the 9-tuple $$G_s = \{P, \vec{e}, T, i, F, E, L, M, \vec{d}\}$$ where
 
 \begin{itemize}
 \item $P$ is the set of parameter types representing the dimensions of a phenotype basic event.
 \item $\vec{e}$ is the vector of ordered parameter types $\in P$ specifying the format of any basic event. 
 \item $T$ is the set of genotype function types. 
-\item $i \in T$ is the function type that must be used at the first node of a well-formed genotype.
-\item $F_s$ is the set of all genotype functions registered in a specific library for species $s$.
-\item $L$ is the set of leaf types employed as terminal nodes of a genotype.
-\item $\vec{d}$ is a generic data structure to be taken as input or returned as output by any function $\in F_s$.
-\item $M$ is the set of conversion functions mapping specific numeric format of any parameter type $\in P$ into normalized values $\in [0,1]$, and their correspondent inverse functions.
-\item 
+\item $i \in T$ is the function type required to init a genotype first node.
+\item $F$ is the set of all genotype functions registered in a specific library for species $s$.
+\item $E \subset F$ is the set of eligible functions selected to build genotypes.
+\item $L$ is the set of leaf types employed as genotype terminal nodes.
+\item $M$ is the set of conversion functions mapping specific formats of any parameter type $\in P$ into real numbers $\in [0,1]$, and their correspondent inverse functions.
+\item $C$ is the pair of an encoding function to transform genotype functions trees into unidimensional vectors of reals $\in [0,1]$, and its inverse function.
+\item $\vec{d}$ is a generic data structure to be taken as input or returned as output by any function $\in F$.
 \end{itemize}
 
+The transformation of \textsl{GenoMus} phenotypes into standard formats for any musical application can be seen as external operations, not concerning directly this framework. 
 
-, a \emph{specie} $s$ can be defined as any possible element $\in S = \{(P_s, \vec{e}_s) \: | \: P_s\subset P \}$ each different format for 
-
-(mirar como notar subsets)
-
-Definition specie $$S = \{i\}$$ where
-
-\begin{itemize}
-\item empty
-\end{itemize}
-
-(para hablar de function types)
-
-These types can either correspond to structural levels of a phenotype, or can attend to specific data substructures needed to feed particular functions.
 
 \subsection{Anatomy of a genotype function}
 
 \subsection{Function types}
+
+
+These types can either correspond to structural levels of a phenotype, or can attend to specific data substructures needed to feed particular functions.
 
 {\color{gray} \textsl{[Tabla con los tipos de funciones. Figura ilustrando la estructura score/voice/chord]}}
 
@@ -565,7 +583,7 @@ s2V(                           // score L: joins the 2 voices vertically
             vSlice(            // motif B: A with 1st note sliced
               vAutoref(0),
               q(1))),
-          vSlice(              // motif D: C with 1st note sliced
+          vSlice(              // motif D: C with first two notes sliced
             vAutoref(3),
             q(2))),
         q(8)),
@@ -648,7 +666,13 @@ Extrapolacion de estructuras y variantes:
 \cite{Biles94genjam} para el problema del ?fitness bottleneck? con la eval. humana
 
 
-\cite{Burton1999}  -> IMPORTANTE distincion entre Genetic Programming and Gen. Algorithms: 'An overview of earlierstudies in EC for musical composition is offered in [12], determining that Ge-netic Programming (GP) methods perform better than those that use GeneticAlgorithms (GA). This may be unsurprising as GP methods use a tree-basedstructure whereas GAs are limited to a linear string in their representation.Hence, GP can represent more complex representations and operations | some-thing that would be very useful in representing music.'
+\cite{Burton1999}  -> IMPORTANTE distincion entre Genetic Programming and Gen. Algorithms: 'An overview of earlier
+studies in EC for musical composition is offered in [12], determining that Ge-
+netic Programming (GP) methods perform better than those that use Genetic
+Algorithms (GA). This may be unsurprising as GP methods use a tree-based
+structure whereas GAs are limited to a linear string in their representation.
+Hence, GP can represent more complex representations and operations | some-
+thing that would be very useful in representing music.'
 
 
 
@@ -774,7 +798,10 @@ IMPORTANTE:
 
 \begin{samepage}
 \begin{quotation}
-\textsl{A generation later, we should be experimenting on programsthat write better programs to replace themselves. Thenat last it will be clear how foolish was our first idea---thatnever, by their nature, could machines create new things.}
+\textsl{A generation later, we should be experimenting on programs
+that write better programs to replace themselves. Then
+at last it will be clear how foolish was our first idea---that
+never, by their nature, could machines create new things.}
 
 ---Marvin Minsky \cite{DBLP:journals/aim/Minsky82}
 \end{quotation}
@@ -784,7 +811,10 @@ IMPORTANTE:
 
 \cite{Papadopoulos99aimethods} -> concluye que los avances prometedores vendran de la integracion de sistemas diferentes
 
-De la referencia citada al principio \cite{LopezRincon2018}: ?Symbolic AI methods still have not enough rules therefore,they hardcoded in limited database knowledge. This could beextended with machine learning techniques but the lack of anautomatic evaluation method makes it difficult to solve.?
+De la referencia citada al principio \cite{LopezRincon2018}: ?Symbolic AI methods still have not enough rules therefore,
+they hardcoded in limited database knowledge. This could be
+extended with machine learning techniques but the lack of an
+automatic evaluation method makes it difficult to solve.?
 
 }
 
