@@ -19,6 +19,8 @@
 \definecolor{backcolour}{rgb}{0.96,0.96,0.96}
 \definecolor{forcomments}{rgb}{0.5,0.5,0.5}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\usepackage{enumitem} 
+ 
  
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{backcolour},   
@@ -473,7 +475,7 @@ A \textsl{GenoMus} framework for a species $s$ is defined as the 10-tuple $G_s =
 \item $\vec{d}$ is a generic data structure to be taken as input or returned as output by any function $\in F$.
 \end{itemize}
 
-The decoding of \textsl{GenoMus} encoded phenotypes into standard formats for any musical application can be seen as an external operation, not concerning directly this framework. 
+The decoding of \textsl{GenoMus} encoded phenotypes into standard formats for any musical application can be seen as an external operation, not concerning directly this formal definition. 
 
 
 \subsection{Anatomy of a genotype function}
@@ -620,7 +622,7 @@ s2V(                           // score L: joins the 2 voices vertically
             q(2))),
         q(8)),
       q(13)),
-    q(8)),
+    q(-12)),
   vConcatV(                    // voice K: F + H
     vAutoref(7),
     vRepeatV(                  // phase I: H 12 times 
@@ -646,6 +648,59 @@ s2V(                           // score L: joins the 2 voices vertically
   \label{fig:boat3}
 \end{figure}
 
+
+
+{\small \begin{enumerate}[start=0]
+\item \begin{verbatim}
+"vMotifLoop(ln(0.125),lm(65),la(49),li(60,60,90,0))",
+\end{verbatim}
+\item \begin{verbatim}
+"vAutoref(0)",
+\end{verbatim}
+\item \begin{verbatim}
+"vSlice(vAutoref(0),q(1))",
+\end{verbatim}
+\item \begin{verbatim}
+"vConcatV(vMotifLoop(ln(0.125),lm(65),la(49),li(60,60,90,0)),vSlice(vAutoref(0),q(1)))",
+\end{verbatim}
+\item \begin{verbatim}
+"vAutoref(3)",
+\end{verbatim}
+\item \begin{verbatim}
+"vSlice(vAutoref(3),q(2))",
+\end{verbatim}
+\item \begin{verbatim}
+"vConcatV(vConcatV(vMotifLoop(ln(0.125),lm(65),la(49),li(60,60,90,0)),vSlice(vAutoref(0),
+q(1))),vSlice(vAutoref(3),q(2)))",
+\end{verbatim}
+\item \begin{verbatim}
+"vRepeatV(vConcatV(vConcatV(vMotifLoop(ln(0.125),lm(65),la(49),li(60,60,90,0)),vSlice(
+vAutoref(0),q(1))),vSlice(vAutoref(3),q(2))),q(8))",
+\end{verbatim}
+\item \begin{verbatim}
+"vRepeatV(vRepeatV(vConcatV(vConcatV(vMotifLoop(ln(0.125),lm(65),la(49),li(60,60,90,0)),
+vSlice(vAutoref(0),q(1))),vSlice(vAutoref(3),q(2))),q(8)),q(13))",
+\end{verbatim}
+\item \begin{verbatim}
+"vSlice(vRepeatV(vRepeatV(vConcatV(vConcatV(vMotifLoop(ln(0.125),lm(65),la(49),li(60,60,
+90,0)),vSlice(vAutoref(0),q(1))),vSlice(vAutoref(3),q(2))),q(8)),q(13)),q(-12))",
+\end{verbatim}
+\item \begin{verbatim}
+"vAutoref(7)",
+\end{verbatim}
+\item \begin{verbatim}
+"vAutoref(10)",
+\end{verbatim}
+\item \begin{verbatim}
+"vSlice(vAutoref(10),q(1))",
+\end{verbatim}
+\item \begin{verbatim}
+"vRepeatV(vSlice(vAutoref(10),q(1)),q(12))",
+\end{verbatim}
+\item \begin{verbatim}
+"vConcatV(vAutoref(7),vRepeatV(vSlice(vAutoref(10),q(1)),q(12)))"
+\end{verbatim}
+\end{enumerate}}
 
 
 
