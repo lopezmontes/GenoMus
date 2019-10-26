@@ -1,6 +1,10 @@
 This is BibTeX, Version 0.99d (TeX Live 2017)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: genomus_grammar.aux
+White space in argument---line 50 of file genomus_grammar.aux
+ : \citation{add
+ :               more...}
+I'm skipping whatever remains of this command
 The style file: acm.bst
 Database file #1: references.bib
 Warning--string name "february" is undefined
@@ -56,4 +60,4 @@ warning$ -- 4
 while$ -- 132
 width$ -- 39
 write$ -- 380
-(There were 2 error messages)
+(There were 3 error messages)

@@ -21,7 +21,6 @@
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \usepackage{enumitem} 
  
- 
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{backcolour},   
     commentstyle=\color{forcomments},
@@ -405,7 +404,7 @@ The {phenotype}, as the product of the evaluation of the functional expression c
 \item[score:] Piece (or passage) of music. A score can be a wrapper for one or more voices, or a wrapper for one or more scores together. Scores can be concatenated sequentially (one after another) or simultaneously (sounding together).
 \end{description}
 
-Depending on the final desired output of the generative process, a different parametric structure will be expected for a event. Hence, to allow diverse formats for decoded phenotypes, two new concepts arise:  
+Depending on the final desired output of the generative process, a different parametric structure will be expected for a event. Hence, to allow diverse formats for decoded phenotypes, two more concepts arise:  
 
 \begin{description}
 \item[species:] Specific configuration of the internal structure of parameters required to construct an event.
@@ -495,9 +494,36 @@ These types can either correspond to structural levels of a phenotype, or can at
 
 \subsection{Specimen data structure}
 
+Selected specimens are permanently saved as JSON files in the Specimen catalogue. These JSON files are created according to the data structure showed in Table~\ref{table:sds}:
 
-{\color{gray} \textsl{[Tabla con la estructura de datos de cada par geno\/feno generado]}}
-
+\begin{table}[ht]
+{\normalsize \begingroup
+\setlength{\tabcolsep}{7pt} % Default value: 6pt
+\renewcommand{\arraystretch}{1.8} % Default value: 1
+\begin{tabular}{p{3.2cm} p{12.2cm}}
+\toprule
+\texttt{metadata} & Data to identify and classify the specimen within the catalogue.\\
+ & {\small \texttt{specimenID}, \texttt{permalink}, \texttt{GenoMusVersion}, \texttt{creationTimecode}, \texttt{user}, \texttt{globalRating}, \texttt{iterations}, \texttt{millisecondsElapsed}, \texttt{encGenotypeLength}, \texttt{encPhenotypeLength}, \texttt{decPhenotypeDuration}, \texttt{depth}, \texttt{totalFunctions}}\\\hline
+\texttt{initialConditions} & Set of initial conditions to be satisfied by the generative process.\\
+ & {\small \texttt{species}, \texttt{functionLibrary}, \texttt{eligibleFunctions}, \texttt{requestedProfile}, \texttt{genMaxLength}, \texttt{phenMinLength}, \texttt{phenMaxLength}, \texttt{maxIterations}}\\\hline
+\texttt{encodedGenotype} & Array of floats $\in [0, 1]$.\\\hline
+\texttt{decodedGenotype} & String with the genotype function tree.\\\hline
+\texttt{formattedGenotype} & String with the decoded genotype, formatted with tabulations and line breaks to display the function tree in a readable format.\\\hline
+\texttt{leaves} & Leaf values and their corresponding position in the encoded genotype.\\\hline
+\texttt{subexpressions} & Enumerated list of all functional substructures within a genotype, classified by output type.\\\hline
+\texttt{encodedPhenotype} & Array of floats $\in [0, 1]$.\\\hline
+\texttt{decodedPhenotype} & Phenotype converted to the target third-party formats.\\\hline
+\texttt{autoanalysis} & Music features automatically analyzed by the genotype functions.\\
+ & {\small \texttt{autoreferenceDensity}, \texttt{variability}, \texttt{rhythmDensity}, \texttt{rhythmComplexity}, \texttt{polyphony}, \texttt{chromaticism}, \texttt{dissonance}, \texttt{disjunctivity}, \texttt{modalChroma}, \texttt{tonalStability}, \texttt{tessituraDispersion}, \texttt{globalArticulation}, \texttt{articulHomogeneity},  \texttt{globalDynamics},  \texttt{dynamicHomogeneity}, ...}\\\hline
+\texttt{evolutionLog} & Log covering the history of actions and manipulations operated on the specimen.\\\hline
+\texttt{humanEvaluation} & Human evaluation of different musical, aesthetic and emotional aspects of the specimen. This item stores individual assessments of different users, and give an average rating for different musical aspects\\
+ & {\small \texttt{aestheticValue}, \texttt{originality}, \texttt{mood}, \texttt{emotionalIntensity}, \texttt{individualEvaluations}}\\\bottomrule
+\hspace{1cm} 
+\end{tabular}
+\endgroup}
+\caption{Specimen data structure}
+\label{table:sds}
+\end{table}
 
 
 %------------------------------------------------
@@ -706,8 +732,9 @@ vSlice(vAutoref(0),q(1))),vSlice(vAutoref(3),q(2))),q(8)),q(13))",
 
 Extrapolacion de estructuras y variantes:
 
-{\small \begin{verbatim}ClappingMusic ([.04,.04,.08],[65],[.5],[50,50,120],1,3,2,8,13,8,1,12) =\end{verbatim}}  
+{\small \begin{verbatim}sClappingMusic (1/8,65,50,(60,60,90,0),1,3,2,8,13,-12,7,10,1,12)\end{verbatim}}  
 
+ 
 
 \subsection{Encoded genotype: an abstract representation of compositional processes}
 
