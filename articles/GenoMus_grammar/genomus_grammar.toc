@@ -5,7 +5,7 @@
 \contentsline {section}{\numberline {2}A simple functional grammar to represent musical procedures}{4}{section.2}
 \contentsline {subsection}{\numberline {2.1}Foundations and requirements}{4}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Genotypes, phenotypes, species and specimens}{6}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}Formal definition of the \textsl {GenoMus} framework}{7}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.3}Formal definition of the GenoMus framework}{7}{subsection.2.3}
 \contentsline {subsection}{\numberline {2.4}Anatomy of a genotype function}{8}{subsection.2.4}
 \contentsline {subsection}{\numberline {2.5}Function types}{8}{subsection.2.5}
 \contentsline {subsection}{\numberline {2.6}Leaves, parameter mapping and readability}{8}{subsection.2.6}
@@ -19,11 +19,11 @@
 \contentsline {section}{\numberline {4}A minimal example: \textsl {Clapping music}}{9}{section.4}
 \contentsline {subsection}{\numberline {4.1}Code and interface for the experiments}{10}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Decoded genotype: a procedural function tree of the piece}{10}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Encoded genotype: an abstract representation of compositional processes}{11}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.3}Encoded genotype: an abstract representation of compositional processes}{12}{subsection.4.3}
 \contentsline {subsection}{\numberline {4.4}Encoded phenotype and possible outputs}{12}{subsection.4.4}
 \contentsline {section}{\numberline {5}Evaluation and evolution}{12}{section.5}
 \contentsline {subsection}{\numberline {5.1}Evolutionary paradigm}{13}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}Scalability}{13}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Integrating traditional and contemporary techniques}{13}{subsection.5.3}
-\contentsline {subsection}{\numberline {5.4}Expanding our musical perception}{13}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.3}Integrating traditional and contemporary techniques}{14}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Expanding our musical perception}{14}{subsection.5.4}
 \contentsline {section}{\numberline {6}Conclusions and ongoing work}{14}{section.6}
