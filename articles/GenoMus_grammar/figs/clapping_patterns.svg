@@ -23,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -38,15 +38,15 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1151"
+     inkscape:window-width="1680"
+     inkscape:window-height="1001"
      id="namedview596"
      showgrid="false"
-     inkscape:zoom="1"
-     inkscape:cx="342.61414"
-     inkscape:cy="78.164168"
-     inkscape:window-x="1080"
-     inkscape:window-y="540"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="370.89841"
+     inkscape:cy="106.44844"
+     inkscape:window-x="0"
+     inkscape:window-y="1"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg2"
      fit-margin-top="0"
@@ -2120,22 +2120,57 @@
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:6.42400122px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      x="105.05601"
-     y="24.539055"
+     y="10.198616"
      id="text5715"
      sodipodi:linespacing="125%"><tspan
        sodipodi:role="line"
        id="tspan5717"
        x="105.05601"
-       y="24.539055"
-       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:1.6060003px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium'">continues until</tspan><tspan
+       y="10.198616"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:1.6060003px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium'">each bar must</tspan><tspan
        sodipodi:role="line"
        x="105.05601"
-       y="26.546555"
+       y="12.206117"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:1.6060003px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium'"
+       id="tspan3679">be repeated</tspan><tspan
+       sodipodi:role="line"
+       x="105.05601"
+       y="14.213616"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:1.6060003px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium'"
+       id="tspan3681">8 or 12 times</tspan><tspan
+       sodipodi:role="line"
+       x="105.05601"
+       y="16.221117"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:1.6060003px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium'"
+       id="tspan3683"></tspan><tspan
+       sodipodi:role="line"
+       x="105.05601"
+       y="18.228617"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:1.6060003px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium'"
+       id="tspan3685"></tspan><tspan
+       sodipodi:role="line"
+       x="105.05601"
+       y="20.236116"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:1.6060003px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium'"
+       id="tspan3687"></tspan><tspan
+       sodipodi:role="line"
+       x="105.05601"
+       y="22.243618"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:1.6060003px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium'"
+       id="tspan3689"></tspan><tspan
+       sodipodi:role="line"
+       x="105.05601"
+       y="24.251118"
+       style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:1.6060003px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium'"
+       id="tspan3691">continues until</tspan><tspan
+       sodipodi:role="line"
+       x="105.05601"
+       y="26.258617"
        style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:1.6060003px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium'"
        id="tspan5719">both voices are</tspan><tspan
        sodipodi:role="line"
        x="105.05601"
-       y="28.554056"
+       y="28.266119"
        style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:1.6060003px;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif Medium'"
        id="tspan5731">in phase again</tspan></text>
   <rect

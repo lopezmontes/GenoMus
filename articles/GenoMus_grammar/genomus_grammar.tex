@@ -16,6 +16,8 @@
 \usepackage{listings}
 \usepackage{graphicx}
 \usepackage{fontawesome}
+\usepackage[hypcap]{caption} % for displaying figures in the viewer, and not only captions
+
 \definecolor{backcolour}{rgb}{0.96,0.96,0.96}
 \definecolor{forcomments}{rgb}{0.5,0.5,0.5}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -457,7 +459,7 @@ phenotype.
 
 
 
-\subsection{Formal definition of the GenoMus framework}
+\subsection{Formal definition of the GenoMus framework}\label{sec:formaldef}
 
 A GenoMus framework for a species $s$ is defined as the 10-tuple $G_s = \{P, \vec{e}, T, i, F, E, L, M, C, \vec{d}\}$, where
 
@@ -500,7 +502,7 @@ Selected specimens are permanently saved as JSON files in the Specimen catalogue
 {\normalsize \begingroup
 \setlength{\tabcolsep}{7pt} % Default value: 6pt
 \renewcommand{\arraystretch}{1.8} % Default value: 1
-\begin{tabular}{p{3.2cm} p{12.2cm}}
+\begin{tabular}{p{3.3cm} p{12.2cm}}
 \toprule
 \texttt{metadata} & Data to identify and classify the specimen within the catalogue.\\
  & {\small \texttt{specimenID}, \texttt{permalink}, \texttt{GenoMusVersion}, \texttt{creationTimecode}, \texttt{user}, \texttt{globalRating}, \texttt{iterations}, \texttt{millisecondsElapsed}, \texttt{encGenotypeLength}, \texttt{encPhenotypeLength}, \texttt{decPhenotypeDuration}, \texttt{depth}, \texttt{totalFunctions}}\\\hline
@@ -604,13 +606,31 @@ Most of times $n$ doesn't match the number of required items to complete a valid
 
 To illustrate how GenoMus represents and encodes music procedures in an abstract format, we will apply the framework to model \emph{Clapping Music}, a famous piece composed by Steve Reich in 1972. As many of the pieces of the composer, it begins with a minimal motif, which undergoes simple transformations that have big consequences in the overall form. The basis of this work for two performers is repeating a clapped pattern. One of the performers removes the first note of the pattern each 8 or 12 repetitions, creating a phase shift between both voices. The work finished when both lines are in phase again.
 
+The piece was modeled using the \emph{piano} species which, according to the formalism stated in section~\ref{sec:formaldef}, is defined as a set $G_{piano} = \{P, \vec{e}, T, i, F_{piano}, E, L, M, C, \vec{d}\}$, where
+
+\begin{itemize}
+\item $P = \{notevalue, midipitch, articulation, intensity, quantized, ...\}$\hfill[parameter types]
+\item $\vec{e} = (notevalue, midipitch, articulation, intensity)$\hfill[event format] 
+\item $T = \{scoreF, voiceF, quantizedF, lnotevalueF, lmidipitchF, ...\}$\hfill[genotype function types] 
+\item $i = scoreF$\hfill[genotype function type for first node]
+\item $F_{piano}$ is the set of all genotype functions registered in the specific library for the $piano$ spieces.
+\item $E = \{s2V, vSlice, vRepeatV, vConcatV, cMotifLoop, vAutoref, ln, lm, la, li, q\}$\hfill[eligible functions]
+\item $L = \{lnotevalueLeaf, lmidipitchLeaf, larticulationLeaf, lintensityLeaf, quantizedLeaf\}$\hfill[leaves]
+\item $M = \{norm2notevalue, notevalue2norm, norm2midipitch, ...\}$\hfill[conversion functions]
+\item $C = \{encodeGenotype, decodeGenotype\}$\hfill[encoding/decoding functions]
+\item $\vec{d}$ is a generic data structure as input and output for all functions $\in F_{piano}$.
+\end{itemize}
+
+
+    
+
 There exist many ways to model the piece, since its patterns can be obtained by different methods.\footnote{Comparing different ways of generating this work is an interesting question beyond this paper. Each model can correspond to alternative manners of perceiving structural aspects. A different analysis and procedural model of \emph{Clapping Music} can be found in \cite{MPS-manual}. To create our model, we have looked for the concisest code assembling simple and generic operations.} Our model combines five simple operations using the genotype functions showed in Table~\ref{table:funcs}.
 
 \begin{table}[ht]
 {\normalsize \begingroup
 \setlength{\tabcolsep}{7pt} % Default value: 6pt
 \renewcommand{\arraystretch}{1.8} % Default value: 1
-\begin{tabular}{p{2.2cm} p{4cm} p{1.8cm} p{6cm}}
+\begin{tabular}{p{2.2cm} p{4cm} p{1.8cm} p{6.54cm}}
 \toprule
 function name & arguments & output type & description\\
 \midrule
@@ -636,11 +656,12 @@ function name & arguments & output type & description\\
 \end{figure}
 
 
-Our framework have been implemented using JavaScript for the core code, and Max\footnote{\url{https://www.cycling74.com}} and the bach\footnote{\url{https://www.bachproject.net}} package for realtime interaction with the results of the generative processes. 
 
+
+Our framework has been implemented using JavaScript for the core code, and Max\footnote{\url{https://www.cycling74.com}} and its bach\footnote{\url{https://www.bachproject.net}} package to interact in realtime with the results of the generative processes. Using such interface, the complete work can be produced with the decoded genotype~\ref{lst:clapgeno}.
 
 \subsection{Decoded genotype: a procedural function tree of the piece}
-\begin{lstlisting}[float,floatplacement=H, language=Java, caption={Decoded genotype of \emph{Clapping Music} model.}\label{lst:clap-geno}]
+\begin{lstlisting}[float,floatplacement=H, language=Java, caption={Decoded genotype of \emph{Clapping Music} model.}, label={lst:clapgeno}]
 s2V(                           // score L: joins the 2 voices vertically
   vSlice(                      // voice J: slices last cycle because of phase lag
     vRepeatV(                  // phase G: F 13 times
@@ -981,6 +1002,6 @@ Cuestiones interesantes:
 
 %------------------------------------------------
 \bibliographystyle{acm}  
-\bibliography{references}  
+\bibliography{genomus_grammar_references}  
 
 \end{document}
