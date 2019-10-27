@@ -87,6 +87,11 @@
 \newblock In {\em Evolutionary and Biologically Inspired Music, Sound, Art and
   Design}. Springer International Publishing, 2015, pp.~89--100.
 
+\bibitem{MPS-manual}
+{\sc Hofmann, D.~M.}
+\newblock {\em {Music} {Processing} {Suite} {Documentation}}, version
+  1.5.1~ed., September 2019.
+
 \bibitem{DBLP:conf/icmc/Jacob95}
 {\sc Jacob, B.~L.}
 \newblock Composing with genetic algorithms.

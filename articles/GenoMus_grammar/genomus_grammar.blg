@@ -8,7 +8,7 @@ I'm skipping whatever remains of this command
 The style file: acm.bst
 Database file #1: references.bib
 Warning--string name "february" is undefined
---line 342 of file references.bib
+--line 354 of file references.bib
 A bad cross reference---entry "DBLP:conf/evoW/McCormack05"
 refers to entry "DBLP:conf/evoW/2005", which doesn't exist
 A bad cross reference---entry "DBLP:conf/icmc/Jacob95"
@@ -19,45 +19,45 @@ Warning--empty year in Ando
 Warning--can't use both author and editor fields in BodenWhatIsCr
 Warning--empty booktitle in LimitHuman
 Warning--empty year in Spector_inductionand
-You've used 37 entries,
+You've used 38 entries,
             2253 wiz_defined-function locations,
-            779 strings with 10900 characters,
-and the built_in function-call counts, 12214 in all, are:
-= -- 1191
-> -- 430
+            784 strings with 10986 characters,
+and the built_in function-call counts, 12418 in all, are:
+= -- 1210
+> -- 437
 < -- 0
-+ -- 186
-- -- 140
-* -- 841
-:= -- 1886
-add.period$ -- 115
-call.type$ -- 37
-change.case$ -- 174
++ -- 189
+- -- 142
+* -- 855
+:= -- 1920
+add.period$ -- 117
+call.type$ -- 38
+change.case$ -- 178
 chr.to.int$ -- 0
-cite$ -- 41
-duplicate$ -- 574
-empty$ -- 1120
-format.name$ -- 140
-if$ -- 2654
+cite$ -- 42
+duplicate$ -- 584
+empty$ -- 1139
+format.name$ -- 142
+if$ -- 2695
 int.to.chr$ -- 0
-int.to.str$ -- 37
+int.to.str$ -- 38
 missing$ -- 41
-newline$ -- 187
-num.names$ -- 78
-pop$ -- 250
+newline$ -- 191
+num.names$ -- 80
+pop$ -- 254
 preamble$ -- 1
-purify$ -- 142
+purify$ -- 145
 quote$ -- 0
-skip$ -- 349
+skip$ -- 356
 stack$ -- 0
-substring$ -- 745
-swap$ -- 162
+substring$ -- 750
+swap$ -- 165
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 138
+type$ -- 142
 warning$ -- 4
-while$ -- 132
-width$ -- 39
-write$ -- 380
+while$ -- 134
+width$ -- 40
+write$ -- 389
 (There were 3 error messages)

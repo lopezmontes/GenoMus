@@ -518,7 +518,7 @@ Selected specimens are permanently saved as JSON files in the Specimen catalogue
 \texttt{evolutionLog} & Log covering the history of actions and manipulations operated on the specimen.\\\hline
 \texttt{humanEvaluation} & Human evaluation of different musical, aesthetic and emotional aspects of the specimen. This item stores individual assessments of different users, and give an average rating for different musical aspects\\
  & {\small \texttt{aestheticValue}, \texttt{originality}, \texttt{mood}, \texttt{emotionalIntensity}, \texttt{individualEvaluations}}\\\bottomrule
-\hspace{1cm} 
+\hspace{0.8cm} 
 \end{tabular}
 \endgroup}
 \caption{Specimen data structure}
@@ -586,7 +586,7 @@ Most of times $n$ doesn't match the number of required items to complete a valid
 
 
 %------------------------------------------------
-\section{A minimal example: \textsl{Clapping music}}
+\section{A minimal example: \textsl{Clapping Music}}
 
 \begin{samepage}
 \begin{quotation}
@@ -602,32 +602,45 @@ Most of times $n$ doesn't match the number of required items to complete a valid
 
 
 
-To illustrate how GenoMus represents and encodes music procedures in an abstract format, we will apply the framework to model \emph{Clapping Music}, a famous piece composed by Steve Reich in 1972. As many of the pieces of the composer, it begins with a minimal motif that undergoes simple transformations which have big consequences in the overall form.
+To illustrate how GenoMus represents and encodes music procedures in an abstract format, we will apply the framework to model \emph{Clapping Music}, a famous piece composed by Steve Reich in 1972. As many of the pieces of the composer, it begins with a minimal motif, which undergoes simple transformations that have big consequences in the overall form. The basis of this work for two performers is repeating a clapped pattern. One of the performers removes the first note of the pattern each 8 or 12 repetitions, creating a phase shift between both voices. The work finished when both lines are in phase again.
+
+There exist many ways to model the piece, since its patterns can be obtained by different methods.\footnote{Comparing different ways of generating this work is an interesting question beyond this paper. Each model can correspond to alternative manners of perceiving structural aspects. A different analysis and procedural model of \emph{Clapping Music} can be found in \cite{MPS-manual}. To create our model, we have looked for the concisest code assembling simple and generic operations.} Our model combines five simple operations using the genotype functions showed in Table~\ref{table:funcs}.
+
+\begin{table}[ht]
+{\normalsize \begingroup
+\setlength{\tabcolsep}{7pt} % Default value: 6pt
+\renewcommand{\arraystretch}{1.8} % Default value: 1
+\begin{tabular}{p{2.2cm} p{4cm} p{1.8cm} p{6cm}}
+\toprule
+function name & arguments & output type & description\\
+\midrule
+\texttt{vMotifLoop} & (\emph{lnotevalueF}, \emph{lmidipitchF}, \emph{larticulationF}, \emph{lintensityF}) & \emph{voiceF} & Creates a sequence of events based on repeating lists. The number of events is determined by the longest list.\\
+\texttt{vConcatV} & (\emph{voiceF}, \emph{voiceF}) & \emph{voiceF} & Concatenates two voices sequentially.\\
+\texttt{vRepeatV} & (\emph{voiceF}, \emph{quantizedF}) & \emph{voiceF} & Repeats a voice a number of times.\\
+\texttt{vSlice} & (\emph{voiceF}, \emph{quantizedF}) & \emph{voiceF} & Removes a number of events at the beginning or at the end of a voice.\\
+\texttt{s2V} & (\emph{voiceF}, \emph{voiceF}) & \emph{scoreF} & Joins two voices simultaneously.\\
+
+\bottomrule
+\hspace{0.8cm} 
+\end{tabular}
+\endgroup}
+\caption{Genotype functions used to model \emph{Clapping Music}.}
+\label{table:funcs}
+\end{table}
 
 
 \begin{figure}
   \includegraphics[width=\linewidth]{figs/clapping_patterns.pdf}
   \caption{Structures of S. Reich's \emph{Clapping Music}.}
-  \label{fig:boat1}
+  \label{fig:clapping-struct}
 \end{figure}
 
-{\color{red}
 
-Figure \ref{fig:boat1} is here.
+Our framework have been implemented using JavaScript for the core code, and Max\footnote{\url{https://www.cycling74.com}} and the bach\footnote{\url{https://www.bachproject.net}} package for realtime interaction with the results of the generative processes. 
 
-}
-
-\subsection{Code and interface for the experiments}
-
-{\color{red}
-
-[manual coding to extract procedural and extendable knowledge]\cite{Hofmann2015} 
-
-}
 
 \subsection{Decoded genotype: a procedural function tree of the piece}
-
-\begin{lstlisting}[float][language=Java, caption=A possible decoded genotype for S. Reich's \emph{Clapping Music}]
+\begin{lstlisting}[float,floatplacement=H, language=Java, caption={Decoded genotype of \emph{Clapping Music} model.}\label{lst:clap-geno}]
 s2V(                           // score L: joins the 2 voices vertically
   vSlice(                      // voice J: slices last cycle because of phase lag
     vRepeatV(                  // phase G: F 13 times
@@ -659,8 +672,8 @@ s2V(                           // score L: joins the 2 voices vertically
 
 \begin{figure}
   \includegraphics[width=\linewidth]{figs/clapping_tree_graph_colours_code.pdf}
-  \caption{Structures of S. Reich's \emph{Clapping Music}.}
-  \label{fig:boat2}
+  \caption{Functional tree of \emph{Clapping Music} genotype.}
+  \label{fig:claptree}
 \end{figure}
 
 
@@ -669,12 +682,13 @@ s2V(                           // score L: joins the 2 voices vertically
 \begin{center}
   \includegraphics[width=11cm]{figs/clappingVisualized.pdf}
 \end{center}  
-  \caption{Structures of S. Reich's \emph{Clapping Music}.}
+  \caption{Encoded genotype visualization of \emph{Clapping Music} model.}
   \label{fig:boat3}
 \end{figure}
 
 
-
+\begin{table}[ht]
+\hrulefill
 {\small \begin{enumerate}[start=0]
 \item \begin{verbatim}
 "vMotifLoop(ln(0.125),lm(65),la(49),li(60,60,90,0))"
@@ -726,18 +740,21 @@ vSlice(vAutoref(0),q(1))),vSlice(vAutoref(3),q(2))),q(8)),q(13))"
 "vConcatV(vAutoref(7),vRepeatV(vSlice(vAutoref(10),q(1)),q(12)))"
 \end{verbatim}
 \end{enumerate}}
-
+\hrulefill
+\caption{Subexpressions stored during the evaluation of \emph{Clapping Music} genotype.}
+\label{table:subexp}
+\end{table}
 
 
 Extrapolacion de estructuras y variantes:
 
-{\small \begin{verbatim}sClappingMusic (1/8,65,50,(60,60,90,0),1,2,8,13,-12,1,12)\end{verbatim}}  
+{\small \begin{verbatim}sClapping (1/8,65,50,(60,60,90,0),1,2,8,13,-12,1,12)\end{verbatim}}  
 
  
 
 \subsection{Encoded genotype: an abstract representation of compositional processes}
 
-\begin{lstlisting}[language=Java, caption=Encoded genotype for S. Reich's \emph{Clapping Music}]
+\begin{lstlisting}[float,floatplacement=H, language=Java, caption=Encoded genotype for S. Reich's \emph{Clapping Music}]
 [1, 0.275535, 1, 0.534808, 1, 0.665631, 1, 0.665631, 1, 0.575462, 1, 0.575462, 1, 0.606798, 1, 0.27051, 0.51, 0.5, 0, 1, 0.506578, 0.53, 0.53, 0, 1, 0.742646, 0.55, 0.51346, 0, 1, 0.36068, 0.56, 0.6, 0.56, 0.6, 0.56, 0.9, 0.56, 0, 0, 0, 1, 0.534808, 1, 0.304952, 0.57, 0, 0, 1, 0.416408, 0.58, 0.55, 0, 0, 0, 1, 0.534808, 1, 0.304952, 0.57, 0.854102, 0, 1, 0.416408, 0.58, 0.6, 0, 0, 0, 1, 0.416408, 0.58, 0.75, 0, 0, 1, 0.416408, 0.58, 0.84, 0, 0, 1, 0.416408, 0.58, 0.75, 0, 0, 1, 0.575462, 1, 0.304952, 0.57, 0.326238, 0, 1, 0.665631, 1, 0.534808, 1, 0.304952, 0.57, 0.18034, 0, 1, 0.416408, 0.58, 0.55, 0, 0, 1, 0.416408, 0.58, 0.82, 0, 0, 0, 0]
 \end{lstlisting}
 

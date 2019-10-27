@@ -123,7 +123,7 @@
                 "eventF"
             ],
             "metadata": {
-                "description": "repeats and concatenates as a list re-evaluations of a list function",
+                "description": "concatenates two events sequentially",
                 "date": 20190906,
                 "creator": "lm"
             }
@@ -136,7 +136,7 @@
                 "voiceF"
             ],
             "metadata": {
-                "description": "repeats and concatenates as a list re-evaluations of a list function",
+                "description": "concatenates two voices sequentially",
                 "date": 20190906,
                 "creator": "lm"
             }
