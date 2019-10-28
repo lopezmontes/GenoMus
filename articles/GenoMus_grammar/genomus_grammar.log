@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  28 OCT 2019 13:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  28 OCT 2019 13:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -940,7 +940,7 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 676.
  [11 <./figs/clapping_patterns.pdf>]
-<figs/clapping_tree_graph_colours_code.pdf, id=301, 476.43866pt x 263.4135pt>
+<figs/clapping_tree_graph_colours_code.pdf, id=300, 476.43866pt x 263.4135pt>
 File: figs/clapping_tree_graph_colours_code.pdf Graphic file (type pdf)
 
 <use figs/clapping_tree_graph_colours_code.pdf>
@@ -948,14 +948,17 @@ Package pdftex.def Info: figs/clapping_tree_graph_colours_code.pdf used on inpu
 t line 773.
 (pdftex.def)             Requested size: 469.75499pt x 259.73512pt.
 
-<figs/clappingVisualized.pdf, id=302, 1033.46097pt x 112.42pt>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12]
+<figs/clappingVisualized.pdf, id=339, 1033.46097pt x 112.42pt>
 File: figs/clappingVisualized.pdf Graphic file (type pdf)
 
 <use figs/clappingVisualized.pdf>
 Package pdftex.def Info: figs/clappingVisualized.pdf used on input line 782.
 (pdftex.def)             Requested size: 312.9803pt x 34.04532pt.
- [12] [13 <./figs/clapping_tree_graph_colours_code.pdf> <./figs/clappingVisuali
-zed.pdf
+ [13 <./figs/clapping_tree_graph_colours_code.pdf> <./figs/clappingVisualized.p
+df
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./figs/clappingVisualized.pd
 f): PDF inclusion: multiple pdfs with page group included in a single page
@@ -981,7 +984,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1023.
 Here is how much of TeX's memory you used:
  13559 strings out of 492995
  201096 string characters out of 6132705
- 559556 words of memory out of 5000000
+ 544739 words of memory out of 5000000
  16599 multiletter control sequences out of 15000+600000
  31924 words of font info for 154 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1013,10 +1016,10 @@ e/2017/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/
 exmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2017/tex
 mf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2017/texmf
 -dist/fonts/type1/public/cm-super/sfxc1200.pfb>
-Output written on genomus_grammar.pdf (17 pages, 659687 bytes).
+Output written on genomus_grammar.pdf (17 pages, 659927 bytes).
 PDF statistics:
- 517 PDF objects out of 1000 (max. 8388607)
- 459 compressed objects within 5 object streams
+ 518 PDF objects out of 1000 (max. 8388607)
+ 460 compressed objects within 5 object streams
  137 named destinations out of 1000 (max. 500000)
  29400 words of extra memory for PDF output out of 29859 (max. 10000000)
 
