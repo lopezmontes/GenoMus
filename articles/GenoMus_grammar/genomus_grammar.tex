@@ -16,6 +16,7 @@
 \usepackage{listings}
 \usepackage{graphicx}
 \usepackage{fontawesome}
+\usepackage{float}
 \usepackage[hypcap]{caption} % for displaying figures in the viewer, and not only captions
 
 \definecolor{backcolour}{rgb}{0.96,0.96,0.96}
@@ -476,6 +477,21 @@ A GenoMus framework for a species $s$ is defined as the 10-tuple $G_s = \{P, \ve
 \item $\vec{d}$ is a generic data structure to be taken as input or returned as output by any function $\in F$.
 \end{itemize}
 
+The data content in $\vec{d}$ has the form of a dictionary (actually a JavaScript Object in our implementation), including this properties:
+
+\begin{description}
+\item[\texttt{funcType}:] Function type according to its output.
+\item[\texttt{encGen}:] Encoded genotype. 
+\item[\texttt{decGen}:] Decoded genotype (the function's own expression as a string).
+\item[\texttt{encPhen}:] Encoded phenotype of the generated score.
+\item[\texttt{phenVoices}:] Number of voices of the generated score
+\item[\texttt{phenLength}:] Number of events of the generated score
+\item[(\emph{others}):] Additional information, generally related to a self-analysis of musical features that are useful for the next genotype node, such as tempo, rhythm, harmony, etc.
+
+\end{description}
+
+This data structure is what each genotype function expects for every argument, and what is passed to the next one. A crucial item is \textbf{decGen}, where a function returns its own code as a string. It allows reevaluations of this code, which is essential to procedures involving iteration, recursion or stochastic processes.
+
 The decoding of GenoMus encoded phenotypes into standard formats for any musical application can be seen as an external operation, not concerning directly this formal definition. 
 
 
@@ -606,7 +622,7 @@ Most of times $n$ doesn't match the number of required items to complete a valid
 
 To illustrate how GenoMus represents and encodes music procedures in an abstract format, we will apply the framework to model \emph{Clapping Music}, a famous piece composed by Steve Reich in 1972. As many of the pieces of the composer, it begins with a minimal motif, which undergoes simple transformations that have big consequences in the overall form. The basis of this work for two performers is repeating a clapped pattern. One of the performers removes the first note of the pattern each 8 or 12 repetitions, creating a phase shift between both voices. The work finished when both lines are in phase again.
 
-The piece was modeled using the \emph{piano} species which, according to the formalism stated in section~\ref{sec:formaldef}, is defined as a set $G_{piano} = \{P, \vec{e}, T, i, F_{piano}, E, L, M, C, \vec{d}\}$, where
+The piece was modeled using the \emph{piano} species which, according to the formalism stated in section~\ref{sec:formaldef}, is defined as the set $G_{piano} = \{P, \vec{e}, T, i, F_{piano}, E, L, M, C, \vec{d}\}$, where
 
 \begin{itemize}
 \item $P = \{notevalue, midipitch, articulation, intensity, quantized, ...\}$\hfill[parameter types]
@@ -618,21 +634,27 @@ The piece was modeled using the \emph{piano} species which, according to the for
 \item $L = \{lnotevalueLeaf, lmidipitchLeaf, larticulationLeaf, lintensityLeaf, quantizedLeaf\}$\hfill[leaves]
 \item $M = \{norm2notevalue, notevalue2norm, norm2midipitch, ...\}$\hfill[conversion functions]
 \item $C = \{encodeGenotype, decodeGenotype\}$\hfill[encoding/decoding functions]
-\item $\vec{d}$ is a generic data structure as input and output for all functions $\in F_{piano}$.
+\item $\vec{d}$ is the data structure to serve as inputs and outputs for all functions $\in F_{piano}$.
 \end{itemize}
 
 
-    
+Based on this architecture, there exist several ways to model the piece, since its patterns can be obtained by different methods.\footnote{Comparing different ways of generating this work is an interesting question beyond this paper. Each model can correspond to alternative manners of perceiving structural aspects. A different analysis and procedural model of \emph{Clapping Music} can be found in \cite{MPS-manual}. To create our model, we looked for the concisest code assembling simple and generic operations.} The Figure~\ref{fig:clappingstruct} shows the score and one of the possible analytical deconstructions in patterns. 
 
-There exist many ways to model the piece, since its patterns can be obtained by different methods.\footnote{Comparing different ways of generating this work is an interesting question beyond this paper. Each model can correspond to alternative manners of perceiving structural aspects. A different analysis and procedural model of \emph{Clapping Music} can be found in \cite{MPS-manual}. To create our model, we have looked for the concisest code assembling simple and generic operations.} Our model combines five simple operations using the genotype functions showed in Table~\ref{table:funcs}.
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{figs/clapping_patterns.pdf}
+  \caption{Structures of S. Reich's \emph{Clapping Music}.}
+  \label{fig:clappingstruct}
+\end{figure}
 
-\begin{table}[ht]
+Our model derivates the whole composition as transformations of the first four notes (motif $A$), appling five generic operations using the genotype functions explained in Table~\ref{table:funcs}.
+
+\begin{table}[H]
 {\normalsize \begingroup
 \setlength{\tabcolsep}{7pt} % Default value: 6pt
 \renewcommand{\arraystretch}{1.8} % Default value: 1
 \begin{tabular}{p{2.2cm} p{4cm} p{1.8cm} p{6.54cm}}
 \toprule
-function name & arguments & output type & description\\
+function name & argument type & output type & description\\
 \midrule
 \texttt{vMotifLoop} & (\emph{lnotevalueF}, \emph{lmidipitchF}, \emph{larticulationF}, \emph{lintensityF}) & \emph{voiceF} & Creates a sequence of events based on repeating lists. The number of events is determined by the longest list.\\
 \texttt{vConcatV} & (\emph{voiceF}, \emph{voiceF}) & \emph{voiceF} & Concatenates two voices sequentially.\\
@@ -649,19 +671,9 @@ function name & arguments & output type & description\\
 \end{table}
 
 
-\begin{figure}
-  \includegraphics[width=\linewidth]{figs/clapping_patterns.pdf}
-  \caption{Structures of S. Reich's \emph{Clapping Music}.}
-  \label{fig:clapping-struct}
-\end{figure}
+Our framework has been implemented by using JavaScript for the core code, and Max\footnote{\url{https://www.cycling74.com}} with its bach\footnote{\url{https://www.bachproject.net}} package to interact in realtime with the results of the generative processes. The complete work was recreated by the decoded genotype displayed in Listing~\ref{lst:clapgeno}.
 
-
-
-
-Our framework has been implemented using JavaScript for the core code, and Max\footnote{\url{https://www.cycling74.com}} and its bach\footnote{\url{https://www.bachproject.net}} package to interact in realtime with the results of the generative processes. Using such interface, the complete work can be produced with the decoded genotype~\ref{lst:clapgeno}.
-
-\subsection{Decoded genotype: a procedural function tree of the piece}
-\begin{lstlisting}[float,floatplacement=H, language=Java, caption={Decoded genotype of \emph{Clapping Music} model.}, label={lst:clapgeno}]
+\begin{lstlisting}[floatplacement=H, language=Java, caption={Decoded genotype of \emph{Clapping Music} model.}, label={lst:clapgeno}]
 s2V(                           // score L: joins the 2 voices vertically
   vSlice(                      // voice J: slices last cycle because of phase lag
     vRepeatV(                  // phase G: F 13 times
@@ -691,21 +703,9 @@ s2V(                           // score L: joins the 2 voices vertically
       q(12))))
 \end{lstlisting}
 
-\begin{figure}
-  \includegraphics[width=\linewidth]{figs/clapping_tree_graph_colours_code.pdf}
-  \caption{Functional tree of \emph{Clapping Music} genotype.}
-  \label{fig:claptree}
-\end{figure}
+The arguments of the \texttt{vAutoref} functions refers to a list of subexpressions stored and updated after the evaluation of each genotype function. An autoreference can refers only to the available subexpressions indexed at the moment of its evaluation. That implies that in the constructive process a function will only reuse previous material of the musical timeline. This reflects how works the perception and memory of music, establishing interrelations with preceding elements.
 
-
-
-\begin{figure}
-\begin{center}
-  \includegraphics[width=11cm]{figs/clappingVisualized.pdf}
-\end{center}  
-  \caption{Encoded genotype visualization of \emph{Clapping Music} model.}
-  \label{fig:boat3}
-\end{figure}
+To clarify the autoreferences inside the genotype, Table~\ref{table:subexp} enumerate all the subexpressions stored at the end of the genotype evaluation. Only the subexpressions for \emph{voiceF} function type are showed, although there exist for all categories. Autoreferences can refer to foregoing autoreferences, as ocurred at line 25, where \texttt{vAutoref(10)} points to \texttt{vAutoref(7)}, which in turn points to a subexpression that contains two more autoreferences.
 
 
 \begin{table}[ht]
@@ -762,24 +762,40 @@ vSlice(vAutoref(0),q(1))),vSlice(vAutoref(3),q(2))),q(8)),q(13))"
 \end{verbatim}
 \end{enumerate}}
 \hrulefill
-\caption{Subexpressions stored during the evaluation of \emph{Clapping Music} genotype.}
+\vspace{0.4cm}
+\caption{Subexpressions of \emph{voiceF} function type stored during the evaluation of \emph{Clapping Music} genotype.}
 \label{table:subexp}
 \end{table}
 
+The Figure~\ref{fig:claptree} displays the functional tree of this decoded genotype, along with its internal autoreferences. The tree is represented in inverse order, from left to right, to reflect how substructures are feeding to subsequent functions which construct larger musical patterns, as well as the subexpressions indexing order.
 
-Extrapolacion de estructuras y variantes:
+\begin{figure}
+  \includegraphics[width=\linewidth]{figs/clapping_tree_graph_colours_code.pdf}
+  \caption{Functional tree of \emph{Clapping Music} genotype.}
+  \label{fig:claptree}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=11cm]{figs/clappingVisualized.pdf}
+\end{center}  
+  \caption{Encoded genotype visualization of \emph{Clapping Music} model.}
+  \label{fig:boat3}
+\end{figure}
+
+
 
 {\small \begin{verbatim}sClapping (1/8,65,50,(60,60,90,0),1,2,8,13,-12,1,12)\end{verbatim}}  
 
  
 
-\subsection{Encoded genotype: an abstract representation of compositional processes}
 
-\begin{lstlisting}[float,floatplacement=H, language=Java, caption=Encoded genotype for S. Reich's \emph{Clapping Music}]
-[1, 0.275535, 1, 0.534808, 1, 0.665631, 1, 0.665631, 1, 0.575462, 1, 0.575462, 1, 0.606798, 1, 0.27051, 0.51, 0.5, 0, 1, 0.506578, 0.53, 0.53, 0, 1, 0.742646, 0.55, 0.51346, 0, 1, 0.36068, 0.56, 0.6, 0.56, 0.6, 0.56, 0.9, 0.56, 0, 0, 0, 1, 0.534808, 1, 0.304952, 0.57, 0, 0, 1, 0.416408, 0.58, 0.55, 0, 0, 0, 1, 0.534808, 1, 0.304952, 0.57, 0.854102, 0, 1, 0.416408, 0.58, 0.6, 0, 0, 0, 1, 0.416408, 0.58, 0.75, 0, 0, 1, 0.416408, 0.58, 0.84, 0, 0, 1, 0.416408, 0.58, 0.75, 0, 0, 1, 0.575462, 1, 0.304952, 0.57, 0.326238, 0, 1, 0.665631, 1, 0.534808, 1, 0.304952, 0.57, 0.18034, 0, 1, 0.416408, 0.58, 0.55, 0, 0, 1, 0.416408, 0.58, 0.82, 0, 0, 0, 0]
-\end{lstlisting}
+%\begin{lstlisting}[float,floatplacement=H, language=Java, caption=Encoded genotype for S. Reich's \emph{Clapping Music}]
+%[1, 0.275535, 1, 0.534808, 1, 0.665631, 1, 0.665631, 1, 0.575462, 1, 0.575462, 1, 0.606798, 1, 0.27051, 0.51, 0.5, 0, 1, 0.506578, 0.53, 0.53, 0, 1, 0.742646, 0.55, 0.51346, 0, 1, 0.36068, 0.56, 0.6, 0.56, 0.6, 0.56, 0.9, 0.56, 0, 0, 0, 1, 0.534808, 1, 0.304952, 0.57, 0, 0, 1, 0.416408, 0.58, 0.55, 0, 0, 0, 1, 0.534808, 1, 0.304952, 0.57, 0.854102, 0, 1, 0.416408, 0.58, 0.6, 0, 0, 0, 1, 0.416408, 0.58, 0.75, 0, 0, 1, 0.416408, 0.58, 0.84, 0, 0, 1, 0.416408, 0.58, 0.75, 0, 0, 1, 0.575462, 1, 0.304952, 0.57, 0.326238, 0, 1, 0.665631, 1, 0.534808, 1, 0.304952, 0.57, 0.18034, 0, 1, 0.416408, 0.58, 0.55, 0, 0, 1, 0.416408, 0.58, 0.82, 0, 0, 0, 0]
+%\end{lstlisting}
 
-\subsection{Encoded phenotype and possible outputs}
 
 {\color{red}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  27 OCT 2019 11:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  28 OCT 2019 13:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -638,7 +638,15 @@ Package: fontawesome 2016/05/15 v4.6.3.1 font awesome icons
 (/usr/local/texlive/2017/texmf-dist/tex/latex/fontawesome/fontawesomesymbols-ge
 neric.tex)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/fontawesome/fontawesomesymbols-pd
-ftex.tex)) (/usr/local/texlive/2017/texmf-dist/tex/latex/caption/caption.sty
+ftex.tex)) (/usr/local/texlive/2017/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count116
+\float@exts=\toks21
+\float@box=\box28
+\@float@everytoks=\toks22
+\@floatcapt=\box29
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/caption/caption3.sty
@@ -652,7 +660,8 @@ Package caption3 Info: TeX engine: e-TeX on input line 67.
 \caption@parindent=\dimen140
 \caption@hangindent=\dimen141
 )
-\c@ContinuedFloat=\count116
+\c@ContinuedFloat=\count117
+Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 )
@@ -660,27 +669,27 @@ Package caption Info: listings package is loaded.
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \labelindent=\skip59
 \enit@outerparindent=\dimen142
-\enit@toks=\toks21
-\enit@inbox=\box28
-\enitdp@description=\count117
+\enit@toks=\toks23
+\enit@inbox=\box30
+\enitdp@description=\count118
 )
 (./genomus_grammar.aux)
 \openout1 = `genomus_grammar.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -748,25 +757,25 @@ LaTeX Font Info:    ... okay on input line 86.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring OFF on input line 86.
+\AtBeginShipoutBox=\box31
+Package hyperref Info: Link coloring OFF on input line 87.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
 (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count118
+\c@section@level=\count119
 )
-LaTeX Info: Redefining \ref on input line 86.
-LaTeX Info: Redefining \pageref on input line 86.
-LaTeX Info: Redefining \nameref on input line 86.
+LaTeX Info: Redefining \ref on input line 87.
+LaTeX Info: Redefining \pageref on input line 87.
+LaTeX Info: Redefining \nameref on input line 87.
 
 (./genomus_grammar.out) (./genomus_grammar.out)
 \@outlinefile=\write3
 \openout3 = `genomus_grammar.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 86.
+LaTeX Info: Redefining \microtypecontext on input line 87.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -783,17 +792,17 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 )
 (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count119
+\scratchcounter=\count120
 \scratchdimen=\dimen143
-\scratchbox=\box30
-\nofMPsegments=\count120
-\nofMParguments=\count121
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count122
+\scratchbox=\box32
+\nofMPsegments=\count121
+\nofMParguments=\count122
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count123
 \MPscratchDim=\dimen144
-\MPnumerator=\count123
-\makeMPintoPDFobject=\count124
-\everyMPtoPDFconversion=\toks23
+\MPnumerator=\count124
+\makeMPintoPDFobject=\count125
+\everyMPtoPDFconversion=\toks25
 ) (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -811,10 +820,10 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count125
+\c@lstlisting=\count126
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for U+msa on input line 88.
+LaTeX Font Info:    Try loading font information for U+msa on input line 89.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -822,7 +831,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/local/texlive/2017/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 88.
+LaTeX Font Info:    Try loading font information for U+msb on input line 89.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -831,16 +840,16 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Try loading font information for U+fontawesometwo on input 
-line 88.
+line 89.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/fontawesome/ufontawesometwo.fd
 File: ufontawesometwo.fd 2016/05/22 Font definitions for U/fontawesometwo.
 )
 
 LaTeX Font Warning: Font shape `U/fontawesometwo/bx/n' undefined
-(Font)              using `U/fontawesometwo/m/n' instead on input line 88.
+(Font)              using `U/fontawesometwo/m/n' instead on input line 89.
 
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 88.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 89.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
@@ -859,28 +868,33 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 \tf@toc=\write4
 \openout4 = `genomus_grammar.toc'.
 
- [2] [3]
+ [2]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3]
 [4] [5]
 
-LaTeX Warning: Citation `add more...' on page 6 undefined on input line 384.
+LaTeX Warning: Citation `add more...' on page 6 undefined on input line 385.
 
 [6]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 467.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 468.
 
  (/usr/local/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 467.
-
-Underfull \hbox (badness 10000) in paragraph at lines 508--508
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 468.
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 483.
+ [7]
+Underfull \hbox (badness 10000) in paragraph at lines 524--524
 \T1/cmtt/m/n/9 iterations\T1/cmr/m/n/9 (+20) , \T1/cmtt/m/n/9 millisecondsElaps
 ed\T1/cmr/m/n/9 (+20) , \T1/cmtt/m/n/9 encGenotypeLength\T1/cmr/m/n/9 (+20) , \
 T1/cmtt/m/n/9 encPhenotypeLength\T1/cmr/m/n/9 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 519--519
+Underfull \hbox (badness 10000) in paragraph at lines 535--535
 \T1/cmtt/m/n/9 chromaticism\T1/cmr/m/n/9 (+20) , \T1/cmtt/m/n/9 dissonance\T1/c
 mr/m/n/9 (+20) , \T1/cmtt/m/n/9 disjunctivity\T1/cmr/m/n/9 (+20) , \T1/cmtt/m/n
 /9 modalChroma\T1/cmr/m/n/9 (+20) , \T1/cmtt/m/n/9 tonalStability\T1/cmr/m/n/9 
@@ -888,72 +902,73 @@ mr/m/n/9 (+20) , \T1/cmtt/m/n/9 disjunctivity\T1/cmr/m/n/9 (+20) , \T1/cmtt/m/n
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 505--526
+Underfull \hbox (badness 10000) in paragraph at lines 521--542
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 505--526
+Underfull \hbox (badness 10000) in paragraph at lines 521--542
 
  []
 
-[7]
+[8]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [8]
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 633--647
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 633--647
-
- []
-
-<figs/clapping_patterns.pdf, id=278, 577.87482pt x 212.68312pt>
+ [9]
+<figs/clapping_patterns.pdf, id=261, 577.87482pt x 212.68312pt>
 File: figs/clapping_patterns.pdf Graphic file (type pdf)
 
 <use figs/clapping_patterns.pdf>
-Package pdftex.def Info: figs/clapping_patterns.pdf used on input line 653.
+Package pdftex.def Info: figs/clapping_patterns.pdf used on input line 644.
 (pdftex.def)             Requested size: 469.75499pt x 172.89871pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10]
+Underfull \hbox (badness 10000) in paragraph at lines 655--669
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 655--669
+
+ []
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 664.
-
-<figs/clapping_tree_graph_colours_code.pdf, id=284, 476.43866pt x 263.4135pt>
+nput line 676.
+ [11 <./figs/clapping_patterns.pdf>]
+<figs/clapping_tree_graph_colours_code.pdf, id=301, 476.43866pt x 263.4135pt>
 File: figs/clapping_tree_graph_colours_code.pdf Graphic file (type pdf)
 
 <use figs/clapping_tree_graph_colours_code.pdf>
 Package pdftex.def Info: figs/clapping_tree_graph_colours_code.pdf used on inpu
-t line 695.
+t line 773.
 (pdftex.def)             Requested size: 469.75499pt x 259.73512pt.
 
-<figs/clappingVisualized.pdf, id=285, 1033.46097pt x 112.42pt>
+<figs/clappingVisualized.pdf, id=302, 1033.46097pt x 112.42pt>
 File: figs/clappingVisualized.pdf Graphic file (type pdf)
 
 <use figs/clappingVisualized.pdf>
-Package pdftex.def Info: figs/clappingVisualized.pdf used on input line 704.
+Package pdftex.def Info: figs/clappingVisualized.pdf used on input line 782.
 (pdftex.def)             Requested size: 312.9803pt x 34.04532pt.
- [10] [11 <./figs/clapping_patterns.pdf>]
-[12 <./figs/clapping_tree_graph_colours_code.pdf> <./figs/clappingVisualized.pd
-f
+ [12] [13 <./figs/clapping_tree_graph_colours_code.pdf> <./figs/clappingVisuali
+zed.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./figs/clappingVisualized.pd
 f): PDF inclusion: multiple pdfs with page group included in a single page
->] [13] [14] (./genomus_grammar.bbl [15] [16])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1007.
+>] [14] [15] (./genomus_grammar.bbl [16])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1023.
  [17]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1007.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1023.
  (./genomus_grammar.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1007.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1007.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1023.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1023.
 
 Package rerunfilecheck Info: File `genomus_grammar.out' has not changed.
-(rerunfilecheck)             Checksum: A7271EA60ED0D441E499A933EF5D59E4;2279.
+(rerunfilecheck)             Checksum: D4C4440E35C7086F89A020662F050FA7;1963.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -961,16 +976,16 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1007.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1023.
  ) 
 Here is how much of TeX's memory you used:
- 13516 strings out of 492995
- 200530 string characters out of 6132705
- 698711 words of memory out of 5000000
- 16555 multiletter control sequences out of 15000+600000
- 31866 words of font info for 153 fonts, out of 8000000 for 9000
+ 13559 strings out of 492995
+ 201096 string characters out of 6132705
+ 559556 words of memory out of 5000000
+ 16599 multiletter control sequences out of 15000+600000
+ 31924 words of font info for 154 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 50i,12n,45p,1521b,1277s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 50i,12n,45p,1521b,1914s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.
 enc}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/fontawesome/FontAwes
@@ -998,10 +1013,10 @@ e/2017/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/
 exmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2017/tex
 mf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2017/texmf
 -dist/fonts/type1/public/cm-super/sfxc1200.pfb>
-Output written on genomus_grammar.pdf (17 pages, 657140 bytes).
+Output written on genomus_grammar.pdf (17 pages, 659687 bytes).
 PDF statistics:
- 534 PDF objects out of 1000 (max. 8388607)
- 476 compressed objects within 5 object streams
- 144 named destinations out of 1000 (max. 500000)
- 29424 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 517 PDF objects out of 1000 (max. 8388607)
+ 459 compressed objects within 5 object streams
+ 137 named destinations out of 1000 (max. 500000)
+ 29400 words of extra memory for PDF output out of 29859 (max. 10000000)
 
