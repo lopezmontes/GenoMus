@@ -32,3 +32,47 @@
             vAutoref(10),
             q(1)),
          q(12))))"
+
+variants:
+
+"s2V(
+   vSlice(
+      vRepeatV(
+         vRepeatV(
+            vConcatV(
+               vConcatV(
+                  vMotifLoop(
+                     ln(
+                        0.0625,
+                        0.09375),
+                     lm(
+                        75,
+                        74,
+                        69,
+                        55,
+                        62),
+                     la(
+                        49),
+                     li(
+                        60,
+                        90,
+                        50,
+                        120)),
+                  vSlice(
+                     vAutoref(0),
+                     q(1))),
+               vSlice(
+                  vAutoref(3),
+                  q(1))),
+            q(1)),
+         q(7)),
+      q(-12)),
+   vConcatV(
+      vAutoref(7),
+      vRepeatV(
+         vSlice(
+            vAutoref(10),
+            q(1)),
+         q(22))))"
+
+

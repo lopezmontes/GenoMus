@@ -654,7 +654,7 @@ Our model derivates the whole composition as transformations of the first four n
 \renewcommand{\arraystretch}{1.8} % Default value: 1
 \begin{tabular}{p{2.2cm} p{4cm} p{1.8cm} p{6.54cm}}
 \toprule
-function name & argument type & output type & description\\
+function name & arguments type & output type & description\\
 \midrule
 \texttt{vMotifLoop} & (\emph{lnotevalueF}, \emph{lmidipitchF}, \emph{larticulationF}, \emph{lintensityF}) & \emph{voiceF} & Creates a sequence of events based on repeating lists. The number of events is determined by the longest list.\\
 \texttt{vConcatV} & (\emph{voiceF}, \emph{voiceF}) & \emph{voiceF} & Concatenates two voices sequentially.\\
@@ -771,6 +771,7 @@ The Figure~\ref{fig:claptree} displays the functional tree of this decoded genot
 
 \begin{figure}[H]
   \includegraphics[width=\linewidth]{figs/clapping_tree_graph_colours_code.pdf}
+  
   \caption{Functional tree of \emph{Clapping Music} genotype.}
   \label{fig:claptree}
 \end{figure}
@@ -785,35 +786,27 @@ The encoded genotype is an unidimensional numeric vector. To get a better insigh
   \label{fig:boat3}
 \end{figure}
 
+The genotype of a whole composition like this (or only part of it) can be automatically flattened to create a new genotype function where all leaves are assembled as a single array of arguments\footnote{The numeric values that feed arguments for the autoreferences are excluded from the arguments array of the new derivate function because of their structural character. These number must be immutable to preserve the internal consistency of the procedure.}.  For instance, a new function called \texttt{sClapping} could be created to be handled as a new procedure, abstracted from the original piece:
 
+\begin{table}[H]
+{\normalsize \begingroup
+\setlength{\tabcolsep}{7pt} % Default value: 6pt
+\renewcommand{\arraystretch}{1.8} % Default value: 1
+\begin{tabular}{p{2.2cm} p{2.2cm} p{1.8cm} p{8.34cm}}
+function name & arguments type & output type & description\\
+\midrule
 
-{\small \begin{verbatim}sClapping (1/8,65,50,(60,60,90,0),1,2,8,13,-12,1,12)\end{verbatim}}  
+\texttt{sClapping} & (\emph{lnotevaluesF}, \emph{lmidipitchF}, \emph{larticulationF}, \emph{lintensityF}, \emph{quantizedF}, \emph{quantizedF}, \emph{quantizedF}, \emph{quantizedF}, \emph{quantizedF}, \emph{quantizedF}, \emph{quantizedF}) & \emph{scoreF} & Creates two voices with a repeated pattern with a progressive phase shift of the second voice created by slicing notes at the beginning of the pattern.\\
 
- 
-
+\hspace{0.8cm} 
+\end{tabular}
+\endgroup}
+\label{table:clapfunc}
+\end{table}
 
 %\begin{lstlisting}[float,floatplacement=H, language=Java, caption=Encoded genotype for S. Reich's \emph{Clapping Music}]
 %[1, 0.275535, 1, 0.534808, 1, 0.665631, 1, 0.665631, 1, 0.575462, 1, 0.575462, 1, 0.606798, 1, 0.27051, 0.51, 0.5, 0, 1, 0.506578, 0.53, 0.53, 0, 1, 0.742646, 0.55, 0.51346, 0, 1, 0.36068, 0.56, 0.6, 0.56, 0.6, 0.56, 0.9, 0.56, 0, 0, 0, 1, 0.534808, 1, 0.304952, 0.57, 0, 0, 1, 0.416408, 0.58, 0.55, 0, 0, 0, 1, 0.534808, 1, 0.304952, 0.57, 0.854102, 0, 1, 0.416408, 0.58, 0.6, 0, 0, 0, 1, 0.416408, 0.58, 0.75, 0, 0, 1, 0.416408, 0.58, 0.84, 0, 0, 1, 0.416408, 0.58, 0.75, 0, 0, 1, 0.575462, 1, 0.304952, 0.57, 0.326238, 0, 1, 0.665631, 1, 0.534808, 1, 0.304952, 0.57, 0.18034, 0, 1, 0.416408, 0.58, 0.55, 0, 0, 1, 0.416408, 0.58, 0.82, 0, 0, 0, 0]
 %\end{lstlisting}
-
-
-{\color{red}
-
-
-\begin{itemize}
-
-
-
-\item Un ejemplo clasico con varias voces y conteniendo armonia, dinamica y articulacion
-\item Modularidad y posibilidad de manipulacion manual
-\item Ejemplos basicos de tecnicas habituales en CAC (movimiento browniano,
-\item Handling of recursive techniques (fibonacci, y extension del modelo a expresiones matematicas complejas)
-\item Puentes entra la notacion tradicional, la sintesis de sonido y la espacializacion
-\item Multimedia
-\end{itemize}
-
-}
-
 
 
 %------------------------------------------------
