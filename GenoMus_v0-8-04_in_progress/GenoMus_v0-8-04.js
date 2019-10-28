@@ -2222,6 +2222,8 @@ maxAPI.addHandlers({
             milliseconsElapsed: 0
         };
         const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(newSpecimen));
+        // visualizeSpecimen(newSpecimen.encGen, "encGen");
+        // visualizeSpecimen(newSpecimen.encPhen, "encPhen");
         await maxAPI.outlet(dict);
     }
 });
