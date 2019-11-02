@@ -620,7 +620,7 @@ Most of times $n$ doesn't match the number of required items to complete a valid
 
 
 
-To illustrate how GenoMus represents and encodes music procedures in an abstract format, we will apply the framework to model \emph{Clapping Music}, a famous piece composed by Steve Reich in 1972. As many of the pieces of the composer, it begins with a minimal motif, which undergoes simple transformations that have big consequences in the overall form. The basis of this work for two performers is repeating a clapped pattern. One of the performers removes the first note of the pattern each 8 or 12 repetitions, creating a phase shift between both voices. The work finished when both lines are in phase again.
+To illustrate how GenoMus represents and encodes music procedures in an abstract format, we will apply the framework to model \emph{Clapping Music}, a famous piece composed by Steve Reich in 1972. As many of the pieces of the composer, it begins with a minimal motif, which undergoes simple transformations that have big consequences in the overall form. Two performers start the piece repeating a clapped pattern. One of the performers removes the first note of the pattern after each cycle of 8 repetitions\footnote{According to the score, each loop can consist of 8 or 12 repetitions. We have chosen 8 repetitions for the sake of clarity and because is the preferred version for most of recordings.}, creating a phase shift among both voices. The work finished when both lines are in phase again.
 
 The piece was modeled using the \emph{piano} species which, according to the formalism stated in section~\ref{sec:formaldef}, is defined as the set $G_{piano} = \{P, \vec{e}, T, i, F_{piano}, E, L, M, C, \vec{d}\}$, where
 
@@ -638,7 +638,7 @@ The piece was modeled using the \emph{piano} species which, according to the for
 \end{itemize}
 
 
-Based on this architecture, there exist several ways to model the piece, since its patterns can be obtained by different methods.\footnote{Comparing different ways of generating this work is an interesting question beyond this paper. Each model can correspond to alternative manners of perceiving structural aspects. A different analysis and procedural model of \emph{Clapping Music} can be found in \cite{MPS-manual}. To create our model, we looked for the concisest code assembling simple and generic operations.} The Figure~\ref{fig:clappingstruct} shows the score and one of the possible analytical deconstructions in patterns. 
+Based on this architecture, there exist several ways to model the piece, since its patterns can be obtained by different methods.\footnote{Comparing different ways of generating this work is an interesting question beyond this paper's scope. Each model can correspond to alternative manners of perceiving structural aspects. A different analysis and procedural model of \emph{Clapping Music} can be found in \cite{MPS-manual}. To create our model, we looked for the concisest code assembling simple and generic operations.} The Figure~\ref{fig:clappingstruct} shows the score and one of the possible analytical deconstructions in patterns. 
 
 \begin{figure}[H]
   \includegraphics[width=\linewidth]{figs/clapping_patterns.pdf}
@@ -646,23 +646,23 @@ Based on this architecture, there exist several ways to model the piece, since i
   \label{fig:clappingstruct}
 \end{figure}
 
-Our model derivates the whole composition as transformations of the first four notes (motif $A$), appling five generic operations using the genotype functions explained in Table~\ref{table:funcs}. The remaining functions are mere containers for different parameter types.
+Our model derivates the whole composition from transformations of the first four notes (motif $A$), appling five generic operations using the genotype functions explained in Table~\ref{table:funcs}. The remaining functions are mere containers for different parameter types.
 
 \begin{table}[H]
 {\normalsize \begingroup
 \setlength{\tabcolsep}{7pt} % Default value: 6pt
 \renewcommand{\arraystretch}{1.8} % Default value: 1
 \begin{tabular}{p{2.2cm} p{4cm} p{1.8cm} p{6.54cm}}
-\toprule
+% \toprule
 function name & arguments type & output type & description\\
 \midrule
-\texttt{vMotifLoop} & (\emph{lnotevalueF}, \emph{lmidipitchF}, \emph{larticulationF}, \emph{lintensityF}) & \emph{voiceF} & Creates a sequence of events based on repeating lists. The number of events is determined by the longest list.\\
+\texttt{vMotifLoop} & (\emph{lnotevalueF}, \emph{lmidipitchF}, \emph{larticulationF}, \emph{lintensityF}) & \emph{voiceF} & Creates a sequence of events based on repeating lists. The number of events is determined by the longest list. Shorter lists are treated as loops.\\
 \texttt{vConcatV} & (\emph{voiceF}, \emph{voiceF}) & \emph{voiceF} & Concatenates two voices sequentially.\\
 \texttt{vRepeatV} & (\emph{voiceF}, \emph{quantizedF}) & \emph{voiceF} & Repeats a voice a number of times.\\
 \texttt{vSlice} & (\emph{voiceF}, \emph{quantizedF}) & \emph{voiceF} & Removes a number of events at the beginning or at the end of a voice.\\
 \texttt{s2V} & (\emph{voiceF}, \emph{voiceF}) & \emph{scoreF} & Joins two voices simultaneously.\\
 
-\bottomrule
+% \bottomrule
 \hspace{0.8cm} 
 \end{tabular}
 \endgroup}
@@ -709,7 +709,7 @@ To clarify the autoreferences inside the genotype, Table~\ref{table:subexp} enum
 
 
 \begin{table}[ht]
-\hrulefill
+% \hrulefill
 {\small \begin{enumerate}[start=0]
 \item \begin{verbatim}
 "vMotifLoop(ln(0.125),lm(65),la(49),li(60,60,90,0))"
@@ -761,7 +761,7 @@ vSlice(vAutoref(0),q(1))),vSlice(vAutoref(3),q(2))),q(8)),q(13))"
 "vConcatV(vAutoref(7),vRepeatV(vSlice(vAutoref(10),q(1)),q(12)))"
 \end{verbatim}
 \end{enumerate}}
-\hrulefill
+% \hrulefill
 \vspace{0.4cm}
 \caption{Subexpressions of \emph{voiceF} function type stored during the evaluation of \emph{Clapping Music} genotype.}
 \label{table:subexp}

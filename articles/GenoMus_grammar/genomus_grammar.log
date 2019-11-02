@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  28 OCT 2019 20:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.9.7)  1 NOV 2019 12:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -915,7 +915,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 521--542
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [9]
-<figs/clapping_patterns.pdf, id=261, 577.87482pt x 212.68312pt>
+<figs/clapping_patterns.pdf, id=262, 577.87482pt x 212.68312pt>
 File: figs/clapping_patterns.pdf Graphic file (type pdf)
 
 <use figs/clapping_patterns.pdf>
@@ -940,7 +940,7 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 676.
  [11 <./figs/clapping_patterns.pdf>]
-<figs/clapping_tree_graph_colours_code.pdf, id=300, 476.43866pt x 263.4135pt>
+<figs/clapping_tree_graph_colours_code.pdf, id=301, 476.43866pt x 263.4135pt>
 File: figs/clapping_tree_graph_colours_code.pdf Graphic file (type pdf)
 
 <use figs/clapping_tree_graph_colours_code.pdf>
@@ -951,7 +951,7 @@ t line 773.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [12]
-<figs/clappingVisualized.pdf, id=340, 1033.46097pt x 112.42pt>
+<figs/clappingVisualized.pdf, id=342, 1033.46097pt x 112.42pt>
 File: figs/clappingVisualized.pdf Graphic file (type pdf)
 
 <use figs/clappingVisualized.pdf>
@@ -1046,11 +1046,11 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1016.
  ) 
 Here is how much of TeX's memory you used:
- 13569 strings out of 492995
- 201201 string characters out of 6132705
- 544842 words of memory out of 5000000
+ 13570 strings out of 492995
+ 201212 string characters out of 6132705
+ 546874 words of memory out of 5000000
  16600 multiletter control sequences out of 15000+600000
- 32154 words of font info for 157 fonts, out of 8000000 for 9000
+ 32156 words of font info for 157 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  50i,12n,45p,1521b,1914s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
@@ -1080,10 +1080,10 @@ e/2017/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/
 exmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2017/tex
 mf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2017/texmf
 -dist/fonts/type1/public/cm-super/sfxc1200.pfb>
-Output written on genomus_grammar.pdf (18 pages, 662083 bytes).
+Output written on genomus_grammar.pdf (18 pages, 662642 bytes).
 PDF statistics:
- 527 PDF objects out of 1000 (max. 8388607)
- 468 compressed objects within 5 object streams
- 140 named destinations out of 1000 (max. 500000)
+ 529 PDF objects out of 1000 (max. 8388607)
+ 470 compressed objects within 5 object streams
+ 141 named destinations out of 1000 (max. 500000)
  29400 words of extra memory for PDF output out of 29859 (max. 10000000)
 
