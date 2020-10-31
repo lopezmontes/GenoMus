@@ -123,13 +123,13 @@
 - **parameter**: Normalized float &isinv; [0, 1] used to feed the functions' required arguments. These numeric values are leaves of the functional tree that gives rise to a genotype.
 - **leaf**: Terminal node of a genotype functional tree, containing a parameter.
 - **list**: Array of parameters.
-- **event**: Simplest sonic element. In traditional music writing, a note. The default atributes of an event are: [duration, pitch, articulation, intensity]. An event can contain more than one pitch. Events with more parameters can be set, for example, for electroacoustic works, where a sonic event could be defined by dozens of features. A note can consist of two or more concatenated pitches. events can be concatenated only sequentially (one after another, without overlapping). Overlapping effect among events inside the same voice can be achieved by means of articulation. An event can be extended to other domains beyond music, like visuals, lighting, etc., along with musical events, or standalone. 
+- **event**: Simplest sonic element. In traditional music writing, a note. The default atributes of an event are: [duration, pitch, articulation, intensity]. An event can contain more than one pitch. Events with more parameters can be set, for example, for electroacoustic works, where a sonic event could be defined by dozens of features. A note can consist of two or more concatenated pitches. Events can be concatenated only sequentially (one after another, without overlapping). Overlapping effect among events inside the same voice can be achieved by means of articulation. An event can be extended to other domains beyond music, like visuals, lighting, etc., along with musical events, or standalone. 
 - **voice**: Line of music (usually for an only instrument). A voice is a wrapper for a sequence of one or more events. A voice can consist of two or more voices sequentially concatenated  together (one after another, without overlapping). Each event inside a voice can contain more than one pitch. For instance, a sequence of major chords can be a single voice.
-- **score**: Excerpt or a whole piece of music. A score is a wrapper for one or more voices. A score can consist of two or more scores together. Scores can be concatenated sequentially (one after another) or simultaneously (sounding together). The product of these concatenations is a new score. The event-voice-score structure is defined after [bach](https://www.bachproject.net/) paradigm, to facilitate the visualization and interactions with phenotypes in Max environment.
+- **score**: Excerpt or a whole piece of music. A score is a wrapper for one or more voices. A score can consist of two or more scores together. Scores can be concatenated sequentially (one after another) or simultaneously (sounding together). The product of these concatenations is a new score. The event-voice-score structure is partially defined after [bach](https://www.bachproject.net/) paradigm, to facilitate the visualization and interactions with phenotypes in Max environment.
 - **duration**: Time length from the beginning of an event to the beginning of the next event, into the same voice. 
 - **pitch**: Each of the root frecuencies in an event.
 - **articulation**: Length of the event sound. It can be different from the event duration. If articulation matchs the duration, a perfect legato among events will be played. Shorter or larger values for articulation will sound as staccato or lasciare vibrare effects.
-- **intensity**: Dynamic of an event.
+- **intensity**: Dynamics of an event.
 - **GenoMus function catalog**: JSON file that lists and characterizes all the available functions for genotype generation of a species.
 - **function type identifier**: Prefix used to name functions, to ease the function type identification. The use of identifiers is not compulsory, but very convenient for readability of decoded genotypes.
 - **function index**: Integer assigned incrementally to identify each function with a unique number in the GenoMus functions catalogue. 
@@ -195,8 +195,8 @@ var <iFunctionName> = (arg1, arg2, ..., argN) => {
 - **funcType** declares the output type of the function, namely one of this [types](#genotype-function-types).
 - **decGen** is the own functional expression, constructed with the respective own expressions of the functions taken as arguments. This element is essential to possibilitate internal autoreferences, recursive functions and reiterations of non-deterministic expressions.
 - The **core block** executes the musical transformations of the function, writing the results in the variable encPhen, and calculating at the end of the process the updated values of phenLength, tempo, rhythm and harmony.
-- **encPhen** stores the result of transformations with the encoded phenotype format, namely an unimensional array of floats within interl [0, 1].
-- The **analitycs block** stores some analytical measurement to be inherited by next functions. Its objective is to facilitate the estimation of global musical characteristics to compare with the requested profile.
+- **encPhen** stores the result of transformations with the encoded phenotype format, namely an unimensional array of floats within interval [0, 1].
+- The **analitycs block** stores some analytical measurement to be inherited by next functions. Its goal is to facilitate the estimation of global musical characteristics to compare with the requested profile.
 - **writeSubexprReturnData** stores all the subexpressions generated during the evaluation of the function tree so far, and returns the array with the [output data structure](#output-data-structure) described above.
 
 ---------
@@ -364,7 +364,7 @@ Conversion formulae: normalized parameter _**p**_ to MIDI pitch _**m**_ and inve
 
 <img src="formulae/norm2midipitch.svg" width="125">
 <img src="formulae/midipitch2norm.svg" width="100">
-<img src="formulae/norm2midipitch_graph.png" width="250">s
+<img src="formulae/norm2midipitch_graph.png" width="250">
 
 | [0, 1]  |  MIDI pitch   | Notation
 | ------  | ------------- | ----------
@@ -789,7 +789,7 @@ Given this harmonic grid:
 ```
 {
     root: 0.68124,
-    chord: [1,0,5,8,3],
+    chord: [11,0,5,8,3],
     mode: [0,3,1,5,8,6,11,10],
     chromaticism: <float within interval [0, 1]>
 }
@@ -807,7 +807,7 @@ The algorithm follows these steps:
 
 <img src="figures/mode.svg" width="348"> 
 
-3. Check the pitch classes of mode which are not part of chord and extract this ordered subsequence. In this case, the result is `[9,2,6]`.
+3. Check the pitch classes of mode which are not part of chord and extract this ordered subsequence. In this case, the result is `[9,2,6]`. This set will be needed if higher chromaticism is employed.
 4. Calculate the ranges of values corresponding to the increasing degrees of chromaticism, and transform input data accordingly.
 
 The following tables show how increasing degrees of chromaticism affect to this grid, and the effect of applying it to a two-voices music excerpt (enharmonic differences are not relevant): 
