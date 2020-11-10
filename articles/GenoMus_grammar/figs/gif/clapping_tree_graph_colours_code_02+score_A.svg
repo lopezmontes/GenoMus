@@ -14,7 +14,7 @@
    id="svg7884"
    version="1.1"
    inkscape:version="1.0.1 (c497b03c, 2020-09-10)"
-   sodipodi:docname="clapping_tree_graph_colours_code_02+score_14.svg">
+   sodipodi:docname="clapping_tree_graph_colours_code_02+score_A.svg">
   <defs
      id="defs7886">
     <marker
@@ -2581,7 +2581,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4606601"
-     inkscape:cx="246.81512"
+     inkscape:cx="115.02539"
      inkscape:cy="95.555666"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -2604,7 +2604,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -3120,7 +3120,7 @@
     </g>
     <path
        inkscape:connector-curvature="0"
-       style="fill:#ffc7ac;fill-opacity:1;fill-rule:nonzero;stroke:#fe5300;stroke-width:1.868;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#ffc7ac;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.868;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 1023.9286,-177.24438 h -39.8047 c -3.91114,0 -7.08496,3.17383 -7.08496,7.08985 v 5.90332 c 0,3.91601 3.17382,7.08496 7.08496,7.08496 h 39.8047 c 3.916,0 7.0898,-3.16895 7.0898,-7.08496 v -5.90332 c 0,-3.91602 -3.1738,-7.08985 -7.0898,-7.08985 z m 0,0"
        id="path8325" />
     <g
