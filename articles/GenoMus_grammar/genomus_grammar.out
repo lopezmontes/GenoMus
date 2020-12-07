@@ -1,25 +1,26 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [2][-]{subsection.1.1}{Composing composers}{section.1}% 2
-\BOOKMARK [2][-]{subsection.1.2}{New challenges for automatic composition}{section.1}% 3
-\BOOKMARK [2][-]{subsection.1.3}{Overview of the framework and complementary materials}{section.1}% 4
-\BOOKMARK [1][-]{section.2}{A simple functional grammar to represent musical procedures}{}% 5
-\BOOKMARK [2][-]{subsection.2.1}{Foundations and requirements}{section.2}% 6
-\BOOKMARK [2][-]{subsection.2.2}{Genotypes, phenotypes, species and specimens}{section.2}% 7
-\BOOKMARK [2][-]{subsection.2.3}{Formal definition of the GenoMus framework}{section.2}% 8
-\BOOKMARK [2][-]{subsection.2.4}{Anatomy of a genotype function}{section.2}% 9
-\BOOKMARK [2][-]{subsection.2.5}{Function types}{section.2}% 10
-\BOOKMARK [2][-]{subsection.2.6}{Leaves, parameter mapping and readability}{section.2}% 11
-\BOOKMARK [2][-]{subsection.2.7}{Function libraries}{section.2}% 12
-\BOOKMARK [2][-]{subsection.2.8}{Specimen data structure}{section.2}% 13
-\BOOKMARK [1][-]{section.3}{Encoded genotypes and phenotypes}{}% 14
-\BOOKMARK [2][-]{subsection.3.1}{Encoding genotypes with G\366delian resonances}{section.3}% 15
-\BOOKMARK [2][-]{subsection.3.2}{Scores represented as normalized vectors}{section.3}% 16
-\BOOKMARK [2][-]{subsection.3.3}{A unique format for procedures and results}{section.3}% 17
-\BOOKMARK [2][-]{subsection.3.4}{Safety through encoding}{section.3}% 18
-\BOOKMARK [1][-]{section.4}{A minimal example: Clapping Music}{}% 19
-\BOOKMARK [1][-]{section.5}{Evaluation and evolution}{}% 20
-\BOOKMARK [2][-]{subsection.5.1}{Evolutionary paradigm}{section.5}% 21
-\BOOKMARK [2][-]{subsection.5.2}{Scalability}{section.5}% 22
-\BOOKMARK [2][-]{subsection.5.3}{Integrating traditional and contemporary techniques}{section.5}% 23
-\BOOKMARK [2][-]{subsection.5.4}{Expanding our musical perception}{section.5}% 24
-\BOOKMARK [1][-]{section.6}{Conclusions and ongoing work}{}% 25
+\BOOKMARK [1][-]{section.2}{Background and related works}{}% 3
+\BOOKMARK [2][-]{subsection.2.1}{New challenges for automatic composition}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Methods}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{Overview of the framework and complementary materials}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.2}{Foundations and requirements}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.3}{Knowledge representation}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.4}{Formal definition of the GenoMus framework}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.5}{Anatomy of a genotype function}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.6}{Function types}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.7}{Leaves, parameter mapping and readability}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.8}{Function libraries}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.9}{Specimen data structure}{section.3}% 14
+\BOOKMARK [1][-]{section.4}{Encoded genotypes and phenotypes}{}% 15
+\BOOKMARK [2][-]{subsection.4.1}{Encoding genotypes with G\366delian resonances}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.2}{Scores represented as normalized vectors}{section.4}% 17
+\BOOKMARK [2][-]{subsection.4.3}{A unique format for procedures and results}{section.4}% 18
+\BOOKMARK [2][-]{subsection.4.4}{Safety through encoding}{section.4}% 19
+\BOOKMARK [1][-]{section.5}{A minimal example: Clapping Music}{}% 20
+\BOOKMARK [1][-]{section.6}{Evaluation and evolution}{}% 21
+\BOOKMARK [2][-]{subsection.6.1}{Evolutionary paradigm}{section.6}% 22
+\BOOKMARK [2][-]{subsection.6.2}{Scalability}{section.6}% 23
+\BOOKMARK [2][-]{subsection.6.3}{Integrating traditional and contemporary techniques}{section.6}% 24
+\BOOKMARK [2][-]{subsection.6.4}{Expanding our musical perception}{section.6}% 25
+\BOOKMARK [1][-]{section.7}{Conclusions and ongoing work}{}% 26

@@ -90,7 +90,7 @@
 \begin{abstract}
 
  	
-We present GenoMus, a new model for artificial musical creativity based on a procedural approach, able to represent and learn the compositional techniques behind a musical score. The aim of this model is to build a framework for automatic creativity, easily adaptable to other domains beyond music. The core of GenoMus is a functional grammar designed to cover a wide range of styles, integrating traditional and contemporary composing techniques. Musical \emph{genotypes} are defined as functional trees, able to generate musical scores described as \emph{phenotypes}. To enable the maximal diversity of outputs, each process uses the same generic functional structure, no matter what time scale, polyphonic structure or additional characteristics are being employed. The goal of this highly homogeneous and modular approach is to simplify metaprogramming of genotypes, as well as maximize search space. Genotypes and phenotypes are encoded as normalized numeric vectors. This abstract representation of musical knowledge as pure numeric arrays is convenient for the application of different machine learning paradigms. The user interface developed for GenoMus is oriented to the exploration of augmented creativity, regardless of user expertise. However, a composer can create and alter manually genotypes and algorithms to modify automatic results. The system allows the implementation of user-defined processes, which will expand the procedures library. 
+We present GenoMus, a new model for artificial musical creativity based on a procedural approach, able to represent and learn compositional techniques behind a musical score. The aim of this model is to build a framework for automatic creativity, easily adaptable to other domains beyond music. The core of GenoMus is a functional grammar designed to cover a wide range of styles, integrating traditional and contemporary composing techniques. In its encoded form, both composing methods and music scores are represented as unidimensional normalized arrays. On the other hand, the decoded form of GenoMus grammar is human-readable, allowing manual edition and the implementation of user-defined processes. Musical procedures (\emph{genotypes}) are defined as functional trees, able to generate musical scores (\emph{phenotypes}). Each subprocess uses the same generic functional structure, no matter what time scale, polyphonic structure, traditional or algorithmic process is being employed. The goal of this highly homogeneous and modular approach is to simplify metaprogramming and to maximize search space. This abstract and compact representation of musical knowledge as pure numeric arrays is designed for a convenient application to different machine learning paradigms. 
 
 \end{abstract}
 
@@ -196,6 +196,30 @@ Many approaches to artificial intelligence applied to the automatic composition 
 
 {\color{gray} \textsl{[Complejidad del diseno de lenguajes de representacion musical en la composicion asistida por ordenador. Cita de algunas aproximaciones analogas.]}}
 
+
+%------------------------------------------------
+\section{Background and related works}
+
+hablar de gramaticas generativas
+
+explicar las caracteristicas necesarias para luego enlazar con las caracteristicas que presenta GenoMus
+
+\cite{DBLP:journals/air/RoweP93} -> Conditions for creativity:
+Knowledge representation is organised in such a
+way that the number of possible associations is
+maximised. A flexible knowledge representation
+scheme. Similarly Boden (1996) says that representation
+should allow to explore and transform the
+conceptual space.
+Tolerate ambiguity in representations.
+Allow multiple representations in order to avoid the
+problem of ?functional fixity?.
+The usefulness of new combinations should be assessable.
+New combinations need to be elaboratable to find
+out their consequences.
+El articulo de Boden es: 
+What is Creativity. In M. Boden, editor, Dimensions of Creativity, pages 75?118. MIT Press, 1996. (citado antes).
+
 \subsection{New challenges for automatic composition}
 
 
@@ -217,16 +241,11 @@ This proposal, beyond the technical details, is a model of augmented creativity 
 
 Hacer resumen del proyecto completo, referencias a los antecedentes y dejar claro que trata este texto
 
-\subsection{Overview of the framework and complementary materials}
-
-{\color{gray} \textsl{[Specifications. Code, Max Patches, Examples of specimens, Music excerpts]}}
-
-
 
 
 %------------------------------------------------
-\section{A simple functional grammar to represent musical procedures}
-
+\section{Methods}
+%A simple functional grammar to represent musical procedures
 \begin{samepage}
 \begin{quotation}
 \textsl{I believe that music today could surpass itself by research into the outside-time category, which has been atrophied and dominated by the
@@ -239,6 +258,13 @@ musical sciences.}
 ---Iannis Xenakis \cite{xenakis1971formalized}
 \end{quotation}
 \end{samepage}
+
+
+
+\subsection{Overview of the framework and complementary materials}
+
+{\color{gray} \textsl{[Specifications. Code, Max Patches, Examples of specimens, Music excerpts]}}
+
 
 
 \subsection{Foundations and requirements}
@@ -274,9 +300,21 @@ Ya habla de la posibilidad de expresar la musica como expresiones logical and al
 
 
 
-Over the last decades, a plethora of grammars to represent music have been proposed. This framework...  
+Over the last decades, a plethora of grammars {\color{red}(citarlas)} to represent music have been proposed. This framework...  
 
-After studying the potential and limitations of previous research, and based on the experience of several iterations of the core concept, the GenoMus grammar has been designed to satisfy these key features:
+After studying the potential and limitations of previous research {\color{red}(referencia)}, and based on the experience of several iterations of the core concept, the GenoMus grammar has been designed to satisfy these key features {\color{red}justificar con referencias de donde se extrae estas conclusiones de que sean key features)}:
+
+{\color{red}Ahora mismo, hay una mezcla de niveles de abstraccion; por ejemplo, 'a', 'g' o 'j' son caracteristicas, mientras que 'd' dice como se debe de hacer.}
+
+{\color{red}Mi propuesta simplificada de caracteristicas:
+- Representacion modular.
+- Representacion compacta (es menor o igual que el resultado que codifica).
+- Representacion extensible (se pueden usar subconjuntos de la gramatica)
+- Representacion manipulable procedimentalmente.
+- Representacion consistente (un codigo siempre genera la misma salida)
+- Soporte para autoreferencias internas.
+- Aplicabilidad a otros contexto.
+}
 
 \textbf{a) Grammar based on a symbolic and generative approach to music composition and analysis.}
 
@@ -334,21 +372,7 @@ Although this framework is presented for the automatic composition of music, the
 {\color{red}
 
 
-\cite{DBLP:journals/air/RoweP93} -> Conditions for creativity:
-Knowledge representation is organised in such a
-way that the number of possible associations is
-maximised. A flexible knowledge representation
-scheme. Similarly Boden (1996) says that representation
-should allow to explore and transform the
-conceptual space.
-Tolerate ambiguity in representations.
-Allow multiple representations in order to avoid the
-problem of ?functional fixity?.
-The usefulness of new combinations should be assessable.
-New combinations need to be elaboratable to find
-out their consequences.
-El articulo de Boden es: 
-What is Creativity. In M. Boden, editor, Dimensions of Creativity, pages 75?118. MIT Press, 1996. (citado antes).
+
 
 \cite{Herremans:2017:FTM:3145473.3108242} -> Quiza recoger su apunte de las conclusiones: falta el long-term approach y el higher-level concept 
 
@@ -380,8 +404,8 @@ too \cite{Bod_thedata-oriented} -> para justificar el uso de arboles de funcione
 
 
 
-\subsection{Genotypes, phenotypes, species and specimens}
-
+\subsection{Knowledge representation}
+% Genotypes, phenotypes, species and specimens
 Although its target is not only genetic algorithms but a variety of machine learning techniques, our framework uses the evolutionary analogy, similarly as many other automatic composition systems \cite{Sulyok2019, SnchezQuintana2013, add more...}. The Darwinian metaphor can be confusing, since each system has its particular application of the same terms, sometimes denoting even opposite concepts. 
 
 In our functional approach, the key idea is \emph{considering a piece of music as the product of a program} which encloses compositional procedures. Thereupon, the bio-inspired terms in the context of the GenoMus framework are defined as follows: 
@@ -570,6 +594,9 @@ out by a computer program [...] could not possibly generate anything sensible---
 \end{itemize}
 
 }
+
+Nueva figura que ilustre como enlazan las diferentes estructuras descritas.
+
 
 \subsection{Encoding genotypes with G{\"o}delian resonances}
 
