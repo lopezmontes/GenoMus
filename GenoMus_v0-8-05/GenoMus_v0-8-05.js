@@ -293,8 +293,14 @@ Math.pow2 = function(n, p)
 	}
 }
 
-// homemade function to remap valor from a equal distribution to a normal (gaussian) distribution
-var uniform2normal = (x) => checkRange(0.5 + Math.pow2(((Math.asin(2*x - 1)) / 2.5771594933), 1.4));
+// homemade function to remap valor from a equal distribution to a normal (gaussian) distribution adapting logit function (inverse of sigmoid)
+
+// var uniform2normal = (x) => checkRange(0.5 + Math.pow2(((Math.asin(2*x - 1)) / 2.5771594933), 1.4));
+
+var uniform2normal = (x) => {
+    x = remap(x, 0, 1, 0.00627, 0.99373)
+	return checkRange(r6d(0.386364 + (0.5 + (Math.log10(x/(1-x))))/4.4));
+}
 
 // test decoded genotypes with Terminal
 var tt = decGenotype => {
@@ -2193,18 +2199,19 @@ var newNormalizedUnidimArray = (n) => {
     return arr;
 };
 
-function createGerminalSpecimen() {
+// DEPRECATED
+function OLDcreateGerminalSpecimen() {
     //norm. unidim. vector
     var testVectorLength = 10;
     var testVector = newNormalizedUnidimArray(testVectorLength);
     var testVectorReadingPos = 0;
 
     // germinal conditions
-    var germinalPhenMinLength = 200;
+    var germinalPhenMinLength = 100;
     var germinalPhenMaxLength = 5000;
     var germinalPhenMinPolyphony = 1;
-    var germinalPhenMaxPolyphony = 12;
-    var maxGerminalDepth = 15;
+    var germinalPhenMaxPolyphony = 10;
+    var maxGerminalDepth = 16;
 
 
     var startdate = new Date();
@@ -2544,10 +2551,7 @@ function createGerminalSpecimen() {
         && iterations < maxIterations);
     var stopdate = new Date();
 
-    ///////// visualizations
-    // visualizeSpecimen(newSpecimen.encGen, "encGen");
-    // visualizeSpecimen(newSpecimen.encPhen, "encPhen");
-    /////////
+
 
 
     // maxAPI.post(encodedGenotype);
@@ -2575,8 +2579,315 @@ function createGerminalSpecimen() {
 
     if (validGenotype == false) maxAPI.post("VALID SPECIMEN NOT FOUND");
 
+    ///////// visualizations
+    //visualizeSpecimen(newSpecimen.encGen, "encGen");
+    //visualizeSpecimen(newSpecimen.encPhen, "encPhen");
+    /////////
+
     return newSpecimen;
 
+    // return array with:
+    // first array with metadata: [date, iterations, time ellapsed]
+    // second array with encodedGenotype
+    // third array with pair [encodedPhenotype, decodedGenotype] 
+    var metadata = [version, parseInt(getFileDateName()), iterations, Math.abs(stopdate - startdate), newSpecimen[0].length];
+    var expandedExpression = expandExpr(newSpecimen[1]);
+    var outputData = [metadata, preEncGen, newSpecimen, expandedExpression, subexpressions, leaves, encodedLeaves, usedSeed, evaluationSeed];
+    // maxAPI.post("out: " + outputData);
+    // maxAPI.post("pair:" + outputData[2]);   
+    currentEncodedGenotype = preEncGen;
+    currentLeavesStructure = encodedLeaves;
+    return outputData;
+};
+
+function createGerminalSpecimen() {
+    //norm. unidim. vector
+    var testVectorLength = 10;
+    var testVector = newNormalizedUnidimArray(testVectorLength);
+    var testVectorReadingPos = 0;
+    // germinal conditions
+    var germinalPhenMinLength = 100;
+    var germinalPhenMaxLength = 5000;
+    var germinalPhenMinPolyphony = 1;
+    var germinalPhenMaxPolyphony = 10;
+    var maxGerminalDepth = 16;
+    var startdate = new Date();
+    var newSpecimen;
+    var usedSeed;
+    // loads library of elegible functions
+    var functions_catalogue = JSON.parse(fs.readFileSync('eligible_functions_library.json'));
+    var iterations = 2;
+    var maxIterations = 100;
+    var newLeaf;
+    // searches a random genotype which satisfied the requirements
+    do {
+        // starts a new decoded genotype
+        do {
+            iterations++;
+            initSubexpressionsArrays();
+            validGenotype = true;
+            // newVector
+            testVector = newNormalizedUnidimArray(testVectorLength);
+            testVectorReadingPos = 0;
+            var preEncGen = []; // compulsory start with a function
+            // stores number of levels to be filled
+            var notFilledParameters = [];
+            // stores functions names in process of writing; forces starting with a score type function
+            var expectedFunctions = ["scoreF"];
+            var chosenFunction;
+            var openFunctionTypes = [];
+            var nextFunctionType = "scoreF";
+            var pos = -1; // active readed position in encodedGenotype
+            var newDecodedGenotype = "";
+            var numElegibleFunctions;
+            // adds a new token to the decoded genotype
+            do {
+                preEncGen.push(checkRange(r6d(testVector[testVectorReadingPos % testVectorLength])));
+                testVectorReadingPos++;
+                pos++;
+                // new ramification of genotype
+                if (nextFunctionType != "voidLeaf" &&
+                    nextFunctionType != "leaf" &&
+                    nextFunctionType != "notevalueLeaf" &&
+                    nextFunctionType != "durationLeaf" &&
+                    nextFunctionType != "midipitchLeaf" &&
+                    nextFunctionType != "frequencyLeaf" &&
+                    nextFunctionType != "articulationLeaf" &&
+                    nextFunctionType != "intensityLeaf" &&
+                    nextFunctionType != "goldenintegerLeaf" &&
+                    nextFunctionType != "quantizedLeaf" &&
+                    nextFunctionType != "operationLeaf" &&
+                    nextFunctionType != "booleanLeaf" &&
+                    nextFunctionType != "listLeaf" &&
+                    nextFunctionType != "lnotevalueLeaf" &&
+                    nextFunctionType != "ldurationLeaf" &&
+                    nextFunctionType != "lmidipitchLeaf" &&
+                    nextFunctionType != "lfrequencyLeaf" &&
+                    nextFunctionType != "larticulationLeaf" &&
+                    nextFunctionType != "lintensityLeaf" &&
+                    nextFunctionType != "lgoldenintegerLeaf" &&
+                    nextFunctionType != "lquantizedLeaf") {
+                    // choose among elegible functions
+                    numElegibleFunctions = Object.keys
+                        (functions_catalogue.functionLibrary[nextFunctionType]).length;
+                    var valueForChoosingNewFunction = Math.floor(preEncGen[pos] * numElegibleFunctions) % numElegibleFunctions;
+                    chosenFunction = Object.keys
+                        (functions_catalogue.functionLibrary[nextFunctionType])
+                    [valueForChoosingNewFunction];
+                    openFunctionTypes[openFunctionTypes.length] = nextFunctionType;
+                    // writes the new function
+                    newDecodedGenotype += chosenFunction + "(";
+                    // read the expected parameters of the chosen function
+                    notFilledParameters[notFilledParameters.length] = Object.keys
+                        (functions_catalogue.functionLibrary[nextFunctionType][chosenFunction].arguments).length;
+                    expectedFunctions[notFilledParameters.length - 1] = chosenFunction;
+                    if (notFilledParameters.length > maxGerminalDepth) {
+                        //maxAPI.post("limit exceeded");
+                        validGenotype = false;
+                    }
+                }
+                // adds a leaf
+                else {
+                    // changes value to 0 for make genotypes syntax independent from leaf newFunctionThreshold value (prescindible??)
+                    preEncGen[pos] = 0;
+                    // leaf converting uniform value from unidim. vector to normal distribution
+                    newLeaf = r6d(uniform2normal(testVector[testVectorReadingPos % testVectorLength]));
+                    testVectorReadingPos++;
+                    preEncGen.push(newLeaf);
+                    pos++;
+                    // adds primitive function, leaves of functions tree
+                    if (nextFunctionType == "leaf") {
+                        newDecodedGenotype += newLeaf;
+                    } else if (nextFunctionType == "notevalueLeaf") {
+                        newDecodedGenotype += p2n(newLeaf);
+                    } else if (nextFunctionType == "durationLeaf") {
+                        newDecodedGenotype += p2d(newLeaf);
+                    } else if (nextFunctionType == "midipitchLeaf") {
+                        newDecodedGenotype += p2m(newLeaf);
+                    } else if (nextFunctionType == "frequencyLeaf") {
+                        newDecodedGenotype += p2f(newLeaf);
+                    } else if (nextFunctionType == "articulationLeaf") {
+                        newDecodedGenotype += p2a(newLeaf);
+                    } else if (nextFunctionType == "intensityLeaf") {
+                        newDecodedGenotype += p2i(newLeaf);
+                    } else if (nextFunctionType == "goldenintegerLeaf") {
+                        newDecodedGenotype += p2z(newLeaf);
+                    } else if (nextFunctionType == "quantizedLeaf") {
+                        newDecodedGenotype += p2q(newLeaf);
+                    } else if (nextFunctionType == "operationLeaf") {
+                        newDecodedGenotype += newLeaf;
+                    } else if (nextFunctionType == "booleanLeaf") {
+                        newDecodedGenotype += Math.round(newLeaf);
+                    } else if (nextFunctionType == "listLeaf") {
+                        newDecodedGenotype += newLeaf;
+                        var extendList = true;
+                        while (extendList) {
+                            newLeaf = uniform2normal(testVector[testVectorReadingPos % testVectorLength]);
+                            preEncGen.push(newLeaf);
+                            newDecodedGenotype += "," + newLeaf;
+                            testVectorReadingPos++;
+                            pos++;
+                            if (Math.random() < .2) extendList = false;
+                        }
+                    } else if (nextFunctionType == "lnotevalueLeaf") {
+                        newDecodedGenotype += p2n(newLeaf);
+                        var extendList = true;
+                        while (extendList) {
+                            newLeaf = r6d(p2n(uniform2normal(testVector[testVectorReadingPos % testVectorLength])));
+                            preEncGen.push(newLeaf);
+                            newDecodedGenotype += "," + newLeaf;
+                            testVectorReadingPos++;
+                            pos++;
+                            if (Math.random() < .2) extendList = false;
+                        }
+                    } else if (nextFunctionType == "lmidipitchLeaf") {
+                        newDecodedGenotype += p2m(newLeaf);
+                        var extendList = true;
+                        while (extendList) {
+                            newLeaf = r6d(p2m(uniform2normal(testVector[testVectorReadingPos % testVectorLength])));
+                            preEncGen.push(newLeaf);
+                            newDecodedGenotype += "," + newLeaf;
+                            testVectorReadingPos++;
+                            pos++;
+                            if (Math.random() < .2) extendList = false;
+                        }
+                    } else if (nextFunctionType == "larticulationLeaf") {
+                        newDecodedGenotype += p2a(newLeaf);
+                        var extendList = true;
+                        while (extendList) {
+                            newLeaf = r6d(p2a(uniform2normal(testVector[testVectorReadingPos % testVectorLength])));
+                            preEncGen.push(newLeaf);
+                            newDecodedGenotype += "," + newLeaf;
+                            testVectorReadingPos++;
+                            pos++;
+                            if (Math.random() < .2) extendList = false;
+                        }
+                    } else if (nextFunctionType == "lintensityLeaf") {
+                        newDecodedGenotype += p2i(newLeaf);
+                        var extendList = true;
+                        while (extendList) {
+                            newLeaf = r6d(p2i(uniform2normal(testVector[testVectorReadingPos % testVectorLength])));
+                            preEncGen.push(newLeaf);
+                            newDecodedGenotype += "," + newLeaf;
+                            testVectorReadingPos++;
+                            pos++;
+                            if (Math.random() < .2) extendList = false;
+                        }
+                    } else if (chosenFunction == "pAutoRef" ||
+                        chosenFunction == "lAutoRef" ||
+                        chosenFunction == "eAutoRef" ||
+                        chosenFunction == "vAutoRef" ||
+                        chosenFunction == "sAutoRef" ||
+                        chosenFunction == "nAutoref" ||
+                        chosenFunction == "mAutoRef" ||
+                        chosenFunction == "aAutoRef" ||
+                        chosenFunction == "iAutoRef" ||
+                        chosenFunction == "qAutoRef" ||
+                        chosenFunction == "lnAutoRef" ||
+                        chosenFunction == "ldAutoRef" ||
+                        chosenFunction == "lmAutoRef" ||
+                        chosenFunction == "lfAutoRef" ||
+                        chosenFunction == "laAutoRef" ||
+                        chosenFunction == "liAutoRef" ||
+                        chosenFunction == "lzAutoRef" ||
+                        chosenFunction == "lqAutoref") {
+                        newDecodedGenotype += parseInt(preEncGen[pos] * 1e5);
+                    }
+                    else {
+                        newDecodedGenotype += preEncGen[pos];
+                    }
+                    // TODO: indexing leaves;
+                    // if (chosenFunction == "p") {
+                    //    encodedLeaves.push([pos, preEncGen[pos]]);
+                    //}
+                    notFilledParameters[notFilledParameters.length - 1]--;
+                    // controls ramifications tree
+                    // if number of parameters of this level if filled, deletes this count level and add ")"
+                    if (notFilledParameters[notFilledParameters.length - 1] == 0) {
+                        do {
+                            if (notFilledParameters.length > 1) {
+                                notFilledParameters.pop();
+                                expectedFunctions.pop();
+                                openFunctionTypes.pop();
+                            }
+                            newDecodedGenotype += ")";
+                            notFilledParameters[notFilledParameters.length - 1]--;
+                        } while (
+                            notFilledParameters[notFilledParameters.length - 1] == 0 &&
+                            validGenotype == true )
+                    }
+                    if (notFilledParameters[0] > 0) newDecodedGenotype += ",";
+                }
+                // console.log(newDecodedGenotype);
+                nextFunctionType = functions_catalogue.functionLibrary
+                [openFunctionTypes[openFunctionTypes.length - 1]]
+                [expectedFunctions[expectedFunctions.length - 1]]
+                    .arguments[functions_catalogue.functionLibrary
+                    [openFunctionTypes[openFunctionTypes.length - 1]]
+                    [expectedFunctions[expectedFunctions.length - 1]]
+                        .arguments.length - notFilledParameters[notFilledParameters.length - 1]];
+            } while (
+                notFilledParameters[0] > 0 &&
+                validGenotype == true &&
+                notFilledParameters.length < genMaxDepth &&
+                newDecodedGenotype.length < decGenStringLengthLimit);
+        } while (
+            notFilledParameters[0] != -1 &&
+            validGenotype == true 
+            );
+        // removes trailing commas
+        newDecodedGenotype.substring(0, newDecodedGenotype.length - 1);
+        // console.log("New gen: " + decodedGenotype);
+        // currentGenotype = evaluatedGenotype;
+        // update seed according to last value of Math.random(), to keep the iterations repeatable
+        // track seed used for genotype creation    
+        usedSeed = Math.random();
+        // creates and saves new derived seed value only for evaluations (to be independent of seed for genotype creation)
+        evaluationSeed = Math.round(Math.random() * 1e14);
+        // seeding before genotype evaluation
+        rng = Math.random(); // PARCHE
+        // rng = seedrandom(evaluationSeed); 
+        // evaluatedGenotype = evalAndReturnExpression(decodedGenotype);
+        genotypeLog["gen" + genCount++] = newDecodedGenotype;
+        createJSON(genotypeLog, 'genotipeLog.json');
+        if (validGenotype == true) {
+            newSpecimen = eval(newDecodedGenotype);
+        } else {
+            newSpecimen = eval("s(v(e(p(0),m(0),p(0),p(0))))");
+        }
+        // creates new seed for genotype creation before new iteration, if necessary
+        currentSeed = Math.round(Math.random() * 1e14);
+        rng = Math.random(); // PARCHE
+    } while (
+        // test if preconditions are fullfilled
+        (
+            newSpecimen.phenLength < germinalPhenMinLength
+            || newSpecimen.phenLength > germinalPhenMaxLength
+            || newSpecimen.phenVoices < germinalPhenMinPolyphony
+            || newSpecimen.phenVoices > germinalPhenMaxPolyphony
+        )
+        && iterations < maxIterations);
+    var stopdate = new Date();
+    // maxAPI.post(encodedGenotype);
+    // maxAPI.post("Phenotype: " + evaluatedGenotype[0]);    
+    // maxAPI.post("iterations: " + iterations);
+    // maxAPI.post("time ellapsed: " + Math.abs(stopdate - startdate) + " ms");
+    // maxAPI.post("seeds: " + usedSeed + ", " + evaluationSeed);    
+    newSpecimen.metadata = {
+        iterations: iterations,
+        milliseconsElapsed: Math.abs(stopdate - startdate),
+        genotypeLength: newDecodedGenotype.length,
+        testVector: testVector
+    };
+    // log for debugging
+    // genotypeLog["gen" + genCount++] = newSpecimen.decGen;
+    // createJSON(genotypeLog, 'genotipeLog.json');
+    if (validGenotype == false) maxAPI.post("VALID SPECIMEN NOT FOUND");
+    ///////// visualizations
+    //visualizeSpecimen(newSpecimen.encGen, "encGen");
+    //visualizeSpecimen(newSpecimen.encPhen, "encPhen");
+    /////////
+    return newSpecimen;
     // return array with:
     // first array with metadata: [date, iterations, time ellapsed]
     // second array with encodedGenotype
