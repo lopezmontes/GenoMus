@@ -1,6 +1,8 @@
 // GENOMUS 0.8 UNIT TESTING
 ///////////////////////////
 
+// goal: remove seedrandom dependencies with old logistic eq random generator
+
 // DEPENDENCIES
 
 // files handling
@@ -8,6 +10,7 @@ const fs = require('fs');
 // connection with Max interface
 const maxAPI = require('max-api');
 
+// TO REMOVE
 // random generators with different distributions based on seedrandom
 const random = require('random');
 const seedrandom = require('seedrandom');
@@ -15,18 +18,18 @@ const seedrandom = require('seedrandom');
 
 /////////////////////
 // INITIAL CONDITIONS
-var version = "0.8.4";
+var version = "0.8.6";
 var validGenotype = true;
 var decGenStringLengthLimit = 70000000;
-var globalSeed = 1234;
+var globalSeed = 1234; // to remove
 var genMaxDepth = 18;
 var phenMinPolyphony = 1;
-var phenMaxPolyphony = 30;
+var phenMaxPolyphony = 20;
 var phenMinLength = 5;
 var phenMaxLength = 2000;
 var leaves = []; // stores all numeric parameters
 var encodedLeaves = [];
-var newFunctionThreshold = .6; // [0-1] Higher is less likely to ramificate too much
+var newFunctionThreshold = .6; // [0-1] Higher is less likely to ramificate too much. Must be a unique value
 // stores the last used genotype and its leaves, to mutate it
 var currentEncodedGenotype;
 var currentLeavesStructure;
@@ -69,6 +72,7 @@ initSubexpressionsArrays();
 const PHI = (1 + Math.sqrt(5)) / 2;
 // round fractional part to 6 digits
 var r6d = f => Math.round(f * 1e6) / 1e6;
+// avoid deviations from [0, 1] interval in different situations
 var checkRange = x => {
     if (x < 0) {
         return 0;
@@ -80,8 +84,6 @@ var checkRange = x => {
 };
 
 
-// avoid number off the limits?
-// var norm2notevalue = p => decimal2fraction(Math.pow(2, 10 * p - 8));
 var norm2notevalue = p => r6d(Math.pow(2, 10 * p - 8));
 var p2n = norm2notevalue;
 var notevalue2norm = n => n < 0.003907 ? 0 : r6d((Math.log10(n) + 8 * Math.log10(2)) / (10 * Math.log10(2)));
@@ -98,10 +100,8 @@ var norm2frequency = p => p < 0.003 ? 0.000001 : r6d(20000 * Math.pow(p, 4));
 var p2f = norm2frequency;
 var frequency2norm = f => r6d(Math.pow((f / 20000), (1 / 4)));
 var f2p = frequency2norm;
-// var norm2articulation = p => r6d(3 * Math.pow(p, Math.E));
 var norm2articulation = p => Math.floor(300 * Math.pow(p, Math.E));
 var p2a = norm2articulation;
-// var articulation2norm = a => r6d(Math.pow((a / 3), (1 / Math.E)));
 var articulation2norm = a => r6d(Math.pow((a / 300), (1 / Math.E)));
 var a2p = articulation2norm;
 var norm2intensity = p => Math.round(100 * p);
@@ -180,7 +180,7 @@ var decimal2fraction = function (_decimal) {
 var d2f = decimal2fraction;
 
 // adapted from https://gist.github.com/drifterz28/6971440
-function fraction2decimal(fraction) {
+var fraction2decimal = function (fraction) {
     var result, wholeNum = 0, frac, deci = 0;
     if (fraction.search('/') >= 0) {
         if (fraction.search('-') >= 0) {
@@ -200,7 +200,6 @@ function fraction2decimal(fraction) {
     }
     return r6d(result);
 }
-
 var f2d = fraction2decimal;
 
 var checkGoldenIntegerConversions = function (max) {
@@ -242,18 +241,67 @@ var testRepetitions = function (n) {
 
 ///////// RANDOM HANDLING
 
+// adapted from https://stackoverflow.com/questions/521295/seeding-the-random-number-generator-in-javascript
+function xmur3(str) {
+    for(var i = 0, h = 1779033703 ^ str.length; i < str.length; i++)
+        h = Math.imul(h ^ str.charCodeAt(i), 3432918353),
+        h = h << 13 | h >>> 19;
+    return function() {
+        h = Math.imul(h ^ h >>> 16, 2246822507);
+        h = Math.imul(h ^ h >>> 13, 3266489909);
+        return (h ^= h >>> 16) >>> 0;
+    }
+}
+
+function mulberry32(a) {
+    return function() {
+      var t = a += 0x6D2B79F5;
+      t = Math.imul(t ^ t >>> 15, t | 1);
+      t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    }
+}
+
+// Output one 32-bit hash to provide the seed for mulberry32.
+seed = xmur3("appes");
+// Create rand() function
+rand = mulberry32(seed());
+
+// Reinit seed
+function createNewSeed(number) {
+    seed = xmur3(number.toString());
+    rand = mulberry32(seed());
+} 
+
 // logistic map for creating random numbers
-var logisticR = 4;
-var logisticSeed = 0.5;
+var logisticSeed = 0.481920;
 var logisticRandom = (x, numItems) => {
     var rndVector = [x];
     for (var i = 0; i < numItems - 1; i++) {
-        x = x*logisticR*(1-x);
+        x = x*4*(1-x);
         rndVector.push(r6d(x));
     }
     return rndVector;
 }
 
+// global random generator, independent from random series in genotypes 
+var gRnd = () => {
+    logisticSeed = logisticSeed * 4 * (1-logisticSeed);
+    return logisticSeed;
+}
+
+// allows variable R to use special distributions of logistic equation. R within interval [0, 1] mapped to values 3.5 to 4 (chaotic behaviour)
+var logisticRandomVariableR = (r, x, numItems) => {
+    var rndVector = [x];
+    r = r*0.5 + 3.5; // r within interval [0, 1] mapped to values 3.5 to 4 (chaotic behaviour)
+    for (var i = 0; i < numItems - 1; i++) {
+        x = x*r*(1-x);
+        rndVector.push(r6d(x));
+    }
+    return rndVector;
+}
+
+// TO BE REMOVED
 // normal returns a normal distribution random seed with params (mu=1 and sigma=0) within interval [0, 1] and rounded to 6 decimals
 const normal = random.normal(mu = 0.5, sigma = 0.15);
 const gaussRnd = () => {
@@ -334,12 +382,9 @@ Math.pow2 = function(n, p)
 }
 
 // homemade function to remap valor from a equal distribution to a normal (gaussian) distribution adapting logit function (inverse of sigmoid)
-
-// var uniform2normal = (x) => checkRange(0.5 + Math.pow2(((Math.asin(2*x - 1)) / 2.5771594933), 1.4));
-
 var uniform2normal = (x) => {
     x = remap(x, 0, 1, 0.00627, 0.99373)
-	return checkRange(r6d(0.386364 + (0.5 + (Math.log10(x/(1-x))))/4.4));
+	return checkRange(0.386364 + (0.5 + (Math.log10(x/(1-x))))/4.4);
 }
 
 // test decoded genotypes with Terminal
@@ -430,7 +475,7 @@ var rndFramework = (fName, fTyp, fIndex) => indexExprReturnSpecimen({
     funcType: fTyp,
     encGen: [1, fIndex, 0],
     decGen: fName + "()",
-    encPhen: [gaussRnd()]
+    encPhen: [uniform2normal(rand())]
 });
 var pRnd = () => rndFramework("pRnd", "paramF", .962453);
 var nRnd = () => rndFramework("nRnd", "notevalueF", .590537);
