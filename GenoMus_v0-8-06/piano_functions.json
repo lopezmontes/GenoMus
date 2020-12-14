@@ -513,7 +513,7 @@
             "arguments": [
                 "paramF",
                 "paramF",
-                "quantizedF"
+                "paramF"
             ],
             "description": "generates a straight progression between two values",
             "metadata": {
@@ -681,7 +681,7 @@
             "arguments": [
                 "notevalueF",
                 "notevalueF",
-                "quantizedF"
+                "goldenintegerF"
             ],
             "description": "generates a straight progression between two notevalue values",
             "metadata": {
@@ -774,7 +774,7 @@
             "arguments": [
                 "midipitchF",
                 "midipitchF",
-                "quantizedF"
+                "goldenintegerF"
             ],
             "description": "generates a straight progression between two midipitch values",
             "metadata": {
@@ -867,7 +867,7 @@
             "arguments": [
                 "articulationF",
                 "articulationF",
-                "quantizedF"
+                "goldenintegerF"
             ],
             "description": "generates a straight progression between two articulation values",
             "metadata": {
@@ -960,7 +960,7 @@
             "arguments": [
                 "intensityF",
                 "intensityF",
-                "quantizedF"
+                "goldenintegerF"
             ],
             "description": "generates a straight progression between two intensity values",
             "metadata": {

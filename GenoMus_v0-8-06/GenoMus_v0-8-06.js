@@ -1076,15 +1076,14 @@ var lIterL = (list, times) => {
 // repeats and concatenates as a list re-evaluations of a parameter function (2 to 36 repeats)
 var lLineFramework = (fName, fTyp, fIndex, param1, param2, steps) => {
     //  var totalSteps = adjustRange(Math.abs(p2q(steps.encPhen[0])), 3, 36); // number of steps rescaled to range [3, 36], mapped according to the deviation from the center value 0.5 using the quantizedF map
-    var totalSteps = p2q(steps.encPhen[0])
+    var totalSteps = p2z(steps.encPhen[0]) % 47 + 3; // number of steps rescaled to range [3, 50]
     var line = param1.encPhen;
-    var absSteps = Math.abs(totalSteps);
-    var offset = (param2.encPhen - param1.encPhen) / (absSteps - 1);
-    for (el = 0; el < absSteps - 1; el++) line[el + 1] = r6d(line[0] + offset * (el + 1));
+    var offset = (param2.encPhen - param1.encPhen) / (totalSteps - 1);
+    for (el = 0; el < totalSteps - 1; el++) line[el + 1] = r6d(line[0] + offset * (el + 1));
     return indexExprReturnSpecimen({
         funcType: fTyp,
-        encGen: flattenDeep([1, fIndex, param1.encGen, param1.encGen, steps.encGen, 0]),
-        decGen: fName + "(" + param1.decGen + "," + param2.decGen + ",q(" + totalSteps + "))",
+        encGen: flattenDeep([1, fIndex, param1.encGen, param2.encGen, [ 1, 0.798374, 0.57, z2p(totalSteps), 0 ], 0]),
+        decGen: fName + "(" + param1.decGen + "," + param2.decGen + ",z(" + totalSteps + "))",
         encPhen: line
     });
 };
@@ -2024,7 +2023,7 @@ function createGerminalSpecimen() {
     var germinalVectorReadingPos = 0;
     // germinal conditions
     var germinalPhenMinLength = 1;
-    var germinalPhenMaxLength = 100;
+    var germinalPhenMaxLength = 10000;
     var germinalPhenMinPolyphony = 1;
     var germinalPhenMaxPolyphony = 4;
     var maxGerminalDepth = 16;
@@ -2037,7 +2036,7 @@ function createGerminalSpecimen() {
     // loads library of eligible functions
     var functions_catalogue = JSON.parse(fs.readFileSync('eligible_functions_library.json'));
     var iterations = 0;
-    var maxIterations = 100;
+    var maxIterations = 1000;
     var newLeaf;
     // searches a random genotype which satisfied the requirements
     do {
@@ -2419,6 +2418,7 @@ function getFileDateName(optionalName) {
         + addZero(cDate.getHours())
         + addZero(cDate.getMinutes())
         + addZero(cDate.getSeconds())
+        + addDoubleZero(cDate.getMilliseconds())
         + optionalName;
     return fileDateName;
 }
