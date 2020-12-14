@@ -12,8 +12,8 @@ const maxAPI = require('max-api');
 
 // TO REMOVE
 // random generators with different distributions based on seedrandom
-const random = require('random');
-const seedrandom = require('seedrandom');
+/* const random = require('random');
+const seedrandom = require('seedrandom'); */
 
 
 /////////////////////
@@ -28,8 +28,6 @@ var phenMaxPolyphony = 20;
 var phenMinLength = 5;
 var phenMaxLength = 2000;
 var leaves = []; // stores all numeric parameters
-var encodedLeaves = [];
-var newFunctionThreshold = .6; // [0-1] Higher is less likely to ramificate too much. Must be a unique value
 // stores the last used genotype and its leaves, to mutate it
 var currentEncodedGenotype;
 var currentLeavesStructure;
@@ -64,7 +62,6 @@ var initSubexpressionsArrays = () => {
     subexpressions["operationF"] = [];
 }
 initSubexpressionsArrays();
-
 
 //////////// PARAMETER MAPPING
 // parameters mapping functions and abbreviated versions with short names and rounded output
@@ -243,10 +240,10 @@ var testRepetitions = function (n) {
 
 // adapted from https://stackoverflow.com/questions/521295/seeding-the-random-number-generator-in-javascript
 function xmur3(str) {
-    for(var i = 0, h = 1779033703 ^ str.length; i < str.length; i++)
+    for (var i = 0, h = 1779033703 ^ str.length; i < str.length; i++)
         h = Math.imul(h ^ str.charCodeAt(i), 3432918353),
-        h = h << 13 | h >>> 19;
-    return function() {
+            h = h << 13 | h >>> 19;
+    return function () {
         h = Math.imul(h ^ h >>> 16, 2246822507);
         h = Math.imul(h ^ h >>> 13, 3266489909);
         return (h ^= h >>> 16) >>> 0;
@@ -254,31 +251,32 @@ function xmur3(str) {
 }
 
 function mulberry32(a) {
-    return function() {
-      var t = a += 0x6D2B79F5;
-      t = Math.imul(t ^ t >>> 15, t | 1);
-      t ^= t + Math.imul(t ^ t >>> 7, t | 61);
-      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    return function () {
+        var t = a += 0x6D2B79F5;
+        t = Math.imul(t ^ t >>> 15, t | 1);
+        t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+        return ((t ^ t >>> 14) >>> 0) / 4294967296;
     }
 }
 
 // Output one 32-bit hash to provide the seed for mulberry32.
-seed = xmur3("appes");
+var initSeed = (parseInt(Math.random() * 1e16)).toString();
+var seed = xmur3(initSeed);
 // Create rand() function
-rand = mulberry32(seed());
+var rand = mulberry32(seed());
 
 // Reinit seed
 function createNewSeed(number) {
     seed = xmur3(number.toString());
     rand = mulberry32(seed());
-} 
+}
 
 // logistic map for creating random numbers
 var logisticSeed = 0.481920;
 var logisticRandom = (x, numItems) => {
     var rndVector = [x];
     for (var i = 0; i < numItems - 1; i++) {
-        x = x*4*(1-x);
+        x = x * 4 * (1 - x);
         rndVector.push(r6d(x));
     }
     return rndVector;
@@ -286,16 +284,16 @@ var logisticRandom = (x, numItems) => {
 
 // global random generator, independent from random series in genotypes 
 var gRnd = () => {
-    logisticSeed = logisticSeed * 4 * (1-logisticSeed);
+    logisticSeed = logisticSeed * 4 * (1 - logisticSeed);
     return logisticSeed;
 }
 
 // allows variable R to use special distributions of logistic equation. R within interval [0, 1] mapped to values 3.5 to 4 (chaotic behaviour)
 var logisticRandomVariableR = (r, x, numItems) => {
     var rndVector = [x];
-    r = r*0.5 + 3.5; // r within interval [0, 1] mapped to values 3.5 to 4 (chaotic behaviour)
+    r = r * 0.5 + 3.5; // r within interval [0, 1] mapped to values 3.5 to 4 (chaotic behaviour)
     for (var i = 0; i < numItems - 1; i++) {
-        x = x*r*(1-x);
+        x = x * r * (1 - x);
         rndVector.push(r6d(x));
     }
     return rndVector;
@@ -303,14 +301,14 @@ var logisticRandomVariableR = (r, x, numItems) => {
 
 // TO BE REMOVED
 // normal returns a normal distribution random seed with params (mu=1 and sigma=0) within interval [0, 1] and rounded to 6 decimals
-const normal = random.normal(mu = 0.5, sigma = 0.15);
+/* const normal = random.normal(mu = 0.5, sigma = 0.15);
 const gaussRnd = () => {
     var rndVal;
     do {
         rndVal = normal();
     } while (rndVal < 0 || rndVal > 1)
     return r6d(rndVal);
-};
+}; */
 
 // test normal distribution generator
 var testRndValues = () => {
@@ -349,17 +347,17 @@ var testLogisticValues = () => {
     var iter = 0;
     while (mini > 0 && maxi < 1) {
         iter++;
-        val = val*4*(1-val);
+        val = val * 4 * (1 - val);
         if (val < .5) neg++;
         if (val > .5) pos++;
 
         if (val < mini) {
             mini = val;
-            console.log("Min: " + mini + " | Max: " + maxi + " Negat: " + neg + " | Pos: " + pos + " | Ratio: " + pos/neg + " | iter: " + iter);
+            console.log("Min: " + mini + " | Max: " + maxi + " Negat: " + neg + " | Pos: " + pos + " | Ratio: " + pos / neg + " | iter: " + iter);
         }
         if (val > maxi) {
             maxi = val;
-            console.log("Min: " + mini + " | Max: " + maxi + " Negat: " + neg + " | Pos: " + pos + " | Ratio: " + pos/neg + " | iter: " + iter);
+            console.log("Min: " + mini + " | Max: " + maxi + " Negat: " + neg + " | Pos: " + pos + " | Ratio: " + pos / neg + " | iter: " + iter);
         }
     }
     console.log("Min: " + mini + " | Max: " + maxi + " Negat: " + neg + " | Pos: " + pos + " | iter: " + iter);
@@ -367,24 +365,21 @@ var testLogisticValues = () => {
 };
 
 // enables power of negative numbers and fractional exponents
-Math.pow2 = function(n, p)
-{
-	if(n < 0)
-	{
-		var v = Math.pow((n * -1), p);
-		v = (v * -1);
-		return v;
-	}
-	else
-	{
-		return Math.pow(n, p);
-	}
+Math.pow2 = function (n, p) {
+    if (n < 0) {
+        var v = Math.pow((n * -1), p);
+        v = (v * -1);
+        return v;
+    }
+    else {
+        return Math.pow(n, p);
+    }
 }
 
 // homemade function to remap valor from a equal distribution to a normal (gaussian) distribution adapting logit function (inverse of sigmoid)
 var uniform2normal = (x) => {
     x = remap(x, 0, 1, 0.00627, 0.99373)
-	return checkRange(0.386364 + (0.5 + (Math.log10(x/(1-x))))/4.4);
+    return checkRange(0.386364 + (0.5 + (Math.log10(x / (1 - x)))) / 4.4);
 }
 
 // test decoded genotypes with Terminal
@@ -421,7 +416,7 @@ var mt = decGenotype => {
 var flattenDeep = arr1 => arr1.reduce((acc, val) => Array.isArray(val) ? acc.concat(flattenDeep(val)) : acc.concat(val), []);
 
 // remap a value from its range to another
-var remap = (v, minInitRange, maxInitRange, minNewRange, maxNewRange) => 
+var remap = (v, minInitRange, maxInitRange, minNewRange, maxNewRange) =>
     r6d(((v - minInitRange) / (maxInitRange - minInitRange)) * (maxNewRange - minNewRange) + minNewRange);
 
 // remap an array from its range to another
@@ -528,7 +523,7 @@ var i = x => indexExprReturnSpecimen({
     encPhen: [intensity2norm(x)]
 });
 
-// quantized identity function
+// golden integer identity function
 var z = x => indexExprReturnSpecimen({
     funcType: "goldenintegerF",
     encGen: [1, .798374, 0.57, goldeninteger2norm(x), 0],
@@ -709,7 +704,6 @@ var e4Pitches = (notevalue, midiPitch1, midiPitch2, midiPitch3, midiPitch4, arti
     }
 });
 
-
 // repeats an event a number of times between 2 and 12 (eventP, paramP)
 var vRepeatE = (event, times) => {
     var numRepeats = adjustRange(Math.abs(p2q(adjustRange(times.encPhen[0], q2p(-12), q2p(12)))), 2, 12); // number of times rescaled to range [2, 12], mapped according to the deviation from the center value 0.5
@@ -816,7 +810,7 @@ var vConcatE = (e1, e2) => indexExprReturnSpecimen({
 
 // returns a voice removing a number of events at the beginning or at the end
 // range of removed elements: 36 elements from the beginning (positive) or from the end (negative)
-var vSlice = (voice, removedEvents) =>{
+var vSlice = (voice, removedEvents) => {
     var numRemovedEv = p2q(removedEvents.encPhen);
     if (numRemovedEv == 0) numRemovedEv = -1; // at least one event from the end will be removed
     if (Math.abs(numRemovedEv) >= voice.phenLength) numRemovedEv = voice.phenLength - 1; // at least one event will be preserved
@@ -830,7 +824,7 @@ var vSlice = (voice, removedEvents) =>{
             pitchesInEvent = p2z(slicedVoice[0]);
             slicedVoice.shift();
             for (ev = 0; ev < pitchesInEvent; ev++) {
-                slicedVoice.shift();                
+                slicedVoice.shift();
             }
             slicedVoice.shift();
             slicedVoice.shift();
@@ -893,6 +887,7 @@ var sConcatS = (s1, s2) => indexExprReturnSpecimen({
     analysis: s1.analysis,
 });
 
+// aux function to merge scores
 var mergeScores = (scoEncPhen1, scoEncPhen2) => {
     var numVoicesSco1 = p2z(scoEncPhen1[0]);
     var numVoicesSco2 = p2z(scoEncPhen2[0]);
@@ -1080,44 +1075,44 @@ var lIterL = (list, times) => {
 
 // repeats and concatenates as a list re-evaluations of a parameter function (2 to 36 repeats)
 var lLineFramework = (fName, fTyp, fIndex, param1, param2, steps) => {
-//  var totalSteps = adjustRange(Math.abs(p2q(steps.encPhen[0])), 3, 36); // number of steps rescaled to range [3, 36], mapped according to the deviation from the center value 0.5 using the quantizedF map
-    var totalSteps = (p2z(steps.encPhen[0]) % 47) + 3; // number of steps rescaled to range [3, 50]
-    var line = param1.encPhen;  
-    var offset = (param2.encPhen - param1.encPhen) / (totalSteps - 1);
-    for (el = 0; el < totalSteps - 1; el++) line[el + 1] = r6d(line[0] + offset * (el + 1));
+    //  var totalSteps = adjustRange(Math.abs(p2q(steps.encPhen[0])), 3, 36); // number of steps rescaled to range [3, 36], mapped according to the deviation from the center value 0.5 using the quantizedF map
+    var totalSteps = p2q(steps.encPhen[0])
+    var line = param1.encPhen;
+    var absSteps = Math.abs(totalSteps);
+    var offset = (param2.encPhen - param1.encPhen) / (absSteps - 1);
+    for (el = 0; el < absSteps - 1; el++) line[el + 1] = r6d(line[0] + offset * (el + 1));
     return indexExprReturnSpecimen({
         funcType: fTyp,
         encGen: flattenDeep([1, fIndex, param1.encGen, param1.encGen, steps.encGen, 0]),
-        decGen: fName + "(" + param1.decGen + ","  + param2.decGen + ", z(" + totalSteps + "))",
+        decGen: fName + "(" + param1.decGen + "," + param2.decGen + ",q(" + totalSteps + "))",
         encPhen: line
     });
 };
-var lLine = (param1, param2, steps) => lLineFramework ("lLine", "listF", .588617, param1, param2, steps);
-var lnLine = (param1, param2, steps) => lLineFramework ("lnLine", "lnotevalueF", .701993, param1, param2, steps);
-var ldLine = (param1, param2, steps) => lLineFramework ("ldLine", "ldurationF", .320027, param1, param2, steps);
-var lmLine = (param1, param2, steps) => lLineFramework ("lmLine", "lmidipitchF", .938061, param1, param2, steps);
-var lfLine = (param1, param2, steps) => lLineFramework ("lfLine", "lfrequencyF", .556095, param1, param2, steps);
-var laLine = (param1, param2, steps) => lLineFramework ("laLine", "larticulationF", .174129, param1, param2, steps);
-var liLine = (param1, param2, steps) => lLineFramework ("liLine", "lintensityF", .792163, param1, param2, steps);
-var lzLine = (param1, param2, steps) => lLineFramework ("lzLine", "lgoldenintegerF", .410197, param1, param2, steps);
-var lqLine = (param1, param2, steps) => lLineFramework ("lqLine", "lquantizedF", .028231, param1, param2, steps);
+var lLine = (param1, param2, steps) => lLineFramework("lLine", "listF", .588617, param1, param2, steps);
+var lnLine = (param1, param2, steps) => lLineFramework("lnLine", "lnotevalueF", .701993, param1, param2, steps);
+var ldLine = (param1, param2, steps) => lLineFramework("ldLine", "ldurationF", .320027, param1, param2, steps);
+var lmLine = (param1, param2, steps) => lLineFramework("lmLine", "lmidipitchF", .938061, param1, param2, steps);
+var lfLine = (param1, param2, steps) => lLineFramework("lfLine", "lfrequencyF", .556095, param1, param2, steps);
+var laLine = (param1, param2, steps) => lLineFramework("laLine", "larticulationF", .174129, param1, param2, steps);
+var liLine = (param1, param2, steps) => lLineFramework("liLine", "lintensityF", .792163, param1, param2, steps);
+var lzLine = (param1, param2, steps) => lLineFramework("lzLine", "lgoldenintegerF", .410197, param1, param2, steps);
+var lqLine = (param1, param2, steps) => lLineFramework("lqLine", "lquantizedF", .028231, param1, param2, steps);
 
 var lRemapFramework = (fName, fTyp, fIndex, list, newMin, newMax) => indexExprReturnSpecimen({
     funcType: fTyp,
     encGen: flattenDeep([1, fIndex, list.encGen, newMin.encGen, newMax.encGen, 0]),
-    decGen: fName + "(" + list.decGen + ","  + newMin.decGen + "," + newMax.decGen + ")",
+    decGen: fName + "(" + list.decGen + "," + newMin.decGen + "," + newMax.decGen + ")",
     encPhen: remapArray(list.encPhen, newMin.encPhen[0], newMax.encPhen[0])
 });
-var lRemap = (list, newMin, newMax) => lRemapFramework ("lRemap", "listF", .914855, list, newMin, newMax);
-var lnRemap = (list, newMin, newMax) => lRemapFramework ("lnRemap", "lnotevalueF", .646265, list, newMin, newMax);
-var ldRemap = (list, newMin, newMax) => lRemapFramework ("ldRemap", "ldurationF", .264299, list, newMin, newMax);
-var lmRemap = (list, newMin, newMax) => lRemapFramework ("lmRemap", "lmidipitchF", .882333, list, newMin, newMax);
-var lfRemap = (list, newMin, newMax) => lRemapFramework ("lfRemap", "lfrequencyF", .500367, list, newMin, newMax);
-var laRemap = (list, newMin, newMax) => lRemapFramework ("laRemap", "larticulationF", .118401, list, newMin, newMax);
-var liRemap = (list, newMin, newMax) => lRemapFramework ("liRemap", "lintensityF", .736435, list, newMin, newMax);
-var lzRemap = (list, newMin, newMax) => lRemapFramework ("lzRemap", "lgoldenintegerF", .354469, list, newMin, newMax);
-var lqRemap = (list, newMin, newMax) => lRemapFramework ("lqRemap", "lquantizedF", .972503, list, newMin, newMax);
-
+var lRemap = (list, newMin, newMax) => lRemapFramework("lRemap", "listF", .914855, list, newMin, newMax);
+var lnRemap = (list, newMin, newMax) => lRemapFramework("lnRemap", "lnotevalueF", .646265, list, newMin, newMax);
+var ldRemap = (list, newMin, newMax) => lRemapFramework("ldRemap", "ldurationF", .264299, list, newMin, newMax);
+var lmRemap = (list, newMin, newMax) => lRemapFramework("lmRemap", "lmidipitchF", .882333, list, newMin, newMax);
+var lfRemap = (list, newMin, newMax) => lRemapFramework("lfRemap", "lfrequencyF", .500367, list, newMin, newMax);
+var laRemap = (list, newMin, newMax) => lRemapFramework("laRemap", "larticulationF", .118401, list, newMin, newMax);
+var liRemap = (list, newMin, newMax) => lRemapFramework("liRemap", "lintensityF", .736435, list, newMin, newMax);
+var lzRemap = (list, newMin, newMax) => lRemapFramework("lzRemap", "lgoldenintegerF", .354469, list, newMin, newMax);
+var lqRemap = (list, newMin, newMax) => lRemapFramework("lqRemap", "lquantizedF", .972503, list, newMin, newMax);
 
 // repeats and concatenates as a voice re-evaluations of an event function (2 to 36 repeats) 
 var vIterE = (event, times) => {
@@ -1457,7 +1452,7 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
             mandatoryFunctions: mandatoryFuncs,
             excludedFunctions: excludedFuncs
         },
-        elegibleFunctions: {},
+        eligibleFunctions: {},
         decodedIndexes: {},
         encodedIndexes: {},
         functionNames: {},
@@ -1496,7 +1491,7 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
     var positionsForRemove = (excludedFuncs.map(x => includedFuncs.indexOf(x))).sort((a, b) => b - a);
     positionsForRemove.map(x => { if (x > -1) includedFuncs.splice(x, 1); });
     var totalIncludedFunctions = includedFuncs.length;
-    // write the elegible functions set
+    // write the eligible functions set
     var readFunc, functTyp;
     for (var fu = 0; fu < totalIncludedFunctions; fu++) {
         readFunc = allDecIndexes[includedFuncs[fu]];
@@ -1522,7 +1517,7 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
         functionNamesOrdered[key] = eligibleFuncLib.functionNames[key];
     });
     eligibleFuncLib.functionNames = functionNamesOrdered;
-    eligibleFuncLib.elegibleFunctions = includedFuncs.sort((a, b) => a - b);
+    eligibleFuncLib.eligibleFunctions = includedFuncs.sort((a, b) => a - b);
     return eligibleFuncLib;
 };
 
@@ -1657,6 +1652,46 @@ var decodeGenotype = encGen => {
     }
     // removes trailing commas after returning decoded genotype
     return decodedGenotype.replace(/\,\)/g, ")").replace(/\,\]/g, "]").slice(0, -1);
+};
+
+// Extract leaves CHEQUEAR CONVERSIONES HAY ERRORES
+var extractLeaves = encGen => {
+    var encGenLength = encGen.length;
+    var pos = 0;
+    var encodedLeaves = [];
+    while (pos < encGenLength) {
+        switch (encGen[pos]) {
+            case 0:
+                break;
+            case 0.2:
+                break;
+            case 0.5:
+                pos++; encodedLeaves.push([pos, encGen[pos], encGen[pos]]); break;
+            case 0.51:
+                pos++; encodedLeaves.push([pos, encGen[pos], p2n(encGen[pos])]); break;
+            case 0.52:
+                pos++; encodedLeaves.push([pos, encGen[pos], p2d(encGen[pos])]); break;
+            case 0.53:
+                pos++; encodedLeaves.push([pos, encGen[pos], p2m(encGen[pos])]); break;
+            case 0.54:
+                pos++; encodedLeaves.push([pos, encGen[pos], p2f(encGen[pos])]); break;
+            case 0.55:
+                pos++; encodedLeaves.push([pos, encGen[pos], p2a(encGen[pos])]); break;
+            case 0.56:
+                pos++; encodedLeaves.push([pos, encGen[pos], p2i(encGen[pos])]); break;
+            case 0.57:
+                pos++; encodedLeaves.push([pos, encGen[pos], p2z(encGen[pos])]); break;
+            case 0.58:
+                pos++; encodedLeaves.push([pos, encGen[pos], p2q(encGen[pos])]); break;
+            case 0.8:
+                break;
+            case 1:
+                break;
+        }
+        pos++;
+    }
+    // removes trailing commas after returning decoded genotype
+    return encodedLeaves;
 };
 
 // encodes and decodes a genotype to filter bad or dangerous expressions before being evaluated
@@ -1891,13 +1926,20 @@ var encPhen2bachRoll = encPhen => {
 
 var specimenDataStructure = (specimen) => ({
     metadata: {
-        iterations: specimen.metadata.iterations,
-        milliseconsElapsed: specimen.metadata.milliseconsElapsed,
+        specimenID: specimen.data.specimenID,
+        iterations: specimen.data.iterations,
+        milliseconsElapsed: specimen.data.milliseconsElapsed,
         voices: specimen.phenVoices,
         events: specimen.phenLength,
-        genotypeLength: specimen.metadata.genotypeLength,
-        testVector: specimen.metadata.testVector,
-        genotypeSeed: specimen.metadata.genotypeSeed
+        genotypeLength: specimen.data.genotypeLength,
+        depth: specimen.data.depth
+    },
+    initialConditions: {
+        species: "piano",
+        eligibleFunctions: eligibleFunctionsLibrary.eligibleFunctions,
+        maxAllowedDepth: specimen.data.maxAllowedDepth,
+        germinalVector: specimen.data.germinalVector,
+        genotypeSeed: specimen.data.genotypeSeed
     },
     encodedGenotype: specimen.encGen,
     decodedGenotype: specimen.decGen,
@@ -1928,6 +1970,7 @@ var specimenDataStructure = (specimen) => ({
         operationF: subexpressions["operationF"],
         booleanF: subexpressions["booleanF"]
     },
+    leaves: specimen.data.leaves,
     roll: encPhen2bachRoll(specimen.encPhen)
 });
 
@@ -1954,9 +1997,9 @@ var testingFunctions = {
     excludedFunctions: [281, 282] // 25,26,27,28,29,277,279,281,282,284] // [1, 9, 27, 10, 26, 17, 15, 7, 5, 25, 12, 29, 28, 131, 132, 40, 36, 35]
 };
 
-// generates the catalogues of elegible functions to be used for genotype generation
+// generates the catalogues of eligible functions to be used for genotype generation
 var eligibleFunctionsLibrary = createEligibleFunctionLibrary(GenoMusFunctionLibraryPiano, eligibleFunctions);
-// exports the catalogues of elegible function indexes, ordered by function name, encoded indexes and integer indexes, and containing the initial conditions of the subset
+// exports the catalogues of eligible function indexes, ordered by function name, encoded indexes and integer indexes, and containing the initial conditions of the subset
 createJSON(eligibleFunctionsLibrary, 'eligible_functions_library.json');
 
 
@@ -1964,744 +2007,34 @@ createJSON(eligibleFunctionsLibrary, 'eligible_functions_library.json');
 ///////////////
 // CORE FUNCTIONS FOR SPECIMEN CREATION AND EVOLUTION
 
-var createSpecimen = () => {
-    var startdate = new Date();
-    var newSpecimen;
-    var usedSeed;
-    // loads library of elegible functions
-    var functions_catalogue = JSON.parse(fs.readFileSync('eligible_functions_library.json'));
-    var iterations = 0;
-    var maxIterations = 10000;
-    var newRawValue, newLeaf;
-    // searches a random genotype which satisfied the requirements
-    do {
-        // starts a new decoded genotype
-        do {
-            iterations++;
-            // if (iterations % 100 == 0) maxAPI.post("it: " + iterations);
-            initSubexpressionsArrays();
-            validGenotype = true;
-            var preEncGen = []; // compulsory start with a function
-            // stores number of levels to be filled
-            var notFilledParameters = [];
-            // stores functions names in process of writing; forces starting with a score type function
-            var expectedFunctions = ["scoreF"];
-            var chosenFunction;
-            var openFunctionTypes = [];
-            var nextFunctionType = "scoreF";
-            var pos = -1; // active readed position in encodedGenotype
-            var newDecodedGenotype = "";
-            var numElegibleFunctions;
-            // adds a new token to the decoded genotype
-            do {
-                preEncGen.push(checkRange(r6d(Math.random())));
-                pos++;
-                // new ramification of genotype
-                //////maxAPI.post("---------\nnextFunctionType: " + nextFunctionType);
-                //               console.log("---------\nnextFunctionType: " + nextFunctionType);
-
-                if (nextFunctionType != "voidLeaf" &&
-                    nextFunctionType != "leaf" &&
-                    nextFunctionType != "notevalueLeaf" &&
-                    nextFunctionType != "durationLeaf" &&
-                    nextFunctionType != "midipitchLeaf" &&
-                    nextFunctionType != "frequencyLeaf" &&
-                    nextFunctionType != "articulationLeaf" &&
-                    nextFunctionType != "intensityLeaf" &&
-                    nextFunctionType != "goldenintegerLeaf" &&
-                    nextFunctionType != "quantizedLeaf" &&
-                    nextFunctionType != "operationLeaf" &&
-                    nextFunctionType != "booleanLeaf" &&
-                    nextFunctionType != "listLeaf" &&
-                    nextFunctionType != "lnotevalueLeaf" &&
-                    nextFunctionType != "ldurationLeaf" &&
-                    nextFunctionType != "lmidipitchLeaf" &&
-                    nextFunctionType != "lfrequencyLeaf" &&
-                    nextFunctionType != "larticulationLeaf" &&
-                    nextFunctionType != "lintensityLeaf" &&
-                    nextFunctionType != "lgoldenintegerLeaf" &&
-                    nextFunctionType != "lquantizedLeaf") {
-                    // choose among elegible functions
-                    numElegibleFunctions = Object.keys
-                        (functions_catalogue.functionLibrary[nextFunctionType]).length;
-                    // console.log("valor encoded crudo: " + preEncGen[pos]);
-                    // console.log("numElegibleFunctions: " + numElegibleFunctions);
-                    var valorElectivo = Math.floor(preEncGen[pos] * numElegibleFunctions) % numElegibleFunctions;
-                    // console.log("valor electivo: " + valorElectivo);
-                    chosenFunction = Object.keys
-                        (functions_catalogue.functionLibrary[nextFunctionType])
-                    [valorElectivo];
-                    openFunctionTypes[openFunctionTypes.length] = nextFunctionType;
-                    // writes the new function
-                    newDecodedGenotype += chosenFunction + "(";
-                    // read the expected parameters of the chosen function
-                    //////maxAPI.post("chosen function: " + chosenFunction);
-                    //////maxAPI.post("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType]));
-                    //////maxAPI.post("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType][chosenFunction]));
-                    //////maxAPI.post("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType][chosenFunction].arguments).length);
-
-                    // console.log("chosen function: " + chosenFunction);
-                    // console.log("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType]));
-                    // console.log("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType][chosenFunction]));
-                    // console.log("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType][chosenFunction].arguments).length);
-
-
-                    notFilledParameters[notFilledParameters.length] = Object.keys
-                        (functions_catalogue.functionLibrary[nextFunctionType][chosenFunction].arguments).length;
-                    expectedFunctions[notFilledParameters.length - 1] = chosenFunction;
-                }
-                // adds a leaf
-                else {
-                    // changes value to 0 for make genotypes syntax independent from leaf newFunctionThreshold value (prescindible??)
-                    preEncGen[pos] = 0;
-                    newLeaf = checkRange(r6d(normal()));
-                    preEncGen.push(newLeaf);
-                    pos++;
-                    // adds primitive function, leaves of functions tree
-                    if (nextFunctionType == "leaf") {
-                        newDecodedGenotype += newLeaf;
-                    } else if (nextFunctionType == "notevalueLeaf") {
-                        newDecodedGenotype += p2n(newLeaf);
-                    } else if (nextFunctionType == "durationLeaf") {
-                        newDecodedGenotype += p2d(newLeaf);
-                    } else if (nextFunctionType == "midipitchLeaf") {
-                        newDecodedGenotype += p2m(newLeaf);
-                    } else if (nextFunctionType == "frequencyLeaf") {
-                        newDecodedGenotype += p2f(newLeaf);
-                    } else if (nextFunctionType == "articulationLeaf") {
-                        newDecodedGenotype += p2a(newLeaf);
-                    } else if (nextFunctionType == "intensityLeaf") {
-                        newDecodedGenotype += p2i(newLeaf);
-                    } else if (nextFunctionType == "goldenintegerLeaf") {
-                        newDecodedGenotype += p2z(newLeaf);
-                    } else if (nextFunctionType == "quantizedLeaf") {
-                        newDecodedGenotype += p2q(newLeaf);
-                    } else if (nextFunctionType == "operationLeaf") {
-                        newDecodedGenotype += newLeaf;
-                    } else if (nextFunctionType == "booleanLeaf") {
-                        newDecodedGenotype += Math.round(newLeaf);
-                    } else if (nextFunctionType == "listLeaf") {
-                        newDecodedGenotype += newLeaf;
-                        var extendList = true;
-                        while (extendList) {
-                            newLeaf = checkRange(r6d(checkRange(normal())));
-                            preEncGen.push(newLeaf);
-                            newDecodedGenotype += "," + newLeaf;
-                            if (Math.random() < .2) extendList = false;
-                        }
-                    } else if (nextFunctionType == "lnotevalueLeaf") {
-                        newDecodedGenotype += p2n(newLeaf);
-                        var extendList = true;
-                        while (extendList) {
-                            newLeaf = r6d(p2n(checkRange(normal())));
-                            preEncGen.push(newLeaf);
-                            newDecodedGenotype += "," + newLeaf;
-                            if (Math.random() < .2) extendList = false;
-                        }
-                    } else if (nextFunctionType == "lmidipitchLeaf") {
-                        newDecodedGenotype += p2m(newLeaf);
-                        var extendList = true;
-                        while (extendList) {
-                            newLeaf = r6d(p2m(checkRange(normal())));
-                            preEncGen.push(newLeaf);
-                            newDecodedGenotype += "," + newLeaf;
-                            if (Math.random() < .2) extendList = false;
-                        }
-                    } else if (nextFunctionType == "larticulationLeaf") {
-                        newDecodedGenotype += p2a(newLeaf);
-                        var extendList = true;
-                        while (extendList) {
-                            newLeaf = r6d(p2a(checkRange(normal())));
-                            preEncGen.push(newLeaf);
-                            newDecodedGenotype += "," + newLeaf;
-                            if (Math.random() < .2) extendList = false;
-                        }
-                    } else if (nextFunctionType == "lintensityLeaf") {
-                        newDecodedGenotype += p2i(newLeaf);
-                        var extendList = true;
-                        while (extendList) {
-                            newLeaf = r6d(p2i(checkRange(normal())));
-                            preEncGen.push(newLeaf);
-                            newDecodedGenotype += "," + newLeaf;
-                            if (Math.random() < .2) extendList = false;
-                        }
-                    } else if (chosenFunction == "pAutoRef" ||
-                        chosenFunction == "lAutoRef" ||
-                        chosenFunction == "eAutoRef" ||
-                        chosenFunction == "vAutoRef" ||
-                        chosenFunction == "sAutoRef" ||
-                        chosenFunction == "nAutoref" ||
-                        chosenFunction == "mAutoRef" ||
-                        chosenFunction == "aAutoRef" ||
-                        chosenFunction == "iAutoRef" ||
-                        chosenFunction == "qAutoRef" ||
-                        chosenFunction == "lnAutoRef" ||
-                        chosenFunction == "ldAutoRef" ||
-                        chosenFunction == "lmAutoRef" ||
-                        chosenFunction == "lfAutoRef" ||
-                        chosenFunction == "laAutoRef" ||
-                        chosenFunction == "liAutoRef" ||
-                        chosenFunction == "lzAutoRef" ||
-                        chosenFunction == "lqAutoref") {
-                        newDecodedGenotype += parseInt(preEncGen[pos] * 1e5);
-                    }
-                    else {
-                        newDecodedGenotype += preEncGen[pos];
-                    }
-                    // TODO: indexing leaves;
-                    // if (chosenFunction == "p") {
-                    //    encodedLeaves.push([pos, preEncGen[pos]]);
-                    //}
-
-                    notFilledParameters[notFilledParameters.length - 1]--;
-                    // controls ramifications tree
-                    // if number of parameters of this level if filled, deletes this count level and add ")"
-                    if (notFilledParameters[notFilledParameters.length - 1] == 0) {
-                        do {
-                            if (notFilledParameters.length > 1) {
-                                notFilledParameters.pop();
-                                expectedFunctions.pop();
-                                openFunctionTypes.pop();
-                            }
-                            newDecodedGenotype += ")";
-                            notFilledParameters[notFilledParameters.length - 1]--;
-                        } while (notFilledParameters[notFilledParameters.length - 1] == 0)
-                    }
-                    if (notFilledParameters[0] > 0) newDecodedGenotype += ",";
-                }
-                // console.log(newDecodedGenotype);
-                nextFunctionType = functions_catalogue.functionLibrary
-                [openFunctionTypes[openFunctionTypes.length - 1]]
-                [expectedFunctions[expectedFunctions.length - 1]]
-                    .arguments[functions_catalogue.functionLibrary
-                    [openFunctionTypes[openFunctionTypes.length - 1]]
-                    [expectedFunctions[expectedFunctions.length - 1]]
-                        .arguments.length - notFilledParameters[notFilledParameters.length - 1]];
-            } while (
-                notFilledParameters[0] > 0 &&
-                validGenotype == true &&
-                notFilledParameters.length < genMaxDepth &&
-                newDecodedGenotype.length < decGenStringLengthLimit);
-        } while (notFilledParameters[0] != -1);
-
-        // removes trailing commas
-
-        newDecodedGenotype.substring(0, newDecodedGenotype.length - 1);
-
-        // console.log("New gen: " + decodedGenotype);
-
-
-
-        // console.log("New phen: " + evaluatedGenotype);
-        // currentGenotype = evaluatedGenotype;
-        // maxAPI.post("dec: " + decodedGenotype);
-        // maxAPI.post("Pheno length: " + evaluatedGenotype[0].length); 
-        // update seed according to last value of Math.random(), to keep the iterations repeatable
-        // track seed used for genotype creation    
-        usedSeed = Math.random();
-        // creates and saves new derived seed value only for evaluations (to be independent of seed for genotype creation)
-        evaluationSeed = Math.round(Math.random() * 1e14);
-        // seeding before genotype evaluation
-        rng = Math.random(); // PARCHE
-        // rng = seedrandom(evaluationSeed); 
-        // evaluatedGenotype = evalAndReturnExpression(decodedGenotype);
-
-        genotypeLog["gen" + genCount++] = newDecodedGenotype;
-        createJSON(genotypeLog, 'genotipeLog.json');
-        maxAPI.post("New genotype: " + newDecodedGenotype);
-
-        newSpecimen = eval(newDecodedGenotype);
-        // creates new seed for genotype creation before new iteration, if necessary
-        currentSeed = Math.round(Math.random() * 1e14);
-        rng = Math.random(); // PARCHE
-    } while (
-        // test if preconditions are fullfilled
-        (
-            newSpecimen.phenLength < phenMinLength
-            || newSpecimen.phenLength > phenMaxLength
-            || newSpecimen.phenVoices < phenMinPolyphony
-            || newSpecimen.phenVoices > phenMaxPolyphony
-        )
-        && iterations < maxIterations);
-    var stopdate = new Date();
-
-    ///////// visualizations
-    // visualizeSpecimen(newSpecimen.encGen, "encGen");
-    // visualizeSpecimen(newSpecimen.encPhen, "encPhen");
-    /////////
-
-
-    // maxAPI.post(encodedGenotype);
-    // maxAPI.post("Phenotype: " + evaluatedGenotype[0]);    
-
-    //////
-    // maxAPI.post("iterations: " + iterations);
-    // maxAPI.post("time ellapsed: " + Math.abs(stopdate - startdate) + " ms");
-    //////
-
-    // maxAPI.post("seeds: " + usedSeed + ", " + evaluationSeed);    
-
-    // console.log("iterations: " + iterations);
-    // console.log("time ellapsed: " + Math.abs(stopdate-startdate) + " ms");
-    newSpecimen.metadata = {
-        iterations: iterations,
-        milliseconsElapsed: Math.abs(stopdate - startdate),
-        genotypeLength: newDecodedGenotype.length
-    };
-
-
-
-
-    
-
-    // log for debugging
-    // genotypeLog["gen" + genCount++] = newSpecimen.decGen;
-    // createJSON(genotypeLog, 'genotipeLog.json');
-
-
-    return newSpecimen;
-
-    // return array with:
-    // first array with metadata: [date, iterations, time ellapsed]
-    // second array with encodedGenotype
-    // third array with pair [encodedPhenotype, decodedGenotype] 
-    var metadata = [version, parseInt(getFileDateName()), iterations, Math.abs(stopdate - startdate), newSpecimen[0].length];
-    var expandedExpression = expandExpr(newSpecimen[1]);
-    var outputData = [metadata, preEncGen, newSpecimen, expandedExpression, subexpressions, leaves, encodedLeaves, usedSeed, evaluationSeed];
-    // maxAPI.post("out: " + outputData);
-    // maxAPI.post("pair:" + outputData[2]);   
-    currentEncodedGenotype = preEncGen;
-    currentLeavesStructure = encodedLeaves;
-    return outputData;
-};
-
 var newNormalizedUnidimArray = (n) => {
     var arr = [];
     var i = 1;
     while (i <= n) {
-        arr.push(r6d(Math.random()));
+        arr.push(r6d(rand()));
         i++;
     }
     return arr;
 };
 
-// DEPRECATED
-function OLDcreateGerminalSpecimen() {
-    //norm. unidim. vector
-    var testVectorLength = 10;
-    var testVector = newNormalizedUnidimArray(testVectorLength);
-    var testVectorReadingPos = 0;
-
-    // germinal conditions
-    var germinalPhenMinLength = 100;
-    var germinalPhenMaxLength = 5000;
-    var germinalPhenMinPolyphony = 1;
-    var germinalPhenMaxPolyphony = 10;
-    var maxGerminalDepth = 16;
-
-
-    var startdate = new Date();
-    var newSpecimen;
-    var usedSeed;
-    // loads library of elegible functions
-    var functions_catalogue = JSON.parse(fs.readFileSync('eligible_functions_library.json'));
-    var iterations = 2;
-    var maxIterations = 100;
-    var newRawValue, newLeaf;
-    // searches a random genotype which satisfied the requirements
-    do {
-
-        // starts a new decoded genotype
-        do {
-            
-            iterations++;
-            // if (iterations % 100 == 0) maxAPI.post("it: " + iterations);
-            initSubexpressionsArrays();
-            validGenotype = true;
-            // newVector
-            testVector = newNormalizedUnidimArray(testVectorLength);
-            testVectorReadingPos = 0;
-            // maxAPI.post("new vector: " + testVector);
-
-
-            var preEncGen = []; // compulsory start with a function
-            // stores number of levels to be filled
-            var notFilledParameters = [];
-            // stores functions names in process of writing; forces starting with a score type function
-            var expectedFunctions = ["scoreF"];
-            var chosenFunction;
-            var openFunctionTypes = [];
-            var nextFunctionType = "scoreF";
-            var pos = -1; // active readed position in encodedGenotype
-            var newDecodedGenotype = "";
-            var numElegibleFunctions;
-            // adds a new token to the decoded genotype
-            do {
-                // maxAPI.post("dec: " + newDecodedGenotype);
-                // maxAPI.post("open pars: " + notFilledParameters.length);
-
-                preEncGen.push(checkRange(r6d(testVector[testVectorReadingPos % testVectorLength])));
-                //maxAPI.post("token pos. " + (testVectorReadingPos % testVectorLength) + " -> " + testVector[testVectorReadingPos % testVectorLength] + " converted to " + checkRange(r6d(testVector[testVectorReadingPos % testVectorLength])));
-                //maxAPI.post("last added elem preEncGen: " + preEncGen[preEncGen.length - 1]);
-                testVectorReadingPos++;
-                pos++;
-                //maxAPI.post("pos: " + pos);
-                //maxAPI.post("valor precrudo: " + preEncGen[pos]);
-
-                // new ramification of genotype
-                //////maxAPI.post("---------\nnextFunctionType: " + nextFunctionType);
-                //               console.log("---------\nnextFunctionType: " + nextFunctionType);
-
-                if (nextFunctionType != "voidLeaf" &&
-                    nextFunctionType != "leaf" &&
-                    nextFunctionType != "notevalueLeaf" &&
-                    nextFunctionType != "durationLeaf" &&
-                    nextFunctionType != "midipitchLeaf" &&
-                    nextFunctionType != "frequencyLeaf" &&
-                    nextFunctionType != "articulationLeaf" &&
-                    nextFunctionType != "intensityLeaf" &&
-                    nextFunctionType != "goldenintegerLeaf" &&
-                    nextFunctionType != "quantizedLeaf" &&
-                    nextFunctionType != "operationLeaf" &&
-                    nextFunctionType != "booleanLeaf" &&
-                    nextFunctionType != "listLeaf" &&
-                    nextFunctionType != "lnotevalueLeaf" &&
-                    nextFunctionType != "ldurationLeaf" &&
-                    nextFunctionType != "lmidipitchLeaf" &&
-                    nextFunctionType != "lfrequencyLeaf" &&
-                    nextFunctionType != "larticulationLeaf" &&
-                    nextFunctionType != "lintensityLeaf" &&
-                    nextFunctionType != "lgoldenintegerLeaf" &&
-                    nextFunctionType != "lquantizedLeaf") {
-                    // choose among elegible functions
-                    numElegibleFunctions = Object.keys
-                        (functions_catalogue.functionLibrary[nextFunctionType]).length;
-                    //maxAPI.post("valor crudo: " + preEncGen[pos]);
-                    //maxAPI.post("numElegibleFunctions: " + numElegibleFunctions);
-                    var valorElectivo = Math.floor(preEncGen[pos] * numElegibleFunctions) % numElegibleFunctions;
-                    //maxAPI.post("valor electivo: " + valorElectivo);
-                    chosenFunction = Object.keys
-                        (functions_catalogue.functionLibrary[nextFunctionType])
-                    [valorElectivo];
-                    openFunctionTypes[openFunctionTypes.length] = nextFunctionType;
-                    // writes the new function
-                    newDecodedGenotype += chosenFunction + "(";
-                    // read the expected parameters of the chosen function
-                    //////maxAPI.post("chosen function: " + chosenFunction);
-                    //////maxAPI.post("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType]));
-                    //////maxAPI.post("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType][chosenFunction]));
-                    //////maxAPI.post("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType][chosenFunction].arguments).length);
-
-                    // console.log("chosen function: " + chosenFunction);
-                    // console.log("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType]));
-                    // console.log("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType][chosenFunction]));
-                    // console.log("inspecting: " + Object.keys(functions_catalogue.functionLibrary[nextFunctionType][chosenFunction].arguments).length);
-
-
-                    notFilledParameters[notFilledParameters.length] = Object.keys
-                        (functions_catalogue.functionLibrary[nextFunctionType][chosenFunction].arguments).length;
-                    expectedFunctions[notFilledParameters.length - 1] = chosenFunction;
-                    if (notFilledParameters.length > maxGerminalDepth) {
-                        //maxAPI.post("limit exceeded");
-                        validGenotype = false;
-                    }
-                }
-                // adds a leaf
-                else {
-                    // changes value to 0 for make genotypes syntax independent from leaf newFunctionThreshold value (prescindible??)
-                    preEncGen[pos] = 0;
-                    
-                    // newLeaf = checkRange(r6d(normal()));
-
-                    // leaf converting uniform value from unidim. vector to normal distribution
-                    newLeaf = r6d(uniform2normal(testVector[testVectorReadingPos % testVectorLength]));
-                    // maxAPI.post("adlef pos. " + (testVectorReadingPos % testVectorLength) + " -> " + testVector[testVectorReadingPos % testVectorLength] + " converted to " + newLeaf);
-                    testVectorReadingPos++;
-
-                    preEncGen.push(newLeaf);
-                    pos++;
-                    // adds primitive function, leaves of functions tree
-                    if (nextFunctionType == "leaf") {
-                        newDecodedGenotype += newLeaf;
-                    } else if (nextFunctionType == "notevalueLeaf") {
-                        newDecodedGenotype += p2n(newLeaf);
-                    } else if (nextFunctionType == "durationLeaf") {
-                        newDecodedGenotype += p2d(newLeaf);
-                    } else if (nextFunctionType == "midipitchLeaf") {
-                        newDecodedGenotype += p2m(newLeaf);
-                    } else if (nextFunctionType == "frequencyLeaf") {
-                        newDecodedGenotype += p2f(newLeaf);
-                    } else if (nextFunctionType == "articulationLeaf") {
-                        newDecodedGenotype += p2a(newLeaf);
-                    } else if (nextFunctionType == "intensityLeaf") {
-                        newDecodedGenotype += p2i(newLeaf);
-                    } else if (nextFunctionType == "goldenintegerLeaf") {
-                        newDecodedGenotype += p2z(newLeaf);
-                    } else if (nextFunctionType == "quantizedLeaf") {
-                        newDecodedGenotype += p2q(newLeaf);
-                    } else if (nextFunctionType == "operationLeaf") {
-                        newDecodedGenotype += newLeaf;
-                    } else if (nextFunctionType == "booleanLeaf") {
-                        newDecodedGenotype += Math.round(newLeaf);
-                    } else if (nextFunctionType == "listLeaf") {
-                        newDecodedGenotype += newLeaf;
-                        var extendList = true;
-                        while (extendList) {
-                            // newLeaf = checkRange(r6d(checkRange(normal())));
-
-                            newLeaf = uniform2normal(testVector[testVectorReadingPos % testVectorLength]);
-                            // maxAPI.post("nleaf pos. " + (testVectorReadingPos % testVectorLength) + " -> " + testVector[testVectorReadingPos % testVectorLength] + " converted to " + newLeaf);
-
-                            preEncGen.push(newLeaf);
-                            newDecodedGenotype += "," + newLeaf;
-
-                            testVectorReadingPos++;
-                            pos++;
-
-                            if (Math.random() < .2) extendList = false;
-                        }
-                    } else if (nextFunctionType == "lnotevalueLeaf") {
-                        newDecodedGenotype += p2n(newLeaf);
-                        var extendList = true;
-                        while (extendList) {
-                            // newLeaf = r6d(p2n(checkRange(normal())));
-
-                            newLeaf = r6d(p2n(uniform2normal(testVector[testVectorReadingPos % testVectorLength])));
-                            // maxAPI.post("lnote pos. " + (testVectorReadingPos % testVectorLength) + " -> " + testVector[testVectorReadingPos % testVectorLength] + " converted to " + newLeaf);
-
-                            preEncGen.push(newLeaf);
-                            newDecodedGenotype += "," + newLeaf;
-
-                            testVectorReadingPos++;
-                            pos++;
-                            
-                            if (Math.random() < .2) extendList = false;
-                        }
-                    } else if (nextFunctionType == "lmidipitchLeaf") {
-                        newDecodedGenotype += p2m(newLeaf);
-                        var extendList = true;
-                        while (extendList) {
-                            // newLeaf = r6d(p2m(checkRange(normal())));
-
-                            newLeaf = r6d(p2m(uniform2normal(testVector[testVectorReadingPos % testVectorLength])));
-                            // maxAPI.post("lmidi pos. " + (testVectorReadingPos % testVectorLength) + " -> " + testVector[testVectorReadingPos % testVectorLength] + " converted to " + newLeaf);
-
-                            preEncGen.push(newLeaf);
-                            newDecodedGenotype += "," + newLeaf;
-
-                            testVectorReadingPos++;
-                            pos++;
-                            
-                            if (Math.random() < .2) extendList = false;
-                        }
-                    } else if (nextFunctionType == "larticulationLeaf") {
-                        newDecodedGenotype += p2a(newLeaf);
-                        var extendList = true;
-                        while (extendList) {
-                            // newLeaf = r6d(p2a(checkRange(normal())));
-
-                            newLeaf = r6d(p2a(uniform2normal(testVector[testVectorReadingPos % testVectorLength])));
-                            // maxAPI.post("larti pos. " + (testVectorReadingPos % testVectorLength) + " -> " + testVector[testVectorReadingPos % testVectorLength] + " converted to " + newLeaf);
-
-                            preEncGen.push(newLeaf);
-                            newDecodedGenotype += "," + newLeaf;
-
-                            testVectorReadingPos++;
-                            pos++;
-                            
-                            if (Math.random() < .2) extendList = false;
-                        }
-                    } else if (nextFunctionType == "lintensityLeaf") {
-                        newDecodedGenotype += p2i(newLeaf);
-                        var extendList = true;
-                        while (extendList) {
-                            // newLeaf = r6d(p2i(checkRange(normal())));
-
-                            newLeaf = r6d(p2i(uniform2normal(testVector[testVectorReadingPos % testVectorLength])));
-                            // maxAPI.post("linte pos. " + (testVectorReadingPos % testVectorLength) + " -> " + testVector[testVectorReadingPos % testVectorLength] + " converted to " + newLeaf);
-
-                            preEncGen.push(newLeaf);
-                            newDecodedGenotype += "," + newLeaf;
-
-                            testVectorReadingPos++;
-                            pos++;
-                            
-                            if (Math.random() < .2) extendList = false;
-                        }
-                    } else if (chosenFunction == "pAutoRef" ||
-                        chosenFunction == "lAutoRef" ||
-                        chosenFunction == "eAutoRef" ||
-                        chosenFunction == "vAutoRef" ||
-                        chosenFunction == "sAutoRef" ||
-                        chosenFunction == "nAutoref" ||
-                        chosenFunction == "mAutoRef" ||
-                        chosenFunction == "aAutoRef" ||
-                        chosenFunction == "iAutoRef" ||
-                        chosenFunction == "qAutoRef" ||
-                        chosenFunction == "lnAutoRef" ||
-                        chosenFunction == "ldAutoRef" ||
-                        chosenFunction == "lmAutoRef" ||
-                        chosenFunction == "lfAutoRef" ||
-                        chosenFunction == "laAutoRef" ||
-                        chosenFunction == "liAutoRef" ||
-                        chosenFunction == "lzAutoRef" ||
-                        chosenFunction == "lqAutoref") {
-                        newDecodedGenotype += parseInt(preEncGen[pos] * 1e5);
-                    }
-                    else {
-                        newDecodedGenotype += preEncGen[pos];
-                    }
-                    // TODO: indexing leaves;
-                    // if (chosenFunction == "p") {
-                    //    encodedLeaves.push([pos, preEncGen[pos]]);
-                    //}
-
-                    notFilledParameters[notFilledParameters.length - 1]--;
-                    // controls ramifications tree
-                    // if number of parameters of this level if filled, deletes this count level and add ")"
-                    if (notFilledParameters[notFilledParameters.length - 1] == 0) {
-                        do {
-                            if (notFilledParameters.length > 1) {
-                                notFilledParameters.pop();
-                                expectedFunctions.pop();
-                                openFunctionTypes.pop();
-                            }
-                            newDecodedGenotype += ")";
-                            notFilledParameters[notFilledParameters.length - 1]--;
-                        } while (
-                            notFilledParameters[notFilledParameters.length - 1] == 0 &&
-                            validGenotype == true )
-                    }
-                    if (notFilledParameters[0] > 0) newDecodedGenotype += ",";
-                }
-                // console.log(newDecodedGenotype);
-                nextFunctionType = functions_catalogue.functionLibrary
-                [openFunctionTypes[openFunctionTypes.length - 1]]
-                [expectedFunctions[expectedFunctions.length - 1]]
-                    .arguments[functions_catalogue.functionLibrary
-                    [openFunctionTypes[openFunctionTypes.length - 1]]
-                    [expectedFunctions[expectedFunctions.length - 1]]
-                        .arguments.length - notFilledParameters[notFilledParameters.length - 1]];
-            } while (
-                notFilledParameters[0] > 0 &&
-                validGenotype == true &&
-                notFilledParameters.length < genMaxDepth &&
-                newDecodedGenotype.length < decGenStringLengthLimit);
-        } while (
-            notFilledParameters[0] != -1 &&
-            validGenotype == true 
-            );
-
-        // removes trailing commas
-
-        newDecodedGenotype.substring(0, newDecodedGenotype.length - 1);
-
-        // console.log("New gen: " + decodedGenotype);
-
-
-
-        // console.log("New phen: " + evaluatedGenotype);
-        // currentGenotype = evaluatedGenotype;
-        // maxAPI.post("dec: " + decodedGenotype);
-        // maxAPI.post("Pheno length: " + evaluatedGenotype[0].length); 
-        // update seed according to last value of Math.random(), to keep the iterations repeatable
-        // track seed used for genotype creation    
-        usedSeed = Math.random();
-        // creates and saves new derived seed value only for evaluations (to be independent of seed for genotype creation)
-        evaluationSeed = Math.round(Math.random() * 1e14);
-        // seeding before genotype evaluation
-        rng = Math.random(); // PARCHE
-        // rng = seedrandom(evaluationSeed); 
-        // evaluatedGenotype = evalAndReturnExpression(decodedGenotype);
-
-        genotypeLog["gen" + genCount++] = newDecodedGenotype;
-        createJSON(genotypeLog, 'genotipeLog.json');
-        // maxAPI.post("New genotype: " + newDecodedGenotype);
-
-        if (validGenotype == true) {
-            newSpecimen = eval(newDecodedGenotype);
-        } else {
-            newSpecimen = eval("s(v(e(p(0),m(0),p(0),p(0))))");
-        }
-        // creates new seed for genotype creation before new iteration, if necessary
-        currentSeed = Math.round(Math.random() * 1e14);
-        rng = Math.random(); // PARCHE
-    } while (
-        // test if preconditions are fullfilled
-        (
-            newSpecimen.phenLength < germinalPhenMinLength
-            || newSpecimen.phenLength > germinalPhenMaxLength
-            || newSpecimen.phenVoices < germinalPhenMinPolyphony
-            || newSpecimen.phenVoices > germinalPhenMaxPolyphony
-        )
-        && iterations < maxIterations);
-    var stopdate = new Date();
-
-
-
-
-    // maxAPI.post(encodedGenotype);
-    // maxAPI.post("Phenotype: " + evaluatedGenotype[0]);    
-
-    //////
-    // maxAPI.post("iterations: " + iterations);
-    // maxAPI.post("time ellapsed: " + Math.abs(stopdate - startdate) + " ms");
-    //////
-
-    // maxAPI.post("seeds: " + usedSeed + ", " + evaluationSeed);    
-
-    // console.log("iterations: " + iterations);
-    // console.log("time ellapsed: " + Math.abs(stopdate-startdate) + " ms");
-    newSpecimen.metadata = {
-        iterations: iterations,
-        milliseconsElapsed: Math.abs(stopdate - startdate),
-        genotypeLength: newDecodedGenotype.length,
-        testVector: testVector
-    };
-
-    // log for debugging
-    // genotypeLog["gen" + genCount++] = newSpecimen.decGen;
-    // createJSON(genotypeLog, 'genotipeLog.json');
-
-    if (validGenotype == false) maxAPI.post("VALID SPECIMEN NOT FOUND");
-
-    ///////// visualizations
-    //visualizeSpecimen(newSpecimen.encGen, "encGen");
-    //visualizeSpecimen(newSpecimen.encPhen, "encPhen");
-    /////////
-
-    return newSpecimen;
-
-    // return array with:
-    // first array with metadata: [date, iterations, time ellapsed]
-    // second array with encodedGenotype
-    // third array with pair [encodedPhenotype, decodedGenotype] 
-    var metadata = [version, parseInt(getFileDateName()), iterations, Math.abs(stopdate - startdate), newSpecimen[0].length];
-    var expandedExpression = expandExpr(newSpecimen[1]);
-    var outputData = [metadata, preEncGen, newSpecimen, expandedExpression, subexpressions, leaves, encodedLeaves, usedSeed, evaluationSeed];
-    // maxAPI.post("out: " + outputData);
-    // maxAPI.post("pair:" + outputData[2]);   
-    currentEncodedGenotype = preEncGen;
-    currentLeavesStructure = encodedLeaves;
-    return outputData;
-};
-
 function createGerminalSpecimen() {
     //norm. unidim. vector
-    var testVectorLength = 10;
-    var testVector = newNormalizedUnidimArray(testVectorLength);
-    var testVectorReadingPos = 0;
+    var germinalVectorLength = 6;
+    var germinalVector = newNormalizedUnidimArray(germinalVectorLength);
+    var germinalVectorReadingPos = 0;
     // germinal conditions
-    var germinalPhenMinLength = 100;
-    var germinalPhenMaxLength = 5000;
+    var germinalPhenMinLength = 1;
+    var germinalPhenMaxLength = 100;
     var germinalPhenMinPolyphony = 1;
-    var germinalPhenMaxPolyphony = 10;
+    var germinalPhenMaxPolyphony = 4;
     var maxGerminalDepth = 16;
+    var genotypeDepth;
+    var newFunctionThreshold = .6; // [0-1] Higher is less likely to ramificate too much. At the moment, not used. Perhaps for recursive mathematical expressions
     var startdate = new Date();
     var newSpecimen;
     // reinit seed
     var genotypeSeed = globalSeed;
-    // loads library of elegible functions
+    // loads library of eligible functions
     var functions_catalogue = JSON.parse(fs.readFileSync('eligible_functions_library.json'));
     var iterations = 0;
     var maxIterations = 100;
@@ -2711,14 +2044,14 @@ function createGerminalSpecimen() {
         // starts a new decoded genotype
         do {
             // creates new seed for genotype creation before new iteration if needed
-            if (iterations == 0) genotypeSeed = Math.floor(Math.random()*1e16);
-            seedrandom(genotypeSeed, { global: true });
+            if (iterations > 0) genotypeSeed = Math.floor(rand() * 1e16);
             iterations++;
             initSubexpressionsArrays();
             validGenotype = true;
             // newVector
-            testVector = newNormalizedUnidimArray(testVectorLength);
-            testVectorReadingPos = 0;
+            germinalVector = newNormalizedUnidimArray(germinalVectorLength);
+            germinalVectorReadingPos = 0;
+            genotypeDepth = 0;
             var preEncGen = []; // compulsory start with a function
             // stores number of levels to be filled
             var notFilledParameters = [];
@@ -2729,11 +2062,11 @@ function createGerminalSpecimen() {
             var nextFunctionType = "scoreF";
             var pos = -1; // active readed position in encodedGenotype
             var newDecodedGenotype = "";
-            var numElegibleFunctions;
+            var numEligibleFunctions;
             // adds a new token to the decoded genotype
             do {
-                preEncGen.push(checkRange(r6d(testVector[testVectorReadingPos % testVectorLength])));
-                testVectorReadingPos++;
+                preEncGen.push(checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
+                germinalVectorReadingPos++;
                 pos++;
                 // new ramification of genotype
                 if (nextFunctionType != "voidLeaf" &&
@@ -2757,10 +2090,10 @@ function createGerminalSpecimen() {
                     nextFunctionType != "lintensityLeaf" &&
                     nextFunctionType != "lgoldenintegerLeaf" &&
                     nextFunctionType != "lquantizedLeaf") {
-                    // choose among elegible functions
-                    numElegibleFunctions = Object.keys
+                    // choose among eligible functions
+                    numEligibleFunctions = Object.keys
                         (functions_catalogue.functionLibrary[nextFunctionType]).length;
-                    var valueForChoosingNewFunction = Math.floor(preEncGen[pos] * numElegibleFunctions) % numElegibleFunctions;
+                    var valueForChoosingNewFunction = Math.floor(preEncGen[pos] * numEligibleFunctions) % numEligibleFunctions;
                     chosenFunction = Object.keys
                         (functions_catalogue.functionLibrary[nextFunctionType])
                     [valueForChoosingNewFunction];
@@ -2774,15 +2107,15 @@ function createGerminalSpecimen() {
                     if (notFilledParameters.length > maxGerminalDepth) {
                         //maxAPI.post("limit exceeded");
                         validGenotype = false;
-                    }
+                    } else if (notFilledParameters.length > genotypeDepth) genotypeDepth = notFilledParameters.length;
                 }
                 // adds a leaf
                 else {
                     // changes value to 0 for make genotypes syntax independent from leaf newFunctionThreshold value (prescindible??)
                     preEncGen[pos] = 0;
                     // leaf converting uniform value from unidim. vector to normal distribution
-                    newLeaf = r6d(uniform2normal(testVector[testVectorReadingPos % testVectorLength]));
-                    testVectorReadingPos++;
+                    newLeaf = r6d(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
+                    germinalVectorReadingPos++;
                     preEncGen.push(newLeaf);
                     pos++;
                     // adds primitive function, leaves of functions tree
@@ -2812,56 +2145,56 @@ function createGerminalSpecimen() {
                         newDecodedGenotype += newLeaf;
                         var extendList = true;
                         while (extendList) {
-                            newLeaf = uniform2normal(testVector[testVectorReadingPos % testVectorLength]);
+                            newLeaf = uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength]);
                             preEncGen.push(newLeaf);
                             newDecodedGenotype += "," + newLeaf;
-                            testVectorReadingPos++;
+                            germinalVectorReadingPos++;
                             pos++;
-                            if (Math.random() < .2) extendList = false;
+                            if (rand() < .2) extendList = false;
                         }
                     } else if (nextFunctionType == "lnotevalueLeaf") {
                         newDecodedGenotype += p2n(newLeaf);
                         var extendList = true;
                         while (extendList) {
-                            newLeaf = r6d(p2n(uniform2normal(testVector[testVectorReadingPos % testVectorLength])));
+                            newLeaf = r6d(p2n(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
                             preEncGen.push(newLeaf);
                             newDecodedGenotype += "," + newLeaf;
-                            testVectorReadingPos++;
+                            germinalVectorReadingPos++;
                             pos++;
-                            if (Math.random() < .2) extendList = false;
+                            if (rand() < .2) extendList = false;
                         }
                     } else if (nextFunctionType == "lmidipitchLeaf") {
                         newDecodedGenotype += p2m(newLeaf);
                         var extendList = true;
                         while (extendList) {
-                            newLeaf = r6d(p2m(uniform2normal(testVector[testVectorReadingPos % testVectorLength])));
+                            newLeaf = r6d(p2m(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
                             preEncGen.push(newLeaf);
                             newDecodedGenotype += "," + newLeaf;
-                            testVectorReadingPos++;
+                            germinalVectorReadingPos++;
                             pos++;
-                            if (Math.random() < .2) extendList = false;
+                            if (rand() < .2) extendList = false;
                         }
                     } else if (nextFunctionType == "larticulationLeaf") {
                         newDecodedGenotype += p2a(newLeaf);
                         var extendList = true;
                         while (extendList) {
-                            newLeaf = r6d(p2a(uniform2normal(testVector[testVectorReadingPos % testVectorLength])));
+                            newLeaf = r6d(p2a(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
                             preEncGen.push(newLeaf);
                             newDecodedGenotype += "," + newLeaf;
-                            testVectorReadingPos++;
+                            germinalVectorReadingPos++;
                             pos++;
-                            if (Math.random() < .2) extendList = false;
+                            if (rand() < .2) extendList = false;
                         }
                     } else if (nextFunctionType == "lintensityLeaf") {
                         newDecodedGenotype += p2i(newLeaf);
                         var extendList = true;
                         while (extendList) {
-                            newLeaf = r6d(p2i(uniform2normal(testVector[testVectorReadingPos % testVectorLength])));
+                            newLeaf = r6d(p2i(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
                             preEncGen.push(newLeaf);
                             newDecodedGenotype += "," + newLeaf;
-                            testVectorReadingPos++;
+                            germinalVectorReadingPos++;
                             pos++;
-                            if (Math.random() < .2) extendList = false;
+                            if (rand() < .2) extendList = false;
                         }
                     } else if (chosenFunction == "pAutoRef" ||
                         chosenFunction == "lAutoRef" ||
@@ -2904,7 +2237,7 @@ function createGerminalSpecimen() {
                             notFilledParameters[notFilledParameters.length - 1]--;
                         } while (
                             notFilledParameters[notFilledParameters.length - 1] == 0 &&
-                            validGenotype == true )
+                            validGenotype == true)
                     }
                     if (notFilledParameters[0] > 0) newDecodedGenotype += ",";
                 }
@@ -2923,27 +2256,30 @@ function createGerminalSpecimen() {
                 newDecodedGenotype.length < decGenStringLengthLimit);
         } while (
             notFilledParameters[0] != -1 &&
-            validGenotype == true 
-            );
+            validGenotype == true
+        );
         // removes trailing commas
         newDecodedGenotype.substring(0, newDecodedGenotype.length - 1);
         // console.log("New gen: " + decodedGenotype);
         // currentGenotype = evaluatedGenotype;
-        // update seed according to last value of Math.random(), to keep the iterations repeatable
+        // update seed according to last value of rand(), to keep the iterations repeatable
         // track seed used for genotype creation    
-        genotypeSeed = Math.floor(Math.random()*1e16);
+        genotypeSeed = Math.floor(rand() * 1e16);
         // creates and saves new derived seed value only for evaluations (to be independent of seed for genotype creation)
-        evaluationSeed = Math.round(Math.random() * 1e14);
+        evaluationSeed = Math.round(rand() * 1e14);
         // seeding before genotype evaluation
         // rng = Math.random(); // PARCHE
-        rng = seedrandom(evaluationSeed); 
+        // rng = seedrandom(evaluationSeed);
         // evaluatedGenotype = evalAndReturnExpression(decodedGenotype);
-        genotypeLog["gen" + genCount++] = newDecodedGenotype;
-        createJSON(genotypeLog, 'genotipeLog.json');
+        
+        // saves all genotypes created as log file
+        // genotypeLog["gen" + genCount++] = newDecodedGenotype;
+        // createJSON(genotypeLog, 'genotypeLog.json');
+        
         if (validGenotype == true) {
             newSpecimen = eval(newDecodedGenotype);
         } else {
-            newSpecimen = eval("s(v(e(p(0),m(0),p(0),p(0))))");
+            newSpecimen = eval("s(v(e(p(0),p(0),p(0),p(0))))");
         }
         // currentSeed = Math.round(Math.random() * 1e14);
         // rng = Math.random(); // PARCHE
@@ -2956,23 +2292,45 @@ function createGerminalSpecimen() {
             || newSpecimen.phenVoices > germinalPhenMaxPolyphony
         )
         && iterations < maxIterations);
+
+    // log for debugging
+    // genotypeLog["gen" + genCount++] = newSpecimen.decGen;
+    // createJSON(genotypeLog, 'genotipeLog.json');
+    if (validGenotype == false) {
+        maxAPI.post("VALID SPECIMEN NOT FOUND");
+        newSpecimen = eval("s(v(e(p(0),p(0),p(0),p(0))))");
+        newSpecimen.data = {
+            specimenID: getFileDateName("not_found"),
+            iterations: iterations,
+            milliseconsElapsed: Math.abs(stopdate - startdate),
+            genotypeLength: newDecodedGenotype.length,
+            germinalVector: germinalVector,
+            genotypeSeed: genotypeSeed,
+            maxAllowedDepth: maxGerminalDepth,
+            depth: genotypeDepth,
+            leaves: extractLeaves(newSpecimen.encGen)
+        };
+        return newSpecimen;
+    }
+
     var stopdate = new Date();
     // maxAPI.post(encodedGenotype);
     // maxAPI.post("Phenotype: " + evaluatedGenotype[0]);    
     // maxAPI.post("iterations: " + iterations);
     // maxAPI.post("time ellapsed: " + Math.abs(stopdate - startdate) + " ms");
     // maxAPI.post("seeds: " + usedSeed + ", " + evaluationSeed);    
-    newSpecimen.metadata = {
+    newSpecimen.data = {
+        specimenID: getFileDateName("jlm"),
         iterations: iterations,
         milliseconsElapsed: Math.abs(stopdate - startdate),
         genotypeLength: newDecodedGenotype.length,
-        testVector: testVector,
-        genotypeSeed: genotypeSeed
+        germinalVector: germinalVector,
+        genotypeSeed: genotypeSeed,
+        maxAllowedDepth: maxGerminalDepth,
+        depth: genotypeDepth,
+        leaves: extractLeaves(newSpecimen.encGen)
     };
-    // log for debugging
-    // genotypeLog["gen" + genCount++] = newSpecimen.decGen;
-    // createJSON(genotypeLog, 'genotipeLog.json');
-    if (validGenotype == false) maxAPI.post("VALID SPECIMEN NOT FOUND");
+
     ///////// visualizations
     //visualizeSpecimen(newSpecimen.encGen, "encGen");
     //visualizeSpecimen(newSpecimen.encPhen, "encPhen");
@@ -3022,17 +2380,57 @@ maxAPI.addHandler('depth', (integ) => {
     genMaxDepth = integ;
     maxAPI.post("deepest ramification level: " + genMaxDepth);
 });
+
 maxAPI.addHandler('seed', (integ) => {
-    globalSeed = integ.toString();
+    createNewSeed(integ);
     maxAPI.post("new global seed: " + integ.toString());
+});
+
+
+// functions to create an unique filaname depending on date
+function addZero(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
+
+function addDoubleZero(i) {
+    if (i < 10) {
+        i = "00" + i;
+    }
+    else if (i < 100) {
+        i = "0" + i;
+    }
+    return i;
+}
+
+function getFileDateName(optionalName) {
+    if (optionalName == undefined || optionalName == "") {
+        optionalName = "";
+    }
+    else {
+        optionalName = "_" + optionalName;
+    }
+    var cDate = new Date();
+    var fileDateName = "" + cDate.getFullYear()
+        + addZero(cDate.getMonth() + 1)
+        + addZero(cDate.getDate())
+        + addZero(cDate.getHours())
+        + addZero(cDate.getMinutes())
+        + addZero(cDate.getSeconds())
+        + optionalName;
+    return fileDateName;
+}
+
+// save JSON genotype (To be done)
+maxAPI.addHandler("saveGen", (...args) => {
+    var currentFileInfo = fs.readFileSync('nuevoGenotipo.json');
+    fs.writeFileSync('savedGens/' + getFileDateName(args[0]) + '.json', currentFileInfo);
 });
 
 // creates a new specimen from scratch and send the dict data to Max
 maxAPI.addHandlers({
-    newSpecimen: async () => {
-        const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(createSpecimen()));
-        await maxAPI.outlet(dict);
-    },
     newGerminalSpecimen: async () => {
         const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(createGerminalSpecimen()));
         await maxAPI.outlet(dict);
@@ -3044,9 +2442,11 @@ maxAPI.addHandlers({
             receivedText += args[i];
         }
         var newSpecimen = evalDecGen(receivedText);
-        newSpecimen.metadata = {
+        newSpecimen.data = {
+            specimenID: getFileDateName("jlm"),
             iterations: 0,
-            milliseconsElapsed: 0
+            milliseconsElapsed: 0,
+            leaves: extractLeaves(newSpecimen.encGen)
         };
         const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(newSpecimen));
         // visualizeSpecimen(newSpecimen.encGen, "encGen");
