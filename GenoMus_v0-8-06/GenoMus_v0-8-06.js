@@ -2425,18 +2425,12 @@ maxAPI.addHandler("saveSpecimen", (title) => {
 
 // load JSON specimen
 maxAPI.addHandler("loadSpecimen", (savedSpecimen) => {
-    currentSpecimen = JSON.parse(fs.readFileSync('specimens/' + savedSpecimen + '.json'));
+    currentSpecimen = JSON.parse(fs.readFileSync('specimens/' + savedSpecimen));
     genotypeSeed = currentSpecimen.initialConditions.genotypeSeed;
     phenotypeSeed = currentSpecimen.initialConditions.phenotypeSeed;
-    maxAPI.post("genotypeSeed = " + genotypeSeed);
-    maxAPI.post("phenotypeSeed = " + phenotypeSeed);
+    //maxAPI.post("genotypeSeed = " + genotypeSeed);
+    //maxAPI.post("phenotypeSeed = " + phenotypeSeed);
     maxAPI.outlet(maxAPI.setDict("specimen.dict", currentSpecimen));
-    //maxAPI.outlet(dict);
-    
-    //maxAPI.setDict("specimen.dict", currentSpecimen);
-    
-    //currentSpecimen.data.specimenID = currentSpecimen.data.specimenID +  '_' + title;
-    //createJSON(specimenDataStructure(currentSpecimen), 'specimens/' + currentSpecimen.data.specimenID + '.json');
 });
 
 // creates a new specimen from scratch and send the dict data to Max
