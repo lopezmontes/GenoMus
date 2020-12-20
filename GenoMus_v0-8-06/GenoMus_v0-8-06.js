@@ -10,18 +10,14 @@ const fs = require('fs');
 // connection with Max interface
 const maxAPI = require('max-api');
 
-// TO REMOVE
-// random generators with different distributions based on seedrandom
-/* const random = require('random');
-const seedrandom = require('seedrandom'); */
-
 
 /////////////////////
 // INITIAL CONDITIONS
 var version = "0.8.6";
 var validGenotype = true;
 var decGenStringLengthLimit = 70000000;
-var globalSeed = 1234; // to remove
+var globalSeed;
+var phenotypeSeed = Math.round(Math.random() * 1e14); // seed only for computing phenotype
 var genMaxDepth = 18;
 var phenMinPolyphony = 1;
 var phenMaxPolyphony = 20;
@@ -31,6 +27,7 @@ var leaves = []; // stores all numeric parameters
 // stores the last used genotype and its leaves, to mutate it
 var currentEncodedGenotype;
 var currentLeavesStructure;
+var currentSpecimen;
 var genotypeLog = {};
 var genCount = 0;
 
@@ -261,13 +258,14 @@ function mulberry32(a) {
 
 // Output one 32-bit hash to provide the seed for mulberry32.
 var initSeed = (parseInt(Math.random() * 1e16)).toString();
+
 var seed = xmur3(initSeed);
 // Create rand() function
 var rand = mulberry32(seed());
 
 // Reinit seed
-function createNewSeed(number) {
-    seed = xmur3(number.toString());
+function createNewSeed(integer) {
+    seed = xmur3(integer.toString());
     rand = mulberry32(seed());
 }
 
@@ -1938,7 +1936,8 @@ var specimenDataStructure = (specimen) => ({
         eligibleFunctions: eligibleFunctionsLibrary.eligibleFunctions,
         maxAllowedDepth: specimen.data.maxAllowedDepth,
         germinalVector: specimen.data.germinalVector,
-        genotypeSeed: specimen.data.genotypeSeed
+        genotypeSeed: specimen.data.genotypeSeed,
+        phenotypeSeed: specimen.data.phenotypeSeed
     },
     encodedGenotype: specimen.encGen,
     decodedGenotype: specimen.decGen,
@@ -2017,37 +2016,37 @@ var newNormalizedUnidimArray = (n) => {
 };
 
 function createGerminalSpecimen() {
-    //norm. unidim. vector
-    var germinalVectorLength = 6;
-    var germinalVector = newNormalizedUnidimArray(germinalVectorLength);
-    var germinalVectorReadingPos = 0;
-    // germinal conditions
-    var germinalPhenMinLength = 1;
-    var germinalPhenMaxLength = 10000;
-    var germinalPhenMinPolyphony = 1;
-    var germinalPhenMaxPolyphony = 4;
-    var maxGerminalDepth = 16;
-    var genotypeDepth;
-    var newFunctionThreshold = .6; // [0-1] Higher is less likely to ramificate too much. At the moment, not used. Perhaps for recursive mathematical expressions
-    var startdate = new Date();
+    // main variable
     var newSpecimen;
-    // reinit seed
-    var genotypeSeed = globalSeed;
     // loads library of eligible functions
     var functions_catalogue = JSON.parse(fs.readFileSync('eligible_functions_library.json'));
+    // germinal constraints
+    var germinalPhenMinLength = 60;
+    var germinalPhenMaxLength = 3000;
+    var germinalPhenMinPolyphony = 1;
+    var germinalPhenMaxPolyphony = 9;
+    var maxGerminalDepth = 16;
+    var newFunctionThreshold = .6; // [0-1] Higher is less likely to ramificate too much. At the moment, not used. Perhaps for recursive mathematical expressions
+    // aux variables
+    var germinalVectorLength;
+    var germinalVector;
+    var germinalVectorReadingPos;    var genotypeDepth;
+    var startdate = new Date();
     var iterations = 0;
     var maxIterations = 1000;
     var newLeaf;
-    // searches a random genotype which satisfied the requirements
+    // searches a specimen
     do {
         // starts a new decoded genotype
         do {
             // creates new seed for genotype creation before new iteration if needed
-            if (iterations > 0) genotypeSeed = Math.floor(rand() * 1e16);
+            if (iterations > 0) globalSeed = (parseInt(Math.random() * 1e16)).toString();
+            createNewSeed(globalSeed);
             iterations++;
             initSubexpressionsArrays();
             validGenotype = true;
-            // newVector
+            // creates new germinal vector
+            germinalVectorLength = Math.ceil(rand()*100);
             germinalVector = newNormalizedUnidimArray(germinalVectorLength);
             germinalVectorReadingPos = 0;
             genotypeDepth = 0;
@@ -2094,8 +2093,7 @@ function createGerminalSpecimen() {
                         (functions_catalogue.functionLibrary[nextFunctionType]).length;
                     var valueForChoosingNewFunction = Math.floor(preEncGen[pos] * numEligibleFunctions) % numEligibleFunctions;
                     chosenFunction = Object.keys
-                        (functions_catalogue.functionLibrary[nextFunctionType])
-                    [valueForChoosingNewFunction];
+                        (functions_catalogue.functionLibrary[nextFunctionType])[valueForChoosingNewFunction];
                     openFunctionTypes[openFunctionTypes.length] = nextFunctionType;
                     // writes the new function
                     newDecodedGenotype += chosenFunction + "(";
@@ -2218,13 +2216,8 @@ function createGerminalSpecimen() {
                     else {
                         newDecodedGenotype += preEncGen[pos];
                     }
-                    // TODO: indexing leaves;
-                    // if (chosenFunction == "p") {
-                    //    encodedLeaves.push([pos, preEncGen[pos]]);
-                    //}
                     notFilledParameters[notFilledParameters.length - 1]--;
-                    // controls ramifications tree
-                    // if number of parameters of this level if filled, deletes this count level and add ")"
+                    // if number of parameters of this depth level if filled, deletes this count level and adds ")", and "," if needed
                     if (notFilledParameters[notFilledParameters.length - 1] == 0) {
                         do {
                             if (notFilledParameters.length > 1) {
@@ -2240,7 +2233,6 @@ function createGerminalSpecimen() {
                     }
                     if (notFilledParameters[0] > 0) newDecodedGenotype += ",";
                 }
-                // console.log(newDecodedGenotype);
                 nextFunctionType = functions_catalogue.functionLibrary
                 [openFunctionTypes[openFunctionTypes.length - 1]]
                 [expectedFunctions[expectedFunctions.length - 1]]
@@ -2259,13 +2251,11 @@ function createGerminalSpecimen() {
         );
         // removes trailing commas
         newDecodedGenotype.substring(0, newDecodedGenotype.length - 1);
-        // console.log("New gen: " + decodedGenotype);
         // currentGenotype = evaluatedGenotype;
-        // update seed according to last value of rand(), to keep the iterations repeatable
-        // track seed used for genotype creation    
-        genotypeSeed = Math.floor(rand() * 1e16);
-        // creates and saves new derived seed value only for evaluations (to be independent of seed for genotype creation)
-        evaluationSeed = Math.round(rand() * 1e14);
+        //phenotypeSeed = Math.round(rand() * 1e14);
+        createNewSeed(phenotypeSeed);
+        //maxAPI.post("newrand: " + rand());
+
         // seeding before genotype evaluation
         // rng = Math.random(); // PARCHE
         // rng = seedrandom(evaluationSeed);
@@ -2304,7 +2294,8 @@ function createGerminalSpecimen() {
             milliseconsElapsed: Math.abs(stopdate - startdate),
             genotypeLength: newDecodedGenotype.length,
             germinalVector: germinalVector,
-            genotypeSeed: genotypeSeed,
+            genotypeSeed: globalSeed,
+            phenotypeSeed: phenotypeSeed,            
             maxAllowedDepth: maxGerminalDepth,
             depth: genotypeDepth,
             leaves: extractLeaves(newSpecimen.encGen)
@@ -2313,18 +2304,20 @@ function createGerminalSpecimen() {
     }
 
     var stopdate = new Date();
+    var specimenName = getFileDateName("jlm");
     // maxAPI.post(encodedGenotype);
     // maxAPI.post("Phenotype: " + evaluatedGenotype[0]);    
     // maxAPI.post("iterations: " + iterations);
     // maxAPI.post("time ellapsed: " + Math.abs(stopdate - startdate) + " ms");
     // maxAPI.post("seeds: " + usedSeed + ", " + evaluationSeed);    
     newSpecimen.data = {
-        specimenID: getFileDateName("jlm"),
+        specimenID: specimenName,
         iterations: iterations,
         milliseconsElapsed: Math.abs(stopdate - startdate),
         genotypeLength: newDecodedGenotype.length,
         germinalVector: germinalVector,
-        genotypeSeed: genotypeSeed,
+        genotypeSeed: globalSeed,
+        phenotypeSeed: phenotypeSeed,
         maxAllowedDepth: maxGerminalDepth,
         depth: genotypeDepth,
         leaves: extractLeaves(newSpecimen.encGen)
@@ -2334,6 +2327,7 @@ function createGerminalSpecimen() {
     //visualizeSpecimen(newSpecimen.encGen, "encGen");
     //visualizeSpecimen(newSpecimen.encPhen, "encPhen");
     /////////
+    currentSpecimen = newSpecimen;
     return newSpecimen;
     // return array with:
     // first array with metadata: [date, iterations, time ellapsed]
@@ -2348,10 +2342,6 @@ function createGerminalSpecimen() {
     currentLeavesStructure = encodedLeaves;
     return outputData;
 };
-
-// MAX COMMUNICATION
-
-
 
 // MAX COMMUNICATION
 
@@ -2381,10 +2371,14 @@ maxAPI.addHandler('depth', (integ) => {
 });
 
 maxAPI.addHandler('seed', (integ) => {
-    createNewSeed(integ);
-    maxAPI.post("new global seed: " + integ.toString());
+    globalSeed = integ;
+    maxAPI.post("new global seed: " + integ);
 });
 
+maxAPI.addHandler('phenoseed', (integ) => {
+    phenotypeSeed = integ;
+    maxAPI.post("new phenotype seed: " + integ);
+});
 
 // functions to create an unique filaname depending on date
 function addZero(i) {
@@ -2423,10 +2417,26 @@ function getFileDateName(optionalName) {
     return fileDateName;
 }
 
-// save JSON genotype (To be done)
-maxAPI.addHandler("saveGen", (...args) => {
-    var currentFileInfo = fs.readFileSync('nuevoGenotipo.json');
-    fs.writeFileSync('savedGens/' + getFileDateName(args[0]) + '.json', currentFileInfo);
+// save JSON specimen
+maxAPI.addHandler("saveSpecimen", (title) => {
+    currentSpecimen.data.specimenID = currentSpecimen.data.specimenID +  '_' + title;
+    createJSON(specimenDataStructure(currentSpecimen), 'specimens/' + currentSpecimen.data.specimenID + '.json');
+});
+
+// load JSON specimen
+maxAPI.addHandler("loadSpecimen", (savedSpecimen) => {
+    currentSpecimen = JSON.parse(fs.readFileSync('specimens/' + savedSpecimen + '.json'));
+    genotypeSeed = currentSpecimen.initialConditions.genotypeSeed;
+    phenotypeSeed = currentSpecimen.initialConditions.phenotypeSeed;
+    maxAPI.post("genotypeSeed = " + genotypeSeed);
+    maxAPI.post("phenotypeSeed = " + phenotypeSeed);
+    maxAPI.outlet(maxAPI.setDict("specimen.dict", currentSpecimen));
+    //maxAPI.outlet(dict);
+    
+    //maxAPI.setDict("specimen.dict", currentSpecimen);
+    
+    //currentSpecimen.data.specimenID = currentSpecimen.data.specimenID +  '_' + title;
+    //createJSON(specimenDataStructure(currentSpecimen), 'specimens/' + currentSpecimen.data.specimenID + '.json');
 });
 
 // creates a new specimen from scratch and send the dict data to Max
@@ -2441,11 +2451,19 @@ maxAPI.addHandlers({
         for (var i = 0; i < args.length; i++) {
             receivedText += args[i];
         }
+        createNewSeed(phenotypeSeed);
+        //maxAPI.post("newrand: " + rand());
         var newSpecimen = evalDecGen(receivedText);
         newSpecimen.data = {
             specimenID: getFileDateName("jlm"),
             iterations: 0,
             milliseconsElapsed: 0,
+            genotypeLength: newSpecimen.length,
+            germinalVector: "none",
+            genotypeSeed: globalSeed,
+            phenotypeSeed: phenotypeSeed,
+            maxAllowedDepth: "undefined",
+            depth: "to be calculated",
             leaves: extractLeaves(newSpecimen.encGen)
         };
         const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(newSpecimen));
