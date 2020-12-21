@@ -20,17 +20,16 @@ var globalSeed;
 var phenotypeSeed = Math.round(Math.random() * 1e14); // seed only for computing phenotype
 var genMaxDepth = 18;
 var phenMinPolyphony = 1;
-var phenMaxPolyphony = 20;
+var phenMaxPolyphony = 5;
 var phenMinLength = 5;
 var phenMaxLength = 2000;
-var leaves = []; // stores all numeric parameters
-// stores the last used genotype and its leaves, to mutate it
-var currentEncodedGenotype;
-var currentLeavesStructure;
+var maxIterations = 1000;
+
+// stores the last specimen used
 var currentSpecimen;
+var leaves = []; // stores all numeric parameters
 var genotypeLog = {};
 var genCount = 0;
-
 
 // global variable to store subexpressions
 var subexpressions = [];
@@ -76,7 +75,6 @@ var checkRange = x => {
         return x;
     }
 };
-
 
 var norm2notevalue = p => r6d(Math.pow(2, 10 * p - 8));
 var p2n = norm2notevalue;
@@ -137,8 +135,44 @@ var quantizedLookupTable = [0, 0.0005, 0.001, 0.003, 0.006, 0.008, 0.01, 0.015, 
 
 // AUX FUNCTIONS
 
+// functions to create unique filenames for specimens
+var addZero = (i) => {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
+var addDoubleZero = (i) => {
+    if (i < 10) {
+        i = "00" + i;
+    }
+    else if (i < 100) {
+        i = "0" + i;
+    }
+    return i;
+}
+var getFileDateName = (optionalName) => {
+    if (optionalName == undefined || optionalName == "") {
+        optionalName = "";
+    }
+    else {
+        optionalName = "_" + optionalName;
+    }
+    var cDate = new Date();
+    var fileDateName = "" + cDate.getFullYear()
+        + addZero(cDate.getMonth() + 1)
+        + addZero(cDate.getDate())
+        + addZero(cDate.getHours())
+        + addZero(cDate.getMinutes())
+        + addZero(cDate.getSeconds())
+        + addDoubleZero(cDate.getMilliseconds())
+        + optionalName;
+    return fileDateName;
+}
+
 // greates common divisor, taken and adapted from https://gist.github.com/redteam-snippets/3934258. 
 // Still to refine to avoid too weird numbers
+// functions to create an unique filaname depending on date
 var gcd = (a, b) => (b) ? gcd(b, a % b) : a;
 
 var decimal2fraction = function (_decimal) {
@@ -297,17 +331,6 @@ var logisticRandomVariableR = (r, x, numItems) => {
     return rndVector;
 }
 
-// TO BE REMOVED
-// normal returns a normal distribution random seed with params (mu=1 and sigma=0) within interval [0, 1] and rounded to 6 decimals
-/* const normal = random.normal(mu = 0.5, sigma = 0.15);
-const gaussRnd = () => {
-    var rndVal;
-    do {
-        rndVal = normal();
-    } while (rndVal < 0 || rndVal > 1)
-    return r6d(rndVal);
-}; */
-
 // test normal distribution generator
 var testRndValues = () => {
     var mini = 0.5;
@@ -444,7 +467,6 @@ var indexExprReturnSpecimen = s => {
     return s;
 };
 
-
 ////// GENOTYPE FUNCTIONS
 
 // parameter identity function
@@ -454,14 +476,6 @@ var p = x => indexExprReturnSpecimen({
     decGen: "p(" + x + ")",
     encPhen: [x]
 });
-
-/* // returns a random normalized parameter with normal distribution
-var pRnd = () => indexExprReturnSpecimen({
-    funcType: "paramF",
-    encGen: [1, 0.962453, 0],
-    decGen: "pRnd()",
-    encPhen: [gaussRnd()]
-}); */
 
 // returns a random normalized notevalue with normal distribution
 var rndFramework = (fName, fTyp, fIndex) => indexExprReturnSpecimen({
@@ -495,7 +509,6 @@ var n = x => indexExprReturnSpecimen({
     decGen: "n(" + x + ")",
     encPhen: [notevalue2norm(x)]
 });
-
 
 // midipitch identity function
 var m = x => indexExprReturnSpecimen({
@@ -1518,6 +1531,33 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
     return eligibleFuncLib;
 };
 
+// generates the catalogues of function indexes
+var GenoMusFunctionLibraryPiano = createFunctionIndexesCatalogues('piano_functions.json');
+// exports the catalogues of function indexes, ordered by function name, encoded indexes and integer indexes
+createJSON(GenoMusFunctionLibraryPiano, 'GenoMus_function_library_piano.json');
+
+// eligible functions (all functions available)
+var eligibleFunctions = {
+    includedFunctions: [],
+    mandatoryFunctions: [],
+    excludedFunctions: [132] // 1, 9, 27, 10, 26, 17, 15, 7, 5, 25, 12, 29, 28, 131, 132, 40, 36, 35
+};
+
+var testingFunctions = {
+    includedFunctions: [0, 1, 2, 3, 4, 5, 7, 9, 10, 12, 17, 25, 26, 27, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 58, 63, 65,
+        66, 67, 68, 76, 98, 99, 100, 104, 109, 110, 131, 134, 135, 199, 200, 277, 279, 281, 282, 284, 15, 286, 17, 288,
+        19, 290, 20, 291, 48, 77, 294, 296, 298, 299, 11, 84, 302, 304, 306, 307,
+        310, 312, 314, 315, 316, 317, 201, 202, 318],
+    mandatoryFunctions: [],
+    excludedFunctions: [281, 282] // 25,26,27,28,29,277,279,281,282,284] // [1, 9, 27, 10, 26, 17, 15, 7, 5, 25, 12, 29, 28, 131, 132, 40, 36, 35]
+};
+
+// generates the catalogues of eligible functions to be used for genotype generation
+var eligibleFunctionsLibrary = createEligibleFunctionLibrary(GenoMusFunctionLibraryPiano, eligibleFunctions);
+// exports the catalogues of eligible function indexes, ordered by function name, encoded indexes and integer indexes, and containing the initial conditions of the subset
+createJSON(eligibleFunctionsLibrary, 'eligible_functions_library.json');
+
+
 ////////// ENCODING, DECODING AND EVALUATING GENOTYPES
 
 // Genotypes encoder
@@ -1651,7 +1691,7 @@ var decodeGenotype = encGen => {
     return decodedGenotype.replace(/\,\)/g, ")").replace(/\,\]/g, "]").slice(0, -1);
 };
 
-// Extract leaves CHEQUEAR CONVERSIONES HAY ERRORES
+// Extraction of leaves
 var extractLeaves = encGen => {
     var encGenLength = encGen.length;
     var pos = 0;
@@ -1746,14 +1786,6 @@ var visualizeSpecimen = (normArray, filename) => {
     fs.writeFileSync(filename + '.svg', SVGcode);
 };
 
-
-
-
-
-
-
-
-
 // EXPRESSIONS PROCESSING
 
 // compress an expanded expression
@@ -1846,7 +1878,6 @@ var expandExpr = compressedFormExpr => {
 };
 
 
-
 ////////////////////
 // PHENOTYPE DECODER
 
@@ -1920,10 +1951,10 @@ var encPhen2bachRoll = encPhen => {
 // encPhen2bachRoll(evalDecGen("s(v(e(p(0.5),p(.5),p(.5),p(.5))))").encPhen);
 
 // WRITE SPECIMEN JSON FILES
-
 var specimenDataStructure = (specimen) => ({
     metadata: {
         specimenID: specimen.data.specimenID,
+        GenoMusVersion: version,
         iterations: specimen.data.iterations,
         milliseconsElapsed: specimen.data.milliseconsElapsed,
         voices: specimen.phenVoices,
@@ -1974,34 +2005,6 @@ var specimenDataStructure = (specimen) => ({
 
 
 
-// generates the catalogues of function indexes
-var GenoMusFunctionLibraryPiano = createFunctionIndexesCatalogues('piano_functions.json');
-// exports the catalogues of function indexes, ordered by function name, encoded indexes and integer indexes
-createJSON(GenoMusFunctionLibraryPiano, 'GenoMus_function_library_piano.json');
-
-// eligible functions (all functions available)
-var eligibleFunctions = {
-    includedFunctions: [],
-    mandatoryFunctions: [],
-    excludedFunctions: [132] // 1, 9, 27, 10, 26, 17, 15, 7, 5, 25, 12, 29, 28, 131, 132, 40, 36, 35
-};
-
-var testingFunctions = {
-    includedFunctions: [0, 1, 2, 3, 4, 5, 7, 9, 10, 12, 17, 25, 26, 27, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 58, 63, 65,
-        66, 67, 68, 76, 98, 99, 100, 104, 109, 110, 131, 134, 135, 199, 200, 277, 279, 281, 282, 284, 15, 286, 17, 288,
-        19, 290, 20, 291, 48, 77, 294, 296, 298, 299, 11, 84, 302, 304, 306, 307,
-        310, 312, 314, 315, 316, 317, 201, 202, 318],
-    mandatoryFunctions: [],
-    excludedFunctions: [281, 282] // 25,26,27,28,29,277,279,281,282,284] // [1, 9, 27, 10, 26, 17, 15, 7, 5, 25, 12, 29, 28, 131, 132, 40, 36, 35]
-};
-
-// generates the catalogues of eligible functions to be used for genotype generation
-var eligibleFunctionsLibrary = createEligibleFunctionLibrary(GenoMusFunctionLibraryPiano, eligibleFunctions);
-// exports the catalogues of eligible function indexes, ordered by function name, encoded indexes and integer indexes, and containing the initial conditions of the subset
-createJSON(eligibleFunctionsLibrary, 'eligible_functions_library.json');
-
-
-
 ///////////////
 // CORE FUNCTIONS FOR SPECIMEN CREATION AND EVOLUTION
 
@@ -2020,20 +2023,15 @@ function createGerminalSpecimen() {
     var newSpecimen;
     // loads library of eligible functions
     var functions_catalogue = JSON.parse(fs.readFileSync('eligible_functions_library.json'));
-    // germinal constraints
-    var germinalPhenMinLength = 60;
-    var germinalPhenMaxLength = 3000;
-    var germinalPhenMinPolyphony = 1;
-    var germinalPhenMaxPolyphony = 9;
-    var maxGerminalDepth = 16;
-    var newFunctionThreshold = .6; // [0-1] Higher is less likely to ramificate too much. At the moment, not used. Perhaps for recursive mathematical expressions
+
+    // var newFunctionThreshold = .6; // [0-1] Higher is less likely to ramificate too much. At the moment, not used. Perhaps for recursive mathematical expressions
     // aux variables
     var germinalVectorLength;
     var germinalVector;
-    var germinalVectorReadingPos;    var genotypeDepth;
+    var germinalVectorReadingPos;    
+    var genotypeDepth;
     var startdate = new Date();
     var iterations = 0;
-    var maxIterations = 1000;
     var newLeaf;
     // searches a specimen
     do {
@@ -2101,7 +2099,7 @@ function createGerminalSpecimen() {
                     notFilledParameters[notFilledParameters.length] = Object.keys
                         (functions_catalogue.functionLibrary[nextFunctionType][chosenFunction].arguments).length;
                     expectedFunctions[notFilledParameters.length - 1] = chosenFunction;
-                    if (notFilledParameters.length > maxGerminalDepth) {
+                    if (notFilledParameters.length > genMaxDepth) {
                         //maxAPI.post("limit exceeded");
                         validGenotype = false;
                     } else if (notFilledParameters.length > genotypeDepth) genotypeDepth = notFilledParameters.length;
@@ -2251,15 +2249,8 @@ function createGerminalSpecimen() {
         );
         // removes trailing commas
         newDecodedGenotype.substring(0, newDecodedGenotype.length - 1);
-        // currentGenotype = evaluatedGenotype;
-        //phenotypeSeed = Math.round(rand() * 1e14);
+        // phenotype seed only for evaluation of random functions
         createNewSeed(phenotypeSeed);
-        //maxAPI.post("newrand: " + rand());
-
-        // seeding before genotype evaluation
-        // rng = Math.random(); // PARCHE
-        // rng = seedrandom(evaluationSeed);
-        // evaluatedGenotype = evalAndReturnExpression(decodedGenotype);
         
         // saves all genotypes created as log file
         // genotypeLog["gen" + genCount++] = newDecodedGenotype;
@@ -2270,19 +2261,16 @@ function createGerminalSpecimen() {
         } else {
             newSpecimen = eval("s(v(e(p(0),p(0),p(0),p(0))))");
         }
-        // currentSeed = Math.round(Math.random() * 1e14);
-        // rng = Math.random(); // PARCHE
     } while (
         // test if preconditions are fullfilled
         (
-            newSpecimen.phenLength < germinalPhenMinLength
-            || newSpecimen.phenLength > germinalPhenMaxLength
-            || newSpecimen.phenVoices < germinalPhenMinPolyphony
-            || newSpecimen.phenVoices > germinalPhenMaxPolyphony
+            newSpecimen.phenLength < phenMinLength
+            || newSpecimen.phenLength > phenMaxLength
+            || newSpecimen.phenVoices < phenMinPolyphony
+            || newSpecimen.phenVoices > phenMaxPolyphony
         )
         && iterations < maxIterations);
 
-    // log for debugging
     // genotypeLog["gen" + genCount++] = newSpecimen.decGen;
     // createJSON(genotypeLog, 'genotipeLog.json');
     if (validGenotype == false) {
@@ -2296,7 +2284,7 @@ function createGerminalSpecimen() {
             germinalVector: germinalVector,
             genotypeSeed: globalSeed,
             phenotypeSeed: phenotypeSeed,            
-            maxAllowedDepth: maxGerminalDepth,
+            maxAllowedDepth: genMaxDepth,
             depth: genotypeDepth,
             leaves: extractLeaves(newSpecimen.encGen)
         };
@@ -2304,12 +2292,7 @@ function createGerminalSpecimen() {
     }
 
     var stopdate = new Date();
-    var specimenName = getFileDateName("jlm");
-    // maxAPI.post(encodedGenotype);
-    // maxAPI.post("Phenotype: " + evaluatedGenotype[0]);    
-    // maxAPI.post("iterations: " + iterations);
-    // maxAPI.post("time ellapsed: " + Math.abs(stopdate - startdate) + " ms");
-    // maxAPI.post("seeds: " + usedSeed + ", " + evaluationSeed);    
+    var specimenName = getFileDateName("jlm");   
     newSpecimen.data = {
         specimenID: specimenName,
         iterations: iterations,
@@ -2318,7 +2301,7 @@ function createGerminalSpecimen() {
         germinalVector: germinalVector,
         genotypeSeed: globalSeed,
         phenotypeSeed: phenotypeSeed,
-        maxAllowedDepth: maxGerminalDepth,
+        maxAllowedDepth: genMaxDepth,
         depth: genotypeDepth,
         leaves: extractLeaves(newSpecimen.encGen)
     };
@@ -2329,18 +2312,6 @@ function createGerminalSpecimen() {
     /////////
     currentSpecimen = newSpecimen;
     return newSpecimen;
-    // return array with:
-    // first array with metadata: [date, iterations, time ellapsed]
-    // second array with encodedGenotype
-    // third array with pair [encodedPhenotype, decodedGenotype] 
-    var metadata = [version, parseInt(getFileDateName()), iterations, Math.abs(stopdate - startdate), newSpecimen[0].length];
-    var expandedExpression = expandExpr(newSpecimen[1]);
-    var outputData = [metadata, preEncGen, newSpecimen, expandedExpression, subexpressions, leaves, encodedLeaves, genotypeSeed, evaluationSeed];
-    // maxAPI.post("out: " + outputData);
-    // maxAPI.post("pair:" + outputData[2]);   
-    currentEncodedGenotype = preEncGen;
-    currentLeavesStructure = encodedLeaves;
-    return outputData;
 };
 
 // MAX COMMUNICATION
@@ -2357,12 +2328,12 @@ maxAPI.addHandler('maxVoices', (integ) => {
 
 maxAPI.addHandler('minLength', (integ) => {
     phenMinLength = integ;
-    maxAPI.post("Phenotype minimal length: " + phenMinLength);
+    maxAPI.post("Phenotype minimal number of events: " + phenMinLength);
 });
 
 maxAPI.addHandler('maxLength', (integ) => {
     phenMaxLength = integ;
-    maxAPI.post("Phenotype maximal length: " + phenMaxLength);
+    maxAPI.post("Phenotype maximal number of events: " + phenMaxLength);
 });
 
 maxAPI.addHandler('depth', (integ) => {
@@ -2372,50 +2343,13 @@ maxAPI.addHandler('depth', (integ) => {
 
 maxAPI.addHandler('seed', (integ) => {
     globalSeed = integ;
-    // maxAPI.post("new global seed: " + integ);
+    //maxAPI.post("new global seed: " + integ);
 });
 
 maxAPI.addHandler('phenoseed', (integ) => {
     phenotypeSeed = integ;
     // maxAPI.post("new phenotype seed: " + integ);
 });
-
-// functions to create an unique filaname depending on date
-function addZero(i) {
-    if (i < 10) {
-        i = "0" + i;
-    }
-    return i;
-}
-
-function addDoubleZero(i) {
-    if (i < 10) {
-        i = "00" + i;
-    }
-    else if (i < 100) {
-        i = "0" + i;
-    }
-    return i;
-}
-
-function getFileDateName(optionalName) {
-    if (optionalName == undefined || optionalName == "") {
-        optionalName = "";
-    }
-    else {
-        optionalName = "_" + optionalName;
-    }
-    var cDate = new Date();
-    var fileDateName = "" + cDate.getFullYear()
-        + addZero(cDate.getMonth() + 1)
-        + addZero(cDate.getDate())
-        + addZero(cDate.getHours())
-        + addZero(cDate.getMinutes())
-        + addZero(cDate.getSeconds())
-        + addDoubleZero(cDate.getMilliseconds())
-        + optionalName;
-    return fileDateName;
-}
 
 // save JSON specimen
 maxAPI.addHandler("saveSpecimen", (title) => {
