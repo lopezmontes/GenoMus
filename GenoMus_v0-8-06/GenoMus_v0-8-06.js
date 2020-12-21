@@ -2372,12 +2372,12 @@ maxAPI.addHandler('depth', (integ) => {
 
 maxAPI.addHandler('seed', (integ) => {
     globalSeed = integ;
-    maxAPI.post("new global seed: " + integ);
+    // maxAPI.post("new global seed: " + integ);
 });
 
 maxAPI.addHandler('phenoseed', (integ) => {
     phenotypeSeed = integ;
-    maxAPI.post("new phenotype seed: " + integ);
+    // maxAPI.post("new phenotype seed: " + integ);
 });
 
 // functions to create an unique filaname depending on date
@@ -2447,20 +2447,20 @@ maxAPI.addHandlers({
         }
         createNewSeed(phenotypeSeed);
         //maxAPI.post("newrand: " + rand());
-        var newSpecimen = evalDecGen(receivedText);
-        newSpecimen.data = {
+        currentSpecimen = evalDecGen(receivedText);
+        currentSpecimen.data = {
             specimenID: getFileDateName("jlm"),
             iterations: 0,
             milliseconsElapsed: 0,
-            genotypeLength: newSpecimen.length,
-            germinalVector: "none",
+            genotypeLength: currentSpecimen.length,
+            germinalVector: "none, edited by hand",
             genotypeSeed: globalSeed,
             phenotypeSeed: phenotypeSeed,
             maxAllowedDepth: "undefined",
             depth: "to be calculated",
-            leaves: extractLeaves(newSpecimen.encGen)
+            leaves: extractLeaves(currentSpecimen.encGen)
         };
-        const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(newSpecimen));
+        const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(currentSpecimen));
         // visualizeSpecimen(newSpecimen.encGen, "encGen");
         // visualizeSpecimen(newSpecimen.encPhen, "encPhen");
         await maxAPI.outlet(dict);
