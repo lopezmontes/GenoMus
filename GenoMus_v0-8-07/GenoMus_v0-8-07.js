@@ -135,6 +135,17 @@ var quantizedLookupTable = [0, 0.0005, 0.001, 0.003, 0.006, 0.008, 0.01, 0.015, 
 
 // AUX FUNCTIONS
 
+// creates random arrays (used to get germinal vectors)
+var newNormalizedUnidimArray = (n) => {
+    var arr = [];
+    var i = 1;
+    while (i <= n) {
+        arr.push(r6d(rand()));
+        i++;
+    }
+    return arr;
+};
+
 // functions to create unique filenames for specimens
 var addZero = (i) => {
     if (i < 10) {
@@ -2008,16 +2019,6 @@ var specimenDataStructure = (specimen) => ({
 ///////////////
 // CORE FUNCTIONS FOR SPECIMEN CREATION AND EVOLUTION
 
-var newNormalizedUnidimArray = (n) => {
-    var arr = [];
-    var i = 1;
-    while (i <= n) {
-        arr.push(r6d(rand()));
-        i++;
-    }
-    return arr;
-};
-
 function createGerminalSpecimen() {
     // main variable
     var newSpecimen;
@@ -2270,7 +2271,6 @@ function createGerminalSpecimen() {
             || newSpecimen.phenVoices > phenMaxPolyphony
         )
         && iterations < maxIterations);
-
     // genotypeLog["gen" + genCount++] = newSpecimen.decGen;
     // createJSON(genotypeLog, 'genotipeLog.json');
     if (validGenotype == false) {
@@ -2290,7 +2290,6 @@ function createGerminalSpecimen() {
         };
         return newSpecimen;
     }
-
     var stopdate = new Date();
     var specimenName = getFileDateName("jlm");   
     newSpecimen.data = {
@@ -2305,11 +2304,6 @@ function createGerminalSpecimen() {
         depth: genotypeDepth,
         leaves: extractLeaves(newSpecimen.encGen)
     };
-
-    ///////// visualizations
-    //visualizeSpecimen(newSpecimen.encGen, "encGen");
-    //visualizeSpecimen(newSpecimen.encPhen, "encPhen");
-    /////////
     currentSpecimen = newSpecimen;
     return newSpecimen;
 };
@@ -2343,7 +2337,7 @@ maxAPI.addHandler('depth', (integ) => {
 
 maxAPI.addHandler('seed', (integ) => {
     globalSeed = integ;
-    //maxAPI.post("new global seed: " + integ);
+    // maxAPI.post("new global seed: " + integ);
 });
 
 maxAPI.addHandler('phenoseed', (integ) => {
@@ -2367,7 +2361,7 @@ maxAPI.addHandler("loadSpecimen", (savedSpecimen) => {
     maxAPI.outlet(maxAPI.setDict("specimen.dict", currentSpecimen));
 });
 
-// creates a new specimen from scratch and send the dict data to Max
+// creates a new germinal specimen and send the dict data to Max
 maxAPI.addHandlers({
     newGerminalSpecimen: async () => {
         const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(createGerminalSpecimen()));
@@ -2380,7 +2374,6 @@ maxAPI.addHandlers({
             receivedText += args[i];
         }
         createNewSeed(phenotypeSeed);
-        //maxAPI.post("newrand: " + rand());
         currentSpecimen = evalDecGen(receivedText);
         currentSpecimen.data = {
             specimenID: getFileDateName("jlm"),
@@ -2395,22 +2388,12 @@ maxAPI.addHandlers({
             leaves: extractLeaves(currentSpecimen.encGen)
         };
         const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(currentSpecimen));
-        // visualizeSpecimen(newSpecimen.encGen, "encGen");
-        // visualizeSpecimen(newSpecimen.encPhen, "encPhen");
         await maxAPI.outlet(dict);
     }
 });
 
-
-var testCreation = () => {
-    while (true) {
-        var newExample = createSpecimen();
-        console.log(newExample.decGen);
-        console.log(newExample.metadata);
-    };
-};
-
-//////// TESTING
-
-// createSpecimen();
-// testCreation();
+// visualizes current specimen
+maxAPI.addHandler("visualizeSpecimen", () => {
+    visualizeSpecimen(currentSpecimen.encGen, "visualizations/" + currentSpecimen.data.specimenID + "_encGen");
+    visualizeSpecimen(currentSpecimen.encPhen, "visualizations/" + currentSpecimen.data.specimenID + "_encPhen");
+});
