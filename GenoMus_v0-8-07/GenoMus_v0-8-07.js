@@ -24,12 +24,16 @@ var phenMaxPolyphony = 5;
 var phenMinLength = 5;
 var phenMaxLength = 2000;
 var maxIterations = 1000;
+// mutation constraints
+var mutationProbability = .25;
+var mutationAmount = .02;
 
 // stores the last specimen used
 var currentSpecimen;
 var leaves = []; // stores all numeric parameters
 var genotypeLog = {};
 var genCount = 0;
+
 
 // global variable to store subexpressions
 var subexpressions = [];
@@ -1707,6 +1711,9 @@ var extractLeaves = encGen => {
     var encGenLength = encGen.length;
     var pos = 0;
     var encodedLeaves = [];
+    var autorefFunctionsIdentifiers = [0.45085, 0.068884, 0.686918, 0.304952, 0.922986, 
+        0.195415, 0.431483, 0.667551, 0.285585, 0.521653, 0.757721, 0.375755, 0.993789, 
+        0.611823, 0.229857, 0.847891, 0.465925, 0.083959];
     while (pos < encGenLength) {
         switch (encGen[pos]) {
             case 0:
@@ -1727,8 +1734,15 @@ var extractLeaves = encGen => {
                 pos++; encodedLeaves.push([pos, encGen[pos], p2a(encGen[pos])]); break;
             case 0.56:
                 pos++; encodedLeaves.push([pos, encGen[pos], p2i(encGen[pos])]); break;
-            case 0.57:
-                pos++; encodedLeaves.push([pos, encGen[pos], p2z(encGen[pos])]); break;
+            case 0.57: {
+                pos++; 
+                // filter to avoid mutation of internal autoreferences
+                if (autorefFunctionsIdentifiers.includes(encGen[pos-2])) break;
+                else {
+                    encodedLeaves.push([pos, encGen[pos], p2z(encGen[pos])]); 
+                    break;
+                }
+            } 
             case 0.58:
                 pos++; encodedLeaves.push([pos, encGen[pos], p2q(encGen[pos])]); break;
             case 0.8:
@@ -2308,6 +2322,25 @@ function createGerminalSpecimen() {
     return newSpecimen;
 };
 
+// mutate only leaves of current specimen according to certain probabilities
+// mutProbability is the probability of a mutation (0 -> no mutations, 1 -> everything mutated)
+// mutAmount is the maximal range of a mutation within interval [0, 1]
+var mutateCurrentSpecimenLeaves = (mutProbability, mutAmount) => {
+    leaves = extractLeaves(currentSpecimen.encGen);
+    var numLeaves = leaves.length;
+    //maxAPI.post(leaves);
+    for (var i=0; i<numLeaves; i++) {
+        //maxAPI.post(currentSpecimen.encGen[leaves[i][0]]);
+        if (Math.random() < mutProbability) {
+            currentSpecimen.encGen[leaves[i][0]] = 
+            checkRange(r6d(currentSpecimen.encGen[leaves[i][0]] + mutAmount * (Math.random() * 2 - 1)));
+        }
+    }
+    leaves = extractLeaves(currentSpecimen.encGen);
+    //maxAPI.post(leaves);
+    //maxAPI.post(currentSpecimen.encGen);
+};
+
 // MAX COMMUNICATION
 
 maxAPI.addHandler('minVoices', (integ) => {
@@ -2354,10 +2387,12 @@ maxAPI.addHandler("saveSpecimen", (title) => {
 // load JSON specimen
 maxAPI.addHandler("loadSpecimen", (savedSpecimen) => {
     currentSpecimen = JSON.parse(fs.readFileSync('specimens/' + savedSpecimen));
+    leaves = currentSpecimen.leaves;
     genotypeSeed = currentSpecimen.initialConditions.genotypeSeed;
     phenotypeSeed = currentSpecimen.initialConditions.phenotypeSeed;
     //maxAPI.post("genotypeSeed = " + genotypeSeed);
     //maxAPI.post("phenotypeSeed = " + phenotypeSeed);
+    maxAPI.post("leaves = " + leaves);
     maxAPI.outlet(maxAPI.setDict("specimen.dict", currentSpecimen));
 });
 
@@ -2385,7 +2420,7 @@ maxAPI.addHandlers({
             phenotypeSeed: phenotypeSeed,
             maxAllowedDepth: "undefined",
             depth: "to be calculated",
-            leaves: extractLeaves(currentSpecimen.encGen)
+            leaves: leaves
         };
         const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(currentSpecimen));
         await maxAPI.outlet(dict);
@@ -2396,4 +2431,23 @@ maxAPI.addHandlers({
 maxAPI.addHandler("visualizeSpecimen", () => {
     visualizeSpecimen(currentSpecimen.encGen, "visualizations/" + currentSpecimen.data.specimenID + "_encGen");
     visualizeSpecimen(currentSpecimen.encPhen, "visualizations/" + currentSpecimen.data.specimenID + "_encPhen");
+});
+
+maxAPI.addHandler("mutateLeaves", () => {
+    mutateCurrentSpecimenLeaves(mutationProbability, mutationAmount);
+    currentSpecimen.decGen = decodeGenotype(currentSpecimen.encGen);
+    currentSpecimen = evalDecGen(currentSpecimen.decGen);
+    currentSpecimen.data = {
+        specimenID: getFileDateName("jlm"),
+        iterations: 0,
+        milliseconsElapsed: 0,
+        genotypeLength: currentSpecimen.length,
+        germinalVector: "mutated genotype",
+        genotypeSeed: globalSeed,
+        phenotypeSeed: phenotypeSeed,
+        maxAllowedDepth: "undefined",
+        depth: currentSpecimen.depth,
+        leaves: leaves
+    };
+    maxAPI.outlet(maxAPI.setDict("specimen.dict", specimenDataStructure(currentSpecimen)));
 });
