@@ -25,8 +25,8 @@ var phenMinLength = 5;
 var phenMaxLength = 2000;
 var maxIterations = 1000;
 // mutation constraints
-var mutationProbability = .25;
-var mutationAmount = .02;
+var mutationProbability = .2;
+var mutationAmount = .05;
 
 // stores the last specimen used
 var currentSpecimen;
@@ -1102,7 +1102,7 @@ var lIterL = (list, times) => {
 // repeats and concatenates as a list re-evaluations of a parameter function (2 to 36 repeats)
 var lLineFramework = (fName, fTyp, fIndex, param1, param2, steps) => {
     //  var totalSteps = adjustRange(Math.abs(p2q(steps.encPhen[0])), 3, 36); // number of steps rescaled to range [3, 36], mapped according to the deviation from the center value 0.5 using the quantizedF map
-    var totalSteps = p2z(steps.encPhen[0]) % 47 + 3; // number of steps rescaled to range [3, 50]
+    var totalSteps = p2z(steps.encPhen[0]) % 50; // number of steps rescaled to range [0, 50]
     var line = param1.encPhen;
     var offset = (param2.encPhen - param1.encPhen) / (totalSteps - 1);
     for (el = 0; el < totalSteps - 1; el++) line[el + 1] = r6d(line[0] + offset * (el + 1));
@@ -2376,6 +2376,16 @@ maxAPI.addHandler('seed', (integ) => {
 maxAPI.addHandler('phenoseed', (integ) => {
     phenotypeSeed = integ;
     // maxAPI.post("new phenotype seed: " + integ);
+});
+
+maxAPI.addHandler('mutProb', (float) => {
+    mutationProbability = float;
+    maxAPI.post("new probability of mutations: " + float);
+});
+
+maxAPI.addHandler('mutAmou', (float) => {
+    mutationAmount = float;
+    maxAPI.post("new maximal amount of a mutation: " + float);
 });
 
 // save JSON specimen
