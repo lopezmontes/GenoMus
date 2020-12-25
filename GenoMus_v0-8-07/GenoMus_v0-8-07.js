@@ -14,8 +14,7 @@ const maxAPI = require('max-api');
 
 // BACH pattern for tests
 var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.8, 0.7, 0.618034, 0.57, 0.612091, 0.8, 0.7, 0.618034, 0.6, 0.612091, 0.8, 0.7, 0.618034, 0.59, 0.612091, 0.8 ]
-var SIMP = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.8, 0.7, 0.618034, 0.57, 0.612091, 0.8, 0.7, 0.618034, 0.6, 0.612091, 0.8, 0.7, 0.618034, 0.59, 0.612091, 0.8 ]
-
+var SIMP = [ 0.01,0.02,0.03,0.04,0.05,0.06,0.07,0.08,0.09,.10,.11,.12,.13,.14,.15,.16,.17,.18,.19,.20,.21,.22];
 
 // function to compare arrays
 function arrayEquals(a, b) {
@@ -72,15 +71,12 @@ var createPopulation = () => {
     return newPopulation;
 }
 
-var mutateCandidate = (cand) => {
+var mutateCandidate = (cand, mutPr, mutAm) => {
     var newArr = cand.slice();
-    //console.log(cand);
-    var mutPr = 0.3;
-    var mutAm = 0.1;
     do {
         for (var ind=0; ind<22; ind++) {
             if (Math.random() < mutPr) {
-                newArr[ind] = checkRange(r6d(newArr[ind] + mutAm * (Math.random() * 2 - 1)));
+                newArr[ind] = checkRange(newArr[ind] + mutAm * (Math.random() * 2 - 1));
             }
         }
     } while (arrayEquals(cand, newArr));
@@ -106,28 +102,28 @@ var geneticAlgoSearch = () => {
             currentPopulation[0].slice(),
             currentPopulation[1].slice(),
             currentPopulation[2].slice(),
-            mutateCandidate(currentPopulation[0]),
-            mutateCandidate(currentPopulation[1]),
-            mutateCandidate(currentPopulation[2]),
-            mutateCandidate(currentPopulation[3]),
-            mutateCandidate(currentPopulation[4]),
-            mutateCandidate(currentPopulation[5]), 
-            mutateCandidate(currentPopulation[0]),
-            mutateCandidate(currentPopulation[1]),
-            mutateCandidate(currentPopulation[2]),
-            mutateCandidate(currentPopulation[3]),
-            mutateCandidate(currentPopulation[4]),
-            mutateCandidate(currentPopulation[5]),
-            mutateCandidate(currentPopulation[6]),
-            mutateCandidate(currentPopulation[0]),
-            mutateCandidate(currentPopulation[0]),
-            mutateCandidate(currentPopulation[1]),
-            mutateCandidate(currentPopulation[2]),
-            mutateCandidate(currentPopulation[3]),
-            newNormalizedUnidimArray(22),
-            newNormalizedUnidimArray(22),
-            newNormalizedUnidimArray(22),
-            newNormalizedUnidimArray(22),
+            mutateCandidate(currentPopulation[0],0.1,bestResult*2*0.05),
+            mutateCandidate(currentPopulation[1],0.1,bestResult*2*0.05),
+            mutateCandidate(currentPopulation[2],0.1,bestResult*2*0.05),
+            mutateCandidate(currentPopulation[3],0.1,bestResult*2*0.05),
+            mutateCandidate(currentPopulation[4],0.1,bestResult*2*0.05),
+            mutateCandidate(currentPopulation[5],0.1,bestResult*2*0.05), 
+            mutateCandidate(currentPopulation[0],0.2,bestResult*2*0.1),
+            mutateCandidate(currentPopulation[1],0.2,bestResult*2*0.1),
+            mutateCandidate(currentPopulation[2],0.2,bestResult*2*0.15),
+            mutateCandidate(currentPopulation[3],0.2,bestResult*2*0.15),
+            mutateCandidate(currentPopulation[4],0.2,bestResult*2*0.15),
+            mutateCandidate(currentPopulation[6],0.25,bestResult*2*0.2),
+            mutateCandidate(currentPopulation[5],0.25,bestResult*2*0.2),
+            mutateCandidate(currentPopulation[0],0.25,bestResult*2*0.25),
+            mutateCandidate(currentPopulation[1],0.25,bestResult*2*0.3),
+            mutateCandidate(currentPopulation[2],0.3,bestResult*2*0.35),
+            mutateCandidate(currentPopulation[3],0.35,bestResult*2*0.4),
+            mutateCandidate(currentPopulation[4],0.4,bestResult*2*0.45),
+            mutateCandidate(currentPopulation[5],0.45,bestResult*2*0.5),
+            mutateCandidate(currentPopulation[6],0.5,bestResult*2*0.55),
+            mutateCandidate(currentPopulation[7],0.55,bestResult*2*0.6),
+            mutateCandidate(currentPopulation[8],0.6,bestResult*2*0.7),
             newNormalizedUnidimArray(22),
             newNormalizedUnidimArray(22),
             newNormalizedUnidimArray(22),
@@ -169,7 +165,7 @@ var geneticAlgoSearch = () => {
         }
         numGeneration++;
     //} while (numGeneration<5);
-    } while (currentErrors[0][1]>0.0001);
+    } while (currentErrors[0][1]>0);
     console.log("GENERATION " + numGeneration);
     return newGeneration[0];
 }
