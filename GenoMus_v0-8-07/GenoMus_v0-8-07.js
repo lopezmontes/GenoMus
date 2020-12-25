@@ -14,7 +14,10 @@ const maxAPI = require('max-api');
 
 // BACH pattern for tests
 var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.8, 0.7, 0.618034, 0.57, 0.612091, 0.8, 0.7, 0.618034, 0.6, 0.612091, 0.8, 0.7, 0.618034, 0.59, 0.612091, 0.8 ]
-var SIMP = [ 0.01,0.02,0.03,0.04,0.05,0.06,0.07,0.08,0.09,.10,.11,.12,.13,.14,.15,.16,.17,.18,.19,.20,.21,.22];
+var SIMP = [ 0.01,0.02,0.03,0.04,0.05,0.06,0.07,0.08,0.09,.10,.11,.12,.13,.14,.15,.16,.17,.18,.19,.20,.21,.22,
+    0.01,0.02,0.03,0.04,0.05,0.06,0.07,0.08,0.09,.10,.11,.12,.13,.14,.15,.16,.17,.18,.19,.20,.21,.22,
+    0.01,0.02,0.03,0.04,0.05,0.06,0.07,0.08,0.09,.10,.11,.12,.13,.14,.15,.16,.17,.18,.19,.20,.21,.22,
+    0.01,0.02,0.03,0.04,0.05,0.06,0.07,0.08,0.09,.10,.11,.12,.13,.14,.15,.16,.17,.18,.19,.20,.21,.22];
 
 // function to compare arrays
 function arrayEquals(a, b) {
@@ -29,7 +32,7 @@ function arrayEquals(a, b) {
 // functions to measure proximity phenotypes
 var compareBACH = (bachpheno, candidate) => {
     var error = 0;
-    for (var a=0; a<22; a++) {
+    for (var a=0; a<88; a++) {
         error+=Math.abs(bachpheno[a]-candidate[a]);
     }
     return error;
@@ -66,7 +69,7 @@ var testSearch = () => {
 var createPopulation = () => {
     var newPopulation = [];
     for (var a=0; a<30; a++) {
-        newPopulation[a] = newNormalizedUnidimArray(22);
+        newPopulation[a] = newNormalizedUnidimArray(88);
     }    
     return newPopulation;
 }
@@ -74,7 +77,7 @@ var createPopulation = () => {
 var mutateCandidate = (cand, mutPr, mutAm) => {
     var newArr = cand.slice();
     do {
-        for (var ind=0; ind<22; ind++) {
+        for (var ind=0; ind<88; ind++) {
             if (Math.random() < mutPr) {
                 newArr[ind] = checkRange(newArr[ind] + mutAm * (Math.random() * 2 - 1));
             }
@@ -123,12 +126,12 @@ var geneticAlgoSearch = () => {
             mutateCandidate(currentPopulation[5],0.45,bestResult*2*0.5),
             mutateCandidate(currentPopulation[6],0.5,bestResult*2*0.55),
             mutateCandidate(currentPopulation[7],0.55,bestResult*2*0.6),
-            mutateCandidate(currentPopulation[8],0.6,bestResult*2*0.7),
-            newNormalizedUnidimArray(22),
-            newNormalizedUnidimArray(22),
-            newNormalizedUnidimArray(22),
-            newNormalizedUnidimArray(22),
-            newNormalizedUnidimArray(22),
+            mutateCandidate(currentPopulation[0],0.9,bestResult*2*1),
+            mutateCandidate(currentPopulation[1],0.9,bestResult*2*1),
+            mutateCandidate(currentPopulation[2],0.9,bestResult*2*1),
+            mutateCandidate(currentPopulation[3],0.9,bestResult*2*1),
+            mutateCandidate(currentPopulation[4],0.9,bestResult*2*1),
+            mutateCandidate(currentPopulation[5],0.9,bestResult*2*1),
         ];
         for (var a=0; a<30; a++) {
             currentErrors[a] = [a,compareSIMP(SIMP,newGeneration[a])];
@@ -158,6 +161,27 @@ var geneticAlgoSearch = () => {
             console.log("GENERATION " + numGeneration);
             console.log(currentErrors);
             bestResult = currentErrorsOrdered[0][1];
+            console.log(newGenerationOrdered[0][0] + "\n" +
+            newGenerationOrdered[0][1] + "\n" +
+            newGenerationOrdered[0][2] + "\n" +
+            newGenerationOrdered[0][3] + "\n" +
+            newGenerationOrdered[0][4] + "\n" +
+            newGenerationOrdered[0][5] + "\n" +
+            newGenerationOrdered[0][6] + "\n" +
+            newGenerationOrdered[0][7] + "\n" +
+            newGenerationOrdered[0][8] + "\n" +
+            newGenerationOrdered[0][9] + "\n" +
+            newGenerationOrdered[0][10] + "\n " +
+            newGenerationOrdered[0][11] + "\n " +
+            newGenerationOrdered[0][12] + "\n " +
+            newGenerationOrdered[0][13] + "\n " +
+            newGenerationOrdered[0][14] + "\n " +
+            newGenerationOrdered[0][15] + "\n " +
+            newGenerationOrdered[0][16] + "\n " +
+            newGenerationOrdered[0][17] + "\n " +
+            newGenerationOrdered[0][18] + "\n " +
+            newGenerationOrdered[0][19] + "\n " +
+            newGenerationOrdered[0][20] + "\n " );
         }
         currentPopulation = [];
         for (var a=0; a<30; a++) {
@@ -165,12 +189,12 @@ var geneticAlgoSearch = () => {
         }
         numGeneration++;
     //} while (numGeneration<5);
-    } while (currentErrors[0][1]>0);
+    } while (currentErrors[0][1]>1e-17);
     console.log("GENERATION " + numGeneration);
     return newGeneration[0];
 }
 
- geneticAlgoSearch();
+geneticAlgoSearch();
 
 /////////////////////
 // INITIAL CONDITIONS
