@@ -7,9 +7,174 @@
 
 // files handling
 const fs = require('fs');
+const { maxHeaderSize } = require('http');
 // connection with Max interface
 const maxAPI = require('max-api');
 
+
+// BACH pattern for tests
+var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.8, 0.7, 0.618034, 0.57, 0.612091, 0.8, 0.7, 0.618034, 0.6, 0.612091, 0.8, 0.7, 0.618034, 0.59, 0.612091, 0.8 ]
+var SIMP = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.8, 0.7, 0.618034, 0.57, 0.612091, 0.8, 0.7, 0.618034, 0.6, 0.612091, 0.8, 0.7, 0.618034, 0.59, 0.612091, 0.8 ]
+
+
+// function to compare arrays
+function arrayEquals(a, b) {
+    return Array.isArray(a) &&
+        Array.isArray(b) &&
+        a.length === b.length &&
+        a.every((val, index) => val === b[index]);
+}
+
+
+
+// functions to measure proximity phenotypes
+var compareBACH = (bachpheno, candidate) => {
+    var error = 0;
+    for (var a=0; a<22; a++) {
+        error+=Math.abs(bachpheno[a]-candidate[a]);
+    }
+    return error;
+}
+
+var compareSIMP = (goal, candidate) => {
+    var error = 0;
+    var goalLength = goal.length;
+    for (var a=0; a<goalLength; a++) {
+        error+=Math.abs(goal[a]-candidate[a]);
+    }
+    return error;
+}
+
+
+var testSearch = () => {
+    var newCandidate = newNormalizedUnidimArray(22);
+    var maximalError = 1;
+    var currentError = 0;
+    var count = 0;
+    var bestError = Infinity;
+    do {
+        newCandidate = newNormalizedUnidimArray(22);
+        currentError = compareBACH(BACH,newCandidate);
+        count++;
+        if (currentError < bestError) {
+            bestError = currentError;
+            console.log("New canditate error: " + bestError + " at try " + count);
+            bestError = currentError;
+        } 
+    } while (bestError > maximalError);
+}
+
+var createPopulation = () => {
+    var newPopulation = [];
+    for (var a=0; a<30; a++) {
+        newPopulation[a] = newNormalizedUnidimArray(22);
+    }    
+    return newPopulation;
+}
+
+var mutateCandidate = (cand) => {
+    var newArr = cand.slice();
+    //console.log(cand);
+    var mutPr = 0.3;
+    var mutAm = 0.1;
+    do {
+        for (var ind=0; ind<22; ind++) {
+            if (Math.random() < mutPr) {
+                newArr[ind] = checkRange(r6d(newArr[ind] + mutAm * (Math.random() * 2 - 1)));
+            }
+        }
+    } while (arrayEquals(cand, newArr));
+    return newArr;
+}
+
+// mutateCandidate(newNormalizedUnidimArray(22));
+
+var geneticAlgoSearch = () => {
+    var currentPopulation = createPopulation();
+    var currentErrors = [];
+    var currentErrorsOrdered = [];
+    var newGeneration = [];
+    var newGenerationOrdered = [];
+    var numGeneration = 0;
+    var bestResult = 20;
+
+    do {
+        //console.log("GENERATION " + numGeneration);
+        // elite of best five specimens of last generation
+        newGenerationOrdered = [];
+        newGeneration = [
+            currentPopulation[0].slice(),
+            currentPopulation[1].slice(),
+            currentPopulation[2].slice(),
+            mutateCandidate(currentPopulation[0]),
+            mutateCandidate(currentPopulation[1]),
+            mutateCandidate(currentPopulation[2]),
+            mutateCandidate(currentPopulation[3]),
+            mutateCandidate(currentPopulation[4]),
+            mutateCandidate(currentPopulation[5]), 
+            mutateCandidate(currentPopulation[0]),
+            mutateCandidate(currentPopulation[1]),
+            mutateCandidate(currentPopulation[2]),
+            mutateCandidate(currentPopulation[3]),
+            mutateCandidate(currentPopulation[4]),
+            mutateCandidate(currentPopulation[5]),
+            mutateCandidate(currentPopulation[6]),
+            mutateCandidate(currentPopulation[0]),
+            mutateCandidate(currentPopulation[0]),
+            mutateCandidate(currentPopulation[1]),
+            mutateCandidate(currentPopulation[2]),
+            mutateCandidate(currentPopulation[3]),
+            newNormalizedUnidimArray(22),
+            newNormalizedUnidimArray(22),
+            newNormalizedUnidimArray(22),
+            newNormalizedUnidimArray(22),
+            newNormalizedUnidimArray(22),
+            newNormalizedUnidimArray(22),
+            newNormalizedUnidimArray(22),
+            newNormalizedUnidimArray(22),
+            newNormalizedUnidimArray(22),
+        ];
+        for (var a=0; a<30; a++) {
+            currentErrors[a] = [a,compareSIMP(SIMP,newGeneration[a])];
+        }
+        // antes ordenar
+        //console.log("errores antes de ordenar")
+        //console.log(currentErrors);
+
+        // reorder items according to its error
+        currentErrors.sort((a,b)=>a[1]-b[1]);
+        //console.log("errores ordenados")
+        //console.log(currentErrors);
+        
+        // reorder newGeneration according to its previous calculated error
+        newGenerationOrdered = [];
+        for (var a=0; a<30; a++) {
+            newGenerationOrdered.push(newGeneration[currentErrors[a][0]]);
+        }
+
+        // test reordering
+        for (var a=0; a<30; a++) {
+            currentErrorsOrdered[a] = [a,compareSIMP(SIMP,newGenerationOrdered[a])];
+        }
+        //console.log("nuevo analisis de errores del nuevo array ordenado")
+        if (currentErrorsOrdered[0][1] < bestResult) {
+            console.clear();
+            console.log("GENERATION " + numGeneration);
+            console.log(currentErrors);
+            bestResult = currentErrorsOrdered[0][1];
+        }
+        currentPopulation = [];
+        for (var a=0; a<30; a++) {
+            currentPopulation.push(newGenerationOrdered[a]);
+        }
+        numGeneration++;
+    //} while (numGeneration<5);
+    } while (currentErrors[0][1]>0.0001);
+    console.log("GENERATION " + numGeneration);
+    return newGeneration[0];
+}
+
+ geneticAlgoSearch();
 
 /////////////////////
 // INITIAL CONDITIONS
