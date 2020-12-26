@@ -24,9 +24,10 @@ function arrayEquals(a, b) {
         a.every((val, index) => val === b[index]);
 }
 
+// PROTO GENETIC ALGORITHM
 var geneticAlgoSearch = () => {
-    var itemsPerGeneration = 60;
-    var goalNumItems = 2600;
+    var specimensPerGeneration = 60;
+    var specimenNumItems = 600;
 
     // goal function to satisfie
     var testF = (arr) => {
@@ -43,8 +44,8 @@ var geneticAlgoSearch = () => {
     var fitnessFunction = (candidate) => Math.abs(desiredResult - testF(candidate));
     var createPopulation = () => {
         var newPopulation = [];
-        for (var a=0; a<itemsPerGeneration; a++) {
-            newPopulation[a] = newNormalizedUnidimArray(goalNumItems);
+        for (var a=0; a<specimensPerGeneration; a++) {
+            newPopulation[a] = newNormalizedUnidimArray(specimenNumItems);
         }    
         return newPopulation;
     }
@@ -53,32 +54,29 @@ var geneticAlgoSearch = () => {
         if (mutAm == 0) return cand;
         var newArr = cand.slice();
         do {
-            for (var ind=0; ind<goalNumItems; ind++) {
+            for (var ind=0; ind<specimenNumItems; ind++) {
                 if (Math.random() < mutPr) {
                     newArr[ind] = checkRange(newArr[ind] + mutAm * (Math.random() * 2 - 1));
                 }
             }
+        // avoid identic mutations
         } while (arrayEquals(cand, newArr));
         return newArr;
     }
     var currentPopulation = createPopulation();
     var currentErrors = [];
-    var currentErrorsOrdered = [];
     var newGeneration = [];
-    var newGenerationOrdered = [];
     var numGeneration = 0;
     var bestResult = 1000000;
-    var refineSearchRange = goalNumItems * 0.01;
-
+    var refineSearchRange = specimenNumItems * 0.01;
     // var generationsWithoutBetterResults = 0;
     do {
         numGeneration++;
-        // new generation
-        // generationsWithoutBetterResults++;
-        //if (bestResult*0.1 < refineSearchRange) refineSearchRange = bestResult*0.1; 
+        // modulates range of mutations to get better flexibility of system
         refineSearchRange = bestResult*(Math.sin(numGeneration)+1); 
-        //refineSearchRange = Math.max(goalNumItems * 0.5, refineSearchRange * (1 + generationsWithoutBetterResults * 0.01));
-        newGenerationOrdered = [];
+        // creates new generation
+        newGeneration = [];
+
         newGeneration = [
             currentPopulation[0].slice(),
             currentPopulation[1].slice(),
@@ -141,50 +139,31 @@ var geneticAlgoSearch = () => {
             mutateItem(currentPopulation[4],0.9,refineSearchRange*1),
             mutateItem(currentPopulation[5],0.9,refineSearchRange*1)
         ];
-        for (var a=0; a<itemsPerGeneration; a++) {
+        // evaluates fitness of each new specimen
+        for (var a=0; a<specimensPerGeneration; a++) {
             currentErrors[a] = [a,fitnessFunction(newGeneration[a])];
         }
-        // antes ordenar
-        //console.log("errores antes de ordenar")
-        //console.log(currentErrors);
-
-        // reorder items according to its error
+        // order specimen indexes according to errors 
         currentErrors.sort((a,b)=>a[1]-b[1]);
-        //console.log("errores ordenados")
-        //console.log(currentErrors);
-        
-        // reorder newGeneration according to its previous calculated error
-        newGenerationOrdered = [];
-        for (var a=0; a<itemsPerGeneration; a++) {
-            newGenerationOrdered.push(newGeneration[currentErrors[a][0]]);
+        // reorder newGeneration according to its previous calculated error, replacing current population
+        currentPopulation = [];
+        for (var a=0; a<specimensPerGeneration; a++) {
+            currentPopulation.push(newGeneration[currentErrors[a][0]]);
         }
-        // test reordering
-        for (var a=0; a<itemsPerGeneration; a++) {
-            currentErrorsOrdered[a] = [a,fitnessFunction(newGenerationOrdered[a])];
-        }
-        //console.log("GENERATION " + numGeneration);
-        //console.log("nuevo analisis de errores del nuevo array ordenado")
-        if (currentErrorsOrdered[0][1] < bestResult) {
+        // update bestResult if better
+        if (currentErrors[0][1] < bestResult) {
             console.clear();
             console.log("GENERATION " + numGeneration);
             console.log("refineSearchRange: " + refineSearchRange);
             console.log(currentErrors);
-            bestResult = currentErrorsOrdered[0][1];
-            //for (var numIt = 0; numIt < goalNumItems; numIt++) {
-            //    console.log(newGenerationOrdered[0][numIt]);
-            //}
-            // generationsWithoutBetterResults = 0;
-        }
-        currentPopulation = [];
-        for (var a=0; a<itemsPerGeneration; a++) {
-            currentPopulation.push(newGenerationOrdered[a]);
+            bestResult = currentErrors[0][1];
         }
         if (numGeneration%100000 == 0) console.log("Gen: " + numGeneration + ". Best: " + currentErrors[0][1]);
     } while (currentErrors[0][1]>5e-15);
     console.log("GENERATION " + numGeneration);
     console.log(currentErrors);
-    console.log("Result: " + testF(newGenerationOrdered[0]));
-    return;// newGenerationOrdered[0];
+    console.log("Result: " + testF(currentPopulation[0]));
+    return;
 }
 
 geneticAlgoSearch();
