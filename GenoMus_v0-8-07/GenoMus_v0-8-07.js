@@ -13,10 +13,26 @@ const maxAPI = require('max-api');
 
 
 // BACH pattern for tests
-var goalNumItems = 300;
+var itemsPerGeneration = 60;
+var goalNumItems = 200;
 
 var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.8, 0.7, 0.618034, 0.57, 0.612091, 0.8, 0.7, 0.618034, 0.6, 0.612091, 0.8, 0.7, 0.618034, 0.59, 0.612091, 0.8 ]
 var SIMP = newNormalizedUnidimArray(goalNumItems);
+
+var testFormula = ([a,b,c,d,e,f,g,h,i,j,a2,b2,c2,d2,e2,f2,g2,h2,i2,j2]) => a+b+2*c-d+e+4*f-3.5*g+h*i-7*j+Math.sin(a2)+Math.sin(b2+2)*Math.sin(c2)-Math.sin(d2)+Math.sin(e2+4)*Math.sin(f2)-3.5*Math.sin(g2)+Math.sin(h2*i2-7)*Math.sin(j2);
+var testFormula2 = ([a2,b2,c2,d2,e2,f2,g2,h2,i2,j2,a,b,c,d,e,f,g,h,i,j]) => a+b+2*c-d+e+4*f-3.5*g+h*i-7*j+Math.sin(a2)+Math.sin(b2+2)*Math.sin(c2)-Math.sin(d2)+Math.sin(e2+4)*Math.sin(f2)-3.5*Math.sin(g2)+Math.sin(h2*i2-7)*Math.sin(j2);
+
+var testF = (arr) => {
+    var len = arr.length;
+    var resu = 0;
+    for(var i=1; i<len; i++) {
+        resu+=(arr[i]+arr[i-1]);
+    }
+    return arr[0]-resu;
+}
+
+testFormula(newNormalizedUnidimArray(goalNumItems));
+var desiredResult = 0;
 
 // function to compare arrays
 function arrayEquals(a, b) {
@@ -27,7 +43,7 @@ function arrayEquals(a, b) {
 }
 
 // functions to measure proximity phenotypes
-var fitnessFunction = (goal, candidate) => {
+var OLDfitnessFunction = (goal, candidate) => {
     var error = 0;
     var goalLength = goal.length;
     for (var a=0; a<goalLength; a++) {
@@ -36,17 +52,20 @@ var fitnessFunction = (goal, candidate) => {
     return error;
 }
 
+var fitnessFunction = (candidate) => Math.abs(desiredResult - testF(candidate));
+
 // creates 30 elements for the germinal generation
 var createPopulation = () => {
     var newPopulation = [];
-    for (var a=0; a<30; a++) {
+    for (var a=0; a<itemsPerGeneration; a++) {
         newPopulation[a] = newNormalizedUnidimArray(goalNumItems);
     }    
     return newPopulation;
 }
 
 // mutate an item according to a probability of mutation (mutPr) and a maximal amount of change for each mutation (mutAm)
-var mutateITem = (cand, mutPr, mutAm) => {
+var mutateItem = (cand, mutPr, mutAm) => {
+    if (mutAm == 0) return cand;
     var newArr = cand.slice();
     do {
         for (var ind=0; ind<goalNumItems; ind++) {
@@ -65,44 +84,81 @@ var geneticAlgoSearch = () => {
     var newGeneration = [];
     var newGenerationOrdered = [];
     var numGeneration = 0;
-    var bestResult = Infinity;
+    var bestResult = 1000000;
+    var refineSearchRange = goalNumItems * 0.01;
+    // var generationsWithoutBetterResults = 0;
     do {
+        numGeneration++;
         // new generation
+        // generationsWithoutBetterResults++;
+        //if (bestResult*0.1 < refineSearchRange) refineSearchRange = bestResult*0.1; 
+        refineSearchRange = bestResult*(Math.sin(numGeneration)+1); 
+        //refineSearchRange = Math.max(goalNumItems * 0.5, refineSearchRange * (1 + generationsWithoutBetterResults * 0.01));
         newGenerationOrdered = [];
         newGeneration = [
             currentPopulation[0].slice(),
             currentPopulation[1].slice(),
             currentPopulation[2].slice(),
-            mutateITem(currentPopulation[0],0.1,bestResult*2*0.05),
-            mutateITem(currentPopulation[1],0.1,bestResult*2*0.05),
-            mutateITem(currentPopulation[2],0.1,bestResult*2*0.05),
-            mutateITem(currentPopulation[3],0.1,bestResult*2*0.05),
-            mutateITem(currentPopulation[4],0.1,bestResult*2*0.05),
-            mutateITem(currentPopulation[5],0.1,bestResult*2*0.05), 
-            mutateITem(currentPopulation[0],0.2,bestResult*2*0.1),
-            mutateITem(currentPopulation[1],0.2,bestResult*2*0.1),
-            mutateITem(currentPopulation[2],0.2,bestResult*2*0.15),
-            mutateITem(currentPopulation[3],0.2,bestResult*2*0.15),
-            mutateITem(currentPopulation[4],0.2,bestResult*2*0.15),
-            mutateITem(currentPopulation[6],0.25,bestResult*2*0.2),
-            mutateITem(currentPopulation[5],0.25,bestResult*2*0.2),
-            mutateITem(currentPopulation[0],0.25,bestResult*2*0.25),
-            mutateITem(currentPopulation[1],0.25,bestResult*2*0.3),
-            mutateITem(currentPopulation[2],0.3,bestResult*2*0.35),
-            mutateITem(currentPopulation[3],0.35,bestResult*2*0.4),
-            mutateITem(currentPopulation[4],0.4,bestResult*2*0.45),
-            mutateITem(currentPopulation[5],0.45,bestResult*2*0.5),
-            mutateITem(currentPopulation[6],0.5,bestResult*2*0.55),
-            mutateITem(currentPopulation[7],0.55,bestResult*2*0.6),
-            mutateITem(currentPopulation[0],0.9,bestResult*2*1),
-            mutateITem(currentPopulation[1],0.9,bestResult*2*1),
-            mutateITem(currentPopulation[2],0.9,bestResult*2*1),
-            mutateITem(currentPopulation[3],0.9,bestResult*2*1),
-            mutateITem(currentPopulation[4],0.9,bestResult*2*1),
-            mutateITem(currentPopulation[5],0.9,bestResult*2*1),
+            currentPopulation[3].slice(),
+            currentPopulation[4].slice(),
+            currentPopulation[5].slice(),
+            mutateItem(currentPopulation[0],0.01,refineSearchRange*0.05),
+            mutateItem(currentPopulation[1],0.01,refineSearchRange*0.05),
+            mutateItem(currentPopulation[2],0.01,refineSearchRange*0.05),
+            mutateItem(currentPopulation[3],0.01,refineSearchRange*0.05),
+            mutateItem(currentPopulation[4],0.01,refineSearchRange*0.05),
+            mutateItem(currentPopulation[5],0.01,refineSearchRange*0.05), 
+            mutateItem(currentPopulation[0],0.02,refineSearchRange*0.1),
+            mutateItem(currentPopulation[1],0.02,refineSearchRange*0.1),
+            mutateItem(currentPopulation[2],0.02,refineSearchRange*0.15),
+            mutateItem(currentPopulation[3],0.02,refineSearchRange*0.15),
+            mutateItem(currentPopulation[4],0.02,refineSearchRange*0.15),
+            mutateItem(currentPopulation[6],0.025,refineSearchRange*0.2),
+            mutateItem(currentPopulation[5],0.025,refineSearchRange*0.2),
+            mutateItem(currentPopulation[0],0.025,refineSearchRange*0.25),
+            mutateItem(currentPopulation[1],0.025,refineSearchRange*0.3),
+            mutateItem(currentPopulation[2],0.03,refineSearchRange*0.35),
+            mutateItem(currentPopulation[3],0.035,refineSearchRange*0.4),
+            mutateItem(currentPopulation[4],0.04,refineSearchRange*0.45),
+            mutateItem(currentPopulation[5],0.045,refineSearchRange*0.5),
+            mutateItem(currentPopulation[6],0.05,refineSearchRange*0.55),
+            mutateItem(currentPopulation[7],0.055,refineSearchRange*0.6),
+            mutateItem(currentPopulation[0],0.09,refineSearchRange*1),
+            mutateItem(currentPopulation[1],0.09,refineSearchRange*1),
+            mutateItem(currentPopulation[2],0.09,refineSearchRange*1),
+            mutateItem(currentPopulation[3],0.09,refineSearchRange*1),
+            mutateItem(currentPopulation[4],0.09,refineSearchRange*1),
+            mutateItem(currentPopulation[5],0.09,refineSearchRange*1),
+            mutateItem(currentPopulation[0],0.1,refineSearchRange*0.05),
+            mutateItem(currentPopulation[1],0.1,refineSearchRange*0.05),
+            mutateItem(currentPopulation[2],0.1,refineSearchRange*0.05),
+            mutateItem(currentPopulation[3],0.1,refineSearchRange*0.05),
+            mutateItem(currentPopulation[4],0.1,refineSearchRange*0.05),
+            mutateItem(currentPopulation[5],0.1,refineSearchRange*0.05), 
+            mutateItem(currentPopulation[0],0.2,refineSearchRange*0.1),
+            mutateItem(currentPopulation[1],0.2,refineSearchRange*0.1),
+            mutateItem(currentPopulation[2],0.2,refineSearchRange*0.15),
+            mutateItem(currentPopulation[3],0.2,refineSearchRange*0.15),
+            mutateItem(currentPopulation[4],0.2,refineSearchRange*0.15),
+            mutateItem(currentPopulation[6],0.25,refineSearchRange*0.2),
+            mutateItem(currentPopulation[5],0.25,refineSearchRange*0.2),
+            mutateItem(currentPopulation[0],0.25,refineSearchRange*0.25),
+            mutateItem(currentPopulation[1],0.25,refineSearchRange*0.3),
+            mutateItem(currentPopulation[2],0.3,refineSearchRange*0.35),
+            mutateItem(currentPopulation[3],0.35,refineSearchRange*0.4),
+            mutateItem(currentPopulation[4],0.4,refineSearchRange*0.45),
+            mutateItem(currentPopulation[5],0.45,refineSearchRange*0.5),
+            mutateItem(currentPopulation[6],0.5,refineSearchRange*0.55),
+            mutateItem(currentPopulation[7],0.55,refineSearchRange*0.6),
+            mutateItem(currentPopulation[0],0.9,refineSearchRange*1),
+            mutateItem(currentPopulation[1],0.9,refineSearchRange*1),
+            mutateItem(currentPopulation[2],0.9,refineSearchRange*1),
+            mutateItem(currentPopulation[3],0.9,refineSearchRange*1),
+            mutateItem(currentPopulation[4],0.9,refineSearchRange*1),
+            mutateItem(currentPopulation[5],0.9,refineSearchRange*1)
         ];
-        for (var a=0; a<30; a++) {
-            currentErrors[a] = [a,fitnessFunction(SIMP,newGeneration[a])];
+        for (var a=0; a<itemsPerGeneration; a++) {
+            currentErrors[a] = [a,fitnessFunction(newGeneration[a])];
         }
         // antes ordenar
         //console.log("errores antes de ordenar")
@@ -115,32 +171,35 @@ var geneticAlgoSearch = () => {
         
         // reorder newGeneration according to its previous calculated error
         newGenerationOrdered = [];
-        for (var a=0; a<30; a++) {
+        for (var a=0; a<itemsPerGeneration; a++) {
             newGenerationOrdered.push(newGeneration[currentErrors[a][0]]);
         }
-
         // test reordering
-        for (var a=0; a<30; a++) {
-            currentErrorsOrdered[a] = [a,fitnessFunction(SIMP,newGenerationOrdered[a])];
+        for (var a=0; a<itemsPerGeneration; a++) {
+            currentErrorsOrdered[a] = [a,fitnessFunction(newGenerationOrdered[a])];
         }
+        //console.log("GENERATION " + numGeneration);
         //console.log("nuevo analisis de errores del nuevo array ordenado")
         if (currentErrorsOrdered[0][1] < bestResult) {
             console.clear();
             console.log("GENERATION " + numGeneration);
+            console.log("refineSearchRange: " + refineSearchRange);
             console.log(currentErrors);
             bestResult = currentErrorsOrdered[0][1];
             //for (var numIt = 0; numIt < goalNumItems; numIt++) {
             //    console.log(newGenerationOrdered[0][numIt]);
             //}
+            // generationsWithoutBetterResults = 0;
         }
         currentPopulation = [];
-        for (var a=0; a<30; a++) {
+        for (var a=0; a<itemsPerGeneration; a++) {
             currentPopulation.push(newGenerationOrdered[a]);
         }
-        numGeneration++;
-    } while (currentErrors[0][1]>1e-17);
+        if (numGeneration%100000 == 0) console.log("Gen: " + numGeneration + ". Best: " + currentErrors[0][1]);
+    } while (currentErrors[0][1]>1e-16);
     console.log("GENERATION " + numGeneration);
-    return newGeneration[0];
+    console.log(currentErrors);
+    return newGenerationOrdered[0];
 }
 
 geneticAlgoSearch();
