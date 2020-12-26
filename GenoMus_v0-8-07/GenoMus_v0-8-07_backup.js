@@ -7,7 +7,10 @@
 
 // files handling
 const fs = require('fs');
-const { maxHeaderSize } = require('http');
+
+// ??
+// const { maxHeaderSize } = require('http');
+
 // connection with Max interface
 const maxAPI = require('max-api');
 
@@ -24,10 +27,21 @@ function arrayEquals(a, b) {
         a.every((val, index) => val === b[index]);
 }
 
+// creates random arrays (used to get germinal vectors)
+var newNormalizedUnidimArray = (n) => {
+    var arr = [];
+    var i = 1;
+    while (i <= n) {
+        arr.push(r6d(rand()));
+        i++;
+    }
+    return arr;
+};
+
 // PROTO GENETIC ALGORITHM
 var geneticAlgoSearch = () => {
-    var specimensPerGeneration = 60;
-    var specimenNumItems = 600;
+    var specimensPerGeneration = 14;
+    var specimenNumItems = 6000;
 
     // goal function to be satisfied
     var testF = (arr) => {
@@ -69,8 +83,15 @@ var geneticAlgoSearch = () => {
     var currentErrors = [];
     var newGeneration = [];
     var numGeneration = 0;
+    var elitePreservedSpecimens = 0.2; // ratio of best specimens preserved withoud mutation for next generation
+    var brandNewSpecimens = 0.05; // ratio of total new specimens introduced at each generation in the genetic pool
+    var numEliteSpecs = Math.ceil(specimensPerGeneration * elitePreservedSpecimens);
+    var numNewSpecs = Math.ceil(specimensPerGeneration * brandNewSpecimens);
+    var numMutatedSpecs = specimensPerGeneration - numEliteSpecs - numNewSpecs;
     var bestResult = 1000000;
     var refineSearchRange = specimenNumItems * 0.01;
+    var generationsWithoutBetterResults = 0;
+    var maxUnsuccededTrials = 1000;
     // var generationsWithoutBetterResults = 0;
     do {
         numGeneration++;
@@ -78,69 +99,18 @@ var geneticAlgoSearch = () => {
         refineSearchRange = bestResult*(Math.sin(numGeneration)+1); 
         // creates new generation
         newGeneration = [];
-
-        newGeneration = [
-            currentPopulation[0].slice(),
-            currentPopulation[1].slice(),
-            currentPopulation[2].slice(),
-            currentPopulation[3].slice(),
-            currentPopulation[4].slice(),
-            currentPopulation[5].slice(),
-            mutateItem(currentPopulation[0],0.01,refineSearchRange*0.05),
-            mutateItem(currentPopulation[1],0.01,refineSearchRange*0.05),
-            mutateItem(currentPopulation[2],0.01,refineSearchRange*0.05),
-            mutateItem(currentPopulation[3],0.01,refineSearchRange*0.05),
-            mutateItem(currentPopulation[4],0.01,refineSearchRange*0.05),
-            mutateItem(currentPopulation[5],0.01,refineSearchRange*0.05), 
-            mutateItem(currentPopulation[0],0.02,refineSearchRange*0.1),
-            mutateItem(currentPopulation[1],0.02,refineSearchRange*0.1),
-            mutateItem(currentPopulation[2],0.02,refineSearchRange*0.15),
-            mutateItem(currentPopulation[3],0.02,refineSearchRange*0.15),
-            mutateItem(currentPopulation[4],0.02,refineSearchRange*0.15),
-            mutateItem(currentPopulation[6],0.025,refineSearchRange*0.2),
-            mutateItem(currentPopulation[5],0.025,refineSearchRange*0.2),
-            mutateItem(currentPopulation[0],0.025,refineSearchRange*0.25),
-            mutateItem(currentPopulation[1],0.025,refineSearchRange*0.3),
-            mutateItem(currentPopulation[2],0.03,refineSearchRange*0.35),
-            mutateItem(currentPopulation[3],0.035,refineSearchRange*0.4),
-            mutateItem(currentPopulation[4],0.04,refineSearchRange*0.45),
-            mutateItem(currentPopulation[5],0.045,refineSearchRange*0.5),
-            mutateItem(currentPopulation[6],0.05,refineSearchRange*0.55),
-            mutateItem(currentPopulation[7],0.055,refineSearchRange*0.6),
-            mutateItem(currentPopulation[0],0.09,refineSearchRange*1),
-            mutateItem(currentPopulation[1],0.09,refineSearchRange*1),
-            mutateItem(currentPopulation[2],0.09,refineSearchRange*1),
-            mutateItem(currentPopulation[3],0.09,refineSearchRange*1),
-            mutateItem(currentPopulation[4],0.09,refineSearchRange*1),
-            mutateItem(currentPopulation[5],0.09,refineSearchRange*1),
-            mutateItem(currentPopulation[0],0.1,refineSearchRange*0.05),
-            mutateItem(currentPopulation[1],0.1,refineSearchRange*0.05),
-            mutateItem(currentPopulation[2],0.1,refineSearchRange*0.05),
-            mutateItem(currentPopulation[3],0.1,refineSearchRange*0.05),
-            mutateItem(currentPopulation[4],0.1,refineSearchRange*0.05),
-            mutateItem(currentPopulation[5],0.1,refineSearchRange*0.05), 
-            mutateItem(currentPopulation[0],0.2,refineSearchRange*0.1),
-            mutateItem(currentPopulation[1],0.2,refineSearchRange*0.1),
-            mutateItem(currentPopulation[2],0.2,refineSearchRange*0.15),
-            mutateItem(currentPopulation[3],0.2,refineSearchRange*0.15),
-            mutateItem(currentPopulation[4],0.2,refineSearchRange*0.15),
-            mutateItem(currentPopulation[6],0.25,refineSearchRange*0.2),
-            mutateItem(currentPopulation[5],0.25,refineSearchRange*0.2),
-            mutateItem(currentPopulation[0],0.25,refineSearchRange*0.25),
-            mutateItem(currentPopulation[1],0.25,refineSearchRange*0.3),
-            mutateItem(currentPopulation[2],0.3,refineSearchRange*0.35),
-            mutateItem(currentPopulation[3],0.35,refineSearchRange*0.4),
-            mutateItem(currentPopulation[4],0.4,refineSearchRange*0.45),
-            mutateItem(currentPopulation[5],0.45,refineSearchRange*0.5),
-            mutateItem(currentPopulation[6],0.5,refineSearchRange*0.55),
-            mutateItem(currentPopulation[7],0.55,refineSearchRange*0.6),
-            mutateItem(currentPopulation[0],0.9,refineSearchRange*1),
-            mutateItem(currentPopulation[1],0.9,refineSearchRange*1),
-            mutateItem(currentPopulation[2],0.9,refineSearchRange*1),
-            mutateItem(currentPopulation[3],0.9,refineSearchRange*1),
-            mutateItem(currentPopulation[4],0.9,refineSearchRange*1),
-            mutateItem(currentPopulation[5],0.9,refineSearchRange*1)
-        ];
+        // adds elite specimens
+        for (var specIndx = 0; specIndx < numEliteSpecs; specIndx++) {
+            newGeneration.push(currentPopulation[specIndx].slice());
+        }
+        // adds mutated specimens
+        for (var specIndx = 0; specIndx < numMutatedSpecs; specIndx++) {
+            newGeneration.push(mutateItem(currentPopulation[specIndx],Math.random(),Math.random()*refineSearchRange));
+        }
+        // adds brand new specimens
+        for (var specIndx = 0; specIndx < numNewSpecs; specIndx++) {
+            newGeneration.push(newNormalizedUnidimArray(specimenNumItems));
+        }
         // evaluates fitness of each new specimen
         for (var a=0; a<specimensPerGeneration; a++) {
             currentErrors[a] = [a,fitnessFunction(newGeneration[a])];
@@ -157,18 +127,21 @@ var geneticAlgoSearch = () => {
             console.clear();
             console.log("GENERATION " + numGeneration);
             console.log("refineSearchRange: " + refineSearchRange);
+            console.log("generationsWithoutBetterResults: " + generationsWithoutBetterResults);
             console.log(currentErrors);
             bestResult = currentErrors[0][1];
+            generationsWithoutBetterResults = 0;
         }
-        if (numGeneration%100000 == 0) console.log("Gen: " + numGeneration + ". Best: " + currentErrors[0][1]);
-    } while (currentErrors[0][1]>5e-15);
+        generationsWithoutBetterResults++;
+        if (numGeneration%100 == 0) console.log("Gen. " + numGeneration);
+    } while (bestResult > 1e-14 && generationsWithoutBetterResults < maxUnsuccededTrials);
     console.log("GENERATION " + numGeneration);
     console.log(currentErrors);
     console.log("Result: " + testF(currentPopulation[0]));
     return;
 }
 
-geneticAlgoSearch();
+// geneticAlgoSearch();
 
 /////////////////////
 // INITIAL CONDITIONS
@@ -298,16 +271,7 @@ var quantizedLookupTable = [0, 0.0005, 0.001, 0.003, 0.006, 0.008, 0.01, 0.015, 
 
 // AUX FUNCTIONS
 
-// creates random arrays (used to get germinal vectors)
-var newNormalizedUnidimArray = (n) => {
-    var arr = [];
-    var i = 1;
-    while (i <= n) {
-        arr.push(r6d(rand()));
-        i++;
-    }
-    return arr;
-};
+
 
 // functions to create unique filenames for specimens
 var addZero = (i) => {

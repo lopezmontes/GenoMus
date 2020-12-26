@@ -40,8 +40,8 @@ var newNormalizedUnidimArray = (n) => {
 
 // PROTO GENETIC ALGORITHM
 var geneticAlgoSearch = () => {
-    var specimensPerGeneration = 60;
-    var specimenNumItems = 5000;
+    var specimensPerGeneration = 14;
+    var specimenNumItems = 6000;
 
     // goal function to be satisfied
     var testF = (arr) => {
@@ -83,8 +83,8 @@ var geneticAlgoSearch = () => {
     var currentErrors = [];
     var newGeneration = [];
     var numGeneration = 0;
-    var elitePreservedSpecimens = 0.15; // ratio of best specimens preserved withoud mutation for next generation
-    var brandNewSpecimens = 0.07; // ratio of total new specimens introduced at each generation in the genetic pool
+    var elitePreservedSpecimens = 0.2; // ratio of best specimens preserved withoud mutation for next generation
+    var brandNewSpecimens = 0.05; // ratio of total new specimens introduced at each generation in the genetic pool
     var numEliteSpecs = Math.ceil(specimensPerGeneration * elitePreservedSpecimens);
     var numNewSpecs = Math.ceil(specimensPerGeneration * brandNewSpecimens);
     var numMutatedSpecs = specimensPerGeneration - numEliteSpecs - numNewSpecs;
@@ -133,15 +133,15 @@ var geneticAlgoSearch = () => {
             generationsWithoutBetterResults = 0;
         }
         generationsWithoutBetterResults++;
-        if (numGeneration%1000 == 0) console.log("Gen: " + numGeneration + ". Best: " + currentErrors[0][1]);
-    } while (generationsWithoutBetterResults < maxUnsuccededTrials);
+        if (numGeneration%100 == 0) console.log("Gen. " + numGeneration);
+    } while (bestResult > 1e-14 && generationsWithoutBetterResults < maxUnsuccededTrials);
     console.log("GENERATION " + numGeneration);
     console.log(currentErrors);
     console.log("Result: " + testF(currentPopulation[0]));
     return;
 }
 
-geneticAlgoSearch();
+// geneticAlgoSearch();
 
 /////////////////////
 // INITIAL CONDITIONS
