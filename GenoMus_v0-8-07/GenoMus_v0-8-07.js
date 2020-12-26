@@ -26,7 +26,7 @@ function arrayEquals(a, b) {
 
 var geneticAlgoSearch = () => {
     var itemsPerGeneration = 60;
-    var goalNumItems = 1800;
+    var goalNumItems = 2600;
 
     // goal function to satisfie
     var testF = (arr) => {
@@ -180,7 +180,7 @@ var geneticAlgoSearch = () => {
             currentPopulation.push(newGenerationOrdered[a]);
         }
         if (numGeneration%100000 == 0) console.log("Gen: " + numGeneration + ". Best: " + currentErrors[0][1]);
-    } while (currentErrors[0][1]>1e-15);
+    } while (currentErrors[0][1]>5e-15);
     console.log("GENERATION " + numGeneration);
     console.log(currentErrors);
     console.log("Result: " + testF(newGenerationOrdered[0]));
