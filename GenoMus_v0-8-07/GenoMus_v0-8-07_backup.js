@@ -40,8 +40,8 @@ var newNormalizedUnidimArray = (n) => {
 
 // PROTO GENETIC ALGORITHM
 var geneticAlgoSearch = () => {
-    var specimensPerGeneration = 14;
-    var specimenNumItems = 6000;
+    var specimensPerGeneration = 24;
+    var specimenNumItems = 8000;
 
     // goal function to be satisfied
     var testF = (arr) => {
@@ -83,8 +83,8 @@ var geneticAlgoSearch = () => {
     var currentErrors = [];
     var newGeneration = [];
     var numGeneration = 0;
-    var elitePreservedSpecimens = 0.2; // ratio of best specimens preserved withoud mutation for next generation
-    var brandNewSpecimens = 0.05; // ratio of total new specimens introduced at each generation in the genetic pool
+    var elitePreservedSpecimens = 0.12; // ratio of best specimens preserved withoud mutation for next generation
+    var brandNewSpecimens = 0.04; // ratio of total new specimens introduced at each generation in the genetic pool
     var numEliteSpecs = Math.ceil(specimensPerGeneration * elitePreservedSpecimens);
     var numNewSpecs = Math.ceil(specimensPerGeneration * brandNewSpecimens);
     var numMutatedSpecs = specimensPerGeneration - numEliteSpecs - numNewSpecs;
@@ -126,7 +126,7 @@ var geneticAlgoSearch = () => {
         if (currentErrors[0][1] < bestResult) {
             console.clear();
             console.log("GENERATION " + numGeneration);
-            console.log("refineSearchRange: " + refineSearchRange);
+            //console.log("refineSearchRange: " + refineSearchRange);
             console.log("generationsWithoutBetterResults: " + generationsWithoutBetterResults);
             console.log(currentErrors);
             bestResult = currentErrors[0][1];
@@ -134,13 +134,14 @@ var geneticAlgoSearch = () => {
         }
         generationsWithoutBetterResults++;
         if (numGeneration%100 == 0) console.log("Gen. " + numGeneration);
-    } while (bestResult > 1e-14 && generationsWithoutBetterResults < maxUnsuccededTrials);
+    } while (generationsWithoutBetterResults < maxUnsuccededTrials);
     console.log("GENERATION " + numGeneration);
     console.log(currentErrors);
     console.log("Result: " + testF(currentPopulation[0]));
     return;
 }
 
+// Test of genetic algorithm
 // geneticAlgoSearch();
 
 /////////////////////
