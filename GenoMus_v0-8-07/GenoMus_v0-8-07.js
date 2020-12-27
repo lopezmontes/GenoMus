@@ -271,10 +271,9 @@ var geneticAlgoSearchMAX = () => {
             generationsWithoutBetterResults = 0;
         }
         generationsWithoutBetterResults++;
-        //if (numGeneration%1000 == 0) maxAPI.post("Gen. " + numGeneration);
         //console.log(numGeneration);
     } while (bestResult > 0 && generationsWithoutBetterResults < maxUnsuccededTrials);
-    var outMessage = ("GENERATION " + numGeneration + "\n" + currentErrors[0] + "\nResult: " + currentPopulation[0]);
+    var outMessage = ("GENERATION " + numGeneration + "  \n" + currentErrors[0] + "  \nResult: " + currentPopulation[0]);
 /*     maxAPI.post("GENERATION " + numGeneration);
     maxAPI.post(currentErrors);
     maxAPI.post("Result: " + testF(currentPopulation[0])); */
@@ -2698,6 +2697,26 @@ maxAPI.addHandlers({
         };
         const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(currentSpecimen));
         await maxAPI.outlet(dict);
+    },
+    geneAlgo: async () => {
+        // genetic algorithm calculus
+        var searchedData = geneticAlgoSearchMAX();
+        createNewSeed(phenotypeSeed);
+        currentSpecimen = evalDecGen("s(v(e(p(0.5),p(0.5),p(0.5),p(0.5))))");
+        currentSpecimen.data = {
+            specimenID: getFileDateName("jlm"),
+            iterations: 0,
+            milliseconsElapsed: 0,
+            genotypeLength: currentSpecimen.length,
+            germinalVector: "genetic algorithm",
+            genotypeSeed: globalSeed,
+            phenotypeSeed: phenotypeSeed,
+            maxAllowedDepth: "undefined",
+            depth: searchedData,
+            leaves: "no"
+        };
+        const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(currentSpecimen));
+        await maxAPI.outlet(dict);
     }
 });
 
@@ -2727,7 +2746,7 @@ maxAPI.addHandler("mutateLeaves", () => {
 });
 
 // executes genetic algorithm outside Max
-maxAPI.addHandler("geneAlgo", (specItems) => {
+/* maxAPI.addHandler("geneAlgo", () => {
     var searchedData = geneticAlgoSearchMAX(specItems);
     maxAPI.post(searchedData);
-});
+}); */
