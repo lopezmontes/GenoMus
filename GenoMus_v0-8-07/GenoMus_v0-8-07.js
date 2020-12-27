@@ -15,6 +15,8 @@ const fs = require('fs');
 const maxAPI = require('max-api');
 
 
+var info;
+
 // BACH pattern for tests
 
 
@@ -156,11 +158,12 @@ var geneticAlgoSearch = () => {
 
 
 // PROTO GENETIC ALGORITHM FOR MAX
-var geneticAlgoSearchMAX = () => {
+var geneticAlgoSearchMAX = (numItemsToSearch) => {
 
     // GOAL
-    var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.8, 0.7, 0.618034, 0.57, 0.612091, 0.8, 0.7, 0.618034, 0.6, 0.612091, 0.8, 0.7, 0.618034, 0.59, 0.612091, 0.8 ]
-    //var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091 ]
+    // var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.8, 0.7, 0.618034, 0.57, 0.612091, 0.8, 0.7, 0.618034, 0.6, 0.612091, 0.8, 0.7, 0.618034, 0.59, 0.612091, 0.8 ]
+    // var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091 ];
+    var BACH = newNormalizedUnidimArray(numItemsToSearch);
     specimenNumItems = BACH.length;
 
     var specimensPerGeneration = 24;
@@ -269,8 +272,10 @@ var geneticAlgoSearchMAX = () => {
             //maxAPI.post(currentErrors[0]);
             bestResult = currentErrors[0][1];
             generationsWithoutBetterResults = 0;
+            info = bestResult;
         }
         generationsWithoutBetterResults++;
+//        if (numGeneration%10000 == 0) maxAPI.outlet(bestResult);
         //console.log(numGeneration);
     } while (bestResult > 0 && generationsWithoutBetterResults < maxUnsuccededTrials);
     var outMessage = ("GENERATION " + numGeneration + "  \n" + currentErrors[0] + "  \nResult: " + currentPopulation[0]);
@@ -2698,15 +2703,17 @@ maxAPI.addHandlers({
         const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(currentSpecimen));
         await maxAPI.outlet(dict);
     },
-    geneAlgo: async () => {
+    geneAlgo: async (numElements) => {
+        var startdate = new Date();
         // genetic algorithm calculus
-        var searchedData = geneticAlgoSearchMAX();
+        var searchedData = geneticAlgoSearchMAX(numElements);
         createNewSeed(phenotypeSeed);
         currentSpecimen = evalDecGen("s(v(e(p(0.5),p(0.5),p(0.5),p(0.5))))");
+        var stopdate = new Date();
         currentSpecimen.data = {
             specimenID: getFileDateName("jlm"),
             iterations: 0,
-            milliseconsElapsed: 0,
+            milliseconsElapsed: Math.abs(stopdate - startdate),
             genotypeLength: currentSpecimen.length,
             germinalVector: "genetic algorithm",
             genotypeSeed: globalSeed,
@@ -2744,9 +2751,3 @@ maxAPI.addHandler("mutateLeaves", () => {
     };
     maxAPI.outlet(maxAPI.setDict("specimen.dict", specimenDataStructure(currentSpecimen)));
 });
-
-// executes genetic algorithm outside Max
-/* maxAPI.addHandler("geneAlgo", () => {
-    var searchedData = geneticAlgoSearchMAX(specItems);
-    maxAPI.post(searchedData);
-}); */
