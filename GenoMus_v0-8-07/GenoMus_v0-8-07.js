@@ -16,8 +16,8 @@
 
 
 // TESTING DIFFERENT SPECIES
- var currentSpecies = "csound";
-// var currentSpecies = "piano";
+// var currentSpecies = "csound";
+ var currentSpecies = "piano";
 
 // DEPENDENCIES
 
@@ -1121,42 +1121,6 @@ harmony: {
 }
 });
 
-var e_csound_OLD = (notevalue, midiPitch, articulation, intensity, param5, param6) => indexExprReturnSpecimen({
-        funcType: "eventF",
-    encGen: flattenDeep([1, 0.236068, notevalue.encGen, midiPitch.encGen, articulation.encGen, intensity.encGen, param5.encGen, param6.encGen, 0]),
-    decGen: "e("
-        + notevalue.decGen + ","
-        + midiPitch.decGen + ","
-        + articulation.decGen + ","
-        + intensity.decGen + ","
-        + param5.decGen + ","
-        + param6.decGen + ")",
-    encPhen: [notevalue.encPhen[0],
-        0.618034,
-    midiPitch.encPhen[0],
-    articulation.encPhen[0],
-    intensity.encPhen[0],
-    param5.encPhen[0],
-    param6.encPhen[0]],
-    phenLength: 1,
-    tempo: 0.6,
-    harmony: {
-        root: midiPitch.encPhen[0],
-        chord: [0],
-        mode: [0],
-        chromaticism: 0
-    }
-});
-
-// parametric event structures
-var species = {
-    "piano":  ["notevalue", "midiPitch", "articulation", "intensity"],
-    "csound":  ["notevalue", "midiPitch", "articulation", "intensity"]      
-}
-
-
-
-
 // voice identity function
 var v = e => indexExprReturnSpecimen({
     funcType: "voiceF",
@@ -1485,6 +1449,7 @@ var mergeScores_piano = (scoEncPhen1, scoEncPhen2) => {
     var numEventsVoiceSco1 = 0;
     var numEventsVoiceSco2 = 0;
     var numPitchesEventVoiceSco1, numPitchesEventVoiceSco2;
+    var numEventParams = 4;
     var timeGap;
     for (var v = 0; v < numVoicesSco1; v++) {
         currentVoiceDur = 0;
@@ -1493,7 +1458,7 @@ var mergeScores_piano = (scoEncPhen1, scoEncPhen2) => {
         for (var e = 0; e < eventsInVoice; e++) {
             // read event durations and adds it to measure the voice duration
             currentVoiceDur += eval(p2n(scoEncPhen1[pos]));
-            pos = pos + p2z(scoEncPhen1[pos + 1]) + 4;
+            pos = pos + p2z(scoEncPhen1[pos + 1]) + numEventParams;
         }
         if (largestVoiceDur < currentVoiceDur) largestVoiceDur = currentVoiceDur;
     }
@@ -1517,9 +1482,9 @@ var mergeScores_piano = (scoEncPhen1, scoEncPhen2) => {
             // fills the gap if needed adding time to the last event duration
             if (e == numEventsVoiceSco1 - 1) {
                 timeGap = largestVoiceDur - currentVoiceDur;
-                newEncodedPhenotype[newEncodedPhenotype.length - (4 + numPitchesEventVoiceSco1)] =
+                newEncodedPhenotype[newEncodedPhenotype.length - (numEventParams + numPitchesEventVoiceSco1)] =
                     n2p(eval(p2n(newEncodedPhenotype[newEncodedPhenotype.length
-                        - (4 + numPitchesEventVoiceSco1)])) + timeGap);
+                        - (numEventParams + numPitchesEventVoiceSco1)])) + timeGap);
             }
         }
         for (var e = 0; e < numEventsVoiceSco2; e++) {
@@ -1584,6 +1549,7 @@ var mergeScores_csound = (scoEncPhen1, scoEncPhen2) => {
     var numEventsVoiceSco1 = 0;
     var numEventsVoiceSco2 = 0;
     var numPitchesEventVoiceSco1, numPitchesEventVoiceSco2;
+    var numEventParams = 6;
     var timeGap;
     for (var v = 0; v < numVoicesSco1; v++) {
         currentVoiceDur = 0;
@@ -1592,7 +1558,7 @@ var mergeScores_csound = (scoEncPhen1, scoEncPhen2) => {
         for (var e = 0; e < eventsInVoice; e++) {
             // read event durations and adds it to measure the voice duration
             currentVoiceDur += eval(p2n(scoEncPhen1[pos]));
-            pos = pos + p2z(scoEncPhen1[pos + 1]) + 6;
+            pos = pos + p2z(scoEncPhen1[pos + 1]) + numEventParams;
         }
         if (largestVoiceDur < currentVoiceDur) largestVoiceDur = currentVoiceDur;
     }
@@ -1618,9 +1584,9 @@ var mergeScores_csound = (scoEncPhen1, scoEncPhen2) => {
             // fills the gap if needed adding time to the last event duration
             if (e == numEventsVoiceSco1 - 1) {
                 timeGap = largestVoiceDur - currentVoiceDur;
-                newEncodedPhenotype[newEncodedPhenotype.length - (6 + numPitchesEventVoiceSco1)] =
+                newEncodedPhenotype[newEncodedPhenotype.length - (numEventParams + numPitchesEventVoiceSco1)] =
                     n2p(eval(p2n(newEncodedPhenotype[newEncodedPhenotype.length
-                        - (6 + numPitchesEventVoiceSco1)])) + timeGap);
+                        - (numEventParams + numPitchesEventVoiceSco1)])) + timeGap);
             }
         }
         for (var e = 0; e < numEventsVoiceSco2; e++) {
@@ -2309,8 +2275,63 @@ createJSON(GenoMusFunctionLibrary, 'GenoMus_function_library.json');
 
 // eligible functions (all functions available)
 var eligibleFunctions = {
-    includedFunctions: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19, 20, 29, 42, 44, 46, 58, 63, 104, 109, 110, 199, 200,
-        277, 279, 280, 281, 282, 284, 310, 312, 314, 315, 316, 317, 25, 28, 29, 277, 278, 279, 280, 281, 282, 284, 286, 288, 290, 291],
+    includedFunctions: [ 0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        25,
+        28,
+        29,
+        29,
+        42,
+        44,
+        46,
+        58,
+        63,
+        104,
+        109,
+        110,
+        199,
+        200,
+        277,
+        277,
+        278,
+        279,
+        279,
+        280,
+        280,
+        281,
+        281,
+        282,
+        282,
+        284,
+        284,
+        286,
+        288,
+        290,
+        291,
+        310,
+        311,
+        312,
+        313,
+        314,
+        315,
+        316,
+        317 ],
     mandatoryFunctions: [], // to be implemented
     excludedFunctions: [] // 1, 9, 27, 10, 26, 17, 15, 7, 5, 25, 12, 29, 28, 131, 132, 40, 36, 35
 };
@@ -2786,7 +2807,7 @@ var specimenDataStructure = (specimen) => ({
         booleanF: subexpressions["booleanF"]
     },
     leaves: specimen.data.leaves,
-    roll: ""//encPhen2bachRoll(specimen.encPhen)
+    roll: encPhen2bachRoll(specimen.encPhen)
 });
 
 

@@ -705,6 +705,18 @@
                 "date": 20210109,
                 "creator": "jlm"
             }
+        },
+        "dRnd": {
+            "functionIndex": 311,
+            "functionType": "durationF",
+            "arguments": [
+                "voidLeaf"
+            ],
+            "metadata": {
+                "description": "returns a random duration with with Gaussian (or normal) distribution",
+                "date": 20210109,
+                "creator": "jlm"
+            }
         }
     },
     "ldurationF": {
@@ -836,6 +848,18 @@
             ],
             "metadata": {
                 "description": "points to a previous frequency parameter",
+                "date": 20210109,
+                "creator": "jlm"
+            }
+        },
+        "fRnd": {
+            "functionIndex": 313,
+            "functionType": "frequencyF",
+            "arguments": [
+                "voidLeaf"
+            ],
+            "metadata": {
+                "description": "returns a random frequency with with Gaussian (or normal) distribution",
                 "date": 20210109,
                 "creator": "jlm"
             }
