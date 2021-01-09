@@ -958,7 +958,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `vAutoref`  | 28  <sub>.304952 in progress</sub>  | points to a previous voice
 | `sAutoref`  | 29  <sub>.922986 in progress</sub>  | points to a previous score
 | `nAutoref`  | 277 <sub>.195415 in progress</sub>  | points to a previous notevalue parameter
-| `dAutoref`  | 278 <sub>not yet implemented</sub>  | points to a previous notevalue parameter
+| `dAutoref`  | 278 <sub>.813449 in progress</sub>  | points to a previous notevalue parameter
 | `mAutoref`  | 279 <sub>.431483 in progress</sub>  | points to a previous notevalue parameter
 | `fAutoref`  | 280 <sub>.049517 in progress</sub>  | points to a previous notevalue parameter
 | `aAutoref`  | 281 <sub>.667551 in progress</sub>  | points to a previous notevalue parameter

@@ -699,6 +699,18 @@
                 "creator": "jlm"
             },
             "leafIdentifier": 0.52
+        },
+        "dAutoref": {
+            "functionIndex": 278,
+            "functionType": "durationF",
+            "arguments": [
+                "goldenintegerLeaf"
+            ],
+            "metadata": {
+                "description": "points to a previous frequency parameter",
+                "date": 20210109,
+                "creator": "jlm"
+            }
         }
     },
     "ldurationF": {

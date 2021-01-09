@@ -16,8 +16,8 @@
 
 
 // TESTING DIFFERENT SPECIES
-// var currentSpecies = "csound";
- var currentSpecies = "piano";
+ var currentSpecies = "csound";
+// var currentSpecies = "piano";
 
 // DEPENDENCIES
 
@@ -33,7 +33,6 @@ const maxAPI = require('max-api');
 
 var info;
 
-// BACH pattern for tests
 
 
 // aux function to compare arrays
@@ -64,379 +63,6 @@ var proximityOfArrays = (goal, candidate) => {
     }
     return error;
 }    
-
-// PROTO GENETIC ALGORITHM
-var geneticAlgoSearch = () => {
-    var specimensPerGeneration = 24;
-    var specimenNumItems = 800;
-
-    // goal function to be satisfied
-    var testF = (arr) => {
-        var len = arr.length;
-        var resu = 0;
-        for(var i=0; i<len; i++) {
-            resu+=arr[i];
-        }
-        return resu/len;
-    }
-    var desiredResult = 0.2;
-
-    // fitness function to evaluate how good is a candidate
-    var fitnessFunction = (candidate) => Math.abs(desiredResult - testF(candidate));
-
-    // creates a brand new population
-    var createPopulation = () => {
-        var newPopulation = [];
-        for (var a=0; a<specimensPerGeneration; a++) {
-            newPopulation[a] = newNormalizedUnidimArray(specimenNumItems);
-        }    
-        return newPopulation;
-    }
-    // mutate an item according to a probability of mutation (mutPr) and a maximal amount of change for each mutation (mutAm)
-    var mutateItem = (cand, mutPr, mutAm) => {
-        if (mutAm == 0 || mutPr == 0) return cand;
-        if (mutPr < 1e-6) mutPr = 1e-6;
-        var newArr = cand.slice();
-        do {
-            for (var ind=0; ind<specimenNumItems; ind++) {
-                if (Math.random() < mutPr) {
-                    newArr[ind] = checkRange(newArr[ind] + mutAm * (Math.random() * 2 - 1));
-                }
-            }
-        // avoid identic mutations
-        } while (arrayEquals(cand, newArr));
-        return newArr;
-    }
-    var currentPopulation = createPopulation();
-    var currentErrors = [];
-    var newGeneration = [];
-    var numGeneration = 0;
-    var elitePreservedSpecimens = 0.12; // ratio of best specimens preserved withoud mutation for next generation
-    var brandNewSpecimens = 0.04; // ratio of total new specimens introduced at each generation in the genetic pool
-    var numEliteSpecs = Math.ceil(specimensPerGeneration * elitePreservedSpecimens);
-    var numNewSpecs = Math.ceil(specimensPerGeneration * brandNewSpecimens);
-    var numMutatedSpecs = specimensPerGeneration - numEliteSpecs - numNewSpecs;
-    var bestResult = 1000000;
-    var refineSearchRange = specimenNumItems * 0.01;
-    var generationsWithoutBetterResults = 0;
-    var maxUnsuccededTrials = 1000;
-    // var generationsWithoutBetterResults = 0;
-    do {
-        numGeneration++;
-        // modulates range of mutations to get better flexibility of system
-        refineSearchRange = bestResult*(Math.sin(numGeneration)+1); 
-        // creates new generation
-        newGeneration = [];
-        // adds elite specimens
-        for (var specIndx = 0; specIndx < numEliteSpecs; specIndx++) {
-            newGeneration.push(currentPopulation[specIndx].slice());
-        }
-        // adds mutated specimens
-        for (var specIndx = 0; specIndx < numMutatedSpecs; specIndx++) {
-            newGeneration.push(mutateItem(currentPopulation[specIndx],Math.random(),Math.random()*refineSearchRange));
-        }
-        // adds brand new specimens
-        for (var specIndx = 0; specIndx < numNewSpecs; specIndx++) {
-            newGeneration.push(newNormalizedUnidimArray(specimenNumItems));
-        }
-        // evaluates fitness of each new specimen
-        for (var a=0; a<specimensPerGeneration; a++) {
-            currentErrors[a] = [a,fitnessFunction(newGeneration[a])];
-        }
-        // order specimen indexes according to errors 
-        currentErrors.sort((a,b)=>a[1]-b[1]);
-        // reorder newGeneration according to its previous calculated error, replacing current population
-        currentPopulation = [];
-        for (var a=0; a<specimensPerGeneration; a++) {
-            currentPopulation.push(newGeneration[currentErrors[a][0]]);
-        }
-        // update bestResult if better
-        if (currentErrors[0][1] < bestResult) {
-            console.clear();
-            console.log("GENERATION " + numGeneration);
-            //console.log("refineSearchRange: " + refineSearchRange);
-            console.log("generationsWithoutBetterResults: " + generationsWithoutBetterResults);
-            console.log(currentErrors);
-            bestResult = currentErrors[0][1];
-            generationsWithoutBetterResults = 0;
-        }
-        generationsWithoutBetterResults++;
-        if (numGeneration%100 == 0) console.log("Gen. " + numGeneration);
-    } while (generationsWithoutBetterResults < maxUnsuccededTrials && bestResult > 0);
-    console.log("GENERATION " + numGeneration);
-    console.log(currentErrors);
-    console.log("Result: " + testF(currentPopulation[0]));
-    return;
-}
-
-// Test of genetic algorithm
-//geneticAlgoSearch();
-
-
-// PROTO GENETIC ALGORITHM FOR MAX
-var geneticAlgoSearchMAX = (numItemsToSearch) => {
-
-    // GOAL
-    // var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.8, 0.7, 0.618034, 0.57, 0.612091, 0.8, 0.7, 0.618034, 0.6, 0.612091, 0.8, 0.7, 0.618034, 0.59, 0.612091, 0.8 ]
-    // var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091 ];
-    var BACH = newNormalizedUnidimArray(numItemsToSearch);
-    specimenNumItems = BACH.length;
-
-    var specimensPerGeneration = 24;
-
-    // goal function to be satisfied
-    var testF = (arr) => {
-        var len = arr.length;
-        var resu = 0;
-        for(var i=0; i<len; i++) {
-            resu+=arr[i];
-        }
-        return resu/len;
-    }
-    var desiredResult = 0.2;
-
-    // fitness function to evaluate how good is a candidate
-    // var fitnessFunction = (candidate) => Math.abs(desiredResult - testF(candidate));
-
-    var fitnessFunction = (candidate) => proximityOfArrays(candidate, BACH);  
-    // creates a brand new population
-    var createPopulation = () => {
-        var newPopulation = [];
-        for (var a=0; a<specimensPerGeneration; a++) {
-            newPopulation[a] = newNormalizedUnidimArray(specimenNumItems);
-        }    
-        return newPopulation;
-    }
-    // mutate an item according to a probability of mutation (mutPr) and a maximal amount of change for each mutation (mutAm)
-    var mutateItem = (cand, mutPr, mutAm) => {
-        if (mutAm == 0 || mutPr == 0) return cand;
-        if (mutPr < 1e-6) mutPr = 1e-6;
-        var trials = 0;
-        var newArr = cand.slice();
-        do {
-            for (var ind=0; ind<specimenNumItems; ind++) {
-                if (Math.random() < mutPr) {
-                    newArr[ind] = checkRange(r6d(newArr[ind] + mutAm * (Math.random() * 2 - 1)));
-                }
-            }
-        // avoid identic mutations
-        } while (arrayEquals(cand, newArr) && trials < 3);
-        return newArr;
-    }
-    var currentPopulation = createPopulation();
-    var currentErrors = [];
-    var newGeneration = [];
-    var numGeneration = 0;
-    var elitePreservedSpecimens = 0.12; // ratio of best specimens preserved withoud mutation for next generation
-    var brandNewSpecimens = 0.04; // ratio of total new specimens introduced at each generation in the genetic pool
-    var numEliteSpecs = Math.ceil(specimensPerGeneration * elitePreservedSpecimens);
-    var numNewSpecs = Math.ceil(specimensPerGeneration * brandNewSpecimens);
-    var numMutatedSpecs = specimensPerGeneration - numEliteSpecs - numNewSpecs;
-    var bestResult = Infinity;
-    var refineSearchRange = specimenNumItems * 0.01;
-    var generationsWithoutBetterResults = 0;
-    var maxUnsuccededTrials = 10000;
-    // var generationsWithoutBetterResults = 0;
-    do {
-        numGeneration++;
-        // modulates range of mutations to get better flexibility of system
-        //refineSearchRange = bestResult*(Math.sin(numGeneration)+1); 
-        //if (refineSearchRange < 0.000001) refineSearchRange = 0.000001;
-        refineSearchRange = 0.0001;
-        //console.log("refineSearchRange " + refineSearchRange);
-
-        // creates new generation
-        newGeneration = [];
-        // adds elite specimens
-        for (var specIndx = 0; specIndx < numEliteSpecs; specIndx++) {
-            newGeneration.push(currentPopulation[specIndx].slice());
-        }
-        //console.log("antes mutaciones");
-        // adds mutated specimens
-        for (var specIndx2 = 0; specIndx2 < numMutatedSpecs; specIndx2++) {
-//            newGeneration.push(mutateItem(currentPopulation[specIndx2].slice(),Math.random(),Math.random()*refineSearchRange));
-            newGeneration.push(mutateItem(currentPopulation[specIndx2].slice(), Math.random(), 0.5*refineSearchRange));
-        }
-        //console.log("llegado");
-        // adds brand new specimens
-        for (var specIndx3 = 0; specIndx3 < numNewSpecs; specIndx3++) {
-            newGeneration.push(newNormalizedUnidimArray(specimenNumItems));
-        }
-        // evaluates fitness of each new specimen
-        for (var a=0; a<specimensPerGeneration; a++) {
-            currentErrors[a] = [a,fitnessFunction(newGeneration[a])];
-        }
-        // order specimen indexes according to errors 
-        currentErrors.sort((a,b)=>a[1]-b[1]);
-        // reorder newGeneration according to its previous calculated error, replacing current population
-        currentPopulation = [];
-        for (var a=0; a<specimensPerGeneration; a++) {
-            currentPopulation.push(newGeneration[currentErrors[a][0]]);
-        }
-        // update bestResult if better
-        if (currentErrors[0][1] < bestResult) {
-            //console.clear();
-            //console.log("GENERATION " + numGeneration);
-            //console.log("refineSearchRange: " + refineSearchRange);
-            //console.log("generationsWithoutBetterResults: " + generationsWithoutBetterResults);
-            //console.log(currentErrors);
-            //console.log(currentPopulation[0]);
-            
-            
-            //maxAPI.post("GENERATION " + numGeneration);
-            //maxAPI.post("generationsWithoutBetterResults: " + generationsWithoutBetterResults);
-            //maxAPI.post(currentErrors[0]);
-            bestResult = currentErrors[0][1];
-            generationsWithoutBetterResults = 0;
-            info = bestResult;
-        }
-        generationsWithoutBetterResults++;
-//        if (numGeneration%10000 == 0) maxAPI.outlet(bestResult);
-        //console.log(numGeneration);
-    } while (bestResult > 0 && generationsWithoutBetterResults < maxUnsuccededTrials);
-    var outMessage = ("GENERATION " + numGeneration + "  \n" + currentErrors[0] + "  \nResult: " + currentPopulation[0]);
-/*     maxAPI.post("GENERATION " + numGeneration);
-    maxAPI.post(currentErrors);
-    maxAPI.post("Result: " + testF(currentPopulation[0])); */
-    return outMessage;
-}
-
-//geneticAlgoSearchMAX()
-
-
-// PROTO GENETIC ALGORITHM SEARCHING FOR GENOTYPES
-var geneticAlgorithmForSpecimenSearch = () => {
-
-    // GOAL
-    var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.8, 0.7, 0.618034, 0.57, 0.612091, 0.8, 0.7, 0.618034, 0.6, 0.612091, 0.8, 0.7, 0.618034, 0.59, 0.612091, 0.8 ]
-    // var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091 ];
-    // var BACH = newNormalizedUnidimArray(numItemsToSearch);
-    specimenNumItems = BACH.length;
-
-
-    var aPossibleGeno = newNormalizedUnidimArray(10);
-
-    var specimensPerGeneration = 24;
-
-    // goal function to be satisfied
-    var testF = (arr) => {
-        var len = arr.length;
-        var resu = 0;
-        for(var i=0; i<len; i++) {
-            resu+=arr[i];
-        }
-        return resu/len;
-    }
-    var desiredResult = 0.2;
-
-    // fitness function to evaluate how good is a candidate
-    // var fitnessFunction = (candidate) => Math.abs(desiredResult - testF(candidate));
-
-    var fitnessFunction = (candidate) => proximityOfArrays(candidate, BACH);  
-    // creates a brand new population
-    var createPopulation = () => {
-        var newPopulation = [];
-        for (var a=0; a<specimensPerGeneration; a++) {
-            newPopulation[a] = newNormalizedUnidimArray(specimenNumItems);
-        }    
-        return newPopulation;
-    }
-    // mutate an item according to a probability of mutation (mutPr) and a maximal amount of change for each mutation (mutAm)
-    var mutateItem = (cand, mutPr, mutAm) => {
-        if (mutAm == 0 || mutPr == 0) return cand;
-        if (mutPr < 1e-6) mutPr = 1e-6;
-        var trials = 0;
-        var newArr = cand.slice();
-        do {
-            for (var ind=0; ind<specimenNumItems; ind++) {
-                if (Math.random() < mutPr) {
-                    newArr[ind] = checkRange(r6d(newArr[ind] + mutAm * (Math.random() * 2 - 1)));
-                }
-            }
-        // avoid identic mutations
-        } while (arrayEquals(cand, newArr) && trials < 3);
-        return newArr;
-    }
-    var currentPopulation = createPopulation();
-    var currentErrors = [];
-    var newGeneration = [];
-    var numGeneration = 0;
-    var elitePreservedSpecimens = 0.12; // ratio of best specimens preserved withoud mutation for next generation
-    var brandNewSpecimens = 0.04; // ratio of total new specimens introduced at each generation in the genetic pool
-    var numEliteSpecs = Math.ceil(specimensPerGeneration * elitePreservedSpecimens);
-    var numNewSpecs = Math.ceil(specimensPerGeneration * brandNewSpecimens);
-    var numMutatedSpecs = specimensPerGeneration - numEliteSpecs - numNewSpecs;
-    var bestResult = Infinity;
-    var refineSearchRange = specimenNumItems * 0.01;
-    var generationsWithoutBetterResults = 0;
-    var maxUnsuccededTrials = 10000;
-    // var generationsWithoutBetterResults = 0;
-    do {
-        numGeneration++;
-        // modulates range of mutations to get better flexibility of system
-        //refineSearchRange = bestResult*(Math.sin(numGeneration)+1); 
-        //if (refineSearchRange < 0.000001) refineSearchRange = 0.000001;
-        refineSearchRange = 0.0001;
-        //console.log("refineSearchRange " + refineSearchRange);
-
-        // creates new generation
-        newGeneration = [];
-        // adds elite specimens
-        for (var specIndx = 0; specIndx < numEliteSpecs; specIndx++) {
-            newGeneration.push(currentPopulation[specIndx].slice());
-        }
-        //console.log("antes mutaciones");
-        // adds mutated specimens
-        for (var specIndx2 = 0; specIndx2 < numMutatedSpecs; specIndx2++) {
-//            newGeneration.push(mutateItem(currentPopulation[specIndx2].slice(),Math.random(),Math.random()*refineSearchRange));
-            newGeneration.push(mutateItem(currentPopulation[specIndx2].slice(), Math.random(), 0.5*refineSearchRange));
-        }
-        //console.log("llegado");
-        // adds brand new specimens
-        for (var specIndx3 = 0; specIndx3 < numNewSpecs; specIndx3++) {
-            newGeneration.push(newNormalizedUnidimArray(specimenNumItems));
-        }
-        // evaluates fitness of each new specimen
-        for (var a=0; a<specimensPerGeneration; a++) {
-            currentErrors[a] = [a,fitnessFunction(newGeneration[a])];
-        }
-        // order specimen indexes according to errors 
-        currentErrors.sort((a,b)=>a[1]-b[1]);
-        // reorder newGeneration according to its previous calculated error, replacing current population
-        currentPopulation = [];
-        for (var a=0; a<specimensPerGeneration; a++) {
-            currentPopulation.push(newGeneration[currentErrors[a][0]]);
-        }
-        // update bestResult if better
-        if (currentErrors[0][1] < bestResult) {
-            //console.clear();
-            //console.log("GENERATION " + numGeneration);
-            //console.log("refineSearchRange: " + refineSearchRange);
-            //console.log("generationsWithoutBetterResults: " + generationsWithoutBetterResults);
-            //console.log(currentErrors);
-            //console.log(currentPopulation[0]);
-            
-            
-            //maxAPI.post("GENERATION " + numGeneration);
-            //maxAPI.post("generationsWithoutBetterResults: " + generationsWithoutBetterResults);
-            //maxAPI.post(currentErrors[0]);
-            bestResult = currentErrors[0][1];
-            generationsWithoutBetterResults = 0;
-            info = bestResult;
-        }
-        generationsWithoutBetterResults++;
-//        if (numGeneration%10000 == 0) maxAPI.outlet(bestResult);
-        //console.log(numGeneration);
-    } while (bestResult > 0 && generationsWithoutBetterResults < maxUnsuccededTrials);
-    var outMessage = ("GENERATION " + numGeneration + "  \n" + currentErrors[0] + "  \nResult: " + currentPopulation[0]);
-/*     maxAPI.post("GENERATION " + numGeneration);
-    maxAPI.post(currentErrors);
-    maxAPI.post("Result: " + testF(currentPopulation[0])); */
-    return outMessage;
-}
-
-//geneticAlgoSearchMAX()
-
 
 
 /////////////////////
@@ -920,6 +546,388 @@ var indexExprReturnSpecimen = s => {
     subexpressions[s.funcType].push(s.decGen);
     return s;
 };
+
+
+////// GENETIC ALGORITHM FIRST APPROACH
+
+
+// PROTO GENETIC ALGORITHM
+var geneticAlgoSearch = () => {
+    var specimensPerGeneration = 24;
+    var specimenNumItems = 800;
+
+    // goal function to be satisfied
+    var testF = (arr) => {
+        var len = arr.length;
+        var resu = 0;
+        for(var i=0; i<len; i++) {
+            resu+=arr[i];
+        }
+        return resu/len;
+    }
+    var desiredResult = 0.2;
+
+    // fitness function to evaluate how good is a candidate
+    var fitnessFunction = (candidate) => Math.abs(desiredResult - testF(candidate));
+
+    // creates a brand new population
+    var createPopulation = () => {
+        var newPopulation = [];
+        for (var a=0; a<specimensPerGeneration; a++) {
+            newPopulation[a] = newNormalizedUnidimArray(specimenNumItems);
+        }    
+        return newPopulation;
+    }
+    // mutate an item according to a probability of mutation (mutPr) and a maximal amount of change for each mutation (mutAm)
+    var mutateItem = (cand, mutPr, mutAm) => {
+        if (mutAm == 0 || mutPr == 0) return cand;
+        if (mutPr < 1e-6) mutPr = 1e-6;
+        var newArr = cand.slice();
+        do {
+            for (var ind=0; ind<specimenNumItems; ind++) {
+                if (Math.random() < mutPr) {
+                    newArr[ind] = checkRange(newArr[ind] + mutAm * (Math.random() * 2 - 1));
+                }
+            }
+        // avoid identic mutations
+        } while (arrayEquals(cand, newArr));
+        return newArr;
+    }
+    var currentPopulation = createPopulation();
+    var currentErrors = [];
+    var newGeneration = [];
+    var numGeneration = 0;
+    var elitePreservedSpecimens = 0.12; // ratio of best specimens preserved withoud mutation for next generation
+    var brandNewSpecimens = 0.04; // ratio of total new specimens introduced at each generation in the genetic pool
+    var numEliteSpecs = Math.ceil(specimensPerGeneration * elitePreservedSpecimens);
+    var numNewSpecs = Math.ceil(specimensPerGeneration * brandNewSpecimens);
+    var numMutatedSpecs = specimensPerGeneration - numEliteSpecs - numNewSpecs;
+    var bestResult = 1000000;
+    var refineSearchRange = specimenNumItems * 0.01;
+    var generationsWithoutBetterResults = 0;
+    var maxUnsuccededTrials = 1000;
+    // var generationsWithoutBetterResults = 0;
+    do {
+        numGeneration++;
+        // modulates range of mutations to get better flexibility of system
+        refineSearchRange = bestResult*(Math.sin(numGeneration)+1); 
+        // creates new generation
+        newGeneration = [];
+        // adds elite specimens
+        for (var specIndx = 0; specIndx < numEliteSpecs; specIndx++) {
+            newGeneration.push(currentPopulation[specIndx].slice());
+        }
+        // adds mutated specimens
+        for (var specIndx = 0; specIndx < numMutatedSpecs; specIndx++) {
+            newGeneration.push(mutateItem(currentPopulation[specIndx],Math.random(),Math.random()*refineSearchRange));
+        }
+        // adds brand new specimens
+        for (var specIndx = 0; specIndx < numNewSpecs; specIndx++) {
+            newGeneration.push(newNormalizedUnidimArray(specimenNumItems));
+        }
+        // evaluates fitness of each new specimen
+        for (var a=0; a<specimensPerGeneration; a++) {
+            currentErrors[a] = [a,fitnessFunction(newGeneration[a])];
+        }
+        // order specimen indexes according to errors 
+        currentErrors.sort((a,b)=>a[1]-b[1]);
+        // reorder newGeneration according to its previous calculated error, replacing current population
+        currentPopulation = [];
+        for (var a=0; a<specimensPerGeneration; a++) {
+            currentPopulation.push(newGeneration[currentErrors[a][0]]);
+        }
+        // update bestResult if better
+        if (currentErrors[0][1] < bestResult) {
+            console.clear();
+            console.log("GENERATION " + numGeneration);
+            //console.log("refineSearchRange: " + refineSearchRange);
+            console.log("generationsWithoutBetterResults: " + generationsWithoutBetterResults);
+            console.log(currentErrors);
+            bestResult = currentErrors[0][1];
+            generationsWithoutBetterResults = 0;
+        }
+        generationsWithoutBetterResults++;
+        if (numGeneration%100 == 0) console.log("Gen. " + numGeneration);
+    } while (generationsWithoutBetterResults < maxUnsuccededTrials && bestResult > 0);
+    console.log("GENERATION " + numGeneration);
+    console.log(currentErrors);
+    console.log("Result: " + testF(currentPopulation[0]));
+    return;
+}
+
+// Test of genetic algorithm
+//geneticAlgoSearch();
+
+
+// PROTO GENETIC ALGORITHM FOR MAX
+var geneticAlgoSearchMAX = (numItemsToSearch) => {
+
+    // GOAL
+    // var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.8, 0.7, 0.618034, 0.57, 0.612091, 0.8, 0.7, 0.618034, 0.6, 0.612091, 0.8, 0.7, 0.618034, 0.59, 0.612091, 0.8 ]
+    // var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091 ];
+    var BACH = newNormalizedUnidimArray(numItemsToSearch);
+    specimenNumItems = BACH.length;
+
+    var specimensPerGeneration = 24;
+
+    // goal function to be satisfied
+    var testF = (arr) => {
+        var len = arr.length;
+        var resu = 0;
+        for(var i=0; i<len; i++) {
+            resu+=arr[i];
+        }
+        return resu/len;
+    }
+    var desiredResult = 0.2;
+
+    // fitness function to evaluate how good is a candidate
+    // var fitnessFunction = (candidate) => Math.abs(desiredResult - testF(candidate));
+
+    var fitnessFunction = (candidate) => proximityOfArrays(candidate, BACH);  
+    // creates a brand new population
+    var createPopulation = () => {
+        var newPopulation = [];
+        for (var a=0; a<specimensPerGeneration; a++) {
+            newPopulation[a] = newNormalizedUnidimArray(specimenNumItems);
+        }    
+        return newPopulation;
+    }
+    // mutate an item according to a probability of mutation (mutPr) and a maximal amount of change for each mutation (mutAm)
+    var mutateItem = (cand, mutPr, mutAm) => {
+        if (mutAm == 0 || mutPr == 0) return cand;
+        if (mutPr < 1e-6) mutPr = 1e-6;
+        var trials = 0;
+        var newArr = cand.slice();
+        do {
+            for (var ind=0; ind<specimenNumItems; ind++) {
+                if (Math.random() < mutPr) {
+                    newArr[ind] = checkRange(r6d(newArr[ind] + mutAm * (Math.random() * 2 - 1)));
+                }
+            }
+        // avoid identic mutations
+        } while (arrayEquals(cand, newArr) && trials < 3);
+        return newArr;
+    }
+    var currentPopulation = createPopulation();
+    var currentErrors = [];
+    var newGeneration = [];
+    var numGeneration = 0;
+    var elitePreservedSpecimens = 0.12; // ratio of best specimens preserved withoud mutation for next generation
+    var brandNewSpecimens = 0.04; // ratio of total new specimens introduced at each generation in the genetic pool
+    var numEliteSpecs = Math.ceil(specimensPerGeneration * elitePreservedSpecimens);
+    var numNewSpecs = Math.ceil(specimensPerGeneration * brandNewSpecimens);
+    var numMutatedSpecs = specimensPerGeneration - numEliteSpecs - numNewSpecs;
+    var bestResult = Infinity;
+    var refineSearchRange = specimenNumItems * 0.01;
+    var generationsWithoutBetterResults = 0;
+    var maxUnsuccededTrials = 10000;
+    // var generationsWithoutBetterResults = 0;
+    do {
+        numGeneration++;
+        // modulates range of mutations to get better flexibility of system
+        //refineSearchRange = bestResult*(Math.sin(numGeneration)+1); 
+        //if (refineSearchRange < 0.000001) refineSearchRange = 0.000001;
+        refineSearchRange = 0.0001;
+        //console.log("refineSearchRange " + refineSearchRange);
+
+        // creates new generation
+        newGeneration = [];
+        // adds elite specimens
+        for (var specIndx = 0; specIndx < numEliteSpecs; specIndx++) {
+            newGeneration.push(currentPopulation[specIndx].slice());
+        }
+        //console.log("antes mutaciones");
+        // adds mutated specimens
+        for (var specIndx2 = 0; specIndx2 < numMutatedSpecs; specIndx2++) {
+//            newGeneration.push(mutateItem(currentPopulation[specIndx2].slice(),Math.random(),Math.random()*refineSearchRange));
+            newGeneration.push(mutateItem(currentPopulation[specIndx2].slice(), Math.random(), 0.5*refineSearchRange));
+        }
+        //console.log("llegado");
+        // adds brand new specimens
+        for (var specIndx3 = 0; specIndx3 < numNewSpecs; specIndx3++) {
+            newGeneration.push(newNormalizedUnidimArray(specimenNumItems));
+        }
+        // evaluates fitness of each new specimen
+        for (var a=0; a<specimensPerGeneration; a++) {
+            currentErrors[a] = [a,fitnessFunction(newGeneration[a])];
+        }
+        // order specimen indexes according to errors 
+        currentErrors.sort((a,b)=>a[1]-b[1]);
+        // reorder newGeneration according to its previous calculated error, replacing current population
+        currentPopulation = [];
+        for (var a=0; a<specimensPerGeneration; a++) {
+            currentPopulation.push(newGeneration[currentErrors[a][0]]);
+        }
+        // update bestResult if better
+        if (currentErrors[0][1] < bestResult) {
+            //console.clear();
+            //console.log("GENERATION " + numGeneration);
+            //console.log("refineSearchRange: " + refineSearchRange);
+            //console.log("generationsWithoutBetterResults: " + generationsWithoutBetterResults);
+            //console.log(currentErrors);
+            //console.log(currentPopulation[0]);
+            
+            
+            //maxAPI.post("GENERATION " + numGeneration);
+            //maxAPI.post("generationsWithoutBetterResults: " + generationsWithoutBetterResults);
+            //maxAPI.post(currentErrors[0]);
+            bestResult = currentErrors[0][1];
+            generationsWithoutBetterResults = 0;
+            info = bestResult;
+        }
+        generationsWithoutBetterResults++;
+//        if (numGeneration%10000 == 0) maxAPI.outlet(bestResult);
+        //console.log(numGeneration);
+    } while (bestResult > 0 && generationsWithoutBetterResults < maxUnsuccededTrials);
+    var outMessage = ("GENERATION " + numGeneration + "  \n" + currentErrors[0] + "  \nResult: " + currentPopulation[0]);
+/*     maxAPI.post("GENERATION " + numGeneration);
+    maxAPI.post(currentErrors);
+    maxAPI.post("Result: " + testF(currentPopulation[0])); */
+    return outMessage;
+}
+
+//geneticAlgoSearchMAX()
+
+
+// PROTO GENETIC ALGORITHM SEARCHING FOR GENOTYPES
+var geneticAlgorithmForSpecimenSearch = () => {
+
+    // GOAL
+    var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.8, 0.7, 0.618034, 0.57, 0.612091, 0.8, 0.7, 0.618034, 0.6, 0.612091, 0.8, 0.7, 0.618034, 0.59, 0.612091, 0.8 ]
+    // var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091 ];
+    // var BACH = newNormalizedUnidimArray(numItemsToSearch);
+    specimenNumItems = BACH.length;
+
+
+    var aPossibleGeno = newNormalizedUnidimArray(10);
+
+    var specimensPerGeneration = 24;
+
+    // goal function to be satisfied
+    var testF = (arr) => {
+        var len = arr.length;
+        var resu = 0;
+        for(var i=0; i<len; i++) {
+            resu+=arr[i];
+        }
+        return resu/len;
+    }
+    var desiredResult = 0.2;
+
+    // fitness function to evaluate how good is a candidate
+    // var fitnessFunction = (candidate) => Math.abs(desiredResult - testF(candidate));
+
+    var fitnessFunction = (candidate) => proximityOfArrays(candidate, BACH);  
+    // creates a brand new population
+    var createPopulation = () => {
+        var newPopulation = [];
+        for (var a=0; a<specimensPerGeneration; a++) {
+            newPopulation[a] = newNormalizedUnidimArray(specimenNumItems);
+        }    
+        return newPopulation;
+    }
+    // mutate an item according to a probability of mutation (mutPr) and a maximal amount of change for each mutation (mutAm)
+    var mutateItem = (cand, mutPr, mutAm) => {
+        if (mutAm == 0 || mutPr == 0) return cand;
+        if (mutPr < 1e-6) mutPr = 1e-6;
+        var trials = 0;
+        var newArr = cand.slice();
+        do {
+            for (var ind=0; ind<specimenNumItems; ind++) {
+                if (Math.random() < mutPr) {
+                    newArr[ind] = checkRange(r6d(newArr[ind] + mutAm * (Math.random() * 2 - 1)));
+                }
+            }
+        // avoid identic mutations
+        } while (arrayEquals(cand, newArr) && trials < 3);
+        return newArr;
+    }
+    var currentPopulation = createPopulation();
+    var currentErrors = [];
+    var newGeneration = [];
+    var numGeneration = 0;
+    var elitePreservedSpecimens = 0.12; // ratio of best specimens preserved withoud mutation for next generation
+    var brandNewSpecimens = 0.04; // ratio of total new specimens introduced at each generation in the genetic pool
+    var numEliteSpecs = Math.ceil(specimensPerGeneration * elitePreservedSpecimens);
+    var numNewSpecs = Math.ceil(specimensPerGeneration * brandNewSpecimens);
+    var numMutatedSpecs = specimensPerGeneration - numEliteSpecs - numNewSpecs;
+    var bestResult = Infinity;
+    var refineSearchRange = specimenNumItems * 0.01;
+    var generationsWithoutBetterResults = 0;
+    var maxUnsuccededTrials = 10000;
+    // var generationsWithoutBetterResults = 0;
+    do {
+        numGeneration++;
+        // modulates range of mutations to get better flexibility of system
+        //refineSearchRange = bestResult*(Math.sin(numGeneration)+1); 
+        //if (refineSearchRange < 0.000001) refineSearchRange = 0.000001;
+        refineSearchRange = 0.0001;
+        //console.log("refineSearchRange " + refineSearchRange);
+
+        // creates new generation
+        newGeneration = [];
+        // adds elite specimens
+        for (var specIndx = 0; specIndx < numEliteSpecs; specIndx++) {
+            newGeneration.push(currentPopulation[specIndx].slice());
+        }
+        //console.log("antes mutaciones");
+        // adds mutated specimens
+        for (var specIndx2 = 0; specIndx2 < numMutatedSpecs; specIndx2++) {
+//            newGeneration.push(mutateItem(currentPopulation[specIndx2].slice(),Math.random(),Math.random()*refineSearchRange));
+            newGeneration.push(mutateItem(currentPopulation[specIndx2].slice(), Math.random(), 0.5*refineSearchRange));
+        }
+        //console.log("llegado");
+        // adds brand new specimens
+        for (var specIndx3 = 0; specIndx3 < numNewSpecs; specIndx3++) {
+            newGeneration.push(newNormalizedUnidimArray(specimenNumItems));
+        }
+        // evaluates fitness of each new specimen
+        for (var a=0; a<specimensPerGeneration; a++) {
+            currentErrors[a] = [a,fitnessFunction(newGeneration[a])];
+        }
+        // order specimen indexes according to errors 
+        currentErrors.sort((a,b)=>a[1]-b[1]);
+        // reorder newGeneration according to its previous calculated error, replacing current population
+        currentPopulation = [];
+        for (var a=0; a<specimensPerGeneration; a++) {
+            currentPopulation.push(newGeneration[currentErrors[a][0]]);
+        }
+        // update bestResult if better
+        if (currentErrors[0][1] < bestResult) {
+            //console.clear();
+            //console.log("GENERATION " + numGeneration);
+            //console.log("refineSearchRange: " + refineSearchRange);
+            //console.log("generationsWithoutBetterResults: " + generationsWithoutBetterResults);
+            //console.log(currentErrors);
+            //console.log(currentPopulation[0]);
+            
+            
+            //maxAPI.post("GENERATION " + numGeneration);
+            //maxAPI.post("generationsWithoutBetterResults: " + generationsWithoutBetterResults);
+            //maxAPI.post(currentErrors[0]);
+            bestResult = currentErrors[0][1];
+            generationsWithoutBetterResults = 0;
+            info = bestResult;
+        }
+        generationsWithoutBetterResults++;
+//        if (numGeneration%10000 == 0) maxAPI.outlet(bestResult);
+        //console.log(numGeneration);
+    } while (bestResult > 0 && generationsWithoutBetterResults < maxUnsuccededTrials);
+    var outMessage = ("GENERATION " + numGeneration + "  \n" + currentErrors[0] + "  \nResult: " + currentPopulation[0]);
+/*     maxAPI.post("GENERATION " + numGeneration);
+    maxAPI.post(currentErrors);
+    maxAPI.post("Result: " + testF(currentPopulation[0])); */
+    return outMessage;
+}
+
+//geneticAlgoSearchMAX()
+
+
+
+
+
+
 
 ////// GENOTYPE FUNCTIONS
 
@@ -2145,12 +2153,14 @@ var eAutoref = subexprIndex => autoref("eAutoref", "eventF", 0.686918, subexprIn
 var vAutoref = subexprIndex => autoref("vAutoref", "voiceF", 0.304952, subexprIndex, "v(" + defaultEventExpression + ")");
 var sAutoref = subexprIndex => autoref("sAutoref", "scoreF", 0.922986, subexprIndex, "s(v(" + defaultEventExpression + "))");
 var nAutoref = subexprIndex => autoref("nAutoref", "notevalueF", 0.195415, subexprIndex, "n(.000001)");
+var dAutoref = subexprIndex => autoref("dAutoref", "durationF", 0.813449, subexprIndex, "n(.000001)");
 var mAutoref = subexprIndex => autoref("mAutoref", "midipitchF", 0.431483, subexprIndex, "m(43)");
+var fAutoref = subexprIndex => autoref("fAutoref", "frequencyF", 0.049517, subexprIndex, "f(440)");
 var aAutoref = subexprIndex => autoref("aAutoref", "articulationF", 0.667551, subexprIndex, "a(0)");
 var iAutoref = subexprIndex => autoref("iAutoref", "intensityF", 0.285585, subexprIndex, "i(0)");
 var qAutoref = subexprIndex => autoref("qAutoref", "quantizedF", 0.521653, subexprIndex, "q(0)");
 var lnAutoref = subexprIndex => autoref("lnAutoref", "lnotevalueF", 0.757721, subexprIndex, "ln(1/256)"); // could 0 duration cause troubles??
-var ldAutoref = subexprIndex => autoref("ldAutoref", "ldurationF", 0.375755, subexprIndex, "ld(0)"); // could 0 cause troubles??
+var ldAutoref = subexprIndex => autoref("ldAutoref", "ldurationF", 0.375755, subexprIndex, "ld(0.016)"); // could 0 cause troubles??
 var lmAutoref = subexprIndex => autoref("lmAutoref", "lmidipitchF", 0.993789, subexprIndex, "lm(43)");
 var lfAutoref = subexprIndex => autoref("lfAutoref", "lfrequencyF", 0.611823, subexprIndex, "lf(.000001)");
 var laAutoref = subexprIndex => autoref("laAutoref", "larticulationF", 0.229857, subexprIndex, "la(0)"); // could 0 cause troubles??
@@ -2300,7 +2310,7 @@ createJSON(GenoMusFunctionLibrary, 'GenoMus_function_library.json');
 // eligible functions (all functions available)
 var eligibleFunctions = {
     includedFunctions: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19, 20, 29, 42, 44, 46, 58, 63, 104, 109, 110, 199, 200,
-        277, 279, 281, 282, 284, 310, 312, 314, 315, 316, 317, 25, 28, 29, 277, 279, 281, 282, 284, 286, 288, 290, 291],
+        277, 279, 280, 281, 282, 284, 310, 312, 314, 315, 316, 317, 25, 28, 29, 277, 278, 279, 280, 281, 282, 284, 286, 288, 290, 291],
     mandatoryFunctions: [], // to be implemented
     excludedFunctions: [] // 1, 9, 27, 10, 26, 17, 15, 7, 5, 25, 12, 29, 28, 131, 132, 40, 36, 35
 };
@@ -2776,7 +2786,7 @@ var specimenDataStructure = (specimen) => ({
         booleanF: subexpressions["booleanF"]
     },
     leaves: specimen.data.leaves,
-    roll: encPhen2bachRoll(specimen.encPhen)
+    roll: ""//encPhen2bachRoll(specimen.encPhen)
 });
 
 
@@ -2799,7 +2809,7 @@ function createGerminalSpecimen() {
     var startdate = new Date();
     var iterations = 0;
     var newLeaf;
-    var listsMaxNumItems = 20;
+    var listsMaxNumItems = 8;
     var listNumItems;
     // searches a specimen
     do {

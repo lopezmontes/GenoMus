@@ -693,6 +693,18 @@
                 "creator": "jlm"
             },
             "leafIdentifier": 0.52
+        },
+        "dAutoref": {
+            "functionIndex": 278,
+            "functionType": "durationF",
+            "arguments": [
+                "goldenintegerLeaf"
+            ],
+            "metadata": {
+                "description": "points to a previous frequency parameter",
+                "date": 20210109,
+                "creator": "jlm"
+            }
         }
     },
     "ldurationF": {
@@ -802,6 +814,47 @@
             }
         }
     },
+    "frequencyF": {
+        "f": {
+            "functionIndex": 8,
+            "functionType": "frequencyF",
+            "arguments": [
+                "frequencyLeaf"
+            ],
+            "metadata": {
+                "description": "frequency parameter identity function",
+                "date": 20210109,
+                "creator": "jlm"
+            },
+            "leafIdentifier": 0.54
+        },
+        "fAutoref": {
+            "functionIndex": 280,
+            "functionType": "frequencyF",
+            "arguments": [
+                "goldenintegerLeaf"
+            ],
+            "metadata": {
+                "description": "points to a previous frequency parameter",
+                "date": 20210109,
+                "creator": "jlm"
+            }
+        }
+    },
+    "lfrequencyF": {
+        "lf": {
+            "functionIndex": 18,
+            "functionType": "lfrequencyF",
+            "arguments": [
+                "lfrequencyLeaf"
+            ],
+            "metadata": {
+                "description": "frequency list identity function",
+                "date": 20210109,
+                "creator": "jlm"
+            }
+        }
+    },    
     "articulationF": {
         "a": {
             "functionIndex": 9,
@@ -837,35 +890,6 @@
             "metadata": {
                 "description": "returns a random articulation with with Gaussian (or normal) distribution",
                 "date": 20191007,
-                "creator": "jlm"
-            }
-        }
-    },
-    "frequencyF": {
-        "f": {
-            "functionIndex": 8,
-            "functionType": "frequencyF",
-            "arguments": [
-                "frequencyLeaf"
-            ],
-            "metadata": {
-                "description": "frequency parameter identity function",
-                "date": 20210109,
-                "creator": "jlm"
-            },
-            "leafIdentifier": 0.54
-        }
-    },
-    "lfrequencyF": {
-        "lf": {
-            "functionIndex": 18,
-            "functionType": "lfrequencyF",
-            "arguments": [
-                "lfrequencyLeaf"
-            ],
-            "metadata": {
-                "description": "frequency list identity function",
-                "date": 20210109,
                 "creator": "jlm"
             }
         }
