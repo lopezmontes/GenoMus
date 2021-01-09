@@ -16,8 +16,8 @@
 
 
 // TESTING DIFFERENT SPECIES
-var currentSpecies = "csound";
-//var currentSpecies = "piano";
+// var currentSpecies = "csound";
+ var currentSpecies = "piano";
 
 // DEPENDENCIES
 
@@ -55,7 +55,7 @@ var newNormalizedUnidimArray = (n) => {
     return arr;
 };
 
-// functions to measure proximity phenotypes
+// functions to measure proximity of phenotypes
 var proximityOfArrays = (goal, candidate) => {
     var error = 0;
     var goalLength = goal.length;
@@ -501,7 +501,7 @@ var createDefaultEventExpression = (speciesName) => {
             defaultEventExpression = "e(p(0),m(43),p(0),p(0))";
             break;
         case ("csound"):
-            defaultEventExpression = "e(p(0),m(43),p(0),p(0),p(0),p(0))";
+            defaultEventExpression = "e(p(0),f(440),p(0),p(0),p(0),p(0))";
             break;
         default:
             console.log("Error: species unknown.");
@@ -964,12 +964,28 @@ var n = x => indexExprReturnSpecimen({
     encPhen: [notevalue2norm(x)]
 });
 
+// duration identity function
+var d = x => indexExprReturnSpecimen({
+    funcType: "durationF",
+    encGen: [1, 0.708204, 0.52, duration2norm(x), 0],
+    decGen: "d(" + x + ")",
+    encPhen: [duration2norm(x)]
+});
+
 // midipitch identity function
 var m = x => indexExprReturnSpecimen({
     funcType: "midipitchF",
     encGen: [1, 0.326238, 0.53, midipitch2norm(x), 0],
     decGen: "m(" + x + ")",
     encPhen: [midipitch2norm(x)]
+});
+
+// frequency identity function
+var f = x => indexExprReturnSpecimen({
+    funcType: "frequencyF",
+    encGen: [1, 0.944272, 0.54, frequency2norm(x), 0],
+    decGen: "f(" + x + ")",
+    encPhen: [frequency2norm(x)]
 });
 
 // articulation identity function
@@ -1070,7 +1086,34 @@ var e_piano = (notevalue, midiPitch, articulation, intensity) => indexExprReturn
 });
 
 // csound event identity function
-var e_csound = (notevalue, midiPitch, articulation, intensity, param5, param6) => indexExprReturnSpecimen({
+var e_csound = (duration, frequency, articulation, intensity, param5, param6) => indexExprReturnSpecimen({
+    funcType: "eventF",
+encGen: flattenDeep([1, 0.236068, duration.encGen, frequency.encGen, articulation.encGen, intensity.encGen, param5.encGen, param6.encGen, 0]),
+decGen: "e("
+    + duration.decGen + ","
+    + frequency.decGen + ","
+    + articulation.decGen + ","
+    + intensity.decGen + ","
+    + param5.decGen + ","
+    + param6.decGen + ")",
+encPhen: [duration.encPhen[0],
+    0.618034,
+frequency.encPhen[0],
+articulation.encPhen[0],
+intensity.encPhen[0],
+param5.encPhen[0],
+param6.encPhen[0]],
+phenLength: 1,
+tempo: 0.6,
+harmony: {
+    root: frequency.encPhen[0],
+    chord: [0],
+    mode: [0],
+    chromaticism: 0
+}
+});
+
+var e_csound_OLD = (notevalue, midiPitch, articulation, intensity, param5, param6) => indexExprReturnSpecimen({
         funcType: "eventF",
     encGen: flattenDeep([1, 0.236068, notevalue.encGen, midiPitch.encGen, articulation.encGen, intensity.encGen, param5.encGen, param6.encGen, 0]),
     decGen: "e("
@@ -1779,7 +1822,7 @@ var vMotif_piano = (listNotevalues, listPitches, listArticulations, listIntensit
     /////////// if (seqLength > phenMaxLength) return -1;
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        console.log("Aborted genotype due to exceeding the max length");
+        // console.log("Aborted genotype due to exceeding the max length");
         return "v(" + defaultEventExpression + ")";
     }
     var eventsSeq = [z2p(seqLength)];
@@ -1819,7 +1862,7 @@ var vMotif_csound = (listNotevalues, listPitches, listArticulations, listIntensi
     /////////// if (seqLength > phenMaxLength) return -1;
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        console.log("Aborted genotype due to exceeding the max length");
+        // console.log("Aborted genotype due to exceeding the max length");
         return "v(" + defaultEventExpression + ")";
     }
     var eventsSeq = [z2p(seqLength)];
@@ -1853,9 +1896,8 @@ var vMotif_csound = (listNotevalues, listPitches, listArticulations, listIntensi
     });
 };
 
-
 // creates a voice based on lists without loops (largest list determines number of events)
-var vMotifLoop = (listNotevalues, listPitches, listArticulations, listIntensities) => {
+var vMotifLoop_piano = (listNotevalues, listPitches, listArticulations, listIntensities) => {
     var totalNotevalues = listNotevalues.encPhen.length;
     var totalPitches = listPitches.encPhen.length;
     var totalArticulations = listArticulations.encPhen.length;
@@ -1864,7 +1906,7 @@ var vMotifLoop = (listNotevalues, listPitches, listArticulations, listIntensitie
     //////////// if (seqLength > phenMaxLength) return -1;
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        console.log("Aborted genotype due to exceeding the max length");
+        // console.log("Aborted genotype due to exceeding the max length");
         return "v(" + defaultEventExpression + ")";
     }
     var eventsSeq = [z2p(seqLength)];
@@ -1891,6 +1933,53 @@ var vMotifLoop = (listNotevalues, listPitches, listArticulations, listIntensitie
         phenLength: seqLength,
     });
 };
+
+// creates a voice based on lists without loops (largest list determines number of events)
+var vMotifLoop_csound = (listNotevalues, listPitches, listArticulations, listIntensities, listParam5, listParam6) => {
+    var totalNotevalues = listNotevalues.encPhen.length;
+    var totalPitches = listPitches.encPhen.length;
+    var totalArticulations = listArticulations.encPhen.length;
+    var totalIntensities = listIntensities.encPhen.length;
+    var totalParam5values = listParam5.encPhen.length;
+    var totalParam6values = listParam6.encPhen.length;
+    var seqLength = Math.max(totalNotevalues, totalPitches, totalArticulations, totalIntensities, totalParam5values, totalParam6values);
+    //////////// if (seqLength > phenMaxLength) return -1;
+    if (seqLength > phenMaxLength) {
+        validGenotype = false;
+        // console.log("Aborted genotype due to exceeding the max length");
+        return "v(" + defaultEventExpression + ")";
+    }
+    var eventsSeq = [z2p(seqLength)];
+    for (var ev = 0; ev < seqLength; ev++) {
+        eventsSeq.push(listNotevalues.encPhen[ev % totalNotevalues]);
+        eventsSeq.push(0.618034);
+        eventsSeq.push(listPitches.encPhen[ev % totalPitches]);
+        eventsSeq.push(listArticulations.encPhen[ev % totalArticulations]);
+        eventsSeq.push(listIntensities.encPhen[ev % totalIntensities]);
+        eventsSeq.push(listParam5.encPhen[ev % totalParam5values]);
+        eventsSeq.push(listParam6.encPhen[ev % totalParam6values]);
+    }
+    return indexExprReturnSpecimen({
+        funcType: "voiceF",
+        encGen: flattenDeep([1, 0.606798,
+            listNotevalues.encGen,
+            listPitches.encGen,
+            listArticulations.encGen,
+            listIntensities.encGen,
+            listParam5.encGen,
+            listParam6.encGen, 0]),
+        decGen: "vMotifLoop(" +
+            listNotevalues.decGen + "," +
+            listPitches.decGen + "," +
+            listArticulations.decGen + "," +
+            listIntensities.decGen + "," +
+            listParam5.decGen + "," +
+            listParam6.decGen + ")",
+        encPhen: eventsSeq,
+        phenLength: seqLength,
+    });
+};
+
 
 // creates a sequence of events based on repeating lists but with a single notevalue (shortest list determines number of events)
 var vPerpetuumMobile = (noteval, listPitches, listArticulations, listIntensities) => {
@@ -2210,14 +2299,14 @@ createJSON(GenoMusFunctionLibrary, 'GenoMus_function_library.json');
 
 // eligible functions (all functions available)
 var eligibleFunctions = {
-    includedFunctions: [0, 1, 2, 3, 4, 5, 7, 9, 10, 12, 17, 19, 20, 29, 42, 44, 46, 58, 104, 109, 110, 199, 277, 279, 281, 282, 284,
-        310, 312, 314, 315, 316, 317, 25, 28, 29, 277, 279, 281, 282, 284],
+    includedFunctions: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19, 20, 29, 42, 44, 46, 58, 63, 104, 109, 110, 199, 200,
+        277, 279, 281, 282, 284, 310, 312, 314, 315, 316, 317, 25, 28, 29, 277, 279, 281, 282, 284, 286, 288, 290, 291],
     mandatoryFunctions: [], // to be implemented
-    excludedFunctions: [199] // 1, 9, 27, 10, 26, 17, 15, 7, 5, 25, 12, 29, 28, 131, 132, 40, 36, 35
+    excludedFunctions: [] // 1, 9, 27, 10, 26, 17, 15, 7, 5, 25, 12, 29, 28, 131, 132, 40, 36, 35
 };
 
 var testingFunctions = {
-    includedFunctions: [0, 1, 2, 3, 4, 5, 7, 9, 10, 12, 17, 25, 26, 27, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 58, 63, 65,
+    includedFunctions: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 17, 25, 26, 27, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 58, 63, 65,
         66, 67, 68, 76, 98, 99, 100, 104, 109, 110, 131, 134, 135, 199, 200, 277, 279, 281, 282, 284, 15, 286, 17, 288,
         19, 290, 20, 291, 48, 77, 294, 296, 298, 299, 11, 84, 302, 304, 306, 307,
         310, 312, 314, 315, 316, 317, 201, 202, 318],
@@ -2500,7 +2589,9 @@ var expandExpr = compressedFormExpr => {
     compressedFormExpr = compressedFormExpr.replace(/\n\)/g, ")");
     compressedFormExpr = compressedFormExpr.replace(/\bp\(\n/g, "p(");
     compressedFormExpr = compressedFormExpr.replace(/\bn\(\n/g, "n(");
+    compressedFormExpr = compressedFormExpr.replace(/\bd\(\n/g, "d(");
     compressedFormExpr = compressedFormExpr.replace(/\bm\(\n/g, "m(");
+    compressedFormExpr = compressedFormExpr.replace(/\bf\(\n/g, "f(");
     compressedFormExpr = compressedFormExpr.replace(/\ba\(\n/g, "a(");
     compressedFormExpr = compressedFormExpr.replace(/\bi\(\n/g, "i(");
     compressedFormExpr = compressedFormExpr.replace(/\bq\(\n/g, "q(");
@@ -2685,7 +2776,7 @@ var specimenDataStructure = (specimen) => ({
         booleanF: subexpressions["booleanF"]
     },
     leaves: specimen.data.leaves,
-    // roll: encPhen2bachRoll(specimen.encPhen)
+    roll: encPhen2bachRoll(specimen.encPhen)
 });
 
 
@@ -2708,6 +2799,8 @@ function createGerminalSpecimen() {
     var startdate = new Date();
     var iterations = 0;
     var newLeaf;
+    var listsMaxNumItems = 20;
+    var listNumItems;
     // searches a specimen
     do {
         // starts a new decoded genotype
@@ -2813,58 +2906,80 @@ function createGerminalSpecimen() {
                         newDecodedGenotype += Math.round(newLeaf);
                     } else if (nextFunctionType == "listLeaf") {
                         newDecodedGenotype += newLeaf;
-                        var extendList = true;
-                        while (extendList) {
-                            newLeaf = uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength]);
+                        listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
+                        germinalVectorReadingPos++;
+                        for (var lit = 0; lit < listNumItems; lit++) {
+                            newLeaf = r6d(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                             preEncGen.push(newLeaf);
                             newDecodedGenotype += "," + newLeaf;
                             germinalVectorReadingPos++;
                             pos++;
-                            if (rand() < .2) extendList = false;
                         }
                     } else if (nextFunctionType == "lnotevalueLeaf") {
                         newDecodedGenotype += p2n(newLeaf);
-                        var extendList = true;
-                        while (extendList) {
+                        listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
+                        germinalVectorReadingPos++;
+                        for (var lit = 0; lit < listNumItems; lit++) {
                             newLeaf = r6d(p2n(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
                             preEncGen.push(newLeaf);
                             newDecodedGenotype += "," + newLeaf;
                             germinalVectorReadingPos++;
                             pos++;
-                            if (rand() < .2) extendList = false;
+                        }
+                    } else if (nextFunctionType == "ldurationLeaf") {
+                        newDecodedGenotype += p2d(newLeaf);
+                        listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
+                        germinalVectorReadingPos++;
+                        for (var lit = 0; lit < listNumItems; lit++) {
+                            newLeaf = r6d(p2d(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
+                            preEncGen.push(newLeaf);
+                            newDecodedGenotype += "," + newLeaf;
+                            germinalVectorReadingPos++;
+                            pos++;
                         }
                     } else if (nextFunctionType == "lmidipitchLeaf") {
                         newDecodedGenotype += p2m(newLeaf);
-                        var extendList = true;
-                        while (extendList) {
+                        listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
+                        germinalVectorReadingPos++;
+                        for (var lit = 0; lit < listNumItems; lit++) {
                             newLeaf = r6d(p2m(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
                             preEncGen.push(newLeaf);
                             newDecodedGenotype += "," + newLeaf;
                             germinalVectorReadingPos++;
                             pos++;
-                            if (rand() < .2) extendList = false;
+                        }
+                    } else if (nextFunctionType == "lfrequencyLeaf") {
+                        newDecodedGenotype += p2f(newLeaf);
+                        listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
+                        germinalVectorReadingPos++;
+                        for (var lit = 0; lit < listNumItems; lit++) {
+                            newLeaf = r6d(p2f(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
+                            preEncGen.push(newLeaf);
+                            newDecodedGenotype += "," + newLeaf;
+                            germinalVectorReadingPos++;
+                            pos++;
                         }
                     } else if (nextFunctionType == "larticulationLeaf") {
                         newDecodedGenotype += p2a(newLeaf);
-                        var extendList = true;
-                        while (extendList) {
+                        listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
+                        germinalVectorReadingPos++;
+                        for (var lit = 0; lit < listNumItems; lit++) {
                             newLeaf = r6d(p2a(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
                             preEncGen.push(newLeaf);
                             newDecodedGenotype += "," + newLeaf;
                             germinalVectorReadingPos++;
                             pos++;
-                            if (rand() < .2) extendList = false;
                         }
                     } else if (nextFunctionType == "lintensityLeaf") {
                         newDecodedGenotype += p2i(newLeaf);
-                        var extendList = true;
-                        while (extendList) {
+                        listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
+                        germinalVectorReadingPos++;
+                        for (var lit = 0; lit < listNumItems; lit++) {
                             newLeaf = r6d(p2i(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
                             preEncGen.push(newLeaf);
                             newDecodedGenotype += "," + newLeaf;
                             germinalVectorReadingPos++;
                             pos++;
-                            if (rand() < .2) extendList = false;
                         }
                     } else if (chosenFunction == "pAutoRef" ||
                         chosenFunction == "lAutoRef" ||
@@ -3433,7 +3548,7 @@ maxAPI.addHandler("mutateLeaves", () => {
 // global variable to store specific functions depending on current species 
 var e; // identity event function
 var mergeScores; // aux function to merge scores
-var vMotif;
+var vMotif, vMotifLoop;
 
 // create specific functions for the current specieszz
 var createSpeciesDependentFunctions = (speciesName) => {
@@ -3442,11 +3557,13 @@ var createSpeciesDependentFunctions = (speciesName) => {
             e = e_piano;
             mergeScores = mergeScores_piano;
             vMotif = vMotif_piano;
+            vMotifLoop = vMotifLoop_piano;
             break;
         case ("csound"):
             e = e_csound;
             mergeScores = mergeScores_csound;
             vMotif = vMotif_csound;
+            vMotifLoop = vMotifLoop_csound;
             break;
         default:
             console.log("Error: species unknown.");

@@ -9,7 +9,7 @@
             "metadata": {
                 "description": "score identity function",
                 "date": 20190905,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "sAutoref": {
@@ -21,7 +21,7 @@
             "metadata": {
                 "description": "points to a previous score",
                 "date": 20190905,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "sConcatS": {
@@ -34,7 +34,7 @@
             "metadata": {
                 "description": "concatenates two scores sequentially",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "s2V": {
@@ -47,7 +47,7 @@
             "metadata": {
                 "description": "creates an score with two simultaneous voices",
                 "date": 20190915,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "sAddV": {
@@ -60,7 +60,7 @@
             "metadata": {
                 "description": "adds a new voice vertically to a score",
                 "date": 20190915,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "sAddS": {
@@ -73,7 +73,7 @@
             "metadata": {
                 "description": "adds a new score vertically to a score",
                 "date": 20190915,
-                "creator": "lm"
+                "creator": "jlm"
             }
         }    
     },
@@ -87,7 +87,7 @@
             "metadata": {
                 "description": "voice identity function",
                 "date": 20190905,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "vAutoref": {
@@ -99,7 +99,7 @@
             "metadata": {
                 "description": "points to a previous voice",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "vIterE": {
@@ -112,7 +112,7 @@
             "metadata": {
                 "description": "repeats and concatenates as a voice re-evaluations of an event function",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "vConcatE": {
@@ -125,7 +125,7 @@
             "metadata": {
                 "description": "repeats and concatenates as a list re-evaluations of a list function",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "vConcatV": {
@@ -138,7 +138,7 @@
             "metadata": {
                 "description": "repeats and concatenates as a list re-evaluations of a list function",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "vRepeatE": {
@@ -151,7 +151,7 @@
             "metadata": {
                 "description": "repeats an event a number of times",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "vABAv": {
@@ -164,7 +164,7 @@
             "metadata": {
                 "description": "creates a voice with an A-B-A structure of voices",
                 "date": 20190929,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "vABCABv": {
@@ -178,7 +178,7 @@
             "metadata": {
                 "description": "creates a voice with an A-B-C-B-A structure of voices",
                 "date": 20190929,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "vMotif": {
@@ -193,7 +193,7 @@
             "metadata": {
                 "description": "creates a sequence of events based on lists",
                 "date": 20190920,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "vMotifLoop": {
@@ -208,7 +208,7 @@
             "metadata": {
                 "description": "creates a sequence of events based on repeating lists",
                 "date": 20190920,
-                "creator": "lm"
+                "creator": "jlm"
             }
         }
     },
@@ -225,7 +225,7 @@
             "metadata": {
                 "description": "piano event identity function",
                 "date": 20190905,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "eAutoref": {
@@ -237,7 +237,7 @@
             "metadata": {
                 "description": "points to a previous event",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "e2Pitches": {
@@ -253,7 +253,7 @@
             "metadata": {
                 "description": "creates an event with two pitches",
                 "date": 20190914,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "e3Pitches": {
@@ -270,7 +270,7 @@
             "metadata": {
                 "description": "creates an event with three pitches",
                 "date": 20190914,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "e4Pitches": {
@@ -288,7 +288,7 @@
             "metadata": {
                 "description": "creates an event with four pitches",
                 "date": 20190914,
-                "creator": "lm"
+                "creator": "jlm"
             }
         }
     },
@@ -302,7 +302,7 @@
             "metadata": {
                 "description": "list identity function",
                 "date": 20190905,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "ln": {
@@ -314,7 +314,7 @@
             "metadata": {
                 "description": "list of notevalues identity function",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "lm": {
@@ -326,7 +326,7 @@
             "metadata": {
                 "description": "list of midipitches identity function",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "lAutoref": {
@@ -338,7 +338,7 @@
             "metadata": {
                 "description": "points to a previous list",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "lIterP": {
@@ -351,7 +351,7 @@
             "metadata": {
                 "description": "repeats and concatenates as a list re-evaluations of a parameter function",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "lIterL": {
@@ -364,7 +364,7 @@
             "metadata": {
                 "description": "repeats and concatenates as a list re-evaluations of a list function",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "lConcatL": {
@@ -377,7 +377,7 @@
             "metadata": {
                 "description": "concatenates two lists sequentially",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "l2P": {
@@ -390,7 +390,7 @@
             "metadata": {
                 "description": "generates a list of 2 parameters",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "l3P": {
@@ -404,7 +404,7 @@
             "metadata": {
                 "description": "generates a list of 3 parameters",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "l4P": {
@@ -419,7 +419,7 @@
             "metadata": {
                 "description": "generates a list of 4 parameters",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "l5P": {
@@ -435,7 +435,7 @@
             "metadata": {
                 "description": "generates a list of 5 parameters",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "lRepeatP": {
@@ -448,7 +448,7 @@
             "description": "repeats a parameter a number of times",
             "metadata": {
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "lRnd": {
@@ -461,7 +461,7 @@
             "metadata": {
                 "description": "returns a complete random list with normal distribution of values based on two seeds",
                 "date": 20190914,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "lUniformRnd": {
@@ -474,7 +474,7 @@
             "metadata": {
                 "description": "returns a complete random list with uniform distribution of values based on two seeds",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             }
         }
     },
@@ -488,7 +488,7 @@
             "metadata": {
                 "description": "normalized parameter identity function",
                 "date": 20190905,
-                "creator": "lm"
+                "creator": "jlm"
             },
             "leafIdentifier": 0.5
         },
@@ -501,7 +501,7 @@
             "metadata": {
                 "description": "points to a previous parameter",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "pRnd": {
@@ -513,7 +513,7 @@
             "metadata": {
                 "description": "returns a random normalized parameter with Gaussian (or normal) distribution",
                 "date": 20190914,
-                "creator": "lm"
+                "creator": "jlm"
             }
         },
         "pUniformRnd": {
@@ -523,7 +523,7 @@
             "metadata": {
                 "description": "returns a random normalized parameter with uniform distribution",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             }
         }
     },
@@ -537,7 +537,7 @@
             "metadata": {
                 "description": "notevalue parameter identity function",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             },
             "leafIdentifier": 0.51
         },
@@ -550,7 +550,7 @@
             "metadata": {
                 "description": "points to a previous notevalue parameter",
                 "date": 20190922,
-                "creator": "lm"
+                "creator": "jlm"
             }
         }
     },
@@ -564,7 +564,7 @@
             "metadata": {
                 "description": "midipitch parameter identity function",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             },
             "leafIdentifier": 0.53
         },
@@ -577,7 +577,7 @@
             "metadata": {
                 "description": "points to a previous midipitch parameter",
                 "date": 20190922,
-                "creator": "lm"
+                "creator": "jlm"
             }
         }
     },
@@ -591,7 +591,7 @@
             "metadata": {
                 "description": "articulation parameter identity function",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             },
             "leafIdentifier": 0.55
         },
@@ -604,7 +604,7 @@
             "metadata": {
                 "description": "points to a previous articulation parameter",
                 "date": 20190922,
-                "creator": "lm"
+                "creator": "jlm"
             }
         }
     },
@@ -618,7 +618,7 @@
             "metadata": {
                 "description": "intensity parameter identity function",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             },
             "leafIdentifier": 0.56
         },
@@ -631,7 +631,7 @@
             "metadata": {
                 "description": "points to a previous intensity parameter",
                 "date": 20190922,
-                "creator": "lm"
+                "creator": "jlm"
             }
         }
     },
@@ -645,7 +645,7 @@
             "metadata": {
                 "description": "quantized integer parameter identity function",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             },
             "leafIdentifier": 0.58
         },
@@ -658,7 +658,7 @@
             "metadata": {
                 "description": "points to a previous quantized parameter",
                 "date": 20190922,
-                "creator": "lm"
+                "creator": "jlm"
             }
         }
     },
@@ -673,7 +673,7 @@
             "metadata": {
                 "description": "returns the sum of two values",
                 "date": 20190906,
-                "creator": "lm"
+                "creator": "jlm"
             },
             "leafIdentifier": 0.5
         }
