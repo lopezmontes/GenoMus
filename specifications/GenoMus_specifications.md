@@ -960,7 +960,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `nAutoref`  | 277 <sub>.195415 in progress</sub>  | points to a previous notevalue parameter
 | `dAutoref`  | 278 <sub>not yet implemented</sub>  | points to a previous notevalue parameter
 | `mAutoref`  | 279 <sub>.431483 in progress</sub>  | points to a previous notevalue parameter
-| `fAutoref`  | 280 <sub>not yet implemented</sub>  | points to a previous notevalue parameter
+| `fAutoref`  | 280 <sub>.049517 in progress</sub>  | points to a previous notevalue parameter
 | `aAutoref`  | 281 <sub>.667551 in progress</sub>  | points to a previous notevalue parameter
 | `iAutoref`  | 282 <sub>.285585 in progress</sub>  | points to a previous notevalue parameter
 | `gAutoref`  | 283 <sub>not yet implemented</sub>  | points to a previous notevalue parameter
