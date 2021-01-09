@@ -201,11 +201,13 @@
                 "lnotevalueF",
                 "lmidipitchF",
                 "larticulationF",
-                "lintensityF"
+                "lintensityF",
+                "notclear",
+                "notclear"
             ],
             "metadata": {
                 "description": "creates a sequence of events based on lists",
-                "date": 20190920,
+                "date": 20210109,
                 "creator": "lm"
             }
         },

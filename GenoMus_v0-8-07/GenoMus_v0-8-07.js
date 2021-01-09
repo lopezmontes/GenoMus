@@ -1420,7 +1420,7 @@ var mergeScores_piano = (scoEncPhen1, scoEncPhen2) => {
     var numVoicesSco1 = p2z(scoEncPhen1[0]);
     var numVoicesSco2 = p2z(scoEncPhen2[0]);
     var numVoicesSco1Length = scoEncPhen1.length;
-    var numVoicesSco2Length = scoEncPhen1.length;
+    // var numVoicesSco2Length = scoEncPhen1.length;
     var maxVoices = Math.max(numVoicesSco1, numVoicesSco2);
     var minVoices = Math.min(numVoicesSco1, numVoicesSco2);
     var newEncodedPhenotype = [z2p(maxVoices)];
@@ -1438,7 +1438,6 @@ var mergeScores_piano = (scoEncPhen1, scoEncPhen2) => {
     for (var v = 0; v < numVoicesSco1; v++) {
         currentVoiceDur = 0;
         eventsInVoice = p2z(scoEncPhen1[pos]);
-        maxAPI.post("events in voice: " + eventsInVoice);
         pos++;
         for (var e = 0; e < eventsInVoice; e++) {
             // read event durations and adds it to measure the voice duration
@@ -1520,7 +1519,7 @@ var mergeScores_csound = (scoEncPhen1, scoEncPhen2) => {
     var numVoicesSco1 = p2z(scoEncPhen1[0]);
     var numVoicesSco2 = p2z(scoEncPhen2[0]);
     var numVoicesSco1Length = scoEncPhen1.length;
-    var numVoicesSco2Length = scoEncPhen1.length;
+    // var numVoicesSco2Length = scoEncPhen1.length;
     var maxVoices = Math.max(numVoicesSco1, numVoicesSco2);
     var minVoices = Math.min(numVoicesSco1, numVoicesSco2);
     var newEncodedPhenotype = [z2p(maxVoices)];
@@ -1538,7 +1537,6 @@ var mergeScores_csound = (scoEncPhen1, scoEncPhen2) => {
     for (var v = 0; v < numVoicesSco1; v++) {
         currentVoiceDur = 0;
         eventsInVoice = p2z(scoEncPhen1[pos]);
-        maxAPI.post("events in voice: " + eventsInVoice);
         pos++;
         for (var e = 0; e < eventsInVoice; e++) {
             // read event durations and adds it to measure the voice duration
@@ -1772,7 +1770,7 @@ var vIterE = (event, times) => {
 };
 
 // creates a voice based on lists without no loops (shortest list determines number of events)
-var vMotif = (listNotevalues, listPitches, listArticulations, listIntensities) => {
+var vMotif_piano = (listNotevalues, listPitches, listArticulations, listIntensities) => {
     var seqLength = Math.min(
         listNotevalues.encPhen.length,
         listPitches.encPhen.length,
@@ -1808,6 +1806,53 @@ var vMotif = (listNotevalues, listPitches, listArticulations, listIntensities) =
         phenLength: seqLength,
     });
 };
+
+// creates a voice based on lists without no loops (shortest list determines number of events)
+var vMotif_csound = (listNotevalues, listPitches, listArticulations, listIntensities, listParam5, listParam6) => {
+    var seqLength = Math.min(
+        listNotevalues.encPhen.length,
+        listPitches.encPhen.length,
+        listArticulations.encPhen.length,
+        listIntensities.encPhen.length,
+        listParam5.encPhen.length,
+        listParam6.encPhen.length);
+    /////////// if (seqLength > phenMaxLength) return -1;
+    if (seqLength > phenMaxLength) {
+        validGenotype = false;
+        console.log("Aborted genotype due to exceeding the max length");
+        return "v(" + defaultEventExpression + ")";
+    }
+    var eventsSeq = [z2p(seqLength)];
+    for (var ev = 0; ev < seqLength; ev++) {
+        eventsSeq.push(listNotevalues.encPhen[ev]);
+        eventsSeq.push(0.618034);
+        eventsSeq.push(listPitches.encPhen[ev]);
+        eventsSeq.push(listArticulations.encPhen[ev]);
+        eventsSeq.push(listIntensities.encPhen[ev]);
+        eventsSeq.push(listParam5.encPhen[ev]);
+        eventsSeq.push(listParam6.encPhen[ev]);
+    }
+    return indexExprReturnSpecimen({
+        funcType: "voiceF",
+        encGen: flattenDeep([1, 0.988764,
+            listNotevalues.encGen,
+            listPitches.encGen,
+            listArticulations.encGen,
+            listIntensities.encGen,
+            listParam5.encGen,
+            listParam6.encGen, 0]),
+        decGen: "vMotif(" +
+            listNotevalues.decGen + "," +
+            listPitches.decGen + "," +
+            listArticulations.decGen + "," +
+            listIntensities.decGen + "," +
+            listParam5.decGen + "," +
+            listParam6.decGen + ")",
+        encPhen: eventsSeq,
+        phenLength: seqLength,
+    });
+};
+
 
 // creates a voice based on lists without loops (largest list determines number of events)
 var vMotifLoop = (listNotevalues, listPitches, listArticulations, listIntensities) => {
@@ -2165,10 +2210,10 @@ createJSON(GenoMusFunctionLibrary, 'GenoMus_function_library.json');
 
 // eligible functions (all functions available)
 var eligibleFunctions = {
-    includedFunctions: [0, 1, 2, 3, 4, 5, 7, 9, 10, 12, 17, 19, 20, 29, 42, 44, 46, 104, 109, 110, 277, 279, 281, 282, 284,
+    includedFunctions: [0, 1, 2, 3, 4, 5, 7, 9, 10, 12, 17, 19, 20, 29, 42, 44, 46, 58, 104, 109, 110, 199, 277, 279, 281, 282, 284,
         310, 312, 314, 315, 316, 317, 25, 28, 29, 277, 279, 281, 282, 284],
     mandatoryFunctions: [], // to be implemented
-    excludedFunctions: [] // 1, 9, 27, 10, 26, 17, 15, 7, 5, 25, 12, 29, 28, 131, 132, 40, 36, 35
+    excludedFunctions: [199] // 1, 9, 27, 10, 26, 17, 15, 7, 5, 25, 12, 29, 28, 131, 132, 40, 36, 35
 };
 
 var testingFunctions = {
@@ -3388,6 +3433,7 @@ maxAPI.addHandler("mutateLeaves", () => {
 // global variable to store specific functions depending on current species 
 var e; // identity event function
 var mergeScores; // aux function to merge scores
+var vMotif;
 
 // create specific functions for the current specieszz
 var createSpeciesDependentFunctions = (speciesName) => {
@@ -3395,10 +3441,12 @@ var createSpeciesDependentFunctions = (speciesName) => {
         case "piano":
             e = e_piano;
             mergeScores = mergeScores_piano;
+            vMotif = vMotif_piano;
             break;
         case ("csound"):
             e = e_csound;
             mergeScores = mergeScores_csound;
+            vMotif = vMotif_csound;
             break;
         default:
             console.log("Error: species unknown.");
