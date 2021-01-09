@@ -276,11 +276,13 @@
                 "notevalueF",
                 "midipitchF",
                 "articulationF",
-                "intensityF"
+                "intensityF",
+                "paramF",
+                "paramF"
             ],
             "metadata": {
                 "description": "piano event identity function",
-                "date": 20190905,
+                "date": 20210107,
                 "creator": "lm"
             }
         },

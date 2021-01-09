@@ -1,7 +1,6 @@
 // GENOMUS 0.8 UNIT TESTING
 ///////////////////////////
 
-// goal: remove seedrandom dependencies with old logistic eq random generator
 
 // DEPENDENCIES
 
@@ -891,6 +890,8 @@ var e = (notevalue, midiPitch, articulation, intensity) => indexExprReturnSpecim
         chromaticism: 0
     }
 });
+
+
 
 // voice identity function
 var v = e => indexExprReturnSpecimen({
