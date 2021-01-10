@@ -1302,6 +1302,7 @@ var l5P = (p1, p2, p3, p4, p5) => indexExprReturnSpecimen({
 });
 
 // random list up to 24 values with uniform distribution within interval [0, 1]
+// TO REWRITE WITHOUT SEEDRANDOM MODULE
 var lUniformRnd = (numItemsSeed, seqSeed) => {
     random.use(seedrandom(numItemsSeed.encPhen));
     var numItems = random.int(1, 24);
@@ -1315,6 +1316,7 @@ var lUniformRnd = (numItemsSeed, seqSeed) => {
 };
 
 // random list up to 24 values with normal distribution within interval [0, 1]
+// TO REWRITE WITHOUT SEEDRANDOM MODULE
 var lRnd = (numItemsSeed, seqSeed) => {
     random.use(seedrandom(numItemsSeed.encPhen));
     var numItems = random.int(1, 24);
@@ -2311,17 +2313,11 @@ var eligibleFunctions = {
         199,
         200,
         277,
-        277,
         278,
         279,
-        279,
-        280,
         280,
         281,
-        281,
         282,
-        282,
-        284,
         284,
         286,
         288,
@@ -2336,7 +2332,12 @@ var eligibleFunctions = {
         316,
         317,
         65,66,67,68,76,77,
-        84
+        84,
+        111,
+        131,
+        294, 296, 298, 299,
+        302, 304, 306, 307
+        
 
      ],
     mandatoryFunctions: [], // to be implemented
@@ -2613,7 +2614,7 @@ var compressExpr = expandedFormExpr => {
     return expandedFormExpr;
 };
 
-// expand and indent a compressed expression in a human readable format
+// expands and indents a compressed expression in a human-readable format
 var expandExpr = compressedFormExpr => {
     //compressedFormExpr = compressedFormExpr.toString();
     compressedFormExpr = compressExpr(compressedFormExpr);
