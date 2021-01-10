@@ -1303,7 +1303,7 @@ var l5P = (p1, p2, p3, p4, p5) => indexExprReturnSpecimen({
 
 // random list up to 24 values with uniform distribution within interval [0, 1]
 // TO REWRITE WITHOUT SEEDRANDOM MODULE
-var lUniformRnd = (numItemsSeed, seqSeed) => {
+var lUniformRnd_O = (numItemsSeed, seqSeed) => {
     random.use(seedrandom(numItemsSeed.encPhen));
     var numItems = random.int(1, 24);
     random.use(seedrandom(seqSeed.encPhen));
@@ -1315,12 +1315,27 @@ var lUniformRnd = (numItemsSeed, seqSeed) => {
     });
 };
 
-// random list up to 24 values with normal distribution within interval [0, 1]. Seed is first element
-var lRnd = (seqSeed, numItems) => {
-    var rndArr = logisticRandom(seqSeed.encPhen[0], Math.abs(p2q(numItems.encPhen[0]))).map(uniform2normal).map(r6d);
+// random list with uniform distribution within interval [0, 1]. Seed is first element. Creates 2 elements minimum
+var lUniformRnd = (seqSeed, numItems) => {
+    var numIt = Math.abs(p2q(numItems.encPhen[0]));
+    if (numIt < 2) numIt = 2;
+    var rndArr = logisticRandom(seqSeed.encPhen[0], numIt).map(r6d);
     return indexExprReturnSpecimen({
         funcType: "listF",
-        encGen: flattenDeep([1, 0.816554, seqSeed.encGen, numItems.encGen, 0]),
+        encGen: flattenDeep([1, 0.816554, seqSeed.encGen, "q(" + numIt + ")", 0]),
+        decGen: "lUniformRnd(" + seqSeed.decGen + "," + numItems.decGen + ")",
+        encPhen: rndArr
+    });
+};
+
+// random list uwith normal distribution within interval [0, 1]. Seed is first element
+var lRnd = (seqSeed, numItems) => {
+    var numIt = Math.abs(p2q(numItems.encPhen[0]));
+    if (numIt < 2) numIt = 2;
+    var rndArr = logisticRandom(seqSeed.encPhen[0], numIt).map(uniform2normal).map(r6d);
+    return indexExprReturnSpecimen({
+        funcType: "listF",
+        encGen: flattenDeep([1, 0.816554, seqSeed.encGen, "q(" + numIt + ")", 0]),
         decGen: "lRnd(" + seqSeed.decGen + "," + numItems.decGen + ")",
         encPhen: rndArr
     });
@@ -2460,6 +2475,7 @@ var eligibleFunctions = {
         111,
         131,
         134,
+        135,
         199,
         200,
         202,

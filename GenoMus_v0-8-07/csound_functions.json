@@ -525,11 +525,11 @@
             "functionType": "listF",
             "arguments": [
                 "paramF",
-                "paramF"
+                "quantizedF"
             ],
             "metadata": {
-                "description": "returns a complete random list with uniform distribution of values based on two seeds",
-                "date": 20190906,
+                "description": "returns a complete random list with uniform distribution of values based on a seed, with logistic map as generator",
+                "date": 20210110,
                 "creator": "jlm"
             }
         },
