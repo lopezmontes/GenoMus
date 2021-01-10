@@ -384,7 +384,7 @@ function createNewSeed(integer) {
 
 // logistic map for creating random numbers
 var logisticSeed = 0.481920;
-// random array from a logistic map for creating list from a seed as argument
+// random series from a logistic map for creating list from a seed as argument
 var logisticRandom = (x, numItems) => {
     var rndVector = [x];
     for (var i = 0; i < numItems - 1; i++) {
@@ -1315,14 +1315,17 @@ var lUniformRnd = (numItemsSeed, seqSeed) => {
     });
 };
 
-// random list up to 24 values with normal distribution within interval [0, 1]. Seed is first element
-var lRnd = (seqSeed, numItems) => {
-    var rndArr = logisticRandom(seqSeed.encPhen[0], Math.abs(p2q(numItems.encPhen[0]))).map(uniform2normal).map(r6d);
+// random list up to 24 values with normal distribution within interval [0, 1]
+// TO REWRITE WITHOUT SEEDRANDOM MODULE
+var lRnd = (numItemsSeed, seqSeed) => {
+    random.use(seedrandom(numItemsSeed.encPhen));
+    var numItems = random.int(1, 24);
+    random.use(seedrandom(seqSeed.encPhen));
     return indexExprReturnSpecimen({
         funcType: "listF",
-        encGen: flattenDeep([1, 0.816554, seqSeed.encGen, numItems.encGen, 0]),
-        decGen: "lRnd(" + seqSeed.decGen + "," + numItems.decGen + ")",
-        encPhen: rndArr
+        encGen: flattenDeep([1, 0.816554, numItemsSeed.encGen, seqSeed.encGen, 0]),
+        decGen: "lRnd(" + numItemsSeed.decGen + "," + seqSeed.decGen + ")",
+        encPhen: Array(numItems).fill().map(() => gaussRnd())
     });
 };
 
@@ -2415,7 +2418,7 @@ createJSON(GenoMusFunctionLibrary, 'GenoMus_function_library.json');
 var eligibleFunctions = {
     includedFunctions: [ 
         0,
-        1,
+        202,
         2,
         3,
         4,
@@ -2436,9 +2439,6 @@ var eligibleFunctions = {
         26,
         28,
         29,
-        35,
-        36,
-        37,
         41,
         42,
         43,
@@ -2447,25 +2447,15 @@ var eligibleFunctions = {
         48,
         58,
         63,
-        65,
-        66,
-        67,
-        68,
-        76,
-        77,
-        84,
         104,
         109,
         110,
-        111,
-        131,
-        134,
         199,
         200,
-        202,
         277,
         278,
         279,
+        1,
         281,
         282,
         284,
@@ -2473,14 +2463,6 @@ var eligibleFunctions = {
         288,
         290,
         291,
-        294,
-        296,
-        298,
-        299,
-        302,
-        304,
-        306,
-        307,
         310,
         311,
         312,
@@ -2489,7 +2471,27 @@ var eligibleFunctions = {
         315,
         316,
         317,
+        65,
+        66,
+        67,
+        68,
+        76,
+        77,
+        84,
+        111,
+        131,
+        294,
+        296,
+        298,
+        299,
+        302,
+        304,
+        306,
+        307,
         318,
+        35,
+        36,
+        37,
         201,
         280 ],
     mandatoryFunctions: [], // to be implemented
