@@ -16,8 +16,8 @@
 
 
 // TESTING DIFFERENT SPECIES
-// var currentSpecies = "csound";
  var currentSpecies = "csound";
+// var currentSpecies = "piano";
 
 // DEPENDENCIES
 
@@ -2860,14 +2860,13 @@ var expandExpr = compressedFormExpr => {
 };
 
 
-////////////////////
-// PHENOTYPE DECODER
+/////////////////////
+// PHENOTYPE DECODERS
 
 // bach roll converter
 var encPhen2bachRoll = encPhen => {
     var wholeNoteDur = 4000; // default value for tempo, 1/4 note = 1 seg 
     var roll = [];
-    var arrLength = encPhen.length;
     var numVoices, numEvents, numPitches, pos = 0;
     var eventDur, totalVoiceDeltaTime;
     var pitchSet, articul, intens;
@@ -2885,11 +2884,7 @@ var encPhen2bachRoll = encPhen => {
             roll.push("(");
             // writes start time
             roll.push(totalVoiceDeltaTime);
-            console.log("encPhen[pos]: " + encPhen[pos]);
-
-            // eventDur = wholeNoteDur * eval(p2n(encPhen[pos]));
             eventDur = wholeNoteDur * p2n(encPhen[pos]);
-            console.log("eventDur: " + eventDur);
             pos++;
             // loads number of pitches within an event
             numPitches = p2z(encPhen[pos]);
@@ -2928,6 +2923,75 @@ var encPhen2bachRoll = encPhen => {
     }
     return roll;
 };
+
+// csound score converter
+var encPhen2csoundScore = encPhen => {
+    var wholeNoteDur = 4000; // default value for tempo, 1/4 note = 1 seg 
+    var csoundEvent = "";
+    var csoundScore = [];
+    var numVoices, numEvents, numPitches;
+    var pos = 0;
+    var eventDur, totalVoiceDeltaTime;
+    var pitchSet, articul, intens, param5, param6;
+    // write voices within a score
+    numVoices = p2z(encPhen[pos]);
+    pos++;
+    for (var v = 0; v < numVoices; v++) {
+        numEvents = p2z(encPhen[pos]);
+        pos++;
+        // write events within a voice
+        totalVoiceDeltaTime = 0;
+        for (var e = 0; e < numEvents; e++) {
+            // calculates start time
+            eventDur = wholeNoteDur * p2n(encPhen[pos]);
+            pos++;
+            // loads number of pitches within an event
+            numPitches = p2z(encPhen[pos]);
+            pos++;
+            // read the pitches;
+            pitchSet = [];
+            for (var pit = 0; pit < numPitches; pit++) {
+                pitchSet.push(p2m(encPhen[pos]) * 100);
+                pos++;
+            }
+            // read articulation
+            articul = eventDur * p2a(encPhen[pos]) * .01;
+            pos++;
+            // read intensity (uses 27 as dynamic baseline to avoid too pianissimo notes)
+            if (encPhen[pos] == 0) intens = 0;
+            else intens = p2i(encPhen[pos]) + 27;
+            pos++;
+            // read extra parameters
+            param5 = encPhen[pos];
+            pos++;            
+            param6 = encPhen[pos];
+            pos++;  
+            // writes individual notes parameters
+            if (intens > 0) {
+                for (var pit = 0; pit < numPitches; pit++) {
+                    // adds instrument number
+                    csoundEvent += "e i2 ";
+                    // adds start time
+                    csoundEvent += r6d(totalVoiceDeltaTime * 0.001) + " ";
+                    // adds duration of sound according to articulation % value
+                    csoundEvent += r6d(articul * 0.001) + " ";
+                    // adds dynamics (converts from 0-1 to 127 standard MIDI velocity)
+                    csoundEvent += intens + " ";
+                    // adds a pitch of the chord
+                    csoundEvent += pitchSet[pit] + " ";
+                    // ads extra parameters
+                    csoundEvent += r6d(param5) + " " + r6d(param6);
+                    // add new line to score and reinit event string
+                    csoundScore.push(csoundEvent);
+                    csoundEvent = "";
+                }
+            }
+            totalVoiceDeltaTime = totalVoiceDeltaTime + eventDur;
+        }
+    }
+    return csoundScore;
+};
+
 
 // encPhen2bachRoll([ 0.618034, 0.618034, 0.6, 0.618034, 0.48, 1, 1 ]);
 // encPhen2bachRoll(evalDecGen("s(v(e(p(0.5),p(.5),p(.5),p(.5))))").encPhen);
@@ -2982,9 +3046,9 @@ var specimenDataStructure = (specimen) => ({
         booleanF: subexpressions["booleanF"]
     },
     leaves: specimen.data.leaves,
-    roll: ""//encPhen2bachRoll(specimen.encPhen)
+    // roll: encPhen2bachRoll(specimen.encPhen),
+    csoundScore: encPhen2csoundScore(specimen.encPhen)
 });
-
 
 
 ///////////////
