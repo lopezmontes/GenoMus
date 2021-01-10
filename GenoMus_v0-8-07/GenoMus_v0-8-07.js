@@ -16,8 +16,8 @@
 
 
 // TESTING DIFFERENT SPECIES
-// var currentSpecies = "csound";
- var currentSpecies = "piano";
+ var currentSpecies = "csound";
+// var currentSpecies = "piano";
 
 // DEPENDENCIES
 
@@ -1229,7 +1229,7 @@ var vRepeatE_OLD = (event, times) => {
     //////////// if (numRepeats > phenMaxLength) return -1;
     if (numRepeats > phenMaxLength) {
         validGenotype = false;
-        // console.log("Aborted genotype due to exceeding the max length");
+        maxAPI.post("Aborted genotype due to exceeding the max length");
         return "v(" + defaultEventExpression + ")";
     }
     return indexExprReturnSpecimen({
@@ -1253,8 +1253,8 @@ var vRepeatE = (event, times) => {
     //////////// if (numRepeats > phenMaxLength) return -1;
     if (numRepeats > phenMaxLength) {
         validGenotype = false;
-        // console.log("Aborted genotype due to exceeding the max length");
-        return "v(" + defaultEventExpression + ")";
+        maxAPI.post("Aborted genotype due to exceeding the max length");
+        return eval("v(" + defaultEventExpression + ")");
     }
     return indexExprReturnSpecimen({
         funcType: "voiceF",
@@ -1771,7 +1771,7 @@ var vIterE = (event, times) => {
     if (numIterations > phenMaxLength) {
         validGenotype = false;
         console.log("Aborted genotype due to exceeding the max length");
-        return "v(" + defaultEventExpression + ")";
+        return eval("v(" + defaultEventExpression + ")");
     }
     return indexExprReturnSpecimen({
         funcType: "voiceF",
@@ -1796,8 +1796,8 @@ var vMotif_piano = (listNotevalues, listPitches, listArticulations, listIntensit
     /////////// if (seqLength > phenMaxLength) return -1;
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        // console.log("Aborted genotype due to exceeding the max length");
-        return "v(" + defaultEventExpression + ")";
+        maxAPI.post("Aborted genotype due to exceeding the max length");
+        return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -1836,8 +1836,8 @@ var vMotif_csound = (listNotevalues, listPitches, listArticulations, listIntensi
     /////////// if (seqLength > phenMaxLength) return -1;
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        // console.log("Aborted genotype due to exceeding the max length");
-        return "v(" + defaultEventExpression + ")";
+        maxAPI.post("Aborted genotype due to exceeding the max length");
+        return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -1880,8 +1880,8 @@ var vMotifLoop_piano = (listNotevalues, listPitches, listArticulations, listInte
     //////////// if (seqLength > phenMaxLength) return -1;
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        // console.log("Aborted genotype due to exceeding the max length");
-        return "v(" + defaultEventExpression + ")";
+        maxAPI.post("Aborted genotype due to exceeding the max length");
+        return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -1920,8 +1920,8 @@ var vMotifLoop_csound = (listNotevalues, listPitches, listArticulations, listInt
     //////////// if (seqLength > phenMaxLength) return -1;
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        // console.log("Aborted genotype due to exceeding the max length");
-        return "v(" + defaultEventExpression + ")";
+        maxAPI.post("Aborted genotype due to exceeding the max length");
+        return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -1965,7 +1965,7 @@ var vPerpetuumMobile = (noteval, listPitches, listArticulations, listIntensities
     if (seqLength > phenMaxLength) {
         validGenotype = false;
         console.log("Aborted genotype due to exceeding the max length");
-        return "v(" + defaultEventExpression + ")";
+        return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -2001,8 +2001,8 @@ var vPerpetuumMobileLoop = (noteval, listPitches, listArticulations, listIntensi
     //////////// if (seqLength > phenMaxLength) return -1;
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        console.log("Aborted genotype due to exceeding the max length");
-        return "v(" + defaultEventExpression + ")";
+        maxAPI.post("Aborted genotype due to exceeding the max length");
+        return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -2036,7 +2036,7 @@ var vRepeatV = (voice, times) => {
     if (totalEvents > phenMaxLength) {
         validGenotype = false;
         console.log("Aborted genotype due to exceeding the max length");
-        return "v(" + defaultEventExpression + ")";
+        return eval("v(" + defaultEventExpression + ")");
     }
     var repeatedVoice = [];
     for (var el = 0; el < repeats; el++) repeatedVoice = repeatedVoice.concat(voice.encPhen.slice(1));
@@ -2072,7 +2072,6 @@ var vABAv = (v1, v2) => indexExprReturnSpecimen({
 
 // A-B-C-A-B structure of voices
 var vABCABv = (v1, v2, v3) => {
-    // console.log("elementos conflictos: " + v1.encPhen + " Seg: " + v2.encPhen + " Ter: " + v3.encPhen)
     return indexExprReturnSpecimen({
         funcType: "voiceF",
         encGen: flattenDeep([1, 0.936141, v1.encGen, v2.encGen, v3.encGen, 0]),
@@ -2119,7 +2118,7 @@ var eAutoref = subexprIndex => autoref("eAutoref", "eventF", 0.686918, subexprIn
 var vAutoref = subexprIndex => autoref("vAutoref", "voiceF", 0.304952, subexprIndex, "v(" + defaultEventExpression + ")");
 var sAutoref = subexprIndex => autoref("sAutoref", "scoreF", 0.922986, subexprIndex, "s(v(" + defaultEventExpression + "))");
 var nAutoref = subexprIndex => autoref("nAutoref", "notevalueF", 0.195415, subexprIndex, "n(.000001)");
-var dAutoref = subexprIndex => autoref("dAutoref", "durationF", 0.813449, subexprIndex, "n(.000001)");
+var dAutoref = subexprIndex => autoref("dAutoref", "durationF", 0.813449, subexprIndex, "d(.016)");
 var mAutoref = subexprIndex => autoref("mAutoref", "midipitchF", 0.431483, subexprIndex, "m(43)");
 var fAutoref = subexprIndex => autoref("fAutoref", "frequencyF", 0.049517, subexprIndex, "f(440)");
 var aAutoref = subexprIndex => autoref("aAutoref", "articulationF", 0.667551, subexprIndex, "a(0)");
@@ -2275,7 +2274,8 @@ createJSON(GenoMusFunctionLibrary, 'GenoMus_function_library.json');
 
 // eligible functions (all functions available)
 var eligibleFunctions = {
-    includedFunctions: [ 0,
+    includedFunctions: [ 
+        0,
         1,
         2,
         3,
@@ -2294,12 +2294,15 @@ var eligibleFunctions = {
         19,
         20,
         25,
+        26,
         28,
         29,
-        29,
+        41,
         42,
+        43,
         44,
         46,
+        48,
         58,
         63,
         104,
@@ -2331,7 +2334,11 @@ var eligibleFunctions = {
         314,
         315,
         316,
-        317 ],
+        317,
+        65,66,67,68,76,77,
+        84
+
+     ],
     mandatoryFunctions: [], // to be implemented
     excludedFunctions: [] // 1, 9, 27, 10, 26, 17, 15, 7, 5, 25, 12, 29, 28, 131, 132, 40, 36, 35
 };
@@ -2627,7 +2634,6 @@ var expandExpr = compressedFormExpr => {
     compressedFormExpr = compressedFormExpr.replace(/\bi\(\n/g, "i(");
     compressedFormExpr = compressedFormExpr.replace(/\bq\(\n/g, "q(");
     compressedFormExpr = compressedFormExpr.replace(/\bz\(\n/g, "z(");
-    compressedFormExpr = compressedFormExpr.replace(/\bl\(\n/g, "l(");
     compressedFormExpr = compressedFormExpr.replace(/pAutoref\(\n/g, "pAutoref(");
     compressedFormExpr = compressedFormExpr.replace(/lAutoref\(\n/g, "lAutoref(");
     compressedFormExpr = compressedFormExpr.replace(/eAutoref\(\n/g, "eAutoref(");
@@ -2807,7 +2813,7 @@ var specimenDataStructure = (specimen) => ({
         booleanF: subexpressions["booleanF"]
     },
     leaves: specimen.data.leaves,
-    roll: encPhen2bachRoll(specimen.encPhen)
+    roll: ""//encPhen2bachRoll(specimen.encPhen)
 });
 
 
