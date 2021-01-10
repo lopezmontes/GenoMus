@@ -998,32 +998,33 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 
 ---------
 ## Form
-| name        | index                             | description
-| ----------- | --------------------------------- | -----------
-| `lConcatL`  | 41 <sub>.957428 in progress</sub> | concatenates two lists sequentially
-| `vConcatE`  | 42 <sub>.957428 in progress</sub> | concatenates two events sequentially
-| `vConcatV`  | 43 <sub>.575462 in progress</sub> | concatenates two voices sequentially
-| `sConcatS`  | 44 <sub>.193496 in progress</sub> | concatenates two scores sequentially
-| `eAddPitch` | 45 <sub>.811529 in progress</sub> | adds a pitch to an event
-| `vRepeatE`  | 46 <sub>.429563 in progress</sub> | repeats an event a number of times
-| `lRepeatL`  | 47 <sub>not yet implemented</sub> | repeats a list a number of times
-| `vRepeatV`  | 48 <sub>not yet implemented</sub> | repeats a voice a number of times
-| `sRepeatS`  | 49 <sub>not yet implemented</sub> | repeats a score a number of times
-| `lAAp`      | 50 <sub>not yet implemented</sub> | single repetition of a parameter
-| `lAAl`      | 51 <sub>not yet implemented</sub> | single repetition of a list
-| `vAAe`      | 52 <sub>not yet implemented</sub> | single repetition of an event
-| `vAAv`      | 53 <sub>not yet implemented</sub> | single repetition of a voice
-| `sAA`       | 54 <sub>not yet implemented</sub> | single repetition of a score
-| `lABAp`     | 55 <sub>not yet implemented</sub> | A-B-A structure of parameters
-| `lABAl`     | 56 <sub>not yet implemented</sub> | A-B-A structure of lists
-| `vABAe`     | 57 <sub>not yet implemented</sub> | A-B-A structure of events
-| `vABAv`     | 58 <sub>not yet implemented</sub> | A-B-A structure of voices
-| `sABA`      | 59 <sub>not yet implemented</sub> | A-B-A structure of events
-| `lABCABp`   | 60 <sub>not yet implemented</sub> | A-B-C-B-A structure of parameters
-| `lABCABl`   | 61 <sub>not yet implemented</sub> | A-B-C-B-A structure of lists
-| `vABCABe`   | 62 <sub>not yet implemented</sub> | A-B-C-B-A structure of events
-| `vABCABv`   | 63 <sub>not yet implemented</sub> | A-B-C-B-A structure of voices
-| `sABCAB`    | 64 <sub>not yet implemented</sub> | A-B-C-B-A structure of events
+| name        | index                              | description
+| ----------- | ---------------------------------- | -----------
+| `lConcatL`  | 41 <sub>.957428 in progress</sub>  | concatenates two lists sequentially
+| `vConcatE`  | 42 <sub>.957428 in progress</sub>  | concatenates two events sequentially
+| `vConcatV`  | 43 <sub>.575462 in progress</sub>  | concatenates two voices sequentially
+| `sConcatS`  | 44 <sub>.193496 in progress</sub>  | concatenates two scores sequentially
+| `eAddPitch` | 45 <sub>.811529 in progress</sub>  | adds a pitch to an event
+| `vRepeatE`  | 46 <sub>.429563 in progress</sub>  | repeats an event a number of times
+| `lRepeatL`  | 47 <sub>not yet implemented</sub>  | repeats a list a number of times
+| `vRepeatV`  | 48 <sub>not yet implemented</sub>  | repeats a voice a number of times
+| `sRepeatS`  | 49 <sub>not yet implemented</sub>  | repeats a score a number of times
+| `lAAp`      | 50 <sub>not yet implemented</sub>  | single repetition of a parameter
+| `lAAl`      | 51 <sub>not yet implemented</sub>  | single repetition of a list
+| `vAAe`      | 52 <sub>not yet implemented</sub>  | single repetition of an event
+| `vAAv`      | 53 <sub>not yet implemented</sub>  | single repetition of a voice
+| `sAA`       | 54 <sub>not yet implemented</sub>  | single repetition of a score
+| `lABAp`     | 55 <sub>not yet implemented</sub>  | A-B-A structure of parameters
+| `lABAl`     | 56 <sub>not yet implemented</sub>  | A-B-A structure of lists
+| `vABAe`     | 57 <sub>not yet implemented</sub>  | A-B-A structure of events
+| `vABAv`     | 58 <sub>not yet implemented</sub>  | A-B-A structure of voices
+| `sABA`      | 59 <sub>not yet implemented</sub>  | A-B-A structure of events
+| `lABCABp`   | 60 <sub>not yet implemented</sub>  | A-B-C-B-A structure of parameters
+| `lABCABl`   | 61 <sub>not yet implemented</sub>  | A-B-C-B-A structure of lists
+| `vABCABe`   | 62 <sub>not yet implemented</sub>  | A-B-C-B-A structure of events
+| `vABCABv`   | 63 <sub>not yet implemented</sub>  | A-B-C-B-A structure of voices
+| `sABCAB`    | 64 <sub>not yet implemented</sub>  | A-B-C-B-A structure of events
+| `vSlice`    | 318 <sub>.534808 in progress</sub> | slices a part from the beginning or the end of a voice
 
 ---------
 ## Phrasing
