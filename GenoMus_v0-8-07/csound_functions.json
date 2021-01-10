@@ -232,10 +232,12 @@
             "functionIndex": 201,
             "functionType": "voiceF",
             "arguments": [
-                "notevalueF",
-                "lmidipitchF",
+                "ldurationF",
+                "lfrequencyF",
                 "larticulationF",
-                "lintensityF"
+                "lintensityF",
+                "listF",
+                "listF"
             ],
             "metadata": {
                 "description": "creates a sequence of events based on repeating lists but with a single notevalue",
@@ -247,10 +249,12 @@
             "functionIndex": 202,
             "functionType": "voiceF",
             "arguments": [
-                "notevalueF",
-                "lmidipitchF",
+                "ldurationF",
+                "lfrequencyF",
                 "larticulationF",
-                "lintensityF"
+                "lintensityF",
+                "listF",
+                "listF"
             ],
             "metadata": {
                 "description": "creates a sequence of events based on repeating lists but with a single notevalue",

@@ -16,8 +16,8 @@
 
 
 // TESTING DIFFERENT SPECIES
+// var currentSpecies = "csound";
  var currentSpecies = "csound";
-// var currentSpecies = "piano";
 
 // DEPENDENCIES
 
@@ -1355,7 +1355,7 @@ var vConcatE = (e1, e2) => indexExprReturnSpecimen({
 
 // returns a voice removing a number of events at the beginning or at the end
 // range of removed elements: 36 elements from the beginning (positive) or from the end (negative)
-var vSlice = (voice, removedEvents) => {
+var vSlice_piano = (voice, removedEvents) => {
     var numRemovedEv = p2q(removedEvents.encPhen);
     if (numRemovedEv == 0) numRemovedEv = -1; // at least one event from the end will be removed
     if (Math.abs(numRemovedEv) >= voice.phenLength) numRemovedEv = voice.phenLength - 1; // at least one event will be preserved
@@ -1386,6 +1386,60 @@ var vSlice = (voice, removedEvents) => {
             for (ev = 0; ev < pitchesInEvent; ev++) {
                 slicedVoice.push(voice.encPhen[pos]); pos++;
             }
+            slicedVoice.push(voice.encPhen[pos]); pos++;
+            slicedVoice.push(voice.encPhen[pos]); pos++;
+        }
+    }
+    // writes resulting voice length as new header value
+    slicedVoice.unshift(z2p(newVoiceLength));
+    return indexExprReturnSpecimen({
+        funcType: "voiceF",
+        encGen: flattenDeep([1, 0.534808, voice.encGen, removedEvents.encGen, 0]),
+        decGen: "vSlice(" + voice.decGen + "," + removedEvents.decGen + ")",
+        encPhen: slicedVoice,
+        phenLength: newVoiceLength,
+        tempo: voice.tempo,
+        harmony: voice.harmony
+    });
+};
+
+// returns a voice removing a number of events at the beginning or at the end
+// range of removed elements: 36 elements from the beginning (positive) or from the end (negative)
+var vSlice_csound = (voice, removedEvents) => {
+    var numRemovedEv = p2q(removedEvents.encPhen);
+    if (numRemovedEv == 0) numRemovedEv = -1; // at least one event from the end will be removed
+    if (Math.abs(numRemovedEv) >= voice.phenLength) numRemovedEv = voice.phenLength - 1; // at least one event will be preserved
+    var newVoiceLength = voice.phenLength - Math.abs(numRemovedEv);
+    var pitchesInEvent;
+    // removing events from the beginning
+    if (numRemovedEv > 0) {
+        var slicedVoice = voice.encPhen.slice(1); // clones voice removing voice length header
+        for (el = 0; el < numRemovedEv; el++) {
+            slicedVoice.shift();
+            pitchesInEvent = p2z(slicedVoice[0]);
+            slicedVoice.shift();
+            for (ev = 0; ev < pitchesInEvent; ev++) {
+                slicedVoice.shift();
+            }
+            slicedVoice.shift();
+            slicedVoice.shift();
+            slicedVoice.shift();
+            slicedVoice.shift();
+        }
+    }
+    // removing events from the end
+    else {
+        var slicedVoice = [];
+        var pos = 1;
+        for (el = 0; el < newVoiceLength; el++) {
+            slicedVoice.push(voice.encPhen[pos]); pos++;
+            pitchesInEvent = p2z(voice.encPhen[pos]);
+            slicedVoice.push(voice.encPhen[pos]); pos++;
+            for (ev = 0; ev < pitchesInEvent; ev++) {
+                slicedVoice.push(voice.encPhen[pos]); pos++;
+            }
+            slicedVoice.push(voice.encPhen[pos]); pos++;
+            slicedVoice.push(voice.encPhen[pos]); pos++;
             slicedVoice.push(voice.encPhen[pos]); pos++;
             slicedVoice.push(voice.encPhen[pos]); pos++;
         }
@@ -1956,9 +2010,8 @@ var vMotifLoop_csound = (listNotevalues, listPitches, listArticulations, listInt
     });
 };
 
-
 // creates a sequence of events based on repeating lists but with a single notevalue (shortest list determines number of events)
-var vPerpetuumMobile = (noteval, listPitches, listArticulations, listIntensities) => {
+var vPerpetuumMobile_piano = (noteval, listPitches, listArticulations, listIntensities) => {
     var seqLength = Math.min(
         listPitches.encPhen.length,
         listArticulations.encPhen.length,
@@ -1966,7 +2019,7 @@ var vPerpetuumMobile = (noteval, listPitches, listArticulations, listIntensities
     /////////// if (seqLength > phenMaxLength) return -1;
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        console.log("Aborted genotype due to exceeding the max length");
+        maxAPI.post("Aborted genotype due to exceeding the max length");
         return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
@@ -1994,13 +2047,56 @@ var vPerpetuumMobile = (noteval, listPitches, listArticulations, listIntensities
     });
 };
 
+// creates a sequence of events based on repeating lists but with a single notevalue (shortest list determines number of events)
+var vPerpetuumMobile_csound = (noteval, listPitches, listArticulations, listIntensities, listParam5, listParam6) => {
+    var seqLength = Math.min(
+        listPitches.encPhen.length,
+        listArticulations.encPhen.length,
+        listIntensities.encPhen.length,
+        listParam5.encPhen.length,
+        listParam6.encPhen.length);
+    if (seqLength > phenMaxLength) {
+        validGenotype = false;
+        maxAPI.post("Aborted genotype due to exceeding the max length");
+        return eval("v(" + defaultEventExpression + ")");
+    }
+    var eventsSeq = [z2p(seqLength)];
+    for (var ev = 0; ev < seqLength; ev++) {
+        eventsSeq.push(noteval.encPhen[0]);
+        eventsSeq.push(0.618034);
+        eventsSeq.push(listPitches.encPhen[ev]);
+        eventsSeq.push(listArticulations.encPhen[ev]);
+        eventsSeq.push(listIntensities.encPhen[ev]);
+        eventsSeq.push(listParam5.encPhen[ev]);
+        eventsSeq.push(listParam6.encPhen[ev]);
+    }
+    return indexExprReturnSpecimen({
+        funcType: "voiceF",
+        encGen: flattenDeep([1, 0.224832,
+            noteval.encGen,
+            listPitches.encGen,
+            listArticulations.encGen,
+            listIntensities.encGen,
+            listParam5.encGen,
+            listParam5.encGen, 0]),
+        decGen: "vPerpetuumMobile(" +
+            noteval.decGen + "," +
+            listPitches.decGen + "," +
+            listArticulations.decGen + "," +
+            listIntensities.decGen + "," +
+            listParam5.decGen + "," +
+            listParam6.decGen + ")",
+        encPhen: eventsSeq,
+        phenLength: seqLength,
+    });
+};
+
 // creates a voice based on lists without loops (largest list determines number of events)
-var vPerpetuumMobileLoop = (noteval, listPitches, listArticulations, listIntensities) => {
+var vPerpetuumMobileLoop_piano = (noteval, listPitches, listArticulations, listIntensities) => {
     var totalPitches = listPitches.encPhen.length;
     var totalArticulations = listArticulations.encPhen.length;
     var totalIntensities = listIntensities.encPhen.length;
     var seqLength = Math.max(totalPitches, totalArticulations, totalIntensities);
-    //////////// if (seqLength > phenMaxLength) return -1;
     if (seqLength > phenMaxLength) {
         validGenotype = false;
         maxAPI.post("Aborted genotype due to exceeding the max length");
@@ -2026,6 +2122,50 @@ var vPerpetuumMobileLoop = (noteval, listPitches, listArticulations, listIntensi
             listPitches.decGen + "," +
             listArticulations.decGen + "," +
             listIntensities.decGen + ")",
+        encPhen: eventsSeq,
+        phenLength: seqLength,
+    });
+};
+
+// creates a voice based on lists without loops (largest list determines number of events)
+var vPerpetuumMobileLoop_csound = (noteval, listPitches, listArticulations, listIntensities, listParam5, listParam6) => {
+    var totalPitches = listPitches.encPhen.length;
+    var totalArticulations = listArticulations.encPhen.length;
+    var totalIntensities = listIntensities.encPhen.length;
+    var totalParam5values = listParam5.encPhen.length;
+    var totalParam6values = listParam6.encPhen.length;
+    var seqLength = Math.max(totalPitches, totalArticulations, totalIntensities, totalParam5values, totalParam6values);
+    if (seqLength > phenMaxLength) {
+        validGenotype = false;
+        maxAPI.post("Aborted genotype due to exceeding the max length");
+        return eval("v(" + defaultEventExpression + ")");
+    }
+    var eventsSeq = [z2p(seqLength)];
+    for (var ev = 0; ev < seqLength; ev++) {
+        eventsSeq.push(noteval.encPhen[0]);
+        eventsSeq.push(0.618034);
+        eventsSeq.push(listPitches.encPhen[ev % totalPitches]);
+        eventsSeq.push(listArticulations.encPhen[ev % totalArticulations]);
+        eventsSeq.push(listIntensities.encPhen[ev % totalIntensities]);
+        eventsSeq.push(listParam5.encPhen[ev % listParam5]);
+        eventsSeq.push(listParam6.encPhen[ev % listParam6]);
+    }
+    return indexExprReturnSpecimen({
+        funcType: "voiceF",
+        encGen: flattenDeep([1, 0.842866,
+            noteval.encGen,
+            listPitches.encGen,
+            listArticulations.encGen,
+            listIntensities.encGen,
+            listParam5.encGen,
+            listParam6.encGen, 0]),
+        decGen: "vPerpetuumMobileLoop(" +
+            noteval.decGen + "," +
+            listPitches.decGen + "," +
+            listArticulations.decGen + "," +
+            listIntensities.decGen + "," +
+            listParam5.decGen + "," +
+            listParam6.decGen + ")",
         encPhen: eventsSeq,
         phenLength: seqLength,
     });
@@ -2278,7 +2418,7 @@ createJSON(GenoMusFunctionLibrary, 'GenoMus_function_library.json');
 var eligibleFunctions = {
     includedFunctions: [ 
         0,
-        1,
+        202,
         2,
         3,
         4,
@@ -2315,7 +2455,7 @@ var eligibleFunctions = {
         277,
         278,
         279,
-        280,
+        1,
         281,
         282,
         284,
@@ -2331,16 +2471,29 @@ var eligibleFunctions = {
         315,
         316,
         317,
-        65,66,67,68,76,77,
+        65,
+        66,
+        67,
+        68,
+        76,
+        77,
         84,
         111,
         131,
-        294, 296, 298, 299,
-        302, 304, 306, 307,
-        318
-        
-
-     ],
+        294,
+        296,
+        298,
+        299,
+        302,
+        304,
+        306,
+        307,
+        318,
+        35,
+        36,
+        37,
+        201,
+        280 ],
     mandatoryFunctions: [], // to be implemented
     excludedFunctions: [] // 1, 9, 27, 10, 26, 17, 15, 7, 5, 25, 12, 29, 28, 131, 132, 40, 36, 35
 };
@@ -3587,7 +3740,8 @@ maxAPI.addHandler("mutateLeaves", () => {
 // global variable to store specific functions depending on current species 
 var e; // identity event function
 var mergeScores; // aux function to merge scores
-var vMotif, vMotifLoop;
+var vMotif, vMotifLoop, vPerpetuumMobile, vPerpetuumMobileLoop;
+var vSlice;
 
 // create specific functions for the current specieszz
 var createSpeciesDependentFunctions = (speciesName) => {
@@ -3597,12 +3751,18 @@ var createSpeciesDependentFunctions = (speciesName) => {
             mergeScores = mergeScores_piano;
             vMotif = vMotif_piano;
             vMotifLoop = vMotifLoop_piano;
+            vSlice = vSlice_piano;
+            vPerpetuumMobile = vPerpetuumMobile_piano;
+            vPerpetuumMobileLoop = vPerpetuumMobileLoop_piano;
             break;
         case ("csound"):
             e = e_csound;
             mergeScores = mergeScores_csound;
             vMotif = vMotif_csound;
             vMotifLoop = vMotifLoop_csound;
+            vSlice = vSlice_csound;
+            vPerpetuumMobile = vPerpetuumMobile_csound;
+            vPerpetuumMobileLoop = vPerpetuumMobileLoop_csound;
             break;
         default:
             console.log("Error: species unknown.");
