@@ -2926,13 +2926,14 @@ var encPhen2bachRoll = encPhen => {
 
 // csound score converter
 var encPhen2csoundScore = encPhen => {
-    var wholeNoteDur = 4000; // default value for tempo, 1/4 note = 1 seg 
-    var csoundEvent = "";
-    var csoundScore = [];
+    var wholeNoteDur = 4; // default value for tempo, 1/4 note = .1 seg 
+    var csoundEvent = [];
+    var csoundScore = {};
     var numVoices, numEvents, numPitches;
     var pos = 0;
     var eventDur, totalVoiceDeltaTime;
     var pitchSet, articul, intens, param5, param6;
+    var numCsoundEvents = 1;
     // write voices within a score
     numVoices = p2z(encPhen[pos]);
     pos++;
@@ -2943,7 +2944,7 @@ var encPhen2csoundScore = encPhen => {
         totalVoiceDeltaTime = 0;
         for (var e = 0; e < numEvents; e++) {
             // calculates start time
-            eventDur = wholeNoteDur * p2n(encPhen[pos]);
+            eventDur = wholeNoteDur * p2d(encPhen[pos]);
             pos++;
             // loads number of pitches within an event
             numPitches = p2z(encPhen[pos]);
@@ -2951,7 +2952,7 @@ var encPhen2csoundScore = encPhen => {
             // read the pitches;
             pitchSet = [];
             for (var pit = 0; pit < numPitches; pit++) {
-                pitchSet.push(p2m(encPhen[pos]) * 100);
+                pitchSet.push(p2f(encPhen[pos]));
                 pos++;
             }
             // read articulation
@@ -2970,20 +2971,23 @@ var encPhen2csoundScore = encPhen => {
             if (intens > 0) {
                 for (var pit = 0; pit < numPitches; pit++) {
                     // adds instrument number
-                    csoundEvent += "e i2 ";
+                    csoundEvent.push("e");
+                    csoundEvent.push("i3");
                     // adds start time
-                    csoundEvent += r6d(totalVoiceDeltaTime * 0.001) + " ";
+                    csoundEvent.push(r6d(totalVoiceDeltaTime));
                     // adds duration of sound according to articulation % value
-                    csoundEvent += r6d(articul * 0.001) + " ";
+                    csoundEvent.push(r6d(articul));
                     // adds dynamics (converts from 0-1 to 127 standard MIDI velocity)
-                    csoundEvent += intens + " ";
+                    csoundEvent.push(r6d(intens * 100));
                     // adds a pitch of the chord
-                    csoundEvent += pitchSet[pit] + " ";
+                    csoundEvent.push(r6d(pitchSet[pit]));
                     // ads extra parameters
-                    csoundEvent += r6d(param5) + " " + r6d(param6);
+                    csoundEvent.push(r6d(param5));
+                    csoundEvent.push(r6d(param6));
                     // add new line to score and reinit event string
-                    csoundScore.push(csoundEvent);
-                    csoundEvent = "";
+                    csoundScore[numCsoundEvents] = csoundEvent;
+                    csoundEvent = [];
+                    numCsoundEvents++;
                 }
             }
             totalVoiceDeltaTime = totalVoiceDeltaTime + eventDur;
