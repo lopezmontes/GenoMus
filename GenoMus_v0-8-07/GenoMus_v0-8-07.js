@@ -348,6 +348,7 @@ var testRepetitions = function (n) {
 
 ///////// RANDOM HANDLING
 
+// SEEDED RANDOM GENERATOR WITH UNIFORM DISTRIBUTION
 // adapted from https://stackoverflow.com/questions/521295/seeding-the-random-number-generator-in-javascript
 function xmur3(str) {
     for (var i = 0, h = 1779033703 ^ str.length; i < str.length; i++)
@@ -359,7 +360,6 @@ function xmur3(str) {
         return (h ^= h >>> 16) >>> 0;
     }
 }
-
 function mulberry32(a) {
     return function () {
         var t = a += 0x6D2B79F5;
@@ -369,19 +369,18 @@ function mulberry32(a) {
     }
 }
 
+// SEEDED RANDOM FRACTAL RANDOM GENERATOR BASED ON LOGISTIC MAP
 // Output one 32-bit hash to provide the seed for mulberry32.
 var initSeed = (parseInt(Math.random() * 1e16)).toString();
 
 var seed = xmur3(initSeed);
 // Create rand() function
 var rand = mulberry32(seed());
-
 // Reinit seed
 function createNewSeed(integer) {
     seed = xmur3(integer.toString());
     rand = mulberry32(seed());
 }
-
 // logistic map for creating random numbers
 var logisticSeed = 0.481920;
 // random array from a logistic map for creating list from a seed as argument
@@ -393,13 +392,11 @@ var logisticRandom = (x, numItems) => {
     }
     return rndVector;
 }
-
 // global random generator, independent from random series in genotypes 
 var gRnd = () => {
     logisticSeed = logisticSeed * 4 * (1 - logisticSeed);
     return logisticSeed;
 }
-
 // allows variable R to use special distributions of logistic equation. R within interval [0, 1] mapped to values 3.5 to 4 (chaotic behaviour)
 var logisticRandomVariableR = (r, x, numItems) => {
     var rndVector = [x];
@@ -550,7 +547,6 @@ var indexExprReturnSpecimen = s => {
 
 ////// GENETIC ALGORITHM FIRST APPROACH
 
-
 // PROTO GENETIC ALGORITHM
 var geneticAlgoSearch = () => {
     var specimensPerGeneration = 24;
@@ -662,7 +658,7 @@ var geneticAlgoSearch = () => {
 // PROTO GENETIC ALGORITHM FOR MAX
 var geneticAlgoSearchMAX = (numItemsToSearch) => {
 
-    // GOAL
+    // GOAL     
     // var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.8, 0.7, 0.618034, 0.57, 0.612091, 0.8, 0.7, 0.618034, 0.6, 0.612091, 0.8, 0.7, 0.618034, 0.59, 0.612091, 0.8 ]
     // var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091 ];
     var BACH = newNormalizedUnidimArray(numItemsToSearch);
@@ -924,12 +920,7 @@ var geneticAlgorithmForSpecimenSearch = () => {
 //geneticAlgoSearchMAX()
 
 
-
-
-
-
-
-////// GENOTYPE FUNCTIONS
+////// GENOTYPE FUNCTIONS CORPUS
 
 // parameter identity function
 var p = x => indexExprReturnSpecimen({
@@ -1067,8 +1058,7 @@ var li = (...pList) => listIdentityFunc("li", "lintensityF", 0.36068, 0.56, i2p,
 var lz = (...pList) => listIdentityFunc("lz", "lgoldenintegerF", 0.978714, 0.57, z2p, ...pList);
 var lq = (...pList) => listIdentityFunc("lq", "lquantizedF", 0.596748, 0.58, q2p, ...pList);
 
-
-
+// EVENT FUNCTIONS FOR EACH SPECIES
 // piano event identity function
 var e_piano = (notevalue, midiPitch, articulation, intensity) => indexExprReturnSpecimen({
     funcType: "eventF",
@@ -1092,7 +1082,6 @@ var e_piano = (notevalue, midiPitch, articulation, intensity) => indexExprReturn
         chromaticism: 0
     }
 });
-
 // csound event identity function
 var e_csound = (duration, frequency, articulation, intensity, param5, param6) => indexExprReturnSpecimen({
     funcType: "eventF",
@@ -1223,28 +1212,6 @@ var e4Pitches = (notevalue, midiPitch1, midiPitch2, midiPitch3, midiPitch4, arti
     }
 });
 
-// repeats an event a number of times between 2 and 12 (eventP, paramP)
-var vRepeatE_OLD = (event, times) => {
-    var numRepeats = adjustRange(Math.abs(p2q(adjustRange(times.encPhen[0], q2p(-12), q2p(12)))), 2, 12); // number of times rescaled to range [2, 12], mapped according to the deviation from the center value 0.5
-    //////////// if (numRepeats > phenMaxLength) return -1;
-    if (numRepeats > phenMaxLength) {
-        validGenotype = false;
-        maxAPI.post("Aborted genotype due to exceeding the max length");
-        return "v(" + defaultEventExpression + ")";
-    }
-    return indexExprReturnSpecimen({
-        funcType: "voiceF",
-        encGen: flattenDeep([1, 0.429563, event.encGen, times.encGen, 0]),
-        decGen: "vRepeatE("
-            + event.decGen + ","
-            + times.decGen + ")",
-        encPhen: flattenDeep([z2p(numRepeats)].concat(Array(numRepeats).fill(event.encPhen))),
-        phenLength: numRepeats,
-        tempo: event.tempo,
-        harmony: event.harmony
-    });
-};
-
 // repeats an event a number of times between 2 and 12 (eventP, quantizedP)
 var vRepeatE = (event, times) => {
     // ar numRepeats = 4; // number of times rescaled to range [2, 12], mapped according to the deviation from the center value 0.5 
@@ -1300,20 +1267,6 @@ var l5P = (p1, p2, p3, p4, p5) => indexExprReturnSpecimen({
     decGen: "l5P(" + p1.decGen + "," + p2.decGen + "," + p3.decGen + "," + p4.decGen + "," + p5.decGen + ")",
     encPhen: p1.encPhen.concat(p2.encPhen).concat(p3.encPhen).concat(p4.encPhen).concat(p5.encPhen)
 });
-
-// random list up to 24 values with uniform distribution within interval [0, 1]
-// TO REWRITE WITHOUT SEEDRANDOM MODULE
-var lUniformRnd_O = (numItemsSeed, seqSeed) => {
-    random.use(seedrandom(numItemsSeed.encPhen));
-    var numItems = random.int(1, 24);
-    random.use(seedrandom(seqSeed.encPhen));
-    return indexExprReturnSpecimen({
-        funcType: "listF",
-        encGen: flattenDeep([1, 0.434588, numItemsSeed.encGen, seqSeed.encGen, 0]),
-        decGen: "lUniformRnd(" + numItemsSeed.decGen + "," + seqSeed.decGen + ")",
-        encPhen: Array(numItems).fill().map(() => r6d(random.float()))
-    });
-};
 
 // random list with uniform distribution within interval [0, 1]. Seed is first element. Creates 2 elements minimum
 var lUniformRnd = (seqSeed, numItems) => {
@@ -1498,7 +1451,7 @@ var sConcatS = (s1, s2) => indexExprReturnSpecimen({
     analysis: s1.analysis,
 });
 
-// aux function to merge scores - species specific
+// aux function to merge scores - piano species specific
 var mergeScores_piano = (scoEncPhen1, scoEncPhen2) => {
     var numVoicesSco1 = p2z(scoEncPhen1[0]);
     var numVoicesSco2 = p2z(scoEncPhen2[0]);
@@ -1598,7 +1551,7 @@ var mergeScores_piano = (scoEncPhen1, scoEncPhen2) => {
     return newEncodedPhenotype;
 };
 
-// aux function to merge scores - species specific
+// aux function to merge scores - csound species specific
 var mergeScores_csound = (scoEncPhen1, scoEncPhen2) => {
     var numVoicesSco1 = p2z(scoEncPhen1[0]);
     var numVoicesSco2 = p2z(scoEncPhen2[0]);
@@ -1703,7 +1656,6 @@ var mergeScores_csound = (scoEncPhen1, scoEncPhen2) => {
     }
     return newEncodedPhenotype;
 };
-
 
 // creates an score with two simultaneous voices
 var s2V = (v1, v2) => indexExprReturnSpecimen({
@@ -2264,7 +2216,6 @@ var autoref = (funcName, funcType, encodedFunctionIndex, subexprIndex, silentEle
         analysis: evaluatedSubexp.analysis
     });
 };
-
 // autoreferences functions for each output type
 var pAutoref = subexprIndex => autoref("pAutoref", "paramF", 0.45085, subexprIndex, "p(.5)");
 var lAutoref = subexprIndex => autoref("lAutoref", "listF", 0.068884, subexprIndex, "l([.5])");
@@ -2286,6 +2237,7 @@ var laAutoref = subexprIndex => autoref("laAutoref", "larticulationF", 0.229857,
 var liAutoref = subexprIndex => autoref("liAutoref", "lintensityF", 0.847891, subexprIndex, "li(0)");
 var lzAutoref = subexprIndex => autoref("lzAutoref", "lgoldenintegerF", 0.465925, subexprIndex, "lg(0)");
 var lqAutoref = subexprIndex => autoref("lqAutoref", "lquantizedF", 0.083959, subexprIndex, "lq(0)");
+
 
 ////////// FUNCTION LIBRARIES HANDLING
 
@@ -2422,94 +2374,17 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
 // generates the catalogues of function indexes
 var GenoMusFunctionLibrary = createFunctionIndexesCatalogues(currentSpecies + "_functions.json");
 
-
 // exports the catalogues of function indexes, ordered by function name, encoded indexes and integer indexes
 createJSON(GenoMusFunctionLibrary, 'GenoMus_function_library.json');
 
 // eligible functions (all functions available)
 var eligibleFunctions = {
-    includedFunctions: [ 
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        12,
-        15,
-        16,
-        17,
-        18,
-        19,
-        20,
-        25,
-        26,
-        28,
-        29,
-        35,
-        36,
-        37,
-        41,
-        42,
-        43,
-        44,
-        46,
-        48,
-        58,
-        63,
-        65,
-        66,
-        67,
-        68,
-        76,
-        77,
-        84,
-        104,
-        109,
-        110,
-        111,
-        131,
-        134,
-        135,
-        199,
-        200,
-        202,
-        277,
-        278,
-        279,
-        281,
-        282,
-        284,
-        286,
-        288,
-        290,
-        291,
-        294,
-        296,
-        298,
-        299,
-        302,
-        304,
-        306,
-        307,
-        310,
-        311,
-        312,
-        313,
-        314,
-        315,
-        316,
-        317,
-        318,
-        201,
-        280 ],
+    includedFunctions: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19,
+        20, 25, 26, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 48, 58, 63, 65, 66, 67, 68, 76, 77, 84, 104, 
+        109, 110, 111, 131, 134, 135, 199, 200, 202, 277, 278, 279, 281, 282, 284, 286, 288, 290, 291,
+        294, 296, 298, 299, 302, 304, 306, 307, 310, 311, 312, 313, 314, 315, 316, 317, 318, 201, 280 ],
     mandatoryFunctions: [], // to be implemented
-    excludedFunctions: [] // 1, 9, 27, 10, 26, 17, 15, 7, 5, 25, 12, 29, 28, 131, 132, 40, 36, 35
+    excludedFunctions: [] // 
 };
 
 var testingFunctions = {
@@ -2522,7 +2397,6 @@ var testingFunctions = {
 };
 
 // generates the catalogues of eligible functions to be used for genotype generation
-
 
 var eligibleFunctionsLibrary = createEligibleFunctionLibrary(GenoMusFunctionLibrary, eligibleFunctions);
 // exports the catalogues of eligible function indexes, ordered by function name, encoded indexes and integer indexes, and containing the initial conditions of the subset
