@@ -127,7 +127,7 @@ var createDefaultEventExpression = (speciesName) => {
             defaultEventExpression = "e(p(0),m(43),p(0),p(0))";
             break;
         case ("csound"):
-            defaultEventExpression = "e(p(0),f(440),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0))";
+            defaultEventExpression = "e(p(0),f(440),p(0),p(0),p(0),p(0))";
             break;
         default:
             console.log("Error: species unknown.");
@@ -1083,46 +1083,31 @@ var e_piano = (notevalue, midiPitch, articulation, intensity) => indexExprReturn
     }
 });
 // csound event identity function
-var e_csound = (duration, frequency, articulation, intensity, 
-    param5, param6, param7, param8, param9, param10, param11, param12) => indexExprReturnSpecimen({
+var e_csound = (duration, frequency, articulation, intensity, param5, param6) => indexExprReturnSpecimen({
     funcType: "eventF",
-    encGen: flattenDeep([1, 0.236068, duration.encGen, frequency.encGen, articulation.encGen, intensity.encGen, 
-        param5.encGen, param6.encGen, param7.encGen, param8.encGen, 
-        param9.encGen, param10.encGen, , param11.encGen, param12.encGen, 0]),
-    decGen: "e("
-        + duration.decGen + ","
-        + frequency.decGen + ","
-        + articulation.decGen + ","
-        + intensity.decGen + ","
-        + param5.decGen + ","
-        + param6.decGen + ","
-        + param7.decGen + ","
-        + param8.decGen + ","
-        + param9.decGen + ","
-        + param10.decGen + ","
-        + param11.decGen + ","
-        + param12.decGen + ")",
-    encPhen: [duration.encPhen[0],
-        0.618034,
-    frequency.encPhen[0],
-    articulation.encPhen[0],
-    intensity.encPhen[0],
-    param5.encPhen[0],
-    param6.encPhen[0],
-    param7.encPhen[0],
-    param8.encPhen[0],
-    param9.encPhen[0],
-    param10.encPhen[0],
-    param11.encPhen[0],
-    param12.encPhen[0]],
-    phenLength: 1,
-    tempo: 0.6,
-    harmony: {
-        root: frequency.encPhen[0],
-        chord: [0],
-        mode: [0],
-        chromaticism: 0
-    }
+encGen: flattenDeep([1, 0.236068, duration.encGen, frequency.encGen, articulation.encGen, intensity.encGen, param5.encGen, param6.encGen, 0]),
+decGen: "e("
+    + duration.decGen + ","
+    + frequency.decGen + ","
+    + articulation.decGen + ","
+    + intensity.decGen + ","
+    + param5.decGen + ","
+    + param6.decGen + ")",
+encPhen: [duration.encPhen[0],
+    0.618034,
+frequency.encPhen[0],
+articulation.encPhen[0],
+intensity.encPhen[0],
+param5.encPhen[0],
+param6.encPhen[0]],
+phenLength: 1,
+tempo: 0.6,
+harmony: {
+    root: frequency.encPhen[0],
+    chord: [0],
+    mode: [0],
+    chromaticism: 0
+}
 });
 
 // voice identity function
@@ -1405,12 +1390,6 @@ var vSlice_csound = (voice, removedEvents) => {
             slicedVoice.shift();
             slicedVoice.shift();
             slicedVoice.shift();
-            slicedVoice.shift();
-            slicedVoice.shift();
-            slicedVoice.shift();
-            slicedVoice.shift();
-            slicedVoice.shift();
-            slicedVoice.shift();
         }
     }
     // removing events from the end
@@ -1424,12 +1403,6 @@ var vSlice_csound = (voice, removedEvents) => {
             for (ev = 0; ev < pitchesInEvent; ev++) {
                 slicedVoice.push(voice.encPhen[pos]); pos++;
             }
-            slicedVoice.push(voice.encPhen[pos]); pos++;
-            slicedVoice.push(voice.encPhen[pos]); pos++;
-            slicedVoice.push(voice.encPhen[pos]); pos++;
-            slicedVoice.push(voice.encPhen[pos]); pos++;
-            slicedVoice.push(voice.encPhen[pos]); pos++;
-            slicedVoice.push(voice.encPhen[pos]); pos++;
             slicedVoice.push(voice.encPhen[pos]); pos++;
             slicedVoice.push(voice.encPhen[pos]); pos++;
             slicedVoice.push(voice.encPhen[pos]); pos++;
@@ -1597,7 +1570,7 @@ var mergeScores_csound = (scoEncPhen1, scoEncPhen2) => {
     var numEventsVoiceSco1 = 0;
     var numEventsVoiceSco2 = 0;
     var numPitchesEventVoiceSco1, numPitchesEventVoiceSco2;
-    var numEventParams = 12;
+    var numEventParams = 6;
     var timeGap;
     for (var v = 0; v < numVoicesSco1; v++) {
         currentVoiceDur = 0;
@@ -1629,12 +1602,6 @@ var mergeScores_csound = (scoEncPhen1, scoEncPhen2) => {
             posSco1++; newEncodedPhenotype.push(scoEncPhen1[posSco1]);
             posSco1++; newEncodedPhenotype.push(scoEncPhen1[posSco1]);
             posSco1++; newEncodedPhenotype.push(scoEncPhen1[posSco1]);
-            posSco1++; newEncodedPhenotype.push(scoEncPhen1[posSco1]);
-            posSco1++; newEncodedPhenotype.push(scoEncPhen1[posSco1]);
-            posSco1++; newEncodedPhenotype.push(scoEncPhen1[posSco1]);
-            posSco1++; newEncodedPhenotype.push(scoEncPhen1[posSco1]);
-            posSco1++; newEncodedPhenotype.push(scoEncPhen1[posSco1]);
-            posSco1++; newEncodedPhenotype.push(scoEncPhen1[posSco1]);
             // fills the gap if needed adding time to the last event duration
             if (e == numEventsVoiceSco1 - 1) {
                 timeGap = largestVoiceDur - currentVoiceDur;
@@ -1650,12 +1617,6 @@ var mergeScores_csound = (scoEncPhen1, scoEncPhen2) => {
             for (var p = 0; p < numPitchesEventVoiceSco2; p++) {
                 posSco2++; newEncodedPhenotype.push(scoEncPhen2[posSco2]);
             }
-            posSco2++; newEncodedPhenotype.push(scoEncPhen2[posSco2]);
-            posSco2++; newEncodedPhenotype.push(scoEncPhen2[posSco2]);
-            posSco2++; newEncodedPhenotype.push(scoEncPhen2[posSco2]);
-            posSco2++; newEncodedPhenotype.push(scoEncPhen2[posSco2]);
-            posSco2++; newEncodedPhenotype.push(scoEncPhen2[posSco2]);
-            posSco2++; newEncodedPhenotype.push(scoEncPhen2[posSco2]);
             posSco2++; newEncodedPhenotype.push(scoEncPhen2[posSco2]);
             posSco2++; newEncodedPhenotype.push(scoEncPhen2[posSco2]);
             posSco2++; newEncodedPhenotype.push(scoEncPhen2[posSco2]);
@@ -1690,12 +1651,6 @@ var mergeScores_csound = (scoEncPhen1, scoEncPhen2) => {
                 newEncodedPhenotype.push(scoEncPhen2[posSco2]); posSco2++; // add intensity
                 newEncodedPhenotype.push(scoEncPhen2[posSco2]); posSco2++; // add param5
                 newEncodedPhenotype.push(scoEncPhen2[posSco2]); posSco2++; // add param6
-                newEncodedPhenotype.push(scoEncPhen2[posSco2]); posSco2++; // add param7
-                newEncodedPhenotype.push(scoEncPhen2[posSco2]); posSco2++; // add param8
-                newEncodedPhenotype.push(scoEncPhen2[posSco2]); posSco2++; // add param9
-                newEncodedPhenotype.push(scoEncPhen2[posSco2]); posSco2++; // add param10
-                newEncodedPhenotype.push(scoEncPhen2[posSco2]); posSco2++; // add param11
-                newEncodedPhenotype.push(scoEncPhen2[posSco2]); posSco2++; // add param12
             }
         }
     }
@@ -1890,21 +1845,14 @@ var vMotif_piano = (listNotevalues, listPitches, listArticulations, listIntensit
 };
 
 // creates a voice based on lists without no loops (shortest list determines number of events)
-var vMotif_csound = (listNotevalues, listPitches, listArticulations, listIntensities,
-    listParam5, listParam6, listParam7, listParam8, listParam9, listParam10, listParam11, listParam12) => {
+var vMotif_csound = (listNotevalues, listPitches, listArticulations, listIntensities, listParam5, listParam6) => {
     var seqLength = Math.min(
         listNotevalues.encPhen.length,
         listPitches.encPhen.length,
         listArticulations.encPhen.length,
         listIntensities.encPhen.length,
         listParam5.encPhen.length,
-        listParam6.encPhen.length,
-        listParam7.encPhen.length,
-        listParam8.encPhen.length,
-        listParam9.encPhen.length,
-        listParam10.encPhen.length,
-        listParam11.encPhen.length,
-        listParam12.encPhen.length);
+        listParam6.encPhen.length);
     /////////// if (seqLength > phenMaxLength) return -1;
     if (seqLength > phenMaxLength) {
         validGenotype = false;
@@ -1920,12 +1868,6 @@ var vMotif_csound = (listNotevalues, listPitches, listArticulations, listIntensi
         eventsSeq.push(listIntensities.encPhen[ev]);
         eventsSeq.push(listParam5.encPhen[ev]);
         eventsSeq.push(listParam6.encPhen[ev]);
-        eventsSeq.push(listParam7.encPhen[ev]);
-        eventsSeq.push(listParam8.encPhen[ev]);
-        eventsSeq.push(listParam9.encPhen[ev]);
-        eventsSeq.push(listParam10.encPhen[ev]);
-        eventsSeq.push(listParam11.encPhen[ev]);
-        eventsSeq.push(listParam12.encPhen[ev]);
     }
     return indexExprReturnSpecimen({
         funcType: "voiceF",
@@ -1935,26 +1877,14 @@ var vMotif_csound = (listNotevalues, listPitches, listArticulations, listIntensi
             listArticulations.encGen,
             listIntensities.encGen,
             listParam5.encGen,
-            listParam6.encGen,
-            listParam7.encGen,
-            listParam8.encGen,
-            listParam9.encGen,
-            listParam10.encGen,
-            listParam11.encGen,
-            listParam12.encGen, 0]),
+            listParam6.encGen, 0]),
         decGen: "vMotif(" +
             listNotevalues.decGen + "," +
             listPitches.decGen + "," +
             listArticulations.decGen + "," +
             listIntensities.decGen + "," +
             listParam5.decGen + "," +
-            listParam6.decGen + "," +
-            listParam7.decGen + "," +
-            listParam8.decGen + "," +
-            listParam9.decGen + "," +
-            listParam10.decGen + "," +
-            listParam11.decGen + "," +
-            listParam12.decGen + ")",
+            listParam6.decGen + ")",
         encPhen: eventsSeq,
         phenLength: seqLength,
     });
@@ -1999,23 +1929,14 @@ var vMotifLoop_piano = (listNotevalues, listPitches, listArticulations, listInte
 };
 
 // creates a voice based on lists without loops (largest list determines number of events)
-var vMotifLoop_csound = (listNotevalues, listPitches, listArticulations, listIntensities, 
-    listParam5, listParam6, listParam7, listParam8, listParam9, listParam10, listParam11, listParam12) => {
-        var totalNotevalues = listNotevalues.encPhen.length;
+var vMotifLoop_csound = (listNotevalues, listPitches, listArticulations, listIntensities, listParam5, listParam6) => {
+    var totalNotevalues = listNotevalues.encPhen.length;
     var totalPitches = listPitches.encPhen.length;
     var totalArticulations = listArticulations.encPhen.length;
     var totalIntensities = listIntensities.encPhen.length;
     var totalParam5values = listParam5.encPhen.length;
     var totalParam6values = listParam6.encPhen.length;
-    var totalParam6values = listParam7.encPhen.length;
-    var totalParam6values = listParam8.encPhen.length;
-    var totalParam6values = listParam9.encPhen.length;
-    var totalParam6values = listParam10.encPhen.length;
-    var totalParam6values = listParam11.encPhen.length;
-    var totalParam6values = listParam12.encPhen.length;
-    var seqLength = Math.max(totalNotevalues, totalPitches, totalArticulations, totalIntensities,
-        totalParam5values, totalParam6values, totalParam7values, totalParam8values,
-        totalParam9values, totalParam10values, totalParam11values, totalParam12values);
+    var seqLength = Math.max(totalNotevalues, totalPitches, totalArticulations, totalIntensities, totalParam5values, totalParam6values);
     //////////// if (seqLength > phenMaxLength) return -1;
     if (seqLength > phenMaxLength) {
         validGenotype = false;
@@ -2031,12 +1952,6 @@ var vMotifLoop_csound = (listNotevalues, listPitches, listArticulations, listInt
         eventsSeq.push(listIntensities.encPhen[ev % totalIntensities]);
         eventsSeq.push(listParam5.encPhen[ev % totalParam5values]);
         eventsSeq.push(listParam6.encPhen[ev % totalParam6values]);
-        eventsSeq.push(listParam7.encPhen[ev % totalParam7values]);
-        eventsSeq.push(listParam8.encPhen[ev % totalParam8values]);
-        eventsSeq.push(listParam9.encPhen[ev % totalParam9values]);
-        eventsSeq.push(listParam10.encPhen[ev % totalParam10values]);
-        eventsSeq.push(listParam11.encPhen[ev % totalParam11values]);
-        eventsSeq.push(listParam12.encPhen[ev % totalParam12values]);
     }
     return indexExprReturnSpecimen({
         funcType: "voiceF",
@@ -2046,26 +1961,14 @@ var vMotifLoop_csound = (listNotevalues, listPitches, listArticulations, listInt
             listArticulations.encGen,
             listIntensities.encGen,
             listParam5.encGen,
-            listParam6.encGen,
-            listParam7.encGen,
-            listParam8.encGen,
-            listParam9.encGen,
-            listParam10.encGen,
-            listParam11.encGen,
-            listParam12.encGen, 0]),
+            listParam6.encGen, 0]),
         decGen: "vMotifLoop(" +
             listNotevalues.decGen + "," +
             listPitches.decGen + "," +
             listArticulations.decGen + "," +
             listIntensities.decGen + "," +
             listParam5.decGen + "," +
-            listParam6.decGen + "," +
-            listParam7.decGen + "," +
-            listParam8.decGen + "," +
-            listParam9.decGen + "," +
-            listParam10.decGen + "," +
-            listParam11.decGen + "," +
-            listParam12.decGen + ")",
+            listParam6.decGen + ")",
         encPhen: eventsSeq,
         phenLength: seqLength,
     });
@@ -2109,20 +2012,13 @@ var vPerpetuumMobile_piano = (noteval, listPitches, listArticulations, listInten
 };
 
 // creates a sequence of events based on repeating lists but with a single notevalue (shortest list determines number of events)
-var vPerpetuumMobile_csound = (noteval, listPitches, listArticulations, listIntensities, listParam5, listParam6,
-    listParam7, listParam8, listParam9, listParam10, listParam11, listParam12) => {
+var vPerpetuumMobile_csound = (noteval, listPitches, listArticulations, listIntensities, listParam5, listParam6) => {
     var seqLength = Math.min(
         listPitches.encPhen.length,
         listArticulations.encPhen.length,
         listIntensities.encPhen.length,
         listParam5.encPhen.length,
-        listParam6.encPhen.length,
-        listParam7.encPhen.length,
-        listParam8.encPhen.length,
-        listParam9.encPhen.length,
-        listParam10.encPhen.length,
-        listParam11.encPhen.length,
-        listParam12.encPhen.length);
+        listParam6.encPhen.length);
     if (seqLength > phenMaxLength) {
         validGenotype = false;
         maxAPI.post("Aborted genotype due to exceeding the max length");
@@ -2137,12 +2033,6 @@ var vPerpetuumMobile_csound = (noteval, listPitches, listArticulations, listInte
         eventsSeq.push(listIntensities.encPhen[ev]);
         eventsSeq.push(listParam5.encPhen[ev]);
         eventsSeq.push(listParam6.encPhen[ev]);
-        eventsSeq.push(listParam7.encPhen[ev]);
-        eventsSeq.push(listParam8.encPhen[ev]);
-        eventsSeq.push(listParam9.encPhen[ev]);
-        eventsSeq.push(listParam10.encPhen[ev]);
-        eventsSeq.push(listParam11.encPhen[ev]);
-        eventsSeq.push(listParam12.encPhen[ev]);
     }
     return indexExprReturnSpecimen({
         funcType: "voiceF",
@@ -2152,26 +2042,14 @@ var vPerpetuumMobile_csound = (noteval, listPitches, listArticulations, listInte
             listArticulations.encGen,
             listIntensities.encGen,
             listParam5.encGen,
-            listParam6.encGen,
-            listParam7.encGen,
-            listParam8.encGen,
-            listParam9.encGen,
-            listParam10.encGen,
-            listParam11.encGen,
-            listParam12.encGen, 0]),
+            listParam5.encGen, 0]),
         decGen: "vPerpetuumMobile(" +
             noteval.decGen + "," +
             listPitches.decGen + "," +
             listArticulations.decGen + "," +
             listIntensities.decGen + "," +
             listParam5.decGen + "," +
-            listParam6.decGen + "," +
-            listParam7.decGen + "," +
-            listParam8.decGen + "," +
-            listParam9.decGen + "," +
-            listParam10.decGen + "," +
-            listParam11.decGen + "," +
-            listParam12.decGen + ")",
+            listParam6.decGen + ")",
         encPhen: eventsSeq,
         phenLength: seqLength,
     });
@@ -2214,22 +2092,13 @@ var vPerpetuumMobileLoop_piano = (noteval, listPitches, listArticulations, listI
 };
 
 // creates a voice based on lists without loops (largest list determines number of events)
-var vPerpetuumMobileLoop_csound = (noteval, listPitches, listArticulations, listIntensities, 
-    listParam7, listParam8, listParam9, listParam10, listParam11, listParam12) => {
-        var totalPitches = listPitches.encPhen.length;
+var vPerpetuumMobileLoop_csound = (noteval, listPitches, listArticulations, listIntensities, listParam5, listParam6) => {
+    var totalPitches = listPitches.encPhen.length;
     var totalArticulations = listArticulations.encPhen.length;
     var totalIntensities = listIntensities.encPhen.length;
     var totalParam5values = listParam5.encPhen.length;
     var totalParam6values = listParam6.encPhen.length;
-    var totalParam7values = listParam7.encPhen.length;
-    var totalParam8values = listParam8.encPhen.length;
-    var totalParam9values = listParam9.encPhen.length;
-    var totalParam10values = listParam10.encPhen.length;
-    var totalParam11values = listParam11.encPhen.length;
-    var totalParam12values = listParam12.encPhen.length;
-    var seqLength = Math.max(totalNotevalues, totalPitches, totalArticulations, totalIntensities,
-        totalParam5values, totalParam6values, totalParam7values, totalParam8values,
-        totalParam9values, totalParam10values, totalParam11values, totalParam12values);
+    var seqLength = Math.max(totalPitches, totalArticulations, totalIntensities, totalParam5values, totalParam6values);
     if (seqLength > phenMaxLength) {
         validGenotype = false;
         maxAPI.post("Aborted genotype due to exceeding the max length");
@@ -2244,12 +2113,6 @@ var vPerpetuumMobileLoop_csound = (noteval, listPitches, listArticulations, list
         eventsSeq.push(listIntensities.encPhen[ev % totalIntensities]);
         eventsSeq.push(listParam5.encPhen[ev % listParam5]);
         eventsSeq.push(listParam6.encPhen[ev % listParam6]);
-        eventsSeq.push(listParam7.encPhen[ev % totalParam7values]);
-        eventsSeq.push(listParam8.encPhen[ev % totalParam8values]);
-        eventsSeq.push(listParam9.encPhen[ev % totalParam9values]);
-        eventsSeq.push(listParam10.encPhen[ev % totalParam10values]);
-        eventsSeq.push(listParam11.encPhen[ev % totalParam11values]);
-        eventsSeq.push(listParam12.encPhen[ev % totalParam12values]);
     }
     return indexExprReturnSpecimen({
         funcType: "voiceF",
@@ -2259,26 +2122,14 @@ var vPerpetuumMobileLoop_csound = (noteval, listPitches, listArticulations, list
             listArticulations.encGen,
             listIntensities.encGen,
             listParam5.encGen,
-            listParam6.encGen,
-            listParam7.encGen,
-            listParam8.encGen,
-            listParam9.encGen,
-            listParam10.encGen,
-            listParam11.encGen,
-            listParam12.encGen, 0]),
+            listParam6.encGen, 0]),
         decGen: "vPerpetuumMobileLoop(" +
             noteval.decGen + "," +
             listPitches.decGen + "," +
             listArticulations.decGen + "," +
             listIntensities.decGen + "," +
             listParam5.decGen + "," +
-            listParam6.decGen + "," +
-            listParam7.decGen + "," +
-            listParam8.decGen + "," +
-            listParam9.decGen + "," +
-            listParam10.decGen + "," +
-            listParam11.decGen + "," +
-            listParam12.decGen + ")",
+            listParam6.decGen + ")",
         encPhen: eventsSeq,
         phenLength: seqLength,
     });
@@ -2955,7 +2806,7 @@ var encPhen2csoundScore = encPhen => {
     var numVoices, numEvents, numPitches;
     var pos = 0;
     var eventDur, totalVoiceDeltaTime;
-    var pitchSet, articul, intens, param5, param6, param7, param8, param9, param10, param11, param12;
+    var pitchSet, articul, intens, param5, param6;
     var numCsoundEvents = 1;
     // write voices within a score
     numVoices = p2z(encPhen[pos]);
@@ -2989,19 +2840,7 @@ var encPhen2csoundScore = encPhen => {
             param5 = encPhen[pos];
             pos++;            
             param6 = encPhen[pos];
-            pos++; 
-            param7 = encPhen[pos];
-            pos++;            
-            param8 = encPhen[pos];
             pos++;  
-            param9 = encPhen[pos];
-            pos++;            
-            param10 = encPhen[pos];
-            pos++;  
-            param11 = encPhen[pos];
-            pos++;            
-            param12 = encPhen[pos];
-            pos++;    
             // writes individual notes parameters
             if (intens > 0) {
                 for (var pit = 0; pit < numPitches; pit++) {
@@ -3019,12 +2858,6 @@ var encPhen2csoundScore = encPhen => {
                     // ads extra parameters
                     csoundEvent.push(r6d(param5));
                     csoundEvent.push(r6d(param6));
-                    csoundEvent.push(r6d(param7));
-                    csoundEvent.push(r6d(param8));
-                    csoundEvent.push(r6d(param9));
-                    csoundEvent.push(r6d(param10));
-                    csoundEvent.push(r6d(param11));
-                    csoundEvent.push(r6d(param12));
                     // add new line to score and reinit event string
                     csoundScore[numCsoundEvents] = csoundEvent;
                     csoundEvent = [];
@@ -3689,6 +3522,8 @@ function specimenFromInitialCondition(germinalVector, initialGenoSeed, initialPh
     return newSpecimen;
 };
 
+
+
 // mutate only leaves of current specimen according to certain probabilities
 // mutProbability is the probability of a mutation (0 -> no mutations, 1 -> everything mutated)
 // mutAmount is the maximal range of a mutation within interval [0, 1]
@@ -3697,12 +3532,15 @@ var mutateCurrentSpecimenLeaves = (mutProbability, mutAmount) => {
     var numLeaves = leaves.length;
     //maxAPI.post(leaves);
     for (var i=0; i<numLeaves; i++) {
+        //maxAPI.post(currentSpecimen.encGen[leaves[i][0]]);
         if (Math.random() < mutProbability) {
             currentSpecimen.encGen[leaves[i][0]] = 
             checkRange(r6d(currentSpecimen.encGen[leaves[i][0]] + mutAmount * (Math.random() * 2 - 1)));
         }
     }
     leaves = extractLeaves(currentSpecimen.encGen);
+    //maxAPI.post(leaves);
+    //maxAPI.post(currentSpecimen.encGen);
 };
 
 // MAX COMMUNICATION
