@@ -2533,7 +2533,7 @@ var eligibleFunctions = {
         109, 110, 111, 131, 134, 135, 199, 200, 202, 277, 278, 279, 281, 282, 284, 286, 288, 290, 291,
         294, 296, 298, 299, 302, 304, 306, 307, 310, 311, 312, 313, 314, 315, 316, 317, 318, 201, 280 ],
     mandatoryFunctions: [], // to be implemented
-    excludedFunctions: [] // 
+    excludedFunctions: [25, 277, 278, 279, 281, 282, 284, 286, 288, 290, 291] // 
 };
 
 var testingFunctions = {
@@ -2949,7 +2949,7 @@ var encPhen2bachRoll = encPhen => {
 
 // csound score converter
 var encPhen2csoundScore = encPhen => {
-    var wholeNoteDur = 4; // default value for tempo, 1/4 note = .1 seg 
+    var tempoFactor = 1; // duration is measured in seconds
     var csoundEvent = [];
     var csoundScore = {};
     var numVoices, numEvents, numPitches;
@@ -2967,7 +2967,7 @@ var encPhen2csoundScore = encPhen => {
         totalVoiceDeltaTime = 0;
         for (var e = 0; e < numEvents; e++) {
             // calculates start time
-            eventDur = wholeNoteDur * p2d(encPhen[pos]);
+            eventDur = tempoFactor * p2d(encPhen[pos]);
             pos++;
             // loads number of pitches within an event
             numPitches = p2z(encPhen[pos]);
@@ -2981,9 +2981,9 @@ var encPhen2csoundScore = encPhen => {
             // read articulation
             articul = eventDur * p2a(encPhen[pos]) * .01;
             pos++;
-            // read intensity (uses 27 as dynamic baseline to avoid too pianissimo notes)
+            // read intensity
             if (encPhen[pos] == 0) intens = 0;
-            else intens = p2i(encPhen[pos]) + 27;
+            else intens = p2i(encPhen[pos]);
             pos++;
             // read extra parameters
             param5 = encPhen[pos];
@@ -3007,13 +3007,13 @@ var encPhen2csoundScore = encPhen => {
                 for (var pit = 0; pit < numPitches; pit++) {
                     // adds instrument number
                     csoundEvent.push("e");
-                    csoundEvent.push("i3");
+                    csoundEvent.push("i4");
                     // adds start time
                     csoundEvent.push(r6d(totalVoiceDeltaTime));
                     // adds duration of sound according to articulation % value
                     csoundEvent.push(r6d(articul));
                     // adds dynamics (converts from 0-1 to 127 standard MIDI velocity)
-                    csoundEvent.push(r6d(intens * 100));
+                    csoundEvent.push(r6d(intens));
                     // adds a pitch of the chord
                     csoundEvent.push(r6d(pitchSet[pit]));
                     // ads extra parameters
