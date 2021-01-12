@@ -2007,12 +2007,12 @@ var vMotifLoop_csound = (listNotevalues, listPitches, listArticulations, listInt
     var totalIntensities = listIntensities.encPhen.length;
     var totalParam5values = listParam5.encPhen.length;
     var totalParam6values = listParam6.encPhen.length;
-    var totalParam6values = listParam7.encPhen.length;
-    var totalParam6values = listParam8.encPhen.length;
-    var totalParam6values = listParam9.encPhen.length;
-    var totalParam6values = listParam10.encPhen.length;
-    var totalParam6values = listParam11.encPhen.length;
-    var totalParam6values = listParam12.encPhen.length;
+    var totalParam7values = listParam7.encPhen.length;
+    var totalParam8values = listParam8.encPhen.length;
+    var totalParam9values = listParam9.encPhen.length;
+    var totalParam10values = listParam10.encPhen.length;
+    var totalParam11values = listParam11.encPhen.length;
+    var totalParam12values = listParam12.encPhen.length;
     var seqLength = Math.max(totalNotevalues, totalPitches, totalArticulations, totalIntensities,
         totalParam5values, totalParam6values, totalParam7values, totalParam8values,
         totalParam9values, totalParam10values, totalParam11values, totalParam12values);
@@ -2214,7 +2214,7 @@ var vPerpetuumMobileLoop_piano = (noteval, listPitches, listArticulations, listI
 };
 
 // creates a voice based on lists without loops (largest list determines number of events)
-var vPerpetuumMobileLoop_csound = (noteval, listPitches, listArticulations, listIntensities, 
+var vPerpetuumMobileLoop_csound = (noteval, listPitches, listArticulations, listIntensities, listParam5, listParam6, 
     listParam7, listParam8, listParam9, listParam10, listParam11, listParam12) => {
         var totalPitches = listPitches.encPhen.length;
     var totalArticulations = listArticulations.encPhen.length;
@@ -2227,7 +2227,7 @@ var vPerpetuumMobileLoop_csound = (noteval, listPitches, listArticulations, list
     var totalParam10values = listParam10.encPhen.length;
     var totalParam11values = listParam11.encPhen.length;
     var totalParam12values = listParam12.encPhen.length;
-    var seqLength = Math.max(totalNotevalues, totalPitches, totalArticulations, totalIntensities,
+    var seqLength = Math.max(totalPitches, totalArticulations, totalIntensities,
         totalParam5values, totalParam6values, totalParam7values, totalParam8values,
         totalParam9values, totalParam10values, totalParam11values, totalParam12values);
     if (seqLength > phenMaxLength) {
