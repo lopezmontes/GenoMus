@@ -16,8 +16,8 @@
 
 
 // TESTING DIFFERENT SPECIES
- var currentSpecies = "csound";
-// var currentSpecies = "piano";
+// var currentSpecies = "csound";
+ var currentSpecies = "piano";
 
 // DEPENDENCIES
 
@@ -3363,8 +3363,8 @@ function createGerminalSpecimen() {
         createNewSeed(phenotypeSeed);
         
         // saves all genotypes created as log file
-        //genotypeLog["gen" + genCount++] = newDecodedGenotype;
-        //createJSON(genotypeLog, 'genotypeLog.json');
+        genotypeLog["gen" + genCount++] = newDecodedGenotype;
+        createJSON(genotypeLog, 'genotypeLog.json');
         
         if (validGenotype == true) {
             newSpecimen = eval(newDecodedGenotype);
