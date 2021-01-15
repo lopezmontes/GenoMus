@@ -1290,7 +1290,7 @@ var lUniformRnd = (seqSeed, numItems) => {
     var rndArr = logisticRandom(seqSeed.encPhen[0], numIt).map(r6d);
     return indexExprReturnSpecimen({
         funcType: "listF",
-        encGen: flattenDeep([1, 0.816554, seqSeed.encGen, "q(" + numIt + ")", 0]),
+        encGen: flattenDeep([1, 0.434588, seqSeed.encGen, 1, 0.416408, 0.58, q2p(numIt), 0, 0]),
         decGen: "lUniformRnd(" + seqSeed.decGen + "," + numItems.decGen + ")",
         encPhen: rndArr
     });
@@ -1303,7 +1303,7 @@ var lRnd = (seqSeed, numItems) => {
     var rndArr = logisticRandom(seqSeed.encPhen[0], numIt).map(uniform2normal).map(r6d);
     return indexExprReturnSpecimen({
         funcType: "listF",
-        encGen: flattenDeep([1, 0.434588, seqSeed.encGen, "q(" + numIt + ")", 0]),
+        encGen: flattenDeep([1, 0.816554, seqSeed.encGen, 1, 0.416408, 0.58, q2p(numIt), 0, 0]),
         decGen: "lRnd(" + seqSeed.decGen + "," + numItems.decGen + ")",
         encPhen: rndArr
     });
@@ -3097,7 +3097,7 @@ var specimenDataStructure = (specimen) => ({
     },
     leaves: specimen.data.leaves,
     // roll: encPhen2bachRoll(specimen.encPhen),
-    csoundScore: encPhen2csoundScore(specimen.encPhen)
+    // csoundScore: encPhen2csoundScore(specimen.encPhen)
 });
 
 
