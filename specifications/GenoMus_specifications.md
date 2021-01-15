@@ -1211,8 +1211,8 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `iRnd`             | 315 <sub>.680706 in progress</sub> | returns a random intensity with with Gaussian (or normal) distribution
 | `zRnd`             | 316 <sub>.29874 in progress</sub> | returns a random goldeninteger with with Gaussian (or normal) distribution
 | `qRnd`             | 317 <sub>.916774 in progress</sub> | returns a random quantized parameter with with Gaussian (or normal) distribution
-| `lRnd`             | 134 <sub>.816554 in progress</sub> | returns a complete random list with uniform distribution of values
-| `lGaussRnd`        | 135 <sub>.434588 in progress</sub> | returns a complete random list with with Gaussian distribution of parameters
+| `lRnd`             | 134 <sub>.816554 in progress</sub> | returns a complete random list with with Gaussian distribution of parameters
+| `lUniformRnd`      | 135 <sub>.434588 in progress</sub> | returns a complete random list with uniform distribution of values
 | `lWrappedGaussRnd` | 136 <sub>not yet implemented</sub> | returns a complete random list with a wrapped normal distribution of values
 | `eRnd`             | 137 <sub>not yet implemented</sub> | returns a complete random event with uniform distribution of parameters
 | `eGaussRnd`        | 138 <sub>not yet implemented</sub> | returns a complete random event with with Gaussian distribution of parameters

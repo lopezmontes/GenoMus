@@ -1303,7 +1303,7 @@ var lRnd = (seqSeed, numItems) => {
     var rndArr = logisticRandom(seqSeed.encPhen[0], numIt).map(uniform2normal).map(r6d);
     return indexExprReturnSpecimen({
         funcType: "listF",
-        encGen: flattenDeep([1, 0.816554, seqSeed.encGen, "q(" + numIt + ")", 0]),
+        encGen: flattenDeep([1, 0.434588, seqSeed.encGen, "q(" + numIt + ")", 0]),
         decGen: "lRnd(" + seqSeed.decGen + "," + numItems.decGen + ")",
         encPhen: rndArr
     });
@@ -2670,6 +2670,8 @@ var decodeGenotype = encGen => {
                 pos++; decodedGenotype += p2z(encGen[pos]) + ","; break;
             case 0.58:
                 pos++; decodedGenotype += p2q(encGen[pos]) + ","; break;
+            case 0.6:
+                pos++; decodedGenotype += encGen[pos] + ","; break;
             case 0.8:
                 decodedGenotype += "["; break;
             case 1:
@@ -2724,6 +2726,8 @@ var extractLeaves = encGen => {
             } 
             case 0.58:
                 pos++; encodedLeaves.push([pos, encGen[pos], p2q(encGen[pos])]); break;
+            case 0.6:
+                pos++; encodedLeaves.push([pos, encGen[pos], encGen[pos]]); break;
             case 0.8:
                 break;
             case 1:
@@ -2745,6 +2749,7 @@ var evalDecGen = decGen => {
     }
     else {
         initSubexpressionsArrays();
+        maxAPI.post("procesaré: " + decodeGenotype(encodedGenotype));
         var output = eval(decodeGenotype(encodedGenotype));
         return output;
     }
@@ -3800,7 +3805,7 @@ maxAPI.addHandlers({
             phenotypeSeed: phenotypeSeed,
             maxAllowedDepth: "undefined",
             depth: "to be calculated",
-            leaves: leaves
+            leaves: extractLeaves(currentSpecimen.encGen)
         };
         const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(currentSpecimen));
         await maxAPI.outlet(dict);
