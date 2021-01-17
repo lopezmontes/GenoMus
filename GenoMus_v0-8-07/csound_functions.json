@@ -340,15 +340,23 @@
             "functionIndex": 98,
             "functionType": "eventF",
             "arguments": [
-                "notevalueF",
-                "midipitchF",
-                "midipitchF",
+                "durationF",
+                "frequencyF",
+                "frequencyF",
                 "articulationF",
-                "intensityF"
+                "intensityF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF"
             ],
             "metadata": {
                 "description": "creates an event with two pitches",
-                "date": 20190914,
+                "date": 20210117,
                 "creator": "jlm"
             }
         },
@@ -356,12 +364,20 @@
             "functionIndex": 99,
             "functionType": "eventF",
             "arguments": [
-                "notevalueF",
-                "midipitchF",
-                "midipitchF",
-                "midipitchF",
+                "durationF",
+                "frequencyF",
+                "frequencyF",
+                "frequencyF",
                 "articulationF",
-                "intensityF"
+                "intensityF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF"
             ],
             "metadata": {
                 "description": "creates an event with three pitches",
@@ -373,13 +389,21 @@
             "functionIndex": 100,
             "functionType": "eventF",
             "arguments": [
-                "notevalueF",
-                "midipitchF",
-                "midipitchF",
-                "midipitchF",
-                "midipitchF",
+                "durationF",
+                "frequencyF",
+                "frequencyF",
+                "frequencyF",
+                "frequencyF",
                 "articulationF",
-                "intensityF"
+                "intensityF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF"
             ],
             "metadata": {
                 "description": "creates an event with four pitches",
