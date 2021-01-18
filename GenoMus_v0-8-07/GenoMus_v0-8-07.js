@@ -16,8 +16,8 @@
 
 
 // TESTING DIFFERENT SPECIES
- var currentSpecies = "csound";
-// var currentSpecies = "piano";
+// var currentSpecies = "csound";
+ var currentSpecies = "piano";
 
 // DEPENDENCIES
 
@@ -3226,8 +3226,8 @@ var specimenDataStructure = (specimen) => ({
         booleanF: subexpressions["booleanF"]
     },
     leaves: specimen.data.leaves,
-    // roll: encPhen2bachRoll(specimen.encPhen),
-    csoundScore: encPhen2csoundScore(specimen.encPhen)
+    roll: encPhen2bachRoll(specimen.encPhen),
+    // csoundScore: encPhen2csoundScore(specimen.encPhen)
 });
 
 
