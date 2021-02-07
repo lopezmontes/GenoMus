@@ -1287,7 +1287,7 @@ var e3Pitches_csound = (duration, freq1, freq2, freq3, articulation, intensity,
     }
 });
 
-// creates an event with three pitches
+// creates an event with four pitches
 var e4Pitches_piano = (notevalue, midiPitch1, midiPitch2, midiPitch3, midiPitch4, articulation, intensity) => indexExprReturnSpecimen({
     funcType: "eventF",
     encGen: flattenDeep([1, 0.803399, notevalue.encGen, midiPitch1.encGen, midiPitch2.encGen, midiPitch3.encGen, midiPitch4.encGen, articulation.encGen, intensity.encGen, 0]),
@@ -1356,6 +1356,81 @@ var e4Pitches_csound = (duration, freq1, freq2, freq3, freq4, articulation, inte
         chromaticism: 1
     }
 });
+
+// creates an event with five pitches
+var e5Pitches_piano = (notevalue, midiPitch1, midiPitch2, midiPitch3, midiPitch4, midiPitch5, articulation, intensity) => indexExprReturnSpecimen({
+    funcType: "eventF",
+    encGen: flattenDeep([1, 0.421433, notevalue.encGen, midiPitch1.encGen, midiPitch2.encGen, midiPitch3.encGen, midiPitch4.encGen, midiPitch5.encGen, 
+        articulation.encGen, intensity.encGen, 0]),
+    decGen: "e5Pitches("
+        + notevalue.decGen + ","
+        + midiPitch1.decGen + ","
+        + midiPitch2.decGen + ","
+        + midiPitch3.decGen + ","
+        + midiPitch4.decGen + ","
+        + midiPitch5.decGen + ","
+        + articulation.decGen + ","
+        + intensity.decGen + ")",
+    encPhen: [notevalue.encPhen[0],
+        0.09017, midiPitch1.encPhen[0], midiPitch2.encPhen[0], midiPitch3.encPhen[0], midiPitch4.encPhen[0], midiPitch5.encPhen[0],
+    articulation.encPhen[0],
+    intensity.encPhen[0]],
+    phenLength: 1,
+    tempo: 0.6,
+    harmony: {
+        root: Math.min(midiPitch1.encPhen[0], midiPitch2.encPhen[0], midiPitch3.encPhen[0], midiPitch4.encPhen[0],  midiPitch5.encPhen[0]),
+        chord: [midiPitch1.encPhen[0], midiPitch2.encPhen[0], midiPitch3.encPhen[0], midiPitch4.encPhen[0], midiPitch5.encPhen[0]],
+        mode: [midiPitch1.encPhen[0], midiPitch2.encPhen[0], midiPitch3.encPhen[0], midiPitch4.encPhen[0], midiPitch5.encPhen[0]].sort((a, b) => a - b),
+        chromaticism: 1
+    }
+});
+
+var e5Pitches_csound = (duration, freq1, freq2, freq3, freq4, freq5, articulation, intensity,
+    param5, param6, param7, param8, param9, param10, param11, param12) => indexExprReturnSpecimen({
+    funcType: "eventF",
+    encGen: flattenDeep([1, 0.421433, duration.encGen, freq1.encGen, freq2.encGen, freq3.encGen, freq4.encGen, freq5.encGen, 
+        articulation.encGen, intensity.encGen,
+        param5.encGen, param6.encGen, param7.encGen, param8.encGen, 
+        param9.encGen, param10.encGen, param11.encGen, param12.encGen, 0]),    
+    decGen: "e5Pitches("
+        + duration.decGen + ","
+        + freq1.decGen + ","
+        + freq2.decGen + ","
+        + freq3.decGen + ","
+        + freq4.decGen + ","
+        + freq5.decGen + ","
+        + articulation.decGen + ","
+        + intensity.decGen + ","
+        + param5.decGen + ","
+        + param6.decGen + ","
+        + param7.decGen + ","
+        + param8.decGen + ","
+        + param9.decGen + ","
+        + param10.decGen + ","
+        + param11.decGen + ","
+        + param12.decGen + ")",
+    encPhen: [duration.encPhen[0],
+        0.09017, freq1.encPhen[0], freq2.encPhen[0], freq3.encPhen[0], freq4.encPhen[0], freq5.encPhen[0],
+    articulation.encPhen[0],
+    intensity.encPhen[0],
+    param5.encPhen[0],
+    param6.encPhen[0],
+    param7.encPhen[0],
+    param8.encPhen[0],
+    param9.encPhen[0],
+    param10.encPhen[0],
+    param11.encPhen[0],
+    param12.encPhen[0]],
+    phenLength: 1,
+    tempo: 0.6,
+    harmony: {
+        root: Math.min(freq1.encPhen[0], freq2.encPhen[0], freq3.encPhen[0], freq4.encPhen[0], freq5.encPhen[0]),
+        chord: [freq1.encPhen[0], freq2.encPhen[0], freq3.encPhen[0], freq4.encPhen[0], freq5.encPhen[0]],
+        mode: [freq1.encPhen[0], freq2.encPhen[0], freq3.encPhen[0], freq4.encPhen[0], freq5.encPhen[0]].sort((a, b) => a - b),
+        chromaticism: 1
+    }
+});
+
 
 // repeats an event a number of times between 2 and 12 (eventP, quantizedP)
 var vRepeatE = (event, times) => {
@@ -2662,7 +2737,7 @@ var eligibleFunctions = {
         20, 25, 26, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 48, 58, 63, 65, 66, 67, 68, 76, 77, 84, 104, 
         109, 110, 111, 131, 134, 135, 199, 200, 202, 277, 278, 279, 281, 282, 284, 286, 288, 290, 291,
         294, 296, 298, 299, 302, 304, 306, 307, 310, 311, 312, 313, 314, 315, 316, 317, 318, 201, 280,
-    98, 99, 100 ],
+    98, 99, 100, 101 ],
     mandatoryFunctions: [], // to be implemented
     excludedFunctions: [25, 277, 278, 279, 281, 282, 284, 286, 288, 290, 291] // 
 };
@@ -2879,7 +2954,7 @@ var evalDecGen = decGen => {
     }
     else {
         initSubexpressionsArrays();
-        maxAPI.post("procesaré: " + decodeGenotype(encodedGenotype));
+        maxAPI.post("processing: " + decodeGenotype(encodedGenotype));
         var output = eval(decodeGenotype(encodedGenotype));
         return output;
     }
@@ -3995,7 +4070,7 @@ var e; // identity event function
 var mergeScores; // aux function to merge scores
 var vMotif, vMotifLoop, vPerpetuumMobile, vPerpetuumMobileLoop;
 var vSlice;
-var e2Pitches, e3Pitches, e4Pitches;
+var e2Pitches, e3Pitches, e4Pitches, e5Pitches;
 
 // create specific functions for the current specieszz
 var createSpeciesDependentFunctions = (speciesName) => {
@@ -4011,6 +4086,7 @@ var createSpeciesDependentFunctions = (speciesName) => {
             e2Pitches = e2Pitches_piano;
             e3Pitches = e3Pitches_piano;
             e4Pitches = e4Pitches_piano;
+            e5Pitches = e5Pitches_piano;
             break;
         case ("csound"):
             e = e_csound;
@@ -4023,6 +4099,7 @@ var createSpeciesDependentFunctions = (speciesName) => {
             e2Pitches = e2Pitches_csound;
             e3Pitches = e3Pitches_csound;
             e4Pitches = e4Pitches_csound;
+            e5Pitches = e5Pitches_csound;
             break;
         default:
             console.log("Error: species unknown.");

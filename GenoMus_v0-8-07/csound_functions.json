@@ -410,6 +410,33 @@
                 "date": 20210117,
                 "creator": "jlm"
             }
+        },
+        "e5Pitches": {
+            "functionIndex": 101,
+            "functionType": "eventF",
+            "arguments": [
+                "durationF",
+                "frequencyF",
+                "frequencyF",
+                "frequencyF",
+                "frequencyF",
+                "frequencyF",
+                "articulationF",
+                "intensityF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF"
+            ],
+            "metadata": {
+                "description": "creates an event with five pitches",
+                "date": 20210117,
+                "creator": "jlm"
+            }
         }
     },
     "listF": {

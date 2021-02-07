@@ -346,6 +346,25 @@
                 "date": 20190914,
                 "creator": "jlm"
             }
+        },
+        "e5Pitches": {
+            "functionIndex": 101,
+            "functionType": "eventF",
+            "arguments": [
+                "notevalueF",
+                "midipitchF",
+                "midipitchF",
+                "midipitchF",
+                "midipitchF",
+                "midipitchF",
+                "articulationF",
+                "intensityF"
+            ],
+            "metadata": {
+                "description": "creates an event with five pitches",
+                "date": 20210118,
+                "creator": "jlm"
+            }
         }
     },
     "listF": {
