@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 499.0, 788.0, 1181.0, 854.0 ],
+		"rect" : [ 0.0, 53.0, 1289.0, 997.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 8.0,
@@ -39,6 +39,506 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-174",
+					"maxclass" : "number",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "bang" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 493.283316149314146, 481.722236752510071, 50.0, 17.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-152",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 482.783316149314146, 506.208257436752319, 29.5, 17.0 ],
+					"text" : "del 0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Lato Regular",
+					"fontsize" : 16.0,
+					"id" : "obj-183",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patcher" : 					{
+						"fileversion" : 1,
+						"appversion" : 						{
+							"major" : 8,
+							"minor" : 1,
+							"revision" : 8,
+							"architecture" : "x64",
+							"modernui" : 1
+						}
+,
+						"classnamespace" : "box",
+						"rect" : [ 830.0, 87.0, 816.0, 108.0 ],
+						"bglocked" : 0,
+						"openinpresentation" : 0,
+						"default_fontsize" : 12.0,
+						"default_fontface" : 0,
+						"default_fontname" : "Arial",
+						"gridonopen" : 1,
+						"gridsize" : [ 15.0, 15.0 ],
+						"gridsnaponopen" : 1,
+						"objectsnaponopen" : 1,
+						"statusbarvisible" : 2,
+						"toolbarvisible" : 1,
+						"lefttoolbarpinned" : 0,
+						"toptoolbarpinned" : 0,
+						"righttoolbarpinned" : 0,
+						"bottomtoolbarpinned" : 0,
+						"toolbars_unpinned_last_save" : 0,
+						"tallnewobj" : 0,
+						"boxanimatetime" : 200,
+						"enablehscroll" : 1,
+						"enablevscroll" : 1,
+						"devicewidth" : 0.0,
+						"description" : "",
+						"digest" : "",
+						"tags" : "",
+						"style" : "",
+						"subpatcher_template" : "",
+						"assistshowspatchername" : 0,
+						"visible" : 1,
+						"boxes" : [ 							{
+								"box" : 								{
+									"fontname" : "Lato Regular",
+									"fontsize" : 9.0,
+									"id" : "obj-10",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 8,
+									"outlettype" : [ "float", "float", "float", "float", "float", "float", "float", "float" ],
+									"patching_rect" : [ 510.433326780796051, 45.0, 79.0, 19.0 ],
+									"text" : "unpack f f f f f f f f"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato Regular",
+									"hidden" : 1,
+									"id" : "obj-143",
+									"maxclass" : "newobj",
+									"numinlets" : 4,
+									"numoutlets" : 0,
+									"patching_rect" : [ 49.933326780796051, 10.0, 120.0, 23.0 ],
+									"text" : "bgcolor 90 90 96"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"comment" : "",
+									"id" : "obj-9",
+									"index" : 1,
+									"maxclass" : "inlet",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 11.0, 10.0, 30.0, 30.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato Regular",
+									"fontsize" : 9.0,
+									"format" : 6,
+									"id" : "obj-5",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 743.933326780796051, 71.5, 56.0, 19.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato Regular",
+									"fontsize" : 9.0,
+									"format" : 6,
+									"id" : "obj-6",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 687.933326780796051, 71.5, 56.0, 19.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato Regular",
+									"fontsize" : 9.0,
+									"format" : 6,
+									"id" : "obj-7",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 631.933326780796051, 71.5, 56.0, 19.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato Regular",
+									"fontsize" : 9.0,
+									"format" : 6,
+									"id" : "obj-8",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 577.933326780796051, 71.5, 54.0, 19.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato Regular",
+									"fontsize" : 9.0,
+									"format" : 6,
+									"id" : "obj-1",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 521.933326780796051, 71.5, 56.0, 19.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato Regular",
+									"fontsize" : 9.0,
+									"format" : 6,
+									"id" : "obj-2",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 465.933326780796051, 71.5, 56.0, 19.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato Regular",
+									"fontsize" : 9.0,
+									"format" : 6,
+									"id" : "obj-3",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 409.933326780796051, 71.5, 56.0, 19.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato Regular",
+									"fontsize" : 9.0,
+									"format" : 6,
+									"id" : "obj-4",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 353.933326780796051, 71.5, 56.0, 19.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato Regular",
+									"fontsize" : 9.0,
+									"format" : 6,
+									"id" : "obj-185",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 290.933326780796051, 71.5, 56.0, 19.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato Regular",
+									"fontsize" : 9.0,
+									"format" : 6,
+									"id" : "obj-179",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 234.933326780796051, 71.5, 56.0, 19.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato Regular",
+									"fontsize" : 9.0,
+									"format" : 6,
+									"id" : "obj-177",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 178.933326780796051, 71.5, 56.0, 19.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato Regular",
+									"fontsize" : 9.0,
+									"format" : 6,
+									"id" : "obj-178",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 122.933326780796051, 71.5, 56.0, 19.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato Regular",
+									"fontsize" : 9.0,
+									"format" : 6,
+									"id" : "obj-174",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 66.933326780796051, 71.5, 56.0, 19.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato Regular",
+									"fontsize" : 9.0,
+									"format" : 6,
+									"id" : "obj-172",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 10.933326780796051, 71.5, 56.0, 19.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato Regular",
+									"fontsize" : 13.0,
+									"id" : "obj-152",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 7,
+									"outlettype" : [ "", "", "", "", "", "", "" ],
+									"patching_rect" : [ 10.933326780796051, 42.5, 495.0, 24.0 ],
+									"saved_object_attributes" : 									{
+										"versionnumber" : 80100
+									}
+,
+									"text" : "bach.playkeys voicenumber midichannel onset cents duration velocity [slot 4] @out t"
+								}
+
+							}
+ ],
+						"lines" : [ 							{
+								"patchline" : 								{
+									"destination" : [ "obj-1", 0 ],
+									"source" : [ "obj-10", 3 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-2", 0 ],
+									"source" : [ "obj-10", 2 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-3", 0 ],
+									"source" : [ "obj-10", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-4", 0 ],
+									"source" : [ "obj-10", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-5", 0 ],
+									"source" : [ "obj-10", 7 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-6", 0 ],
+									"source" : [ "obj-10", 6 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-7", 0 ],
+									"source" : [ "obj-10", 5 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-8", 0 ],
+									"source" : [ "obj-10", 4 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-10", 0 ],
+									"source" : [ "obj-152", 6 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-172", 0 ],
+									"source" : [ "obj-152", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-174", 0 ],
+									"source" : [ "obj-152", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-177", 0 ],
+									"source" : [ "obj-152", 3 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-178", 0 ],
+									"source" : [ "obj-152", 2 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-179", 0 ],
+									"source" : [ "obj-152", 4 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-185", 0 ],
+									"source" : [ "obj-152", 5 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-152", 0 ],
+									"source" : [ "obj-9", 0 ]
+								}
+
+							}
+ ],
+						"bgcolor" : [ 0.352941176470588, 0.352941176470588, 0.376470588235294, 1.0 ]
+					}
+,
+					"patching_rect" : [ 282.333349108695984, 196.851308340827416, 191.0, 28.0 ],
+					"saved_object_attributes" : 					{
+						"description" : "",
+						"digest" : "",
+						"globalpatchername" : "",
+						"locked_bgcolor" : [ 0.352941176470588, 0.352941176470588, 0.376470588235294, 1.0 ],
+						"tags" : ""
+					}
+,
+					"text" : "p decodedPhenotypeData"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Lato Regular",
+					"id" : "obj-155",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 539.266637623310089, 655.833382725715637, 33.0, 18.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 539.266637623310089, 657.833382725715637, 65.0, 18.0 ],
+					"text" : "bgslots"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontname" : "Lato Regular",
+					"id" : "obj-149",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 497.266637623310089, 655.833382725715637, 40.0, 18.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 498.0, 658.833382725715637, 65.0, 18.0 ],
+					"text" : "bgslots 4"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"fontsize" : 14.0,
 					"id" : "obj-156",
@@ -1329,6 +1829,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-126",
+					"int" : 1,
 					"maxclass" : "gswitch2",
 					"numinlets" : 2,
 					"numoutlets" : 2,
@@ -1418,17 +1919,6 @@
 					}
 ,
 					"text" : "js listToArrayAsString.js"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-152",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 1136.0, 682.0, 50.0, 17.0 ]
 				}
 
 			}
@@ -2209,7 +2699,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 938.833359062671661, 552.5, 29.5, 24.0 ],
-					"text" : "0"
+					"text" : "1"
 				}
 
 			}
@@ -2519,7 +3009,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 297.083353658517126, 217.205468177795353, 34.0, 18.0 ],
+					"patching_rect" : [ 297.083353658517126, 251.205468177795353, 34.0, 18.0 ],
 					"text" : "t"
 				}
 
@@ -3025,7 +3515,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 383.299993366002923, 242.255494952201786, 24.0, 24.0 ]
+					"patching_rect" : [ 383.299993366002923, 276.255494952201786, 24.0, 24.0 ]
 				}
 
 			}
@@ -3050,7 +3540,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 326.249997337659124, 242.338836431503239, 54.0, 18.0 ]
+					"patching_rect" : [ 326.249997337659124, 276.338836431503239, 54.0, 18.0 ]
 				}
 
 			}
@@ -3077,7 +3567,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 297.249997337659124, 279.538796424865666, 48.0, 18.0 ],
+					"patching_rect" : [ 297.249997337659124, 301.538796424865666, 48.0, 18.0 ],
 					"text" : "del 300"
 				}
 
@@ -3090,7 +3580,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 7,
 					"outlettype" : [ "bang", "bang", "bang", "bang", "bang", "bang", "bang" ],
-					"patching_rect" : [ 297.249997337659124, 309.038803815841618, 82.0, 18.0 ],
+					"patching_rect" : [ 297.249997337659124, 323.038803815841618, 82.0, 18.0 ],
 					"text" : "t b b b b b b b"
 				}
 
@@ -3103,7 +3593,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 297.083353658517126, 193.205468177795353, 57.0, 18.0 ],
+					"patching_rect" : [ 297.083353658517126, 227.205468177795353, 57.0, 18.0 ],
 					"text" : "r finished"
 				}
 
@@ -3142,7 +3632,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 297.083353658517126, 242.338836431503239, 24.0, 24.0 ]
+					"patching_rect" : [ 297.083353658517126, 276.338836431503239, 24.0, 24.0 ]
 				}
 
 			}
@@ -3150,59 +3640,56 @@
 				"box" : 				{
 					"data" : 					{
 						"metadata" : 						{
-							"specimenID" : "20210207173906069_not_found",
+							"specimenID" : "20210209164950774_jlm",
 							"GenoMusVersion" : "0.8.7",
-							"iterations" : 3,
-							"milliseconsElapsed" : null,
-							"voices" : 1,
-							"events" : 1,
-							"genotypeLength" : 2120,
-							"depth" : 11
+							"iterations" : 1,
+							"milliseconsElapsed" : 7,
+							"voices" : 4,
+							"events" : 8,
+							"genotypeLength" : 1094,
+							"depth" : 7
 						}
 ,
 						"initialConditions" : 						{
 							"species" : "csound",
-							"eligibleFunctions" : [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19, 20, 26, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 48, 58, 63, 65, 66, 67, 68, 76, 77, 84, 98, 99, 100, 101, 104, 109, 110, 111, 131, 134, 135, 199, 200, 201, 202, 280, 294, 296, 298, 299, 302, 304, 306, 307, 310, 311, 312, 313, 314, 315, 316, 317, 318 ],
-							"maxAllowedDepth" : 14,
-							"germinalVector" : [ 0.908197, 0.386332, 0.679288, 0.152886, 0.603143, 0.526902, 0.136079, 0.882453, 0.879467, 0.414579, 0.121521, 0.986755, 0.485949, 0.478452, 0.50035, 0.448112, 0.120467, 0.865742, 0.50765, 0.777028, 0.153812, 0.754973, 0.167892, 0.770197, 0.864094, 0.529935, 0.466854, 0.038198 ],
-							"genotypeSeed" : "933119428310162",
-							"phenotypeSeed" : "33971928635597"
+							"eligibleFunctions" : [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19, 20, 42, 43, 46, 48, 98, 99, 100, 101, 104, 109 ],
+							"maxAllowedDepth" : 12,
+							"germinalVector" : [ 0.827231, 0.987526, 0.64367, 0.308674, 0.736147, 0.135207, 0.140394, 0.399507, 0.199957, 0.046389, 0.124001, 0.803864, 0.838374, 0.166562, 0.602978, 0.576156, 0.501813, 0.689152, 0.495221, 0.379365, 0.221219, 0.15487, 0.04034, 0.753219, 0.622351, 0.911894, 0.234925, 0.684071, 0.130771, 0.328329, 0.745065, 0.503112, 0.082318, 0.65795, 0.246769, 0.360781, 0.043584, 0.495436, 0.742542, 0.102003, 0.824454, 0.826468, 0.923892, 0.025231, 0.785858 ],
+							"genotypeSeed" : "7560283797128",
+							"phenotypeSeed" : "76147340140511"
 						}
 ,
-						"encodedGenotype" : [ 1, 0.472136, 1, 0.854102, 1, 0.236068, 1, 0, 0.5, 0, 0, 1, 0.944272, 0.54, 0.385129, 0, 1, 0, 0.5, 0, 0, 1, 0, 0.5, 0, 0, 1, 0, 0.5, 0, 0, 1, 0, 0.5, 0, 0, 1, 0, 0.5, 0, 0, 1, 0, 0.5, 0, 0, 1, 0, 0.5, 0, 0, 1, 0, 0.5, 0, 0, 1, 0, 0.5, 0, 0, 1, 0, 0.5, 0, 0, 0, 0, 0 ],
-						"decodedGenotype" : "s(v(e(p(0),f(440),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0))))",
-						"formattedGenotype" : "s(\n   v(\n      e(\n         p(0),\n         f(440),\n         p(0),\n         p(0),\n         p(0),\n         p(0),\n         p(0),\n         p(0),\n         p(0),\n         p(0),\n         p(0),\n         p(0))))",
-						"encodedPhenotype" : [ 0.618034, 0.618034, 0, 0.618034, 0.385129, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ],
+						"encodedGenotype" : [ 1, 0.365705, 1, 0.365705, 1, 0.275535, 1, 0.957428, 1, 0.803399, 1, 0.708204, 0.52, 0.460295, 0, 1, 0.944272, 0.54, 0.311244, 0, 1, 0.944272, 0.54, 0.344013, 0, 1, 0.944272, 0.54, 0.500707, 0, 1, 0.944272, 0.54, 0.452048, 0, 1, 0.562306, 0.55, 0.183756, 0, 1, 0.18034, 0.56, 0.72, 0, 1, 0, 0.5, 0.317002, 0, 1, 0, 0.5, 0.501214, 0, 1, 0, 0.5, 0.391535, 0, 1, 0, 0.5, 0.498221, 0, 1, 0, 0.5, 0.649927, 0, 1, 0, 0.5, 0.160842, 0, 1, 0, 0.5, 0.891505, 0, 1, 0, 0.5, 0.599774, 0, 0, 1, 0.236068, 1, 0.708204, 0.52, 0.365448, 0, 1, 0.944272, 0.54, 0.636865, 0, 1, 0.562306, 0.55, 0.539312, 0, 1, 0.18034, 0.56, 0.58, 0, 1, 0, 0.5, 0.377766, 0, 1, 0, 0.5, 0.60846, 0, 1, 0, 0.5, 0.385277, 0, 1, 0, 0.5, 0.430315, 0, 1, 0, 0.5, 0.268655, 0, 1, 0, 0.5, 0.444291, 0, 1, 0, 0.5, 0.602985, 0, 1, 0, 0.5, 0.651265, 0, 0, 0, 1, 0.665631, 1, 0.854102, 1, 0.803399, 1, 0.708204, 0.52, 0.557592, 0, 1, 0.944272, 0.54, 0.320646, 0, 1, 0.944272, 0.54, 0.365448, 0, 1, 0.944272, 0.54, 0.636865, 0, 1, 0.944272, 0.54, 0.540715, 0, 1, 0.562306, 0.55, 0.576094, 0, 1, 0.18034, 0.56, 0.38, 0, 1, 0, 0.5, 0.60846, 0, 1, 0, 0.5, 0.385277, 0, 1, 0, 0.5, 0.430315, 0, 1, 0, 0.5, 0.268655, 0, 1, 0, 0.5, 0.444291, 0, 1, 0, 0.5, 0.602985, 0, 1, 0, 0.5, 0.651265, 0, 1, 0, 0.5, 0.626238, 0, 0, 0, 1, 0.416408, 0.58, 0.55, 0, 0, 0, 1, 0.957428, 1, 0.803399, 1, 0.708204, 0.52, 0.460295, 0, 1, 0.944272, 0.54, 0.311244, 0, 1, 0.944272, 0.54, 0.344013, 0, 1, 0.944272, 0.54, 0.500707, 0, 1, 0.944272, 0.54, 0.452048, 0, 1, 0.562306, 0.55, 0.183756, 0, 1, 0.18034, 0.56, 0.72, 0, 1, 0, 0.5, 0.317002, 0, 1, 0, 0.5, 0.501214, 0, 1, 0, 0.5, 0.391535, 0, 1, 0, 0.5, 0.498221, 0, 1, 0, 0.5, 0.649927, 0, 1, 0, 0.5, 0.160842, 0, 1, 0, 0.5, 0.891505, 0, 1, 0, 0.5, 0.599774, 0, 0, 1, 0.236068, 1, 0.708204, 0.52, 0.365448, 0, 1, 0.944272, 0.54, 0.636865, 0, 1, 0.562306, 0.55, 0.539312, 0, 1, 0.18034, 0.56, 0.58, 0, 1, 0, 0.5, 0.377766, 0, 1, 0, 0.5, 0.60846, 0, 1, 0, 0.5, 0.385277, 0, 1, 0, 0.5, 0.430315, 0, 1, 0, 0.5, 0.268655, 0, 1, 0, 0.5, 0.444291, 0, 1, 0, 0.5, 0.602985, 0, 1, 0, 0.5, 0.651265, 0, 0, 0, 0, 1, 0.665631, 1, 0.854102, 1, 0.803399, 1, 0.708204, 0.52, 0.557592, 0, 1, 0.944272, 0.54, 0.320646, 0, 1, 0.944272, 0.54, 0.365448, 0, 1, 0.944272, 0.54, 0.636865, 0, 1, 0.944272, 0.54, 0.540715, 0, 1, 0.562306, 0.55, 0.576094, 0, 1, 0.18034, 0.56, 0.38, 0, 1, 0, 0.5, 0.60846, 0, 1, 0, 0.5, 0.385277, 0, 1, 0, 0.5, 0.430315, 0, 1, 0, 0.5, 0.268655, 0, 1, 0, 0.5, 0.444291, 0, 1, 0, 0.5, 0.602985, 0, 1, 0, 0.5, 0.651265, 0, 1, 0, 0.5, 0.626238, 0, 0, 0, 1, 0.416408, 0.58, 0.55, 0, 0, 0 ],
+						"decodedGenotype" : "sAddV(sAddV(s2V(vConcatE(e4Pitches(d(0.379705),f(187.686894),f(280.110516),f(1257.08501),f(835.157151),a(3),i(72),p(0.317002),p(0.501214),p(0.391535),p(0.498221),p(0.649927),p(0.160842),p(0.891505),p(0.599774)),e(d(0.196756),f(3290.178986),a(56),i(58),p(0.377766),p(0.60846),p(0.385277),p(0.430315),p(0.268655),p(0.444291),p(0.602985),p(0.651265))),vRepeatV(v(e4Pitches(d(0.745314),f(211.413785),f(356.72402),f(3290.178986),f(1709.636045),a(67),i(38),p(0.60846),p(0.385277),p(0.430315),p(0.268655),p(0.444291),p(0.602985),p(0.651265),p(0.626238))),q(2))),vConcatE(e4Pitches(d(0.379705),f(187.686894),f(280.110516),f(1257.08501),f(835.157151),a(3),i(72),p(0.317002),p(0.501214),p(0.391535),p(0.498221),p(0.649927),p(0.160842),p(0.891505),p(0.599774)),e(d(0.196756),f(3290.178986),a(56),i(58),p(0.377766),p(0.60846),p(0.385277),p(0.430315),p(0.268655),p(0.444291),p(0.602985),p(0.651265)))),vRepeatV(v(e4Pitches(d(0.745314),f(211.413785),f(356.72402),f(3290.178986),f(1709.636045),a(67),i(38),p(0.60846),p(0.385277),p(0.430315),p(0.268655),p(0.444291),p(0.602985),p(0.651265),p(0.626238))),q(2)))",
+						"formattedGenotype" : "sAddV(\n   sAddV(\n      s2V(\n         vConcatE(\n            e4Pitches(\n               d(0.379705),\n               f(187.686894),\n               f(280.110516),\n               f(1257.08501),\n               f(835.157151),\n               a(3),\n               i(72),\n               p(0.317002),\n               p(0.501214),\n               p(0.391535),\n               p(0.498221),\n               p(0.649927),\n               p(0.160842),\n               p(0.891505),\n               p(0.599774)),\n            e(\n               d(0.196756),\n               f(3290.178986),\n               a(56),\n               i(58),\n               p(0.377766),\n               p(0.60846),\n               p(0.385277),\n               p(0.430315),\n               p(0.268655),\n               p(0.444291),\n               p(0.602985),\n               p(0.651265))),\n         vRepeatV(\n            v(\n               e4Pitches(\n                  d(0.745314),\n                  f(211.413785),\n                  f(356.72402),\n                  f(3290.178986),\n                  f(1709.636045),\n                  a(67),\n                  i(38),\n                  p(0.60846),\n                  p(0.385277),\n                  p(0.430315),\n                  p(0.268655),\n                  p(0.444291),\n                  p(0.602985),\n                  p(0.651265),\n                  p(0.626238))),\n            q(2))),\n      vConcatE(\n         e4Pitches(\n            d(0.379705),\n            f(187.686894),\n            f(280.110516),\n            f(1257.08501),\n            f(835.157151),\n            a(3),\n            i(72),\n            p(0.317002),\n            p(0.501214),\n            p(0.391535),\n            p(0.498221),\n            p(0.649927),\n            p(0.160842),\n            p(0.891505),\n            p(0.599774)),\n         e(\n            d(0.196756),\n            f(3290.178986),\n            a(56),\n            i(58),\n            p(0.377766),\n            p(0.60846),\n            p(0.385277),\n            p(0.430315),\n            p(0.268655),\n            p(0.444291),\n            p(0.602985),\n            p(0.651265)))),\n   vRepeatV(\n      v(\n         e4Pitches(\n            d(0.745314),\n            f(211.413785),\n            f(356.72402),\n            f(3290.178986),\n            f(1709.636045),\n            a(67),\n            i(38),\n            p(0.60846),\n            p(0.385277),\n            p(0.430315),\n            p(0.268655),\n            p(0.444291),\n            p(0.602985),\n            p(0.651265),\n            p(0.626238))),\n      q(2)))",
+						"encodedPhenotype" : [ 0.472136, 0.236068, 0.460295, 0.472136, 0.311244, 0.344013, 0.500707, 0.452048, 0.183756, 0.72, 0.317002, 0.501214, 0.391535, 0.498221, 0.649927, 0.160842, 0.891505, 0.599774, 0.365448, 0.618034, 0.636865, 0.539312, 0.58, 0.377766, 0.60846, 0.385277, 0.430315, 0.268655, 0.444291, 0.602985, 0.651265, 0.236068, 0.557592, 0.472136, 0.320646, 0.365448, 0.636865, 0.540715, 0.576094, 0.38, 0.60846, 0.385277, 0.430315, 0.268655, 0.444291, 0.602985, 0.651265, 0.626238, 0.557592, 0.472136, 0.320646, 0.365448, 0.636865, 0.540715, 0.576094, 0.38, 0.60846, 0.385277, 0.430315, 0.268655, 0.444291, 0.602985, 0.651265, 0.626238, 0.236068, 0.460295, 0.472136, 0.311244, 0.344013, 0.500707, 0.452048, 0.183756, 0.72, 0.317002, 0.501214, 0.391535, 0.498221, 0.649927, 0.160842, 0.891505, 0.599774, 0.365448, 0.618034, 0.636865, 0.539312, 0.58, 0.377766, 0.60846, 0.385277, 0.430315, 0.268655, 0.444291, 0.602985, 0.651265, 0.236068, 0.557592, 0.472136, 0.320646, 0.365448, 0.636865, 0.540715, 0.576094, 0.38, 0.60846, 0.385277, 0.430315, 0.268655, 0.444291, 0.602985, 0.651265, 0.626238, 0.557592, 0.472136, 0.320646, 0.365448, 0.636865, 0.540715, 0.576094, 0.38, 0.60846, 0.385277, 0.430315, 0.268655, 0.444291, 0.602985, 0.651265, 0.626238 ],
 						"subexpressions" : 						{
-							"paramF" : [ "p(0)", "pRnd()", "p(0.720296)", "p(0.334286)", "p(0.494521)", "p(0.4797)", "p(0.502983)", "p(0.344926)", "p(0.887468)", "p(0.678789)" ],
-							"listF" : [ "l2P(p(0.494521),p(0.4797))", "lAutoref(0)", "lLine(p(0.344926),pRnd(),z(5))", "l2P(pRnd(),pRnd())", "lRnd(p(0.887468),q(0))", "l3P(p(0.502983),pRnd(),p(0.678789))", "l4P(p(0.720296),p(0.334286),pRnd(),pRnd())", "lAutoref(5)", "lAutoref(6)", "lAutoref(2)" ],
-							"eventF" : [ "e(p(0),f(440),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0))", "e(dRnd(),fRnd(),aRnd(),i(34),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521),p(0.4797),p(0.502983))", "e4Pitches(dRnd(),f(856.569251),fAutoref(0),fRnd(),fAutoref(3),aRnd(),iRnd(),pRnd(),p(0.344926),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521))", "e4Pitches(dRnd(),f(856.569251),fAutoref(2),fRnd(),fAutoref(3),aRnd(),iRnd(),pRnd(),p(0.344926),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521))", "e4Pitches(dRnd(),f(856.569251),fAutoref(3),fRnd(),fAutoref(3),aRnd(),iRnd(),pRnd(),p(0.344926),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521))" ],
-							"voiceF" : [ "v(e(p(0),f(440),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0)))", "vRepeatE(e(dRnd(),fRnd(),aRnd(),i(34),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521),p(0.4797),p(0.502983)),q(2))", "vABAv(v(e(p(0),f(440),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0))),vRepeatE(e(dRnd(),fRnd(),aRnd(),i(34),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521),p(0.4797),p(0.502983)),q(2)))", "vIterE(e4Pitches(dRnd(),f(856.569251),fAutoref(0),fRnd(),fAutoref(3),aRnd(),iRnd(),pRnd(),p(0.344926),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521)),p(0.4797))", "vAutoref(2)", "vABCABv(vABAv(v(e(p(0),f(440),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0))),vRepeatE(e(dRnd(),fRnd(),aRnd(),i(34),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521),p(0.4797),p(0.502983)),q(2))),vIterE(e4Pitches(dRnd(),f(856.569251),fAutoref(0),fRnd(),fAutoref(3),aRnd(),iRnd(),pRnd(),p(0.344926),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521)),p(0.4797)),vAutoref(2))", "vMotifLoop(ld(0.170667,1.726548,0.542181,0.457105,0.060837,2.302123,0.365812,0.829669),lf(1358.332762,4652.528411,4581.04349),laLine(a(44),a(40),z(23)),liRemap(li(34,68,51,49,20,72,45,57),i(51),i(69)),l2P(p(0.494521),p(0.4797)),lAutoref(0),lLine(p(0.344926),pRnd(),z(5)),l2P(pRnd(),pRnd()),lRnd(p(0.887468),q(0)),l3P(p(0.502983),pRnd(),p(0.678789)),l4P(p(0.720296),p(0.334286),pRnd(),pRnd()),lAutoref(5))", "vAutoref(5)", "vRepeatV(vAutoref(5),pRnd())", "vIterE(e4Pitches(dRnd(),f(856.569251),fAutoref(2),fRnd(),fAutoref(3),aRnd(),iRnd(),pRnd(),p(0.344926),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521)),p(0.4797))", "vMotifLoop(ld(0.170667,1.726548,0.542181,0.457105,0.060837,2.302123,0.365812,0.829669),lf(1358.332762,4652.528411,4581.04349),laLine(a(44),a(40),z(0)),liRemap(li(34,68,51,49,20,72,45,57),i(51),i(69)),l2P(p(0.494521),p(0.4797)),lAutoref(6),lLine(p(0.344926),pRnd(),z(5)),l2P(pRnd(),pRnd()),lRnd(p(0.887468),q(0)),l3P(p(0.502983),pRnd(),p(0.678789)),l4P(p(0.720296),p(0.334286),pRnd(),pRnd()),lAutoref(2))", "vAutoref(7)", "vIterE(e4Pitches(dRnd(),f(856.569251),fAutoref(3),fRnd(),fAutoref(3),aRnd(),iRnd(),pRnd(),p(0.344926),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521)),p(0.4797))", "vABAv(v(e(p(0),f(440),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0))),vIterE(e4Pitches(dRnd(),f(856.569251),fAutoref(3),fRnd(),fAutoref(3),aRnd(),iRnd(),pRnd(),p(0.344926),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521)),p(0.4797)))", "vRepeatV(vABAv(v(e(p(0),f(440),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0))),vIterE(e4Pitches(dRnd(),f(856.569251),fAutoref(3),fRnd(),fAutoref(3),aRnd(),iRnd(),pRnd(),p(0.344926),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521)),p(0.4797))),p(0.502983))", "vABAv(vMotifLoop(ld(0.170667,1.726548,0.542181,0.457105,0.060837,2.302123,0.365812,0.829669),lf(1358.332762,4652.528411,4581.04349),laLine(a(44),a(40),z(0)),liRemap(li(34,68,51,49,20,72,45,57),i(51),i(69)),l2P(p(0.494521),p(0.4797)),lAutoref(6),lLine(p(0.344926),pRnd(),z(5)),l2P(pRnd(),pRnd()),lRnd(p(0.887468),q(0)),l3P(p(0.502983),pRnd(),p(0.678789)),l4P(p(0.720296),p(0.334286),pRnd(),pRnd()),lAutoref(2)),vRepeatV(vABAv(v(e(p(0),f(440),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0))),vIterE(e4Pitches(dRnd(),f(856.569251),fAutoref(3),fRnd(),fAutoref(3),aRnd(),iRnd(),pRnd(),p(0.344926),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521)),p(0.4797))),p(0.502983)))", "vSlice(vABAv(vMotifLoop(ld(0.170667,1.726548,0.542181,0.457105,0.060837,2.302123,0.365812,0.829669),lf(1358.332762,4652.528411,4581.04349),laLine(a(44),a(40),z(0)),liRemap(li(34,68,51,49,20,72,45,57),i(51),i(69)),l2P(p(0.494521),p(0.4797)),lAutoref(6),lLine(p(0.344926),pRnd(),z(5)),l2P(pRnd(),pRnd()),lRnd(p(0.887468),q(0)),l3P(p(0.502983),pRnd(),p(0.678789)),l4P(p(0.720296),p(0.334286),pRnd(),pRnd()),lAutoref(2)),vRepeatV(vABAv(v(e(p(0),f(440),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0))),vIterE(e4Pitches(dRnd(),f(856.569251),fAutoref(3),fRnd(),fAutoref(3),aRnd(),iRnd(),pRnd(),p(0.344926),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521)),p(0.4797))),p(0.502983))),qRnd())" ],
-							"scoreF" : [ "s(vABCABv(vABAv(v(e(p(0),f(440),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0))),vRepeatE(e(dRnd(),fRnd(),aRnd(),i(34),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521),p(0.4797),p(0.502983)),q(2))),vIterE(e4Pitches(dRnd(),f(856.569251),fAutoref(0),fRnd(),fAutoref(3),aRnd(),iRnd(),pRnd(),p(0.344926),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521)),p(0.4797)),vAutoref(2)))", "sAddV(s(vABCABv(vABAv(v(e(p(0),f(440),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0))),vRepeatE(e(dRnd(),fRnd(),aRnd(),i(34),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521),p(0.4797),p(0.502983)),q(2))),vIterE(e4Pitches(dRnd(),f(856.569251),fAutoref(0),fRnd(),fAutoref(3),aRnd(),iRnd(),pRnd(),p(0.344926),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521)),p(0.4797)),vAutoref(2))),vMotifLoop(ld(0.170667,1.726548,0.542181,0.457105,0.060837,2.302123,0.365812,0.829669),lf(1358.332762,4652.528411,4581.04349),laLine(a(44),a(40),z(23)),liRemap(li(34,68,51,49,20,72,45,57),i(51),i(69)),l2P(p(0.494521),p(0.4797)),lAutoref(0),lLine(p(0.344926),pRnd(),z(5)),l2P(pRnd(),pRnd()),lRnd(p(0.887468),q(0)),l3P(p(0.502983),pRnd(),p(0.678789)),l4P(p(0.720296),p(0.334286),pRnd(),pRnd()),lAutoref(5)))", "s2V(vRepeatV(vAutoref(5),pRnd()),vIterE(e4Pitches(dRnd(),f(856.569251),fAutoref(2),fRnd(),fAutoref(3),aRnd(),iRnd(),pRnd(),p(0.344926),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521)),p(0.4797)))", "s(vSlice(vABAv(vMotifLoop(ld(0.170667,1.726548,0.542181,0.457105,0.060837,2.302123,0.365812,0.829669),lf(1358.332762,4652.528411,4581.04349),laLine(a(44),a(40),z(0)),liRemap(li(34,68,51,49,20,72,45,57),i(51),i(69)),l2P(p(0.494521),p(0.4797)),lAutoref(6),lLine(p(0.344926),pRnd(),z(5)),l2P(pRnd(),pRnd()),lRnd(p(0.887468),q(0)),l3P(p(0.502983),pRnd(),p(0.678789)),l4P(p(0.720296),p(0.334286),pRnd(),pRnd()),lAutoref(2)),vRepeatV(vABAv(v(e(p(0),f(440),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0))),vIterE(e4Pitches(dRnd(),f(856.569251),fAutoref(3),fRnd(),fAutoref(3),aRnd(),iRnd(),pRnd(),p(0.344926),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521)),p(0.4797))),p(0.502983))),qRnd()))", "sConcatS(s2V(vRepeatV(vAutoref(5),pRnd()),vIterE(e4Pitches(dRnd(),f(856.569251),fAutoref(2),fRnd(),fAutoref(3),aRnd(),iRnd(),pRnd(),p(0.344926),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521)),p(0.4797))),s(vSlice(vABAv(vMotifLoop(ld(0.170667,1.726548,0.542181,0.457105,0.060837,2.302123,0.365812,0.829669),lf(1358.332762,4652.528411,4581.04349),laLine(a(44),a(40),z(0)),liRemap(li(34,68,51,49,20,72,45,57),i(51),i(69)),l2P(p(0.494521),p(0.4797)),lAutoref(6),lLine(p(0.344926),pRnd(),z(5)),l2P(pRnd(),pRnd()),lRnd(p(0.887468),q(0)),l3P(p(0.502983),pRnd(),p(0.678789)),l4P(p(0.720296),p(0.334286),pRnd(),pRnd()),lAutoref(2)),vRepeatV(vABAv(v(e(p(0),f(440),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0))),vIterE(e4Pitches(dRnd(),f(856.569251),fAutoref(3),fRnd(),fAutoref(3),aRnd(),iRnd(),pRnd(),p(0.344926),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521)),p(0.4797))),p(0.502983))),qRnd())))", "sConcatS(sAddV(s(vABCABv(vABAv(v(e(p(0),f(440),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0))),vRepeatE(e(dRnd(),fRnd(),aRnd(),i(34),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521),p(0.4797),p(0.502983)),q(2))),vIterE(e4Pitches(dRnd(),f(856.569251),fAutoref(0),fRnd(),fAutoref(3),aRnd(),iRnd(),pRnd(),p(0.344926),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521)),p(0.4797)),vAutoref(2))),vMotifLoop(ld(0.170667,1.726548,0.542181,0.457105,0.060837,2.302123,0.365812,0.829669),lf(1358.332762,4652.528411,4581.04349),laLine(a(44),a(40),z(23)),liRemap(li(34,68,51,49,20,72,45,57),i(51),i(69)),l2P(p(0.494521),p(0.4797)),lAutoref(0),lLine(p(0.344926),pRnd(),z(5)),l2P(pRnd(),pRnd()),lRnd(p(0.887468),q(0)),l3P(p(0.502983),pRnd(),p(0.678789)),l4P(p(0.720296),p(0.334286),pRnd(),pRnd()),lAutoref(5))),sConcatS(s2V(vRepeatV(vAutoref(5),pRnd()),vIterE(e4Pitches(dRnd(),f(856.569251),fAutoref(2),fRnd(),fAutoref(3),aRnd(),iRnd(),pRnd(),p(0.344926),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521)),p(0.4797))),s(vSlice(vABAv(vMotifLoop(ld(0.170667,1.726548,0.542181,0.457105,0.060837,2.302123,0.365812,0.829669),lf(1358.332762,4652.528411,4581.04349),laLine(a(44),a(40),z(0)),liRemap(li(34,68,51,49,20,72,45,57),i(51),i(69)),l2P(p(0.494521),p(0.4797)),lAutoref(6),lLine(p(0.344926),pRnd(),z(5)),l2P(pRnd(),pRnd()),lRnd(p(0.887468),q(0)),l3P(p(0.502983),pRnd(),p(0.678789)),l4P(p(0.720296),p(0.334286),pRnd(),pRnd()),lAutoref(2)),vRepeatV(vABAv(v(e(p(0),f(440),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0))),vIterE(e4Pitches(dRnd(),f(856.569251),fAutoref(3),fRnd(),fAutoref(3),aRnd(),iRnd(),pRnd(),p(0.344926),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521)),p(0.4797))),p(0.502983))),qRnd()))))", "sAutoref(0)", "sAddS(sConcatS(sAddV(s(vABCABv(vABAv(v(e(p(0),f(440),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0))),vRepeatE(e(dRnd(),fRnd(),aRnd(),i(34),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521),p(0.4797),p(0.502983)),q(2))),vIterE(e4Pitches(dRnd(),f(856.569251),fAutoref(0),fRnd(),fAutoref(3),aRnd(),iRnd(),pRnd(),p(0.344926),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521)),p(0.4797)),vAutoref(2))),vMotifLoop(ld(0.170667,1.726548,0.542181,0.457105,0.060837,2.302123,0.365812,0.829669),lf(1358.332762,4652.528411,4581.04349),laLine(a(44),a(40),z(23)),liRemap(li(34,68,51,49,20,72,45,57),i(51),i(69)),l2P(p(0.494521),p(0.4797)),lAutoref(0),lLine(p(0.344926),pRnd(),z(5)),l2P(pRnd(),pRnd()),lRnd(p(0.887468),q(0)),l3P(p(0.502983),pRnd(),p(0.678789)),l4P(p(0.720296),p(0.334286),pRnd(),pRnd()),lAutoref(5))),sConcatS(s2V(vRepeatV(vAutoref(5),pRnd()),vIterE(e4Pitches(dRnd(),f(856.569251),fAutoref(2),fRnd(),fAutoref(3),aRnd(),iRnd(),pRnd(),p(0.344926),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521)),p(0.4797))),s(vSlice(vABAv(vMotifLoop(ld(0.170667,1.726548,0.542181,0.457105,0.060837,2.302123,0.365812,0.829669),lf(1358.332762,4652.528411,4581.04349),laLine(a(44),a(40),z(0)),liRemap(li(34,68,51,49,20,72,45,57),i(51),i(69)),l2P(p(0.494521),p(0.4797)),lAutoref(6),lLine(p(0.344926),pRnd(),z(5)),l2P(pRnd(),pRnd()),lRnd(p(0.887468),q(0)),l3P(p(0.502983),pRnd(),p(0.678789)),l4P(p(0.720296),p(0.334286),pRnd(),pRnd()),lAutoref(2)),vRepeatV(vABAv(v(e(p(0),f(440),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0))),vIterE(e4Pitches(dRnd(),f(856.569251),fAutoref(3),fRnd(),fAutoref(3),aRnd(),iRnd(),pRnd(),p(0.344926),pRnd(),p(0.720296),p(0.334286),pRnd(),pRnd(),p(0.494521)),p(0.4797))),p(0.502983))),qRnd())))),sAutoref(0))", "s(v(e(p(0),f(440),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0))))" ],
+							"paramF" : [ "p(0.317002)", "p(0.501214)", "p(0.391535)", "p(0.498221)", "p(0.649927)", "p(0.160842)", "p(0.891505)", "p(0.599774)", "p(0.377766)", "p(0.60846)", "p(0.385277)", "p(0.430315)", "p(0.268655)", "p(0.444291)", "p(0.602985)", "p(0.651265)", "p(0.626238)" ],
+							"listF" : [  ],
+							"eventF" : [ "e4Pitches(d(0.379705),f(187.686894),f(280.110516),f(1257.08501),f(835.157151),a(3),i(72),p(0.317002),p(0.501214),p(0.391535),p(0.498221),p(0.649927),p(0.160842),p(0.891505),p(0.599774))", "e(d(0.196756),f(3290.178986),a(56),i(58),p(0.377766),p(0.60846),p(0.385277),p(0.430315),p(0.268655),p(0.444291),p(0.602985),p(0.651265))", "e4Pitches(d(0.745314),f(211.413785),f(356.72402),f(3290.178986),f(1709.636045),a(67),i(38),p(0.60846),p(0.385277),p(0.430315),p(0.268655),p(0.444291),p(0.602985),p(0.651265),p(0.626238))" ],
+							"voiceF" : [ "vConcatE(e4Pitches(d(0.379705),f(187.686894),f(280.110516),f(1257.08501),f(835.157151),a(3),i(72),p(0.317002),p(0.501214),p(0.391535),p(0.498221),p(0.649927),p(0.160842),p(0.891505),p(0.599774)),e(d(0.196756),f(3290.178986),a(56),i(58),p(0.377766),p(0.60846),p(0.385277),p(0.430315),p(0.268655),p(0.444291),p(0.602985),p(0.651265)))", "v(e4Pitches(d(0.745314),f(211.413785),f(356.72402),f(3290.178986),f(1709.636045),a(67),i(38),p(0.60846),p(0.385277),p(0.430315),p(0.268655),p(0.444291),p(0.602985),p(0.651265),p(0.626238)))", "vRepeatV(v(e4Pitches(d(0.745314),f(211.413785),f(356.72402),f(3290.178986),f(1709.636045),a(67),i(38),p(0.60846),p(0.385277),p(0.430315),p(0.268655),p(0.444291),p(0.602985),p(0.651265),p(0.626238))),q(2))" ],
+							"scoreF" : [ "s2V(vConcatE(e4Pitches(d(0.379705),f(187.686894),f(280.110516),f(1257.08501),f(835.157151),a(3),i(72),p(0.317002),p(0.501214),p(0.391535),p(0.498221),p(0.649927),p(0.160842),p(0.891505),p(0.599774)),e(d(0.196756),f(3290.178986),a(56),i(58),p(0.377766),p(0.60846),p(0.385277),p(0.430315),p(0.268655),p(0.444291),p(0.602985),p(0.651265))),vRepeatV(v(e4Pitches(d(0.745314),f(211.413785),f(356.72402),f(3290.178986),f(1709.636045),a(67),i(38),p(0.60846),p(0.385277),p(0.430315),p(0.268655),p(0.444291),p(0.602985),p(0.651265),p(0.626238))),q(2)))", "sAddV(s2V(vConcatE(e4Pitches(d(0.379705),f(187.686894),f(280.110516),f(1257.08501),f(835.157151),a(3),i(72),p(0.317002),p(0.501214),p(0.391535),p(0.498221),p(0.649927),p(0.160842),p(0.891505),p(0.599774)),e(d(0.196756),f(3290.178986),a(56),i(58),p(0.377766),p(0.60846),p(0.385277),p(0.430315),p(0.268655),p(0.444291),p(0.602985),p(0.651265))),vRepeatV(v(e4Pitches(d(0.745314),f(211.413785),f(356.72402),f(3290.178986),f(1709.636045),a(67),i(38),p(0.60846),p(0.385277),p(0.430315),p(0.268655),p(0.444291),p(0.602985),p(0.651265),p(0.626238))),q(2))),vConcatE(e4Pitches(d(0.379705),f(187.686894),f(280.110516),f(1257.08501),f(835.157151),a(3),i(72),p(0.317002),p(0.501214),p(0.391535),p(0.498221),p(0.649927),p(0.160842),p(0.891505),p(0.599774)),e(d(0.196756),f(3290.178986),a(56),i(58),p(0.377766),p(0.60846),p(0.385277),p(0.430315),p(0.268655),p(0.444291),p(0.602985),p(0.651265))))", "sAddV(sAddV(s2V(vConcatE(e4Pitches(d(0.379705),f(187.686894),f(280.110516),f(1257.08501),f(835.157151),a(3),i(72),p(0.317002),p(0.501214),p(0.391535),p(0.498221),p(0.649927),p(0.160842),p(0.891505),p(0.599774)),e(d(0.196756),f(3290.178986),a(56),i(58),p(0.377766),p(0.60846),p(0.385277),p(0.430315),p(0.268655),p(0.444291),p(0.602985),p(0.651265))),vRepeatV(v(e4Pitches(d(0.745314),f(211.413785),f(356.72402),f(3290.178986),f(1709.636045),a(67),i(38),p(0.60846),p(0.385277),p(0.430315),p(0.268655),p(0.444291),p(0.602985),p(0.651265),p(0.626238))),q(2))),vConcatE(e4Pitches(d(0.379705),f(187.686894),f(280.110516),f(1257.08501),f(835.157151),a(3),i(72),p(0.317002),p(0.501214),p(0.391535),p(0.498221),p(0.649927),p(0.160842),p(0.891505),p(0.599774)),e(d(0.196756),f(3290.178986),a(56),i(58),p(0.377766),p(0.60846),p(0.385277),p(0.430315),p(0.268655),p(0.444291),p(0.602985),p(0.651265)))),vRepeatV(v(e4Pitches(d(0.745314),f(211.413785),f(356.72402),f(3290.178986),f(1709.636045),a(67),i(38),p(0.60846),p(0.385277),p(0.430315),p(0.268655),p(0.444291),p(0.602985),p(0.651265),p(0.626238))),q(2)))" ],
 							"notevalueF" : [  ],
 							"lnotevalueF" : [  ],
-							"durationF" : [ "dRnd()" ],
-							"ldurationF" : [ "ld(0.170667,1.726548,0.542181,0.457105,0.060837,2.302123,0.365812,0.829669)" ],
+							"durationF" : [ "d(0.379705)", "d(0.196756)", "d(0.745314)" ],
+							"ldurationF" : [  ],
 							"midipitchF" : [  ],
 							"lmidipitchF" : [  ],
-							"frequencyF" : [ "f(440)", "fRnd()", "f(856.569251)", "fAutoref(0)", "fAutoref(3)", "fAutoref(2)" ],
-							"lfrequencyF" : [ "lf(1358.332762,4652.528411,4581.04349)" ],
-							"articulationF" : [ "aRnd()", "a(44)", "a(40)" ],
-							"larticulationF" : [ "laLine(a(44),a(40),z(23))", "laLine(a(44),a(40),z(0))" ],
-							"intensityF" : [ "i(34)", "iRnd()", "i(51)", "i(69)" ],
-							"lintensityF" : [ "li(34,68,51,49,20,72,45,57)", "liRemap(li(34,68,51,49,20,72,45,57),i(51),i(69))" ],
-							"goldenintegerF" : [ "zRnd()", "z(5)" ],
+							"frequencyF" : [ "f(187.686894)", "f(280.110516)", "f(1257.08501)", "f(835.157151)", "f(3290.178986)", "f(211.413785)", "f(356.72402)", "f(1709.636045)" ],
+							"lfrequencyF" : [  ],
+							"articulationF" : [ "a(3)", "a(56)", "a(67)" ],
+							"larticulationF" : [  ],
+							"intensityF" : [ "i(72)", "i(58)", "i(38)" ],
+							"lintensityF" : [  ],
+							"goldenintegerF" : [  ],
 							"lgoldenintegerF" : [  ],
-							"quantizedF" : [ "qRnd()", "q(2)", "q(0)" ],
+							"quantizedF" : [ "q(1)" ],
 							"lquantizedF" : [  ],
 							"operationF" : [  ]
 						}
 ,
-						"leaves" : [ [ 9, 0, 0 ], [ 14, 0.385129, 440.002235999999982 ], [ 19, 0, 0 ], [ 24, 0, 0 ], [ 29, 0, 0 ], [ 34, 0, 0 ], [ 39, 0, 0 ], [ 44, 0, 0 ], [ 49, 0, 0 ], [ 54, 0, 0 ], [ 59, 0, 0 ], [ 64, 0, 0 ] ],
-						"csoundScore" : 						{
-
-						}
-
+						"leaves" : [ [ 13, 0.460295, 0.379705 ], [ 18, 0.311244, 187.686893999999995 ], [ 23, 0.344013, 280.110516000000018 ], [ 28, 0.500707, 1257.085010000000011 ], [ 33, 0.452048, 835.157150999999999 ], [ 38, 0.183756, 3 ], [ 43, 0.72, 72 ], [ 48, 0.317002, 0.317002 ], [ 53, 0.501214, 0.501214 ], [ 58, 0.391535, 0.391535 ], [ 63, 0.498221, 0.498221 ], [ 68, 0.649927, 0.649927 ], [ 73, 0.160842, 0.160842 ], [ 78, 0.891505, 0.891505 ], [ 83, 0.599774, 0.599774 ], [ 91, 0.365448, 0.196756 ], [ 96, 0.636865, 3290.178985999999895 ], [ 101, 0.539312, 55 ], [ 106, 0.58, 58 ], [ 111, 0.377766, 0.377766 ], [ 116, 0.60846, 0.60846 ], [ 121, 0.385277, 0.385277 ], [ 126, 0.430315, 0.430315 ], [ 131, 0.268655, 0.268655 ], [ 136, 0.444291, 0.444291 ], [ 141, 0.602985, 0.602985 ], [ 146, 0.651265, 0.651265 ], [ 159, 0.557592, 0.745314 ], [ 164, 0.320646, 211.41378499999999 ], [ 169, 0.365448, 356.724019999999996 ], [ 174, 0.636865, 3290.178985999999895 ], [ 179, 0.540715, 1709.636044999999967 ], [ 184, 0.576094, 66 ], [ 189, 0.38, 38 ], [ 194, 0.60846, 0.60846 ], [ 199, 0.385277, 0.385277 ], [ 204, 0.430315, 0.430315 ], [ 209, 0.268655, 0.268655 ], [ 214, 0.444291, 0.444291 ], [ 219, 0.602985, 0.602985 ], [ 224, 0.651265, 0.651265 ], [ 229, 0.626238, 0.626238 ], [ 236, 0.55, 1 ], [ 247, 0.460295, 0.379705 ], [ 252, 0.311244, 187.686893999999995 ], [ 257, 0.344013, 280.110516000000018 ], [ 262, 0.500707, 1257.085010000000011 ], [ 267, 0.452048, 835.157150999999999 ], [ 272, 0.183756, 3 ], [ 277, 0.72, 72 ], [ 282, 0.317002, 0.317002 ], [ 287, 0.501214, 0.501214 ], [ 292, 0.391535, 0.391535 ], [ 297, 0.498221, 0.498221 ], [ 302, 0.649927, 0.649927 ], [ 307, 0.160842, 0.160842 ], [ 312, 0.891505, 0.891505 ], [ 317, 0.599774, 0.599774 ], [ 325, 0.365448, 0.196756 ], [ 330, 0.636865, 3290.178985999999895 ], [ 335, 0.539312, 55 ], [ 340, 0.58, 58 ], [ 345, 0.377766, 0.377766 ], [ 350, 0.60846, 0.60846 ], [ 355, 0.385277, 0.385277 ], [ 360, 0.430315, 0.430315 ], [ 365, 0.268655, 0.268655 ], [ 370, 0.444291, 0.444291 ], [ 375, 0.602985, 0.602985 ], [ 380, 0.651265, 0.651265 ], [ 394, 0.557592, 0.745314 ], [ 399, 0.320646, 211.41378499999999 ], [ 404, 0.365448, 356.724019999999996 ], [ 409, 0.636865, 3290.178985999999895 ], [ 414, 0.540715, 1709.636044999999967 ], [ 419, 0.576094, 66 ], [ 424, 0.38, 38 ], [ 429, 0.60846, 0.60846 ], [ 434, 0.385277, 0.385277 ], [ 439, 0.430315, 0.430315 ], [ 444, 0.268655, 0.268655 ], [ 449, 0.444291, 0.444291 ], [ 454, 0.602985, 0.602985 ], [ 459, 0.651265, 0.651265 ], [ 464, 0.626238, 0.626238 ], [ 471, 0.55, 1 ] ],
+						"roll" : [ "(", "(", 0, "(", 4312.440000000000509, 11.391120000000001, 99, "(", "slots", "(", 4, 0.317002, 0.501214, 0.391535, 0.498221, 0.649927, 0.160842, 0.891505, 0.599774, ")", ")", ")", "(", 4640.130000000000109, 11.391120000000001, 99, "(", "slots", "(", 4, 0.317002, 0.501214, 0.391535, 0.498221, 0.649927, 0.160842, 0.891505, 0.599774, ")", ")", ")", "(", 6207.070000000000618, 11.391120000000001, 99, "(", "slots", "(", 4, 0.317002, 0.501214, 0.391535, 0.498221, 0.649927, 0.160842, 0.891505, 0.599774, ")", ")", ")", "(", 5720.479999999999563, 11.391120000000001, 99, "(", "slots", "(", 4, 0.317002, 0.501214, 0.391535, 0.498221, 0.649927, 0.160842, 0.891505, 0.599774, ")", ")", ")", ")", "(", 379.704000000000008, "(", 7568.649999999999636, 108.215800000000002, 85, "(", "slots", "(", 4, 0.377766, 0.60846, 0.385277, 0.430315, 0.268655, 0.444291, 0.602985, 0.651265, ")", ")", ")", ")", ")", "(", "(", 0, "(", 4406.460000000000036, 491.905920000000037, 65, "(", "slots", "(", 4, 0.60846, 0.385277, 0.430315, 0.268655, 0.444291, 0.602985, 0.651265, 0.626238, ")", ")", ")", "(", 4854.480000000000473, 491.905920000000037, 65, "(", "slots", "(", 4, 0.60846, 0.385277, 0.430315, 0.268655, 0.444291, 0.602985, 0.651265, 0.626238, ")", ")", ")", "(", 7568.649999999999636, 491.905920000000037, 65, "(", "slots", "(", 4, 0.60846, 0.385277, 0.430315, 0.268655, 0.444291, 0.602985, 0.651265, 0.626238, ")", ")", ")", "(", 6607.149999999999636, 491.905920000000037, 65, "(", "slots", "(", 4, 0.60846, 0.385277, 0.430315, 0.268655, 0.444291, 0.602985, 0.651265, 0.626238, ")", ")", ")", ")", "(", 745.312000000000012, "(", 4406.460000000000036, 491.905920000000037, 65, "(", "slots", "(", 4, 0.60846, 0.385277, 0.430315, 0.268655, 0.444291, 0.602985, 0.651265, 0.626238, ")", ")", ")", "(", 4854.480000000000473, 491.905920000000037, 65, "(", "slots", "(", 4, 0.60846, 0.385277, 0.430315, 0.268655, 0.444291, 0.602985, 0.651265, 0.626238, ")", ")", ")", "(", 7568.649999999999636, 491.905920000000037, 65, "(", "slots", "(", 4, 0.60846, 0.385277, 0.430315, 0.268655, 0.444291, 0.602985, 0.651265, 0.626238, ")", ")", ")", "(", 6607.149999999999636, 491.905920000000037, 65, "(", "slots", "(", 4, 0.60846, 0.385277, 0.430315, 0.268655, 0.444291, 0.602985, 0.651265, 0.626238, ")", ")", ")", ")", ")", "(", "(", 0, "(", 4312.440000000000509, 11.391120000000001, 99, "(", "slots", "(", 4, 0.317002, 0.501214, 0.391535, 0.498221, 0.649927, 0.160842, 0.891505, 0.599774, ")", ")", ")", "(", 4640.130000000000109, 11.391120000000001, 99, "(", "slots", "(", 4, 0.317002, 0.501214, 0.391535, 0.498221, 0.649927, 0.160842, 0.891505, 0.599774, ")", ")", ")", "(", 6207.070000000000618, 11.391120000000001, 99, "(", "slots", "(", 4, 0.317002, 0.501214, 0.391535, 0.498221, 0.649927, 0.160842, 0.891505, 0.599774, ")", ")", ")", "(", 5720.479999999999563, 11.391120000000001, 99, "(", "slots", "(", 4, 0.317002, 0.501214, 0.391535, 0.498221, 0.649927, 0.160842, 0.891505, 0.599774, ")", ")", ")", ")", "(", 379.704000000000008, "(", 7568.649999999999636, 108.215800000000002, 85, "(", "slots", "(", 4, 0.377766, 0.60846, 0.385277, 0.430315, 0.268655, 0.444291, 0.602985, 0.651265, ")", ")", ")", ")", ")", "(", "(", 0, "(", 4406.460000000000036, 491.905920000000037, 65, "(", "slots", "(", 4, 0.60846, 0.385277, 0.430315, 0.268655, 0.444291, 0.602985, 0.651265, 0.626238, ")", ")", ")", "(", 4854.480000000000473, 491.905920000000037, 65, "(", "slots", "(", 4, 0.60846, 0.385277, 0.430315, 0.268655, 0.444291, 0.602985, 0.651265, 0.626238, ")", ")", ")", "(", 7568.649999999999636, 491.905920000000037, 65, "(", "slots", "(", 4, 0.60846, 0.385277, 0.430315, 0.268655, 0.444291, 0.602985, 0.651265, 0.626238, ")", ")", ")", "(", 6607.149999999999636, 491.905920000000037, 65, "(", "slots", "(", 4, 0.60846, 0.385277, 0.430315, 0.268655, 0.444291, 0.602985, 0.651265, 0.626238, ")", ")", ")", ")", "(", 745.312000000000012, "(", 4406.460000000000036, 491.905920000000037, 65, "(", "slots", "(", 4, 0.60846, 0.385277, 0.430315, 0.268655, 0.444291, 0.602985, 0.651265, 0.626238, ")", ")", ")", "(", 4854.480000000000473, 491.905920000000037, 65, "(", "slots", "(", 4, 0.60846, 0.385277, 0.430315, 0.268655, 0.444291, 0.602985, 0.651265, 0.626238, ")", ")", ")", "(", 7568.649999999999636, 491.905920000000037, 65, "(", "slots", "(", 4, 0.60846, 0.385277, 0.430315, 0.268655, 0.444291, 0.602985, 0.651265, 0.626238, ")", ")", ")", "(", 6607.149999999999636, 491.905920000000037, 65, "(", "slots", "(", 4, 0.60846, 0.385277, 0.430315, 0.268655, 0.444291, 0.602985, 0.651265, 0.626238, ")", ")", ")", ")", ")" ]
 					}
 ,
 					"fontname" : "Lato Regular",
@@ -3211,7 +3698,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 4,
 					"outlettype" : [ "dictionary", "", "", "" ],
-					"patching_rect" : [ 363.266637623310089, 279.538796424865666, 163.0, 18.0 ],
+					"patching_rect" : [ 363.266637623310089, 301.538796424865666, 163.0, 18.0 ],
 					"saved_object_attributes" : 					{
 						"embed" : 1,
 						"parameter_enable" : 0,
@@ -3357,7 +3844,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 930.0, 1071.0, 241.0 ],
+						"rect" : [ 0.0, 870.0, 1071.0, 241.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -3459,7 +3946,7 @@
 									"versionnumber" : 80100,
 									"voicenames" : [ "[", "]" ],
 									"voicespacing" : [ 0.0, 17.0 ],
-									"whole_roll_data_0000000000" : [ "roll", "[", "slotinfo", "[", 1, "[", "name", "amplitude envelope", "]", "[", "type", "function", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080016896, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "grid", "]", "[", "ysnap", "]", "[", "domain", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "domainslope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "relative", "]", "[", "extend", 0, "]", "[", "width", "duration", "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 2, "[", "name", "slot function", "]", "[", "type", "function", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "grid", "]", "[", "ysnap", "]", "[", "domain", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "domainslope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "relative", "]", "[", "extend", 0, "]", "[", "width", "duration", "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 3, "[", "name", "slot intlist", "]", "[", "type", "intlist", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080016896, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1078984704, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 4, "[", "name", "slot floatlist", "]", "[", "type", "floatlist", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 5, "[", "name", "slot int", "]", "[", "type", "int", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080016896, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1078984704, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 6, "[", "name", "slot float", "]", "[", "type", "float", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 7, "[", "name", "lyrics", "]", "[", "type", "text", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 8, "[", "name", "filelist", "]", "[", "type", "filelist", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080213504, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 9, "[", "name", "spat", "]", "[", "type", "spat", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1076101120, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "temporalmode", "relative", "]", "[", "extend", 0, "]", "[", "width", "duration", "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 10, "[", "name", "slot 10", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 11, "[", "name", "slot 11", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 12, "[", "name", "slot 12", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 13, "[", "name", "slot 13", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 14, "[", "name", "slot 14", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 15, "[", "name", "slot 15", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 16, "[", "name", "slot 16", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 17, "[", "name", "slot 17", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 18, "[", "name", "slot 18", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 19, "[", "name", "slot 19", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 20, "[", "name", "slot 20", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 21, "[", "name", "slot 21", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 22, "[", "name", "slot 22", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 23, "[", "name", "slot 23", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 24, "[", "name", "slot 24", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 25, "[", "name", "slot 25", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 26, "[", "name", "slot 26", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 27, "[", "name", "slot 27", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 28, "[", "name", "slot 28", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 29, "[", "name", "slot 29", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 30, "[", "name", "slot 30", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "]", "[", "commands", "[", 1, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 2, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 3, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 4, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 5, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "]", "[", "groups", "]", "[", "markers", "]", "[", "midichannels", 1, "]", "[", "articulationinfo", "]", "[", "noteheadinfo", "]", "[", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086376960, "_x_x_x_x_bach_float64_x_x_x_x_", 973067791, 1080257484, 84, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085405184, "_x_x_x_x_bach_float64_x_x_x_x_", 2938444824, 1080566222, 82, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 103079215, 1080829313, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086364160, "_x_x_x_x_bach_float64_x_x_x_x_", 639091134, 1079706963, 85, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 137438953, 1081179308, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085430784, "_x_x_x_x_bach_float64_x_x_x_x_", 3783694389, 1077305891, 81, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 137438953, 1082227884, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085456384, "_x_x_x_x_bach_float64_x_x_x_x_", 1341404186, 1081190768, 80, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 206158430, 1082800898, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085456384, "_x_x_x_x_bach_float64_x_x_x_x_", 1572301627, 1078537832, 81, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 137438953, 1083276460, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085481984, "_x_x_x_x_bach_float64_x_x_x_x_", 9620726, 1080497461, 89, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 171798691, 1083562967, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085507584, "_x_x_x_x_bach_float64_x_x_x_x_", 658332587, 1079127997, 91, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 377957122, 1083744473, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086338560, "_x_x_x_x_bach_float64_x_x_x_x_", 1634149156, 1079722831, 87, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 206158429, 1083849474, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085533184, "_x_x_x_x_bach_float64_x_x_x_x_", 530514360, 1079494726, 77, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1786706395, 1083855036, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086325760, "_x_x_x_x_bach_float64_x_x_x_x_", 911220262, 1081253605, 85, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 240518167, 1084135981, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085533184, "_x_x_x_x_bach_float64_x_x_x_x_", 3587156685, 1080245334, 82, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 137438953, 1084325036, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085558784, "_x_x_x_x_bach_float64_x_x_x_x_", 2938444824, 1080566222, 81, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2302102470, 1084468289, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085584384, "_x_x_x_x_bach_float64_x_x_x_x_", 3783694389, 1077305891, 80, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 171798691, 1084611543, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085609984, "_x_x_x_x_bach_float64_x_x_x_x_", 1341404186, 1081190768, 81, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2336462208, 1084754796, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085609984, "_x_x_x_x_bach_float64_x_x_x_x_", 1572301627, 1078537832, 89, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1168231104, 1084888758, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086275584, "_x_x_x_x_bach_float64_x_x_x_x_", 322981540, 1079964513, 72, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 206158429, 1084898050, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085635584, "_x_x_x_x_bach_float64_x_x_x_x_", 9620726, 1080497461, 91, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 996432412, 1084984799, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086249984, "_x_x_x_x_bach_float64_x_x_x_x_", 967570234, 1080787008, 69, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2370821946, 1085041303, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085661184, "_x_x_x_x_bach_float64_x_x_x_x_", 658332587, 1079127997, 77, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 240518167, 1085184557, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085686784, "_x_x_x_x_bach_float64_x_x_x_x_", 530514360, 1079494726, 82, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1202590842, 1085301985, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085686784, "_x_x_x_x_bach_float64_x_x_x_x_", 3587156685, 1080245334, 81, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3092376453, 1085347102, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086198784, "_x_x_x_x_bach_float64_x_x_x_x_", 530514360, 1079494726, 91, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 137438953, 1085373612, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085712384, "_x_x_x_x_bach_float64_x_x_x_x_", 2938444824, 1080566222, 80, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2027224564, 1085418729, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086173184, "_x_x_x_x_bach_float64_x_x_x_x_", 3978857703, 1079965197, 84, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3367254360, 1085445238, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085737984, "_x_x_x_x_bach_float64_x_x_x_x_", 3783694389, 1077305891, 81, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2164663517, 1085476373, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086121984, "_x_x_x_x_bach_float64_x_x_x_x_", 2769394912, 1082991037, 85, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2302102471, 1085516865, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085737984, "_x_x_x_x_bach_float64_x_x_x_x_", 1341404186, 1081190768, 89, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1236950582, 1085588492, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085763584, "_x_x_x_x_bach_float64_x_x_x_x_", 1572301627, 1078537832, 91, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 171798693, 1085660119, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085789184, "_x_x_x_x_bach_float64_x_x_x_x_", 9620726, 1080497461, 77, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3401614100, 1085731745, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085814784, "_x_x_x_x_bach_float64_x_x_x_x_", 658332587, 1079127997, 82, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2336462211, 1085803372, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085814784, "_x_x_x_x_bach_float64_x_x_x_x_", 530514360, 1079494726, 81, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3195455668, 1085822239, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086096384, "_x_x_x_x_bach_float64_x_x_x_x_", 2056086744, 1075922568, 87, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2473901162, 1085849880, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086070784, "_x_x_x_x_bach_float64_x_x_x_x_", 383454680, 1083842277, 85, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1271310322, 1085874999, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085840384, "_x_x_x_x_bach_float64_x_x_x_x_", 3587156685, 1080245334, 80, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 206158433, 1085946626, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085865984, "_x_x_x_x_bach_float64_x_x_x_x_", 2938444824, 1080566222, 81, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3435973840, 1086018252, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085891584, "_x_x_x_x_bach_float64_x_x_x_x_", 3783694389, 1077305891, 89, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2370821951, 1086089879, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085891584, "_x_x_x_x_bach_float64_x_x_x_x_", 1341404186, 1081190768, 91, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1305670062, 1086161506, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085917184, "_x_x_x_x_bach_float64_x_x_x_x_", 1572301627, 1078537832, 77, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 240518173, 1086233133, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085942784, "_x_x_x_x_bach_float64_x_x_x_x_", 9620726, 1080497461, 82, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2611340116, 1086273604, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086019584, "_x_x_x_x_bach_float64_x_x_x_x_", 3690235900, 1077993943, 72, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3470333580, 1086304759, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085968384, "_x_x_x_x_bach_float64_x_x_x_x_", 658332587, 1079127997, 81, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1202590845, 1086350561, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085968384, "_x_x_x_x_bach_float64_x_x_x_x_", 530514360, 1079494726, 80, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2817498548, 1086386374, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085993984, "_x_x_x_x_bach_float64_x_x_x_x_", 3587156685, 1080245334, 81, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 137438955, 1086422188, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086019584, "_x_x_x_x_bach_float64_x_x_x_x_", 2938444824, 1080566222, 89, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1752346658, 1086458001, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086019584, "_x_x_x_x_bach_float64_x_x_x_x_", 3783694389, 1077305891, 91, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3367254361, 1086493814, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086045184, "_x_x_x_x_bach_float64_x_x_x_x_", 1341404186, 1081190768, 77, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 687194768, 1086529628, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086070784, "_x_x_x_x_bach_float64_x_x_x_x_", 1572301627, 1078537832, 82, 0, "]", 0, "]", 0, "]" ],
+									"whole_roll_data_0000000000" : [ "roll", "[", "slotinfo", "[", 1, "[", "name", "amplitude envelope", "]", "[", "type", "function", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080016896, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "grid", "]", "[", "ysnap", "]", "[", "domain", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "domainslope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "relative", "]", "[", "extend", 0, "]", "[", "width", "duration", "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 2, "[", "name", "slot function", "]", "[", "type", "function", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "grid", "]", "[", "ysnap", "]", "[", "domain", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "domainslope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "relative", "]", "[", "extend", 0, "]", "[", "width", "duration", "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 3, "[", "name", "slot intlist", "]", "[", "type", "intlist", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080016896, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1078984704, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 4, "[", "name", "slot floatlist", "]", "[", "type", "floatlist", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 5, "[", "name", "slot int", "]", "[", "type", "int", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080016896, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1078984704, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 6, "[", "name", "slot float", "]", "[", "type", "float", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 7, "[", "name", "lyrics", "]", "[", "type", "text", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 8, "[", "name", "filelist", "]", "[", "type", "filelist", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080213504, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 9, "[", "name", "spat", "]", "[", "type", "spat", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1076101120, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "temporalmode", "relative", "]", "[", "extend", 0, "]", "[", "width", "duration", "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 10, "[", "name", "slot 10", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 11, "[", "name", "slot 11", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 12, "[", "name", "slot 12", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 13, "[", "name", "slot 13", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 14, "[", "name", "slot 14", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 15, "[", "name", "slot 15", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 16, "[", "name", "slot 16", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 17, "[", "name", "slot 17", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 18, "[", "name", "slot 18", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 19, "[", "name", "slot 19", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 20, "[", "name", "slot 20", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 21, "[", "name", "slot 21", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 22, "[", "name", "slot 22", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 23, "[", "name", "slot 23", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 24, "[", "name", "slot 24", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 25, "[", "name", "slot 25", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 26, "[", "name", "slot 26", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 27, "[", "name", "slot 27", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 28, "[", "name", "slot 28", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 29, "[", "name", "slot 29", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 30, "[", "name", "slot 30", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "]", "[", "commands", "[", 1, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 2, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 3, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 4, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 5, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "]", "[", "groups", "]", "[", "markers", "]", "[", "midichannels", 1, "]", "[", "articulationinfo", "]", "[", "noteheadinfo", "]", "[", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3264175145, 1085355637, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3779571221, 1085470330, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1717986918, 1085919014, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1717986918, 1086165158, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2748779070, 1085331568, "_x_x_x_x_bach_float64_x_x_x_x_", 3782320000, 1076283456, 99, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 3249606616, 1070877122, "_x_x_x_x_bach_float64_x_x_x_x_", 4048126936, 1071647217, "_x_x_x_x_bach_float64_x_x_x_x_", 3507442093, 1071189736, "_x_x_x_x_bach_float64_x_x_x_x_", 1431014384, 1071637210, "_x_x_x_x_bach_float64_x_x_x_x_", 3040424529, 1071959091, "_x_x_x_x_bach_float64_x_x_x_x_", 2095669163, 1069848184, "_x_x_x_x_bach_float64_x_x_x_x_", 2120683052, 1072465717, "_x_x_x_x_bach_float64_x_x_x_x_", 1046460192, 1071853913, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1202590843, 1085415457, "_x_x_x_x_bach_float64_x_x_x_x_", 3782320000, 1076283456, 99, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 3249606616, 1070877122, "_x_x_x_x_bach_float64_x_x_x_x_", 4048126936, 1071647217, "_x_x_x_x_bach_float64_x_x_x_x_", 3507442093, 1071189736, "_x_x_x_x_bach_float64_x_x_x_x_", 1431014384, 1071637210, "_x_x_x_x_bach_float64_x_x_x_x_", 3040424529, 1071959091, "_x_x_x_x_bach_float64_x_x_x_x_", 2095669163, 1069848184, "_x_x_x_x_bach_float64_x_x_x_x_", 2120683052, 1072465717, "_x_x_x_x_bach_float64_x_x_x_x_", 1046460192, 1071853913, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3779571220, 1085692026, "_x_x_x_x_bach_float64_x_x_x_x_", 3782320000, 1076283456, 99, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 3249606616, 1070877122, "_x_x_x_x_bach_float64_x_x_x_x_", 4048126936, 1071647217, "_x_x_x_x_bach_float64_x_x_x_x_", 3507442093, 1071189736, "_x_x_x_x_bach_float64_x_x_x_x_", 1431014384, 1071637210, "_x_x_x_x_bach_float64_x_x_x_x_", 3040424529, 1071959091, "_x_x_x_x_bach_float64_x_x_x_x_", 2095669163, 1069848184, "_x_x_x_x_bach_float64_x_x_x_x_", 2120683052, 1072465717, "_x_x_x_x_bach_float64_x_x_x_x_", 1046460192, 1071853913, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3951369913, 1085816593, "_x_x_x_x_bach_float64_x_x_x_x_", 3782320000, 1076283456, 99, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 3249606616, 1070877122, "_x_x_x_x_bach_float64_x_x_x_x_", 4048126936, 1071647217, "_x_x_x_x_bach_float64_x_x_x_x_", 3507442093, 1071189736, "_x_x_x_x_bach_float64_x_x_x_x_", 1431014384, 1071637210, "_x_x_x_x_bach_float64_x_x_x_x_", 3040424529, 1071959091, "_x_x_x_x_bach_float64_x_x_x_x_", 2095669163, 1069848184, "_x_x_x_x_bach_float64_x_x_x_x_", 2120683052, 1072465717, "_x_x_x_x_bach_float64_x_x_x_x_", 1046460192, 1071853913, "]", "]", 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2748779070, 1085331568, "_x_x_x_x_bach_float64_x_x_x_x_", 3782320000, 1076283456, 99, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 3249606616, 1070877122, "_x_x_x_x_bach_float64_x_x_x_x_", 4048126936, 1071647217, "_x_x_x_x_bach_float64_x_x_x_x_", 3507442093, 1071189736, "_x_x_x_x_bach_float64_x_x_x_x_", 1431014384, 1071637210, "_x_x_x_x_bach_float64_x_x_x_x_", 3040424529, 1071959091, "_x_x_x_x_bach_float64_x_x_x_x_", 2095669163, 1069848184, "_x_x_x_x_bach_float64_x_x_x_x_", 2120683052, 1072465717, "_x_x_x_x_bach_float64_x_x_x_x_", 1046460192, 1071853913, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1202590843, 1085415457, "_x_x_x_x_bach_float64_x_x_x_x_", 3782320000, 1076283456, 99, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 3249606616, 1070877122, "_x_x_x_x_bach_float64_x_x_x_x_", 4048126936, 1071647217, "_x_x_x_x_bach_float64_x_x_x_x_", 3507442093, 1071189736, "_x_x_x_x_bach_float64_x_x_x_x_", 1431014384, 1071637210, "_x_x_x_x_bach_float64_x_x_x_x_", 3040424529, 1071959091, "_x_x_x_x_bach_float64_x_x_x_x_", 2095669163, 1069848184, "_x_x_x_x_bach_float64_x_x_x_x_", 2120683052, 1072465717, "_x_x_x_x_bach_float64_x_x_x_x_", 1046460192, 1071853913, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3779571220, 1085692026, "_x_x_x_x_bach_float64_x_x_x_x_", 3782320000, 1076283456, 99, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 3249606616, 1070877122, "_x_x_x_x_bach_float64_x_x_x_x_", 4048126936, 1071647217, "_x_x_x_x_bach_float64_x_x_x_x_", 3507442093, 1071189736, "_x_x_x_x_bach_float64_x_x_x_x_", 1431014384, 1071637210, "_x_x_x_x_bach_float64_x_x_x_x_", 3040424529, 1071959091, "_x_x_x_x_bach_float64_x_x_x_x_", 2095669163, 1069848184, "_x_x_x_x_bach_float64_x_x_x_x_", 2120683052, 1072465717, "_x_x_x_x_bach_float64_x_x_x_x_", 1046460192, 1071853913, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3951369913, 1085816593, "_x_x_x_x_bach_float64_x_x_x_x_", 3782320000, 1076283456, 99, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 3249606616, 1070877122, "_x_x_x_x_bach_float64_x_x_x_x_", 4048126936, 1071647217, "_x_x_x_x_bach_float64_x_x_x_x_", 3507442093, 1071189736, "_x_x_x_x_bach_float64_x_x_x_x_", 1431014384, 1071637210, "_x_x_x_x_bach_float64_x_x_x_x_", 3040424529, 1071959091, "_x_x_x_x_bach_float64_x_x_x_x_", 2095669163, 1069848184, "_x_x_x_x_bach_float64_x_x_x_x_", 2120683052, 1072465717, "_x_x_x_x_bach_float64_x_x_x_x_", 1046460192, 1071853913, "]", "]", 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3264175145, 1085355637, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3779571221, 1085470330, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1717986918, 1085919014, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1717986918, 1086165158, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2508260901, 1081588547, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1717986918, 1086165158, "_x_x_x_x_bach_float64_x_x_x_x_", 2865602180, 1079709135, 85, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 1910676331, 1071131985, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "]", "]", 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2508260901, 1081588547, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1717986918, 1086165158, "_x_x_x_x_bach_float64_x_x_x_x_", 2865602180, 1079709135, 85, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 1910676331, 1071131985, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "]", "]", 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 4191888081, 1082608254, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3264175145, 1085355637, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3779571221, 1085470330, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1717986918, 1085919014, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1717986918, 1086165158, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 4191888081, 1082608254, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3264175145, 1085355637, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3779571221, 1085470330, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1717986918, 1085919014, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1717986918, 1086165158, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", 0, "]", 0, "]" ],
 									"whole_roll_data_count" : [ 1 ],
 									"zoom" : 9.0
 								}
@@ -3539,46 +4026,47 @@
 			}
 , 			{
 				"box" : 				{
+					"bgslots" : [ 4 ],
 					"bwcompatibility" : 80100,
-					"clefs" : [ "FG", "FG", "FG" ],
+					"clefs" : [ "FG", "FG", "FG", "FG" ],
 					"defaultnoteslots" : [ "null" ],
-					"enharmonictable" : [ "default", "default", "default" ],
+					"enharmonictable" : [ "default", "default", "default", "default" ],
 					"fontface" : 0,
 					"fontname" : "Arial",
 					"fontsize" : 12.0,
-					"hidevoices" : [ 0, 0, 0 ],
+					"hidevoices" : [ 0, 0, 0, 0 ],
 					"id" : "obj-18",
-					"keys" : [ "CM", "CM", "CM" ],
+					"keys" : [ "CM", "CM", "CM", "CM" ],
 					"linkannotationtoslot" : 0,
 					"linkarticulationstoslot" : 0,
 					"linkdynamicstoslot" : 0,
 					"linklyricstoslot" : 7,
 					"loop" : [ 0.0, 0.0 ],
 					"maxclass" : "bach.roll",
-					"midichannels" : [ 1, 2, 3 ],
+					"midichannels" : [ 1, 2, 3, 4 ],
 					"numinlets" : 6,
 					"numoutlets" : 8,
-					"numparts" : [ 1, 1, 1 ],
-					"numvoices" : 3,
+					"numparts" : [ 1, 1, 1, 1 ],
+					"numvoices" : 4,
 					"out" : "nnnnnnn",
 					"outlettype" : [ "", "", "", "", "", "", "", "bang" ],
-					"patching_rect" : [ 12.833359062671661, 693.000207463900324, 1077.833301961421967, 287.5 ],
+					"patching_rect" : [ 12.833359062671661, 693.000207463900324, 1077.833301961421967, 371.666666666666686 ],
 					"pitcheditrange" : [ "null" ],
 					"playcolor" : [ 0.701960784313725, 0.701960784313725, 0.701960784313725, 1.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 19.833349108695984, 358.916672945022583, 997.0, 287.5 ],
+					"presentation_rect" : [ 19.833349108695984, 358.916672945022583, 997.0, 371.666666666666686 ],
 					"scrollbarcolor" : [ 0.568627450980392, 0.568627450980392, 0.568627450980392, 1.0 ],
 					"showstems" : 0,
 					"showvelocity" : 3,
 					"staffcolor" : [ 0.462745098039216, 0.462745098039216, 0.462745098039216, 1.0 ],
-					"stafflines" : [ 5, 5, 5 ],
+					"stafflines" : [ 5, 5, 5, 5 ],
 					"textcolor" : [ 0.462745098039216, 0.462745098039216, 0.462745098039216, 1.0 ],
 					"versionnumber" : 80100,
-					"voicenames" : [ "[", "]", "[", "]", "[", "]" ],
-					"voicespacing" : [ 0.0, 17.0, 17.0, 17.0 ],
-					"whole_roll_data_0000000000" : [ "roll", "[", "slotinfo", "[", 1, "[", "name", "amplitude envelope", "]", "[", "type", "function", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080016896, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "grid", "]", "[", "ysnap", "]", "[", "domain", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "domainslope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "relative", "]", "[", "extend", 0, "]", "[", "width", "duration", "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 2, "[", "name", "slot function", "]", "[", "type", "function", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "grid", "]", "[", "ysnap", "]", "[", "domain", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "domainslope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "relative", "]", "[", "extend", 0, "]", "[", "width", "duration", "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 3, "[", "name", "slot intlist", "]", "[", "type", "intlist", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080016896, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1078984704, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 4, "[", "name", "slot floatlist", "]", "[", "type", "floatlist", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 5, "[", "name", "slot int", "]", "[", "type", "int", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080016896, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1078984704, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 6, "[", "name", "slot float", "]", "[", "type", "float", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 7, "[", "name", "lyrics", "]", "[", "type", "text", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 8, "[", "name", "filelist", "]", "[", "type", "filelist", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080213504, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 9, "[", "name", "spat", "]", "[", "type", "spat", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1076101120, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "temporalmode", "relative", "]", "[", "extend", 0, "]", "[", "width", "duration", "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 10, "[", "name", "slot 10", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 11, "[", "name", "slot 11", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 12, "[", "name", "slot 12", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 13, "[", "name", "slot 13", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 14, "[", "name", "slot 14", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 15, "[", "name", "slot 15", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 16, "[", "name", "slot 16", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 17, "[", "name", "slot 17", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 18, "[", "name", "slot 18", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 19, "[", "name", "slot 19", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 20, "[", "name", "slot 20", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 21, "[", "name", "slot 21", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 22, "[", "name", "slot 22", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 23, "[", "name", "slot 23", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 24, "[", "name", "slot 24", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 25, "[", "name", "slot 25", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 26, "[", "name", "slot 26", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 27, "[", "name", "slot 27", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 28, "[", "name", "slot 28", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 29, "[", "name", "slot 29", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 30, "[", "name", "slot 30", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "]", "[", "commands", "[", 1, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 2, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 3, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 4, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 5, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "]", "[", "groups", "]", "[", "markers", "]", "[", "midichannels", 1, 2, 3, "]", "[", "articulationinfo", "]", "[", "noteheadinfo", "]", "[", 0, "]", "[", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086376960, "_x_x_x_x_bach_float64_x_x_x_x_", 973067791, 1080257484, 84, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 103079215, 1080829313, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086364160, "_x_x_x_x_bach_float64_x_x_x_x_", 639091134, 1079706963, 85, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 377957122, 1083744473, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086338560, "_x_x_x_x_bach_float64_x_x_x_x_", 1634149156, 1079722831, 87, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1786706395, 1083855036, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086325760, "_x_x_x_x_bach_float64_x_x_x_x_", 911220262, 1081253605, 85, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1168231104, 1084888758, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086275584, "_x_x_x_x_bach_float64_x_x_x_x_", 322981540, 1079964513, 72, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 996432412, 1084984799, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086249984, "_x_x_x_x_bach_float64_x_x_x_x_", 967570234, 1080787008, 69, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3092376453, 1085347102, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086198784, "_x_x_x_x_bach_float64_x_x_x_x_", 530514360, 1079494726, 91, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2027224564, 1085418729, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086173184, "_x_x_x_x_bach_float64_x_x_x_x_", 3978857703, 1079965197, 84, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2164663517, 1085476373, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086121984, "_x_x_x_x_bach_float64_x_x_x_x_", 2769394912, 1082991037, 85, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3195455668, 1085822239, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086096384, "_x_x_x_x_bach_float64_x_x_x_x_", 2056086744, 1075922568, 87, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2473901162, 1085849880, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086070784, "_x_x_x_x_bach_float64_x_x_x_x_", 383454680, 1083842277, 85, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2611340116, 1086273604, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086019584, "_x_x_x_x_bach_float64_x_x_x_x_", 3690235900, 1077993943, 72, 0, "]", 0, "]", 0, "]", "[", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085405184, "_x_x_x_x_bach_float64_x_x_x_x_", 2938444824, 1080566222, 82, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 137438953, 1081179308, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085430784, "_x_x_x_x_bach_float64_x_x_x_x_", 3783694389, 1077305891, 81, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 137438953, 1082227884, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085456384, "_x_x_x_x_bach_float64_x_x_x_x_", 1341404186, 1081190768, 80, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 206158430, 1082800898, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085456384, "_x_x_x_x_bach_float64_x_x_x_x_", 1572301627, 1078537832, 81, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 137438953, 1083276460, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085481984, "_x_x_x_x_bach_float64_x_x_x_x_", 9620726, 1080497461, 89, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 171798691, 1083562967, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085507584, "_x_x_x_x_bach_float64_x_x_x_x_", 658332587, 1079127997, 91, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 206158429, 1083849474, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085533184, "_x_x_x_x_bach_float64_x_x_x_x_", 530514360, 1079494726, 77, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 240518167, 1084135981, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085533184, "_x_x_x_x_bach_float64_x_x_x_x_", 3587156685, 1080245334, 82, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 137438953, 1084325036, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085558784, "_x_x_x_x_bach_float64_x_x_x_x_", 2938444824, 1080566222, 81, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2302102470, 1084468289, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085584384, "_x_x_x_x_bach_float64_x_x_x_x_", 3783694389, 1077305891, 80, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 171798691, 1084611543, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085609984, "_x_x_x_x_bach_float64_x_x_x_x_", 1341404186, 1081190768, 81, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2336462208, 1084754796, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085609984, "_x_x_x_x_bach_float64_x_x_x_x_", 1572301627, 1078537832, 89, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 206158429, 1084898050, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085635584, "_x_x_x_x_bach_float64_x_x_x_x_", 9620726, 1080497461, 91, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2370821946, 1085041303, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085661184, "_x_x_x_x_bach_float64_x_x_x_x_", 658332587, 1079127997, 77, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 240518167, 1085184557, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085686784, "_x_x_x_x_bach_float64_x_x_x_x_", 530514360, 1079494726, 82, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1202590842, 1085301985, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085686784, "_x_x_x_x_bach_float64_x_x_x_x_", 3587156685, 1080245334, 81, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 137438953, 1085373612, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085712384, "_x_x_x_x_bach_float64_x_x_x_x_", 2938444824, 1080566222, 80, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3367254360, 1085445238, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085737984, "_x_x_x_x_bach_float64_x_x_x_x_", 3783694389, 1077305891, 81, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2302102471, 1085516865, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085737984, "_x_x_x_x_bach_float64_x_x_x_x_", 1341404186, 1081190768, 89, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1236950582, 1085588492, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085763584, "_x_x_x_x_bach_float64_x_x_x_x_", 1572301627, 1078537832, 91, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 171798693, 1085660119, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085789184, "_x_x_x_x_bach_float64_x_x_x_x_", 9620726, 1080497461, 77, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3401614100, 1085731745, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085814784, "_x_x_x_x_bach_float64_x_x_x_x_", 658332587, 1079127997, 82, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2336462211, 1085803372, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085814784, "_x_x_x_x_bach_float64_x_x_x_x_", 530514360, 1079494726, 81, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1271310322, 1085874999, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085840384, "_x_x_x_x_bach_float64_x_x_x_x_", 3587156685, 1080245334, 80, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 206158433, 1085946626, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085865984, "_x_x_x_x_bach_float64_x_x_x_x_", 2938444824, 1080566222, 81, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3435973840, 1086018252, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085891584, "_x_x_x_x_bach_float64_x_x_x_x_", 3783694389, 1077305891, 89, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2370821951, 1086089879, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085891584, "_x_x_x_x_bach_float64_x_x_x_x_", 1341404186, 1081190768, 91, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1305670062, 1086161506, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085917184, "_x_x_x_x_bach_float64_x_x_x_x_", 1572301627, 1078537832, 77, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 240518173, 1086233133, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085942784, "_x_x_x_x_bach_float64_x_x_x_x_", 9620726, 1080497461, 82, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3470333580, 1086304759, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085968384, "_x_x_x_x_bach_float64_x_x_x_x_", 658332587, 1079127997, 81, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1202590845, 1086350561, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085968384, "_x_x_x_x_bach_float64_x_x_x_x_", 530514360, 1079494726, 80, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2817498548, 1086386374, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085993984, "_x_x_x_x_bach_float64_x_x_x_x_", 3587156685, 1080245334, 81, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 137438955, 1086422188, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086019584, "_x_x_x_x_bach_float64_x_x_x_x_", 2938444824, 1080566222, 89, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1752346658, 1086458001, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086019584, "_x_x_x_x_bach_float64_x_x_x_x_", 3783694389, 1077305891, 91, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3367254361, 1086493814, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086045184, "_x_x_x_x_bach_float64_x_x_x_x_", 1341404186, 1081190768, 77, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 687194768, 1086529628, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086070784, "_x_x_x_x_bach_float64_x_x_x_x_", 1572301627, 1078537832, 82, 0, "]", 0, "]", 0, "]" ],
+					"voicenames" : [ "[", "]", "[", "]", "[", "]", "[", "]" ],
+					"voicespacing" : [ 0.0, 17.0, 17.0, 17.0, 17.0 ],
+					"whole_roll_data_0000000000" : [ "roll", "[", "slotinfo", "[", 1, "[", "name", "amplitude envelope", "]", "[", "type", "function", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080016896, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "grid", "]", "[", "ysnap", "]", "[", "domain", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "domainslope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "relative", "]", "[", "extend", 0, "]", "[", "width", "duration", "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 2, "[", "name", "slot function", "]", "[", "type", "function", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "grid", "]", "[", "ysnap", "]", "[", "domain", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "domainslope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "relative", "]", "[", "extend", 0, "]", "[", "width", "duration", "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 3, "[", "name", "slot intlist", "]", "[", "type", "intlist", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080016896, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1078984704, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 4, "[", "name", "slot floatlist", "]", "[", "type", "floatlist", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 5, "[", "name", "slot int", "]", "[", "type", "int", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080016896, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1078984704, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 6, "[", "name", "slot float", "]", "[", "type", "float", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 7, "[", "name", "lyrics", "]", "[", "type", "text", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 8, "[", "name", "filelist", "]", "[", "type", "filelist", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080213504, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 9, "[", "name", "spat", "]", "[", "type", "spat", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1076101120, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "temporalmode", "relative", "]", "[", "extend", 0, "]", "[", "width", "duration", "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 10, "[", "name", "slot 10", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 11, "[", "name", "slot 11", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 12, "[", "name", "slot 12", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 13, "[", "name", "slot 13", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 14, "[", "name", "slot 14", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 15, "[", "name", "slot 15", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 16, "[", "name", "slot 16", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 17, "[", "name", "slot 17", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 18, "[", "name", "slot 18", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 19, "[", "name", "slot 19", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 20, "[", "name", "slot 20", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 21, "[", "name", "slot 21", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 22, "[", "name", "slot 22", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 23, "[", "name", "slot 23", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 24, "[", "name", "slot 24", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 25, "[", "name", "slot 25", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 26, "[", "name", "slot 26", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 27, "[", "name", "slot 27", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 28, "[", "name", "slot 28", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 29, "[", "name", "slot 29", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 30, "[", "name", "slot 30", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "]", "[", "commands", "[", 1, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 2, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 3, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 4, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 5, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "]", "[", "groups", "]", "[", "markers", "]", "[", "midichannels", 1, 2, 3, 4, "]", "[", "articulationinfo", "]", "[", "noteheadinfo", "]", "[", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2748779070, 1085331568, "_x_x_x_x_bach_float64_x_x_x_x_", 3782320000, 1076283456, 99, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 3249606616, 1070877122, "_x_x_x_x_bach_float64_x_x_x_x_", 4048126936, 1071647217, "_x_x_x_x_bach_float64_x_x_x_x_", 3507442093, 1071189736, "_x_x_x_x_bach_float64_x_x_x_x_", 1431014384, 1071637210, "_x_x_x_x_bach_float64_x_x_x_x_", 3040424529, 1071959091, "_x_x_x_x_bach_float64_x_x_x_x_", 2095669163, 1069848184, "_x_x_x_x_bach_float64_x_x_x_x_", 2120683052, 1072465717, "_x_x_x_x_bach_float64_x_x_x_x_", 1046460192, 1071853913, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1202590843, 1085415457, "_x_x_x_x_bach_float64_x_x_x_x_", 3782320000, 1076283456, 99, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 3249606616, 1070877122, "_x_x_x_x_bach_float64_x_x_x_x_", 4048126936, 1071647217, "_x_x_x_x_bach_float64_x_x_x_x_", 3507442093, 1071189736, "_x_x_x_x_bach_float64_x_x_x_x_", 1431014384, 1071637210, "_x_x_x_x_bach_float64_x_x_x_x_", 3040424529, 1071959091, "_x_x_x_x_bach_float64_x_x_x_x_", 2095669163, 1069848184, "_x_x_x_x_bach_float64_x_x_x_x_", 2120683052, 1072465717, "_x_x_x_x_bach_float64_x_x_x_x_", 1046460192, 1071853913, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3779571220, 1085692026, "_x_x_x_x_bach_float64_x_x_x_x_", 3782320000, 1076283456, 99, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 3249606616, 1070877122, "_x_x_x_x_bach_float64_x_x_x_x_", 4048126936, 1071647217, "_x_x_x_x_bach_float64_x_x_x_x_", 3507442093, 1071189736, "_x_x_x_x_bach_float64_x_x_x_x_", 1431014384, 1071637210, "_x_x_x_x_bach_float64_x_x_x_x_", 3040424529, 1071959091, "_x_x_x_x_bach_float64_x_x_x_x_", 2095669163, 1069848184, "_x_x_x_x_bach_float64_x_x_x_x_", 2120683052, 1072465717, "_x_x_x_x_bach_float64_x_x_x_x_", 1046460192, 1071853913, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3951369913, 1085816593, "_x_x_x_x_bach_float64_x_x_x_x_", 3782320000, 1076283456, 99, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 3249606616, 1070877122, "_x_x_x_x_bach_float64_x_x_x_x_", 4048126936, 1071647217, "_x_x_x_x_bach_float64_x_x_x_x_", 3507442093, 1071189736, "_x_x_x_x_bach_float64_x_x_x_x_", 1431014384, 1071637210, "_x_x_x_x_bach_float64_x_x_x_x_", 3040424529, 1071959091, "_x_x_x_x_bach_float64_x_x_x_x_", 2095669163, 1069848184, "_x_x_x_x_bach_float64_x_x_x_x_", 2120683052, 1072465717, "_x_x_x_x_bach_float64_x_x_x_x_", 1046460192, 1071853913, "]", "]", 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2508260901, 1081588547, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1717986918, 1086165158, "_x_x_x_x_bach_float64_x_x_x_x_", 2865602180, 1079709135, 85, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 1910676331, 1071131985, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "]", "]", 0, "]", 0, "]", 0, "]", "[", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3264175145, 1085355637, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3779571221, 1085470330, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1717986918, 1085919014, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1717986918, 1086165158, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 4191888081, 1082608254, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3264175145, 1085355637, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3779571221, 1085470330, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1717986918, 1085919014, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1717986918, 1086165158, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", 0, "]", 0, "]", "[", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2748779070, 1085331568, "_x_x_x_x_bach_float64_x_x_x_x_", 3782320000, 1076283456, 99, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 3249606616, 1070877122, "_x_x_x_x_bach_float64_x_x_x_x_", 4048126936, 1071647217, "_x_x_x_x_bach_float64_x_x_x_x_", 3507442093, 1071189736, "_x_x_x_x_bach_float64_x_x_x_x_", 1431014384, 1071637210, "_x_x_x_x_bach_float64_x_x_x_x_", 3040424529, 1071959091, "_x_x_x_x_bach_float64_x_x_x_x_", 2095669163, 1069848184, "_x_x_x_x_bach_float64_x_x_x_x_", 2120683052, 1072465717, "_x_x_x_x_bach_float64_x_x_x_x_", 1046460192, 1071853913, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1202590843, 1085415457, "_x_x_x_x_bach_float64_x_x_x_x_", 3782320000, 1076283456, 99, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 3249606616, 1070877122, "_x_x_x_x_bach_float64_x_x_x_x_", 4048126936, 1071647217, "_x_x_x_x_bach_float64_x_x_x_x_", 3507442093, 1071189736, "_x_x_x_x_bach_float64_x_x_x_x_", 1431014384, 1071637210, "_x_x_x_x_bach_float64_x_x_x_x_", 3040424529, 1071959091, "_x_x_x_x_bach_float64_x_x_x_x_", 2095669163, 1069848184, "_x_x_x_x_bach_float64_x_x_x_x_", 2120683052, 1072465717, "_x_x_x_x_bach_float64_x_x_x_x_", 1046460192, 1071853913, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3779571220, 1085692026, "_x_x_x_x_bach_float64_x_x_x_x_", 3782320000, 1076283456, 99, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 3249606616, 1070877122, "_x_x_x_x_bach_float64_x_x_x_x_", 4048126936, 1071647217, "_x_x_x_x_bach_float64_x_x_x_x_", 3507442093, 1071189736, "_x_x_x_x_bach_float64_x_x_x_x_", 1431014384, 1071637210, "_x_x_x_x_bach_float64_x_x_x_x_", 3040424529, 1071959091, "_x_x_x_x_bach_float64_x_x_x_x_", 2095669163, 1069848184, "_x_x_x_x_bach_float64_x_x_x_x_", 2120683052, 1072465717, "_x_x_x_x_bach_float64_x_x_x_x_", 1046460192, 1071853913, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3951369913, 1085816593, "_x_x_x_x_bach_float64_x_x_x_x_", 3782320000, 1076283456, 99, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 3249606616, 1070877122, "_x_x_x_x_bach_float64_x_x_x_x_", 4048126936, 1071647217, "_x_x_x_x_bach_float64_x_x_x_x_", 3507442093, 1071189736, "_x_x_x_x_bach_float64_x_x_x_x_", 1431014384, 1071637210, "_x_x_x_x_bach_float64_x_x_x_x_", 3040424529, 1071959091, "_x_x_x_x_bach_float64_x_x_x_x_", 2095669163, 1069848184, "_x_x_x_x_bach_float64_x_x_x_x_", 2120683052, 1072465717, "_x_x_x_x_bach_float64_x_x_x_x_", 1046460192, 1071853913, "]", "]", 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 2508260901, 1081588547, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1717986918, 1086165158, "_x_x_x_x_bach_float64_x_x_x_x_", 2865602180, 1079709135, 85, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 1910676331, 1071131985, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "]", "]", 0, "]", 0, "]", 0, "]", "[", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3264175145, 1085355637, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3779571221, 1085470330, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1717986918, 1085919014, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1717986918, 1086165158, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 4191888081, 1082608254, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3264175145, 1085355637, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 3779571221, 1085470330, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1717986918, 1085919014, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1717986918, 1086165158, "_x_x_x_x_bach_float64_x_x_x_x_", 2784513198, 1082048126, 65, "[", "slots", "[", 4, "_x_x_x_x_bach_float64_x_x_x_x_", 454922936, 1071872129, "_x_x_x_x_bach_float64_x_x_x_x_", 3703155162, 1071163488, "_x_x_x_x_bach_float64_x_x_x_x_", 3976108924, 1071352391, "_x_x_x_x_bach_float64_x_x_x_x_", 3183086162, 1070674340, "_x_x_x_x_bach_float64_x_x_x_x_", 2226785924, 1071411011, "_x_x_x_x_bach_float64_x_x_x_x_", 853495901, 1071860647, "_x_x_x_x_bach_float64_x_x_x_x_", 2994794796, 1071961897, "_x_x_x_x_bach_float64_x_x_x_x_", 1177576953, 1071909412, "]", "]", 0, "]", 0, "]", 0, "]" ],
 					"whole_roll_data_count" : [ 1 ],
-					"zoom" : 238.0
+					"zoom" : 65.0
 				}
 
 			}
@@ -3699,7 +4187,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 339.649997337659102, 342.233247578144017, 182.0, 28.0 ],
+					"patching_rect" : [ 339.649997337659102, 350.233247578144017, 170.0, 28.0 ],
 					"text" : ";\rdisplayDecodedGenotype bang"
 				}
 
@@ -3723,7 +4211,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 1109.0, 203.0, 571.0, 1390.0 ],
+						"rect" : [ 692.0, 53.0, 988.0, 963.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -4005,7 +4493,7 @@
 									"fontname" : "Courier New",
 									"fontsize" : 12.0,
 									"id" : "obj-43",
-									"linecount" : 15,
+									"linecount" : 101,
 									"maxclass" : "textedit",
 									"numinlets" : 1,
 									"numoutlets" : 4,
@@ -4013,9 +4501,9 @@
 									"parameter_enable" : 0,
 									"patching_rect" : [ 0.833334445953369, 2.750006437301636, 788.0, 3908.0 ],
 									"presentation" : 1,
-									"presentation_linecount" : 15,
+									"presentation_linecount" : 101,
 									"presentation_rect" : [ 0.833334445953369, 26.750006437301636, 833.0, 3908.0 ],
-									"text" : "\"s(\n   v(\n      e(\n         p(0),\n         f(440),\n         p(0),\n         p(0),\n         p(0),\n         p(0),\n         p(0),\n         p(0),\n         p(0),\n         p(0),\n         p(0),\n         p(0))))\"",
+									"text" : "\"sAddV(\n   sAddV(\n      s2V(\n         vConcatE(\n            e4Pitches(\n               d(0.379705),\n               f(187.686894),\n               f(280.110516),\n               f(1257.08501),\n               f(835.157151),\n               a(3),\n               i(72),\n               p(0.317002),\n               p(0.501214),\n               p(0.391535),\n               p(0.498221),\n               p(0.649927),\n               p(0.160842),\n               p(0.891505),\n               p(0.599774)),\n            e(\n               d(0.196756),\n               f(3290.178986),\n               a(56),\n               i(58),\n               p(0.377766),\n               p(0.60846),\n               p(0.385277),\n               p(0.430315),\n               p(0.268655),\n               p(0.444291),\n               p(0.602985),\n               p(0.651265))),\n         vRepeatV(\n            v(\n               e4Pitches(\n                  d(0.745314),\n                  f(211.413785),\n                  f(356.72402),\n                  f(3290.178986),\n                  f(1709.636045),\n                  a(67),\n                  i(38),\n                  p(0.60846),\n                  p(0.385277),\n                  p(0.430315),\n                  p(0.268655),\n                  p(0.444291),\n                  p(0.602985),\n                  p(0.651265),\n                  p(0.626238))),\n            q(2))),\n      vConcatE(\n         e4Pitches(\n            d(0.379705),\n            f(187.686894),\n            f(280.110516),\n            f(1257.08501),\n            f(835.157151),\n            a(3),\n            i(72),\n            p(0.317002),\n            p(0.501214),\n            p(0.391535),\n            p(0.498221),\n            p(0.649927),\n            p(0.160842),\n            p(0.891505),\n            p(0.599774)),\n         e(\n            d(0.196756),\n            f(3290.178986),\n            a(56),\n            i(58),\n            p(0.377766),\n            p(0.60846),\n            p(0.385277),\n            p(0.430315),\n            p(0.268655),\n            p(0.444291),\n            p(0.602985),\n            p(0.651265)))),\n   vRepeatV(\n      v(\n         e4Pitches(\n            d(0.745314),\n            f(211.413785),\n            f(356.72402),\n            f(3290.178986),\n            f(1709.636045),\n            a(67),\n            i(38),\n            p(0.60846),\n            p(0.385277),\n            p(0.430315),\n            p(0.268655),\n            p(0.444291),\n            p(0.602985),\n            p(0.651265),\n            p(0.626238))),\n      q(2)))\"",
 									"textcolor" : [ 0.8000000119, 0.8000000119, 0.8000000119, 1.0 ]
 								}
 
@@ -4289,7 +4777,7 @@
 					"patching_rect" : [ 561.833388149738312, 256.124924898147583, 140.0, 23.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 522.138073104259092, 220.25596625426482, 125.0, 23.0 ],
-					"text" : "73485484556902"
+					"text" : "7560283797128"
 				}
 
 			}
@@ -4369,7 +4857,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 725.0, 941.0, 549.0, 519.0 ],
+						"rect" : [ 725.0, 881.0, 549.0, 519.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -4452,14 +4940,16 @@
 									"fontsize" : 8.0,
 									"gradient" : 1,
 									"id" : "obj-44",
+									"linecount" : 10,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ -0.5, -2.0, 565.0, 18.0 ],
+									"patching_rect" : [ -0.5, -2.0, 594.0, 99.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ -0.5, -2.0, 575.0, 18.0 ],
-									"text" : "0.618034 0.618034 0 0.618034 0.385129 0 0 0 0 0 0 0 0 0 0"
+									"presentation_linecount" : 10,
+									"presentation_rect" : [ -0.5, -2.0, 594.0, 99.0 ],
+									"text" : "0.472136 0.236068 0.460295 0.472136 0.311244 0.344013 0.500707 0.452048 0.183756 0.72 0.317002 0.501214 0.391535 0.498221 0.649927 0.160842 0.891505 0.599774 0.365448 0.618034 0.636865 0.539312 0.58 0.377766 0.60846 0.385277 0.430315 0.268655 0.444291 0.602985 0.651265 0.236068 0.557592 0.472136 0.320646 0.365448 0.636865 0.540715 0.576094 0.38 0.60846 0.385277 0.430315 0.268655 0.444291 0.602985 0.651265 0.626238 0.557592 0.472136 0.320646 0.365448 0.636865 0.540715 0.576094 0.38 0.60846 0.385277 0.430315 0.268655 0.444291 0.602985 0.651265 0.626238 0.236068 0.460295 0.472136 0.311244 0.344013 0.500707 0.452048 0.183756 0.72 0.317002 0.501214 0.391535 0.498221 0.649927 0.160842 0.891505 0.599774 0.365448 0.618034 0.636865 0.539312 0.58 0.377766 0.60846 0.385277 0.430315 0.268655 0.444291 0.602985 0.651265 0.236068 0.557592 0.472136 0.320646 0.365448 0.636865 0.540715 0.576094 0.38 0.60846 0.385277 0.430315 0.268655 0.444291 0.602985 0.651265 0.626238 0.557592 0.472136 0.320646 0.365448 0.636865 0.540715 0.576094 0.38 0.60846 0.385277 0.430315 0.268655 0.444291 0.602985 0.651265 0.626238"
 								}
 
 							}
@@ -4474,7 +4964,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-44", 1 ],
-									"midpoints" : [ 338.0, 58.66668701171875, 555.0, 58.66668701171875 ],
+									"midpoints" : [ 338.0, 58.66668701171875, 584.0, 58.66668701171875 ],
 									"source" : [ "obj-57", 0 ]
 								}
 
@@ -4517,7 +5007,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 1085.0, 668.0, 595.0, 764.0 ],
+						"rect" : [ 1085.0, 608.0, 595.0, 764.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -4631,6 +5121,8 @@
 									"saved_object_attributes" : 									{
 										"autostart" : 0,
 										"defer" : 0,
+										"node_bin_path" : "",
+										"npm_bin_path" : "",
 										"watch" : 0
 									}
 ,
@@ -4844,7 +5336,7 @@
 					"patching_rect" : [ 561.833388149738312, 448.263811230659485, 140.0, 21.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 522.138073104259092, 286.394852586776722, 125.0, 21.0 ],
-					"text" : "33971928635597"
+					"text" : "76147340140511"
 				}
 
 			}
@@ -4880,7 +5372,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 1183.0, 203.0, 497.0, 1564.0 ],
+						"rect" : [ 1183.0, 53.0, 497.0, 997.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -5623,7 +6115,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 141.333287398020389, 580.666666388511658, 33.0, 18.0 ],
+					"patching_rect" : [ 107.333287398020389, 584.789663216471581, 33.0, 18.0 ],
 					"text" : "get roll"
 				}
 
@@ -5730,7 +6222,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 374.0, 771.0, 591.0, 802.0 ],
+						"rect" : [ 297.0, 66.0, 591.0, 802.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -5787,16 +6279,16 @@
 									"fontsize" : 8.0,
 									"gradient" : 1,
 									"id" : "obj-33",
-									"linecount" : 41,
+									"linecount" : 66,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 0.0, 2.5, 210.0, 380.0 ],
+									"patching_rect" : [ 0.0, 2.5, 244.0, 607.0 ],
 									"presentation" : 1,
-									"presentation_linecount" : 41,
-									"presentation_rect" : [ 0.0, -0.5, 210.0, 380.0 ],
-									"text" : "roll ( ( 0 ) ) ( ( 0 ( 8600 155.36868 84 ) ) ( 225.172 ( 8500 108.0832 85 ) ) ( 1576.212 ( 8300 109.05172 87 ) ) ( 1684.184 ( 8200 297.93096 85 ) ) ( 3339.356 ( 8000 123.8028 72 ) ) ( 3526.936 ( 7900 220.00784 69 ) ) ( 4373.12 ( 7700 95.12928 91 ) ) ( 4652.912 ( 7600 123.8446 84 ) ) ( 4878.084 ( 7400 932.2176 85 ) ) ( 6229.124 ( 7300 8.63776 87 ) ) ( 6337.096 ( 7200 1671.72372 85 ) ) ( 7992.268 ( 7000 33.7644 72 ) ) ) ( ( 0 ( 4600 193.05648 82 ) ) ( 279.792 ( 4700 22.38336 81 ) ) ( 559.584 ( 4800 282.59 80 ) ) ( 839.376 ( 4800 50.36256 81 ) ) ( 1119.168 ( 4900 184.66272 89 ) ) ( 1398.96 ( 5000 72.74592 91 ) ) ( 1678.752 ( 5100 95.12928 77 ) ) ( 1958.544 ( 5100 153.8856 82 ) ) ( 2238.336 ( 5200 193.05648 81 ) ) ( 2518.128 ( 5300 22.38336 80 ) ) ( 2797.92 ( 5400 282.59 81 ) ) ( 3077.712 ( 5400 50.36256 89 ) ) ( 3357.504 ( 5500 184.66272 91 ) ) ( 3637.296 ( 5600 72.74592 77 ) ) ( 3917.088 ( 5700 95.12928 82 ) ) ( 4196.88 ( 5700 153.8856 81 ) ) ( 4476.672 ( 5800 193.05648 80 ) ) ( 4756.464 ( 5900 22.38336 81 ) ) ( 5036.256 ( 5900 282.59 89 ) ) ( 5316.048 ( 6000 50.36256 91 ) ) ( 5595.84 ( 6100 184.66272 77 ) ) ( 5875.632 ( 6200 72.74592 82 ) ) ( 6155.424 ( 6200 95.12928 81 ) ) ( 6435.216 ( 6300 153.8856 80 ) ) ( 6715.008 ( 6400 193.05648 81 ) ) ( 6994.8 ( 6500 22.38336 89 ) ) ( 7274.592 ( 6500 282.59 91 ) ) ( 7554.384 ( 6600 50.36256 77 ) ) ( 7834.176 ( 6700 184.66272 82 ) ) ( 8113.968 ( 6800 72.74592 81 ) ) ( 8393.76 ( 6800 95.12928 80 ) ) ( 8673.552 ( 6900 153.8856 81 ) ) ( 8953.344 ( 7000 193.05648 89 ) ) ( 9233.136 ( 7000 22.38336 91 ) ) ( 9512.928 ( 7100 282.59 77 ) ) ( 9792.72 ( 7200 50.36256 82 ) ) )",
+									"presentation_linecount" : 66,
+									"presentation_rect" : [ 0.0, -0.5, 244.0, 607.0 ],
+									"text" : "roll ( ( 0 ( 4312.44 11.39112 99 ( slots ( 4 0.317002 0.501214 0.391535 0.498221 0.649927 0.160842 0.891505 0.599774 ) ) ) ( 4640.13 11.39112 99 ( slots ( 4 0.317002 0.501214 0.391535 0.498221 0.649927 0.160842 0.891505 0.599774 ) ) ) ( 6207.07 11.39112 99 ( slots ( 4 0.317002 0.501214 0.391535 0.498221 0.649927 0.160842 0.891505 0.599774 ) ) ) ( 5720.48 11.39112 99 ( slots ( 4 0.317002 0.501214 0.391535 0.498221 0.649927 0.160842 0.891505 0.599774 ) ) ) ) ( 379.704 ( 7568.65 108.2158 85 ( slots ( 4 0.377766 0.60846 0.385277 0.430315 0.268655 0.444291 0.602985 0.651265 ) ) ) ) ) ( ( 0 ( 4406.46 491.90592 65 ( slots ( 4 0.60846 0.385277 0.430315 0.268655 0.444291 0.602985 0.651265 0.626238 ) ) ) ( 4854.48 491.90592 65 ( slots ( 4 0.60846 0.385277 0.430315 0.268655 0.444291 0.602985 0.651265 0.626238 ) ) ) ( 7568.65 491.90592 65 ( slots ( 4 0.60846 0.385277 0.430315 0.268655 0.444291 0.602985 0.651265 0.626238 ) ) ) ( 6607.15 491.90592 65 ( slots ( 4 0.60846 0.385277 0.430315 0.268655 0.444291 0.602985 0.651265 0.626238 ) ) ) ) ( 745.312 ( 4406.46 491.90592 65 ( slots ( 4 0.60846 0.385277 0.430315 0.268655 0.444291 0.602985 0.651265 0.626238 ) ) ) ( 4854.48 491.90592 65 ( slots ( 4 0.60846 0.385277 0.430315 0.268655 0.444291 0.602985 0.651265 0.626238 ) ) ) ( 7568.65 491.90592 65 ( slots ( 4 0.60846 0.385277 0.430315 0.268655 0.444291 0.602985 0.651265 0.626238 ) ) ) ( 6607.15 491.90592 65 ( slots ( 4 0.60846 0.385277 0.430315 0.268655 0.444291 0.602985 0.651265 0.626238 ) ) ) ) ) ( ( 0 ( 4312.44 11.39112 99 ( slots ( 4 0.317002 0.501214 0.391535 0.498221 0.649927 0.160842 0.891505 0.599774 ) ) ) ( 4640.13 11.39112 99 ( slots ( 4 0.317002 0.501214 0.391535 0.498221 0.649927 0.160842 0.891505 0.599774 ) ) ) ( 6207.07 11.39112 99 ( slots ( 4 0.317002 0.501214 0.391535 0.498221 0.649927 0.160842 0.891505 0.599774 ) ) ) ( 5720.48 11.39112 99 ( slots ( 4 0.317002 0.501214 0.391535 0.498221 0.649927 0.160842 0.891505 0.599774 ) ) ) ) ( 379.704 ( 7568.65 108.2158 85 ( slots ( 4 0.377766 0.60846 0.385277 0.430315 0.268655 0.444291 0.602985 0.651265 ) ) ) ) ) ( ( 0 ( 4406.46 491.90592 65 ( slots ( 4 0.60846 0.385277 0.430315 0.268655 0.444291 0.602985 0.651265 0.626238 ) ) ) ( 4854.48 491.90592 65 ( slots ( 4 0.60846 0.385277 0.430315 0.268655 0.444291 0.602985 0.651265 0.626238 ) ) ) ( 7568.65 491.90592 65 ( slots ( 4 0.60846 0.385277 0.430315 0.268655 0.444291 0.602985 0.651265 0.626238 ) ) ) ( 6607.15 491.90592 65 ( slots ( 4 0.60846 0.385277 0.430315 0.268655 0.444291 0.602985 0.651265 0.626238 ) ) ) ) ( 745.312 ( 4406.46 491.90592 65 ( slots ( 4 0.60846 0.385277 0.430315 0.268655 0.444291 0.602985 0.651265 0.626238 ) ) ) ( 4854.48 491.90592 65 ( slots ( 4 0.60846 0.385277 0.430315 0.268655 0.444291 0.602985 0.651265 0.626238 ) ) ) ( 7568.65 491.90592 65 ( slots ( 4 0.60846 0.385277 0.430315 0.268655 0.444291 0.602985 0.651265 0.626238 ) ) ) ( 6607.15 491.90592 65 ( slots ( 4 0.60846 0.385277 0.430315 0.268655 0.444291 0.602985 0.651265 0.626238 ) ) ) ) )",
 									"textcolor" : [ 0.901960784313726, 0.901960784313726, 0.901960784313726, 1.0 ]
 								}
 
@@ -6096,7 +6588,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-16", 0 ],
+					"destination" : [ "obj-152", 0 ],
 					"source" : [ "obj-126", 1 ]
 				}
 
@@ -6252,6 +6744,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-18", 0 ],
+					"source" : [ "obj-149", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-34", 0 ],
 					"order" : 0,
 					"source" : [ "obj-15", 1 ]
@@ -6291,6 +6790,13 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-16", 0 ],
+					"source" : [ "obj-152", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-154", 0 ],
 					"order" : 1,
 					"source" : [ "obj-153", 0 ]
@@ -6309,6 +6815,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-123", 0 ],
 					"source" : [ "obj-154", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-18", 0 ],
+					"source" : [ "obj-155", 0 ]
 				}
 
 			}
@@ -6449,8 +6962,24 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-152", 1 ],
+					"source" : [ "obj-174", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-122", 0 ],
 					"source" : [ "obj-176", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-183", 0 ],
+					"hidden" : 1,
+					"order" : 1,
+					"source" : [ "obj-18", 6 ]
 				}
 
 			}
@@ -6464,6 +6993,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-52", 0 ],
+					"order" : 0,
 					"source" : [ "obj-18", 6 ]
 				}
 

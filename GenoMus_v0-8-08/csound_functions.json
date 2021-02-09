@@ -159,7 +159,7 @@
             "functionType": "voiceF",
             "arguments": [
                 "voiceF",
-                "paramF"
+                "quantizedF"
             ],
             "metadata": {
                 "description": "repeats a voice a number of times",

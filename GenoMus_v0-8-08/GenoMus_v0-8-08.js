@@ -2,7 +2,6 @@
 ///////////////////////////
 
 // GOALS:
-// - create a generic event function
 // event functions are only primitives, according to a parametric structure of species.
 // They must be minimal: its only purpose is create events of a type, but to ease the species change,
 // it is better reduce the event functions to a minimum. These functions are:
@@ -16,8 +15,8 @@
 
 
 // TESTING DIFFERENT SPECIES
- var currentSpecies = "csound";
-//var currentSpecies = "piano";
+// var currentSpecies = "csound";
+var currentSpecies = "piano";
 
 // DEPENDENCIES
 
@@ -71,14 +70,14 @@ var version = "0.8.7";
 
 var defaultEventExpression; // variable to store a default event when no autoreferences are possible
 var validGenotype = true;
-var decGenStringLengthLimit = 70000;
+var decGenStringLengthLimit = 7000;
 var globalSeed;
 var phenotypeSeed = Math.round(Math.random() * 1e14); // seed only for computing phenotype
-var genMaxDepth = 14;
+var genMaxDepth = 12;
 var phenMinPolyphony = 1;
 var phenMaxPolyphony = 5;
 var phenMinLength = 5;
-var phenMaxLength = 200;
+var phenMaxLength = 400;
 var maxIterations = 20;
 // mutation constraints
 var mutationProbability = .2;
@@ -163,6 +162,8 @@ var duration2norm = s => r6d((Math.log10(s) + 6 * Math.log10(2)) / (10 * Math.lo
 var d2p = duration2norm;
 var norm2midipitch = p => Math.round(100 * p + 12);
 var p2m = norm2midipitch;
+var norm2microtonalmidipitch = p => r6d(100 * p + 12);
+var p2mm = norm2microtonalmidipitch;
 var midipitch2norm = m => r6d((m - 12) / 100);
 var m2p = midipitch2norm;
 var norm2frequency = p => p < 0.003 ? 0.000001 : r6d(20000 * Math.pow(p, 4));
@@ -1670,18 +1671,30 @@ var vConcatV = (v1, v2) => indexExprReturnSpecimen({
 });
 
 // concatenates two scores sequentially
-var sConcatS = (s1, s2) => indexExprReturnSpecimen({
-    funcType: "scoreF",
-    encGen: flattenDeep([1, 0.193496, s1.encGen, s2.encGen, 0]),
-    decGen: "sConcatS(" + s1.decGen + "," + s2.decGen + ")",
-    encPhen: mergeScores(s1.encPhen, s2.encPhen),
-    phenLength: s1.phenLength + s2.phenLength,
-    phenVoices: Math.max(s1.phenVoices, s2.phenVoices),
-    tempo: s1.tempo,
-    rhythm: s1.rhythm,
-    harmony: s1.harmony,
-    analysis: s1.analysis,
-});
+var sConcatS = (s1, s2) => {
+    var newTotalLength = s1.phenLength + s2.phenLength;
+    if (newTotalLength > phenMaxLength) {
+        validGenotype = false;
+        maxAPI.post("sConcatS aborted genotype due to exceeding the max length");
+        // maxAPI.post("Aborted genotype due to exceeding the max length");
+        // return eval("s(v(" + defaultEventExpression + "))");
+    }; 
+    return indexExprReturnSpecimen({
+        funcType: "scoreF",
+        encGen: flattenDeep([1, 0.193496, s1.encGen, s2.encGen, 0]),
+        decGen: "sConcatS(" + s1.decGen + "," + s2.decGen + ")",
+        encPhen: mergeScores(s1.encPhen, s2.encPhen),
+        phenLength: newTotalLength,
+        phenVoices: Math.max(s1.phenVoices, s2.phenVoices),
+        tempo: s1.tempo,
+        rhythm: s1.rhythm,
+        harmony: s1.harmony,
+        analysis: s1.analysis,
+    });
+}
+
+
+
 
 // aux function to merge scores - piano species specific
 var mergeScores_piano = (scoEncPhen1, scoEncPhen2) => {
@@ -1922,36 +1935,52 @@ var s2V = (v1, v2) => indexExprReturnSpecimen({
 });
 
 // adds a new voice vertically to a score
-var sAddV = (s, v) => indexExprReturnSpecimen({
-    funcType: "scoreF",
-    encGen: flattenDeep([1, 0.365705, s.encGen, v.encGen, 0]),
-    decGen: "sAddV(" + s.decGen + "," + v.decGen + ")",
-    encPhen: [z2p(p2z(s.encPhen[0]) + 1)]
-        .concat(s.encPhen.slice(1))
-        .concat(v.encPhen),
-    phenVoices: s.phenVoices + 1,
-    phenLength: s.phenLength + v.phenLength,
-    tempo: s.tempo,
-    rhythm: s.rhythm,
-    harmony: s.harmony,
-    analysis: s.analysis,
-});
+var sAddV = (s, v) => {
+    var newTotalLength = s.phenLength + v.phenLength;
+    if (newTotalLength > phenMaxLength) {
+        validGenotype = false;
+        maxAPI.post("Aborted genotype due to exceeding the max length");
+        // return eval("s(v(" + defaultEventExpression + "))");
+    };    
+    return indexExprReturnSpecimen({
+        funcType: "scoreF",
+        encGen: flattenDeep([1, 0.365705, s.encGen, v.encGen, 0]),
+        decGen: "sAddV(" + s.decGen + "," + v.decGen + ")",
+        encPhen: [z2p(p2z(s.encPhen[0]) + 1)]
+            .concat(s.encPhen.slice(1))
+            .concat(v.encPhen),
+        phenVoices: s.phenVoices + 1,
+        phenLength: newTotalLength,
+        tempo: s.tempo,
+        rhythm: s.rhythm,
+        harmony: s.harmony,
+        analysis: s.analysis,
+    });
+};
 
 // adds a new score vertically to a score
-var sAddS = (s1, s2) => indexExprReturnSpecimen({
-    funcType: "scoreF",
-    encGen: flattenDeep([1, 0.983739, s1.encGen, s2.encGen, 0]),
-    decGen: "sAddS(" + s1.decGen + "," + s2.decGen + ")",
-    encPhen: [z2p(p2z(s1.encPhen[0]) + p2z(s2.encPhen[0]))]
-        .concat(s1.encPhen.slice(1))
-        .concat(s2.encPhen.slice(1)),
-    phenVoices: s1.phenVoices + s2.phenVoices,
-    phenLength: s1.phenLength + s2.phenLength,
-    tempo: s1.tempo,
-    rhythm: s1.rhythm,
-    harmony: s1.harmony,
-    analysis: s1.analysis,
-});
+var sAddS = (s1, s2) => {
+    var newTotalLength = s1.phenLength + s2.phenLength;
+    if (newTotalLength > phenMaxLength) {
+        validGenotype = false;
+        maxAPI.post("Aborted genotype due to exceeding the max length");
+        // return eval("s(v(" + defaultEventExpression + "))");
+    };     
+    return indexExprReturnSpecimen({
+        funcType: "scoreF",
+        encGen: flattenDeep([1, 0.983739, s1.encGen, s2.encGen, 0]),
+        decGen: "sAddS(" + s1.decGen + "," + s2.decGen + ")",
+        encPhen: [z2p(p2z(s1.encPhen[0]) + p2z(s2.encPhen[0]))]
+            .concat(s1.encPhen.slice(1))
+            .concat(s2.encPhen.slice(1)),
+        phenVoices: s1.phenVoices + s2.phenVoices,
+        phenLength: s1.phenLength + s2.phenLength,
+        tempo: s1.tempo,
+        rhythm: s1.rhythm,
+        harmony: s1.harmony,
+        analysis: s1.analysis,
+    });
+};
 
 // add two numbers
 var oSum = (p1, p2) => indexExprReturnSpecimen({
@@ -2491,11 +2520,14 @@ var vPerpetuumMobileLoop_csound = (noteval, listPitches, listArticulations, list
 
 // repeats a voice a number of times
 var vRepeatV = (voice, times) => {
-    var repeats = adjustRange(Math.abs(p2q(times.encPhen)), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5
+
+    var repeats = adjustRange(Math.round(p2q(times.encPhen[0])), 2, 12); // number of times rescaled to range [2, 12], mapped according to the deviation from the center value 0.5
+    // var repeats = adjustRange(Math.abs(p2q(times.encPhen)), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5
+    
     var totalEvents = voice.phenLength * repeats;
     if (totalEvents > phenMaxLength) {
         validGenotype = false;
-        console.log("Aborted genotype due to exceeding the max length");
+        maxAPI.post("Aborted genotype due to exceeding the max length");
         return eval("v(" + defaultEventExpression + ")");
     }
     var repeatedVoice = [];
@@ -2503,7 +2535,9 @@ var vRepeatV = (voice, times) => {
     return indexExprReturnSpecimen({
         funcType: "voiceF",
         encGen: flattenDeep([1, 0.665631, voice.encGen, times.encGen, 0]),
-        decGen: "vRepeatV(" + voice.decGen + "," + times.decGen + ")",
+        decGen: "vRepeatV(" 
+            + voice.decGen + "," 
+            + "q(" + repeats + "))",
         encPhen: [z2p(totalEvents)]
             .concat(repeatedVoice),
         phenLength: totalEvents,
@@ -2733,6 +2767,25 @@ createJSON(GenoMusFunctionLibrary, 'GenoMus_function_library.json');
 
 // eligible functions (all functions available)
 var eligibleFunctions = {
+    includedFunctions: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19, 20,
+    42,
+    43,
+    44,
+    46, 
+    48,
+    
+    98, 99, 100, 101,
+
+    104, 109
+
+    ],
+    mandatoryFunctions: [], // to be implemented
+    excludedFunctions: [] // 
+};
+
+// sospechosas de crear errores: 44
+
+var eligibleFunctionsOLD = {
     includedFunctions: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19,
         20, 25, 26, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 48, 58, 63, 65, 66, 67, 68, 76, 77, 84, 104, 
         109, 110, 111, 131, 134, 135, 199, 200, 202, 277, 278, 279, 281, 282, 284, 286, 288, 290, 291,
@@ -3096,8 +3149,8 @@ var expandExpr = compressedFormExpr => {
 /////////////////////
 // PHENOTYPE DECODERS
 
-// bach roll converter
-var encPhen2bachRoll = encPhen => {
+// bach roll converter for piano species
+var encPhen2bachRoll_piano = encPhen => {
     var wholeNoteDur = 4000; // default value for tempo, 1/4 note = 1 seg 
     var roll = [];
     var numVoices, numEvents, numPitches, pos = 0;
@@ -3112,7 +3165,7 @@ var encPhen2bachRoll = encPhen => {
         pos++;
         // write events within a voice
         totalVoiceDeltaTime = 0;
-        for (var e = 0; e < numEvents; e++) {
+        for (var currEvent = 0; currEvent < numEvents; currEvent++) {
             // write event
             roll.push("(");
             // writes start time
@@ -3128,7 +3181,6 @@ var encPhen2bachRoll = encPhen => {
                 pitchSet.push(p2m(encPhen[pos]) * 100);
                 pos++;
             }
-            console.log("leidos pitches " + pitchSet);
             // read articulation
             articul = eventDur * p2a(encPhen[pos]) * .01;
             pos++;
@@ -3156,6 +3208,104 @@ var encPhen2bachRoll = encPhen => {
     }
     return roll;
 };
+
+// bach roll converter for csound species
+var encPhen2bachRoll_csound = encPhen => {
+    var wholeNoteDur = 4000; // default value for tempo, 1/4 note = 1 seg 
+    var roll = [];
+    var numVoices, numEvents, numPitches, pos = 0;
+    var eventDur, totalVoiceDeltaTime;
+    var freqSet, articul, intens;
+    var extraPar1, extraPar2, extraPar3, extraPar4, extraPar5, extraPar6, extraPar7, extraPar8;
+    // write voices within a score
+    numVoices = p2z(encPhen[pos]);
+    pos++;
+    for (var v = 0; v < numVoices; v++) {
+        numEvents = p2z(encPhen[pos]);
+        roll.push("(");
+        pos++;
+        // write events within a voice
+        totalVoiceDeltaTime = 0;
+        for (var currEvent = 0; currEvent < numEvents; currEvent++) {
+            // write event
+            roll.push("(");
+            // writes start time
+            roll.push(totalVoiceDeltaTime);
+            eventDur = wholeNoteDur * p2n(encPhen[pos]);
+            // eventDur = 1000;
+            pos++;
+            // loads number of frecuencies within an event
+            numPitches = p2z(encPhen[pos]);
+            pos++;
+            // read the frequencies;
+            freqSet = [];
+            for (var pit = 0; pit < numPitches; pit++) {
+                freqSet.push(p2mm(encPhen[pos]) * 100);
+                pos++;
+            }
+            // read articulation
+            articul = eventDur * p2a(encPhen[pos]) * .01;
+            // articul = 100;
+            pos++;
+            // read intensity (uses 27 as dynamic baseline to avoid too pianissimo notes)
+            if (encPhen[pos] == 0) intens = 0;
+            else intens = p2i(encPhen[pos]) + 27;
+            pos++;
+            // read extra parameters
+            extraPar1 = encPhen[pos];
+            pos++;
+            extraPar2 = encPhen[pos];
+            pos++;
+            extraPar3 = encPhen[pos];
+            pos++;
+            extraPar4 = encPhen[pos];
+            pos++;
+            extraPar5 = encPhen[pos];
+            pos++;
+            extraPar6 = encPhen[pos];
+            pos++;
+            extraPar7 = encPhen[pos];
+            pos++;
+            extraPar8 = encPhen[pos];
+            pos++;
+            // writes individual notes parameters
+            if (intens > 0) {
+                for (var pit = 0; pit < numPitches; pit++) {
+                    roll.push("(");
+                    // adds a pitch of the chord
+                    roll.push(freqSet[pit]);
+                    // adds duration of sound according to articulation % value
+                    roll.push(articul);
+                    // adds dynamics (converts from 0-1 to 127 standard MIDI velocity)
+                    roll.push(intens);
+                    // add slot
+                    roll.push("(");
+                    roll.push("slots");
+                    roll.push("(");
+                    roll.push(4);
+                    roll.push(extraPar1);
+                    roll.push(extraPar2);
+                    roll.push(extraPar3);
+                    roll.push(extraPar4);
+                    roll.push(extraPar5);
+                    roll.push(extraPar6);
+                    roll.push(extraPar7);
+                    roll.push(extraPar8);
+                    roll.push(")");
+                    roll.push(")");
+                    // close note
+                    roll.push(")");
+                }
+            }
+            totalVoiceDeltaTime = totalVoiceDeltaTime + eventDur;
+
+            roll.push(")");
+        }
+        roll.push(")");
+    }
+    return roll;
+};
+
 
 // csound score converter
 var encPhen2csoundScore = encPhen => {
@@ -3301,8 +3451,8 @@ var specimenDataStructure = (specimen) => ({
         booleanF: subexpressions["booleanF"]
     },
     leaves: specimen.data.leaves,
-    // roll: encPhen2bachRoll(specimen.encPhen),
-    csoundScore: encPhen2csoundScore(specimen.encPhen)
+    roll: encPhen2bachRoll(specimen.encPhen),
+    // csoundScore: encPhen2csoundScore(specimen.encPhen)
 });
 
 
@@ -3568,8 +3718,11 @@ function createGerminalSpecimen() {
         createNewSeed(phenotypeSeed);
         
         // saves all genotypes created as log file
-        genotypeLog["gen" + genCount++] = newDecodedGenotype;
-        createJSON(genotypeLog, 'genotypeLog.json');
+        // genotypeLog["gen" + genCount++] = newDecodedGenotype;
+        // createJSON(genotypeLog, 'genotypeLog.json');
+
+        // save last genotype created as log file
+        createJSON(newDecodedGenotype, 'lastGenotype.json');
         
         if (validGenotype == true) {
             newSpecimen = eval(newDecodedGenotype);
@@ -4066,6 +4219,7 @@ maxAPI.addHandler("mutateLeaves", () => {
 
 
 // global variable to store specific functions depending on current species 
+var encPhen2bachRoll;
 var e; // identity event function
 var mergeScores; // aux function to merge scores
 var vMotif, vMotifLoop, vPerpetuumMobile, vPerpetuumMobileLoop;
@@ -4076,6 +4230,7 @@ var e2Pitches, e3Pitches, e4Pitches, e5Pitches;
 var createSpeciesDependentFunctions = (speciesName) => {
     switch (speciesName) {
         case "piano":
+            encPhen2bachRoll = encPhen2bachRoll_piano;
             e = e_piano;
             mergeScores = mergeScores_piano;
             vMotif = vMotif_piano;
@@ -4089,6 +4244,7 @@ var createSpeciesDependentFunctions = (speciesName) => {
             e5Pitches = e5Pitches_piano;
             break;
         case ("csound"):
+            encPhen2bachRoll = encPhen2bachRoll_csound;
             e = e_csound;
             mergeScores = mergeScores_csound;
             vMotif = vMotif_csound;
