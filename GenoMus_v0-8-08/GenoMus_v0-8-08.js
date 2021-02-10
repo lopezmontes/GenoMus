@@ -15,8 +15,8 @@
 
 
 // TESTING DIFFERENT SPECIES
-// var currentSpecies = "csound";
-var currentSpecies = "piano";
+var currentSpecies = "csound";
+// var currentSpecies = "piano";
 
 // DEPENDENCIES
 
@@ -2768,9 +2768,10 @@ createJSON(GenoMusFunctionLibrary, 'GenoMus_function_library.json');
 // eligible functions (all functions available)
 var eligibleFunctions = {
     includedFunctions: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19, 20,
+        26, 28, 29,
     42,
     43,
-    44,
+    
     46, 
     48,
     
@@ -3722,7 +3723,7 @@ function createGerminalSpecimen() {
         // createJSON(genotypeLog, 'genotypeLog.json');
 
         // save last genotype created as log file
-        createJSON(newDecodedGenotype, 'lastGenotype.json');
+        createJSON(genCount++ + ": " + newDecodedGenotype, 'lastGenotype.json');
         
         if (validGenotype == true) {
             newSpecimen = eval(newDecodedGenotype);
