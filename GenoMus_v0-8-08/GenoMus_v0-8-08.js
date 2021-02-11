@@ -78,7 +78,7 @@ var phenMinPolyphony = 1;
 var phenMaxPolyphony = 5;
 var phenMinLength = 5;
 var phenMaxLength = 400;
-var maxIterations = 20;
+var maxIterations = 2000;
 // mutation constraints
 var mutationProbability = .2;
 var mutationAmount = .05;
@@ -1675,9 +1675,8 @@ var sConcatS = (s1, s2) => {
     var newTotalLength = s1.phenLength + s2.phenLength;
     if (newTotalLength > phenMaxLength) {
         validGenotype = false;
-        maxAPI.post("sConcatS aborted genotype due to exceeding the max length");
-        // maxAPI.post("Aborted genotype due to exceeding the max length");
-        // return eval("s(v(" + defaultEventExpression + "))");
+        maxAPI.post("sConcatS aborted genotype due to exceeding the max length with " + newTotalLength + " events.");
+        return eval("s(v(" + defaultEventExpression + "))");
     }; 
     return indexExprReturnSpecimen({
         funcType: "scoreF",
@@ -1896,7 +1895,7 @@ var mergeScores_csound = (scoEncPhen1, scoEncPhen2) => {
             // increment the number of total events of the voice, to include a new silent event at the beginning
             newEncodedPhenotype.push(z2p(numEventsVoiceSco2 + 1)); posSco2++;
             // add the silent element to start these voices' events just after first score
-            newEncodedPhenotype = newEncodedPhenotype.concat([n2p(largestVoiceDur), 0.618034, 0.31, 0, 0, 0, 0]);
+            newEncodedPhenotype = newEncodedPhenotype.concat([n2p(largestVoiceDur), 0.618034, 0.31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
             for (var e = 0; e < numEventsVoiceSco2; e++) {
                 newEncodedPhenotype.push(scoEncPhen2[posSco2]); posSco2++; // add duration
                 numPitchesEventVoiceSco2 = p2z(scoEncPhen2[posSco2]);
@@ -2520,14 +2519,12 @@ var vPerpetuumMobileLoop_csound = (noteval, listPitches, listArticulations, list
 
 // repeats a voice a number of times
 var vRepeatV = (voice, times) => {
-
-    var repeats = adjustRange(Math.round(p2q(times.encPhen[0])), 2, 12); // number of times rescaled to range [2, 12], mapped according to the deviation from the center value 0.5
-    // var repeats = adjustRange(Math.abs(p2q(times.encPhen)), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5
-    
+    var repeats = adjustRange(Math.round(p2q(times.encPhen[0])), 2, 12); // number of times rescaled to range [2, 12], mapped according to the deviation from the center value 0.5    // var repeats = adjustRange(Math.abs(p2q(times.encPhen)), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5
     var totalEvents = voice.phenLength * repeats;
     if (totalEvents > phenMaxLength) {
         validGenotype = false;
-        maxAPI.post("Aborted genotype due to exceeding the max length");
+        // maxAPI.post("vRepeatV aborted genotype due to exceeding the max length");
+        maxAPI.post("vRepeatV aborted genotype due to exceeding the max length");
         return eval("v(" + defaultEventExpression + ")");
     }
     var repeatedVoice = [];
@@ -2766,12 +2763,12 @@ var GenoMusFunctionLibrary = createFunctionIndexesCatalogues(currentSpecies + "_
 createJSON(GenoMusFunctionLibrary, 'GenoMus_function_library.json');
 
 // eligible functions (all functions available)
-var eligibleFunctions = {
+var eligibleFunctionsTEST = {
     includedFunctions: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19, 20,
         26, 28, 29,
     42,
     43,
-    
+    44,
     46, 
     48,
     
@@ -2786,7 +2783,7 @@ var eligibleFunctions = {
 
 // sospechosas de crear errores: 44
 
-var eligibleFunctionsOLD = {
+var eligibleFunctions = {
     includedFunctions: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19,
         20, 25, 26, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 48, 58, 63, 65, 66, 67, 68, 76, 77, 84, 104, 
         109, 110, 111, 131, 134, 135, 199, 200, 202, 277, 278, 279, 281, 282, 284, 286, 288, 290, 291,
@@ -2796,7 +2793,7 @@ var eligibleFunctionsOLD = {
     excludedFunctions: [25, 277, 278, 279, 281, 282, 284, 286, 288, 290, 291] // 
 };
 
-var testingFunctions = {
+var testingFunctionsOLD = {
     includedFunctions: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 17, 25, 26, 27, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 58, 63, 65,
         66, 67, 68, 76, 98, 99, 100, 104, 109, 110, 131, 134, 135, 199, 200, 277, 279, 281, 282, 284, 15, 286, 17, 288,
         19, 290, 20, 291, 48, 77, 294, 296, 298, 299, 11, 84, 302, 304, 306, 307,
