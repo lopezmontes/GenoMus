@@ -1442,7 +1442,7 @@ var vRepeatE = (event, times) => {
     if (numRepeats > phenMaxLength) {
         validGenotype = false;
         maxAPI.post("Aborted genotype due to exceeding the max length");
-        return eval("v(" + defaultEventExpression + ")");
+        // return eval("v(" + defaultEventExpression + ")");
     }
     return indexExprReturnSpecimen({
         funcType: "voiceF",
@@ -1676,7 +1676,7 @@ var sConcatS = (s1, s2) => {
     if (newTotalLength > phenMaxLength) {
         validGenotype = false;
         maxAPI.post("sConcatS aborted genotype due to exceeding the max length with " + newTotalLength + " events.");
-        return eval("s(v(" + defaultEventExpression + "))");
+        // return eval("s(v(" + defaultEventExpression + "))");
     }; 
     return indexExprReturnSpecimen({
         funcType: "scoreF",
@@ -2069,7 +2069,7 @@ var vIterE = (event, times) => {
     if (numIterations > phenMaxLength) {
         validGenotype = false;
         console.log("Aborted genotype due to exceeding the max length");
-        return eval("v(" + defaultEventExpression + ")");
+        // return eval("v(" + defaultEventExpression + ")");
     }
     return indexExprReturnSpecimen({
         funcType: "voiceF",
@@ -2095,7 +2095,7 @@ var vMotif_piano = (listNotevalues, listPitches, listArticulations, listIntensit
     if (seqLength > phenMaxLength) {
         validGenotype = false;
         maxAPI.post("Aborted genotype due to exceeding the max length");
-        return eval("v(" + defaultEventExpression + ")");
+        // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -2142,7 +2142,7 @@ var vMotif_csound = (listNotevalues, listPitches, listArticulations, listIntensi
     if (seqLength > phenMaxLength) {
         validGenotype = false;
         maxAPI.post("Aborted genotype due to exceeding the max length");
-        return eval("v(" + defaultEventExpression + ")");
+        // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -2204,7 +2204,7 @@ var vMotifLoop_piano = (listNotevalues, listPitches, listArticulations, listInte
     if (seqLength > phenMaxLength) {
         validGenotype = false;
         maxAPI.post("Aborted genotype due to exceeding the max length");
-        return eval("v(" + defaultEventExpression + ")");
+        // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -2253,7 +2253,7 @@ var vMotifLoop_csound = (listNotevalues, listPitches, listArticulations, listInt
     if (seqLength > phenMaxLength) {
         validGenotype = false;
         maxAPI.post("Aborted genotype due to exceeding the max length");
-        return eval("v(" + defaultEventExpression + ")");
+        // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -2314,7 +2314,7 @@ var vPerpetuumMobile_piano = (noteval, listPitches, listArticulations, listInten
     if (seqLength > phenMaxLength) {
         validGenotype = false;
         maxAPI.post("Aborted genotype due to exceeding the max length");
-        return eval("v(" + defaultEventExpression + ")");
+        // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -2359,7 +2359,7 @@ var vPerpetuumMobile_csound = (noteval, listPitches, listArticulations, listInte
     if (seqLength > phenMaxLength) {
         validGenotype = false;
         maxAPI.post("Aborted genotype due to exceeding the max length");
-        return eval("v(" + defaultEventExpression + ")");
+        // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -2419,7 +2419,7 @@ var vPerpetuumMobileLoop_piano = (noteval, listPitches, listArticulations, listI
     if (seqLength > phenMaxLength) {
         validGenotype = false;
         maxAPI.post("Aborted genotype due to exceeding the max length");
-        return eval("v(" + defaultEventExpression + ")");
+        // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -2466,7 +2466,7 @@ var vPerpetuumMobileLoop_csound = (noteval, listPitches, listArticulations, list
     if (seqLength > phenMaxLength) {
         validGenotype = false;
         maxAPI.post("Aborted genotype due to exceeding the max length");
-        return eval("v(" + defaultEventExpression + ")");
+        // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -2525,7 +2525,7 @@ var vRepeatV = (voice, times) => {
         validGenotype = false;
         // maxAPI.post("vRepeatV aborted genotype due to exceeding the max length");
         maxAPI.post("vRepeatV aborted genotype due to exceeding the max length");
-        return eval("v(" + defaultEventExpression + ")");
+        // return eval("v(" + defaultEventExpression + ")");
     }
     var repeatedVoice = [];
     for (var el = 0; el < repeats; el++) repeatedVoice = repeatedVoice.concat(voice.encPhen.slice(1));
@@ -4011,13 +4011,13 @@ function specimenFromInitialCondition(germinalVector, initialGenoSeed, initialPh
     if (validGenotype == true) {
         newSpecimen = eval(newDecodedGenotype);
     } else {
-        newSpecimen = eval("s(v(e(p(0),p(0),p(0),p(0))))");
+        newSpecimen = eval("s(v(" + defaultEventExpression + "))");
     }
     // genotypeLog["gen" + genCount++] = newSpecimen.decGen;
     // createJSON(genotypeLog, 'genotipeLog.json');
     if (validGenotype == false) {
         // maxAPI.post("VALID SPECIMEN NOT FOUND");
-        newSpecimen = eval("s(v(e(p(0),p(0),p(0),p(0))))");
+        newSpecimen = eval("s(v(" + defaultEventExpression + "))");
         newSpecimen.data = {
             specimenID: getFileDateName("not_found"),
             iterations: iterations,
