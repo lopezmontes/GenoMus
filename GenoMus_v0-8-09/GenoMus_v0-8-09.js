@@ -19,6 +19,7 @@ const fs = require('fs');
 
 // connection with Max interface
 const maxAPI = require('max-api');
+const { setInterval } = require('timers');
 
 
 var info;
@@ -757,21 +758,21 @@ var geneticAlgoSearchMAX = (numItemsToSearch) => {
             //console.log(currentPopulation[0]);
             
             
-            //maxAPI.post("GENERATION " + numGeneration);
-            //maxAPI.post("generationsWithoutBetterResults: " + generationsWithoutBetterResults);
-            //maxAPI.post(currentErrors[0]);
+            // maxAPI.post("GENERATION " + numGeneration);
+            // maxAPI.post("generationsWithoutBetterResults: " + generationsWithoutBetterResults);
+            // maxAPI.post(currentErrors[0]);
             bestResult = currentErrors[0][1];
             generationsWithoutBetterResults = 0;
             info = bestResult;
+            maxAPI.outlet(numGeneration);
         }
         generationsWithoutBetterResults++;
 //        if (numGeneration%10000 == 0) maxAPI.outlet(bestResult);
         //console.log(numGeneration);
     } while (bestResult > 0 && generationsWithoutBetterResults < maxUnsuccededTrials);
-    var outMessage = ("GENERATION " + numGeneration + "  \n" + currentErrors[0] + "  \nResult: " + currentPopulation[0]);
-/*     maxAPI.post("GENERATION " + numGeneration);
+    var outMessage = ("GENERATION " + numGeneration + "  \n" + currentErrors[0] + "  \nResult: " + currentPopulation[0]);     maxAPI.post("GENERATION " + numGeneration);
     maxAPI.post(currentErrors);
-    maxAPI.post("Result: " + testF(currentPopulation[0])); */
+    maxAPI.post("Result: " + testF(currentPopulation[0]));
     return outMessage;
 }
 
@@ -910,6 +911,34 @@ var geneticAlgorithmForSpecimenSearch = () => {
 }
 
 //geneticAlgoSearchMAX()
+
+// geneticoAlgoSearchMAX_00 - using global variables for enable feedback with Max
+
+// framework test
+var goal = 0.99999999999999;
+var hardTries = 0;
+var bestResult = 0;
+
+var simpleSearch = () => {
+    var lastInt;
+    var timeLapse = 50000;
+    var t0 = new Date();
+    do {
+        hardTries++;
+        lastInt = Math.random();
+        if (lastInt > bestResult) { 
+            bestResult = lastInt;
+            maxAPI.post("After " + hardTries + " it., NEW:" + bestResult + " in " + ((new Date()) - t0) + " millisecs.");
+            maxAPI.outlet("blabla");
+            return;
+        }
+    } while ((new Date()) - t0 < timeLapse);
+    maxAPI.post("After " + hardTries + " it. nothing better in " + ((new Date()) - t0) + " millisecs.");
+    maxAPI.outlet("blabla");
+    return;
+}
+    
+
 
 
 ////// GENOTYPE FUNCTIONS CORPUS
@@ -4056,6 +4085,10 @@ var mutateCurrentSpecimenLeaves = (mutProbability, mutAmount) => {
 
 // MAX COMMUNICATION
 
+maxAPI.addHandler('mtries', () => {
+    simpleSearch();
+});
+
 maxAPI.addHandler('minVoices', (integ) => {
     phenMinPolyphony = integ;
     maxAPI.post("Phenotype minimal polyphony: " + phenMinPolyphony + " voices");
@@ -4100,6 +4133,12 @@ maxAPI.addHandler('mutAmou', (float) => {
     mutationAmount = float;
     maxAPI.post("new maximal amount of a mutation: " + float);
 });
+// 
+// maxAPI.addHandler('geneticAlgoTest', (integ) => {
+//     maxAPI.post("Genetic Algorithm test dimension " + integ);
+//     geneticAlgoSearchMAX(integ);
+// });
+// 
 
 // save JSON specimen
 maxAPI.addHandler("saveSpecimen", (title) => {
@@ -4175,6 +4214,11 @@ maxAPI.addHandlers({
         };
         const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(currentSpecimen));
         await maxAPI.outlet(dict);
+    },
+    geneticAlgoTest: async (integ) => {
+        maxAPI.post("Genetic Algorithm test dimension " + integ);
+        var myResult = geneticAlgoSearchMAX(integ);
+        await maxAPI.post(myResult);
     }
 });
 
