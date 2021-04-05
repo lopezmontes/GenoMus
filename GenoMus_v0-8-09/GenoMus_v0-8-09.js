@@ -48,10 +48,12 @@ var newNormalizedUnidimArray = (n) => {
 // functions to measure proximity of phenotypes
 var distanceBetweenArrays = (goal, candidate) => {
     var distance = 0;
-    var goalLength = goal.length;
-    for (var a=0; a<goalLength; a++) {
+    var minLength = Math.min(goal.length, candidate.length);
+    var maxLength = Math.max(goal.length, candidate.length);
+    for (var a=0; a<minLength; a++) {
         distance+=Math.abs(goal[a]-candidate[a]);
     }
+    distance = distance + (maxLength - minLength) * 0.7;
     return distance;
 }    
 
@@ -915,28 +917,161 @@ var geneticAlgorithmForSpecimenSearch = () => {
 // geneticoAlgoSearchMAX_00 - using global variables for enable feedback with Max
 
 // framework test
+var fitnessFunction = (candidate) => distanceBetweenArrays(BACH, candidate);  
+// creates a brand new population
+var specimensPerGeneration = 20;
+
+var createPopulation = () => {
+    var newPopulation = [];
+    for (var a=0; a<specimensPerGeneration; a++) {
+        newPopulation[a] = newNormalizedUnidimArray(24);
+    }    
+    return newPopulation;
+}
+
+// mutate an item according to a probability of mutation (mutPr) and a maximal amount of change for each mutation (mutAm)
+var mutateItem = (cand, mutPr, mutAm) => {
+    if (mutAm == 0 || mutPr == 0) return cand;
+    if (mutPr < 1e-6) mutPr = 1e-6;
+    var trials = 0;
+    var arrLength = cand.length;
+    var newArr = cand.slice();
+    do {
+        for (var ind = 0; ind < arrLength; ind++) {
+            if (Math.random() < mutPr) {
+                newArr[ind] = checkRange(r6d(newArr[ind] + mutAm * (Math.random() * 2 - 1)));
+            }
+        }
+    // avoid identic mutations
+    } while (arrayEquals(cand, newArr) && trials < 3);
+    return newArr;
+}
+var currentPopulation = createPopulation();
+var currentErrors = [];
+var newGeneration = [];
+var numGeneration = 0;
+var elitePreservedSpecimens = 0.18; // ratio of best specimens preserved withoud mutation for next generation
+var brandNewSpecimens = 0.2; // ratio of total new specimens introduced at each generation in the genetic pool
+var numEliteSpecs = Math.ceil(specimensPerGeneration * elitePreservedSpecimens);
+maxAPI.post("numEliteSpecs: " + numEliteSpecs);
+var numNewSpecs = Math.ceil(specimensPerGeneration * brandNewSpecimens);
+maxAPI.post("numNewSpecs: " + numNewSpecs);
+var numMutatedSpecs = specimensPerGeneration - numEliteSpecs - numNewSpecs;
+maxAPI.post("numMutatedSpecs: " + numMutatedSpecs);
+var bestResult = Infinity;
+var specimenNumItems = 59;
+var refineSearchRange = specimenNumItems * 0.01;
+var generationsWithoutBetterResults = 0;
+var maxUnsuccededTrials = 10000;
 
 
+// motivo BACH original
 var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.665076, 0.8, 0.7, 0.618034, 0.57, 0.665076, 0.8, 0.7, 0.618034, 0.6, 0.665076, 0.8, 0.7, 0.618034, 0.59, 0.665076, 0.8 ];
-var goal = 0.99999999999999;
-var hardTries = 0;
-var bestResult = 0;
+
+// motivo CAGE
+var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.48, 0.665076, 0.8, 0.7, 0.618034, 0.45, 0.665076, 0.8, 0.7, 0.618034, 0.55, 0.665076, 0.8, 0.7, 0.618034, 0.52, 0.665076, 0.8 ];
+
+// var BACH = [ 0.618034, 0.416408, 0.659690767421353, 0.618034, 0.601246, 0.668224, 0.82, 0.659690767421353, 0.618034, 0.606715, 0.682041, 0.802183, 0.659690767421353, 0.618034, 0.612173, 0.695847, 0.784392, 0.659690767421353, 0.618034, 0.617653, 0.709642, 0.766575, 0.659690767421353, 0.618034, 0.623122, 0.723459, 0.748758, 0.659690767421353, 0.618034, 0.628601, 0.737276, 0.730968, 0.659690767421353, 0.618034, 0.634059, 0.751082, 0.713151, 0.659690767421353, 0.618034, 0.639539, 0.7649, 0.695333, 0.659690767421353, 0.618034, 0.644997, 0.778717, 0.677543, 0.659690767421353, 0.618034, 0.650455, 0.792512, 0.659726, 0.659690767421353, 0.618034, 0.655935, 0.806318, 0.641909, 0.659690767421353, 0.618034, 0.661393, 0.820135, 0.624118 ];
+
+// acorde en piano 1, escala cromática descendente en piano 2
+// var BACH = [ 0.236068, 0.618034, 0.536489138159475, 0.09017, 0.5, 0.683382064177176, 0.56, 0.51, 0.389158572106078, 0.636372002556916, 0.437150791895015, 0.867258, 0.425111642344117, 0.618034, 0.412198515904809, 0.535749, 0.595372214925825, 0.425111642344117, 0.618034, 0.408303, 0.43387, 0.590951, 0.425111642344117, 0.618034, 0.404408, 0.400859, 0.586529, 0.425111642344117, 0.618034, 0.400513, 0.69136, 0.582108, 0.425111642344117, 0.618034, 0.396618, 0.747486, 0.577686, 0.425111642344117, 0.618034, 0.392723, 0.505648, 0.573265, 0.425111642344117, 0.618034, 0.388828, 0.749503, 0.568843, 0.425111642344117, 0.618034, 0.384933, 0.323858, 0.564422, 0.425111642344117, 0.618034, 0.381038, 0.579242, 0.56, 0.425111642344117, 0.618034, 0.377143, 0.535749, 0.595372214925825, 0.425111642344117, 0.618034, 0.373248, 0.43387, 0.590951, 0.425111642344117, 0.618034, 0.369353, 0.400859, 0.586529, 0.425111642344117, 0.618034, 0.365458, 0.69136, 0.582108, 0.425111642344117, 0.618034, 0.361563, 0.747486, 0.577686, 0.425111642344117, 0.618034, 0.357668, 0.505648, 0.573265, 0.425111642344117, 0.618034, 0.353773, 0.749503, 0.568843, 0.425111642344117, 0.618034, 0.349878, 0.323858, 0.564422, 0.425111642344117, 0.618034, 0.345983, 0.579242, 0.56, 0.425111642344117, 0.618034, 0.342088, 0.535749, 0.595372214925825, 0.425111642344117, 0.618034, 0.338193, 0.43387, 0.590951, 0.425111642344117, 0.618034, 0.334298, 0.400859, 0.586529, 0.425111642344117, 0.618034, 0.330403, 0.69136, 0.582108, 0.425111642344117, 0.618034, 0.326508, 0.747486, 0.577686, 0.425111642344117, 0.618034, 0.322613, 0.505648, 0.573265, 0.425111642344117, 0.618034, 0.318718, 0.749503, 0.568843, 0.425111642344117, 0.618034, 0.314823, 0.323858, 0.564422, 0.425111642344117, 0.618034, 0.310928, 0.579242, 0.56, 0.425111642344117, 0.618034, 0.307033, 0.535749, 0.595372214925825, 0.425111642344117, 0.618034, 0.303138, 0.43387, 0.590951, 0.425111642344117, 0.618034, 0.299243, 0.400859, 0.586529, 0.425111642344117, 0.618034, 0.295348, 0.69136, 0.582108, 0.425111642344117, 0.618034, 0.291453, 0.747486, 0.577686, 0.425111642344117, 0.618034, 0.287558, 0.505648, 0.573265, 0.425111642344117, 0.618034, 0.283663, 0.749503, 0.568843, 0.425111642344117, 0.618034, 0.279768, 0.323858, 0.564422, 0.425111642344117, 0.618034, 0.275873, 0.579242, 0.56, 0.425111642344117, 0.618034, 0.271978, 0.535749, 0.595372214925825 ];
+
+
+// ostinato en parte central
+// var BACH = [ 0.854102, 0.618034, 0, 0.618034, 0.31, 0, 0, 0.047597, 0.281715, 0.236068, 0.657924651583815, 0.56, 0.423354, 0.33, 0.281715, 0.236068, 0.430639388480722, 0.56, 0.423354, 0.33, 0.389528, 0.618034, 0.55, 0.400859, 0.4383, 0.426596, 0.618034, 0.50521, 0.250964, 0.442658, 0.463885, 0.618034, 0.50521, 0.400859, 0.447014, 0.38274, 0.618034, 0.494399, 0.250964, 0.45137, 0.487046, 0.618034, 0.533011, 0.400859, 0.455727, 0.424498, 0.618034, 0.516022, 0.250964, 0.460083, 0.433332, 0.618034, 0.528377, 0.400859, 0.464442, 0.389528, 0.618034, 0.529922, 0.250964, 0.468798, 0.426596, 0.618034, 0.55, 0.400859, 0.473154, 0.463885, 0.618034, 0.50521, 0.250964, 0.477511, 0.38274, 0.618034, 0.50521, 0.400859, 0.481869, 0.487046, 0.618034, 0.494399, 0.250964, 0.486226, 0.424498, 0.618034, 0.533011, 0.400859, 0.490582, 0.433332, 0.618034, 0.516022, 0.250964, 0.494938, 0.389528, 0.618034, 0.528377, 0.400859, 0.499294, 0.426596, 0.618034, 0.529922, 0.250964, 0.503653, 0.463885, 0.618034, 0.55, 0.400859, 0.508009, 0.38274, 0.618034, 0.50521, 0.250964, 0.512366, 0.487046, 0.618034, 0.50521, 0.400859, 0.516722, 0.424498, 0.618034, 0.494399, 0.250964, 0.521081, 0.433332, 0.618034, 0.533011, 0.400859, 0.525437, 0.389528, 0.618034, 0.516022, 0.250964, 0.529793, 0.426596, 0.618034, 0.528377, 0.400859, 0.53415, 0.463885, 0.618034, 0.529922, 0.250964, 0.538506, 0.38274, 0.618034, 0.55, 0.400859, 0.542865, 0.487046, 0.618034, 0.50521, 0.250964, 0.547221, 0.424498, 0.618034, 0.50521, 0.400859, 0.551577, 0.433332, 0.618034, 0.494399, 0.250964, 0.555933, 0.389528, 0.618034, 0.533011, 0.400859, 0.56029, 0.426596, 0.618034, 0.516022, 0.250964, 0.564648, 0.463885, 0.618034, 0.528377, 0.400859, 0.569005, 0.38274, 0.618034, 0.529922, 0.250964, 0.573361, 0.487046, 0.618034, 0.55, 0.400859, 0.577717, 0.424498, 0.618034, 0.50521, 0.250964, 0.582076, 0.433332, 0.618034, 0.50521, 0.400859, 0.586432, 0.389528, 0.618034, 0.494399, 0.250964, 0.590789, 0.426596, 0.618034, 0.533011, 0.400859, 0.595145, 0.463885, 0.618034, 0.516022, 0.250964, 0.599501, 0.38274, 0.618034, 0.528377, 0.400859, 0.60386, 0.487046, 0.618034, 0.529922, 0.250964, 0.608216, 0.424498, 0.618034, 0.55, 0.400859, 0.612572, 0.433332, 0.618034, 0.50521, 0.250964, 0.616929, 0.389528, 0.618034, 0.50521, 0.400859, 0.621287, 0.426596, 0.618034, 0.494399, 0.250964, 0.625644, 0.463885, 0.618034, 0.533011, 0.400859, 0.63, 0.236068, 0.281715, 0.236068, 0.551384007085463, 0.56, 0.423354, 0.33, 0.281715, 0.236068, 0.641781872344856, 0.56, 0.423354, 0.33 ];
+
+globalSeed = parseInt(Math.random()*100000000);
+
+var simpleBACHSearch = () => {
+    var timeLapse = 3000;
+    var startTime = new Date();
+    var newTryBestDistance = Infinity;
+    var foundNewBest = false;
+    // maxAPI.post(currentPopulation[0]);
+    do {
+        numGeneration++;
+        // creates new generation
+        newGeneration = [];
+        for (var specIndx = 0; specIndx < numEliteSpecs; specIndx++) {
+            newGeneration.push(currentPopulation[specIndx].slice());
+        }
+        // adds mutated specimens
+        for (var specIndx2 = 0; specIndx2 < numMutatedSpecs; specIndx2++) {
+            // newGeneration.push(mutateItem(currentPopulation[specIndx2].slice(), Math.random(), 0.5*refineSearchRange));
+            if (Math.random() > 0.7) phenotypeSeed = parseInt(Math.random()*100000000);
+            newGeneration.push(mutateItem(currentPopulation[specIndx2].slice(), 0.2, Math.random()));
+        }
+        // adds brand new specimens
+        for (var specIndx3 = 0; specIndx3 < numNewSpecs; specIndx3++) {
+            globalSeed = parseInt(Math.random()*100000000);
+            newGeneration.push(newNormalizedUnidimArray(specimenNumItems));
+        }
+        // maxAPI.post(newGeneration);
+        // evaluates fitness of each new specimen
+        for (var a=0; a<specimensPerGeneration; a++) {
+            var evaluatedNewCandidate = specimenDataStructure(specimenFromInitialCondition(newGeneration[a], globalSeed, phenotypeSeed));
+            currentErrors[a] = [a,fitnessFunction(evaluatedNewCandidate.encodedPhenotype)];
+        }
+        // order specimen indexes according to errors 
+        currentErrors.sort((a,b)=>a[1]-b[1]);
+        // reorder newGeneration according to its previous calculated error, replacing current population
+        currentPopulation = [];
+        for (var a=0; a<specimensPerGeneration; a++) {
+            currentPopulation.push(newGeneration[currentErrors[a][0]]);
+        }
+
+        // maxAPI.post(currentErrors);
+        newTryBestDistance = currentErrors[0][1];
+        // maxAPI.post("newTryBestDistance " + newTryBestDistance);
+        // maxAPI.post("but bestResult " + bestResult);
+        
+
+
+
+        // globalSeed = parseInt(Math.random()*100000000);
+        
+        // var newGerminalV = mutateItem(currentPopulation[0], Math.random(), 0.4);
+        // var newCandidate = specimenDataStructure(specimenFromInitialCondition(newGerminalV, globalSeed, phenotypeSeed));
+        // newDistance = distanceBetweenArrays(BACH, newCandidate.encodedPhenotype);
+        if (newTryBestDistance < bestResult) {
+            // currentPopulation[0] = newGerminalV;
+            bestResult = newTryBestDistance; 
+            foundNewBest = true;       
+        }
+    } while ((new Date()) - startTime < timeLapse && foundNewBest == false);
+    if (foundNewBest) {
+        var newBestSpecimen = specimenDataStructure(specimenFromInitialCondition(newGeneration[0], globalSeed, phenotypeSeed))
+        maxAPI.post("proximity: " + bestResult + " after " + numGeneration);
+        // for (var nums = 0; nums < specimensPerGeneration; nums++) {
+        //     maxAPI.post(currentPopulation[nums][0] + " " + currentPopulation[nums][1] + " " + currentPopulation[nums][2] + " " + currentPopulation[nums][3] + " " + currentPopulation[nums][4] + " " + currentPopulation[nums][5] + " " + currentPopulation[nums][6] + " " + currentPopulation[nums][7] + " " + currentPopulation[nums][8]);
+        // }
+        maxAPI.post("proximity: " + bestResult + " after " + numGeneration);
+        maxAPI.setDict("specimen.dict", newBestSpecimen);
+        maxAPI.outlet("finished");
+        maxAPI.outlet("genosearch");
+
+    } else {
+        // maxAPI.post("current fitness: " + bestResult + " after " + numGeneration);
+        maxAPI.post(numGeneration + " generations");
+        maxAPI.outlet("genosearch");
+    }
+}
 
 var simpleSearch = () => {
     var lastInt;
     var timeLapse = 50000;
     var t0 = new Date();
     do {
-        hardTries++;
+        numGeneration++;
         lastInt = Math.random();
         if (lastInt > bestResult) { 
             bestResult = lastInt;
-            maxAPI.post("After " + hardTries + " it., NEW:" + bestResult + " in " + ((new Date()) - t0) + " millisecs.");
+            maxAPI.post("After " + numGeneration + " it., NEW:" + bestResult + " in " + ((new Date()) - t0) + " millisecs.");
             maxAPI.outlet("genosearch");
             return;
         }
     } while ((new Date()) - t0 < timeLapse);
-    maxAPI.post("After " + hardTries + " it. nothing better in " + ((new Date()) - t0) + " millisecs.");
+    maxAPI.post("After " + numGeneration + " it. nothing better in " + ((new Date()) - t0) + " millisecs.");
 }
     
 
@@ -1462,7 +1597,7 @@ var vRepeatE = (event, times) => {
     //////////// if (numRepeats > phenMaxLength) return -1;
     if (numRepeats > phenMaxLength) {
         validGenotype = false;
-        maxAPI.post("Aborted genotype due to exceeding the max length");
+        // maxAPI.post("Aborted genotype due to exceeding the max length");
         // return eval("v(" + defaultEventExpression + ")");
     }
     return indexExprReturnSpecimen({
@@ -1696,7 +1831,7 @@ var sConcatS = (s1, s2) => {
     var newTotalLength = s1.phenLength + s2.phenLength;
     if (newTotalLength > phenMaxLength) {
         validGenotype = false;
-        maxAPI.post("sConcatS aborted genotype due to exceeding the max length with " + newTotalLength + " events.");
+        // maxAPI.post("sConcatS aborted genotype due to exceeding the max length with " + newTotalLength + " events.");
         // return eval("s(v(" + defaultEventExpression + "))");
     }; 
     return indexExprReturnSpecimen({
@@ -1956,7 +2091,7 @@ var sAddV = (s, v) => {
     var newTotalLength = s.phenLength + v.phenLength;
     if (newTotalLength > phenMaxLength) {
         validGenotype = false;
-        maxAPI.post("Aborted genotype due to exceeding the max length");
+        // maxAPI.post("Aborted genotype due to exceeding the max length");
         // return eval("s(v(" + defaultEventExpression + "))");
     };    
     return indexExprReturnSpecimen({
@@ -1980,7 +2115,7 @@ var sAddS = (s1, s2) => {
     var newTotalLength = s1.phenLength + s2.phenLength;
     if (newTotalLength > phenMaxLength) {
         validGenotype = false;
-        maxAPI.post("Aborted genotype due to exceeding the max length");
+        // maxAPI.post("Aborted genotype due to exceeding the max length");
         // return eval("s(v(" + defaultEventExpression + "))");
     };     
     return indexExprReturnSpecimen({
@@ -2086,7 +2221,7 @@ var vIterE = (event, times) => {
     ///////////// if (numIterations > phenMaxLength) return -1;
     if (numIterations > phenMaxLength) {
         validGenotype = false;
-        console.log("Aborted genotype due to exceeding the max length");
+        // console.log("Aborted genotype due to exceeding the max length");
         // return eval("v(" + defaultEventExpression + ")");
     }
     return indexExprReturnSpecimen({
@@ -2112,7 +2247,7 @@ var vMotif_piano = (listNotevalues, listPitches, listArticulations, listIntensit
     /////////// if (seqLength > phenMaxLength) return -1;
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        maxAPI.post("Aborted genotype due to exceeding the max length");
+        // maxAPI.post("Aborted genotype due to exceeding the max length");
         // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
@@ -2159,7 +2294,7 @@ var vMotif_csound = (listNotevalues, listPitches, listArticulations, listIntensi
     /////////// if (seqLength > phenMaxLength) return -1;
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        maxAPI.post("Aborted genotype due to exceeding the max length");
+        // maxAPI.post("Aborted genotype due to exceeding the max length");
         // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
@@ -2221,7 +2356,7 @@ var vMotifLoop_piano = (listNotevalues, listPitches, listArticulations, listInte
     //////////// if (seqLength > phenMaxLength) return -1;
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        maxAPI.post("Aborted genotype due to exceeding the max length");
+        // maxAPI.post("Aborted genotype due to exceeding the max length");
         // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
@@ -2331,7 +2466,7 @@ var vPerpetuumMobile_piano = (noteval, listPitches, listArticulations, listInten
     /////////// if (seqLength > phenMaxLength) return -1;
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        maxAPI.post("Aborted genotype due to exceeding the max length");
+        // maxAPI.post("Aborted genotype due to exceeding the max length");
         // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
@@ -2376,7 +2511,7 @@ var vPerpetuumMobile_csound = (noteval, listPitches, listArticulations, listInte
         listParam12.encPhen.length);
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        maxAPI.post("Aborted genotype due to exceeding the max length");
+        // maxAPI.post("Aborted genotype due to exceeding the max length");
         // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
@@ -2483,7 +2618,7 @@ var vPerpetuumMobileLoop_csound = (noteval, listPitches, listArticulations, list
         totalParam9values, totalParam10values, totalParam11values, totalParam12values);
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        maxAPI.post("Aborted genotype due to exceeding the max length");
+        // maxAPI.post("Aborted genotype due to exceeding the max length");
         // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
@@ -2542,7 +2677,6 @@ var vRepeatV = (voice, times) => {
     if (totalEvents > phenMaxLength) {
         validGenotype = false;
         // maxAPI.post("vRepeatV aborted genotype due to exceeding the max length");
-        maxAPI.post("vRepeatV aborted genotype due to exceeding the max length");
         // return eval("v(" + defaultEventExpression + ")");
     }
     var repeatedVoice = [];
@@ -2808,7 +2942,7 @@ var eligibleFunctions = {
         294, 296, 298, 299, 302, 304, 306, 307, 310, 311, 312, 313, 314, 315, 316, 317, 318, 201, 280,
     98, 99, 100, 101 ],
     mandatoryFunctions: [], // to be implemented
-    excludedFunctions: [25, 277, 278, 279, 281, 282, 284, 286, 288, 290, 291] // 
+    excludedFunctions: [277, 278, 279, 281, 282, 284, 286, 288, 290, 291] // 
 };
 
 var testingFunctionsOLD = {
@@ -4175,23 +4309,28 @@ maxAPI.addHandlers({
 
 
     //////////// IN DEVELOPMENT
+    //////////////
+    //////////////
+    //////////////
 
     mtries: async () => {
-        globalSeed = parseInt(Math.random()*100000000);
-        var newCandidate = specimenDataStructure(createGerminalSpecimen());
-        await maxAPI.post("proximity: " + distanceBetweenArrays(BACH, newCandidate.encodedPhenotype));
-        await maxAPI.setDict("specimen.dict", newCandidate);
-        await maxAPI.outlet("finished");
-        await maxAPI.outlet("genosearch");
+        simpleBACHSearch();
+        // await maxAPI.setDict("specimen.dict", bestSpecimen);
+        // await maxAPI.outlet("finished");
+        // await maxAPI.outlet("genosearch");
     },
 
     //////////////
+    //////////////
+    //////////////
+    //////////////
 
     renderInitialConditions: async (arrAsStr) => {
-        const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(specimenFromInitialCondition(
-            eval(arrAsStr), globalSeed, phenotypeSeed)));            
+        const dict = specimenDataStructure(specimenFromInitialCondition(
+            eval(arrAsStr), globalSeed, phenotypeSeed));            
             //newNormalizedUnidimArray(8000), globalSeed, phenotypeSeed)));
-        await maxAPI.outlet(dict);
+        await maxAPI.setDict("specimen.dict", dict);
+        await maxAPI.outlet("finished");
     },
     text: async (...args) => {
         // make a string from params array
