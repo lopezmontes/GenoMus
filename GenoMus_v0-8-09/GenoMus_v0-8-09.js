@@ -6,8 +6,8 @@
 
 
 // TESTING DIFFERENT SPECIES
-var currentSpecies = "csound";
-// var currentSpecies = "piano";
+// var currentSpecies = "csound";
+var currentSpecies = "piano";
 
 // DEPENDENCIES
 
@@ -46,13 +46,13 @@ var newNormalizedUnidimArray = (n) => {
 };
 
 // functions to measure proximity of phenotypes
-var proximityOfArrays = (goal, candidate) => {
-    var error = 0;
+var distanceBetweenArrays = (goal, candidate) => {
+    var distance = 0;
     var goalLength = goal.length;
     for (var a=0; a<goalLength; a++) {
-        error+=Math.abs(goal[a]-candidate[a]);
+        distance+=Math.abs(goal[a]-candidate[a]);
     }
-    return error;
+    return distance;
 }    
 
 
@@ -673,7 +673,7 @@ var geneticAlgoSearchMAX = (numItemsToSearch) => {
     // fitness function to evaluate how good is a candidate
     // var fitnessFunction = (candidate) => Math.abs(desiredResult - testF(candidate));
 
-    var fitnessFunction = (candidate) => proximityOfArrays(candidate, BACH);  
+    var fitnessFunction = (candidate) => distanceBetweenArrays(candidate, BACH);  
     // creates a brand new population
     var createPopulation = () => {
         var newPopulation = [];
@@ -807,7 +807,7 @@ var geneticAlgorithmForSpecimenSearch = () => {
     // fitness function to evaluate how good is a candidate
     // var fitnessFunction = (candidate) => Math.abs(desiredResult - testF(candidate));
 
-    var fitnessFunction = (candidate) => proximityOfArrays(candidate, BACH);  
+    var fitnessFunction = (candidate) => distanceBetweenArrays(candidate, BACH);  
     // creates a brand new population
     var createPopulation = () => {
         var newPopulation = [];
@@ -915,6 +915,9 @@ var geneticAlgorithmForSpecimenSearch = () => {
 // geneticoAlgoSearchMAX_00 - using global variables for enable feedback with Max
 
 // framework test
+
+
+var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.665076, 0.8, 0.7, 0.618034, 0.57, 0.665076, 0.8, 0.7, 0.618034, 0.6, 0.665076, 0.8, 0.7, 0.618034, 0.59, 0.665076, 0.8 ];
 var goal = 0.99999999999999;
 var hardTries = 0;
 var bestResult = 0;
@@ -929,13 +932,11 @@ var simpleSearch = () => {
         if (lastInt > bestResult) { 
             bestResult = lastInt;
             maxAPI.post("After " + hardTries + " it., NEW:" + bestResult + " in " + ((new Date()) - t0) + " millisecs.");
-            maxAPI.outlet("blabla");
+            maxAPI.outlet("genosearch");
             return;
         }
     } while ((new Date()) - t0 < timeLapse);
     maxAPI.post("After " + hardTries + " it. nothing better in " + ((new Date()) - t0) + " millisecs.");
-    maxAPI.outlet("blabla");
-    return;
 }
     
 
@@ -4085,9 +4086,13 @@ var mutateCurrentSpecimenLeaves = (mutProbability, mutAmount) => {
 
 // MAX COMMUNICATION
 
-maxAPI.addHandler('mtries', () => {
-    simpleSearch();
-});
+/* maxAPI.addHandler('mtries', () => {
+    var dict = specimenDataStructure(createGerminalSpecimen());
+    maxAPI.setDict("specimen.dict", dict);
+    maxAPI.outlet("finished");
+    // simpleSearch();
+    maxAPI.outlet("genosearch");
+}); */
 
 maxAPI.addHandler('minVoices', (integ) => {
     phenMinPolyphony = integ;
@@ -4161,9 +4166,27 @@ maxAPI.addHandler("loadSpecimen", (savedSpecimen) => {
 // creates a new germinal specimen and send the dict data to Max
 maxAPI.addHandlers({
     newGerminalSpecimen: async () => {
-        const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(createGerminalSpecimen()));
-        await maxAPI.outlet(dict);
+        const dict = specimenDataStructure(createGerminalSpecimen());
+        await maxAPI.setDict("specimen.dict", dict);
+        await maxAPI.outlet("finished");
     },
+
+
+
+
+    //////////// IN DEVELOPMENT
+
+    mtries: async () => {
+        globalSeed = parseInt(Math.random()*100000000);
+        var newCandidate = specimenDataStructure(createGerminalSpecimen());
+        await maxAPI.post("proximity: " + distanceBetweenArrays(BACH, newCandidate.encodedPhenotype));
+        await maxAPI.setDict("specimen.dict", newCandidate);
+        await maxAPI.outlet("finished");
+        await maxAPI.outlet("genosearch");
+    },
+
+    //////////////
+
     renderInitialConditions: async (arrAsStr) => {
         const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(specimenFromInitialCondition(
             eval(arrAsStr), globalSeed, phenotypeSeed)));            
@@ -4191,7 +4214,9 @@ maxAPI.addHandlers({
             leaves: extractLeaves(currentSpecimen.encGen)
         };
         const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(currentSpecimen));
-        await maxAPI.outlet(dict);
+        // await maxAPI.outlet(dict);
+        await maxAPI.setDict("specimen.dict", dict);
+        await maxAPI.outlet("finished");
     },
     geneAlgo: async (numElements) => {
         var startdate = new Date();
@@ -4218,7 +4243,8 @@ maxAPI.addHandlers({
     geneticAlgoTest: async (integ) => {
         maxAPI.post("Genetic Algorithm test dimension " + integ);
         var myResult = geneticAlgoSearchMAX(integ);
-        await maxAPI.post(myResult);
+
+        await maxAPI.outlet("finished");
     }
 });
 
@@ -4244,7 +4270,8 @@ maxAPI.addHandler("mutateLeaves", () => {
         depth: currentSpecimen.depth,
         leaves: leaves
     };
-    maxAPI.outlet(maxAPI.setDict("specimen.dict", specimenDataStructure(currentSpecimen)));
+    maxAPI.setDict("specimen.dict", specimenDataStructure(currentSpecimen));
+    maxAPI.outlet("finished");
 });
 
 
