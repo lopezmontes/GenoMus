@@ -919,12 +919,12 @@ var geneticAlgorithmForSpecimenSearch = () => {
 // framework test
 var fitnessFunction = (candidate) => distanceBetweenArrays(BACH, candidate);  
 // creates a brand new population
-var specimensPerGeneration = 50;
+var specimensPerGeneration = 60;
 
 var createPopulation = () => {
     var newPopulation = [];
     for (var a=0; a<specimensPerGeneration; a++) {
-        newPopulation[a] = newNormalizedUnidimArray(40);
+        newPopulation[a] = newNormalizedUnidimArray(50);
     }    
     return newPopulation;
 }
@@ -966,7 +966,10 @@ var maxUnsuccededTrials = 10000;
 
 
 // motivo BACH original
-var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.665076, 0.8, 0.35, 0.618034, 0.57, 0.665076, 0.8, 0.7, 0.618034, 0.6, 0.665076, 0.8, 0.35, 0.618034, 0.59, 0.665076, 0.8 ];
+var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.665076, 0.8, 0.7, 0.618034, 0.57, 0.665076, 0.8, 0.7, 0.618034, 0.6, 0.665076, 0.8, 0.7, 0.618034, 0.59, 0.665076, 0.8, 0.6 ];
+
+// BACH cresc.
+// var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.665076, 0.8, 0.2, 0.618034, 0.57, 0.665076, 0.8, 0.4, 0.618034, 0.6, 0.665076, 0.8, 0.6, 0.618034, 0.59, 0.665076, 0.8, 0.6 ];
 
 // motivo CAGE
 // var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.36, 0.665076, 0.8, 0.7, 0.618034, 0.24, 0.665076, 0.8, 0.7, 0.618034, 0.60, 0.665076, 0.8, 0.7, 0.618034, 0.72, 0.665076, 0.8 ];
@@ -993,8 +996,10 @@ var simpleBACHSearch = () => {
     var newTryBestDistance = Infinity;
     var foundNewBest = false;
     var progressiveMutationFactor;
+    var generationsWithoutBetterResults = 0;
     // maxAPI.post(currentPopulation[0]);
     do {
+        generationsWithoutBetterResults++;
         numGeneration++;
         thisLoopTrials++;
         // creates new generation
@@ -1008,7 +1013,7 @@ var simpleBACHSearch = () => {
             if (Math.random() > 0.75) phenotypeSeed = parseInt(Math.random()*100000000);
             progressiveMutationFactor = Math.pow((specIndx2+1)/(numMutatedSpecs+1),3);
             // maxAPI.post(progressiveMutationFactor);
-            newGeneration.push(mutateItem(currentPopulation[specIndx2].slice(), progressiveMutationFactor+0.01, progressiveMutationFactor+0.2));
+            newGeneration.push(mutateItem(currentPopulation[specIndx2].slice(), progressiveMutationFactor+0.01, progressiveMutationFactor+0.01+generationsWithoutBetterResults*0.005));
 
             // newGeneration.push(mutateItem(currentPopulation[specIndx2].slice(), 0.05, 0.2));
         }
