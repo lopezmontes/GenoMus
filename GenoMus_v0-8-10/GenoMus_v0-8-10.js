@@ -601,7 +601,7 @@ var mutateItem = (cand, mutPr, mutAm) => {
 }
 
 // creates a brand new population
-var germinalVectorMaximalLength = 45;
+var germinalVectorMaximalLength = 200;
 var currentPopulation = createPopulation(germinalVectorMaximalLength);
 
 var currentErrors = [];
@@ -672,7 +672,7 @@ var simpleBACHSearch = () => {
         // maxAPI.post(newGeneration);
         // evaluates fitness of each new specimen
         for (var a=0; a<specimensPerGeneration; a++) {
-            phenotypeSeed = 123456789; // parche mientras se incorpora
+            // phenotypeSeed = 123456789; // parche mientras se incorpora
             evaluatedNewCandidate = specimenDataStructure(specimenFromInitialCondition(newGeneration[a], globalSeed, phenotypeSeed));
             currentErrors[a] = [a,fitnessFunction(evaluatedNewCandidate.encodedPhenotype)];
             newGenerationMappedGerminalVectors[a] = evaluatedNewCandidate.initialConditions.germinalVector;
