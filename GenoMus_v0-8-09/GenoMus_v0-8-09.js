@@ -53,7 +53,10 @@ var distanceBetweenArrays = (goal, candidate) => {
     for (var a=0; a<minLength; a++) {
         distance+=Math.pow(Math.abs(goal[a]-candidate[a]),.3);
     }
-    distance = distance + (maxLength - minLength) * 0.7;
+    distance = distance + (maxLength - minLength) * .3;
+    if (goal.length > candidate.length) {
+        return distance + (goal.length - candidate.length) * 2;
+    }
     return distance;
 }    
 
@@ -542,389 +545,39 @@ var indexExprReturnSpecimen = s => {
 
 ////// GENETIC ALGORITHM FIRST APPROACH
 
-// PROTO GENETIC ALGORITHM
-var geneticAlgoSearch = () => {
-    var specimensPerGeneration = 24;
-    var specimenNumItems = 800;
 
-    // goal function to be satisfied
-    var testF = (arr) => {
-        var len = arr.length;
-        var resu = 0;
-        for(var i=0; i<len; i++) {
-            resu+=arr[i];
-        }
-        return resu/len;
-    }
-    var desiredResult = 0.2;
+// GOALS
+// motivo BACH original
+// var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.665076, 0.8, 0.7, 0.618034, 0.57, 0.665076, 0.8, 0.7, 0.618034, 0.6, 0.665076, 0.8, 0.7, 0.618034, 0.59, 0.665076, 0.8, 0.6 ];
 
-    // fitness function to evaluate how good is a candidate
-    var fitnessFunction = (candidate) => Math.abs(desiredResult - testF(candidate));
+// BACH cresc.
+// var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.665076, 0.8, 0.2, 0.618034, 0.57, 0.665076, 0.8, 0.4, 0.618034, 0.6, 0.665076, 0.8, 0.6, 0.618034, 0.59, 0.665076, 0.8, 0.6 ];
 
-    // creates a brand new population
-    var createPopulation = () => {
-        var newPopulation = [];
-        for (var a=0; a<specimensPerGeneration; a++) {
-            newPopulation[a] = newNormalizedUnidimArray(specimenNumItems);
-        }    
-        return newPopulation;
-    }
-    // mutate an item according to a probability of mutation (mutPr) and a maximal amount of change for each mutation (mutAm)
-    var mutateItem = (cand, mutPr, mutAm) => {
-        if (mutAm == 0 || mutPr == 0) return cand;
-        if (mutPr < 1e-6) mutPr = 1e-6;
-        var newArr = cand.slice();
-        do {
-            for (var ind=0; ind<specimenNumItems; ind++) {
-                if (Math.random() < mutPr) {
-                    newArr[ind] = checkRange(newArr[ind] + mutAm * (Math.random() * 2 - 1));
-                }
-            }
-        // avoid identic mutations
-        } while (arrayEquals(cand, newArr));
-        return newArr;
-    }
-    var currentPopulation = createPopulation();
-    var currentErrors = [];
-    var newGeneration = [];
-    var numGeneration = 0;
-    var elitePreservedSpecimens = 0.12; // ratio of best specimens preserved withoud mutation for next generation
-    var brandNewSpecimens = 0.04; // ratio of total new specimens introduced at each generation in the genetic pool
-    var numEliteSpecs = Math.ceil(specimensPerGeneration * elitePreservedSpecimens);
-    var numNewSpecs = Math.ceil(specimensPerGeneration * brandNewSpecimens);
-    var numMutatedSpecs = specimensPerGeneration - numEliteSpecs - numNewSpecs;
-    var bestResult = 1000000;
-    var refineSearchRange = specimenNumItems * 0.01;
-    var generationsWithoutBetterResults = 0;
-    var maxUnsuccededTrials = 1000;
-    // var generationsWithoutBetterResults = 0;
-    do {
-        numGeneration++;
-        // modulates range of mutations to get better flexibility of system
-        refineSearchRange = bestResult*(Math.sin(numGeneration)+1); 
-        // creates new generation
-        newGeneration = [];
-        // adds elite specimens
-        for (var specIndx = 0; specIndx < numEliteSpecs; specIndx++) {
-            newGeneration.push(currentPopulation[specIndx].slice());
-        }
-        // adds mutated specimens
-        for (var specIndx = 0; specIndx < numMutatedSpecs; specIndx++) {
-            newGeneration.push(mutateItem(currentPopulation[specIndx],Math.random(),Math.random()*refineSearchRange));
-        }
-        // adds brand new specimens
-        for (var specIndx = 0; specIndx < numNewSpecs; specIndx++) {
-            newGeneration.push(newNormalizedUnidimArray(specimenNumItems));
-        }
-        // evaluates fitness of each new specimen
-        for (var a=0; a<specimensPerGeneration; a++) {
-            currentErrors[a] = [a,fitnessFunction(newGeneration[a])];
-        }
-        // order specimen indexes according to errors 
-        currentErrors.sort((a,b)=>a[1]-b[1]);
-        // reorder newGeneration according to its previous calculated error, replacing current population
-        currentPopulation = [];
-        for (var a=0; a<specimensPerGeneration; a++) {
-            currentPopulation.push(newGeneration[currentErrors[a][0]]);
-        }
-        // update bestResult if better
-        if (currentErrors[0][1] < bestResult) {
-            console.clear();
-            console.log("GENERATION " + numGeneration);
-            //console.log("refineSearchRange: " + refineSearchRange);
-            console.log("generationsWithoutBetterResults: " + generationsWithoutBetterResults);
-            console.log(currentErrors);
-            bestResult = currentErrors[0][1];
-            generationsWithoutBetterResults = 0;
-        }
-        generationsWithoutBetterResults++;
-        if (numGeneration%100 == 0) console.log("Gen. " + numGeneration);
-    } while (generationsWithoutBetterResults < maxUnsuccededTrials && bestResult > 0);
-    console.log("GENERATION " + numGeneration);
-    console.log(currentErrors);
-    console.log("Result: " + testF(currentPopulation[0]));
-    return;
-}
+// motivo CAGE
+var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.36, 0.665076, 0.8, 0.7, 0.618034, 0.21, 0.665076, 0.8, 0.7, 0.618034, 0.67, 0.665076, 0.8, 0.7, 0.618034, 0.76, 0.665076, 0.8 ];
+// var BACH = [ 0.618034, 0.416408, 0.659690767421353, 0.618034, 0.601246, 0.668224, 0.82, 0.659690767421353, 0.618034, 0.606715, 0.682041, 0.802183, 0.659690767421353, 0.618034, 0.612173, 0.695847, 0.784392, 0.659690767421353, 0.618034, 0.617653, 0.709642, 0.766575, 0.659690767421353, 0.618034, 0.623122, 0.723459, 0.748758, 0.659690767421353, 0.618034, 0.628601, 0.737276, 0.730968, 0.659690767421353, 0.618034, 0.634059, 0.751082, 0.713151, 0.659690767421353, 0.618034, 0.639539, 0.7649, 0.695333, 0.659690767421353, 0.618034, 0.644997, 0.778717, 0.677543, 0.659690767421353, 0.618034, 0.650455, 0.792512, 0.659726, 0.659690767421353, 0.618034, 0.655935, 0.806318, 0.641909, 0.659690767421353, 0.618034, 0.661393, 0.820135, 0.624118 ];
 
-// Test of genetic algorithm
-//geneticAlgoSearch();
+// acorde en piano 1, escala cromática descendente en piano 2
+// var BACH = [ 0.236068, 0.618034, 0.536489138159475, 0.09017, 0.5, 0.683382064177176, 0.56, 0.51, 0.389158572106078, 0.636372002556916, 0.437150791895015, 0.867258, 0.425111642344117, 0.618034, 0.412198515904809, 0.535749, 0.595372214925825, 0.425111642344117, 0.618034, 0.408303, 0.43387, 0.590951, 0.425111642344117, 0.618034, 0.404408, 0.400859, 0.586529, 0.425111642344117, 0.618034, 0.400513, 0.69136, 0.582108, 0.425111642344117, 0.618034, 0.396618, 0.747486, 0.577686, 0.425111642344117, 0.618034, 0.392723, 0.505648, 0.573265, 0.425111642344117, 0.618034, 0.388828, 0.749503, 0.568843, 0.425111642344117, 0.618034, 0.384933, 0.323858, 0.564422, 0.425111642344117, 0.618034, 0.381038, 0.579242, 0.56, 0.425111642344117, 0.618034, 0.377143, 0.535749, 0.595372214925825, 0.425111642344117, 0.618034, 0.373248, 0.43387, 0.590951, 0.425111642344117, 0.618034, 0.369353, 0.400859, 0.586529, 0.425111642344117, 0.618034, 0.365458, 0.69136, 0.582108, 0.425111642344117, 0.618034, 0.361563, 0.747486, 0.577686, 0.425111642344117, 0.618034, 0.357668, 0.505648, 0.573265, 0.425111642344117, 0.618034, 0.353773, 0.749503, 0.568843, 0.425111642344117, 0.618034, 0.349878, 0.323858, 0.564422, 0.425111642344117, 0.618034, 0.345983, 0.579242, 0.56, 0.425111642344117, 0.618034, 0.342088, 0.535749, 0.595372214925825, 0.425111642344117, 0.618034, 0.338193, 0.43387, 0.590951, 0.425111642344117, 0.618034, 0.334298, 0.400859, 0.586529, 0.425111642344117, 0.618034, 0.330403, 0.69136, 0.582108, 0.425111642344117, 0.618034, 0.326508, 0.747486, 0.577686, 0.425111642344117, 0.618034, 0.322613, 0.505648, 0.573265, 0.425111642344117, 0.618034, 0.318718, 0.749503, 0.568843, 0.425111642344117, 0.618034, 0.314823, 0.323858, 0.564422, 0.425111642344117, 0.618034, 0.310928, 0.579242, 0.56, 0.425111642344117, 0.618034, 0.307033, 0.535749, 0.595372214925825, 0.425111642344117, 0.618034, 0.303138, 0.43387, 0.590951, 0.425111642344117, 0.618034, 0.299243, 0.400859, 0.586529, 0.425111642344117, 0.618034, 0.295348, 0.69136, 0.582108, 0.425111642344117, 0.618034, 0.291453, 0.747486, 0.577686, 0.425111642344117, 0.618034, 0.287558, 0.505648, 0.573265, 0.425111642344117, 0.618034, 0.283663, 0.749503, 0.568843, 0.425111642344117, 0.618034, 0.279768, 0.323858, 0.564422, 0.425111642344117, 0.618034, 0.275873, 0.579242, 0.56, 0.425111642344117, 0.618034, 0.271978, 0.535749, 0.595372214925825 ];
+
+// ostinato en parte central
+// var BACH = [ 0.854102, 0.618034, 0, 0.618034, 0.31, 0, 0, 0.047597, 0.281715, 0.236068, 0.657924651583815, 0.56, 0.423354, 0.33, 0.281715, 0.236068, 0.430639388480722, 0.56, 0.423354, 0.33, 0.389528, 0.618034, 0.55, 0.400859, 0.4383, 0.426596, 0.618034, 0.50521, 0.250964, 0.442658, 0.463885, 0.618034, 0.50521, 0.400859, 0.447014, 0.38274, 0.618034, 0.494399, 0.250964, 0.45137, 0.487046, 0.618034, 0.533011, 0.400859, 0.455727, 0.424498, 0.618034, 0.516022, 0.250964, 0.460083, 0.433332, 0.618034, 0.528377, 0.400859, 0.464442, 0.389528, 0.618034, 0.529922, 0.250964, 0.468798, 0.426596, 0.618034, 0.55, 0.400859, 0.473154, 0.463885, 0.618034, 0.50521, 0.250964, 0.477511, 0.38274, 0.618034, 0.50521, 0.400859, 0.481869, 0.487046, 0.618034, 0.494399, 0.250964, 0.486226, 0.424498, 0.618034, 0.533011, 0.400859, 0.490582, 0.433332, 0.618034, 0.516022, 0.250964, 0.494938, 0.389528, 0.618034, 0.528377, 0.400859, 0.499294, 0.426596, 0.618034, 0.529922, 0.250964, 0.503653, 0.463885, 0.618034, 0.55, 0.400859, 0.508009, 0.38274, 0.618034, 0.50521, 0.250964, 0.512366, 0.487046, 0.618034, 0.50521, 0.400859, 0.516722, 0.424498, 0.618034, 0.494399, 0.250964, 0.521081, 0.433332, 0.618034, 0.533011, 0.400859, 0.525437, 0.389528, 0.618034, 0.516022, 0.250964, 0.529793, 0.426596, 0.618034, 0.528377, 0.400859, 0.53415, 0.463885, 0.618034, 0.529922, 0.250964, 0.538506, 0.38274, 0.618034, 0.55, 0.400859, 0.542865, 0.487046, 0.618034, 0.50521, 0.250964, 0.547221, 0.424498, 0.618034, 0.50521, 0.400859, 0.551577, 0.433332, 0.618034, 0.494399, 0.250964, 0.555933, 0.389528, 0.618034, 0.533011, 0.400859, 0.56029, 0.426596, 0.618034, 0.516022, 0.250964, 0.564648, 0.463885, 0.618034, 0.528377, 0.400859, 0.569005, 0.38274, 0.618034, 0.529922, 0.250964, 0.573361, 0.487046, 0.618034, 0.55, 0.400859, 0.577717, 0.424498, 0.618034, 0.50521, 0.250964, 0.582076, 0.433332, 0.618034, 0.50521, 0.400859, 0.586432, 0.389528, 0.618034, 0.494399, 0.250964, 0.590789, 0.426596, 0.618034, 0.533011, 0.400859, 0.595145, 0.463885, 0.618034, 0.516022, 0.250964, 0.599501, 0.38274, 0.618034, 0.528377, 0.400859, 0.60386, 0.487046, 0.618034, 0.529922, 0.250964, 0.608216, 0.424498, 0.618034, 0.55, 0.400859, 0.612572, 0.433332, 0.618034, 0.50521, 0.250964, 0.616929, 0.389528, 0.618034, 0.50521, 0.400859, 0.621287, 0.426596, 0.618034, 0.494399, 0.250964, 0.625644, 0.463885, 0.618034, 0.533011, 0.400859, 0.63, 0.236068, 0.281715, 0.236068, 0.551384007085463, 0.56, 0.423354, 0.33, 0.281715, 0.236068, 0.641781872344856, 0.56, 0.423354, 0.33 ];
+
+// Bach Musical Offering
+// var BACH = [ 0.618034, 0.034442, 0.6, 0.618034, 0.5, 0.51346, 0.9, 0.6, 0.618034, 0.53, 0.51346, 0.9, 0.6, 0.618034, 0.57, 0.51346, 0.9, 0.6, 0.618034, 0.58, 0.51346, 0.9, 0.758496, 0.618034, 0.49, 0.51346, 0.9, 0.6, 0.618034, 0.57, 0.51346, 0.9, 0.6, 0.618034, 0.56, 0.51346, 0.9, 0.6, 0.618034, 0.55, 0.51346, 0.9, 0.6, 0.618034, 0.54, 0.51346, 0.9, 0.6, 0.618034, 0.53, 0.51346, 0.9, 0.6, 0.618034, 0.52, 0.51346, 0.9, 0.6, 0.618034, 0.51, 0.51346, 0.9, 0.6, 0.618034, 0.5, 0.51346, 0.9 ];
 
 
-// PROTO GENETIC ALGORITHM FOR MAX
-var geneticAlgoSearchMAX = (numItemsToSearch) => {
-
-    // GOAL     
-    // var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.8, 0.7, 0.618034, 0.57, 0.612091, 0.8, 0.7, 0.618034, 0.6, 0.612091, 0.8, 0.7, 0.618034, 0.59, 0.612091, 0.8 ]
-    // var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091 ];
-    var BACH = newNormalizedUnidimArray(numItemsToSearch);
-    germinalVectorLength = BACH.length;
-
-    var specimensPerGeneration = 24;
-
-    // goal function to be satisfied
-    var testF = (arr) => {
-        var len = arr.length;
-        var resu = 0;
-        for(var i=0; i<len; i++) {
-            resu+=arr[i];
-        }
-        return resu/len;
-    }
-    var desiredResult = 0.2;
-
-    // fitness function to evaluate how good is a candidate
-    // var fitnessFunction = (candidate) => Math.abs(desiredResult - testF(candidate));
-
-    var fitnessFunction = (candidate) => distanceBetweenArrays(candidate, BACH);  
-    // creates a brand new population
-    var createPopulation = () => {
-        var newPopulation = [];
-        for (var a=0; a<specimensPerGeneration; a++) {
-            newPopulation[a] = newNormalizedUnidimArray(germinalVectorLength);
-        }    
-        return newPopulation;
-    }
-    // mutate an item according to a probability of mutation (mutPr) and a maximal amount of change for each mutation (mutAm)
-    var mutateItem = (cand, mutPr, mutAm) => {
-        if (mutAm == 0 || mutPr == 0) return cand;
-        if (mutPr < 1e-6) mutPr = 1e-6;
-        var trials = 0;
-        var newArr = cand.slice();
-        do {
-            for (var ind=0; ind<germinalVectorLength; ind++) {
-                if (Math.random() < mutPr) {
-                    newArr[ind] = checkRange(r6d(newArr[ind] + mutAm * (Math.random() * 2 - 1)));
-                }
-            }
-        // avoid identic mutations
-        } while (arrayEquals(cand, newArr) && trials < 3);
-        return newArr;
-    }
-    var currentPopulation = createPopulation();
-    var currentErrors = [];
-    var newGeneration = [];
-    var numGeneration = 0;
-    var elitePreservedSpecimens = 0.12; // ratio of best specimens preserved withoud mutation for next generation
-    var brandNewSpecimens = 0.04; // ratio of total new specimens introduced at each generation in the genetic pool
-    var numEliteSpecs = Math.ceil(specimensPerGeneration * elitePreservedSpecimens);
-    var numNewSpecs = Math.ceil(specimensPerGeneration * brandNewSpecimens);
-    var numMutatedSpecs = specimensPerGeneration - numEliteSpecs - numNewSpecs;
-    var bestResult = Infinity;
-    var refineSearchRange = germinalVectorLength * 0.01;
-    var generationsWithoutBetterResults = 0;
-    var maxUnsuccededTrials = 10000;
-    // var generationsWithoutBetterResults = 0;
-    do {
-        numGeneration++;
-        // modulates range of mutations to get better flexibility of system
-        //refineSearchRange = bestResult*(Math.sin(numGeneration)+1); 
-        //if (refineSearchRange < 0.000001) refineSearchRange = 0.000001;
-        refineSearchRange = 0.0001;
-        //console.log("refineSearchRange " + refineSearchRange);
-
-        // creates new generation
-        newGeneration = [];
-        // adds elite specimens
-        for (var specIndx = 0; specIndx < numEliteSpecs; specIndx++) {
-            newGeneration.push(currentPopulation[specIndx].slice());
-        }
-        //console.log("antes mutaciones");
-        // adds mutated specimens
-        for (var specIndx2 = 0; specIndx2 < numMutatedSpecs; specIndx2++) {
-//            newGeneration.push(mutateItem(currentPopulation[specIndx2].slice(),Math.random(),Math.random()*refineSearchRange));
-            newGeneration.push(mutateItem(currentPopulation[specIndx2].slice(), Math.random(), 0.5*refineSearchRange));
-        }
-        //console.log("llegado");
-        // adds brand new specimens
-        for (var specIndx3 = 0; specIndx3 < numNewSpecs; specIndx3++) {
-            newGeneration.push(newNormalizedUnidimArray(germinalVectorLength));
-        }
-        // evaluates fitness of each new specimen
-        for (var a=0; a<specimensPerGeneration; a++) {
-            currentErrors[a] = [a,fitnessFunction(newGeneration[a])];
-        }
-        // order specimen indexes according to errors 
-        currentErrors.sort((a,b)=>a[1]-b[1]);
-        // reorder newGeneration according to its previous calculated error, replacing current population
-        currentPopulation = [];
-        for (var a=0; a<specimensPerGeneration; a++) {
-            currentPopulation.push(newGeneration[currentErrors[a][0]]);
-        }
-        // update bestResult if better
-        if (currentErrors[0][1] < bestResult) {
-            //console.clear();
-            //console.log("GENERATION " + numGeneration);
-            //console.log("refineSearchRange: " + refineSearchRange);
-            //console.log("generationsWithoutBetterResults: " + generationsWithoutBetterResults);
-            //console.log(currentErrors);
-            //console.log(currentPopulation[0]);
-            
-            
-            // maxAPI.post("GENERATION " + numGeneration);
-            // maxAPI.post("generationsWithoutBetterResults: " + generationsWithoutBetterResults);
-            // maxAPI.post(currentErrors[0]);
-            bestResult = currentErrors[0][1];
-            generationsWithoutBetterResults = 0;
-            info = bestResult;
-            maxAPI.outlet(numGeneration);
-        }
-        generationsWithoutBetterResults++;
-//        if (numGeneration%10000 == 0) maxAPI.outlet(bestResult);
-        //console.log(numGeneration);
-    } while (bestResult > 0 && generationsWithoutBetterResults < maxUnsuccededTrials);
-    var outMessage = ("GENERATION " + numGeneration + "  \n" + currentErrors[0] + "  \nResult: " + currentPopulation[0]);     maxAPI.post("GENERATION " + numGeneration);
-    maxAPI.post(currentErrors);
-    maxAPI.post("Result: " + testF(currentPopulation[0]));
-    return outMessage;
-}
-
-//geneticAlgoSearchMAX()
 
 
-// PROTO GENETIC ALGORITHM SEARCHING FOR GENOTYPES
-var geneticAlgorithmForSpecimenSearch = () => {
-
-    // GOAL
-    var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.8, 0.7, 0.618034, 0.57, 0.612091, 0.8, 0.7, 0.618034, 0.6, 0.612091, 0.8, 0.7, 0.618034, 0.59, 0.612091, 0.8 ]
-    // var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091, 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.612091 ];
-    // var BACH = newNormalizedUnidimArray(numItemsToSearch);
-    germinalVectorLength = BACH.length;
-
-
-    var aPossibleGeno = newNormalizedUnidimArray(10);
-
-    var specimensPerGeneration = 24;
-
-    // goal function to be satisfied
-    var testF = (arr) => {
-        var len = arr.length;
-        var resu = 0;
-        for(var i=0; i<len; i++) {
-            resu+=arr[i];
-        }
-        return resu/len;
-    }
-    var desiredResult = 0.2;
-
-    // fitness function to evaluate how good is a candidate
-    // var fitnessFunction = (candidate) => Math.abs(desiredResult - testF(candidate));
-
-    var fitnessFunction = (candidate) => distanceBetweenArrays(candidate, BACH);  
-    // creates a brand new population
-    var createPopulation = () => {
-        var newPopulation = [];
-        for (var a=0; a<specimensPerGeneration; a++) {
-            newPopulation[a] = newNormalizedUnidimArray(germinalVectorLength);
-        }    
-        return newPopulation;
-    }
-    // mutate an item according to a probability of mutation (mutPr) and a maximal amount of change for each mutation (mutAm)
-    var mutateItem = (cand, mutPr, mutAm) => {
-        if (mutAm == 0 || mutPr == 0) return cand;
-        if (mutPr < 1e-6) mutPr = 1e-6;
-        var trials = 0;
-        var newArr = cand.slice();
-        do {
-            for (var ind=0; ind<germinalVectorLength; ind++) {
-                if (Math.random() < mutPr) {
-                    newArr[ind] = checkRange(r6d(newArr[ind] + mutAm * (Math.random() * 2 - 1)));
-                }
-            }
-        // avoid identic mutations
-        } while (arrayEquals(cand, newArr) && trials < 3);
-        return newArr;
-    }
-    var currentPopulation = createPopulation();
-    var currentErrors = [];
-    var newGeneration = [];
-    var numGeneration = 0;
-    var elitePreservedSpecimens = 0.12; // ratio of best specimens preserved withoud mutation for next generation
-    var brandNewSpecimens = 0.04; // ratio of total new specimens introduced at each generation in the genetic pool
-    var numEliteSpecs = Math.ceil(specimensPerGeneration * elitePreservedSpecimens);
-    var numNewSpecs = Math.ceil(specimensPerGeneration * brandNewSpecimens);
-    var numMutatedSpecs = specimensPerGeneration - numEliteSpecs - numNewSpecs;
-    var bestResult = Infinity;
-    var refineSearchRange = germinalVectorLength * 0.01;
-    var generationsWithoutBetterResults = 0;
-    var maxUnsuccededTrials = 10000;
-    // var generationsWithoutBetterResults = 0;
-    do {
-        numGeneration++;
-        // modulates range of mutations to get better flexibility of system
-        //refineSearchRange = bestResult*(Math.sin(numGeneration)+1); 
-        //if (refineSearchRange < 0.000001) refineSearchRange = 0.000001;
-        refineSearchRange = 0.0001;
-        //console.log("refineSearchRange " + refineSearchRange);
-
-        // creates new generation
-        newGeneration = [];
-        // adds elite specimens
-        for (var specIndx = 0; specIndx < numEliteSpecs; specIndx++) {
-            newGeneration.push(currentPopulation[specIndx].slice());
-        }
-        //console.log("antes mutaciones");
-        // adds mutated specimens
-        for (var specIndx2 = 0; specIndx2 < numMutatedSpecs; specIndx2++) {
-//            newGeneration.push(mutateItem(currentPopulation[specIndx2].slice(),Math.random(),Math.random()*refineSearchRange));
-            newGeneration.push(mutateItem(currentPopulation[specIndx2].slice(), Math.random(), 0.5*refineSearchRange));
-        }
-        //console.log("llegado");
-        // adds brand new specimens
-        for (var specIndx3 = 0; specIndx3 < numNewSpecs; specIndx3++) {
-            newGeneration.push(newNormalizedUnidimArray(germinalVectorLength));
-        }
-        // evaluates fitness of each new specimen
-        for (var a=0; a<specimensPerGeneration; a++) {
-            currentErrors[a] = [a,fitnessFunction(newGeneration[a])];
-        }
-        // order specimen indexes according to errors 
-        currentErrors.sort((a,b)=>a[1]-b[1]);
-        // reorder newGeneration according to its previous calculated error, replacing current population
-        currentPopulation = [];
-        for (var a=0; a<specimensPerGeneration; a++) {
-            currentPopulation.push(newGeneration[currentErrors[a][0]]);
-        }
-        // update bestResult if better
-        if (currentErrors[0][1] < bestResult) {
-            //console.clear();
-            //console.log("GENERATION " + numGeneration);
-            //console.log("refineSearchRange: " + refineSearchRange);
-            //console.log("generationsWithoutBetterResults: " + generationsWithoutBetterResults);
-            //console.log(currentErrors);
-            //console.log(currentPopulation[0]);
-            
-            
-            //maxAPI.post("GENERATION " + numGeneration);
-            //maxAPI.post("generationsWithoutBetterResults: " + generationsWithoutBetterResults);
-            //maxAPI.post(currentErrors[0]);
-            bestResult = currentErrors[0][1];
-            generationsWithoutBetterResults = 0;
-            info = bestResult;
-        }
-        generationsWithoutBetterResults++;
-//        if (numGeneration%10000 == 0) maxAPI.outlet(bestResult);
-        //console.log(numGeneration);
-    } while (bestResult > 0 && generationsWithoutBetterResults < maxUnsuccededTrials);
-    var outMessage = ("GENERATION " + numGeneration + "  \n" + currentErrors[0] + "  \nResult: " + currentPopulation[0]);
-/*     maxAPI.post("GENERATION " + numGeneration);
-    maxAPI.post(currentErrors);
-    maxAPI.post("Result: " + testF(currentPopulation[0])); */
-    return outMessage;
-}
-
-//geneticAlgoSearchMAX()
-
-// geneticoAlgoSearchMAX_00 - using global variables for enable feedback with Max
-
-// framework test
 var fitnessFunction = (candidate) => distanceBetweenArrays(BACH, candidate);  
-// creates a brand new population
-var specimensPerGeneration = 60;
 
-var createPopulation = () => {
+var specimensPerGeneration = 40;
+var createPopulation = (germinalVecMaxLength) => {
     var newPopulation = [];
+    var newItemLength;
     for (var a=0; a<specimensPerGeneration; a++) {
-        newPopulation[a] = newNormalizedUnidimArray(50);
+        newItemLength = parseInt((germinalVecMaxLength - 5) * Math.random() + 1) + 5;
+        newPopulation[a] = newNormalizedUnidimArray(newItemLength);
     }    
     return newPopulation;
 }
@@ -946,12 +599,16 @@ var mutateItem = (cand, mutPr, mutAm) => {
     } while (arrayEquals(cand, newArr) && trials < 3);
     return newArr;
 }
-var currentPopulation = createPopulation();
+
+// creates a brand new population
+var germinalVectorMaximalLength = 45;
+var currentPopulation = createPopulation(germinalVectorMaximalLength);
+
 var currentErrors = [];
 var newGeneration = [];
 var numGeneration = 0;
 var elitePreservedSpecimens = 0.2; // ratio of best specimens preserved withoud mutation for next generation
-var brandNewSpecimens = 0.2; // ratio of total new specimens introduced at each generation in the genetic pool
+var brandNewSpecimens = 0.4; // ratio of total new specimens introduced at each generation in the genetic pool
 var numEliteSpecs = Math.ceil(specimensPerGeneration * elitePreservedSpecimens);
 maxAPI.post("numEliteSpecs: " + numEliteSpecs);
 var numNewSpecs = Math.ceil(specimensPerGeneration * brandNewSpecimens);
@@ -959,32 +616,11 @@ maxAPI.post("numNewSpecs: " + numNewSpecs);
 var numMutatedSpecs = specimensPerGeneration - numEliteSpecs - numNewSpecs;
 maxAPI.post("numMutatedSpecs: " + numMutatedSpecs);
 var bestResult = Infinity;
-var germinalVectorLength = 50;
-var refineSearchRange = germinalVectorLength * 0.01;
+// var germinalVectorLength = 50;
+// var refineSearchRange = germinalVectorLength * 0.01;
 var generationsWithoutBetterResults = 0;
 var maxUnsuccededTrials = 10000;
 
-
-// motivo BACH original
-var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.665076, 0.8, 0.7, 0.618034, 0.57, 0.665076, 0.8, 0.7, 0.618034, 0.6, 0.665076, 0.8, 0.7, 0.618034, 0.59, 0.665076, 0.8, 0.6 ];
-
-// BACH cresc.
-// var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.58, 0.665076, 0.8, 0.2, 0.618034, 0.57, 0.665076, 0.8, 0.4, 0.618034, 0.6, 0.665076, 0.8, 0.6, 0.618034, 0.59, 0.665076, 0.8, 0.6 ];
-
-// motivo CAGE
-// var BACH = [ 0.618034, 0.472136, 0.7, 0.618034, 0.36, 0.665076, 0.8, 0.7, 0.618034, 0.24, 0.665076, 0.8, 0.7, 0.618034, 0.60, 0.665076, 0.8, 0.7, 0.618034, 0.72, 0.665076, 0.8 ];
-// var BACH = [ 0.618034, 0.416408, 0.659690767421353, 0.618034, 0.601246, 0.668224, 0.82, 0.659690767421353, 0.618034, 0.606715, 0.682041, 0.802183, 0.659690767421353, 0.618034, 0.612173, 0.695847, 0.784392, 0.659690767421353, 0.618034, 0.617653, 0.709642, 0.766575, 0.659690767421353, 0.618034, 0.623122, 0.723459, 0.748758, 0.659690767421353, 0.618034, 0.628601, 0.737276, 0.730968, 0.659690767421353, 0.618034, 0.634059, 0.751082, 0.713151, 0.659690767421353, 0.618034, 0.639539, 0.7649, 0.695333, 0.659690767421353, 0.618034, 0.644997, 0.778717, 0.677543, 0.659690767421353, 0.618034, 0.650455, 0.792512, 0.659726, 0.659690767421353, 0.618034, 0.655935, 0.806318, 0.641909, 0.659690767421353, 0.618034, 0.661393, 0.820135, 0.624118 ];
-
-// acorde en piano 1, escala cromática descendente en piano 2
-// var BACH = [ 0.236068, 0.618034, 0.536489138159475, 0.09017, 0.5, 0.683382064177176, 0.56, 0.51, 0.389158572106078, 0.636372002556916, 0.437150791895015, 0.867258, 0.425111642344117, 0.618034, 0.412198515904809, 0.535749, 0.595372214925825, 0.425111642344117, 0.618034, 0.408303, 0.43387, 0.590951, 0.425111642344117, 0.618034, 0.404408, 0.400859, 0.586529, 0.425111642344117, 0.618034, 0.400513, 0.69136, 0.582108, 0.425111642344117, 0.618034, 0.396618, 0.747486, 0.577686, 0.425111642344117, 0.618034, 0.392723, 0.505648, 0.573265, 0.425111642344117, 0.618034, 0.388828, 0.749503, 0.568843, 0.425111642344117, 0.618034, 0.384933, 0.323858, 0.564422, 0.425111642344117, 0.618034, 0.381038, 0.579242, 0.56, 0.425111642344117, 0.618034, 0.377143, 0.535749, 0.595372214925825, 0.425111642344117, 0.618034, 0.373248, 0.43387, 0.590951, 0.425111642344117, 0.618034, 0.369353, 0.400859, 0.586529, 0.425111642344117, 0.618034, 0.365458, 0.69136, 0.582108, 0.425111642344117, 0.618034, 0.361563, 0.747486, 0.577686, 0.425111642344117, 0.618034, 0.357668, 0.505648, 0.573265, 0.425111642344117, 0.618034, 0.353773, 0.749503, 0.568843, 0.425111642344117, 0.618034, 0.349878, 0.323858, 0.564422, 0.425111642344117, 0.618034, 0.345983, 0.579242, 0.56, 0.425111642344117, 0.618034, 0.342088, 0.535749, 0.595372214925825, 0.425111642344117, 0.618034, 0.338193, 0.43387, 0.590951, 0.425111642344117, 0.618034, 0.334298, 0.400859, 0.586529, 0.425111642344117, 0.618034, 0.330403, 0.69136, 0.582108, 0.425111642344117, 0.618034, 0.326508, 0.747486, 0.577686, 0.425111642344117, 0.618034, 0.322613, 0.505648, 0.573265, 0.425111642344117, 0.618034, 0.318718, 0.749503, 0.568843, 0.425111642344117, 0.618034, 0.314823, 0.323858, 0.564422, 0.425111642344117, 0.618034, 0.310928, 0.579242, 0.56, 0.425111642344117, 0.618034, 0.307033, 0.535749, 0.595372214925825, 0.425111642344117, 0.618034, 0.303138, 0.43387, 0.590951, 0.425111642344117, 0.618034, 0.299243, 0.400859, 0.586529, 0.425111642344117, 0.618034, 0.295348, 0.69136, 0.582108, 0.425111642344117, 0.618034, 0.291453, 0.747486, 0.577686, 0.425111642344117, 0.618034, 0.287558, 0.505648, 0.573265, 0.425111642344117, 0.618034, 0.283663, 0.749503, 0.568843, 0.425111642344117, 0.618034, 0.279768, 0.323858, 0.564422, 0.425111642344117, 0.618034, 0.275873, 0.579242, 0.56, 0.425111642344117, 0.618034, 0.271978, 0.535749, 0.595372214925825 ];
-
-
-
-// ostinato en parte central
-// var BACH = [ 0.854102, 0.618034, 0, 0.618034, 0.31, 0, 0, 0.047597, 0.281715, 0.236068, 0.657924651583815, 0.56, 0.423354, 0.33, 0.281715, 0.236068, 0.430639388480722, 0.56, 0.423354, 0.33, 0.389528, 0.618034, 0.55, 0.400859, 0.4383, 0.426596, 0.618034, 0.50521, 0.250964, 0.442658, 0.463885, 0.618034, 0.50521, 0.400859, 0.447014, 0.38274, 0.618034, 0.494399, 0.250964, 0.45137, 0.487046, 0.618034, 0.533011, 0.400859, 0.455727, 0.424498, 0.618034, 0.516022, 0.250964, 0.460083, 0.433332, 0.618034, 0.528377, 0.400859, 0.464442, 0.389528, 0.618034, 0.529922, 0.250964, 0.468798, 0.426596, 0.618034, 0.55, 0.400859, 0.473154, 0.463885, 0.618034, 0.50521, 0.250964, 0.477511, 0.38274, 0.618034, 0.50521, 0.400859, 0.481869, 0.487046, 0.618034, 0.494399, 0.250964, 0.486226, 0.424498, 0.618034, 0.533011, 0.400859, 0.490582, 0.433332, 0.618034, 0.516022, 0.250964, 0.494938, 0.389528, 0.618034, 0.528377, 0.400859, 0.499294, 0.426596, 0.618034, 0.529922, 0.250964, 0.503653, 0.463885, 0.618034, 0.55, 0.400859, 0.508009, 0.38274, 0.618034, 0.50521, 0.250964, 0.512366, 0.487046, 0.618034, 0.50521, 0.400859, 0.516722, 0.424498, 0.618034, 0.494399, 0.250964, 0.521081, 0.433332, 0.618034, 0.533011, 0.400859, 0.525437, 0.389528, 0.618034, 0.516022, 0.250964, 0.529793, 0.426596, 0.618034, 0.528377, 0.400859, 0.53415, 0.463885, 0.618034, 0.529922, 0.250964, 0.538506, 0.38274, 0.618034, 0.55, 0.400859, 0.542865, 0.487046, 0.618034, 0.50521, 0.250964, 0.547221, 0.424498, 0.618034, 0.50521, 0.400859, 0.551577, 0.433332, 0.618034, 0.494399, 0.250964, 0.555933, 0.389528, 0.618034, 0.533011, 0.400859, 0.56029, 0.426596, 0.618034, 0.516022, 0.250964, 0.564648, 0.463885, 0.618034, 0.528377, 0.400859, 0.569005, 0.38274, 0.618034, 0.529922, 0.250964, 0.573361, 0.487046, 0.618034, 0.55, 0.400859, 0.577717, 0.424498, 0.618034, 0.50521, 0.250964, 0.582076, 0.433332, 0.618034, 0.50521, 0.400859, 0.586432, 0.389528, 0.618034, 0.494399, 0.250964, 0.590789, 0.426596, 0.618034, 0.533011, 0.400859, 0.595145, 0.463885, 0.618034, 0.516022, 0.250964, 0.599501, 0.38274, 0.618034, 0.528377, 0.400859, 0.60386, 0.487046, 0.618034, 0.529922, 0.250964, 0.608216, 0.424498, 0.618034, 0.55, 0.400859, 0.612572, 0.433332, 0.618034, 0.50521, 0.250964, 0.616929, 0.389528, 0.618034, 0.50521, 0.400859, 0.621287, 0.426596, 0.618034, 0.494399, 0.250964, 0.625644, 0.463885, 0.618034, 0.533011, 0.400859, 0.63, 0.236068, 0.281715, 0.236068, 0.551384007085463, 0.56, 0.423354, 0.33, 0.281715, 0.236068, 0.641781872344856, 0.56, 0.423354, 0.33 ];
-
-// Bach Musical Offering
-// var BACH = [ 0.618034, 0.034442, 0.6, 0.618034, 0.5, 0.51346, 0.9, 0.6, 0.618034, 0.53, 0.51346, 0.9, 0.6, 0.618034, 0.57, 0.51346, 0.9, 0.6, 0.618034, 0.58, 0.51346, 0.9, 0.758496, 0.618034, 0.49, 0.51346, 0.9, 0.6, 0.618034, 0.57, 0.51346, 0.9, 0.6, 0.618034, 0.56, 0.51346, 0.9, 0.6, 0.618034, 0.55, 0.51346, 0.9, 0.6, 0.618034, 0.54, 0.51346, 0.9, 0.6, 0.618034, 0.53, 0.51346, 0.9, 0.6, 0.618034, 0.52, 0.51346, 0.9, 0.6, 0.618034, 0.51, 0.51346, 0.9, 0.6, 0.618034, 0.5, 0.51346, 0.9 ];
 
 
 globalSeed = parseInt(Math.random()*100000000);
@@ -997,6 +633,7 @@ var simpleBACHSearch = () => {
     var foundNewBest = false;
     var progressiveMutationFactor;
     var generationsWithoutBetterResults = 0;
+    var oscilFactor1, oscilFactor2;
     // maxAPI.post(currentPopulation[0]);
     do {
         generationsWithoutBetterResults++;
@@ -1013,14 +650,20 @@ var simpleBACHSearch = () => {
             if (Math.random() > 0.75) phenotypeSeed = parseInt(Math.random()*100000000);
             progressiveMutationFactor = Math.pow((specIndx2+1)/(numMutatedSpecs+1),3);
             // maxAPI.post(progressiveMutationFactor);
-            newGeneration.push(mutateItem(currentPopulation[specIndx2].slice(), progressiveMutationFactor+0.01, progressiveMutationFactor+0.01+generationsWithoutBetterResults*0.005));
+            oscilFactor1 = (Math.sin(numGeneration * 0.01) + 1) * 0.5;
+            oscilFactor2 = (Math.sin(numGeneration * 0.017) + 1) * 0.5;
+            newGeneration.push(
+                mutateItem(currentPopulation[specIndx2 % numMutatedSpecs].slice(), 
+                (progressiveMutationFactor+0.01) * oscilFactor1, 
+                (progressiveMutationFactor+0.01+generationsWithoutBetterResults*0.005) * oscilFactor2 ) 
+            );
 
             // newGeneration.push(mutateItem(currentPopulation[specIndx2].slice(), 0.05, 0.2));
         }
         // adds brand new specimens
         for (var specIndx3 = 0; specIndx3 < numNewSpecs; specIndx3++) {
             globalSeed = parseInt(Math.random()*100000000);
-            newGeneration.push(newNormalizedUnidimArray(germinalVectorLength));
+            newGeneration.push(newNormalizedUnidimArray(germinalVectorMaximalLength));
         }
         // maxAPI.post(newGeneration);
         // evaluates fitness of each new specimen
@@ -1056,7 +699,7 @@ var simpleBACHSearch = () => {
             maxAPI.post("best specimen was number " + currentErrors[0][0]);
         }
     // } while ((new Date()) - startTime < timeLapse && foundNewBest == false);
-    } while ( thisLoopTrials < 100 && foundNewBest == false);
+    } while ( thisLoopTrials < 30 && foundNewBest == false);
 if (foundNewBest) {
         var newBestSpecimen = specimenDataStructure(specimenFromInitialCondition(newGeneration[0], globalSeed, phenotypeSeed))
         // for (var nums = 0; nums < specimensPerGeneration; nums++) {
@@ -3586,6 +3229,7 @@ var specimenDataStructure = (specimen) => ({
         eligibleFunctions: eligibleFunctionsLibrary.eligibleFunctions,
         maxAllowedDepth: specimen.data.maxAllowedDepth,
         germinalVector: specimen.data.germinalVector,
+        germinalVectorLength: specimen.data.germinalVector.length,
         genotypeSeed: specimen.data.genotypeSeed,
         phenotypeSeed: specimen.data.phenotypeSeed
     },
@@ -4336,6 +3980,11 @@ maxAPI.addHandlers({
         // await maxAPI.setDict("specimen.dict", bestSpecimen);
         // await maxAPI.outlet("finished");
         // await maxAPI.outlet("genosearch");
+    },
+    showPopulation: async () => {
+        for (var a = 0; a < specimensPerGeneration; a++) {
+            maxAPI.post(currentPopulation[a]);
+        }
     },
 
     //////////////
