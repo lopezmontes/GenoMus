@@ -70,9 +70,9 @@ var validGenotype = true;
 var decGenStringLengthLimit = 7000;
 var globalSeed;
 var phenotypeSeed = Math.round(Math.random() * 1e14); // seed only for computing phenotype
-var genMaxDepth = 12;
+var genMaxDepth = 17;
 var phenMinPolyphony = 1;
-var phenMaxPolyphony = 5;
+var phenMaxPolyphony = 3;
 var phenMinLength = 5;
 var phenMaxLength = 400;
 var maxIterations = 2000;
@@ -629,7 +629,7 @@ var maxUnsuccededTrials = 10000;
 globalSeed = parseInt(Math.random()*100000000);
 
 var simpleBACHSearch = () => {
-    var timeLapse = 13000;
+    var timeLapse = 3000;
     var thisLoopTrials = 0;
     var startTime = new Date();
     var newTryBestDistance = Infinity;
@@ -643,6 +643,7 @@ var simpleBACHSearch = () => {
         generationsWithoutBetterResults++;
         numGeneration++;
         thisLoopTrials++;
+        // maxAPI.post("trials:" + thisLoopTrials);
         // creates new generation
         newGeneration = [];
         for (var specIndx = 0; specIndx < numEliteSpecs; specIndx++) {
@@ -705,9 +706,9 @@ var simpleBACHSearch = () => {
             foundNewBest = true;       
             maxAPI.post("best specimen was number " + currentErrors[0][0]);
         }
-    // } while ((new Date()) - startTime < timeLapse && foundNewBest == false);
-    } while ( thisLoopTrials < 80 && foundNewBest == false);
-if (foundNewBest) {
+    } while ((new Date()) - startTime < timeLapse && foundNewBest == false);
+    // } while ( thisLoopTrials < 10 && foundNewBest == false);
+    if (foundNewBest) {
         var newBestSpecimen = specimenDataStructure(specimenFromInitialCondition(newGeneration[0], globalSeed, phenotypeSeed))
         // for (var nums = 0; nums < specimensPerGeneration; nums++) {
         //     maxAPI.post(currentPopulation[nums][0] + " " + currentPopulation[nums][1] + " " + currentPopulation[nums][2] + " " + currentPopulation[nums][3] + " " + currentPopulation[nums][4] + " " + currentPopulation[nums][5] + " " + currentPopulation[nums][6] + " " + currentPopulation[nums][7] + " " + currentPopulation[nums][8]);
@@ -716,7 +717,6 @@ if (foundNewBest) {
         maxAPI.setDict("specimen.dict", newBestSpecimen);
         maxAPI.outlet("finished");
         maxAPI.outlet("genosearch");
-
     } else {
         // maxAPI.post("current fitness: " + bestResult + " after " + numGeneration);
         maxAPI.post(numGeneration + " generations");
@@ -3219,7 +3219,7 @@ var specimenDataStructure = (specimen) => ({
         eligibleFunctions: eligibleFunctionsLibrary.eligibleFunctions,
         maxAllowedDepth: specimen.data.maxAllowedDepth,
         protoGerminalVector: specimen.data.protoGerminalVector,
-        protoGerminalVectorLength: specimen.data.protoGerminalVector.length,
+        // protoGerminalVectorLength: specimen.data.protoGerminalVector.length,
         germinalVector: specimen.data.germinalVector,
         germinalVectorLength: specimen.data.germinalVector.length,
         genotypeSeed: specimen.data.genotypeSeed,
