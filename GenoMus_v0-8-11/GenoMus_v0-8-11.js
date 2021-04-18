@@ -1,8 +1,8 @@
-// GENOMUS 0.8.9 UNIT TESTING
+// GENOMUS 0.8.11 UNIT TESTING
 ///////////////////////////
 
 // GOALS:
-// connect genetic algorithm with GenoMus genotypes generator
+// Last rededisgn of data arquitecture, previous to GenoMus 1.0
 
 
 // TESTING DIFFERENT SPECIES
@@ -10,72 +10,34 @@
 var currentSpecies = "piano";
 
 // DEPENDENCIES
-
 // files handling
 const fs = require('fs');
-
-// ??
-// const { maxHeaderSize } = require('http');
 
 // connection with Max interface
 const maxAPI = require('max-api');
 const { setInterval } = require('timers');
 
 
-var info;
-
-
-
-// aux function to compare arrays
-function arrayEquals(a, b) {
-    return Array.isArray(a) &&
-        Array.isArray(b) &&
-        a.length === b.length &&
-        a.every((val, index) => val === b[index]);
-}
-
-// creates random arrays (used to get germinal vectors)
-var newNormalizedUnidimArray = (n) => {
-    var arr = [];
-    var i = 1;
-    while (i <= n) {
-        arr.push(r6d(rand()));
-        i++;
-    }
-    return arr;
-};
-
-// functions to measure proximity of phenotypes
-var distanceBetweenArrays = (goal, candidate) => {
-    var distance = 0;
-    var minLength = Math.min(goal.length, candidate.length);
-    var maxLength = Math.max(goal.length, candidate.length);
-    for (var a=0; a<minLength; a++) {
-        distance+=Math.pow(Math.abs(goal[a]-candidate[a]),.3);
-    }
-    distance = distance + (maxLength - minLength) * .3;
-    if (goal.length > candidate.length) {
-        return distance + (goal.length - candidate.length) * 2;
-    }
-    return distance;
-}    
-
 
 /////////////////////
 // INITIAL CONDITIONS
-var version = "0.8.7";
+var version = "0.8.11";
 
 var defaultEventExpression; // variable to store a default event when no autoreferences are possible
 var validGenotype = true;
 var decGenStringLengthLimit = 7000;
 var globalSeed;
+
+// a extinguir
 var phenotypeSeed = Math.round(Math.random() * 1e14); // seed only for computing phenotype
+
 var genMaxDepth = 17;
 var phenMinPolyphony = 1;
-var phenMaxPolyphony = 3;
+var phenMaxPolyphony = 6;
 var phenMinLength = 5;
-var phenMaxLength = 400;
+var phenMaxLength = 4000;
 var maxIterations = 2000;
+
 // mutation constraints
 var mutationProbability = .2;
 var mutationAmount = .05;
@@ -115,8 +77,6 @@ var initSubexpressionsArrays = () => {
 }
 initSubexpressionsArrays();
 
-
-
 var createDefaultEventExpression = (speciesName) => {
     switch (speciesName) {
         case "piano":
@@ -131,6 +91,42 @@ var createDefaultEventExpression = (speciesName) => {
     }
 }
 createDefaultEventExpression(currentSpecies);
+
+
+// aux function to compare arrays
+function arrayEquals(a, b) {
+    return Array.isArray(a) &&
+        Array.isArray(b) &&
+        a.length === b.length &&
+        a.every((val, index) => val === b[index]);
+}
+
+// creates random arrays (used to get germinal vectors)
+var newNormalizedUnidimArray = (n) => {
+    var arr = [];
+    var i = 1;
+    while (i <= n) {
+        arr.push(r6d(rand()));
+        i++;
+    }
+    return arr;
+};
+
+// functions to measure proximity of phenotypes
+var distanceBetweenArrays = (goal, candidate) => {
+    var distance = 0;
+    var minLength = Math.min(goal.length, candidate.length);
+    var maxLength = Math.max(goal.length, candidate.length);
+    for (var a=0; a<minLength; a++) {
+        distance+=Math.pow(Math.abs(goal[a]-candidate[a]),.3);
+    }
+    distance = distance + (maxLength - minLength) * .3;
+    if (goal.length > candidate.length) {
+        return distance + (goal.length - candidate.length) * 2;
+    }
+    return distance;
+}    
+
 
 //////////// PARAMETER MAPPING
 // parameters mapping functions and abbreviated versions with short names and rounded output
@@ -366,19 +362,17 @@ function mulberry32(a) {
         return ((t ^ t >>> 14) >>> 0) / 4294967296;
     }
 }
-
-// SEEDED RANDOM FRACTAL RANDOM GENERATOR BASED ON LOGISTIC MAP
 // Output one 32-bit hash to provide the seed for mulberry32.
 var initSeed = (parseInt(Math.random() * 1e16)).toString();
-
 var seed = xmur3(initSeed);
 // Create rand() function
 var rand = mulberry32(seed());
 // Reinit seed
-function createNewSeed(integer) {
-    seed = xmur3(integer.toString());
+function createNewSeed(seedInput) {
+    seed = xmur3(seedInput.toString());
     rand = mulberry32(seed());
 }
+// SEEDED RANDOM FRACTAL RANDOM GENERATOR BASED ON LOGISTIC MAP
 // logistic map for creating random numbers
 var logisticSeed = 0.481920;
 // random array from a logistic map for creating list from a seed as argument
@@ -1804,23 +1798,25 @@ var lRepeatP = (param, times) => {
 };
 
 // repeats and concatenates as a list re-evaluations of a parameter function (2 to 36 repeats) 
-var lIterP = (param, times) => {
+var lIterP = (param, times, seedInitValue) => {
+    createNewSeed(seedInitValue.encPhen);
     var numIterations = adjustRange(Math.abs(p2q(times.encPhen[0])), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5 using the quantizedF map
     return indexExprReturnSpecimen({
         funcType: "listF",
-        encGen: flattenDeep([1, 0.63119, param.encGen, times.encGen, 0]),
-        decGen: "lIterP(" + param.decGen + "," + times.decGen + ")",
+        encGen: flattenDeep([1, 0.63119, param.encGen, times.encGen, seedInitValue.encGen, 0]),
+        decGen: "lIterP(" + param.decGen + "," + times.decGen + "," + seedInitValue.decGen + ")",
         encPhen: flattenDeep(Array(numIterations).fill().map(() => eval(param.decGen).encPhen))
     });
 };
 
 // repeats and concatenates as a list re-evaluations of a list function (2 to 36 repeats) 
-var lIterL = (list, times) => {
+var lIterL = (list, times, seedInitValue) => {
+    createNewSeed(seedInitValue.encPhen);
     var numIterations = adjustRange(Math.abs(p2q(times.encPhen[0])), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5 using the quantizedF map
     return indexExprReturnSpecimen({
         funcType: "listF",
-        encGen: flattenDeep([1, 0.249224, list.encGen, times.encGen, 0]),
-        decGen: "lIterL(" + list.decGen + "," + times.decGen + ")",
+        encGen: flattenDeep([1, 0.249224, list.encGen, times.encGen, seedInitValue.encGen, 0]),
+        decGen: "lIterL(" + list.decGen + "," + times.decGen + "," + seedInitValue.decGen + ")",
         encPhen: flattenDeep(Array(numIterations).fill().map(() => eval(list.decGen).encPhen))
     });
 };
@@ -1866,7 +1862,9 @@ var lzRemap = (list, newMin, newMax) => lRemapFramework("lzRemap", "lgoldeninteg
 var lqRemap = (list, newMin, newMax) => lRemapFramework("lqRemap", "lquantizedF", .972503, list, newMin, newMax);
 
 // repeats and concatenates as a voice re-evaluations of an event function (2 to 36 repeats) 
-var vIterE = (event, times) => {
+var vIterE = (event, times, seedValue) => {
+    createNewSeed(seedValue.encPhen);
+    console.log("rand da " + rand());
     var numIterations = adjustRange(Math.abs(p2q(times.encPhen[0])), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5 using the quantizedF map
     ///////////// if (numIterations > phenMaxLength) return -1;
     if (numIterations > phenMaxLength) {
@@ -1876,8 +1874,8 @@ var vIterE = (event, times) => {
     }
     return indexExprReturnSpecimen({
         funcType: "voiceF",
-        encGen: flattenDeep([1, 0.867258, event.encGen, times.encGen, 0]),
-        decGen: "vIterE(" + event.decGen + "," + times.decGen + ")",
+        encGen: flattenDeep([1, 0.867258, event.encGen, times.encGen, seedValue.encGen, 0]),
+        decGen: "vIterE(" + event.decGen + "," + times.decGen + "," + seedValue.decGen + ")",
         encPhen: [z2p(numIterations)].concat(flattenDeep(Array(numIterations).fill().map(() => eval(event.decGen).encPhen))),
         phenLength: numIterations,
         tempo: event.tempo,
@@ -2592,8 +2590,8 @@ var eligibleFunctions = {
         294, 296, 298, 299, 302, 304, 306, 307, 310, 311, 312, 313, 314, 315, 316, 317, 318, 201, 280,
     98, 99, 100, 101 ],
     mandatoryFunctions: [], // to be implemented
-    excludedFunctions: [277, 278, 279, 281, 282, 284, 286, 288, 290, 291,
-    46, 37, 48] // only to avoid repeated note as solution for genetic algo. 
+    excludedFunctions: [277, 278, 279, 281, 282, 284, 286, 288, 290, 291]
+    // 46, 37, 48] // only to avoid repeated note as solution for genetic algo. 
 };
 
 var testingFunctionsOLD = {

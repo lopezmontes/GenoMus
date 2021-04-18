@@ -107,6 +107,7 @@
             "functionType": "voiceF",
             "arguments": [
                 "eventF",
+                "quantizedF",
                 "paramF"
             ],
             "metadata": {
@@ -469,6 +470,7 @@
             "functionType": "listF",
             "arguments": [
                 "paramF",
+                "paramF",
                 "paramF"
             ],
             "metadata": {
@@ -482,6 +484,7 @@
             "functionType": "listF",
             "arguments": [
                 "listF",
+                "quantizedF",
                 "paramF"
             ],
             "metadata": {
