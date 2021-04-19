@@ -3313,7 +3313,7 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
     // generates the local catalogue of eligible functions to be used for genotype generation
     var local_functions_catalogue = createEligibleFunctionLibrary(GenoMusFunctionLibrary, localEligibleFunctions);
 
-    // console.log(local_functions_catalogue);
+    console.log(local_functions_catalogue);
     var testarr = ["a", "aRnd"];
     console.log("extracted a: " + local_functions_catalogue.functionNames[testarr[0]].encIndex);
     console.log("extracted aRnd: " + local_functions_catalogue.functionNames[testarr[1]].encIndex);
@@ -3376,10 +3376,29 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
             numEligibleFunctions = Object.keys
                 (local_functions_catalogue.functionLibrary[nextFunctionType]).length;
             valueForChoosingNewFunction = Math.floor(preEncGen[pos] * numEligibleFunctions) % numEligibleFunctions;
+
+
             var eligibleFuncionNames = (Object.keys(local_functions_catalogue.functionLibrary[nextFunctionType]));
             console.log("eligibleFunctions: " + eligibleFuncionNames);
-            chosenFunction = Object.keys
-                (local_functions_catalogue.functionLibrary[nextFunctionType])[valueForChoosingNewFunction];
+            var eligibleFuncionNamesLength = eligibleFuncionNames.length;
+            var orderenElegibleEncIndexes = [];
+            for (var elegitem = 0; elegitem < eligibleFuncionNamesLength; elegitem++) {
+                orderenElegibleEncIndexes.push(local_functions_catalogue.functionNames[eligibleFuncionNames[elegitem]].encIndex);
+            }
+            orderenElegibleEncIndexes.sort((a, b) => a - b);
+            console.log("encIndexes: " + orderenElegibleEncIndexes);
+            console.log("new germinal value is " + preEncGen[pos]);
+            var chosenEncIndex = findEligibleFunctionEncIndex(orderenElegibleEncIndexes, preEncGen[pos]);
+            console.log("chosen encIndex is " + chosenEncIndex);
+            console.log("chosen function is " + local_functions_catalogue.encodedIndexes[chosenEncIndex]);
+            // chosenFunction = local_functions_catalogue.encodedIndexes[chosenEncIndex];
+
+
+
+            chosenFunction = Object.keys(local_functions_catalogue.functionLibrary[nextFunctionType])[valueForChoosingNewFunction];
+            console.log("chosenFunction: " + chosenFunction);
+
+
             openFunctionTypes[openFunctionTypes.length] = nextFunctionType;
             // writes the new function
             newDecodedGenotype += chosenFunction + "(";
@@ -3582,6 +3601,10 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
     currentSpecimen = newBranch;
     return newBranch;
 }
+
+createNewBranch("scoreF",0,14,6,[0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]);
+
+
 
 
 function createGerminalSpecimen() {
