@@ -15,7 +15,7 @@ const fs = require('fs');
 
 // connection with Max interface
 const maxAPI = require('max-api');
-const { setInterval } = require('timers');
+// const { setInterval } = require('timers');
 
 
 
@@ -203,10 +203,48 @@ var norm2goldeninteger = z => {
 var p2z = norm2goldeninteger;
 var quantizedLookupTable = [0, 0.0005, 0.001, 0.003, 0.006, 0.008, 0.01, 0.015, 0.02, 0.025, 0.03, 0.04, 0.045, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11, 0.12, 0.14, 0.15, 0.16, 0.18, 0.2, 0.21, 0.23, 0.25, 0.27, 0.3, 0.32, 0.33, 0.36, 0.4, 0.45, 0.5, 0.55, 0.6, 0.64, 0.67, 0.68, 0.7, 0.73, 0.75, 0.77, 0.79, 0.8, 0.82, 0.84, 0.85, 0.86, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.955, 0.96, 0.97, 0.975, 0.98, 0.985, 0.99, 0.992, 0.994, 0.997, 0.999, 0.9995, 1];
 
+// homemade function to remap valor from a equal distribution to a normal (gaussian) distribution adapting logit function (inverse of sigmoid)
+// it is not prefectly reversible; used only for 
+var uniform2normal = (x) => {
+    if (x==0) return 0;
+    x = remap(x, 0, 1, 0.00627, 0.99373);
+    return checkRange(0.386364 + (0.5 + (Math.log10(x / (1 - x)))) / 4.4);
+}
+var u2n = uniform2normal;
+// not perfect reverse function
+var normal2uniform = (x) => {
+    if (x==0) return 0;
+    x = -(Math.pow(Math.E,(10.1314 * x)))/(-158.492 - Math.pow(Math.E,(10.1314 * x)));
+    return remap(x, 0.00627, 0.99373, 0, 1);
+} 
+var n2u = normal2uniform;
+
+// test reversibility of gaussian conversions
+var testReversibility = () => {
+    for (var a=0; a<=1; a=r6d(a+0.05)) {
+        console.log(a + " -> " + u2n(a) + " -> " + u2n(n2u(a)));       
+    }
+}
 
 // AUX FUNCTIONS
 
-
+// find the right value to map a normalized parameter to an eligible function encIndex,
+// to guarantee reproducibility of evaluations when new functions are available
+var findEligibleFunctionEncIndex = (encIndexesArray, mappedValue) => {
+    var findedHigherIndex = 0;
+    var arrPos = 0;
+    do {
+        findedHigherIndex = encIndexesArray[arrPos];
+        arrPos++;
+    } while (findedHigherIndex < mappedValue);
+    if (findedHigherIndex == undefined ) return encIndexesArray[arrPos - 2];
+    if (r6d(Math.abs(mappedValue - encIndexesArray[arrPos - 1])) > r6d(Math.abs(mappedValue - encIndexesArray[arrPos - 2]))) {
+        return encIndexesArray[arrPos - 2];
+    }
+    else {
+        return encIndexesArray[arrPos - 1];
+    }        
+}
 
 // functions to create unique filenames for specimens
 var addZero = (i) => {
@@ -466,18 +504,7 @@ Math.pow2 = function (n, p) {
     }
 }
 
-// homemade function to remap valor from a equal distribution to a normal (gaussian) distribution adapting logit function (inverse of sigmoid)
-var uniform2normal = (x) => {
-    if (x==0) return 0;
-    x = remap(x, 0, 1, 0.00627, 0.99373)
-    return checkRange(0.386364 + (0.5 + (Math.log10(x / (1 - x)))) / 4.4);
-}
-// 
-var normal2uniform = (x) => {
-    if (x==0) return 0;
-    x = -(Math.pow(Math.E,(10.1314 * x)))/(-158.4915 - Math.pow(Math.E,(10.1314 * x)));
-    return remap(x, 0.00627, 0.99373, 0, 1);
-} 
+
 
 
 // test decoded genotypes with Terminal
@@ -3277,7 +3304,7 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
     var newBranch;
 
     // generates subset of used functions
-    subsetEligibleFunctions = [0,1,2,3,4,5,7,9,10,11,12,15,17,19,20,43,46,104,110,131,134,199,310,312,314];
+    subsetEligibleFunctions = [0,1,2,3,4,5,7,9,10,11,12,15,17,19,20,43,46,98,99,104,110,131,134,199,310,312,314,315,317];
     var localEligibleFunctions = {
         includedFunctions: subsetEligibleFunctions,
         mandatoryFunctions: [], // to be implemented
@@ -3285,6 +3312,11 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
     };
     // generates the local catalogue of eligible functions to be used for genotype generation
     var local_functions_catalogue = createEligibleFunctionLibrary(GenoMusFunctionLibrary, localEligibleFunctions);
+
+    // console.log(local_functions_catalogue);
+    var testarr = ["a", "aRnd"];
+    console.log("extracted a: " + local_functions_catalogue.functionNames[testarr[0]].encIndex);
+    console.log("extracted aRnd: " + local_functions_catalogue.functionNames[testarr[1]].encIndex);
 
     // aux variables
     var germinalVectorLength = germinalVector.length;
@@ -3344,6 +3376,8 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
             numEligibleFunctions = Object.keys
                 (local_functions_catalogue.functionLibrary[nextFunctionType]).length;
             valueForChoosingNewFunction = Math.floor(preEncGen[pos] * numEligibleFunctions) % numEligibleFunctions;
+            var eligibleFuncionNames = (Object.keys(local_functions_catalogue.functionLibrary[nextFunctionType]));
+            console.log("eligibleFunctions: " + eligibleFuncionNames);
             chosenFunction = Object.keys
                 (local_functions_catalogue.functionLibrary[nextFunctionType])[valueForChoosingNewFunction];
             openFunctionTypes[openFunctionTypes.length] = nextFunctionType;
@@ -3363,7 +3397,7 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
             // changes value to 0 for make genotypes syntax independent from leaf newFunctionThreshold value (prescindible??)
             preEncGen[pos] = 0;
             // leaf converting uniform value from unidim. vector to normal distribution
-            newLeaf = r6d(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
+            newLeaf = r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]);
             germinalVectorReadingPos++;
             preEncGen.push(newLeaf);
             pos++;
@@ -3395,7 +3429,7 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
                 listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
                 germinalVectorReadingPos++;
                 for (var lit = 0; lit < listNumItems; lit++) {
-                    newLeaf = r6d(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
+                    newLeaf = r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]);
                     preEncGen.push(newLeaf);
                     newDecodedGenotype += "," + newLeaf;
                     germinalVectorReadingPos++;
@@ -3406,7 +3440,7 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
                 listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
                 germinalVectorReadingPos++;
                 for (var lit = 0; lit < listNumItems; lit++) {
-                    newLeaf = r6d(p2n(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
+                    newLeaf = r6d(p2n(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                     preEncGen.push(newLeaf);
                     newDecodedGenotype += "," + newLeaf;
                     germinalVectorReadingPos++;
@@ -3417,7 +3451,7 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
                 listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
                 germinalVectorReadingPos++;
                 for (var lit = 0; lit < listNumItems; lit++) {
-                    newLeaf = r6d(p2d(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
+                    newLeaf = r6d(p2d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                     preEncGen.push(newLeaf);
                     newDecodedGenotype += "," + newLeaf;
                     germinalVectorReadingPos++;
@@ -3428,7 +3462,7 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
                 listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
                 germinalVectorReadingPos++;
                 for (var lit = 0; lit < listNumItems; lit++) {
-                    newLeaf = r6d(p2m(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
+                    newLeaf = r6d(p2m(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                     preEncGen.push(newLeaf);
                     newDecodedGenotype += "," + newLeaf;
                     germinalVectorReadingPos++;
@@ -3439,7 +3473,7 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
                 listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
                 germinalVectorReadingPos++;
                 for (var lit = 0; lit < listNumItems; lit++) {
-                    newLeaf = r6d(p2f(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
+                    newLeaf = r6d(p2f(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                     preEncGen.push(newLeaf);
                     newDecodedGenotype += "," + newLeaf;
                     germinalVectorReadingPos++;
@@ -3450,7 +3484,7 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
                 listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
                 germinalVectorReadingPos++;
                 for (var lit = 0; lit < listNumItems; lit++) {
-                    newLeaf = r6d(p2a(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
+                    newLeaf = r6d(p2a(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                     preEncGen.push(newLeaf);
                     newDecodedGenotype += "," + newLeaf;
                     germinalVectorReadingPos++;
@@ -3461,7 +3495,7 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
                 listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
                 germinalVectorReadingPos++;
                 for (var lit = 0; lit < listNumItems; lit++) {
-                    newLeaf = r6d(p2i(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
+                    newLeaf = r6d(p2i(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                     preEncGen.push(newLeaf);
                     newDecodedGenotype += "," + newLeaf;
                     germinalVectorReadingPos++;
