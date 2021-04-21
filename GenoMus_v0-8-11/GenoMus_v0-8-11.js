@@ -1267,7 +1267,7 @@ var e5Pitches_csound = (duration, freq1, freq2, freq3, freq4, freq5, articulatio
     }
 });
 
-
+// !!!! check how do times qRnd compatible
 // repeats an event a number of times between 2 and 12 (eventP, quantizedP)
 var vRepeatE = (event, times) => {
     // ar numRepeats = 4; // number of times rescaled to range [2, 12], mapped according to the deviation from the center value 0.5 
@@ -3313,14 +3313,13 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
     // generates the local catalogue of eligible functions to be used for genotype generation
     var local_functions_catalogue = createEligibleFunctionLibrary(GenoMusFunctionLibrary, localEligibleFunctions);
 
-    console.log(local_functions_catalogue);
-    var testarr = ["a", "aRnd"];
-    console.log("extracted a: " + local_functions_catalogue.functionNames[testarr[0]].encIndex);
-    console.log("extracted aRnd: " + local_functions_catalogue.functionNames[testarr[1]].encIndex);
+    // console.log(local_functions_catalogue);
+    // var testarr = ["a", "aRnd"];
+    // console.log("extracted a: " + local_functions_catalogue.functionNames[testarr[0]].encIndex);
+    // console.log("extracted aRnd: " + local_functions_catalogue.functionNames[testarr[1]].encIndex);
 
     // aux variables
     var germinalVectorLength = germinalVector.length;
-    var germinalVector;
     var genotypeDepth = 0;
     var startdate = new Date();
     var newLeaf;
@@ -3331,12 +3330,13 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
 
     var validGenotype = true;    
     var germinalVectorReadingPos = 0;
-    var preEncGen = []; // compulsory start with a function
+    var preEncGen = [];
     // stores number of levels to be filled
     var notFilledParameters = [];
     // stores functions names in process of writing; forces starting with a score type function
     var expectedFunctions = [branchOutputType];
     var chosenFunction;
+    var chosenEncIndex;
     var openFunctionTypes = [];
     var nextFunctionType = branchOutputType;
     var pos = -1; // active readed position in encodedGenotype
@@ -3348,6 +3348,7 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
     // adds a new token to the decoded genotype
     do {
         preEncGen.push(checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
+        console.log(preEncGen);
         germinalVectorReadingPos++;
         pos++;
         // new ramification of genotype
@@ -3388,14 +3389,15 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
             orderenElegibleEncIndexes.sort((a, b) => a - b);
             console.log("encIndexes: " + orderenElegibleEncIndexes);
             console.log("new germinal value is " + preEncGen[pos]);
-            var chosenEncIndex = findEligibleFunctionEncIndex(orderenElegibleEncIndexes, preEncGen[pos]);
+            chosenEncIndex = findEligibleFunctionEncIndex(orderenElegibleEncIndexes, preEncGen[pos]);
+
+            preEncGen.push(chosenEncIndex);
+            console.log(preEncGen);
+
             console.log("chosen encIndex is " + chosenEncIndex);
             console.log("chosen function is " + local_functions_catalogue.encodedIndexes[chosenEncIndex]);
-            // chosenFunction = local_functions_catalogue.encodedIndexes[chosenEncIndex];
-
-
-
-            chosenFunction = Object.keys(local_functions_catalogue.functionLibrary[nextFunctionType])[valueForChoosingNewFunction];
+            chosenFunction = local_functions_catalogue.encodedIndexes[chosenEncIndex];
+            /////////// chosenFunction = Object.keys(local_functions_catalogue.functionLibrary[nextFunctionType])[valueForChoosingNewFunction];
             console.log("chosenFunction: " + chosenFunction);
 
 
@@ -3414,11 +3416,13 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
         // adds a leaf
         else {
             // changes value to 0 for make genotypes syntax independent from leaf newFunctionThreshold value (prescindible??)
-            preEncGen[pos] = 0;
+            //preEncGen[pos] = 0;
+
             // leaf converting uniform value from unidim. vector to normal distribution
             newLeaf = r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]);
             germinalVectorReadingPos++;
             preEncGen.push(newLeaf);
+            console.log(preEncGen);
             pos++;
             // adds primitive function, leaves of functions tree
             if (nextFunctionType == "leaf") {
@@ -3574,6 +3578,9 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
         // notFilledParameters.length < maxDepth); // &&
         // newDecodedGenotype.length < decGenStringLengthLimit);
 
+
+    console.log("last preEncGen: " + preEncGen);
+
     // removes trailing commas
     newDecodedGenotype.substring(0, newDecodedGenotype.length - 1);
     // phenotype seed only for evaluation of random functions
@@ -3598,11 +3605,14 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
         depth: genotypeDepth,
         leaves: extractLeaves(newBranch.encGen)
     };
-    currentSpecimen = newBranch;
+    // currentSpecimen = newBranch;
     return newBranch;
 }
 
-createNewBranch("scoreF",0,14,6,[0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]);
+//createNewBranch("paramF",0,14,6,[ 1, 0, 0.5, 0.2, 0 ]);
+
+
+//createNewBranch("scoreF",0,14,6,[0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]);
 
 
 
