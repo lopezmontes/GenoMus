@@ -3234,6 +3234,8 @@ var encPhen2csoundScore = encPhen => {
 };
 
 
+
+
 // encPhen2bachRoll([ 0.618034, 0.618034, 0.6, 0.618034, 0.48, 1, 1 ]);
 // encPhen2bachRoll(evalDecGen("s(v(e(p(0.5),p(.5),p(.5),p(.5))))").encPhen);
 
@@ -3298,6 +3300,7 @@ var specimenDataStructure = (specimen) => ({
 ///////////////
 // CORE FUNCTIONS FOR SPECIMEN CREATION AND EVOLUTION
 
+
 // new unified core function, introducing reversible germinal vector <-> encoded genotype
 var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, listsMaxNumItems, germinalVector) => {
     // main variable
@@ -3347,10 +3350,12 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
     listsMaxNumItems--;
     // adds a new token to the decoded genotype
     do {
-        preEncGen.push(checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
+        // preEncGen.push(checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
+        germinalVectorReadingPos++; // ignores first germinal value
+        preEncGen.push(1); // new function identifier
         console.log(preEncGen);
-        germinalVectorReadingPos++;
         pos++;
+
         // new ramification of genotype
         if (nextFunctionType != "voidLeaf" &&
             nextFunctionType != "leaf" &&
@@ -3376,8 +3381,9 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
             // choose among eligible functions
             numEligibleFunctions = Object.keys
                 (local_functions_catalogue.functionLibrary[nextFunctionType]).length;
-            valueForChoosingNewFunction = Math.floor(preEncGen[pos] * numEligibleFunctions) % numEligibleFunctions;
-
+            // valueForChoosingNewFunction = Math.floor(preEncGen[pos] * numEligibleFunctions) % numEligibleFunctions;
+            valueForChoosingNewFunction = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
+            console.log("valueForChoosingNewFunction from germinal: " + valueForChoosingNewFunction);
 
             var eligibleFuncionNames = (Object.keys(local_functions_catalogue.functionLibrary[nextFunctionType]));
             console.log("eligibleFunctions: " + eligibleFuncionNames);
@@ -3389,17 +3395,16 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
             orderenElegibleEncIndexes.sort((a, b) => a - b);
             console.log("encIndexes: " + orderenElegibleEncIndexes);
             console.log("new germinal value is " + preEncGen[pos]);
-            chosenEncIndex = findEligibleFunctionEncIndex(orderenElegibleEncIndexes, preEncGen[pos]);
+            chosenEncIndex = findEligibleFunctionEncIndex(orderenElegibleEncIndexes, valueForChoosingNewFunction);
 
-            preEncGen.push(chosenEncIndex);
-            console.log(preEncGen);
 
             console.log("chosen encIndex is " + chosenEncIndex);
-            console.log("chosen function is " + local_functions_catalogue.encodedIndexes[chosenEncIndex]);
+            console.log("correspondent func is " + local_functions_catalogue.encodedIndexes[chosenEncIndex]);
             chosenFunction = local_functions_catalogue.encodedIndexes[chosenEncIndex];
             /////////// chosenFunction = Object.keys(local_functions_catalogue.functionLibrary[nextFunctionType])[valueForChoosingNewFunction];
             console.log("chosenFunction: " + chosenFunction);
-
+            preEncGen.push(chosenEncIndex);
+            console.log(preEncGen);
 
             openFunctionTypes[openFunctionTypes.length] = nextFunctionType;
             // writes the new function
@@ -3609,7 +3614,13 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
     return newBranch;
 }
 
-//createNewBranch("paramF",0,14,6,[ 1, 0, 0.5, 0.2, 0 ]);
+createNewBranch("paramF",0,14,6,[ 0.3333, 0.4444, 0.5555, 0.6666 ]);
+
+
+createNewBranch("paramF",0,14,6,[ 1, 0.962453, 0 ]);
+
+
+createNewBranch("paramF",0,14,6,[ 1, 0, 0.5, 0.2, 0 ]);
 
 
 //createNewBranch("scoreF",0,14,6,[0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]);
