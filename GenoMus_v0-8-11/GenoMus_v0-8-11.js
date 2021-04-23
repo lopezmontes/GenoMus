@@ -3351,10 +3351,7 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
     // adds a new token to the decoded genotype
     do {
         // preEncGen.push(checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
-        germinalVectorReadingPos++; // ignores first germinal value
-        preEncGen.push(1); // new function identifier
-        console.log(preEncGen);
-        pos++;
+
 
         // new ramification of genotype
         if (nextFunctionType != "voidLeaf" &&
@@ -3378,11 +3375,18 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
             nextFunctionType != "lintensityLeaf" &&
             nextFunctionType != "lgoldenintegerLeaf" &&
             nextFunctionType != "lquantizedLeaf") {
+
+            germinalVectorReadingPos++; // ignores first germinal value
+            preEncGen.push(1); // new function identifier
+            console.log(preEncGen);
+            pos++;
+            
             // choose among eligible functions
             numEligibleFunctions = Object.keys
                 (local_functions_catalogue.functionLibrary[nextFunctionType]).length;
             // valueForChoosingNewFunction = Math.floor(preEncGen[pos] * numEligibleFunctions) % numEligibleFunctions;
             valueForChoosingNewFunction = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
+            germinalVectorReadingPos++;
             console.log("valueForChoosingNewFunction from germinal: " + valueForChoosingNewFunction);
 
             var eligibleFuncionNames = (Object.keys(local_functions_catalogue.functionLibrary[nextFunctionType]));
@@ -3394,7 +3398,6 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
             }
             orderenElegibleEncIndexes.sort((a, b) => a - b);
             console.log("encIndexes: " + orderenElegibleEncIndexes);
-            console.log("new germinal value is " + preEncGen[pos]);
             chosenEncIndex = findEligibleFunctionEncIndex(orderenElegibleEncIndexes, valueForChoosingNewFunction);
 
 
@@ -3423,35 +3426,46 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
             // changes value to 0 for make genotypes syntax independent from leaf newFunctionThreshold value (prescindible??)
             //preEncGen[pos] = 0;
 
-            // leaf converting uniform value from unidim. vector to normal distribution
-            newLeaf = r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]);
+            germinalVectorReadingPos++; // ignores germinal value, since it will be replaced with the leaf type identifier
+
+            // read leaf value
+            newLeaf = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
             germinalVectorReadingPos++;
-            preEncGen.push(newLeaf);
-            console.log(preEncGen);
-            pos++;
+
             // adds primitive function, leaves of functions tree
             if (nextFunctionType == "leaf") {
                 newDecodedGenotype += newLeaf;
+                preEncGen.push(0.5, newLeaf);
             } else if (nextFunctionType == "notevalueLeaf") {
                 newDecodedGenotype += p2n(newLeaf);
+                preEncGen.push(0.51, newLeaf);
             } else if (nextFunctionType == "durationLeaf") {
                 newDecodedGenotype += p2d(newLeaf);
+                preEncGen.push(0.52, newLeaf);
             } else if (nextFunctionType == "midipitchLeaf") {
                 newDecodedGenotype += p2m(newLeaf);
+                preEncGen.push(0.53, newLeaf);
             } else if (nextFunctionType == "frequencyLeaf") {
                 newDecodedGenotype += p2f(newLeaf);
+                preEncGen.push(0.54, newLeaf);
             } else if (nextFunctionType == "articulationLeaf") {
                 newDecodedGenotype += p2a(newLeaf);
+                preEncGen.push(0.55, newLeaf);
             } else if (nextFunctionType == "intensityLeaf") {
                 newDecodedGenotype += p2i(newLeaf);
+                preEncGen.push(0.56, newLeaf);
             } else if (nextFunctionType == "goldenintegerLeaf") {
                 newDecodedGenotype += p2z(newLeaf);
+                preEncGen.push(0.57, newLeaf);
             } else if (nextFunctionType == "quantizedLeaf") {
                 newDecodedGenotype += p2q(newLeaf);
+                preEncGen.push(0.58, newLeaf);
             } else if (nextFunctionType == "operationLeaf") {
                 newDecodedGenotype += newLeaf;
+                // preEncGen.push(0.5, newLeaf); TODO
             } else if (nextFunctionType == "booleanLeaf") {
                 newDecodedGenotype += Math.round(newLeaf);
+                preEncGen.push(0.59, newLeaf);
             } else if (nextFunctionType == "listLeaf") {
                 newDecodedGenotype += newLeaf;
                 listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
@@ -3552,6 +3566,10 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
             else {
                 newDecodedGenotype += preEncGen[pos];
             }
+
+
+
+
             notFilledParameters[notFilledParameters.length - 1]--;
             // if number of parameters of this depth level if filled, deletes this count level and adds ")", and "," if needed
             if (notFilledParameters[notFilledParameters.length - 1] == 0) {
@@ -3561,6 +3579,8 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
                         expectedFunctions.pop();
                         openFunctionTypes.pop();
                     }
+                    germinalVectorReadingPos++; // ignores next value, since is replaced with closing parenth. identifier
+                    preEncGen.push(0);
                     newDecodedGenotype += ")";
                     notFilledParameters[notFilledParameters.length - 1]--;
                 } while (
@@ -3584,7 +3604,8 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
         // newDecodedGenotype.length < decGenStringLengthLimit);
 
 
-    console.log("last preEncGen: " + preEncGen);
+    console.log("after leaf addition:")
+    console.log(preEncGen);
 
     // removes trailing commas
     newDecodedGenotype.substring(0, newDecodedGenotype.length - 1);
