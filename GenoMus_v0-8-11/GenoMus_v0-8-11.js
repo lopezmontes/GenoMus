@@ -3392,6 +3392,39 @@ var functionTypesConverters = {
     }
 }
 
+var leafTypes = [
+    "voidLeaf",
+    "leaf",
+    "notevalueLeaf",
+    "durationLeaf",
+    "midipitchLeaf",
+    "frequencyLeaf",
+    "articulationLeaf",
+    "intensityLeaf",
+    "goldenintegerLeaf",
+    "quantizedLeaf",
+    "operationLeaf",
+    "booleanLeaf",
+    "listLeaf",
+    "lnotevalueLeaf",
+    "ldurationLeaf",
+    "lmidipitchLeaf",
+    "lfrequencyLeaf",
+    "larticulationLeaf",
+    "lintensityLeaf",
+    "lgoldenintegerLeaf",
+    "lquantizedLeaf"]
+
+var listLeafTypes = [
+    "listLeaf",
+    "lnotevalueLeaf",
+    "ldurationLeaf",
+    "lmidipitchLeaf",
+    "lfrequencyLeaf",
+    "larticulationLeaf",
+    "lintensityLeaf",
+    "lgoldenintegerLeaf",
+    "lquantizedLeaf"]
 
 // new unified core function, introducing reversible germinal vector <-> encoded genotype
 var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, listsMaxNumItems, germinalVector) => {
