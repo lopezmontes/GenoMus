@@ -3553,8 +3553,8 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
                         newLeaf = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                         germinalVectorReadingPos++;
                         preitemvalue = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
-                        newDecodedGenotype += "," + newLeaf;
-                        preEncGen.push(0.5, newLeaf);
+                        newDecodedGenotype += "," + converser(newLeaf);
+                        preEncGen.push(typeIdentifier, newLeaf);
                         cardinality++;
                     }             
                 } else if (nextFunctionType == "lnotevalueLeaf") {
