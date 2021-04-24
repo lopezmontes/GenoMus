@@ -3530,6 +3530,7 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
                 newLeaf = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                 console.log("newLeaf: " + newLeaf);
                 cardinality = 1;
+                preitemvalue = 1;
 
                 console.log("nextFunctionType: " + nextFunctionType);
                 var converser = functionTypesConverters[nextFunctionType].conversionFunc;
@@ -3547,15 +3548,20 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
                 germinalVectorReadingPos++;
 
                 if (nextFunctionType == "listLeaf") {
-                    newDecodedGenotype += newLeaf; preEncGen.push(0.5, newLeaf);
-                    preitemvalue = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
-                    germinalVectorReadingPos++;
                     while (preitemvalue > newListElementThreshold && cardinality < listsMaxNumItems) {
+                        germinalVectorReadingPos++;
                         newLeaf = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                         germinalVectorReadingPos++;
-                        newDecodedGenotype += "," + newLeaf; preEncGen.push(0.5, newLeaf);
                         preitemvalue = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
-                        germinalVectorReadingPos++; cardinality++;
+                        newDecodedGenotype += "," + newLeaf;
+                        preEncGen.push(0.5, newLeaf);
+                        // preitemvalue = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
+                        // germinalVectorReadingPos++; 
+                        cardinality++;
+                        console.log(newDecodedGenotype);
+                        console.log("threshold: " + newListElementThreshold);
+                        console.log("next preitem: " + preitemvalue);
+                        
                     }             
                 } else if (nextFunctionType == "lnotevalueLeaf") {
                     newDecodedGenotype += p2n(newLeaf);
@@ -3665,6 +3671,7 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
                     germinalVectorReadingPos++; // ignores next value, since is replaced with closing parenth. identifier
                     preEncGen.push(0);
                     newDecodedGenotype += ")";
+                    console.log(newDecodedGenotype);
                     console.log("after closing parent, next germinal v is: " +
                         germinalVector[germinalVectorReadingPos]);
                     notFilledParameters[notFilledParameters.length - 1]--;
@@ -3712,7 +3719,9 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
         germinalVector: germinalVector,
         genotypeSeed: globalSeed,
         phenotypeSeed: phenotypeSeed,
+        localEligibleFunctions: localEligibleFunctions,
         maxAllowedDepth: maxDepth,
+        maxListCardinality: listsMaxNumItems,
         depth: genotypeDepth,
         leaves: extractLeaves(newBranch.encGen)
     };
@@ -3720,8 +3729,10 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
     return newBranch;
 }
 
+createGenotypeBranch("listF",0,14,70,[ 1, 0.618034, 0.5, 0.666, 0.5, 0.888, 0.5, 0.1111,  0 ]);
 
-createGenotypeBranch("eventF",0,14,70,[ 1,     0.567331,     1,     0.590537,     0,     1,     0.326238,     0.53,     0.09,     0,     1,     0.326238,     0.53,     0.09,     0,     1,     0.562306,     0.55,     0,     0,     1,     0.680706,     0,     0 ]);
+
+// createGenotypeBranch("eventF",0,14,70,[ 1,     0.567331,     1,     0.590537,     0,     1,     0.326238,     0.53,     0.09,     0,     1,     0.326238,     0.53,     0.09,     0,     1,     0.562306,     0.55,     0,     0,     1,     0.680706,     0,     0 ]);
 
 
 /* createGenotypeBranch("eventF",0,14,70,[ 1, 0.618034, 0.5, 0.666, 0.5, 0.888, 0.5, 0.999888, 0.5, 0.12345, 0.5, 0, 0 ]);
