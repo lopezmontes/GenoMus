@@ -1350,9 +1350,9 @@ An encoded genotype is an unidimensional array of normalized values &isinv; [0, 
 | intensityLeaf       | 0.56            | normalized parameter   | `[0.56, 0.3]` &#x21C6; `"38.1, "` 
 | goldenintegerLeaf   | 0.57            | normalized parameter   | `[0.57, 0.3]` &#x21C6; `"514262, "` 
 | quantizedLeaf       | 0.58            | normalized parameter   | `[0.58, 0.3]` &#x21C6; `"-6, "` 
-| booleanLeaf         | 0.59            | normalized parameter   | `[0.59, 0.56]` &#x21C6; `"1, "` 
-| listLeaf            | 0.6             | normalized parameter   | TODO 
-| *newtypeLeaf*       | 0.2 < *x* < 0.8 | normalized parameter   | `[x, 0.3]` &#x21C6; human-readable converted value 
+| booleanLeaf         | 0.59            | normalized parameter   | `[0.59, 0.3]` &#x21C6; `"0, "` 
+| operationLeaf       | 0.6             | normalized parameter   | `[0.6, 0.56]` &#x21C6; (unnecessary?) 
+| *newtypeLeaf*       | 0.6 < *x* < 0.8 | normalized parameter   | `[x, 0.3]` &#x21C6; human-readable converted value 
 | `[`                 | 0.8             | -                      | `[0.8]` &#x21C6; `"["` 
 | function name + `(` | 1               | encoded function index | `[1, 0.304952]` &#x21C6; `"vMotif("`
 

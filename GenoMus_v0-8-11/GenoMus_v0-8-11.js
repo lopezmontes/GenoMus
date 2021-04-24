@@ -771,7 +771,7 @@ var rndFramework = (fName, fTyp, fIndex) => indexExprReturnSpecimen({
     funcType: fTyp,
     encGen: [1, fIndex, 0],
     decGen: fName + "()",
-    encPhen: [uniform2normal(rand())]
+    encPhen: [r6d(uniform2normal(rand()))]
 });
 var pRnd = () => rndFramework("pRnd", "paramF", .962453);
 var nRnd = () => rndFramework("nRnd", "notevalueF", .590537);
@@ -2455,7 +2455,7 @@ var lfAutoref = subexprIndex => autoref("lfAutoref", "lfrequencyF", 0.611823, su
 var laAutoref = subexprIndex => autoref("laAutoref", "larticulationF", 0.229857, subexprIndex, "la(0)"); // could 0 cause troubles??
 var liAutoref = subexprIndex => autoref("liAutoref", "lintensityF", 0.847891, subexprIndex, "li(0)");
 var lzAutoref = subexprIndex => autoref("lzAutoref", "lgoldenintegerF", 0.465925, subexprIndex, "lg(0)");
-var lqAutoref = subexprIndex => autoref("lqAutoref", "lquantizedF", 0.083959, subexprIndex, "lq(0)");
+var lqAutoRef = subexprIndex => autoref("lqAutoRef", "lquantizedF", 0.083959, subexprIndex, "lq(0)");
 
 
 ////////// FUNCTION LIBRARIES HANDLING
@@ -3302,7 +3302,7 @@ var specimenDataStructure = (specimen) => ({
 
 
 // new unified core function, introducing reversible germinal vector <-> encoded genotype
-var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, listsMaxNumItems, germinalVector) => {
+var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, listsMaxNumItems, germinalVector) => {
     // main variable
     var newBranch;
 
@@ -3347,7 +3347,8 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
     var numEligibleFunctions;
     var valueForChoosingNewFunction;
     var listNumItems;
-    listsMaxNumItems--;
+    var newListElementThreshold;
+    var preitemvalue;
     // adds a new token to the decoded genotype
     do {
         // preEncGen.push(checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
@@ -3423,16 +3424,12 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
         }
         // adds a leaf
         else {
-            // changes value to 0 for make genotypes syntax independent from leaf newFunctionThreshold value (prescindible??)
-            //preEncGen[pos] = 0;
-
             if (nextFunctionType != "voidLeaf") {
                 germinalVectorReadingPos++; // ignores germinal value, since it will be replaced with the leaf type identifier
                 // read leaf value
                 newLeaf = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                 germinalVectorReadingPos++;
-            }
-            else {
+                var cardinality = 1;
                 // adds primitive function, leaves of functions tree
                 if (nextFunctionType == "leaf") {
                     newDecodedGenotype += newLeaf;
@@ -3468,15 +3465,23 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
                     newDecodedGenotype += Math.round(newLeaf);
                     preEncGen.push(0.59, newLeaf);
                 } else if (nextFunctionType == "listLeaf") {
-                    newDecodedGenotype += newLeaf;
-                    listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
+                    newDecodedGenotype += newLeaf; // list have at least one element
+                    preEncGen.push(0.5, newLeaf);
+                    newListElementThreshold = 2/listsMaxNumItems;
+                    console.log("threshold: " + newListElementThreshold);
+                    // listNumItems = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength])) * listsMaxNumItems;
+                    preitemvalue = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                     germinalVectorReadingPos++;
-                    for (var lit = 0; lit < listNumItems; lit++) {
-                        newLeaf = r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]);
-                        preEncGen.push(newLeaf);
-                        newDecodedGenotype += "," + newLeaf;
+                    console.log("preitemvalue: " + preitemvalue);
+
+                    while (preitemvalue > newListElementThreshold && cardinality < listsMaxNumItems) {
+                        newLeaf = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                         germinalVectorReadingPos++;
-                        pos++;
+                        preEncGen.push(0.5, newLeaf);
+                        newDecodedGenotype += "," + newLeaf;
+                        cardinality++;
+                        preitemvalue = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
+                        germinalVectorReadingPos++;
                     }
                 } else if (nextFunctionType == "lnotevalueLeaf") {
                     newDecodedGenotype += p2n(newLeaf);
@@ -3561,7 +3566,7 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
                     chosenFunction == "laAutoRef" ||
                     chosenFunction == "liAutoRef" ||
                     chosenFunction == "lzAutoRef" ||
-                    chosenFunction == "lqAutoref") {
+                    chosenFunction == "lqAutoRef") {
                     newDecodedGenotype += parseInt(preEncGen[pos] * 1e5);
                 }
                 else {
@@ -3641,22 +3646,37 @@ var createNewBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, list
     return newBranch;
 }
 
+createGenotypeBranch("listF",0,14,6,[ 1, 0.618034, 0.5, 0.666, 0.4, 0.888, 0.5, 0.999888, 0 ]);
 
-createNewBranch("eventF",0,14,6,[ 1,0.185365,1,0.590537,0,1,0.326238,0.53,1,0,1,0.826604,0,1,0.826604,0,1,0.562306,0.55,0,0,1,0.18034,0.56,0.59,0,0 ]);
+createGenotypeBranch("listF",0,14,6,[ 1, 0.618034, 0.5, 0.666, 0.5, 0.888, 0.5, 0.999, 0.5, 0.222, 0 ]);
 
-
-
-
-createNewBranch("paramF",0,14,6,[ 0.3333, 0.4444, 0.5555, 0.6666 ]);
+createGenotypeBranch("listF",0,14,6,[0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]);
 
 
-createNewBranch("paramF",0,14,6,[ 1, 0.962453, 0 ]);
+createGenotypeBranch("scoreF",0,14,6,[ 1,     0.275535,     1,     0.429563,     1,     0.567331,     1,     0.590537,     0,     1,     0.826604,     0,     1,     0.326238,     0.53,     0.4,     0,     1,     0.562306,     0.55,     0.899575,     0,     1,     0.18034,     0.56,     0.3,     0,     0,     1,     0.916774,     0,     0,     1,     0.429563,     1,     0.185365,     1,     0.590537,     0,     1,     0.826604,     0,     1,     0.826604,     0,     1,     0.326238,     0.53,     0.4,     0,     1,     0.562306,     0.55,     0.899575,     0,     1,     0.18034,     0.56,     0.3,     0,     0,     1,     0.916774,     0,     0,     0 ]);
 
 
-createNewBranch("paramF",0,14,6,[ 1, 0, 0.5, 0.2, 0 ]);
+createGenotypeBranch("scoreF",0,14,6,[0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]);
 
 
-//createNewBranch("scoreF",0,14,6,[0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]);
+createGenotypeBranch("voiceF",0,14,6,[0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]);
+
+
+createGenotypeBranch("eventF",0,14,6,[ 1,0.185365,1,0.590537,0,1,0.326238,0.53,1,0,1,0.826604,0,1,0.826604,0,1,0.562306,0.55,0,0,1,0.18034,0.56,0.59,0,0 ]);
+
+
+
+
+createGenotypeBranch("paramF",0,14,6,[ 0.3333, 0.4444, 0.5555, 0.6666 ]);
+
+
+createGenotypeBranch("paramF",0,14,6,[ 1, 0.962453, 0 ]);
+
+
+createGenotypeBranch("paramF",0,14,6,[ 1, 0, 0.5, 0.2, 0 ]);
+
+
+//createGenotypeBranch("scoreF",0,14,6,[0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]);
 
 
 
@@ -3720,8 +3740,8 @@ function createGerminalSpecimen() {
                     nextFunctionType != "intensityLeaf" &&
                     nextFunctionType != "goldenintegerLeaf" &&
                     nextFunctionType != "quantizedLeaf" &&
-                    nextFunctionType != "operationLeaf" &&
                     nextFunctionType != "booleanLeaf" &&
+                    nextFunctionType != "operationLeaf" &&
                     nextFunctionType != "listLeaf" &&
                     nextFunctionType != "lnotevalueLeaf" &&
                     nextFunctionType != "ldurationLeaf" &&
@@ -3875,7 +3895,7 @@ function createGerminalSpecimen() {
                         chosenFunction == "laAutoRef" ||
                         chosenFunction == "liAutoRef" ||
                         chosenFunction == "lzAutoRef" ||
-                        chosenFunction == "lqAutoref") {
+                        chosenFunction == "lqAutoRef") {
                         newDecodedGenotype += parseInt(preEncGen[pos] * 1e5);
                     }
                     else {
@@ -4179,7 +4199,7 @@ function specimenFromInitialCondition(protoGerminalVector, initialGenoSeed, init
                     chosenFunction == "laAutoRef" ||
                     chosenFunction == "liAutoRef" ||
                     chosenFunction == "lzAutoRef" ||
-                    chosenFunction == "lqAutoref") {
+                    chosenFunction == "lqAutoRef") {
                     newDecodedGenotype += parseInt(preEncGen[pos] * 1e5);
                 }
                 else {
