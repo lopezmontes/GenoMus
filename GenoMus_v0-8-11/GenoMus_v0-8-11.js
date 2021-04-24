@@ -102,7 +102,7 @@ function arrayEquals(a, b) {
 }
 
 // creates random arrays (used to get germinal vectors)
-var newNormalizedUnidimArray = (n) => {
+var randomVector = (n) => {
     var arr = [];
     var i = 1;
     while (i <= n) {
@@ -607,7 +607,7 @@ var createPopulation = (germinalVecMaxLength) => {
     var newItemLength;
     for (var a=0; a<specimensPerGeneration; a++) {
         newItemLength = parseInt((germinalVecMaxLength - 5) * Math.random() + 1) + 5;
-        newPopulation[a] = newNormalizedUnidimArray(newItemLength);
+        newPopulation[a] = randomVector(newItemLength);
     }    
     return newPopulation;
 }
@@ -698,7 +698,7 @@ var simpleBACHSearch = () => {
         // adds brand new specimens
         for (var specIndx3 = 0; specIndx3 < numNewSpecs; specIndx3++) {
             globalSeed = parseInt(Math.random()*100000000);
-            newGeneration.push(newNormalizedUnidimArray(germinalVectorMaximalLength));
+            newGeneration.push(randomVector(germinalVectorMaximalLength));
         }
         // maxAPI.post(newGeneration);
         // evaluates fitness of each new specimen
@@ -3446,13 +3446,14 @@ var autorefTypes = [
     "lzAutoRef",
     "lqAutoRef"]
 
-// new unified core function, introducing reversible germinal vector <-> encoded genotype
+// new unified CORE FUNCTION, introducing reversible germinal vector <-> encoded genotype
 var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, listsMaxNumItems, germinalVector) => {
     // main variable
     var newBranch;
 
     // generates subset of used functions
-    subsetEligibleFunctions = [0,1,2,3,4,5,7,9,10,11,12,15,17,19,20,43,46,98,99,104,110,131,134,199,310,312,314,315,317];
+    subsetEligibleFunctions = [0,1,2,3,4,5,7,9,10,11,12,15,17,19,20,43,46,98,99,104,110,131,134,199,310,312,314,315,317,
+                                25, 279, 99, 100, 101];
     var localEligibleFunctions = {
         includedFunctions: subsetEligibleFunctions,
         mandatoryFunctions: [], // to be implemented
@@ -3486,7 +3487,7 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
     var newDecodedGenotype = "";
     var eligibleFuncionNames;
     var eligibleFuncionNamesLength;
-    var orderenElegibleEncIndexes;
+    var orderedElegibleEncIndexes;
     var valueForChoosingNewFunction;
     var newListElementThreshold = Math.min(0.499, 2/listsMaxNumItems);
     var preitemvalue;
@@ -3495,7 +3496,6 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
     // adds a new token to the decoded genotype
     do {
         if (leafTypes.includes(nextFunctionType) == false) {
-
             germinalVectorReadingPos++; // ignores first germinal value
             preEncGen.push(1); // new function identifier
             pos++;
@@ -3503,16 +3503,17 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
             germinalVectorReadingPos++;
 
             eligibleFuncionNames = (Object.keys(local_functions_catalogue.functionLibrary[nextFunctionType]));
+                console.log(eligibleFuncionNames);
             eligibleFuncionNamesLength = eligibleFuncionNames.length;
-            orderenElegibleEncIndexes = [];
+            orderedElegibleEncIndexes = [];
             for (var elegitem = 0; elegitem < eligibleFuncionNamesLength; elegitem++) {
-                orderenElegibleEncIndexes.push(local_functions_catalogue.functionNames[eligibleFuncionNames[elegitem]].encIndex);
+                orderedElegibleEncIndexes.push(local_functions_catalogue.functionNames[eligibleFuncionNames[elegitem]].encIndex);
             }
-            orderenElegibleEncIndexes.sort((a, b) => a - b);
-            chosenEncIndex = findEligibleFunctionEncIndex(orderenElegibleEncIndexes, valueForChoosingNewFunction);
+            orderedElegibleEncIndexes.sort((a, b) => a - b);
+                console.log(orderedElegibleEncIndexes);
+            chosenEncIndex = findEligibleFunctionEncIndex(orderedElegibleEncIndexes, valueForChoosingNewFunction);
             chosenFunction = local_functions_catalogue.encodedIndexes[chosenEncIndex];
             preEncGen.push(chosenEncIndex);
-
             openFunctionTypes[openFunctionTypes.length] = nextFunctionType;
             // writes the new function
             newDecodedGenotype += chosenFunction + "(";
@@ -3549,8 +3550,10 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
                         preEncGen.push(typeIdentifier, newLeaf);
                         cardinality++;
                     }             
-                } else if (autorefTypes.includes(chosenFunction)) { 
-                    newDecodedGenotype += parseInt(preEncGen[pos] * 1e5);
+                }
+                if (autorefTypes.includes(chosenFunction)) { 
+                    console.log("EEEEEEEEE: " + newLeaf);
+                    // newDecodedGenotype += newLeaf * 1e5;
                 }
                 // else {
                 //     newDecodedGenotype += preEncGen[pos];
@@ -3590,12 +3593,6 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
     } while (
         notFilledParameters[0] > 0 &&
         validGenotype == true); // &&
-        // notFilledParameters.length < maxDepth); // &&
-        // newDecodedGenotype.length < decGenStringLengthLimit);
-
-
-    console.log("after leaf addition:")
-    console.log(preEncGen);
 
     // removes trailing commas
     newDecodedGenotype.substring(0, newDecodedGenotype.length - 1);
@@ -3626,6 +3623,20 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
     // currentSpecimen = newBranch;
     return newBranch;
 }
+/*
+
+createGenotypeBranch("eventF",0,14,70,randomVector(10));
+
+
+createGenotypeBranch("eventF",0,14,70,[ 1,0.185365,1,0.09017,0.51,0.53,0,1,0.326238,0.53,0.31,0,1,0.431483,0.57,0,0,1,0.431483,0.57,0.618034,0,1,0.562306,0.55,0.323858,0,1,0.18034,0.56,0.57,0,0 ]);
+
+
+createGenotypeBranch("eventF",0,14,70,[ 1,0.185365,1,0.09017,0.51,0.53,0,1,0.326238,0.53,0.31,0,1,0.431483,0.57,0,0,1,0.431483,0.57,0.618034,0,1,0.562306,0.55,0.323858,0,1,0.18034,0.56,0.57,0,0 ]);
+
+
+createGenotypeBranch("eventF",0,14,70,[ 1,0.567331,1,0.590537,0,1,0.326238,0.53,0.31,0,1,0.431483,0.57,0,0,1,0.562306,0.55,0.497624,0,1,0.680706,0,0 ]);
+
+createGenotypeBranch("eventF",0,14,70,[ 1, 0.618034, 0.5, 0.666, 0.5, 0.888, 0.5, 0.999888, 0.43, 0.12345, 0.5, 0.43, .56,.7,.7,.7 ]);
 
 
 createGenotypeBranch("listF",0,14,7,[ 1, 0.618034, 0.5, 0.58, 0.5, 0.59, 0.5, 0.60,  0 ]);
@@ -3635,15 +3646,13 @@ createGenotypeBranch("larticulationF",0,14,7,[ 1, 0.618034, 0.5, 0.58, 0.5, 0.59
 createGenotypeBranch("lintensityF",0,14,7,[ 1, 0.618034, 0.5, 0.58, 0.5, 0.59, 0.5, 0.60,  0 ]);
 
 
-
-
 createGenotypeBranch("listF",0,14,70,[ 1, 0.618034, 0.5, 0.666, 0.5, 0.888, 0.5, 0.1111,  0 ]);
 
 
 // createGenotypeBranch("eventF",0,14,70,[ 1,     0.567331,     1,     0.590537,     0,     1,     0.326238,     0.53,     0.09,     0,     1,     0.326238,     0.53,     0.09,     0,     1,     0.562306,     0.55,     0,     0,     1,     0.680706,     0,     0 ]);
 
 
-/* createGenotypeBranch("eventF",0,14,70,[ 1, 0.618034, 0.5, 0.666, 0.5, 0.888, 0.5, 0.999888, 0.5, 0.12345, 0.5, 0, 0 ]);
+createGenotypeBranch("eventF",0,14,70,[ 1, 0.618034, 0.5, 0.666, 0.5, 0.888, 0.5, 0.999888, 0.5, 0.12345, 0.5, 0, 0 ]);
 
 
 
@@ -3719,7 +3728,7 @@ function createGerminalSpecimen() {
             validGenotype = true;
             // creates new germinal vector
             germinalVectorLength = Math.ceil(rand()*100);
-            germinalVector = newNormalizedUnidimArray(germinalVectorLength);
+            germinalVector = randomVector(germinalVectorLength);
             germinalVectorReadingPos = 0;
             genotypeDepth = 0;
             var preEncGen = []; // compulsory start with a function
