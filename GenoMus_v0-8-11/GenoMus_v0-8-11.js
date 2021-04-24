@@ -3350,10 +3350,11 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
     var orderenElegibleEncIndexes;
     var valueForChoosingNewFunction;
     var listNumItems;
-    var newListElementThreshold = Math.max(0.499, 1/listsMaxNumItems);
+    var newListElementThreshold = Math.min(0.499, 2/listsMaxNumItems);
     console.log("threshold: " + newListElementThreshold);
 
     var preitemvalue;
+    var cardinality;
 
 
     // adds a new token to the decoded genotype
@@ -3436,7 +3437,7 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
                 // read leaf value
                 newLeaf = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                 germinalVectorReadingPos++;
-                var cardinality = 1;
+                cardinality = 1;
                 // adds primitive function, leaves of functions tree
                 if (nextFunctionType == "leaf") {
                     newDecodedGenotype += newLeaf;
@@ -3468,22 +3469,19 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
                 } else if (nextFunctionType == "booleanLeaf") {
                     newDecodedGenotype += Math.round(newLeaf);
                     preEncGen.push(0.59, newLeaf); 
-                } else if (nextFunctionType == "operationLeaf") {
-                    newDecodedGenotype += newLeaf; // TODO
+                } else if (nextFunctionType == "operationLeaf") { // TODO
+                    newDecodedGenotype += newLeaf; 
                     preEncGen.push(0.6, newLeaf);
                 } else if (nextFunctionType == "listLeaf") {
-                    newDecodedGenotype += newLeaf;
-                    preEncGen.push(0.5, newLeaf);
+                    newDecodedGenotype += newLeaf; preEncGen.push(0.5, newLeaf);
                     preitemvalue = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                     germinalVectorReadingPos++;
                     while (preitemvalue > newListElementThreshold && cardinality < listsMaxNumItems) {
                         newLeaf = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                         germinalVectorReadingPos++;
-                        preEncGen.push(0.5, newLeaf);
-                        newDecodedGenotype += "," + newLeaf;
-                        cardinality++;
+                        newDecodedGenotype += "," + newLeaf; preEncGen.push(0.5, newLeaf);
                         preitemvalue = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
-                        germinalVectorReadingPos++;
+                        germinalVectorReadingPos++; cardinality++;
                     }             
                 } else if (nextFunctionType == "lnotevalueLeaf") {
                     newDecodedGenotype += p2n(newLeaf);
@@ -3648,7 +3646,7 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
     return newBranch;
 }
 
-createGenotypeBranch("listF",0,14,4,[ 1, 0.618034, 0.5, 0.666, 0.8, 0.888, 0.5, 0.999888, 0.5, 0.12345, 0.5, 0, 0 ]);
+createGenotypeBranch("listF",0,14,70,[ 1, 0.618034, 0.5, 0.666, 0.5, 0.888, 0.5, 0.999888, 0.5, 0.12345, 0.5, 0, 0 ]);
 
 createGenotypeBranch("listF",0,14,6,[ 1, 0.618034, 0.5, 0.666, 0.4, 0.888, 0.5, 0.999888, 0 ]);
 
