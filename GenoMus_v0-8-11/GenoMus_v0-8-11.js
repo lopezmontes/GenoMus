@@ -3452,8 +3452,8 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
     var newBranch;
 
     // generates subset of used functions
-    subsetEligibleFunctions = [0,1,2,3,4,5,7,9,10,11,12,15,17,19,20,43,46,98,99,104,110,131,134,199,310,312,314,315,317,
-                                25, 279, 99, 100, 101];
+    subsetEligibleFunctions = [0,1,2,3,4,5,7,9,10,11,12,15,17,19,20,43,44,46,98,99,104,110,131,134,199,310,312,314,315,317,
+                                25, 26, 27, 28, 29, 279, 99, 100, 101];
     var localEligibleFunctions = {
         includedFunctions: subsetEligibleFunctions,
         mandatoryFunctions: [], // to be implemented
@@ -3625,7 +3625,12 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
 }
 /*
 
-createGenotypeBranch("eventF",0,14,70,randomVector(10));
+
+globalSeed = Math.random()*1e12;
+var newV = randomVector(100);
+createGenotypeBranch("scoreF",0,14,4,newV);
+
+createGenotypeBranch("scoreF",0,14,4,[ 1,0.472136,1,0.575462,1,0.854102,1,0.236068,1,0.09017,0.51,0,0,1,0.326238,0.53,0.31,0,1,0.062672,0,1,0.18034,0.56,0,0,0,0,1,0.304952,0.57,0,0,0,0 ]);
 
 
 createGenotypeBranch("eventF",0,14,70,[ 1,0.185365,1,0.09017,0.51,0.53,0,1,0.326238,0.53,0.31,0,1,0.431483,0.57,0,0,1,0.431483,0.57,0.618034,0,1,0.562306,0.55,0.323858,0,1,0.18034,0.56,0.57,0,0 ]);
