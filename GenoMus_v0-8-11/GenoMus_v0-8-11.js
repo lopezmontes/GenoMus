@@ -3446,14 +3446,15 @@ var autorefTypes = [
     "lzAutoRef",
     "lqAutoRef"]
 
+var eligibleFunctionsForTesting = [0,1,2,3,4,5,7,9,10,11,12,15,17,19,20,43,44,46,98,99,104,110,131,134,199,310,312,314,315,317,
+        25, 26, 27, 28, 29, 279, 99, 100, 101];
+
 // new unified CORE FUNCTION, introducing reversible germinal vector <-> encoded genotype
 var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, listsMaxNumItems, germinalVector) => {
     // main variable
     var newBranch;
-
     // generates subset of used functions
-    subsetEligibleFunctions = [0,1,2,3,4,5,7,9,10,11,12,15,17,19,20,43,44,46,98,99,104,110,131,134,199,310,312,314,315,317,
-                                25, 26, 27, 28, 29, 279, 99, 100, 101];
+
     var localEligibleFunctions = {
         includedFunctions: subsetEligibleFunctions,
         mandatoryFunctions: [], // to be implemented
@@ -3483,7 +3484,6 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
     var chosenEncIndex;
     var openFunctionTypes = [];
     var nextFunctionType = branchOutputType;
-    var pos = -1; // active readed position in encodedGenotype
     var newDecodedGenotype = "";
     var eligibleFuncionNames;
     var eligibleFuncionNamesLength;
@@ -3497,11 +3497,10 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
     do {
         if (leafTypes.includes(nextFunctionType) == false) {
             germinalVectorReadingPos++; // ignores first germinal value
-            preEncGen.push(1); // new function identifier
-            pos++;
+            preEncGen.push(1); // starts with new function identifier
+            // chooses a new function
             valueForChoosingNewFunction = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
             germinalVectorReadingPos++;
-
             eligibleFuncionNames = (Object.keys(local_functions_catalogue.functionLibrary[nextFunctionType]));
                 console.log(eligibleFuncionNames);
             eligibleFuncionNamesLength = eligibleFuncionNames.length;
@@ -3513,16 +3512,16 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
                 console.log(orderedElegibleEncIndexes);
             chosenEncIndex = findEligibleFunctionEncIndex(orderedElegibleEncIndexes, valueForChoosingNewFunction);
             chosenFunction = local_functions_catalogue.encodedIndexes[chosenEncIndex];
-            preEncGen.push(chosenEncIndex);
-            openFunctionTypes[openFunctionTypes.length] = nextFunctionType;
             // writes the new function
+            preEncGen.push(chosenEncIndex);
             newDecodedGenotype += chosenFunction + "(";
-            // read the expected parameters of the chosen function
+            // reads the expected parameters of the chosen function
+            openFunctionTypes[openFunctionTypes.length] = nextFunctionType;
             notFilledParameters[notFilledParameters.length] = Object.keys
                 (local_functions_catalogue.functionLibrary[nextFunctionType][chosenFunction].arguments).length;
             expectedFunctions[notFilledParameters.length - 1] = chosenFunction;
+            // checks 
             if (notFilledParameters.length > maxDepth) {
-                // console.log("limit exceeded");
                 validGenotype = false;
             } else if (notFilledParameters.length > genotypeDepth) genotypeDepth = notFilledParameters.length;
         }
@@ -3530,7 +3529,7 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
         else {
             if (nextFunctionType != "voidLeaf") {
                 germinalVectorReadingPos++; // ignores germinal value, since it will be replaced with the leaf type identifier
-                // read leaf value
+                // reads leaf value
                 newLeaf = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                 cardinality = 1;
                 preitemvalue = 1;
@@ -3551,15 +3550,11 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
                         cardinality++;
                     }             
                 }
-                if (autorefTypes.includes(chosenFunction)) { 
+/*                 if (autorefTypes.includes(chosenFunction)) { 
                     console.log("EEEEEEEEE: " + newLeaf);
                     // newDecodedGenotype += newLeaf * 1e5;
-                }
-                // else {
-                //     newDecodedGenotype += preEncGen[pos];
-                // }
+                } */
             }
-
             notFilledParameters[notFilledParameters.length - 1]--;
             // if number of parameters of this depth level if filled, deletes this count level and adds ")", and "," if needed
             if (notFilledParameters[notFilledParameters.length - 1] == 0) {
@@ -3572,9 +3567,6 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
                     germinalVectorReadingPos++; // ignores next value, since is replaced with closing parenth. identifier
                     preEncGen.push(0);
                     newDecodedGenotype += ")";
-                    console.log(newDecodedGenotype);
-                    console.log("after closing parent, next germinal v is: " +
-                        germinalVector[germinalVectorReadingPos]);
                     notFilledParameters[notFilledParameters.length - 1]--;
                 } while (
                     notFilledParameters[notFilledParameters.length - 1] == 0 &&
@@ -3593,12 +3585,10 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
     } while (
         notFilledParameters[0] > 0 &&
         validGenotype == true); // &&
-
     // removes trailing commas
     newDecodedGenotype.substring(0, newDecodedGenotype.length - 1);
     // phenotype seed only for evaluation of random functions
     createNewSeed(phenotypeSeed);
-        
     if (validGenotype == true) {
         newBranch = eval(newDecodedGenotype);
     } else {
@@ -3620,17 +3610,23 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
         depth: genotypeDepth,
         leaves: extractLeaves(newBranch.encGen)
     };
-    // currentSpecimen = newBranch;
     return newBranch;
 }
+
+
+
 /*
+
+
+
+createGenotypeBranch("scoreF",eligibleFunctionsForTesting,14,4,newV);
 
 
 globalSeed = Math.random()*1e12;
 var newV = randomVector(100);
 createGenotypeBranch("scoreF",0,14,4,newV);
 
-createGenotypeBranch("scoreF",0,14,4,[ 1,0.472136,1,0.575462,1,0.854102,1,0.236068,1,0.09017,0.51,0,0,1,0.326238,0.53,0.31,0,1,0.062672,0,1,0.18034,0.56,0,0,0,0,1,0.304952,0.57,0,0,0,0 ]);
+createGenotypeBranch("scoreF",eligibleFunctionsForTesting,14,4,[ 1,0.472136,1,0.575462,1,0.854102,1,0.236068,1,0.09017,0.51,0,0,1,0.326238,0.53,0.31,0,1,0.062672,0,1,0.18034,0.56,0,0,0,0,1,0.304952,0.57,0,0,0,0 ]);
 
 
 createGenotypeBranch("eventF",0,14,70,[ 1,0.185365,1,0.09017,0.51,0.53,0,1,0.326238,0.53,0.31,0,1,0.431483,0.57,0,0,1,0.431483,0.57,0.618034,0,1,0.562306,0.55,0.323858,0,1,0.18034,0.56,0.57,0,0 ]);
