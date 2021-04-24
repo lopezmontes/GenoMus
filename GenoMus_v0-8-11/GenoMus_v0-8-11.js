@@ -3547,7 +3547,9 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
 
                 germinalVectorReadingPos++;
 
-                if (nextFunctionType == "listLeaf") {
+                if (nextFunctionType == "listLeaf" 
+                    || nextFunctionType == "lmidipitchLeaf"
+                    ) {
                     while (preitemvalue > newListElementThreshold && cardinality < listsMaxNumItems) {
                         germinalVectorReadingPos++;
                         newLeaf = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
@@ -3722,6 +3724,13 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
     // currentSpecimen = newBranch;
     return newBranch;
 }
+
+
+createGenotypeBranch("lmidipitchF",0,14,7,[ 1, 0.618034, 0.5, 0.58, 0.5, 0.59, 0.5, 0.60,  0 ]);
+
+
+
+
 
 createGenotypeBranch("listF",0,14,70,[ 1, 0.618034, 0.5, 0.666, 0.5, 0.888, 0.5, 0.1111,  0 ]);
 
