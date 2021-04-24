@@ -1356,7 +1356,7 @@ An encoded genotype is an unidimensional array of normalized values &isinv; [0, 
 | `[`                 | 0.8             | -                      | `[0.8]` &#x21C6; `"["` 
 | function name + `(` | 1               | encoded function index | `[1, 0.304952]` &#x21C6; `"vMotif("`
 
-For each new function type its identifier must be close to 0.5, but different from the identifiers already used. 
+For each new function type, its identifier must be in interval (0.6, 0.8) and unique. 
 
 ----------
 ## Formatting decoded genotypes
