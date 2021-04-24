@@ -3495,6 +3495,7 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
 
     // adds a new token to the decoded genotype
     do {
+        // adds a function
         if (leafTypes.includes(nextFunctionType) == false) {
             germinalVectorReadingPos++; // ignores first germinal value
             preEncGen.push(1); // starts with new function identifier
