@@ -3521,7 +3521,7 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
             notFilledParameters[notFilledParameters.length] = Object.keys
                 (local_functions_catalogue.functionLibrary[nextFunctionType][chosenFunction].arguments).length;
             expectedFunctions[notFilledParameters.length - 1] = chosenFunction;
-            // checks 
+            // checks depth limits
             if (notFilledParameters.length > maxDepth) {
                 validGenotype = false;
             } else if (notFilledParameters.length > genotypeDepth) genotypeDepth = notFilledParameters.length;
