@@ -3345,6 +3345,50 @@ var functionTypesConverters = {
     "operationLeaf": {
         "conversionFunc": p2p, 
         "identifier": 0.6
+    },
+    "listLeaf": {
+        "conversionFunc": p2p, 
+        "identifier": 0.5                
+    },
+    "lnotevalueLeaf": {
+        "conversionFunc": p2n, 
+        "identifier": 0.51
+    },
+    "ldurationLeaf": {
+        "conversionFunc": p2d, 
+        "identifier": 0.52
+    },
+    "lmidipitchLeaf": {
+        "conversionFunc": p2m, 
+        "identifier": 0.53
+    },
+    "lfrequencyLeaf": {
+        "conversionFunc": p2f, 
+        "identifier": 0.54
+    },
+    "larticulationLeaf": {
+        "conversionFunc": p2a, 
+        "identifier": 0.55
+    },
+    "lintensityLeaf": {
+        "conversionFunc": p2i, 
+        "identifier": 0.56
+    },
+    "lgoldenintegerLeaf": {
+        "conversionFunc": p2z, 
+        "identifier": 0.57
+    },
+    "lquantizedLeaf": {
+        "conversionFunc": p2q, 
+        "identifier": 0.58
+    },    
+    "lbooleanLeaf": {
+        "conversionFunc": Math.round, 
+        "identifier": 0.59
+    },    
+    "loperationLeaf": {
+        "conversionFunc": p2p, 
+        "identifier": 0.6
     }
 }
 
@@ -3486,6 +3530,21 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
                 newLeaf = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                 germinalVectorReadingPos++;
                 cardinality = 1;
+
+                console.log("nextFunctionType: " + nextFunctionType);
+                var converser = functionTypesConverters[nextFunctionType].conversionFunc;
+                var typeIdentifier = functionTypesConverters[nextFunctionType].identifier;
+                
+                newDecodedGenotype += converser(newLeaf);
+                preEncGen.push(typeIdentifier, newLeaf);
+
+                console.log("converser: " + converser);
+                console.log("newLeaf: " + newLeaf);
+                console.log("newLeaf conv: " + converser(newLeaf));
+                console.log("typeIdentifier: " + typeIdentifier);
+
+                // newDecodedGenotype += newLeaf;
+/* 
                 // adds primitive function, leaves of functions tree
                 if (nextFunctionType == "leaf") {
                     newDecodedGenotype += newLeaf;
@@ -3519,8 +3578,8 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
                     preEncGen.push(0.59, newLeaf); 
                 } else if (nextFunctionType == "operationLeaf") { // TODO
                     newDecodedGenotype += newLeaf; 
-                    preEncGen.push(0.6, newLeaf);
-                } else if (nextFunctionType == "listLeaf") {
+                    preEncGen.push(0.6, newLeaf); */
+                if (nextFunctionType == "listLeaf") {
                     newDecodedGenotype += newLeaf; preEncGen.push(0.5, newLeaf);
                     preitemvalue = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                     germinalVectorReadingPos++;
@@ -3694,7 +3753,21 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
     return newBranch;
 }
 
+
+createGenotypeBranch("eventF",0,14,70,[ 1,     0.567331,     1,     0.590537,     0,     1,     0.326238,     0.53,     6.09,     0,     1,     0.326238,     0.53,     11.085905,     0,     1,     0.562306,     0.55,     2.070775,     0,     1,     0.680706,     0,     0 ]);
+
+
+createGenotypeBranch("eventF",0,14,70,[ 1, 0.618034, 0.5, 0.666, 0.5, 0.888, 0.5, 0.999888, 0.5, 0.12345, 0.5, 0, 0 ]);
+
+
+
+
+
 createGenotypeBranch("listF",0,14,70,[ 1, 0.618034, 0.5, 0.666, 0.5, 0.888, 0.5, 0.999888, 0.5, 0.12345, 0.5, 0, 0 ]);
+
+
+
+
 
 createGenotypeBranch("listF",0,14,6,[ 1, 0.618034, 0.5, 0.666, 0.4, 0.888, 0.5, 0.999888, 0 ]);
 
