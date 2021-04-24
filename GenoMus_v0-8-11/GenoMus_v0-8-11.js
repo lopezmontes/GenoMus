@@ -3426,6 +3426,26 @@ var listLeafTypes = [
     "lgoldenintegerLeaf",
     "lquantizedLeaf"]
 
+var autorefTypes = [
+    "pAutoRef",
+    "lAutoRef",
+    "eAutoRef",
+    "vAutoRef",
+    "sAutoRef",
+    "nAutoref",
+    "mAutoRef",
+    "aAutoRef",
+    "iAutoRef",
+    "qAutoRef",
+    "lnAutoRef",
+    "ldAutoRef",
+    "lmAutoRef",
+    "lfAutoRef",
+    "laAutoRef",
+    "liAutoRef",
+    "lzAutoRef",
+    "lqAutoRef"]
+
 // new unified core function, introducing reversible germinal vector <-> encoded genotype
 var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, listsMaxNumItems, germinalVector) => {
     // main variable
@@ -3440,11 +3460,6 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
     };
     // generates the local catalogue of eligible functions to be used for genotype generation
     var local_functions_catalogue = createEligibleFunctionLibrary(GenoMusFunctionLibrary, localEligibleFunctions);
-
-    // console.log(local_functions_catalogue);
-    // var testarr = ["a", "aRnd"];
-    // console.log("extracted a: " + local_functions_catalogue.functionNames[testarr[0]].encIndex);
-    // console.log("extracted aRnd: " + local_functions_catalogue.functionNames[testarr[1]].encIndex);
 
     // aux variables
     var germinalVectorLength = germinalVector.length;
@@ -3469,79 +3484,34 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
     var nextFunctionType = branchOutputType;
     var pos = -1; // active readed position in encodedGenotype
     var newDecodedGenotype = "";
-    // var numEligibleFunctions;
     var eligibleFuncionNames;
     var eligibleFuncionNamesLength;
     var orderenElegibleEncIndexes;
     var valueForChoosingNewFunction;
-    var listNumItems;
     var newListElementThreshold = Math.min(0.499, 2/listsMaxNumItems);
-    console.log("threshold: " + newListElementThreshold);
-
     var preitemvalue;
     var cardinality;
 
-
     // adds a new token to the decoded genotype
     do {
-        // preEncGen.push(checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
-
-
-        // new ramification of genotype
-        if (nextFunctionType != "voidLeaf" &&
-            nextFunctionType != "leaf" &&
-            nextFunctionType != "notevalueLeaf" &&
-            nextFunctionType != "durationLeaf" &&
-            nextFunctionType != "midipitchLeaf" &&
-            nextFunctionType != "frequencyLeaf" &&
-            nextFunctionType != "articulationLeaf" &&
-            nextFunctionType != "intensityLeaf" &&
-            nextFunctionType != "goldenintegerLeaf" &&
-            nextFunctionType != "quantizedLeaf" &&
-            nextFunctionType != "operationLeaf" &&
-            nextFunctionType != "booleanLeaf" &&
-            nextFunctionType != "listLeaf" &&
-            nextFunctionType != "lnotevalueLeaf" &&
-            nextFunctionType != "ldurationLeaf" &&
-            nextFunctionType != "lmidipitchLeaf" &&
-            nextFunctionType != "lfrequencyLeaf" &&
-            nextFunctionType != "larticulationLeaf" &&
-            nextFunctionType != "lintensityLeaf" &&
-            nextFunctionType != "lgoldenintegerLeaf" &&
-            nextFunctionType != "lquantizedLeaf") {
+        if (leafTypes.includes(nextFunctionType) == false) {
 
             germinalVectorReadingPos++; // ignores first germinal value
             preEncGen.push(1); // new function identifier
-            console.log(preEncGen);
             pos++;
-            
-            // choose among eligible functions
-            // numEligibleFunctions = Object.keys
-            //    (local_functions_catalogue.functionLibrary[nextFunctionType]).length;
-            // valueForChoosingNewFunction = Math.floor(preEncGen[pos] * numEligibleFunctions) % numEligibleFunctions;
             valueForChoosingNewFunction = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
             germinalVectorReadingPos++;
-            console.log("valueForChoosingNewFunction from germinal: " + valueForChoosingNewFunction);
 
             eligibleFuncionNames = (Object.keys(local_functions_catalogue.functionLibrary[nextFunctionType]));
-            console.log("eligibleFunctions: " + eligibleFuncionNames);
             eligibleFuncionNamesLength = eligibleFuncionNames.length;
             orderenElegibleEncIndexes = [];
             for (var elegitem = 0; elegitem < eligibleFuncionNamesLength; elegitem++) {
                 orderenElegibleEncIndexes.push(local_functions_catalogue.functionNames[eligibleFuncionNames[elegitem]].encIndex);
             }
             orderenElegibleEncIndexes.sort((a, b) => a - b);
-            console.log("encIndexes: " + orderenElegibleEncIndexes);
             chosenEncIndex = findEligibleFunctionEncIndex(orderenElegibleEncIndexes, valueForChoosingNewFunction);
-
-
-            console.log("chosen encIndex is " + chosenEncIndex);
-            console.log("correspondent func is " + local_functions_catalogue.encodedIndexes[chosenEncIndex]);
             chosenFunction = local_functions_catalogue.encodedIndexes[chosenEncIndex];
-            /////////// chosenFunction = Object.keys(local_functions_catalogue.functionLibrary[nextFunctionType])[valueForChoosingNewFunction];
-            console.log("chosenFunction: " + chosenFunction);
             preEncGen.push(chosenEncIndex);
-            console.log(preEncGen);
 
             openFunctionTypes[openFunctionTypes.length] = nextFunctionType;
             // writes the new function
@@ -3561,28 +3531,15 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
                 germinalVectorReadingPos++; // ignores germinal value, since it will be replaced with the leaf type identifier
                 // read leaf value
                 newLeaf = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
-                console.log("newLeaf: " + newLeaf);
                 cardinality = 1;
                 preitemvalue = 1;
-
-                console.log("nextFunctionType: " + nextFunctionType);
                 var converser = functionTypesConverters[nextFunctionType].conversionFunc;
                 var typeIdentifier = functionTypesConverters[nextFunctionType].identifier;
-                
                 newDecodedGenotype += converser(newLeaf);
                 preEncGen.push(typeIdentifier, newLeaf);
-
-                console.log("converser: " + converser);
-                console.log("newLeaf: " + newLeaf);
-                console.log("newLeaf conv: " + converser(newLeaf));
-                console.log("typeIdentifier: " + typeIdentifier);
                 console.log(newDecodedGenotype);
-
                 germinalVectorReadingPos++;
-
-                if (nextFunctionType == "listLeaf" 
-                    || nextFunctionType == "lmidipitchLeaf"
-                    ) {
+                if (listLeafTypes.includes(nextFunctionType)) {
                     while (preitemvalue > newListElementThreshold && cardinality < listsMaxNumItems) {
                         germinalVectorReadingPos++;
                         newLeaf = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
@@ -3592,101 +3549,13 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
                         preEncGen.push(typeIdentifier, newLeaf);
                         cardinality++;
                     }             
-                } else if (nextFunctionType == "lnotevalueLeaf") {
-                    newDecodedGenotype += p2n(newLeaf);
-                    listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
-                    germinalVectorReadingPos++;
-                    for (var lit = 0; lit < listNumItems; lit++) {
-                        newLeaf = r6d(p2n(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
-                        preEncGen.push(newLeaf);
-                        newDecodedGenotype += "," + newLeaf;
-                        germinalVectorReadingPos++;
-                        pos++;
-                    }
-                } else if (nextFunctionType == "ldurationLeaf") {
-                    newDecodedGenotype += p2d(newLeaf);
-                    listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
-                    germinalVectorReadingPos++;
-                    for (var lit = 0; lit < listNumItems; lit++) {
-                        newLeaf = r6d(p2d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
-                        preEncGen.push(newLeaf);
-                        newDecodedGenotype += "," + newLeaf;
-                        germinalVectorReadingPos++;
-                        pos++;
-                    }
-                } else if (nextFunctionType == "lmidipitchLeaf") {
-                    newDecodedGenotype += p2m(newLeaf);
-                    listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
-                    germinalVectorReadingPos++;
-                    for (var lit = 0; lit < listNumItems; lit++) {
-                        newLeaf = r6d(p2m(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
-                        preEncGen.push(newLeaf);
-                        newDecodedGenotype += "," + newLeaf;
-                        germinalVectorReadingPos++;
-                        pos++;
-                    }
-                } else if (nextFunctionType == "lfrequencyLeaf") {
-                    newDecodedGenotype += p2f(newLeaf);
-                    listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
-                    germinalVectorReadingPos++;
-                    for (var lit = 0; lit < listNumItems; lit++) {
-                        newLeaf = r6d(p2f(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
-                        preEncGen.push(newLeaf);
-                        newDecodedGenotype += "," + newLeaf;
-                        germinalVectorReadingPos++;
-                        pos++;
-                    }
-                } else if (nextFunctionType == "larticulationLeaf") {
-                    newDecodedGenotype += p2a(newLeaf);
-                    listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
-                    germinalVectorReadingPos++;
-                    for (var lit = 0; lit < listNumItems; lit++) {
-                        newLeaf = r6d(p2a(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
-                        preEncGen.push(newLeaf);
-                        newDecodedGenotype += "," + newLeaf;
-                        germinalVectorReadingPos++;
-                        pos++;
-                    }
-                } else if (nextFunctionType == "lintensityLeaf") {
-                    newDecodedGenotype += p2i(newLeaf);
-                    listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
-                    germinalVectorReadingPos++;
-                    for (var lit = 0; lit < listNumItems; lit++) {
-                        newLeaf = r6d(p2i(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
-                        preEncGen.push(newLeaf);
-                        newDecodedGenotype += "," + newLeaf;
-                        germinalVectorReadingPos++;
-                        pos++;
-                    }
-                } else if (chosenFunction == "pAutoRef" ||
-                    chosenFunction == "lAutoRef" ||
-                    chosenFunction == "eAutoRef" ||
-                    chosenFunction == "vAutoRef" ||
-                    chosenFunction == "sAutoRef" ||
-                    chosenFunction == "nAutoref" ||
-                    chosenFunction == "mAutoRef" ||
-                    chosenFunction == "aAutoRef" ||
-                    chosenFunction == "iAutoRef" ||
-                    chosenFunction == "qAutoRef" ||
-                    chosenFunction == "lnAutoRef" ||
-                    chosenFunction == "ldAutoRef" ||
-                    chosenFunction == "lmAutoRef" ||
-                    chosenFunction == "lfAutoRef" ||
-                    chosenFunction == "laAutoRef" ||
-                    chosenFunction == "liAutoRef" ||
-                    chosenFunction == "lzAutoRef" ||
-                    chosenFunction == "lqAutoRef") {
+                } else if (autorefTypes.includes(chosenFunction)) { 
                     newDecodedGenotype += parseInt(preEncGen[pos] * 1e5);
                 }
                 // else {
                 //     newDecodedGenotype += preEncGen[pos];
                 // }
             }
-
-
-
-
-
 
             notFilledParameters[notFilledParameters.length - 1]--;
             // if number of parameters of this depth level if filled, deletes this count level and adds ")", and "," if needed
@@ -3759,8 +3628,11 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
 }
 
 
+createGenotypeBranch("listF",0,14,7,[ 1, 0.618034, 0.5, 0.58, 0.5, 0.59, 0.5, 0.60,  0 ]);
+createGenotypeBranch("lnotevalueF",0,14,7,[ 1, 0.618034, 0.5, 0.58, 0.5, 0.59, 0.5, 0.60,  0 ]);
 createGenotypeBranch("lmidipitchF",0,14,7,[ 1, 0.618034, 0.5, 0.58, 0.5, 0.59, 0.5, 0.60,  0 ]);
-
+createGenotypeBranch("larticulationF",0,14,7,[ 1, 0.618034, 0.5, 0.58, 0.5, 0.59, 0.5, 0.60,  0 ]);
+createGenotypeBranch("lintensityF",0,14,7,[ 1, 0.618034, 0.5, 0.58, 0.5, 0.59, 0.5, 0.60,  0 ]);
 
 
 
