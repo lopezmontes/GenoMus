@@ -145,6 +145,7 @@ var checkRange = x => {
     }
 };
 
+var p2p = p => p;
 var norm2notevalue = p => r6d(Math.pow(2, 10 * p - 8));
 var p2n = norm2notevalue;
 var notevalue2norm = n => n < 0.003907 ? 0 : r6d((Math.log10(n) + 8 * Math.log10(2)) / (10 * Math.log10(2)));
@@ -3299,6 +3300,53 @@ var specimenDataStructure = (specimen) => ({
 
 ///////////////
 // CORE FUNCTIONS FOR SPECIMEN CREATION AND EVOLUTION
+
+var functionTypesConverters = {
+    "leaf": {
+        "conversionFunc": p2p, 
+        "identifier": 0.5                
+    },
+    "notevalueLeaf": {
+        "conversionFunc": p2n, 
+        "identifier": 0.51
+    },
+    "durationLeaf": {
+        "conversionFunc": p2d, 
+        "identifier": 0.52
+    },
+    "midipitchLeaf": {
+        "conversionFunc": p2m, 
+        "identifier": 0.53
+    },
+    "frequencyLeaf": {
+        "conversionFunc": p2f, 
+        "identifier": 0.54
+    },
+    "articulationLeaf": {
+        "conversionFunc": p2a, 
+        "identifier": 0.55
+    },
+    "intensityLeaf": {
+        "conversionFunc": p2i, 
+        "identifier": 0.56
+    },
+    "goldenintegerLeaf": {
+        "conversionFunc": p2z, 
+        "identifier": 0.57
+    },
+    "quantizedLeaf": {
+        "conversionFunc": p2q, 
+        "identifier": 0.58
+    },    
+    "booleanLeaf": {
+        "conversionFunc": Math.round, 
+        "identifier": 0.59
+    },    
+    "operationLeaf": {
+        "conversionFunc": p2p, 
+        "identifier": 0.6
+    }
+}
 
 
 // new unified core function, introducing reversible germinal vector <-> encoded genotype
