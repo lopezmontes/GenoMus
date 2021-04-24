@@ -3555,13 +3555,7 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
                         preitemvalue = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                         newDecodedGenotype += "," + newLeaf;
                         preEncGen.push(0.5, newLeaf);
-                        // preitemvalue = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
-                        // germinalVectorReadingPos++; 
                         cardinality++;
-                        console.log(newDecodedGenotype);
-                        console.log("threshold: " + newListElementThreshold);
-                        console.log("next preitem: " + preitemvalue);
-                        
                     }             
                 } else if (nextFunctionType == "lnotevalueLeaf") {
                     newDecodedGenotype += p2n(newLeaf);
