@@ -3494,8 +3494,8 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
             // chooses a new function
             valueForChoosingNewFunction = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
             germinalVectorReadingPos++;
-            maxAPI.post(nextFunctionType);
-            maxAPI.post(newDecodedGenotype);
+            // maxAPI.post(nextFunctionType);
+            // maxAPI.post(newDecodedGenotype);
             eligibleFuncionNames = (Object.keys(local_functions_catalogue.functionLibrary[nextFunctionType]));
                 // console.log(eligibleFuncionNames);
             eligibleFuncionNamesLength = eligibleFuncionNames.length;
@@ -3648,7 +3648,7 @@ createGenotypeBranch("scoreF",eligibleFunctionsForTesting,14,6,[0,0.1,0.2,0.3,0.
 // var eligibleFunctionsForTesting = [0,1,2,3,4,5,7,9,10,11,12,15,17,19,20,43,44,46,98,99,104,110,131,134,199,310,312,314,315,317,
 // 25, 26, 27, 28, 29, 279, 99, 100, 101];
 
-eligibleFunctionsForTesting = [];
+eligibleFunctionsForTesting = eligibleFunctionsTEST.includedFunctions;
 
 
 // creates brand new specimen
@@ -3696,7 +3696,7 @@ function createNewSpecimen() {
     genotypeLog["gen" + genCount++] = newSpecimen.decGen;
     createJSON(genotypeLog, 'genotipeLog.json');
     if (newSpecimen == -1) {
-        console.log("VALID SPECIMEN NOT FOUND");
+        // console.log("VALID SPECIMEN NOT FOUND");
         maxAPI.post("VALID SPECIMEN NOT FOUND");
         newSpecimen = eval("s(v(" + defaultEventExpression + "))");
         newSpecimen.data = {
@@ -3728,7 +3728,7 @@ function createNewSpecimen() {
         leaves: extractLeaves(newSpecimen.encGen)
     }; */
     currentSpecimen = newSpecimen;
-    console.log("Search stopped after " + Math.abs(searchStopdate - searchStartdate) + " ms and " + iterations + " iter.");
+    // console.log("Search stopped after " + Math.abs(searchStopdate - searchStartdate) + " ms and " + iterations + " iter.");
     maxAPI.post("Search stopped after " + Math.abs(searchStopdate - searchStartdate) + " ms and " + iterations + " iter.");
     return newSpecimen;
 };
