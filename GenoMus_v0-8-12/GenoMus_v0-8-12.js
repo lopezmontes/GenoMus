@@ -1,8 +1,9 @@
-// GENOMUS 0.8.11 UNIT TESTING
+// GENOMUS 0.8.12 UNIT TESTING
 ///////////////////////////
 
 // GOALS:
 // Last rededisgn of data arquitecture, previous to GenoMus 1.0
+// integration of new genotype branch functions
 
 
 // TESTING DIFFERENT SPECIES
@@ -3545,10 +3546,6 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
                         cardinality++;
                     }             
                 }
-/*                 if (autorefTypes.includes(chosenFunction)) { 
-                    console.log("EEEEEEEEE: " + newLeaf);
-                    // newDecodedGenotype += newLeaf * 1e5;
-                } */
             }
             notFilledParameters[notFilledParameters.length - 1]--;
             // if number of parameters of this depth level if filled, deletes this count level and adds ")", and "," if needed
