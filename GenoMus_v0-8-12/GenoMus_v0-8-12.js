@@ -790,7 +790,7 @@ var pUniformRnd = () => indexExprReturnSpecimen({
     funcType: "paramF",
     encGen: [1, 0.580487, 0],
     decGen: "pUniformRnd()",
-    encPhen: [r6d(random.float())]
+    encPhen: [r6d(rand())]
 });
 
 // notevalue identity function
