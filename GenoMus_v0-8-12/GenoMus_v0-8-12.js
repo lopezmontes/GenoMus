@@ -3647,6 +3647,7 @@ createGenotypeBranch("scoreF",eligibleFunctionsForTesting,14,6,[0,0.1,0.2,0.3,0.
 
 // creates brand new specimen
 function createGerminalSpecimen() {
+    var searchStartdate = new Date();
     // main variable
     var newSpecimen;
     // initial conditions
@@ -3654,56 +3655,49 @@ function createGerminalSpecimen() {
     var eligibleFunctions = JSON.parse(fs.readFileSync('eligible_functions_library.json'));
     var maxAllowedDepth = 14;
     var listMaxLength = 5;
-
-    // var newFunctionThreshold = .6; // [0-1] Higher is less likely to ramificate too much. At the moment, not used. Perhaps for recursive mathematical expressions
+    var germinalVec;
     // aux variables
-    var germinalVectorLength;
-    var germinalVector;
-    var germinalVectorReadingPos;    
     var genotypeDepth;
-    var startdate = new Date();
     var iterations = 0;
-    var newLeaf;
-    var listsMaxNumItems = 8;
-    var listNumItems;
+
     // searches a specimen
     do {
-        // starts a new decoded genotype
-        do {
-            newSpecimen = createGenotypeBranch(
-                outputType, 
-                eligibleFunctions, 
-                maxAllowedDepth,
-                listMaxLength,
-                newV);
-                 
-            // saves all genotypes created as log file
-            // genotypeLog["gen" + genCount++] = newDecodedGenotype;
-            // createJSON(genotypeLog, 'genotypeLog.json');
-            // save last genotype created as log file
-            createJSON(genCount++ + ": " + newDecodedGenotype, 'lastGenotype.json');
-            
-        }
+        iterations++;
+        // creates a new genotype
+        germinalVec = randomVector(parseInt(Math.random()*40));
+        newSpecimen = createGenotypeBranch(
+            outputType, 
+            eligibleFunctions, 
+            maxAllowedDepth,
+            listMaxLength,
+            germinalVec);
+        // saves all genotypes created as log file
+        // genotypeLog["gen" + genCount++] = newDecodedGenotype;
+        // createJSON(genotypeLog, 'genotypeLog.json');
+        // save last genotype created as log file
+        createJSON(iterations + ": " + newDecodedGenotype, 'lastGenotype.json');
     } while (
         // test if preconditions are fullfilled
         (
-            newSpecimen.phenLength < phenMinLength
+            newSpecimen != -1
+            || newSpecimen.phenLength < phenMinLength
             || newSpecimen.phenLength > phenMaxLength
             || newSpecimen.phenVoices < phenMinPolyphony
             || newSpecimen.phenVoices > phenMaxPolyphony
         )
         && iterations < maxIterations);
-    // genotypeLog["gen" + genCount++] = newSpecimen.decGen;
-    // createJSON(genotypeLog, 'genotipeLog.json');
+    genotypeLog["gen" + genCount++] = newSpecimen.decGen;
+    createJSON(genotypeLog, 'genotipeLog.json');
     if (validGenotype == false) {
-        maxAPI.post("VALID SPECIMEN NOT FOUND");
+        console.log("VALID SPECIMEN NOT FOUND");
+        // maxAPI.post("VALID SPECIMEN NOT FOUND");
         newSpecimen = eval("s(v(" + defaultEventExpression + "))");
         newSpecimen.data = {
             specimenID: getFileDateName("not_found"),
             iterations: iterations,
-            milliseconsElapsed: Math.abs(stopdate - startdate),
+            milliseconsElapsed: Math.abs(stopdate - searchStartdate),
             genotypeLength: newDecodedGenotype.length,
-            germinalVector: germinalVector,
+            germinalVector: germinalVec,
             genotypeSeed: globalSeed,
             phenotypeSeed: phenotypeSeed,            
             maxAllowedDepth: genMaxDepth,
@@ -3713,20 +3707,21 @@ function createGerminalSpecimen() {
         return newSpecimen;
     }
     var stopdate = new Date();
-    var specimenName = getFileDateName("jlm");   
+/*     var specimenName = getFileDateName("jlm");   
     newSpecimen.data = {
         specimenID: specimenName,
         iterations: iterations,
-        milliseconsElapsed: Math.abs(stopdate - startdate),
+        milliseconsElapsed: Math.abs(stopdate - searchStartdate),
         genotypeLength: newDecodedGenotype.length,
-        germinalVector: germinalVector,
+        germinalVector: germinalVec,
         genotypeSeed: globalSeed,
         phenotypeSeed: phenotypeSeed,
         maxAllowedDepth: genMaxDepth,
         depth: genotypeDepth,
         leaves: extractLeaves(newSpecimen.encGen)
-    };
+    }; */
     currentSpecimen = newSpecimen;
+    console.log("Specimen found after" + Math.abs(stopdate - searchStartdate) + "seconds")
     return newSpecimen;
 };
 
