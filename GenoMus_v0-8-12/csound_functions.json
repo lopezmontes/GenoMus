@@ -673,7 +673,9 @@
         "pUniformRnd": {
             "functionIndex": 132,
             "functionType": "paramF",
-            "arguments": [],
+            "arguments": [
+                "voidLeaf"
+            ],
             "metadata": {
                 "description": "returns a random normalized parameter with uniform distribution",
                 "date": 20190906,

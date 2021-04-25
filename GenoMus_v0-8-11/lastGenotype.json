@@ -1,1 +1,1 @@
-"11: s(vRepeatV(vPerpetuumMobileLoop(n(0.23843),lmRemap(lmRemap(lm(59,94,68,42),m(77),mRnd(0.286387)),mRnd(0.662893),mRnd(0.595458)),laRemap(laLine(a(89),a(1),zRnd(0.510065)),a(85),a(72)),liRemap(liRemap(li(47,82,56,30),i(65),iRnd(0.286387)),iRnd(0.662893),iRnd(0.595458))),qRnd(0.007388)))"
+"1: s2V(vPerpetuumMobile(nRnd(),lm(82,53,90,44),la(260,218,4),liRemap(li(70,94),iRnd(),iAutoref(0))),vIterE(e3Pitches(nRnd(),m(90),mRnd(),m(82),aRnd(),iAutoref(1)),q(9),p(0.71601)))"

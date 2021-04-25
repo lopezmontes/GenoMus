@@ -34,10 +34,10 @@ var phenotypeSeed = Math.round(Math.random() * 1e14); // seed only for computing
 
 var genMaxDepth = 17;
 var phenMinPolyphony = 1;
-var phenMaxPolyphony = 6;
+var phenMaxPolyphony = 16;
 var phenMinLength = 5;
 var phenMaxLength = 4000;
-var maxIterations = 2000;
+var maxIterations = 5;
 
 // mutation constraints
 var mutationProbability = .2;
@@ -3447,15 +3447,12 @@ var autorefTypes = [
     "lzAutoRef",
     "lqAutoRef"]
 
-var eligibleFunctionsForTesting = [0,1,2,3,4,5,7,9,10,11,12,15,17,19,20,43,44,46,98,99,104,110,131,134,199,310,312,314,315,317,
-        25, 26, 27, 28, 29, 279, 99, 100, 101];
 
-eligibleFunctionsForTesting = [];
 
 // new unified CORE FUNCTION, introducing reversible germinal vector <-> encoded genotype
 var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth, listsMaxNumItems, germinalVector) => {
     var startdate = new Date();
-    createNewSeed(globalSeed);
+    // createNewSeed(globalSeed); ¿crea repeticiones del proceso?
     initSubexpressionsArrays();
     // main variable
     var newBranch;
@@ -3497,15 +3494,17 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
             // chooses a new function
             valueForChoosingNewFunction = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
             germinalVectorReadingPos++;
+            maxAPI.post(nextFunctionType);
+            maxAPI.post(newDecodedGenotype);
             eligibleFuncionNames = (Object.keys(local_functions_catalogue.functionLibrary[nextFunctionType]));
-                console.log(eligibleFuncionNames);
+                // console.log(eligibleFuncionNames);
             eligibleFuncionNamesLength = eligibleFuncionNames.length;
             orderedElegibleEncIndexes = [];
             for (var elegitem = 0; elegitem < eligibleFuncionNamesLength; elegitem++) {
                 orderedElegibleEncIndexes.push(local_functions_catalogue.functionNames[eligibleFuncionNames[elegitem]].encIndex);
             }
             orderedElegibleEncIndexes.sort((a, b) => a - b);
-                console.log(orderedElegibleEncIndexes);
+                // console.log(orderedElegibleEncIndexes);
             chosenEncIndex = findEligibleFunctionEncIndex(orderedElegibleEncIndexes, valueForChoosingNewFunction);
             chosenFunction = local_functions_catalogue.encodedIndexes[chosenEncIndex];
             // writes the new function
@@ -3533,7 +3532,7 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
                 var typeIdentifier = functionTypesConverters[nextFunctionType].identifier;
                 newDecodedGenotype += converser(newLeaf);
                 preEncGen.push(typeIdentifier, newLeaf);
-                console.log(newDecodedGenotype);
+                // console.log(newDecodedGenotype);
                 germinalVectorReadingPos++;
                 if (listLeafTypes.includes(nextFunctionType)) {
                     while (preitemvalue > newListElementThreshold && cardinality < listsMaxNumItems) {
@@ -3645,14 +3644,22 @@ createGenotypeBranch("scoreF",eligibleFunctionsForTesting,14,6,[0,0.1,0.2,0.3,0.
 
  */
 
+
+// var eligibleFunctionsForTesting = [0,1,2,3,4,5,7,9,10,11,12,15,17,19,20,43,44,46,98,99,104,110,131,134,199,310,312,314,315,317,
+// 25, 26, 27, 28, 29, 279, 99, 100, 101];
+
+eligibleFunctionsForTesting = [];
+
+
 // creates brand new specimen
-function createGerminalSpecimen() {
+function createNewSpecimen() {
     var searchStartdate = new Date();
     // main variable
     var newSpecimen;
     // initial conditions
     var outputType = "scoreF";
-    var eligibleFunctions = JSON.parse(fs.readFileSync('eligible_functions_library.json'));
+    // var eligibleFunctions = JSON.parse(fs.readFileSync('eligible_functions_library.json'));
+    var eligibleFunctions = eligibleFunctionsForTesting;
     var maxAllowedDepth = 14;
     var listMaxLength = 5;
     var germinalVec;
@@ -3675,11 +3682,11 @@ function createGerminalSpecimen() {
         // genotypeLog["gen" + genCount++] = newDecodedGenotype;
         // createJSON(genotypeLog, 'genotypeLog.json');
         // save last genotype created as log file
-        createJSON(iterations + ": " + newDecodedGenotype, 'lastGenotype.json');
+        createJSON(iterations + ": " + newSpecimen.decGen, 'lastGenotype.json');
     } while (
         // test if preconditions are fullfilled
         (
-            newSpecimen != -1
+            newSpecimen == -1
             || newSpecimen.phenLength < phenMinLength
             || newSpecimen.phenLength > phenMaxLength
             || newSpecimen.phenVoices < phenMinPolyphony
@@ -3688,15 +3695,15 @@ function createGerminalSpecimen() {
         && iterations < maxIterations);
     genotypeLog["gen" + genCount++] = newSpecimen.decGen;
     createJSON(genotypeLog, 'genotipeLog.json');
-    if (validGenotype == false) {
+    if (newSpecimen == -1) {
         console.log("VALID SPECIMEN NOT FOUND");
-        // maxAPI.post("VALID SPECIMEN NOT FOUND");
+        maxAPI.post("VALID SPECIMEN NOT FOUND");
         newSpecimen = eval("s(v(" + defaultEventExpression + "))");
         newSpecimen.data = {
             specimenID: getFileDateName("not_found"),
             iterations: iterations,
-            milliseconsElapsed: Math.abs(stopdate - searchStartdate),
-            genotypeLength: newDecodedGenotype.length,
+            milliseconsElapsed: Math.abs(searchStopdate - searchStartdate),
+            genotypeLength: 1,
             germinalVector: germinalVec,
             genotypeSeed: globalSeed,
             phenotypeSeed: phenotypeSeed,            
@@ -3706,7 +3713,7 @@ function createGerminalSpecimen() {
         };
         return newSpecimen;
     }
-    var stopdate = new Date();
+    var searchStopdate = new Date();
 /*     var specimenName = getFileDateName("jlm");   
     newSpecimen.data = {
         specimenID: specimenName,
@@ -3721,7 +3728,8 @@ function createGerminalSpecimen() {
         leaves: extractLeaves(newSpecimen.encGen)
     }; */
     currentSpecimen = newSpecimen;
-    console.log("Specimen found after" + Math.abs(stopdate - searchStartdate) + "seconds")
+    console.log("Search stopped after " + Math.abs(searchStopdate - searchStartdate) + " ms and " + iterations + " iter.");
+    maxAPI.post("Search stopped after " + Math.abs(searchStopdate - searchStartdate) + " ms and " + iterations + " iter.");
     return newSpecimen;
 };
 
@@ -4118,7 +4126,7 @@ maxAPI.addHandler("loadSpecimen", (savedSpecimen) => {
 // creates a new germinal specimen and send the dict data to Max
 maxAPI.addHandlers({
     newGerminalSpecimen: async () => {
-        const dict = specimenDataStructure(createGerminalSpecimen());
+        const dict = specimenDataStructure(createNewSpecimen());
         await maxAPI.setDict("specimen.dict", dict);
         await maxAPI.outlet("finished");
     },
