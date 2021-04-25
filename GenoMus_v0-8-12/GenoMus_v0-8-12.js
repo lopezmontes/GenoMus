@@ -3645,12 +3645,15 @@ createGenotypeBranch("scoreF",eligibleFunctionsForTesting,14,6,[0,0.1,0.2,0.3,0.
 
  */
 
-
+// creates brand new specimen
 function createGerminalSpecimen() {
     // main variable
     var newSpecimen;
-    // loads library of eligible functions
-    var functions_catalogue = JSON.parse(fs.readFileSync('eligible_functions_library.json'));
+    // initial conditions
+    var outputType = "scoreF";
+    var eligibleFunctions = JSON.parse(fs.readFileSync('eligible_functions_library.json'));
+    var maxAllowedDepth = 14;
+    var listMaxLength = 5;
 
     // var newFunctionThreshold = .6; // [0-1] Higher is less likely to ramificate too much. At the moment, not used. Perhaps for recursive mathematical expressions
     // aux variables
@@ -3667,254 +3670,19 @@ function createGerminalSpecimen() {
     do {
         // starts a new decoded genotype
         do {
-            // creates new seed for genotype creation before new iteration if needed
-            if (iterations > 0) globalSeed = (parseInt(Math.random() * 1e16)).toString();
-            createNewSeed(globalSeed);
-            iterations++;
-            initSubexpressionsArrays();
-            validGenotype = true;
-            // creates new germinal vector
-            germinalVectorLength = Math.ceil(rand()*100);
-            germinalVector = randomVector(germinalVectorLength);
-            germinalVectorReadingPos = 0;
-            genotypeDepth = 0;
-            var preEncGen = []; // compulsory start with a function
-            // stores number of levels to be filled
-            var notFilledParameters = [];
-            // stores functions names in process of writing; forces starting with a score type function
-            var expectedFunctions = ["scoreF"];
-            var chosenFunction;
-            var openFunctionTypes = [];
-            var nextFunctionType = "scoreF";
-            var pos = -1; // active readed position in encodedGenotype
-            var newDecodedGenotype = "";
-            var numEligibleFunctions;
-            // adds a new token to the decoded genotype
-            do {
-                preEncGen.push(checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
-                germinalVectorReadingPos++;
-                pos++;
-                // new ramification of genotype
-                if (nextFunctionType != "voidLeaf" &&
-                    nextFunctionType != "leaf" &&
-                    nextFunctionType != "notevalueLeaf" &&
-                    nextFunctionType != "durationLeaf" &&
-                    nextFunctionType != "midipitchLeaf" &&
-                    nextFunctionType != "frequencyLeaf" &&
-                    nextFunctionType != "articulationLeaf" &&
-                    nextFunctionType != "intensityLeaf" &&
-                    nextFunctionType != "goldenintegerLeaf" &&
-                    nextFunctionType != "quantizedLeaf" &&
-                    nextFunctionType != "booleanLeaf" &&
-                    nextFunctionType != "operationLeaf" &&
-                    nextFunctionType != "listLeaf" &&
-                    nextFunctionType != "lnotevalueLeaf" &&
-                    nextFunctionType != "ldurationLeaf" &&
-                    nextFunctionType != "lmidipitchLeaf" &&
-                    nextFunctionType != "lfrequencyLeaf" &&
-                    nextFunctionType != "larticulationLeaf" &&
-                    nextFunctionType != "lintensityLeaf" &&
-                    nextFunctionType != "lgoldenintegerLeaf" &&
-                    nextFunctionType != "lquantizedLeaf") {
-                    // choose among eligible functions
-                    numEligibleFunctions = Object.keys
-                        (functions_catalogue.functionLibrary[nextFunctionType]).length;
-                    var valueForChoosingNewFunction = Math.floor(preEncGen[pos] * numEligibleFunctions) % numEligibleFunctions;
-                    chosenFunction = Object.keys
-                        (functions_catalogue.functionLibrary[nextFunctionType])[valueForChoosingNewFunction];
-                    openFunctionTypes[openFunctionTypes.length] = nextFunctionType;
-                    // writes the new function
-                    newDecodedGenotype += chosenFunction + "(";
-                    // read the expected parameters of the chosen function
-                    notFilledParameters[notFilledParameters.length] = Object.keys
-                        (functions_catalogue.functionLibrary[nextFunctionType][chosenFunction].arguments).length;
-                    expectedFunctions[notFilledParameters.length - 1] = chosenFunction;
-                    if (notFilledParameters.length > genMaxDepth) {
-                        //maxAPI.post("limit exceeded");
-                        validGenotype = false;
-                    } else if (notFilledParameters.length > genotypeDepth) genotypeDepth = notFilledParameters.length;
-                }
-                // adds a leaf
-                else {
-                    // changes value to 0 for make genotypes syntax independent from leaf newFunctionThreshold value (prescindible??)
-                    preEncGen[pos] = 0;
-                    // leaf converting uniform value from unidim. vector to normal distribution
-                    newLeaf = r6d(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
-                    germinalVectorReadingPos++;
-                    preEncGen.push(newLeaf);
-                    pos++;
-                    // adds primitive function, leaves of functions tree
-                    if (nextFunctionType == "leaf") {
-                        newDecodedGenotype += newLeaf;
-                    } else if (nextFunctionType == "notevalueLeaf") {
-                        newDecodedGenotype += p2n(newLeaf);
-                    } else if (nextFunctionType == "durationLeaf") {
-                        newDecodedGenotype += p2d(newLeaf);
-                    } else if (nextFunctionType == "midipitchLeaf") {
-                        newDecodedGenotype += p2m(newLeaf);
-                    } else if (nextFunctionType == "frequencyLeaf") {
-                        newDecodedGenotype += p2f(newLeaf);
-                    } else if (nextFunctionType == "articulationLeaf") {
-                        newDecodedGenotype += p2a(newLeaf);
-                    } else if (nextFunctionType == "intensityLeaf") {
-                        newDecodedGenotype += p2i(newLeaf);
-                    } else if (nextFunctionType == "goldenintegerLeaf") {
-                        newDecodedGenotype += p2z(newLeaf);
-                    } else if (nextFunctionType == "quantizedLeaf") {
-                        newDecodedGenotype += p2q(newLeaf);
-                    } else if (nextFunctionType == "operationLeaf") {
-                        newDecodedGenotype += newLeaf;
-                    } else if (nextFunctionType == "booleanLeaf") {
-                        newDecodedGenotype += Math.round(newLeaf);
-                    } else if (nextFunctionType == "listLeaf") {
-                        newDecodedGenotype += newLeaf;
-                        listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
-                        germinalVectorReadingPos++;
-                        for (var lit = 0; lit < listNumItems; lit++) {
-                            newLeaf = r6d(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
-                            preEncGen.push(newLeaf);
-                            newDecodedGenotype += "," + newLeaf;
-                            germinalVectorReadingPos++;
-                            pos++;
-                        }
-                    } else if (nextFunctionType == "lnotevalueLeaf") {
-                        newDecodedGenotype += p2n(newLeaf);
-                        listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
-                        germinalVectorReadingPos++;
-                        for (var lit = 0; lit < listNumItems; lit++) {
-                            newLeaf = r6d(p2n(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
-                            preEncGen.push(newLeaf);
-                            newDecodedGenotype += "," + newLeaf;
-                            germinalVectorReadingPos++;
-                            pos++;
-                        }
-                    } else if (nextFunctionType == "ldurationLeaf") {
-                        newDecodedGenotype += p2d(newLeaf);
-                        listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
-                        germinalVectorReadingPos++;
-                        for (var lit = 0; lit < listNumItems; lit++) {
-                            newLeaf = r6d(p2d(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
-                            preEncGen.push(newLeaf);
-                            newDecodedGenotype += "," + newLeaf;
-                            germinalVectorReadingPos++;
-                            pos++;
-                        }
-                    } else if (nextFunctionType == "lmidipitchLeaf") {
-                        newDecodedGenotype += p2m(newLeaf);
-                        listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
-                        germinalVectorReadingPos++;
-                        for (var lit = 0; lit < listNumItems; lit++) {
-                            newLeaf = r6d(p2m(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
-                            preEncGen.push(newLeaf);
-                            newDecodedGenotype += "," + newLeaf;
-                            germinalVectorReadingPos++;
-                            pos++;
-                        }
-                    } else if (nextFunctionType == "lfrequencyLeaf") {
-                        newDecodedGenotype += p2f(newLeaf);
-                        listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
-                        germinalVectorReadingPos++;
-                        for (var lit = 0; lit < listNumItems; lit++) {
-                            newLeaf = r6d(p2f(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
-                            preEncGen.push(newLeaf);
-                            newDecodedGenotype += "," + newLeaf;
-                            germinalVectorReadingPos++;
-                            pos++;
-                        }
-                    } else if (nextFunctionType == "larticulationLeaf") {
-                        newDecodedGenotype += p2a(newLeaf);
-                        listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
-                        germinalVectorReadingPos++;
-                        for (var lit = 0; lit < listNumItems; lit++) {
-                            newLeaf = r6d(p2a(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
-                            preEncGen.push(newLeaf);
-                            newDecodedGenotype += "," + newLeaf;
-                            germinalVectorReadingPos++;
-                            pos++;
-                        }
-                    } else if (nextFunctionType == "lintensityLeaf") {
-                        newDecodedGenotype += p2i(newLeaf);
-                        listNumItems = germinalVector[germinalVectorReadingPos % germinalVectorLength] * listsMaxNumItems;
-                        germinalVectorReadingPos++;
-                        for (var lit = 0; lit < listNumItems; lit++) {
-                            newLeaf = r6d(p2i(uniform2normal(germinalVector[germinalVectorReadingPos % germinalVectorLength])));
-                            preEncGen.push(newLeaf);
-                            newDecodedGenotype += "," + newLeaf;
-                            germinalVectorReadingPos++;
-                            pos++;
-                        }
-                    } else if (chosenFunction == "pAutoRef" ||
-                        chosenFunction == "lAutoRef" ||
-                        chosenFunction == "eAutoRef" ||
-                        chosenFunction == "vAutoRef" ||
-                        chosenFunction == "sAutoRef" ||
-                        chosenFunction == "nAutoref" ||
-                        chosenFunction == "mAutoRef" ||
-                        chosenFunction == "aAutoRef" ||
-                        chosenFunction == "iAutoRef" ||
-                        chosenFunction == "qAutoRef" ||
-                        chosenFunction == "lnAutoRef" ||
-                        chosenFunction == "ldAutoRef" ||
-                        chosenFunction == "lmAutoRef" ||
-                        chosenFunction == "lfAutoRef" ||
-                        chosenFunction == "laAutoRef" ||
-                        chosenFunction == "liAutoRef" ||
-                        chosenFunction == "lzAutoRef" ||
-                        chosenFunction == "lqAutoRef") {
-                        newDecodedGenotype += parseInt(preEncGen[pos] * 1e5);
-                    }
-                    else {
-                        newDecodedGenotype += preEncGen[pos];
-                    }
-                    notFilledParameters[notFilledParameters.length - 1]--;
-                    // if number of parameters of this depth level if filled, deletes this count level and adds ")", and "," if needed
-                    if (notFilledParameters[notFilledParameters.length - 1] == 0) {
-                        do {
-                            if (notFilledParameters.length > 1) {
-                                notFilledParameters.pop();
-                                expectedFunctions.pop();
-                                openFunctionTypes.pop();
-                            }
-                            newDecodedGenotype += ")";
-                            notFilledParameters[notFilledParameters.length - 1]--;
-                        } while (
-                            notFilledParameters[notFilledParameters.length - 1] == 0 &&
-                            validGenotype == true)
-                    }
-                    if (notFilledParameters[0] > 0) newDecodedGenotype += ",";
-                }
-                nextFunctionType = functions_catalogue.functionLibrary
-                [openFunctionTypes[openFunctionTypes.length - 1]]
-                [expectedFunctions[expectedFunctions.length - 1]]
-                    .arguments[functions_catalogue.functionLibrary
-                    [openFunctionTypes[openFunctionTypes.length - 1]]
-                    [expectedFunctions[expectedFunctions.length - 1]]
-                        .arguments.length - notFilledParameters[notFilledParameters.length - 1]];
-            } while (
-                notFilledParameters[0] > 0 &&
-                validGenotype == true &&
-                notFilledParameters.length < genMaxDepth &&
-                newDecodedGenotype.length < decGenStringLengthLimit);
-        } while (
-            notFilledParameters[0] != -1 &&
-            validGenotype == true
-        );
-        // removes trailing commas
-        newDecodedGenotype.substring(0, newDecodedGenotype.length - 1);
-        // phenotype seed only for evaluation of random functions
-        createNewSeed(phenotypeSeed);
-        
-        // saves all genotypes created as log file
-        // genotypeLog["gen" + genCount++] = newDecodedGenotype;
-        // createJSON(genotypeLog, 'genotypeLog.json');
-
-        // save last genotype created as log file
-        createJSON(genCount++ + ": " + newDecodedGenotype, 'lastGenotype.json');
-        
-        if (validGenotype == true) {
-            newSpecimen = eval(newDecodedGenotype);
-        } else {
-            newSpecimen = eval("s(v(" + defaultEventExpression + "))");
+            newSpecimen = createGenotypeBranch(
+                outputType, 
+                eligibleFunctions, 
+                maxAllowedDepth,
+                listMaxLength,
+                newV);
+                 
+            // saves all genotypes created as log file
+            // genotypeLog["gen" + genCount++] = newDecodedGenotype;
+            // createJSON(genotypeLog, 'genotypeLog.json');
+            // save last genotype created as log file
+            createJSON(genCount++ + ": " + newDecodedGenotype, 'lastGenotype.json');
+            
         }
     } while (
         // test if preconditions are fullfilled
