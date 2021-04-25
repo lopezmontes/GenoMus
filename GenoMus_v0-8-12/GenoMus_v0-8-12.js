@@ -3585,7 +3585,7 @@ var createGenotypeBranch = (branchOutputType, subsetEligibleFunctions, maxDepth,
         newBranch = eval(newDecodedGenotype);
     } else {
         return -1; // indicates not valid genotype found
-        // newSpecimen = eval("s(v(" + defaultEventExpression + "))");
+        // newBranch = eval("s(v(" + defaultEventExpression + "))");
     }
     var stopdate = new Date();
     var specimenName = getFileDateName("jlm");   
