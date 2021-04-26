@@ -34,7 +34,7 @@ var phenMinPolyphony = 1;
 var phenMaxPolyphony = 16;
 var phenMinLength = 15;
 var phenMaxLength = 7000;
-var maxIterations = 25;
+var maxIterations = 100;
 var germinalVecMaxLength = 200;
 
 // mutation constraints
@@ -2820,7 +2820,7 @@ var evalDecGen = decGen => {
     }
     else {
         initSubexpressionsArrays();
-        maxAPI.post("processing: " + decodeGenotype(encodedGenotype));
+        // maxAPI.post("processing: " + decodeGenotype(encodedGenotype));
         var output = eval(decodeGenotype(encodedGenotype));
         return output;
     }
@@ -3837,10 +3837,20 @@ maxAPI.addHandlers({
 
     renderInitialConditions: async (arrayAsString) => {
         const dict = specimenDataStructure(specimenFromInitialConditions(
-            "scoreF", eligibleFunctionsForTesting, genMaxDepth, defaultListsMaxCardinality, eval(arrayAsString)));            
+            "scoreF", eligibleFunctionsForTesting, genMaxDepth, defaultListsMaxCardinality, eval(arrayAsString))); 
+        currentSpecimen = dict;           
         await maxAPI.setDict("specimen.dict", dict);
         await maxAPI.outlet("finished");
     },
+
+    encGenAsGerminal: async () => {
+        const dict = specimenDataStructure(specimenFromInitialConditions(
+            "scoreF", eligibleFunctionsForTesting, genMaxDepth, defaultListsMaxCardinality, currentSpecimen.encGen));            
+        currentSpecimen = dict;           
+        await maxAPI.setDict("specimen.dict", dict);
+        await maxAPI.outlet("finished");
+    },
+
     text: async (...args) => {
         // make a string from params array
         var receivedText = "";
@@ -3863,6 +3873,7 @@ maxAPI.addHandlers({
         };
         const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(currentSpecimen));
         // await maxAPI.outlet(dict);
+        currentSpecimen = dict;           
         await maxAPI.setDict("specimen.dict", dict);
         await maxAPI.outlet("finished");
     },
