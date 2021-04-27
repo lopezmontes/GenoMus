@@ -27,15 +27,14 @@ var globalSeed;
 // a extinguir
 var phenotypeSeed = Math.round(Math.random() * 1e14); // seed only for computing phenotype
 
-var germinalVecMaxLength = 600;
+var germinalVecMaxLength = 2000;
 var genMaxDepth = 27;
-var defaultListsMaxCardinality = 20;
+var defaultListsMaxCardinality = 15;
 var phenMinPolyphony = 1;
 var phenMaxPolyphony = 16;
 var phenMinLength = 15;
-var phenMaxLength = 7000;
+var phenMaxLength = 70000;
 var maxIterations = 100;
-var germinalVecMaxLength = 200;
 
 // mutation constraints
 var mutationProbability = .2;
@@ -3419,8 +3418,8 @@ var autorefTypes = [
     "lqAutoRef"]
 
 // new unified CORE FUNCTION, introducing reversible germinal vector <-> encoded genotype
-var createGenotypeBranch = (branchOutputType, localEligibleFunctions, maxDepth, listsMaxNumItems, germinalVector) => {
-    createNewSeed(globalSeed); // ¿crea repeticiones del proceso?
+var createGenotypeBranch = (germinalVector, branchOutputType, localEligibleFunctions, maxDepth, listsMaxNumItems, seedForAlea) => {
+    createNewSeed(seedForAlea); // ¿crea repeticiones del proceso?
     initSubexpressionsArrays();
     // main variable
     var newBranch;
@@ -3621,7 +3620,7 @@ var eligibleFunctionsForTesting = {
 //    104, 109
 //    ],
     mandatoryFunctions: [], // to be implemented
-    excludedFunctions: [] // 310,311,312,313,314,315,316,317,131,132,133,134,135] // 
+    excludedFunctions: [ 310,311,312,313,314,315,316,317,131,132,133,134,135] // 
 };
 
 // creates brand new specimen
@@ -3630,11 +3629,12 @@ var createNewSpecimen = () => {
     // main variable
     var newSpecimen;
     // initial conditions
+    var germinalVec;
     var outputType = "scoreF";
     var eligibleFuncs = eligibleFunctionsForTesting;
     var maxAllowedDepth = genMaxDepth;
     var listMaxLength = defaultListsMaxCardinality;
-    var germinalVec;
+    var aleaSeed = parseInt(Math.random()*1e15);
     // aux variables
     var genotypeDepth;
     var iterations = 0;
@@ -3643,7 +3643,8 @@ var createNewSpecimen = () => {
         iterations++;
         // creates a new genotype
         germinalVec = randomVector(parseInt(Math.random()*germinalVecMaxLength));
-        newSpecimen = createGenotypeBranch(outputType, eligibleFuncs, maxAllowedDepth, listMaxLength, germinalVec);
+        newSpecimen = createGenotypeBranch(
+            germinalVec, outputType, eligibleFuncs, maxAllowedDepth, listMaxLength, aleaSeed);
         // save last genotype created as log file
         createJSON(iterations + ": " + newSpecimen.decGen, 'lastGenotype.json');
     } while (
@@ -3670,7 +3671,7 @@ var createNewSpecimen = () => {
             decGenotypeLength: ("s(v(" + defaultEventExpression + "))").length,
             germinalVector: germinalVec,
             genotypeSeed: globalSeed,
-            phenotypeSeed: phenotypeSeed,            
+            phenotypeSeed: aleaSeed,            
             maxAllowedDepth: genMaxDepth,
             depth: genotypeDepth,
             leaves: extractLeaves(newSpecimen.encGen),
@@ -3685,14 +3686,16 @@ var createNewSpecimen = () => {
 }
 
 // creates brand new specimen
-var specimenFromInitialConditions = (outputType, eligibleFuncs, maxAllowedDepth, listMaxLength, germinalVec) => {
+var specimenFromInitialConditions = (
+    germinalVec, outputType, eligibleFuncs, maxAllowedDepth, listMaxLength, aleaSeed) => {
     var searchStartdate = new Date();
     // main variable
     var specimenFromInitConds;
     // aux variables
     var genotypeDepth;
     // render the genotype
-    specimenFromInitConds = createGenotypeBranch(outputType, eligibleFuncs, maxAllowedDepth, listMaxLength, germinalVec);
+    specimenFromInitConds = createGenotypeBranch(
+        germinalVec, outputType, eligibleFuncs, maxAllowedDepth, listMaxLength, aleaSeed);
     // save last genotype created as log file
     createJSON("from init conds: " + specimenFromInitConds.decGen, 'lastGenotype.json');
     if (specimenFromInitConds == -1) {
@@ -3706,7 +3709,7 @@ var specimenFromInitialConditions = (outputType, eligibleFuncs, maxAllowedDepth,
             localEligibleFunctions: eligibleFuncs,
             germinalVector: germinalVec,
             genotypeSeed: globalSeed,
-            phenotypeSeed: phenotypeSeed,            
+            phenotypeSeed: aleaSeed,            
             maxAllowedDepth: genMaxDepth,
             depth: genotypeDepth,
             leaves: extractLeaves(specimenFromInitConds.encGen)
@@ -3745,7 +3748,7 @@ var mutateSpecimenLeaves = (originalSpecimen, mutProbability, mutAmount) => {
         germinalVector: mutatedSpecimen.encGen,
         germinalVectDeviation: "0 by design",
         genotypeSeed: globalSeed,
-        phenotypeSeed: phenotypeSeed,
+        phenotypeSeed: originalSpecimen.initialConditions.phenotypeSeed,
         localEligibleFunctions: originalSpecimen.initialConditions.localEligibleFunctions,
         maxAllowedDepth: originalSpecimen.initialConditions.maxAllowedDepth,
         depth: originalSpecimen.metadata.depth,
@@ -3755,17 +3758,6 @@ var mutateSpecimenLeaves = (originalSpecimen, mutProbability, mutAmount) => {
     return specimenDataStructure(mutatedSpecimen);
 };
 
-var mutateCurrentSpecimenLeavesOLD = (mutProbability, mutAmount) => {
-    leaves = extractLeaves(currentSpecimen.encodedGenotype);
-    var numLeaves = leaves.length;
-    for (var i=0; i<numLeaves; i++) {
-        if (Math.random() < mutProbability) {
-            currentSpecimen.encodedGenotype[leaves[i][0]] = 
-            checkRange(r6d(currentSpecimen.encodedGenotype[leaves[i][0]] + mutAmount * (Math.random() * 2 - 1)));
-        }
-    }
-    leaves = extractLeaves(currentSpecimen.encodedGenotype);
-};
 
 // MAX COMMUNICATION
 
@@ -3876,22 +3868,24 @@ maxAPI.addHandlers({
 
     renderInitialConditions: async (arrayAsString) => {
         dict = specimenDataStructure(specimenFromInitialConditions(
+            eval(arrayAsString),
             "scoreF", 
             eligibleFunctionsForTesting, 
             genMaxDepth, 
             defaultListsMaxCardinality, 
-            eval(arrayAsString)));            
+            phenotypeSeed));            
         await maxAPI.setDict("specimen.dict", dict);
         await maxAPI.outlet("finished");
     },
 
     encGenAsGerminal: async () => {
         currentSpecimen = specimenDataStructure(specimenFromInitialConditions(
+            currentSpecimen.encodedGenotype,
             "scoreF", 
             eligibleFunctionsForTesting, 
             genMaxDepth, 
             defaultListsMaxCardinality, 
-            currentSpecimen.encodedGenotype));            
+            currentSpecimen.initialConditions.phenotypeSeed));            
         await maxAPI.setDict("specimen.dict", currentSpecimen);
         await maxAPI.outlet("finished");
     },
