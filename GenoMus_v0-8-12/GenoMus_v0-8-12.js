@@ -3215,23 +3215,23 @@ var specimenDataStructure = (specimen) => ({
     metadata: {
         specimenID: specimen.data.specimenID,
         GenoMusVersion: version,
+        species: currentSpecies,
         iterations: specimen.data.iterations,
         milliseconsElapsed: specimen.data.milliseconsElapsed,
+        depth: specimen.data.depth,
         voices: specimen.phenVoices,
         events: specimen.phenLength,
-        encGenotypeLength: specimen.data.encGenotypeLength,
         decGenotypeLength: specimen.data.decGenotypeLength,
-        depth: specimen.data.depth
+        encGenotypeLength: specimen.data.encGenotypeLength,
+        germinalVectorLength: specimen.data.germinalVector.length,
+        germinalVectorDeviation: specimen.data.germinalVectDeviation,
+        genotypeSeed: specimen.data.genotypeSeed
     },
     initialConditions: {
-        species: currentSpecies,
+        germinalVector: specimen.data.germinalVector,
         localEligibleFunctions: specimen.data.localEligibleFunctions,
         maxAllowedDepth: specimen.data.maxAllowedDepth,
         maxListCardinality: specimen.data.maxListCardinality,
-        germinalVector: specimen.data.germinalVector,
-        germinalVectorLength: specimen.data.germinalVector.length,
-        germinalVectorDeviation: specimen.data.germinalVectDeviation,
-        genotypeSeed: specimen.data.genotypeSeed,
         phenotypeSeed: specimen.data.phenotypeSeed
     },
     encodedGenotype: specimen.encGen,
@@ -3418,7 +3418,13 @@ var autorefTypes = [
     "lqAutoRef"]
 
 // new unified CORE FUNCTION, introducing reversible germinal vector <-> encoded genotype
-var createGenotypeBranch = (germinalVector, branchOutputType, localEligibleFunctions, maxDepth, listsMaxNumItems, seedForAlea) => {
+var createGenotypeBranch = (
+        germinalVector,
+        branchOutputType,
+        localEligibleFunctions,
+        maxDepth,
+        listsMaxNumItems,
+        seedForAlea) => {
     createNewSeed(seedForAlea); // ¿crea repeticiones del proceso?
     initSubexpressionsArrays();
     // main variable
@@ -3543,15 +3549,14 @@ var createGenotypeBranch = (germinalVector, branchOutputType, localEligibleFunct
         newBranch = eval(newDecodedGenotype);
     } else {
         return -1; // indicates not valid genotype found
-    }
-    var specimenName = getFileDateName("jlm");   
+    }  
     newBranch.data = {
-        specimenID: specimenName,
+        specimenID: getFileDateName("jlm"),
         encGenotypeLength: preEncGen.length,
         decGenotypeLength: newDecodedGenotype.length,
         germinalVector: germinalVector,
         genotypeSeed: globalSeed,
-        phenotypeSeed: phenotypeSeed,
+        phenotypeSeed: seedForAlea,
         localEligibleFunctions: local_functions_catalogue.eligibleFunctions,
         maxAllowedDepth: maxDepth,
         maxListCardinality: listsMaxNumItems,
@@ -3702,27 +3707,43 @@ var specimenFromInitialConditions = (
         specimenFromInitConds = eval("s(v(" + defaultEventExpression + "))");
         specimenFromInitConds.data = {
             specimenID: getFileDateName("not_valid_initial_conditions"),
-            iterations: "generated from initial conditions",
+            iterations: 0,
             milliseconsElapsed: Math.abs(searchStopdate - searchStartdate),
-            encGenotypeLength: "using default expression",
-            decGenotypeLength: ("s(v(" + defaultEventExpression + "))").length,
-            localEligibleFunctions: eligibleFuncs,
+            encGenotypeLength: specimenFromInitConds.encGen.length,
+            decGenotypeLength: specimenFromInitConds.decGen.length,
+            localEligibleFunctions: specimenFromInitConds.data.localEligibleFunctions,
             germinalVector: germinalVec,
+            germinalVectDeviation: distanceBetweenArrays(specimenFromInitConds.encGen, germinalVec),
             genotypeSeed: globalSeed,
             phenotypeSeed: aleaSeed,            
-            maxAllowedDepth: genMaxDepth,
+            maxAllowedDepth: maxAllowedDepth,
             depth: genotypeDepth,
             leaves: extractLeaves(specimenFromInitConds.encGen)
         };
-
-
-
-
         return specimenFromInitConds;
     }
     var searchStopdate = new Date();
+    specimenFromInitConds.data = {
+        specimenID: getFileDateName("jlm"),
+        iterations: 0,
+        milliseconsElapsed: Math.abs(searchStopdate - searchStartdate),
+        encGenotypeLength: specimenFromInitConds.encGen.length,
+        decGenotypeLength: specimenFromInitConds.decGen.length,
+        localEligibleFunctions: specimenFromInitConds.data.localEligibleFunctions,
+        germinalVector: germinalVec,
+        germinalVectDeviation: distanceBetweenArrays(specimenFromInitConds.encGen, germinalVec),
+        genotypeSeed: globalSeed,
+        phenotypeSeed: aleaSeed,            
+        maxAllowedDepth: maxAllowedDepth,
+        maxListCardinality: listMaxLength,
+        depth: specimenFromInitConds.data.depth,
+        leaves: extractLeaves(specimenFromInitConds.encGen)
+    };    
     return specimenFromInitConds;
 };
+
+
+
 
 // mutates only leaves of a specimen according to certain probabilities
 // mutProbability is mutations probability (0 -> no mutations, 1 -> everything mutated)
@@ -3746,7 +3767,7 @@ var mutateSpecimenLeaves = (originalSpecimen, mutProbability, mutAmount) => {
         encGenotypeLength: mutatedSpecimen.encGen.length,
         decGenotypeLength: mutatedSpecimen.decGen.length,
         germinalVector: mutatedSpecimen.encGen,
-        germinalVectDeviation: "0 by design",
+        germinalVectDeviation: 0,
         genotypeSeed: globalSeed,
         phenotypeSeed: originalSpecimen.initialConditions.phenotypeSeed,
         localEligibleFunctions: originalSpecimen.initialConditions.localEligibleFunctions,
