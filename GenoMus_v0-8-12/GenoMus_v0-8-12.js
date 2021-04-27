@@ -3621,7 +3621,7 @@ var eligibleFunctionsForTesting = {
 //    104, 109
 //    ],
     mandatoryFunctions: [], // to be implemented
-    excludedFunctions: [310,311,312,313,314,315,316,317,131,132,133,134,135] // 
+    excludedFunctions: [] // 310,311,312,313,314,315,316,317,131,132,133,134,135] // 
 };
 
 // creates brand new specimen
@@ -3886,13 +3886,13 @@ maxAPI.addHandlers({
     },
 
     encGenAsGerminal: async () => {
-        const dict = specimenDataStructure(specimenFromInitialConditions(
+        currentSpecimen = specimenDataStructure(specimenFromInitialConditions(
             "scoreF", 
             eligibleFunctionsForTesting, 
             genMaxDepth, 
             defaultListsMaxCardinality, 
-            currentSpecimen.encGen));            
-        await maxAPI.setDict("specimen.dict", dict);
+            currentSpecimen.encodedGenotype));            
+        await maxAPI.setDict("specimen.dict", currentSpecimen);
         await maxAPI.outlet("finished");
     },
 
