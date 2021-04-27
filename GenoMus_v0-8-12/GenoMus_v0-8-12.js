@@ -27,9 +27,9 @@ var globalSeed;
 // a extinguir
 var phenotypeSeed = Math.round(Math.random() * 1e14); // seed only for computing phenotype
 
-var germinalVecMaxLength = 200;
+var germinalVecMaxLength = 600;
 var genMaxDepth = 27;
-var defaultListsMaxCardinality = 10;
+var defaultListsMaxCardinality = 20;
 var phenMinPolyphony = 1;
 var phenMaxPolyphony = 16;
 var phenMinLength = 15;
@@ -142,65 +142,6 @@ var checkRange = x => {
     }
 };
 
-var p2p = p => p;
-var norm2notevalue = p => r6d(Math.pow(2, 10 * p - 8));
-var p2n = norm2notevalue;
-var notevalue2norm = n => n < 0.003907 ? 0 : r6d((Math.log10(n) + 8 * Math.log10(2)) / (10 * Math.log10(2)));
-var n2p = notevalue2norm;
-var norm2duration = p => r6d(Math.pow(2, 10 * p - 6));
-var p2d = norm2duration;
-var duration2norm = s => r6d((Math.log10(s) + 6 * Math.log10(2)) / (10 * Math.log10(2)));
-var d2p = duration2norm;
-var norm2midipitch = p => Math.round(100 * p + 12);
-var p2m = norm2midipitch;
-var norm2microtonalmidipitch = p => r6d(100 * p + 12);
-var p2mm = norm2microtonalmidipitch;
-var midipitch2norm = m => r6d((m - 12) / 100);
-var m2p = midipitch2norm;
-var norm2frequency = p => p < 0.003 ? 0.000001 : r6d(20000 * Math.pow(p, 4));
-var p2f = norm2frequency;
-var frequency2norm = f => r6d(Math.pow((f / 20000), (1 / 4)));
-var f2p = frequency2norm;
-var norm2articulation = p => Math.floor(300 * Math.pow(p, Math.E));
-var p2a = norm2articulation;
-var articulation2norm = a => r6d(Math.pow((a / 300), (1 / Math.E)));
-var a2p = articulation2norm;
-var norm2intensity = p => Math.round(100 * p);
-var p2i = norm2intensity;
-var intensity2norm = i => r6d(i / 100);
-var i2p = intensity2norm;
-var norm2quantized = p => {
-    if (p > 1) { p = 1 };
-    if (p < 0) { p = 0 };
-    var s = r6d(-1 * Math.round(((((Math.asin(Math.pow(Math.abs((2 * p - 1)), (17 / 11)))) / Math.PI)) + 0.5) * 72 - 36));
-    if (p < .5) {
-        return s;
-    }
-    else {
-        return -1 * s;
-    }
-}
-var p2q = norm2quantized;
-var quantized2norm = q => {
-    if (q > 36) { q = 36 };
-    if (q < -36) { q = -36 };
-    return quantizedLookupTable[Math.round(q) + 36];
-}
-var q2p = quantized2norm;
-var goldeninteger2norm = p => r6d(p * PHI % 1);
-var z2p = goldeninteger2norm;
-var norm2goldeninteger = z => {
-    var p = 0;
-    var c = 0;
-    while (Math.abs(p - z) > 0.0000009 && c < 514262) {
-        c++;
-        p = (p + PHI) % 1;
-    }
-    return c;
-}
-var p2z = norm2goldeninteger;
-var quantizedLookupTable = [0, 0.0005, 0.001, 0.003, 0.006, 0.008, 0.01, 0.015, 0.02, 0.025, 0.03, 0.04, 0.045, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11, 0.12, 0.14, 0.15, 0.16, 0.18, 0.2, 0.21, 0.23, 0.25, 0.27, 0.3, 0.32, 0.33, 0.36, 0.4, 0.45, 0.5, 0.55, 0.6, 0.64, 0.67, 0.68, 0.7, 0.73, 0.75, 0.77, 0.79, 0.8, 0.82, 0.84, 0.85, 0.86, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.955, 0.96, 0.97, 0.975, 0.98, 0.985, 0.99, 0.992, 0.994, 0.997, 0.999, 0.9995, 1];
-
 // homemade function to remap valor from a equal distribution to a normal (gaussian) distribution adapting logit function (inverse of sigmoid)
 // it is not prefectly reversible; used only for 
 var uniform2normal = (x) => {
@@ -223,6 +164,68 @@ var testReversibility = () => {
         console.log(a + " -> " + u2n(a) + " -> " + u2n(n2u(a)));       
     }
 }
+
+// MUSICAL PARAMETERS MAPPING
+var p2p = p => p;
+var norm2notevalue = p => r6d(Math.pow(2, 10 * u2n(p) - 8));
+var p2n = norm2notevalue;
+var notevalue2norm = n => n < 0.003907 ? 0 : n2u(r6d((Math.log10(n) + 8 * Math.log10(2)) / (10 * Math.log10(2))));
+var n2p = notevalue2norm;
+var norm2duration = p => r6d(Math.pow(2, 10 * u2n(p) - 6));
+var p2d = norm2duration;
+var duration2norm = s => n2u(r6d((Math.log10(s) + 6 * Math.log10(2)) / (10 * Math.log10(2))));
+var d2p = duration2norm;
+var norm2midipitch = p => Math.round(100 * u2n(p) + 12);
+var p2m = norm2midipitch;
+var norm2microtonalmidipitch = p => r6d(100 * u2n(p) + 12);
+var p2mm = norm2microtonalmidipitch;
+var midipitch2norm = m => n2u(r6d((m - 12) / 100));
+var m2p = midipitch2norm;
+var norm2frequency = p => p < 0.003 ? 0.000001 : r6d(20000 * Math.pow(u2n(p), 4));
+var p2f = norm2frequency;
+var frequency2norm = f => n2u(r6d(Math.pow((f / 20000), (1 / 4))));
+var f2p = frequency2norm;
+var norm2articulation = p => Math.floor(300 * Math.pow(u2n(p), Math.E));
+var p2a = norm2articulation;
+var articulation2norm = a => n2u(r6d(Math.pow((a / 300), (1 / Math.E))));
+var a2p = articulation2norm;
+var norm2intensity = p => Math.round(100 * u2n(p));
+var p2i = norm2intensity;   
+var intensity2norm = i => n2u(r6d(i / 100));
+var i2p = intensity2norm;
+var norm2quantized = p => {
+    if (p > 1) { p = 1 };
+    if (p < 0) { p = 0 };
+    var s = r6d(-1 * Math.round(((((Math.asin(Math.pow(Math.abs((2 * u2n(p) - 1)), (17 / 11)))) / Math.PI)) + 0.5) * 72 - 36));
+    if (p < .5) {
+        return s;
+    }
+    else {
+        return -1 * s;
+    }
+}
+var p2q = norm2quantized;
+var quantized2norm = q => {
+    if (q > 36) { q = 36 };
+    if (q < -36) { q = -36 };
+    return n2u(quantizedLookupTable[Math.round(q) + 36]);
+}
+var q2p = quantized2norm;
+var goldeninteger2norm = p => r6d(p * PHI % 1);
+var z2p = goldeninteger2norm;
+var norm2goldeninteger = z => {
+    var p = 0;
+    var c = 0;
+    while (Math.abs(p - z) > 0.0000009 && c < 514262) {
+        c++;
+        p = (p + PHI) % 1;
+    }
+    return c;
+}
+var p2z = norm2goldeninteger;
+var quantizedLookupTable = [0, 0.0005, 0.001, 0.003, 0.006, 0.008, 0.01, 0.015, 0.02, 0.025, 0.03, 0.04, 0.045, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11, 0.12, 0.14, 0.15, 0.16, 0.18, 0.2, 0.21, 0.23, 0.25, 0.27, 0.3, 0.32, 0.33, 0.36, 0.4, 0.45, 0.5, 0.55, 0.6, 0.64, 0.67, 0.68, 0.7, 0.73, 0.75, 0.77, 0.79, 0.8, 0.82, 0.84, 0.85, 0.86, 0.88, 0.89, 0.9, 0.91, 0.92, 0.93, 0.94, 0.95, 0.955, 0.96, 0.97, 0.975, 0.98, 0.985, 0.99, 0.992, 0.994, 0.997, 0.999, 0.9995, 1];
+
+
 
 // AUX FUNCTIONS
 
@@ -2437,21 +2440,21 @@ var lAutoref = subexprIndex => autoref("lAutoref", "listF", 0.068884, subexprInd
 var eAutoref = subexprIndex => autoref("eAutoref", "eventF", 0.686918, subexprIndex, defaultEventExpression);
 var vAutoref = subexprIndex => autoref("vAutoref", "voiceF", 0.304952, subexprIndex, "v(" + defaultEventExpression + ")");
 var sAutoref = subexprIndex => autoref("sAutoref", "scoreF", 0.922986, subexprIndex, "s(v(" + defaultEventExpression + "))");
-var nAutoref = subexprIndex => autoref("nAutoref", "notevalueF", 0.195415, subexprIndex, "n(.000001)");
+var nAutoref = subexprIndex => autoref("nAutoref", "notevalueF", 0.195415, subexprIndex, "n(.6)");
 var dAutoref = subexprIndex => autoref("dAutoref", "durationF", 0.813449, subexprIndex, "d(.016)");
 var mAutoref = subexprIndex => autoref("mAutoref", "midipitchF", 0.431483, subexprIndex, "m(43)");
 var fAutoref = subexprIndex => autoref("fAutoref", "frequencyF", 0.049517, subexprIndex, "f(440)");
-var aAutoref = subexprIndex => autoref("aAutoref", "articulationF", 0.667551, subexprIndex, "a(0)");
-var iAutoref = subexprIndex => autoref("iAutoref", "intensityF", 0.285585, subexprIndex, "i(0)");
-var qAutoref = subexprIndex => autoref("qAutoref", "quantizedF", 0.521653, subexprIndex, "q(0)");
+var aAutoref = subexprIndex => autoref("aAutoref", "articulationF", 0.667551, subexprIndex, "a(60)");
+var iAutoref = subexprIndex => autoref("iAutoref", "intensityF", 0.285585, subexprIndex, "i(60)");
+var qAutoref = subexprIndex => autoref("qAutoref", "quantizedF", 0.521653, subexprIndex, "q(3)");
 var lnAutoref = subexprIndex => autoref("lnAutoref", "lnotevalueF", 0.757721, subexprIndex, "ln(1/256)"); // could 0 duration cause troubles??
 var ldAutoref = subexprIndex => autoref("ldAutoref", "ldurationF", 0.375755, subexprIndex, "ld(0.016)"); // could 0 cause troubles??
 var lmAutoref = subexprIndex => autoref("lmAutoref", "lmidipitchF", 0.993789, subexprIndex, "lm(43)");
-var lfAutoref = subexprIndex => autoref("lfAutoref", "lfrequencyF", 0.611823, subexprIndex, "lf(.000001)");
-var laAutoref = subexprIndex => autoref("laAutoref", "larticulationF", 0.229857, subexprIndex, "la(0)"); // could 0 cause troubles??
-var liAutoref = subexprIndex => autoref("liAutoref", "lintensityF", 0.847891, subexprIndex, "li(0)");
-var lzAutoref = subexprIndex => autoref("lzAutoref", "lgoldenintegerF", 0.465925, subexprIndex, "lg(0)");
-var lqAutoRef = subexprIndex => autoref("lqAutoRef", "lquantizedF", 0.083959, subexprIndex, "lq(0)");
+var lfAutoref = subexprIndex => autoref("lfAutoref", "lfrequencyF", 0.611823, subexprIndex, "lf(440)");
+var laAutoref = subexprIndex => autoref("laAutoref", "larticulationF", 0.229857, subexprIndex, "la(60)"); // could 0 cause troubles??
+var liAutoref = subexprIndex => autoref("liAutoref", "lintensityF", 0.847891, subexprIndex, "li(60)");
+var lzAutoref = subexprIndex => autoref("lzAutoref", "lgoldenintegerF", 0.465925, subexprIndex, "lg(3)");
+var lqAutoRef = subexprIndex => autoref("lqAutoRef", "lquantizedF", 0.083959, subexprIndex, "lq(3)");
 
 
 ////////// FUNCTION LIBRARIES HANDLING
@@ -3629,8 +3632,8 @@ var createNewSpecimen = () => {
     // initial conditions
     var outputType = "scoreF";
     var eligibleFuncs = eligibleFunctionsForTesting;
-    var maxAllowedDepth = 44;
-    var listMaxLength = 5;
+    var maxAllowedDepth = genMaxDepth;
+    var listMaxLength = defaultListsMaxCardinality;
     var germinalVec;
     // aux variables
     var genotypeDepth;
