@@ -27,7 +27,7 @@ var globalSeed;
 // a extinguir
 var phenotypeSeed = Math.round(Math.random() * 1e14); // seed only for computing phenotype
 
-var germinalVecMaxLength = 320;
+var germinalVecMaxLength = 520;
 var genMaxDepth = 27;
 var defaultListsMaxCardinality = 15;
 var phenMinPolyphony = 1;
@@ -3918,23 +3918,27 @@ maxAPI.addHandlers({
         for (var i = 0; i < args.length; i++) {
             receivedText += args[i];
         }
-        createNewSeed(phenotypeSeed);
+        // createNewSeed(phenotypeSeed);
         currentSpecimen = evalDecGen(receivedText);
         currentSpecimen.data = {
             specimenID: getFileDateName("jlm"),
             iterations: 0,
             milliseconsElapsed: 0,
-            genotypeLength: currentSpecimen.length,
-            germinalVector: "none, edited by hand",
+            encGenotypeLength: currentSpecimen.encGen.length,
+            decGenotypeLength: currentSpecimen.decGen.length,
+            germinalVector: currentSpecimen.encGen,
+            germinalVectDeviation: 0,
             genotypeSeed: globalSeed,
             phenotypeSeed: phenotypeSeed,
-            maxAllowedDepth: "undefined",
-            depth: "to be calculated",
+            localEligibleFunctions: "must be calculated during evaluation",
+            maxAllowedDepth: "not limited",
+            depth: "must be calculated during evaluation",
+            maxListCardinality: "not limited",
             leaves: extractLeaves(currentSpecimen.encGen)
         };
-        const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(currentSpecimen));
-        // await maxAPI.outlet(dict);
-        await maxAPI.setDict("specimen.dict", dict);
+
+        currentSpecimen = specimenDataStructure(currentSpecimen);
+        await maxAPI.setDict("specimen.dict", currentSpecimen);
         await maxAPI.outlet("finished");
     },
     geneAlgo: async (numElements) => {
