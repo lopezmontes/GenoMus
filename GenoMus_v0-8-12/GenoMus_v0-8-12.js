@@ -166,6 +166,12 @@ var testReversibility = () => {
 
 // MUSICAL PARAMETERS MAPPING
 var p2p = p => p;
+
+// bypassing gaussian mapping
+// u2n = p2p;
+// n2u = p2p;
+
+
 var norm2notevalue = p => r6d(Math.pow(2, 10 * u2n(p) - 8));
 var p2n = norm2notevalue;
 var notevalue2norm = n => n < 0.003907 ? 0 : n2u(r6d((Math.log10(n) + 8 * Math.log10(2)) / (10 * Math.log10(2))));
@@ -3452,7 +3458,6 @@ var createGenotypeBranch = (
     var newListElementThreshold = Math.min(0.499, 2/listsMaxNumItems);
     var preitemvalue;
     var cardinality;
-    // adds a new token to the decoded genotype
     do {
         // adds a function
         if (leafTypes.includes(nextFunctionType) == false) {

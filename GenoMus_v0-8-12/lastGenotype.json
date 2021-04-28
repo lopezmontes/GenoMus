@@ -1,1 +1,1 @@
-"from init conds: s(vABAv(vABCABv(vPerpetuumMobile(n(0.138345),lmRemap(lm(83,84,65),m(70),mRnd()),la(158,34,24,16,13,30,34,49,40),liRemap(li(60,100,0,41,0),i(47),iRnd())),vSlice(vPerpetuumMobile(nAutoref(0),lm(57,112,64,12,47,66),la(53,0),liAutoref(0)),q(3)),vSlice(vSlice(vSlice(vSlice(vSlice(vPerpetuumMobile(nAutoref(0),lmRemap(lm(12,112,112,65,12,62,75,74,58,46,74,76,54,61,81),mAutoref(1),m(53)),la(50,50),liAutoref(0)),q(-4)),q(-2)),qRnd()),q(4)),qAutoref(2))),vAutoref(1)))"
+"from init conds: s(v(e(n(0.003906),m(43),aRnd(),i(0))))"
