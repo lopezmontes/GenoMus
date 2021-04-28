@@ -27,7 +27,7 @@ var globalSeed;
 // a extinguir
 var phenotypeSeed = Math.round(Math.random() * 1e14); // seed only for computing phenotype
 
-var germinalVecMaxLength = 2000;
+var germinalVecMaxLength = 320;
 var genMaxDepth = 27;
 var defaultListsMaxCardinality = 15;
 var phenMinPolyphony = 1;
@@ -3552,7 +3552,7 @@ var createGenotypeBranch = (
     }  
     newBranch.data = {
         specimenID: getFileDateName("jlm"),
-        encGenotypeLength: preEncGen.length,
+        encGenotypeLength: newBranch.encGen.length,
         decGenotypeLength: newDecodedGenotype.length,
         germinalVector: germinalVector,
         genotypeSeed: globalSeed,
@@ -3651,7 +3651,7 @@ var createNewSpecimen = () => {
         newSpecimen = createGenotypeBranch(
             germinalVec, outputType, eligibleFuncs, maxAllowedDepth, listMaxLength, aleaSeed);
         // save last genotype created as log file
-        createJSON(iterations + ": " + newSpecimen.decGen, 'lastGenotype.json');
+        // createJSON(iterations + ": " + newSpecimen.decGen, 'lastGenotype.json');
     } while (
         // test if preconditions are fullfilled
         (
@@ -3662,8 +3662,9 @@ var createNewSpecimen = () => {
             || newSpecimen.phenVoices > phenMaxPolyphony
         )
         && iterations < maxIterations);
-    genotypeLog["gen" + genCount++] = newSpecimen.decGen;
-    createJSON(genotypeLog, 'genotipeLog.json');
+    // save all genotypes as log file
+    // genotypeLog["gen" + genCount++] = newSpecimen.decGen;
+    // createJSON(genotypeLog, 'genotipeLog.json');
     if (newSpecimen == -1) {
         // console.log("VALID SPECIMEN NOT FOUND");
         maxAPI.post("VALID SPECIMEN NOT FOUND");
@@ -3711,7 +3712,7 @@ var specimenFromInitialConditions = (
             milliseconsElapsed: Math.abs(searchStopdate - searchStartdate),
             encGenotypeLength: specimenFromInitConds.encGen.length,
             decGenotypeLength: specimenFromInitConds.decGen.length,
-            localEligibleFunctions: specimenFromInitConds.data.localEligibleFunctions,
+            localEligibleFunctions: eligibleFuncs,
             germinalVector: germinalVec,
             germinalVectDeviation: distanceBetweenArrays(specimenFromInitConds.encGen, germinalVec),
             genotypeSeed: globalSeed,
@@ -3888,14 +3889,14 @@ maxAPI.addHandlers({
     //////////////
 
     renderInitialConditions: async (arrayAsString) => {
-        dict = specimenDataStructure(specimenFromInitialConditions(
+        currentSpecimen  = specimenDataStructure(specimenFromInitialConditions(
             eval(arrayAsString),
             "scoreF", 
             eligibleFunctionsForTesting, 
             genMaxDepth, 
             defaultListsMaxCardinality, 
             phenotypeSeed));            
-        await maxAPI.setDict("specimen.dict", dict);
+        await maxAPI.setDict("specimen.dict", currentSpecimen );
         await maxAPI.outlet("finished");
     },
 
