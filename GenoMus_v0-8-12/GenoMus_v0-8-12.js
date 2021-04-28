@@ -34,7 +34,7 @@ var phenMinPolyphony = 1;
 var phenMaxPolyphony = 16;
 var phenMinLength = 15;
 var phenMaxLength = 70000;
-var maxIterations = 100;
+var maxIterations = 600;
 
 // mutation constraints
 var mutationProbability = .2;
@@ -142,18 +142,17 @@ var checkRange = x => {
 };
 
 // homemade function to remap valor from a equal distribution to a normal (gaussian) distribution adapting logit function (inverse of sigmoid)
-// it is not prefectly reversible; used only for 
+
 var uniform2normal = (x) => {
-    if (x==0) return 0;
-    x = remap(x, 0, 1, 0.00627, 0.99373);
-    return checkRange(0.386364 + (0.5 + (Math.log10(x / (1 - x)))) / 4.4);
+    if (x < 0.006693) return 0;
+    if (x > 0.993307) return 1;
+    return 0.5 + Math.log(x / (1 - x)) * 0.1;
 }
 var u2n = uniform2normal;
-// not perfect reverse function
 var normal2uniform = (x) => {
-    if (x==0) return 0;
-    x = -(Math.pow(Math.E,(10.1314 * x)))/(-158.492 - Math.pow(Math.E,(10.1314 * x)));
-    return remap(x, 0.00627, 0.99373, 0, 1);
+    if (x == 0) return 0;
+    if (x == 1) return 1;
+    return -(Math.pow(Math.E,(10 * x)))/(-148.413 - Math.pow(Math.E,(10 * x)));
 } 
 var n2u = normal2uniform;
 
