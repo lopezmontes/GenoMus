@@ -3580,7 +3580,8 @@ var createGenotypeBranch = (
 globalSeed = Math.random()*1e12;
 var newV = randomVector(20);
 
-createGenotypeBranch([ 1, 0, 0.5, 0.5, 0 ],"paramF",eligibleFunctionsForTesting,genMaxDepth,defaultListsMaxCardinality,phenotypeSeed)
+createGenotypeBranch("paramF",eligibleFunctionsForTesting,genMaxDepth,defaultListsMaxCardinality,phenotypeSeed
+[ 1, 0, 0.5, 0.5, 0 ]);
 
 
 
