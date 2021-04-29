@@ -9,6 +9,8 @@
 // var currentSpecies = "csound";
 var currentSpecies = "piano";
 
+
+
 // DEPENDENCIES
 // files handling
 const fs = require('fs');
@@ -146,13 +148,13 @@ var checkRange = x => {
 var uniform2normal = (x) => {
     if (x < 0.006693) return 0;
     if (x > 0.993307) return 1;
-    return 0.5 + Math.log(x / (1 - x)) * 0.1;
+    return r6d(0.5 + Math.log(x / (1 - x)) * 0.1);
 }
 var u2n = uniform2normal;
 var normal2uniform = (x) => {
     if (x == 0) return 0;
     if (x == 1) return 1;
-    return -(Math.pow(Math.E,(10 * x)))/(-148.413 - Math.pow(Math.E,(10 * x)));
+    return r6d(-(Math.pow(Math.E,(10 * x)))/(-148.413 - Math.pow(Math.E,(10 * x))));
 } 
 var n2u = normal2uniform;
 
@@ -3671,7 +3673,7 @@ var createNewSpecimen = () => {
     // createJSON(genotypeLog, 'genotipeLog.json');
     if (newSpecimen == -1) {
         // console.log("VALID SPECIMEN NOT FOUND");
-        maxAPI.post("VALID SPECIMEN NOT FOUND");
+        post("VALID SPECIMEN NOT FOUND");
         newSpecimen = eval("s(v(" + defaultEventExpression + "))");
         newSpecimen.data = {
             specimenID: getFileDateName("not_found"),
@@ -3691,7 +3693,7 @@ var createNewSpecimen = () => {
     newSpecimen.data.iterations = iterations;
     var searchStopdate = new Date();
     newSpecimen.data.milliseconsElapsed = searchStopdate - searchStartdate;
-    maxAPI.post("Search stopped after " + Math.abs(searchStopdate - searchStartdate) + " ms and " + iterations + " iter.");
+    post("Search stopped after " + Math.abs(searchStopdate - searchStartdate) + " ms and " + iterations + " iter.");
     return newSpecimen;
 }
 
@@ -4033,3 +4035,11 @@ var createSpeciesDependentFunctions = (speciesName) => {
     }
 }
 createSpeciesDependentFunctions(currentSpecies);
+
+// output for debugging
+var post = (message, variable) => {
+    if (debugMode == "terminal") console.log(message + " " + variable);
+    else if (debugMode == "max_console") maxAPI.post(message + " " + variable);
+}
+var debugMode = "terminal";
+// var debugMode = "max_console";
