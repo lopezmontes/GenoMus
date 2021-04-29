@@ -3426,12 +3426,12 @@ var autorefTypes = [
 
 // new unified CORE FUNCTION, introducing reversible germinal vector <-> encoded genotype
 var createGenotypeBranch = (
-        germinalVector,
         branchOutputType,
         localEligibleFunctions,
         maxDepth,
         listsMaxNumItems,
-        seedForAlea) => {
+        seedForAlea,
+        germinalVector) => {
     createNewSeed(seedForAlea); // ¿crea repeticiones del proceso?
     initSubexpressionsArrays();
     // main variable
@@ -3580,6 +3580,11 @@ var createGenotypeBranch = (
 globalSeed = Math.random()*1e12;
 var newV = randomVector(20);
 
+createGenotypeBranch([ 1, 0, 0.5, 0.5, 0 ],"paramF",eligibleFunctionsForTesting,genMaxDepth,defaultListsMaxCardinality,phenotypeSeed)
+
+
+
+
 createGenotypeBranch("scoreF",eligibleFunctionsForTesting,14,4,tempGermi);
 
 
@@ -3655,7 +3660,7 @@ var createNewSpecimen = () => {
         // creates a new genotype
         germinalVec = randomVector(parseInt(Math.random()*germinalVecMaxLength));
         newSpecimen = createGenotypeBranch(
-            germinalVec, outputType, eligibleFuncs, maxAllowedDepth, listMaxLength, aleaSeed);
+            outputType, eligibleFuncs, maxAllowedDepth, listMaxLength, aleaSeed, germinalVec);
         // save last genotype created as log file
         // createJSON(iterations + ": " + newSpecimen.decGen, 'lastGenotype.json');
     } while (
@@ -3671,6 +3676,7 @@ var createNewSpecimen = () => {
     // save all genotypes as log file
     // genotypeLog["gen" + genCount++] = newSpecimen.decGen;
     // createJSON(genotypeLog, 'genotipeLog.json');
+    var searchStopdate = new Date();
     if (newSpecimen == -1) {
         // console.log("VALID SPECIMEN NOT FOUND");
         post("VALID SPECIMEN NOT FOUND");
@@ -3691,7 +3697,6 @@ var createNewSpecimen = () => {
         return newSpecimen;
     }
     newSpecimen.data.iterations = iterations;
-    var searchStopdate = new Date();
     newSpecimen.data.milliseconsElapsed = searchStopdate - searchStartdate;
     post("Search stopped after " + Math.abs(searchStopdate - searchStartdate) + " ms and " + iterations + " iter.");
     return newSpecimen;
@@ -3707,7 +3712,7 @@ var specimenFromInitialConditions = (
     var genotypeDepth;
     // render the genotype
     specimenFromInitConds = createGenotypeBranch(
-        germinalVec, outputType, eligibleFuncs, maxAllowedDepth, listMaxLength, aleaSeed);
+        outputType, eligibleFuncs, maxAllowedDepth, listMaxLength, aleaSeed, germinalVec);
     // save last genotype created as log file
     createJSON("from init conds: " + specimenFromInitConds.decGen, 'lastGenotype.json');
     if (specimenFromInitConds == -1) {
@@ -4041,5 +4046,5 @@ var post = (message, variable) => {
     if (debugMode == "terminal") console.log(message + " " + variable);
     else if (debugMode == "max_console") maxAPI.post(message + " " + variable);
 }
-var debugMode = "terminal";
-// var debugMode = "max_console";
+//var debugMode = "terminal";
+var debugMode = "max_console";
