@@ -3580,9 +3580,11 @@ var createGenotypeBranch = (
 globalSeed = Math.random()*1e12;
 var newV = randomVector(20);
 
-createGenotypeBranch("paramF",eligibleFunctionsForTesting,genMaxDepth,defaultListsMaxCardinality,phenotypeSeed
-[ 1, 0, 0.5, 0.5, 0 ]);
+createGenotypeBranch("paramF",eligibleFunctionsForTesting,genMaxDepth,defaultListsMaxCardinality,phenotypeSeed,
+[ 1, 0, 0.5, 0.123456, 0 ]);
 
+createGenotypeBranch("midipitchF",eligibleFunctionsForTesting,genMaxDepth,defaultListsMaxCardinality,phenotypeSeed,
+[ 1, 0.326238, 0.53, 0.154465, 0 ]);
 
 
 
@@ -3802,6 +3804,12 @@ var mutateSpecimenLeaves = (originalSpecimen, mutProbability, mutAmount) => {
     // simpleSearch();
     maxAPI.outlet("genosearch");
 }); */
+
+maxAPI.addHandler('initNode', (integ) => {
+    debugMode = "max_console";
+    maxAPI.post("_________________________________");
+    maxAPI.post("GenoMus - version " + version);
+});
 
 maxAPI.addHandler('minVoices', (integ) => {
     phenMinPolyphony = integ;
@@ -4047,5 +4055,5 @@ var post = (message, variable) => {
     if (debugMode == "terminal") console.log(message + " " + variable);
     else if (debugMode == "max_console") maxAPI.post(message + " " + variable);
 }
-//var debugMode = "terminal";
-var debugMode = "max_console";
+var debugMode = "terminal";
+// var debugMode = "max_console";
