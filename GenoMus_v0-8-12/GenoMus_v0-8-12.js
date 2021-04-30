@@ -30,12 +30,12 @@ var globalSeed;
 var phenotypeSeed = Math.round(Math.random() * 1e14); // seed only for computing phenotype
 
 var germinalVecMaxLength = 520;
-var genMaxDepth = 27;
+var genMaxDepth = 8;
 var defaultListsMaxCardinality = 15;
 var phenMinPolyphony = 1;
 var phenMaxPolyphony = 16;
 var phenMinLength = 15;
-var phenMaxLength = 70000;
+var phenMaxLength = 2000;
 var maxIterations = 600;
 
 // mutation constraints
@@ -3659,6 +3659,9 @@ createGenotypeBranch("scoreF",eligibleFunctionsForTesting,14,6,[0,0.1,0.2,0.3,0.
 var minimalFunctions = [0,1,2,3,4,5,6,7,8,9,10,11,12];
 var randomFunctions = [131,134,310,311,312,313,314,315,316,317];
 var minimalLists = [135,199,15,16,17,18,19,20];
+var iterFuncs = [35,36,37];
+var repeatFuncs = [98,42,43];
+var paramAutorefFuncs = [25,280,277,279,281,282,284];
 
 var manyFuncs = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19,
     20, 25, 26, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 48, 58, 63, 65, 66, 67, 68, 76, 77, 84, 104, 
@@ -3671,7 +3674,10 @@ var manyFuncs = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19,
 var eligibleFunctionsForTesting = {
     includedFunctions: minimalFunctions
         .concat(randomFunctions)
-        .concat(minimalLists),
+        .concat(minimalLists)
+        .concat(iterFuncs)
+        .concat(repeatFuncs)
+        .concat(paramAutorefFuncs),
 //     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19, 20,
 //        26, 28, 29,
 //    42,
@@ -3683,7 +3689,7 @@ var eligibleFunctionsForTesting = {
 //    104, 109
 //    ],
     mandatoryFunctions: [], // to be implemented
-    excludedFunctions: [3]// 310,311,312,313,314,315,316,317,131,132,133,134,135] // 
+    excludedFunctions: []// 310,311,312,313,314,315,316,317,131,132,133,134,135] // 
 };
 
 // creates brand new specimen
