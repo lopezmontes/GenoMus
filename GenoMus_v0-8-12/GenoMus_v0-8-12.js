@@ -29,14 +29,14 @@ var globalSeed;
 // a extinguir
 var phenotypeSeed = Math.round(Math.random() * 1e14); // seed only for computing phenotype
 
-var germinalVecMaxLength = 520;
-var genMaxDepth = 8;
-var defaultListsMaxCardinality = 15;
+var germinalVecMaxLength = 256;
+var genMaxDepth = 18;
+var defaultListsMaxCardinality = 5;
 var phenMinPolyphony = 1;
 var phenMaxPolyphony = 16;
-var phenMinLength = 15;
+var phenMinLength = 1;
 var phenMaxLength = 2000;
-var maxIterations = 600;
+var maxIterations = 100;
 
 // mutation constraints
 var mutationProbability = .2;
@@ -80,7 +80,7 @@ initSubexpressionsArrays();
 var createDefaultEventExpression = (speciesName) => {
     switch (speciesName) {
         case "piano":
-            defaultEventExpression = "e(p(0),m(43),p(0),p(0))";
+            defaultEventExpression = "e(n(0),m(43),aRnd(),i(0))";
             break;
         case ("csound"):
             defaultEventExpression = "e(p(0),f(440),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0),p(0))";
@@ -173,9 +173,9 @@ var p2p = p => p;
 // n2u = p2p;
 
 
-var norm2notevalue = p => r6d(Math.pow(2, 10 * u2n(p) - 8));
+var norm2notevalue = p => p < 0.006695 ? 0 : r6d(Math.pow(2, 10 * u2n(p) - 8));
 var p2n = norm2notevalue;
-var notevalue2norm = n => n < 0.003907 ? 0 : n2u(r6d((Math.log10(n) + 8 * Math.log10(2)) / (10 * Math.log10(2))));
+var notevalue2norm = n => n < 0.003907 ? 0 : r6d(n2u((Math.log10(n) + 8 * Math.log10(2)) / (10 * Math.log10(2))));
 var n2p = notevalue2norm;
 var norm2duration = p => r6d(Math.pow(2, 10 * u2n(p) - 6));
 var p2d = norm2duration;
@@ -3661,6 +3661,7 @@ var randomFunctions = [131,134,310,311,312,313,314,315,316,317];
 var minimalLists = [135,199,15,16,17,18,19,20];
 var iterFuncs = [35,36,37];
 var repeatFuncs = [98,42,43];
+var extendersFuncs = [35,36,37,41,42,43,44,46,48,104,109,110];
 var paramAutorefFuncs = [25,280,277,279,281,282,284];
 
 var manyFuncs = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19,
@@ -3672,12 +3673,14 @@ var manyFuncs = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19,
 
 // testing functions
 var eligibleFunctionsForTesting = {
-    includedFunctions: minimalFunctions
+    includedFunctions:     
+        minimalFunctions
         .concat(randomFunctions)
         .concat(minimalLists)
         .concat(iterFuncs)
         .concat(repeatFuncs)
-        .concat(paramAutorefFuncs),
+        .concat(paramAutorefFuncs)
+        .concat(extendersFuncs),
 //     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19, 20,
 //        26, 28, 29,
 //    42,
