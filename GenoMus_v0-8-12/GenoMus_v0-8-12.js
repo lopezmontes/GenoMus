@@ -191,7 +191,7 @@ var norm2frequency = p => p < 0.003 ? 0.000001 : r6d(20000 * Math.pow(u2n(p), 4)
 var p2f = norm2frequency;
 var frequency2norm = f => n2u(r6d(Math.pow((f / 20000), (1 / 4))));
 var f2p = frequency2norm;
-var norm2articulation = p => Math.floor(300 * Math.pow(u2n(p), Math.E));
+var norm2articulation = p => Math.round(300 * Math.pow(u2n(p), Math.E));
 var p2a = norm2articulation;
 var articulation2norm = a => n2u(r6d(Math.pow((a / 300), (1 / Math.E))));
 var a2p = articulation2norm;
@@ -2603,12 +2603,17 @@ createJSON(GenoMusFunctionLibrary, 'GenoMus_function_library.json');
 
 // sospechosas de crear errores: 44
 
+var minimalFunctions = [0,1,2,3,4,5,6,7,8,9,10,11,12];
+var manyFuncs = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19,
+    20, 25, 26, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 48, 58, 63, 65, 66, 67, 68, 76, 77, 84, 104, 
+    109, 110, 111, 131, 134, 135, 199, 200, 202, 277, 278, 279, 281, 282, 284, 286, 288, 290, 291,
+    294, 296, 298, 299, 302, 304, 306, 307, 310, 311, 312, 313, 314, 315, 316, 317, 318, 201, 280,
+98, 99, 100, 101 ];
+
+
+
 var eligibleFunctions = {
-    includedFunctions: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19,
-        20, 25, 26, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 48, 58, 63, 65, 66, 67, 68, 76, 77, 84, 104, 
-        109, 110, 111, 131, 134, 135, 199, 200, 202, 277, 278, 279, 281, 282, 284, 286, 288, 290, 291,
-        294, 296, 298, 299, 302, 304, 306, 307, 310, 311, 312, 313, 314, 315, 316, 317, 318, 201, 280,
-    98, 99, 100, 101 ],
+    includedFunctions: [0,1,2,3,4,5,6,7,8,9,10,11,12],
     mandatoryFunctions: [], // to be implemented
     excludedFunctions: [277, 278, 279, 281, 282, 284, 286, 288, 290, 291]
     // 46, 37, 48] // only to avoid repeated note as solution for genetic algo. 
@@ -3585,7 +3590,35 @@ createGenotypeBranch("paramF",eligibleFunctionsForTesting,genMaxDepth,defaultLis
 
 createGenotypeBranch("midipitchF",eligibleFunctionsForTesting,genMaxDepth,defaultListsMaxCardinality,phenotypeSeed,
 [ 1, 0.326238, 0.53, 0.154465, 0 ]);
+  
+createGenotypeBranch("articulationF",eligibleFunctionsForTesting,genMaxDepth,defaultListsMaxCardinality,phenotypeSeed,
+[ 1, 0.562306, 0.55, 0.462948, 0 ]);
 
+createGenotypeBranch("eventF",eligibleFunctionsForTesting,genMaxDepth,defaultListsMaxCardinality,phenotypeSeed,
+  [ 1,
+     0.567331,
+     1,
+     0.590537,
+     0,
+     1,
+     0.326238,
+     0.53,
+     0.091123,
+     0,
+     1,
+     0.326238,
+     0.53,
+     0.091123,
+     0,
+     1,
+     0.562306,
+     0.55,
+     0,
+     0,
+     1,
+     0.680706,
+     0,
+     0 ]);
 
 
 createGenotypeBranch("scoreF",eligibleFunctionsForTesting,14,4,tempGermi);
@@ -3627,7 +3660,7 @@ createGenotypeBranch("scoreF",eligibleFunctionsForTesting,14,6,[0,0.1,0.2,0.3,0.
 
 // testing functions
 var eligibleFunctionsForTesting = {
-    includedFunctions: [],
+    includedFunctions: minimalFunctions,
 //     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19, 20,
 //        26, 28, 29,
 //    42,
