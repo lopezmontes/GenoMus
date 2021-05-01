@@ -1,0 +1,8 @@
+{
+    "branchOutputType": "scoreF",
+    "localEligibleFunctions": [0,1,2,3,4,5,6,7,8,9,10,11,12],
+    "maxDepth": 13,
+    "listsMaxNumItems": 5,
+    "seedForAlea": 1234567890,
+    "germinalVector": [0.4,0.2,0.6,0.8,0.7,0.9]
+}
