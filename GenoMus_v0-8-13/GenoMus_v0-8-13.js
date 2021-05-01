@@ -3457,8 +3457,11 @@ var createGenotypeBranch = (
     var orderedElegibleEncIndexes;
     var valueForChoosingNewFunction;
     var newListElementThreshold = Math.min(0.499, 2/listsMaxNumItems);
-    var preitemvalue;
+    post("newListElementThreshold",newListElementThreshold);
+    var preitemvalue; // determines if a new value must be added to a list
     var cardinality;
+    var converser;
+    var typeIdentifier;
     do {
         // adds a function
         if (leafTypes.includes(nextFunctionType) == false) {
@@ -3498,23 +3501,26 @@ var createGenotypeBranch = (
                 // reads leaf value
                 newLeaf = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                 cardinality = 1;
-                preitemvalue = 1;
-                var converser = functionTypesConverters[nextFunctionType].conversionFunc;
-                var typeIdentifier = functionTypesConverters[nextFunctionType].identifier;
+                converser = functionTypesConverters[nextFunctionType].conversionFunc;
+                typeIdentifier = functionTypesConverters[nextFunctionType].identifier;
                 newDecodedGenotype += converser(newLeaf);
                 preEncGen.push(typeIdentifier, newLeaf);
                 // console.log(newDecodedGenotype);
                 germinalVectorReadingPos++;
+                preitemvalue = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
+                // when leaf is actually a list
                 if (listLeafTypes.includes(nextFunctionType)) {
                     while (preitemvalue > newListElementThreshold && cardinality < listsMaxNumItems) {
                         germinalVectorReadingPos++;
                         newLeaf = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
+                        post("newLeaf:",newLeaf);
                         germinalVectorReadingPos++;
                         preitemvalue = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
+                        post("preitemvalue:",preitemvalue);
                         newDecodedGenotype += "," + converser(newLeaf);
                         preEncGen.push(typeIdentifier, newLeaf);
                         cardinality++;
-                    }             
+                    }
                 }
             }
             notFilledParameters[notFilledParameters.length - 1]--;
@@ -3620,6 +3626,14 @@ createGenotypeBranch("eventF",eligibleFunctionsForTesting,genMaxDepth,defaultLis
      0 ]);
 
 
+specimenDataStructure( createGenotypeBranch("scoreF",eligibleFunctionsForTesting,genMaxDepth,defaultListsMaxCardinality,phenotypeSeed,
+[ 1, 0.472136, 1, 0.224832, 1, 0.09017, 0.51, 0.905769, 0, 1, 0.506578, 0.53, 0.197816, 0.53, 0.425558, 0.53, 0.052154, 0.53, 0.549834, 0, 1, 0.742646, 0.55, 0.629894, 0, 1, 0.36068, 0.56, 0.71095, 0.56, 0.75026, 0, 0, 0 ]
+));
+[ 1, 0.472136, 1, 0.224832, 1, 0.09017, 0.51, 0.905769, 0, 1, 0.506578, 0.53, 0.197816, 0.53, 0.425558, 0.53, 0.052154, 0.53, 0.549834, 0, 1, 0.742646, 0.55, 0.629894, 0, 1, 0.36068, 0.56, 0.71095, 0.56, 0.75026, 0, 0, 0 ]
+[ 1, 0.472136, 1, 0.224832, 1, 0.09017, 0.51, 0.905769, 0, 1, 0.506578, 0.53, 0.197816, 0.53, 0.425558, 0.53, 0.052154, 0.53, 0.549834, 0, 1, 0.742646, 0.55, 0.629894, 0.55, 1, 0, 1, 0.36068, 0.56, 0.731059, 0, 0, 0 ]
+
+specimenDataStructure( createGenotypeBranch("scoreF",eligibleFunctionsForTesting,genMaxDepth,defaultListsMaxCardinality,phenotypeSeed,
+
 createGenotypeBranch("scoreF",eligibleFunctionsForTesting,14,4,tempGermi);
 
 
@@ -3700,7 +3714,8 @@ var minimalLists = [135,199,15,16,17,18,19,20];
 var iterFuncs = [35,36,37];
 var repeatFuncs = [98,42,43];
 var extendersFuncs = [35,36,37,41,42,43,44,46,48,104,109,110];
-var paramAutorefFuncs = [25,280,277,279,281,282,284,     286,288,290,291];
+var paramAutorefFuncs = [25,280,277,279,281,282,284,286,288,290,291];
+var vmotifs = [199,200,201,202];
 
 var manyFuncs = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19,
     20, 25, 26, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 48, 58, 63, 65, 66, 67, 68, 76, 77, 84, 104, 
@@ -3718,7 +3733,8 @@ var eligibleFunctionsForTesting = {
         .concat(iterFuncs)
         .concat(repeatFuncs)
         .concat(paramAutorefFuncs)
-        .concat(extendersFuncs),
+        .concat(extendersFuncs)
+        .concat(vmotifs),
 //     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19, 20,
 //        26, 28, 29,
 //    42,
@@ -3730,7 +3746,7 @@ var eligibleFunctionsForTesting = {
 //    104, 109
 //    ],
     mandatoryFunctions: [], // to be implemented
-    excludedFunctions: []// 310,311,312,313,314,315,316,317,131,132,133,134,135] // 
+    excludedFunctions: [3,37,46,98,99,100,101]// 310,311,312,313,314,315,316,317,131,132,133,134,135] // 
 };
 
 // creates brand new specimen

@@ -1,1 +1,1 @@
-"from init conds: s(vRepeatE(e(n(0.600002),mRnd(),a(60),iRnd()),q(2)))"
+"from init conds: sAddS(s(vPerpetuumMobile(nRnd(),lm(64,63,82),la(80),li(57))),s(vPerpetuumMobile(nRnd(),lm(68),la(22,66,71),li(57,41,45))))"
