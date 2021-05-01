@@ -3805,7 +3805,7 @@ var createNewSpecimen = () => {
     }
     newSpecimen.data.iterations = iterations;
     newSpecimen.data.milliseconsElapsed = searchStopdate - searchStartdate;
-    post("Search stopped after " + Math.abs(searchStopdate - searchStartdate) + " ms and " + iterations + " iter.");
+    post(("Search stopped after " + Math.abs(searchStopdate - searchStartdate) + " ms and " + iterations + " iter."),"");
     return newSpecimen;
 }
 
