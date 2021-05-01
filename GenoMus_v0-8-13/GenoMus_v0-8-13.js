@@ -3457,7 +3457,6 @@ var createGenotypeBranch = (
     var orderedElegibleEncIndexes;
     var valueForChoosingNewFunction;
     var newListElementThreshold = Math.min(0.499, 2/listsMaxNumItems);
-    post("newListElementThreshold",newListElementThreshold);
     var preitemvalue; // determines if a new value must be added to a list
     var cardinality;
     var converser;
@@ -3513,10 +3512,8 @@ var createGenotypeBranch = (
                     while (preitemvalue > newListElementThreshold && cardinality < listsMaxNumItems) {
                         germinalVectorReadingPos++;
                         newLeaf = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
-                        post("newLeaf:",newLeaf);
                         germinalVectorReadingPos++;
                         preitemvalue = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
-                        post("preitemvalue:",preitemvalue);
                         newDecodedGenotype += "," + converser(newLeaf);
                         preEncGen.push(typeIdentifier, newLeaf);
                         cardinality++;
