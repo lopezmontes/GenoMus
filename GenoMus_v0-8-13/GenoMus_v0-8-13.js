@@ -36,7 +36,7 @@ var phenMinPolyphony = 1;
 var phenMaxPolyphony = 16;
 var phenMinLength = 1;
 var phenMaxLength = 2000;
-var maxIterations = 100;
+var maxIterations = 1000;
 
 // mutation constraints
 var mutationProbability = .2;
@@ -3723,15 +3723,15 @@ var manyFuncs = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19,
 
 // testing functions
 var eligibleFunctionsForTesting = {
-    includedFunctions:     
-        minimalFunctions
-        .concat(randomFunctions)
-        .concat(minimalLists)
-        .concat(iterFuncs)
-        .concat(repeatFuncs)
-        .concat(paramAutorefFuncs)
-        .concat(extendersFuncs)
-        .concat(vmotifs),
+    includedFunctions:  [],   
+        //minimalFunctions
+        //.concat(randomFunctions)
+        //.concat(minimalLists)
+        //.concat(iterFuncs)
+        //.concat(repeatFuncs)
+        //.concat(paramAutorefFuncs)
+        //.concat(extendersFuncs)
+        //.concat(vmotifs),
 //     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19, 20,
 //        26, 28, 29,
 //    42,
@@ -3743,7 +3743,7 @@ var eligibleFunctionsForTesting = {
 //    104, 109
 //    ],
     mandatoryFunctions: [], // to be implemented
-    excludedFunctions: [3,37,46,98,99,100,101]// 310,311,312,313,314,315,316,317,131,132,133,134,135] // 
+    excludedFunctions: [37,46,98,99,100,101]// 310,311,312,313,314,315,316,317,131,132,133,134,135] // 
 };
 
 // creates brand new specimen
@@ -4103,6 +4103,8 @@ maxAPI.addHandler("visualizeSpecimen", () => {
 
 maxAPI.addHandler("mutateLeaves", () => {
     currentSpecimen = mutateSpecimenLeaves(currentSpecimen, mutationProbability, mutationAmount);
+    createNewSeed(currentSpecimen.initialConditions.phenotypeSeed);
+    initSubexpressionsArrays();
     maxAPI.setDict("specimen.dict", currentSpecimen);
     maxAPI.outlet("finished");
 });
