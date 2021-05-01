@@ -6,8 +6,8 @@
 // integration of new genotype branch functions
 
 // TESTING DIFFERENT SPECIES
-// var currentSpecies = "csound";
-var currentSpecies = "piano";
+var currentSpecies = "csound";
+// var currentSpecies = "piano";
 
 
 
@@ -3477,7 +3477,6 @@ var createGenotypeBranch = (
                 orderedElegibleEncIndexes.push(local_functions_catalogue.functionNames[eligibleFuncionNames[elegitem]].encIndex);
             }
             orderedElegibleEncIndexes.sort((a, b) => a - b);
-                // console.log(orderedElegibleEncIndexes);
             chosenEncIndex = findEligibleFunctionEncIndex(orderedElegibleEncIndexes, valueForChoosingNewFunction);
             chosenFunction = local_functions_catalogue.encodedIndexes[chosenEncIndex];
             // writes the new function
@@ -3743,7 +3742,7 @@ var eligibleFunctionsForTesting = {
 //    104, 109
 //    ],
     mandatoryFunctions: [], // to be implemented
-    excludedFunctions: [37,46,98,99,100,101]// 310,311,312,313,314,315,316,317,131,132,133,134,135] // 
+    excludedFunctions: [] // [37,46,98,99,100,101]// 310,311,312,313,314,315,316,317,131,132,133,134,135] // 
 };
 
 // creates brand new specimen
@@ -4104,7 +4103,7 @@ maxAPI.addHandler("visualizeSpecimen", () => {
 maxAPI.addHandler("mutateLeaves", () => {
     currentSpecimen = mutateSpecimenLeaves(currentSpecimen, mutationProbability, mutationAmount);
     createNewSeed(currentSpecimen.initialConditions.phenotypeSeed);
-    initSubexpressionsArrays();
+    // initSubexpressionsArrays();
     maxAPI.setDict("specimen.dict", currentSpecimen);
     maxAPI.outlet("finished");
 });
