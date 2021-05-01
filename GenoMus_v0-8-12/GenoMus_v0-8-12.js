@@ -3656,13 +3656,51 @@ createGenotypeBranch("scoreF",eligibleFunctionsForTesting,14,6,[0,0.1,0.2,0.3,0.
 // var eligibleFunctionsForTesting = [0,1,2,3,4,5,7,9,10,11,12,15,17,19,20,43,44,46,98,99,104,110,131,134,199,310,312,314,315,317,
 // 25, 26, 27, 28, 29, 279, 99, 100, 101];
 
+
+// "11": "z",
+// "26": "lAutoref",
+// "27": "eAutoref",
+// "28": "vAutoref",
+// "29": "sAutoref",
+// "46": "vRepeatE",
+// "48": "vRepeatV",
+// "58": "vABAv",
+// "63": "vABCABv",
+// "65": "l2P",
+// "66": "l3P",
+// "67": "l4P",
+// "68": "l5P",
+// "76": "lRepeatP",
+// "77": "lLine",
+// "84": "lRemap",
+// "99": "e3Pitches",
+// "100": "e4Pitches",
+// "111": "oSum",
+// "132": "pUniformRnd",
+// "200": "vMotifLoop",
+// "201": "vPerpetuumMobile",
+// "202": "vPerpetuumMobileLoop",
+// "286": "lnAutoref",
+// "288": "lmAutoref",
+// "290": "laAutoref",
+// "291": "liAutoref",
+// "294": "lnLine",
+// "296": "lmLine",
+// "298": "laLine",
+// "299": "liLine",
+// "302": "lnRemap",
+// "304": "lmRemap",
+// "306": "laRemap",
+// "307": "liRemap",
+// "318": "vSlice"
+
 var minimalFunctions = [0,1,2,3,4,5,6,7,8,9,10,11,12];
 var randomFunctions = [131,134,310,311,312,313,314,315,316,317];
 var minimalLists = [135,199,15,16,17,18,19,20];
 var iterFuncs = [35,36,37];
 var repeatFuncs = [98,42,43];
 var extendersFuncs = [35,36,37,41,42,43,44,46,48,104,109,110];
-var paramAutorefFuncs = [25,280,277,279,281,282,284];
+var paramAutorefFuncs = [25,280,277,279,281,282,284,     286,288,290,291];
 
 var manyFuncs = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19,
     20, 25, 26, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 48, 58, 63, 65, 66, 67, 68, 76, 77, 84, 104, 
