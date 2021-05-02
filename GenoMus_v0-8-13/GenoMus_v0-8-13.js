@@ -1947,7 +1947,11 @@ var lRemapFramework = (fName, fTyp, fIndex, paramList) => indexExprReturnSpecime
     encPhen: paramList.encPhen
 });
 var lP2N = (paramList) => lRemapFramework("lP2N", "lnotevalueF", .152842, paramList);
+var lP2D = (paramList) => lRemapFramework("lP2D", "ldurationF", .770876, paramList);
 var lP2M = (paramList) => lRemapFramework("lP2M", "lmidipitchF", .38891, paramList);
+var lP2F = (paramList) => lRemapFramework("lP2F", "lfrequencyF", .006944, paramList);
+var lP2A = (paramList) => lRemapFramework("lP2A", "larticulationF", .624978, paramList);
+var lP2I = (paramList) => lRemapFramework("lP2I", "lintensityF", .243012, paramList);
 
 // creates a voice based on lists without no loops (shortest list determines number of events)
 var vMotif_piano = (listNotevalues, listPitches, listArticulations, listIntensities) => {

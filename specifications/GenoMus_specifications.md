@@ -953,7 +953,11 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | name    | index                    | description
 | ------- | ------------------------ | -----------
 | `lP2N`  | 319 <sub>.152842</sub>   | converts a normalized parameter list into a notevalue list
+| `lP2D`  | 320 <sub>.770876</sub>   | converts a normalized parameter list into a duration list
 | `lP2M`  | 321 <sub>.38891</sub>    | converts a normalized parameter list into a midipitch list
+| `lP2F`  | 322 <sub>.006944</sub>   | converts a normalized parameter list into a frequency list
+| `lP2A`  | 323 <sub>.624978</sub>   | converts a normalized parameter list into an articulation list
+| `lP2I`  | 324 <sub>.243012</sub>   | converts a normalized parameter list into an intensity list
 
 ---------
 ## Internal autoreferences
@@ -965,14 +969,14 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `vAutoref`  | 28  <sub>.304952 in progress</sub>  | points to a previous voice
 | `sAutoref`  | 29  <sub>.922986 in progress</sub>  | points to a previous score
 | `nAutoref`  | 277 <sub>.195415 in progress</sub>  | points to a previous notevalue parameter
-| `dAutoref`  | 278 <sub>.813449 in progress</sub>  | points to a previous notevalue parameter
-| `mAutoref`  | 279 <sub>.431483 in progress</sub>  | points to a previous notevalue parameter
-| `fAutoref`  | 280 <sub>.049517 in progress</sub>  | points to a previous notevalue parameter
-| `aAutoref`  | 281 <sub>.667551 in progress</sub>  | points to a previous notevalue parameter
-| `iAutoref`  | 282 <sub>.285585 in progress</sub>  | points to a previous notevalue parameter
-| `gAutoref`  | 283 <sub>not yet implemented</sub>  | points to a previous notevalue parameter
-| `qAutoref`  | 284 <sub>.521653 in progress</sub>  | points to a previous notevalue parameter
-| `oAutoref`  | 285 <sub>not yet implemented</sub>  | points to a previous notevalue parameter
+| `dAutoref`  | 278 <sub>.813449 in progress</sub>  | points to a previous duration parameter
+| `mAutoref`  | 279 <sub>.431483 in progress</sub>  | points to a previous midipitch parameter
+| `fAutoref`  | 280 <sub>.049517 in progress</sub>  | points to a previous frequency parameter
+| `aAutoref`  | 281 <sub>.667551 in progress</sub>  | points to a previous articulation parameter
+| `iAutoref`  | 282 <sub>.285585 in progress</sub>  | points to a previous intensity parameter
+| `gAutoref`  | 283 <sub>not yet implemented</sub>  | points to a previous golden integer parameter
+| `qAutoref`  | 284 <sub>.521653 in progress</sub>  | points to a previous quantized parameter
+| `oAutoref`  | 285 <sub>not yet implemented</sub>  | points to a previous operation parameter
 | `lnAutoref` | 286 <sub>.757721 in progress</suv>  | points to a previous bla list
 | `ldAutoref` | 287 <sub>.375755 in progress</suv>  | points to a previous bla list
 | `lmAutoref` | 288 <sub>.993789 in progress</suv>  | points to a previous bla list
