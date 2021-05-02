@@ -949,6 +949,12 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `b`           | **booleanF**        | 24 <sub>.832816</sub> | `"b(.5)"` &rarr; `[1]`
 
 ---------
+## List converters
+| name    | index                    | description
+| ------- | ------------------------ | -----------
+| `lP2M`  | 24 <sub>.832816</sub>    | converts a normalized parameter list into a midipitch list
+
+---------
 ## Internal autoreferences
 | name        | index                               | description
 | ----------- | ----------------------------------- | -----------
