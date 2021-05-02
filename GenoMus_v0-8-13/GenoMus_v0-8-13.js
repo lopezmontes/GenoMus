@@ -3797,7 +3797,7 @@ var createNewSpecimen = () => {
         // test if preconditions are fullfilled
         (
             newSpecimen == -1
-            || newSpecimen.decGen.includes("laLine") == false
+            //|| newSpecimen.decGen.includes("laLine") == false
             || newSpecimen.phenLength < phenMinLength
             || newSpecimen.phenLength > phenMaxLength
             || newSpecimen.phenVoices < phenMinPolyphony

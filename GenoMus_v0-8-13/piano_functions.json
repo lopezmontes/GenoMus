@@ -511,7 +511,7 @@
             "arguments": [
                 "paramF",
                 "paramF",
-                "paramF"
+                "goldenintegerF"
             ],
             "description": "generates a straight progression between two values",
             "metadata": {
