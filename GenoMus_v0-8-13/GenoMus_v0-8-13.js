@@ -37,7 +37,7 @@ var phenMaxPolyphony = 16;
 var phenMinLength = 1;
 var phenMaxLength = 2000;
 var maxIterations = 1000;
-var mandatoryFunction = "lmLine";
+var mandatoryFunction = "lBrownian";
 
 // mutation constraints
 var mutationProbability = .2;
@@ -1927,7 +1927,7 @@ var vIterE = (event, times, seedValue) => {
 
 var lBrownian = (start, maxStep, numSteps, seedValue) => {
     createNewSeed(seedValue.encPhen[0]);
-    totalSteps = p2z(numSteps.encPhen[0]) % 100;
+    totalSteps = p2z(numSteps.encPhen[0]) % 1000;
     var brownianLine = [start.encPhen[0]];
     for (var brstep = 0; brstep < totalSteps; brstep++) {
         brownianLine.push(r6d(checkRange(brownianLine[brstep] + (rand()-0.5)*2 * maxStep.encPhen[0])));
@@ -1936,7 +1936,7 @@ var lBrownian = (start, maxStep, numSteps, seedValue) => {
         funcType: "listF",
         encGen: flattenDeep([1, 0.397041, start.encGen, maxStep.encGen, numSteps.encGen, seedValue.encGen, 0]),
         decGen: "lBrownian(" + start.decGen + "," + maxStep.decGen + "," + numSteps.decGen + "," + seedValue.decGen + ")",
-        encPhen: Array(numRepeats).fill(param.encPhen[0])
+        encPhen: brownianLine
     });
 }
 
@@ -3729,7 +3729,7 @@ var manyFuncs = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19,
     20, 25, 26, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 48, 58, 63, 65, 66, 67, 68, 76, 77, 84, 104, 
     109, 110, 111, 131, 134, 135, 199, 200, 202, 277, 278, 279, 281, 282, 284, 286, 288, 290, 291,
     294, 296, 298, 299, 302, 304, 306, 307, 310, 311, 312, 313, 314, 315, 316, 317, 318, 201, 280,
-98, 99, 100, 101 ];
+98, 99, 100, 101, 266 ];
 
 
 // testing functions
