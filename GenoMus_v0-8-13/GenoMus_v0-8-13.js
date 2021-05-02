@@ -1862,16 +1862,16 @@ var lIterL = (list, times, seedInitValue) => {
 };
 
 // repeats and concatenates as a list re-evaluations of a parameter function (2 to 36 repeats)
-var lLineFramework = (fName, fTyp, fIndex, param1, param2, steps) => {
+var lLineFramework = (funcName, fTyp, funcIndex, param1func, param2func, stepsFunc) => {
     //  var totalSteps = adjustRange(Math.abs(p2q(steps.encPhen[0])), 3, 36); // number of steps rescaled to range [3, 36], mapped according to the deviation from the center value 0.5 using the quantizedF map
-    var totalSteps = p2z(steps.encPhen[0]) % 100; // number of steps rescaled to range [0, 50]
-    var line = param1.encPhen;
-    var offset = (param2.encPhen - param1.encPhen) / (totalSteps - 1);
+    var totalSteps = p2z(stepsFunc.encPhen[0]) % 100; // number of steps rescaled to range [0, 50]
+    var line = param1func.encPhen;
+    var offset = (param2func.encPhen - param1func.encPhen) / (totalSteps - 1);
     for (el = 0; el < totalSteps - 1; el++) line[el + 1] = r6d(line[0] + offset * (el + 1));
     return indexExprReturnSpecimen({
         funcType: fTyp,
-        encGen: flattenDeep([1, fIndex, param1.encGen, param2.encGen, [ 1, 0.798374, 0.57, z2p(totalSteps), 0 ], 0]),
-        decGen: fName + "(" + param1.decGen + "," + param2.decGen + ",z(" + totalSteps + "))",
+        encGen: flattenDeep([1, funcIndex, param1func.encGen, param2func.encGen, [ 1, 0.798374, 0.57, z2p(totalSteps), 0 ], 0]),
+        decGen: funcName + "(" + param1func.decGen + "," + param2func.decGen + ",z(" + totalSteps + "))",
         encPhen: line
     });
 };
@@ -1885,11 +1885,11 @@ var liLine = (param1, param2, steps) => lLineFramework("liLine", "lintensityF", 
 var lzLine = (param1, param2, steps) => lLineFramework("lzLine", "lgoldenintegerF", .410197, param1, param2, steps);
 var lqLine = (param1, param2, steps) => lLineFramework("lqLine", "lquantizedF", .028231, param1, param2, steps);
 
-var lRemapFramework = (fName, fTyp, fIndex, list, newMin, newMax) => indexExprReturnSpecimen({
+var lRemapFramework = (fName, fTyp, fIndex, valueList, newMinFunc, newMaxFunc) => indexExprReturnSpecimen({
     funcType: fTyp,
-    encGen: flattenDeep([1, fIndex, list.encGen, newMin.encGen, newMax.encGen, 0]),
-    decGen: fName + "(" + list.decGen + "," + newMin.decGen + "," + newMax.decGen + ")",
-    encPhen: remapArray(list.encPhen, newMin.encPhen[0], newMax.encPhen[0])
+    encGen: flattenDeep([1, fIndex, valueList.encGen, newMinFunc.encGen, newMaxFunc.encGen, 0]),
+    decGen: fName + "(" + valueList.decGen + "," + newMinFunc.decGen + "," + newMaxFunc.decGen + ")",
+    encPhen: remapArray(valueList.encPhen, newMinFunc.encPhen[0], newMaxFunc.encPhen[0])
 });
 var lRemap = (list, newMin, newMax) => lRemapFramework("lRemap", "listF", .914855, list, newMin, newMax);
 var lnRemap = (list, newMin, newMax) => lRemapFramework("lnRemap", "lnotevalueF", .646265, list, newMin, newMax);
@@ -1940,18 +1940,18 @@ var lBrownian = (start, maxStep, numSteps, seedValue) => {
 }
 
 // converts a default parameter list to specific type list
-var lRemapFramework = (fName, fTyp, fIndex, paramList) => indexExprReturnSpecimen({
-    funcType: fTyp,
-    encGen: flattenDeep([1, fIndex, paramList.encGen, 0]),
-    decGen: fName + "(" + paramList.decGen + ")",
-    encPhen: paramList.encPhen
+var lConverterFramework = (functionName, functionTyp, functionIndex, paramListFunc) => indexExprReturnSpecimen({
+    funcType: functionTyp,
+    encGen: flattenDeep([1, functionIndex, paramListFunc.encGen, 0]),
+    decGen: functionName + "(" + paramListFunc.decGen + ")",
+    encPhen: paramListFunc.encPhen
 });
-var lP2N = (paramList) => lRemapFramework("lP2N", "lnotevalueF", .152842, paramList);
-var lP2D = (paramList) => lRemapFramework("lP2D", "ldurationF", .770876, paramList);
-var lP2M = (paramList) => lRemapFramework("lP2M", "lmidipitchF", .38891, paramList);
-var lP2F = (paramList) => lRemapFramework("lP2F", "lfrequencyF", .006944, paramList);
-var lP2A = (paramList) => lRemapFramework("lP2A", "larticulationF", .624978, paramList);
-var lP2I = (paramList) => lRemapFramework("lP2I", "lintensityF", .243012, paramList);
+var lP2N = (paramList) => lConverterFramework("lP2N", "lnotevalueF", .152842, paramList);
+var lP2D = (paramList) => lConverterFramework("lP2D", "ldurationF", .770876, paramList);
+var lP2M = (paramList) => lConverterFramework("lP2M", "lmidipitchF", .38891, paramList);
+var lP2F = (paramList) => lConverterFramework("lP2F", "lfrequencyF", .006944, paramList);
+var lP2A = (paramList) => lConverterFramework("lP2A", "larticulationF", .624978, paramList);
+var lP2I = (paramList) => lConverterFramework("lP2I", "lintensityF", .243012, paramList);
 
 // creates a voice based on lists without no loops (shortest list determines number of events)
 var vMotif_piano = (listNotevalues, listPitches, listArticulations, listIntensities) => {
@@ -3766,7 +3766,7 @@ var eligibleFunctionsForTesting = {
 //    98, 99, 100, 101,
 //    104, 109
 //    ],
-    excludedFunctions: [] // [37,46,98,99,100,101]// 310,311,312,313,314,315,316,317,131,132,133,134,135] // 
+    excludedFunctions: [84,302,303,304,305,306,307,308,309] //  319,320,321,322,323,324] // [37,46,98,99,100,101]// 310,311,312,313,314,315,316,317,131,132,133,134,135] // 
 };
 
 // creates brand new specimen
@@ -3797,7 +3797,7 @@ var createNewSpecimen = () => {
         // test if preconditions are fullfilled
         (
             newSpecimen == -1
-            || newSpecimen.decGen.includes("lBrownian") == false
+            // || newSpecimen.decGen.includes("liRemap") == false
             || newSpecimen.phenLength < phenMinLength
             || newSpecimen.phenLength > phenMaxLength
             || newSpecimen.phenVoices < phenMinPolyphony
