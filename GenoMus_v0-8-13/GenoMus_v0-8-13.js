@@ -1904,7 +1904,7 @@ var lqRemap = (list, newMin, newMax) => lRemapFramework("lqRemap", "lquantizedF"
 
 // repeats and concatenates as a voice re-evaluations of an event function (2 to 36 repeats) 
 var vIterE = (event, times, seedValue) => {
-    createNewSeed(seedValue.encPhen);
+    createNewSeed(seedValue.encPhen[0]);
     var numIterations = adjustRange(Math.abs(p2q(times.encPhen[0])), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5 using the quantizedF map
     ///////////// if (numIterations > phenMaxLength) return -1;
     if (numIterations > phenMaxLength) {
@@ -1924,6 +1924,21 @@ var vIterE = (event, times, seedValue) => {
         analysis: event.analysis
     });
 };
+
+var lBrownian = (start, maxStep, numSteps, seedValue) => {
+    createNewSeed(seedValue.encPhen[0]);
+    totalSteps = p2z(numSteps.encPhen[0]) % 100;
+    var brownianLine = [start.encPhen[0]];
+    for (var brstep = 0; brstep < totalSteps; brstep++) {
+        brownianLine.push(r6d(checkRange(brownianLine[brstep] + (rand()-0.5)*2 * maxStep.encPhen[0])));
+    }
+    return indexExprReturnSpecimen({
+        funcType: "listF",
+        encGen: flattenDeep([1, 0.397041, start.encGen, maxStep.encGen, numSteps.encGen, seedValue.encGen, 0]),
+        decGen: "lBrownian(" + start.decGen + "," + maxStep.decGen + "," + numSteps.decGen + "," + seedValue.decGen + ")",
+        encPhen: Array(numRepeats).fill(param.encPhen[0])
+    });
+}
 
 // creates a voice based on lists without no loops (shortest list determines number of events)
 var vMotif_piano = (listNotevalues, listPitches, listArticulations, listIntensities) => {
