@@ -781,6 +781,18 @@
                 "date": 20210109,
                 "creator": "jlm"
             }
+        },
+        "lP2D": {
+            "functionIndex": 320,
+            "functionType": "ldurationF",
+            "arguments": [
+                "listF"
+            ],
+            "description": "converts a normalized parameter list into a duration list",
+            "metadata": {
+                "date": 20210502,
+                "creator": "jlm"
+            }
         }
     },
     "midipitchF": {
@@ -939,6 +951,18 @@
                 "date": 20210109,
                 "creator": "jlm"
             }
+        },
+        "lP2F": {
+            "functionIndex": 322,
+            "functionType": "lfrequencyF",
+            "arguments": [
+                "listF"
+            ],
+            "description": "converts a normalized parameter list into a frequency list",
+            "metadata": {
+                "date": 20210502,
+                "creator": "jlm"
+            }
         }
     },    
     "articulationF": {
@@ -1032,6 +1056,18 @@
                 "date": 20191007,
                 "creator": "jlm"
             }
+        },
+        "lP2A": {
+            "functionIndex": 323,
+            "functionType": "larticulationF",
+            "arguments": [
+                "listF"
+            ],
+            "description": "converts a normalized parameter list into an articulation list",
+            "metadata": {
+                "date": 20210502,
+                "creator": "jlm"
+            }
         }
     },   
     "intensityF": {
@@ -1123,6 +1159,18 @@
             "description": "remaps an intensity list to a new range",
             "metadata": {
                 "date": 20191007,
+                "creator": "jlm"
+            }
+        },
+        "lP2A": {
+            "functionIndex": 324,
+            "functionType": "lintensityF",
+            "arguments": [
+                "listF"
+            ],
+            "description": "converts a normalized parameter list into an intensity list",
+            "metadata": {
+                "date": 20210502,
                 "creator": "jlm"
             }
         }
