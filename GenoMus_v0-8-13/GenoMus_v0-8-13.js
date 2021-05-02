@@ -23,24 +23,24 @@ var version = "0.8.13";
 
 var defaultEventExpression; // variable to store a default event when no autoreferences are possible
 var validGenotype = true;
-var decGenStringLengthLimit = 7000;
+var decGenStringLengthLimit = 70000;
 var globalSeed;
 
 // a extinguir
 var phenotypeSeed = Math.round(Math.random() * 1e14); // seed only for computing phenotype
 
 var germinalVecMaxLength = 2256;
-var genMaxDepth = 18;
-var defaultListsMaxCardinality = 5;
+var genMaxDepth = 55;
+var defaultListsMaxCardinality = 8;
 var phenMinPolyphony = 1;
 var phenMaxPolyphony = 16;
 var phenMinLength = 1;
-var phenMaxLength = 2000;
+var phenMaxLength = 20000;
 var maxIterations = 100;
 
 // mutation constraints
-var mutationProbability = .2;
-var mutationAmount = .05;
+var mutationProbability = .4;
+var mutationAmount = .2;
 
 // stores the last specimen used
 var currentSpecimen;
@@ -3797,7 +3797,7 @@ var createNewSpecimen = () => {
         // test if preconditions are fullfilled
         (
             newSpecimen == -1
-            || newSpecimen.decGen.includes("lP2N") == false
+            || newSpecimen.decGen.includes("lBrownian") == false
             || newSpecimen.phenLength < phenMinLength
             || newSpecimen.phenLength > phenMaxLength
             || newSpecimen.phenVoices < phenMinPolyphony
