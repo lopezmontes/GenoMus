@@ -1,1 +1,1 @@
-"from init conds: s(vPerpetuumMobileLoop(n(0.10357),lm(12,98),laRemap(laRemap(la(53),a(60),aRnd()),aAutoref(0),aAutoref(0)),li(60)))"
+"from init conds: s(vABCABv(vPerpetuumMobile(nRnd(),lP2M(lRepeatP(pUniformRnd(),p(0.670045))),laLine(a(58),aAutoref(0),z(52)),liRemap(li(56,56,26))),vSlice(vPerpetuumMobile(nRnd(),lP2M(lRepeatP(pRnd(),pRnd())),la(0),liLine(iRnd(),iAutoref(0),z(93))),q(36)),vConcatV(vPerpetuumMobile(n(4),lP2M(lRepeatP(pRnd(),pUniformRnd())),la(0,46,0),li(38,0)),vAutoref(3))))"

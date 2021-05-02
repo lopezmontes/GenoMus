@@ -398,6 +398,7 @@
             "functionType": "listF",
             "arguments": [
                 "paramF",
+                "quantizedF",
                 "paramF"
             ],
             "metadata": {
@@ -715,6 +716,18 @@
                 "date": 20191007,
                 "creator": "jlm"
             }
+        },
+        "lP2N": {
+            "functionIndex": 319,
+            "functionType": "lnotevalueF",
+            "arguments": [
+                "listF"
+            ],
+            "description": "converts a normalized parameter list into a notevalue list",
+            "metadata": {
+                "date": 20210502,
+                "creator": "jlm"
+            }
         }
     },
     "durationF": {
@@ -859,6 +872,18 @@
             "description": "remaps a midipitch list to a new range",
             "metadata": {
                 "date": 20191007,
+                "creator": "jlm"
+            }
+        },
+        "lP2M": {
+            "functionIndex": 321,
+            "functionType": "lmidipitchF",
+            "arguments": [
+                "listF"
+            ],
+            "description": "converts a normalized parameter list into a midipitch list",
+            "metadata": {
+                "date": 20210502,
                 "creator": "jlm"
             }
         }

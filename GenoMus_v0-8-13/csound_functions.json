@@ -470,7 +470,7 @@
             "functionType": "listF",
             "arguments": [
                 "paramF",
-                "paramF",
+                "quantizedF",
                 "paramF"
             ],
             "metadata": {

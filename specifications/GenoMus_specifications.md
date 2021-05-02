@@ -952,7 +952,8 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## List converters
 | name    | index                    | description
 | ------- | ------------------------ | -----------
-| `lP2M`  | 319 <sub>.152842</sub>   | converts a normalized parameter list into a midipitch list
+| `lP2N`  | 319 <sub>.152842</sub>   | converts a normalized parameter list into a notevalue list
+| `lP2M`  | 321 <sub>.38891</sub>    | converts a normalized parameter list into a midipitch list
 
 ---------
 ## Internal autoreferences
@@ -1013,7 +1014,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `eAddPitch` | 45 <sub>.811529 in progress</sub>  | adds a pitch to an event
 | `vRepeatE`  | 46 <sub>.429563 in progress</sub>  | repeats an event a number of times
 | `lRepeatL`  | 47 <sub>not yet implemented</sub>  | repeats a list a number of times
-| `vRepeatV`  | 48 <sub>not yet implemented</sub>  | repeats a voice a number of times
+| `vRepeatV`  | 48 <sub>.665631 in progress</sub>  | repeats a voice a number of times
 | `sRepeatS`  | 49 <sub>not yet implemented</sub>  | repeats a score a number of times
 | `lAAp`      | 50 <sub>not yet implemented</sub>  | single repetition of a parameter
 | `lAAl`      | 51 <sub>not yet implemented</sub>  | single repetition of a list

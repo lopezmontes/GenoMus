@@ -29,15 +29,14 @@ var globalSeed;
 // a extinguir
 var phenotypeSeed = Math.round(Math.random() * 1e14); // seed only for computing phenotype
 
-var germinalVecMaxLength = 256;
+var germinalVecMaxLength = 2256;
 var genMaxDepth = 18;
 var defaultListsMaxCardinality = 5;
 var phenMinPolyphony = 1;
 var phenMaxPolyphony = 16;
 var phenMinLength = 1;
 var phenMaxLength = 2000;
-var maxIterations = 1000;
-var mandatoryFunction = "lBrownian";
+var maxIterations = 100;
 
 // mutation constraints
 var mutationProbability = .2;
@@ -1840,7 +1839,7 @@ var lRepeatP = (param, times) => {
 
 // repeats and concatenates as a list re-evaluations of a parameter function (2 to 36 repeats) 
 var lIterP = (param, times, seedInitValue) => {
-    createNewSeed(seedInitValue.encPhen);
+    createNewSeed(seedInitValue.encPhen[0]);
     var numIterations = adjustRange(Math.abs(p2q(times.encPhen[0])), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5 using the quantizedF map
     return indexExprReturnSpecimen({
         funcType: "listF",
@@ -1852,7 +1851,7 @@ var lIterP = (param, times, seedInitValue) => {
 
 // repeats and concatenates as a list re-evaluations of a list function (2 to 36 repeats) 
 var lIterL = (list, times, seedInitValue) => {
-    createNewSeed(seedInitValue.encPhen);
+    createNewSeed(seedInitValue.encPhen[0]);
     var numIterations = adjustRange(Math.abs(p2q(times.encPhen[0])), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5 using the quantizedF map
     return indexExprReturnSpecimen({
         funcType: "listF",
@@ -1939,6 +1938,16 @@ var lBrownian = (start, maxStep, numSteps, seedValue) => {
         encPhen: brownianLine
     });
 }
+
+// converts a default parameter list to specific type list
+var lRemapFramework = (fName, fTyp, fIndex, paramList) => indexExprReturnSpecimen({
+    funcType: fTyp,
+    encGen: flattenDeep([1, fIndex, paramList.encGen, 0]),
+    decGen: fName + "(" + paramList.decGen + ")",
+    encPhen: paramList.encPhen
+});
+var lP2N = (paramList) => lRemapFramework("lP2N", "lnotevalueF", .152842, paramList);
+var lP2M = (paramList) => lRemapFramework("lP2M", "lmidipitchF", .38891, paramList);
 
 // creates a voice based on lists without no loops (shortest list determines number of events)
 var vMotif_piano = (listNotevalues, listPitches, listArticulations, listIntensities) => {
@@ -3784,7 +3793,7 @@ var createNewSpecimen = () => {
         // test if preconditions are fullfilled
         (
             newSpecimen == -1
-            || newSpecimen.decGen.includes(mandatoryFunction) == false
+            || newSpecimen.decGen.includes("lP2N") == false
             || newSpecimen.phenLength < phenMinLength
             || newSpecimen.phenLength > phenMaxLength
             || newSpecimen.phenVoices < phenMinPolyphony
