@@ -2519,12 +2519,10 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
     var allFuncLibr = JSON.parse(JSON.stringify(completeLib.functionLibrary));
     var includedFuncs = JSON.parse(JSON.stringify(eligibleFunc.includedFunctions));
     if (includedFuncs.length == 0) includedFuncs = Object.keys(allDecIndexes).map(x => parseInt(x));
-    // var mandatoryFuncs = JSON.parse(JSON.stringify(eligibleFunc.mandatoryFunctions));
     var excludedFuncs = JSON.parse(JSON.stringify(eligibleFunc.excludedFunctions));
     var eligibleFuncLib = {
         initialConditions: {
             includedFunctions: eligibleFunc.includedFunctions,
-            // mandatoryFunctions: mandatoryFuncs,
             excludedFunctions: excludedFuncs
         },
         eligibleFunctions: {},
@@ -2610,7 +2608,6 @@ createJSON(GenoMusFunctionLibrary, 'GenoMus_function_library.json');
 
 var eligibleFunctions = {
     includedFunctions: [0,1,2,3,4,5,6,7,8,9,10,11,12],
-    // mandatoryFunctions: [], // to be implemented
     excludedFunctions: [277, 278, 279, 281, 282, 284, 286, 288, 290, 291]
     // 46, 37, 48] // only to avoid repeated note as solution for genetic algo. 
 };
@@ -2620,7 +2617,6 @@ var testingFunctionsOLD = {
         66, 67, 68, 76, 98, 99, 100, 104, 109, 110, 131, 134, 135, 199, 200, 277, 279, 281, 282, 284, 15, 286, 17, 288,
         19, 290, 20, 291, 48, 77, 294, 296, 298, 299, 11, 84, 302, 304, 306, 307,
         310, 312, 314, 315, 316, 317, 201, 202, 318],
-    // mandatoryFunctions: [],
     excludedFunctions: [281, 282] // 25,26,27,28,29,277,279,281,282,284] // [1, 9, 27, 10, 26, 17, 15, 7, 5, 25, 12, 29, 28, 131, 132, 40, 36, 35]
 };
 
@@ -3742,7 +3738,6 @@ var eligibleFunctionsForTesting = {
 //    98, 99, 100, 101,
 //    104, 109
 //    ],
-    // mandatoryFunctions: [], // to be implemented
     excludedFunctions: [] // [37,46,98,99,100,101]// 310,311,312,313,314,315,316,317,131,132,133,134,135] // 
 };
 
