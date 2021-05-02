@@ -952,7 +952,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 ## List converters
 | name    | index                    | description
 | ------- | ------------------------ | -----------
-| `lP2M`  | 24 <sub>.832816</sub>    | converts a normalized parameter list into a midipitch list
+| `lP2M`  | 319 <sub>.152842</sub>   | converts a normalized parameter list into a midipitch list
 
 ---------
 ## Internal autoreferences
