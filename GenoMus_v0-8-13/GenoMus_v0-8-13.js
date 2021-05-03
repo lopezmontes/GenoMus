@@ -1924,6 +1924,7 @@ var vIterE = (event, times, seedValue) => {
     });
 };
 
+// creates a secuence with brownian movement
 var lBrownian = (start, maxStep, numSteps, seedValue) => {
     createNewSeed(seedValue.encPhen[0]);
     totalSteps = p2z(numSteps.encPhen[0]) % 1000;
@@ -1934,8 +1935,26 @@ var lBrownian = (start, maxStep, numSteps, seedValue) => {
     return indexExprReturnSpecimen({
         funcType: "listF",
         encGen: flattenDeep([1, 0.397041, start.encGen, maxStep.encGen, numSteps.encGen, seedValue.encGen, 0]),
-        decGen: "lBrownian(" + start.decGen + "," + maxStep.decGen + "," + numSteps.decGen + "," + seedValue.decGen + ")",
+        decGen: "lBrownian(" + start.decGen + "," + maxStep.decGen + ",z(" + totalSteps + ")," + seedValue.decGen + ")",
         encPhen: brownianLine
+    });
+}
+
+// creates a secuence with deterministic chaotic movement based on logistic map (r starts at 3.5)
+var lLogisticMap = (start, rangeMin, rangeMax, numSteps, rValue) => {
+    var rRemapped = remap(rValue.encPhen[0], 0, 1, 3.5, 4); // only uses chaotic output of equation
+    totalSteps = (p2z(numSteps.encPhen[0]) % 1000 - 1);
+    var chaoticLine = [start.encPhen[0]];
+    for (var lmstep = 0; lmstep < totalSteps; lmstep++) {
+        chaoticLine.push(rRemapped * chaoticLine[lmstep] * (1 - chaoticLine[lmstep]));
+        chaoticLine[lmstep] = r6d(remap(chaoticLine[lmstep], 0, 1, rangeMin.encPhen[0], rangeMax.encPhen[0]));
+    }
+    chaoticLine[chaoticLine.length - 1] = remap(chaoticLine[chaoticLine.length - 1], 0, 1, rangeMin.encPhen[0], rangeMax.encPhen[0]);
+    return indexExprReturnSpecimen({
+        funcType: "listF",
+        encGen: flattenDeep([1, 0.341313, start.encGen, rangeMin.encGen, rangeMax.encGen, numSteps.encGen, rValue.encGen, 0]),
+        decGen: "lLogisticMap(" + start.decGen + "," + rangeMin.decGen + "," + rangeMax.decGen + ",z(" + totalSteps + ")," + rValue.decGen + ")",
+        encPhen: chaoticLine
     });
 }
 
@@ -3766,7 +3785,7 @@ var eligibleFunctionsForTesting = {
 //    98, 99, 100, 101,
 //    104, 109
 //    ],
-    excludedFunctions: [84,302,303,304,305,306,307,308,309] //  319,320,321,322,323,324] // [37,46,98,99,100,101]// 310,311,312,313,314,315,316,317,131,132,133,134,135] // 
+    excludedFunctions: [] // 84,302,303,304,305,306,307,308,309] //  319,320,321,322,323,324] // [37,46,98,99,100,101]// 310,311,312,313,314,315,316,317,131,132,133,134,135] // 
 };
 
 // creates brand new specimen
@@ -3797,7 +3816,7 @@ var createNewSpecimen = () => {
         // test if preconditions are fullfilled
         (
             newSpecimen == -1
-            //|| newSpecimen.decGen.includes("laLine") == false
+            || newSpecimen.decGen.includes("lLogisticMap") == false
             || newSpecimen.phenLength < phenMinLength
             || newSpecimen.phenLength > phenMaxLength
             || newSpecimen.phenVoices < phenMinPolyphony
