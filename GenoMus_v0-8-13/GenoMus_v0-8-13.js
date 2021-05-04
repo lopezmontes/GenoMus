@@ -1953,14 +1953,14 @@ var lLogisticMap = (start, rangeMin, rangeMax, numSteps, rValue) => {
     return indexExprReturnSpecimen({
         funcType: "listF",
         encGen: flattenDeep([1, 0.341313, start.encGen, rangeMin.encGen, rangeMax.encGen, numSteps.encGen, rValue.encGen, 0]),
-        decGen: "lLogisticMap(" + start.decGen + "," + rangeMin.decGen + "," + rangeMax.decGen + ",z(" + totalSteps + ")," + rValue.decGen + ")",
+        decGen: "lLogisticMap(" + start.decGen + "," + rangeMin.decGen + "," + rangeMax.decGen + ",z(" + (totalSteps+1) + ")," + rValue.decGen + ")",
         encPhen: chaoticLine
     });
 }
 
 // creates a secuence adding the last two terms of a sequence appling modulo 1, and remapping to a given range
 var lFibonacci = (firstValue, secondValue, rangeMin, rangeMax, numSteps) => {
-    totalSteps = (p2z(numSteps.encPhen[0]) % 1000 - 1);
+    totalSteps = p2z(numSteps.encPhen[0]) % 1000;
     lastTerm = secondValue.encPhen[0];
     secondToLastTerm = firstValue.encPhen[0];
     var fiboLine = [secondToLastTerm, lastTerm];
