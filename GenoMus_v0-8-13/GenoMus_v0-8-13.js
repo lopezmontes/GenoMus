@@ -1958,6 +1958,26 @@ var lLogisticMap = (start, rangeMin, rangeMax, numSteps, rValue) => {
     });
 }
 
+// creates a secuence adding the last two terms of a sequence appling modulo 1, and remapping to a given range
+var lFibonacci = (firstValue, secondValue, rangeMin, rangeMax, numSteps) => {
+    totalSteps = (p2z(numSteps.encPhen[0]) % 1000 - 1);
+    lastTerm = secondValue.encPhen[0];
+    secondToLastTerm = firstValue.encPhen[0];
+    var fiboLine = [secondToLastTerm, lastTerm];
+    for (var fibstep = 2; fibstep < totalSteps; fibstep++) {
+        fiboLine.push((secondToLastTerm + lastTerm) % 1);
+        secondToLastTerm = lastTerm;
+        lastTerm = fiboLine[fibstep];
+    }
+    fiboLine = fiboLine.map(x => r6d(remap(x, 0, 1, rangeMin.encPhen[0], rangeMax.encPhen[0])));
+    return indexExprReturnSpecimen({
+        funcType: "listF",
+        encGen: flattenDeep([1, 0.105245, firstValue.encGen, secondValue.encGen, rangeMin.encGen, rangeMax.encGen, numSteps.encGen, 0]),
+        decGen: "lFibonacci(" + firstValue.decGen + "," + secondValue.decGen + "," + rangeMin.decGen + "," + rangeMax.decGen + ",z(" + totalSteps + "))",
+        encPhen: fiboLine
+    });
+}
+
 // converts a default parameter list to specific type list
 var lConverterFramework = (functionName, functionTyp, functionIndex, paramListFunc) => indexExprReturnSpecimen({
     funcType: functionTyp,
@@ -3816,7 +3836,7 @@ var createNewSpecimen = () => {
         // test if preconditions are fullfilled
         (
             newSpecimen == -1
-            || newSpecimen.decGen.includes("lLogisticMap") == false
+            || newSpecimen.decGen.includes("lFibonacci") == false
             || newSpecimen.phenLength < phenMinLength
             || newSpecimen.phenLength > phenMaxLength
             || newSpecimen.phenVoices < phenMinPolyphony

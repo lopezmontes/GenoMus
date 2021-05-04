@@ -589,6 +589,22 @@
                 "date": 20210503,
                 "creator": "jlm"
             }
+        },
+        "lFibonacci": {
+            "functionIndex": 272,
+            "functionType": "listF",
+            "arguments": [
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "goldenintegerF"
+            ],
+            "description": "creates a line generated adding each last pair of numbers, applying modulo and a range",
+            "metadata": {
+                "date": 20210503,
+                "creator": "jlm"
+            }
         }
     },
     "paramF": {
