@@ -605,6 +605,23 @@
                 "date": 20210503,
                 "creator": "jlm"
             }
+        },
+        "lTribonacci": {
+            "functionIndex": 325,
+            "functionType": "listF",
+            "arguments": [
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "paramF",
+                "goldenintegerF"
+            ],
+            "description": "creates a secuence adding the last two of three terms and substracting the last one of a sequence, appling modulo 1 and remapping to a given range",
+            "metadata": {
+                "date": 20210505,
+                "creator": "jlm"
+            }
         }
     },
     "paramF": {

@@ -1927,7 +1927,7 @@ var vIterE = (event, times, seedValue) => {
 // creates a secuence with brownian movement
 var lBrownian = (start, maxStep, numSteps, seedValue) => {
     createNewSeed(seedValue.encPhen[0]);
-    totalSteps = p2z(numSteps.encPhen[0]) % 1000;
+    totalSteps = p2z(numSteps.encPhen[0]) % 100;
     var brownianLine = [start.encPhen[0]];
     for (var brstep = 0; brstep < totalSteps; brstep++) {
         brownianLine.push(r6d(checkRange(brownianLine[brstep] + (rand()-0.5)*2 * maxStep.encPhen[0])));
@@ -1943,7 +1943,7 @@ var lBrownian = (start, maxStep, numSteps, seedValue) => {
 // creates a secuence with deterministic chaotic movement based on logistic map (r starts at 3.5)
 var lLogisticMap = (start, rangeMin, rangeMax, numSteps, rValue) => {
     var rRemapped = remap(rValue.encPhen[0], 0, 1, 3.5, 4); // only uses chaotic output of equation
-    totalSteps = (p2z(numSteps.encPhen[0]) % 1000 - 1);
+    totalSteps = (p2z(numSteps.encPhen[0]) % 100 - 1);
     var chaoticLine = [start.encPhen[0]];
     for (var lmstep = 0; lmstep < totalSteps; lmstep++) {
         chaoticLine.push(rRemapped * chaoticLine[lmstep] * (1 - chaoticLine[lmstep]));
@@ -1958,9 +1958,9 @@ var lLogisticMap = (start, rangeMin, rangeMax, numSteps, rValue) => {
     });
 }
 
-// creates a secuence adding the last two terms of a sequence appling modulo 1, and remapping to a given range
+// creates a secuence adding the last two terms of a sequence appling, modulo 1 and remapping to a given range
 var lFibonacci = (firstValue, secondValue, rangeMin, rangeMax, numSteps) => {
-    totalSteps = p2z(numSteps.encPhen[0]) % 1000;
+    totalSteps = p2z(numSteps.encPhen[0]) % 100;
     lastTerm = secondValue.encPhen[0];
     secondToLastTerm = firstValue.encPhen[0];
     var fiboLine = [secondToLastTerm, lastTerm];
@@ -1977,6 +1977,29 @@ var lFibonacci = (firstValue, secondValue, rangeMin, rangeMax, numSteps) => {
         encPhen: fiboLine
     });
 }
+
+// creates a secuence adding the last two of three terms and substracting the last one of a sequence, appling modulo 1 and remapping to a given range
+var lTribonacci = (firstValue, secondValue, thirdValue, rangeMin, rangeMax, numSteps) => {
+    totalSteps = p2z(numSteps.encPhen[0]) % 100;
+    lastTerm = thirdValue.encPhen[0];
+    secondToLastTerm = secondValue.encPhen[0];
+    thirdToLastTerm = firstValue.encPhen[0];
+    var triboLine = [thirdToLastTerm, secondToLastTerm, lastTerm];
+    for (var tribstep = 2; tribstep < totalSteps; tribstep++) {
+        triboLine.push((thirdToLastTerm + secondToLastTerm - lastTerm) % 1);
+        thirdToLastTerm = secondToLastTerm;
+        secondToLastTerm = lastTerm;
+        lastTerm = triboLine[tribstep];
+    }
+    triboLine = triboLine.map(x => r6d(remap(x, 0, 1, rangeMin.encPhen[0], rangeMax.encPhen[0])));
+    return indexExprReturnSpecimen({
+        funcType: "listF",
+        encGen: flattenDeep([1, 0.861046, firstValue.encGen, secondValue.encGen, thirdValue.encGen, rangeMin.encGen, rangeMax.encGen, numSteps.encGen, 0]),
+        decGen: "lTribonacci(" + firstValue.decGen + "," + secondValue.decGen + "," + thirdValue.decGen + "," + rangeMin.decGen + "," + rangeMax.decGen + ",z(" + totalSteps + "))",
+        encPhen: triboLine
+    });
+}
+
 
 // converts a default parameter list to specific type list
 var lConverterFramework = (functionName, functionTyp, functionIndex, paramListFunc) => indexExprReturnSpecimen({
@@ -3836,7 +3859,7 @@ var createNewSpecimen = () => {
         // test if preconditions are fullfilled
         (
             newSpecimen == -1
-            || newSpecimen.decGen.includes("lFibonacci") == false
+            || newSpecimen.decGen.includes("lTribonacci") == false
             || newSpecimen.phenLength < phenMinLength
             || newSpecimen.phenLength > phenMaxLength
             || newSpecimen.phenVoices < phenMinPolyphony
@@ -3872,7 +3895,7 @@ var createNewSpecimen = () => {
     return newSpecimen;
 }
 
-// creates brand new specimen
+// creates specimen from initial conditions
 var specimenFromInitialConditions = (
     germinalVec, outputType, eligibleFuncs, maxAllowedDepth, listMaxLength, aleaSeed) => {
     var searchStartdate = new Date();
