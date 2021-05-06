@@ -127,6 +127,7 @@ var distanceBetweenArrays = (goal, candidate) => {
     return distance;
 }    
 
+
 //////////// PARAMETERS MAPPING
 // parameters mapping functions and abbreviated versions with short names and rounded output
 
@@ -2910,6 +2911,26 @@ var extractLeaves = encGen => {
     return encodedLeaves;
 };
 
+// measures expression depth
+// adapted from https://learnersbucket.com/examples/algorithms/maximum-depth-of-nested-parentheses-in-a-string/
+var measureStringMaxDepth = (str) => {
+    var maxStrDepth = 0;
+    var total_max = 0;
+    for(var stringPos = 0; stringPos < str.length; stringPos++){
+        if(str[stringPos] == '(') {
+        maxStrDepth++;
+        if(maxStrDepth > total_max) total_max = maxStrDepth;
+        }
+        else if(str[stringPos] == ')') {
+            if(maxStrDepth > 0) maxStrDepth--;
+            else return -1;
+        }
+    }
+    if(maxStrDepth != 0) return -1;
+    return total_max; 
+};
+
+
 // encodes and decodes a genotype to filter bad or dangerous expressions before being evaluated
 var evalDecGen = decGen => {
     var encodedGenotype = encodeGenotype(decGen);
@@ -4203,7 +4224,7 @@ maxAPI.addHandlers({
             phenotypeSeed: phenotypeSeed,
             localEligibleFunctions: [],
             maxAllowedDepth: defaultGenMaxDepth,
-            depth: "must be calculated during evaluation",
+            depth: measureStringMaxDepth(currentSpecimen.decGen),
             maxListCardinality: defaultListsMaxCardinality,
             leaves: extractLeaves(currentSpecimen.encGen)
         };
