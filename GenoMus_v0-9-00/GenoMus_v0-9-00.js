@@ -1,15 +1,13 @@
-// GENOMUS 0.8.13 UNIT TESTING
+// GENOMUS 0.9.00 UNIT TESTING
 ///////////////////////////
 
 // GOALS:
-// Last rededisgn of data arquitecture, previous to GenoMus 1.0
-// integration of new genotype branch functions
+// Last redesign of data arquitecture, previous to GenoMus 1.0
+// Genetic algorithms
 
 // TESTING DIFFERENT SPECIES
 // var currentSpecies = "csound";
 var currentSpecies = "piano";
-
-
 
 // DEPENDENCIES
 // files handling
@@ -19,12 +17,12 @@ const maxAPI = require('max-api');
 
 /////////////////////
 // INITIAL CONDITIONS
-var version = "0.8.13";
+var version = "0.9.00";
 
 var defaultEventExpression; // variable to store a default event when no autoreferences are possible
 var validGenotype = true;
 var decGenStringLengthLimit = 70000;
-var globalSeed;
+// var globalSeed;
 
 // a extinguir
 var phenotypeSeed = Math.round(Math.random() * 1e14); // seed only for computing phenotype
@@ -662,7 +660,7 @@ var maxUnsuccededTrials = 10000;
 
 
 
-globalSeed = parseInt(Math.random()*100000000);
+// globalSeed = parseInt(Math.random()*100000000);
 
 var simpleBACHSearch = () => {
     var timeLapse = 3000;
@@ -703,7 +701,7 @@ var simpleBACHSearch = () => {
         }
         // adds brand new specimens
         for (var specIndx3 = 0; specIndx3 < numNewSpecs; specIndx3++) {
-            globalSeed = parseInt(Math.random()*100000000);
+            createNewSeed(parseInt(Math.random()*100000000));
             newGeneration.push(randomVector(germinalVectorMaximalLength));
         }
         // maxAPI.post(newGeneration);
@@ -745,7 +743,7 @@ var simpleBACHSearch = () => {
     } while ((new Date()) - startTime < timeLapse && foundNewBest == false);
     // } while ( thisLoopTrials < 10 && foundNewBest == false);
     if (foundNewBest) {
-        var newBestSpecimen = specimenDataStructure(specimenFromInitialConditions(newGeneration[0], globalSeed, phenotypeSeed))
+        var newBestSpecimen = specimenDataStructure(specimenFromInitialConditions(newGeneration[0], globalSeedOLD, phenotypeSeed))
         // for (var nums = 0; nums < specimensPerGeneration; nums++) {
         //     maxAPI.post(currentPopulation[nums][0] + " " + currentPopulation[nums][1] + " " + currentPopulation[nums][2] + " " + currentPopulation[nums][3] + " " + currentPopulation[nums][4] + " " + currentPopulation[nums][5] + " " + currentPopulation[nums][6] + " " + currentPopulation[nums][7] + " " + currentPopulation[nums][8]);
         // }
@@ -3673,7 +3671,6 @@ var createGenotypeBranch = (
         encGenotypeLength: newBranch.encGen.length,
         decGenotypeLength: newDecodedGenotype.length,
         germinalVector: germinalVector,
-        genotypeSeed: globalSeed,
         phenotypeSeed: seedForAlea,
         localEligibleFunctions: local_functions_catalogue.eligibleFunctions,
         maxAllowedDepth: maxDepth,
@@ -3904,7 +3901,6 @@ var createNewSpecimen = () => {
             encGenotypeLength: "using default expression",
             decGenotypeLength: ("s(v(" + defaultEventExpression + "))").length,
             germinalVector: germinalVec,
-            genotypeSeed: globalSeed,
             phenotypeSeed: aleaSeed,            
             maxAllowedDepth: genMaxDepth,
             depth: genotypeDepth,
@@ -3942,7 +3938,6 @@ var specimenFromInitialConditions = (
             localEligibleFunctions: eligibleFuncs,
             germinalVector: germinalVec,
             germinalVectDeviation: distanceBetweenArrays(specimenFromInitConds.encGen, germinalVec),
-            genotypeSeed: globalSeed,
             phenotypeSeed: aleaSeed,            
             maxAllowedDepth: maxAllowedDepth,
             depth: genotypeDepth,
@@ -3960,7 +3955,6 @@ var specimenFromInitialConditions = (
         localEligibleFunctions: specimenFromInitConds.data.localEligibleFunctions,
         germinalVector: germinalVec,
         germinalVectDeviation: distanceBetweenArrays(specimenFromInitConds.encGen, germinalVec),
-        genotypeSeed: globalSeed,
         phenotypeSeed: aleaSeed,            
         maxAllowedDepth: maxAllowedDepth,
         maxListCardinality: listMaxLength,
@@ -3997,7 +3991,6 @@ var mutateSpecimenLeaves = (originalSpecimen, mutProbability, mutAmount) => {
         decGenotypeLength: mutatedSpecimen.decGen.length,
         germinalVector: mutatedSpecimen.encGen,
         germinalVectDeviation: 0,
-        genotypeSeed: globalSeed,
         phenotypeSeed: originalSpecimen.initialConditions.phenotypeSeed,
         localEligibleFunctions: originalSpecimen.initialConditions.localEligibleFunctions,
         maxAllowedDepth: originalSpecimen.initialConditions.maxAllowedDepth,
@@ -4048,11 +4041,6 @@ maxAPI.addHandler('maxLength', (integ) => {
 maxAPI.addHandler('depth', (integ) => {
     genMaxDepth = integ;
     maxAPI.post("deepest ramification level: " + genMaxDepth);
-});
-
-maxAPI.addHandler('seed', (integ) => {
-    globalSeed = integ;
-    // maxAPI.post("new global seed: " + integ);
 });
 
 maxAPI.addHandler('phenoseed', (integ) => {
@@ -4220,7 +4208,6 @@ maxAPI.addHandlers({
             decGenotypeLength: currentSpecimen.decGen.length,
             germinalVector: currentSpecimen.encGen,
             germinalVectDeviation: 0,
-            genotypeSeed: globalSeed,
             phenotypeSeed: phenotypeSeed,
             localEligibleFunctions: [],
             maxAllowedDepth: defaultGenMaxDepth,
@@ -4246,7 +4233,6 @@ maxAPI.addHandlers({
             milliseconsElapsed: Math.abs(stopdate - startdate),
             genotypeLength: currentSpecimen.length,
             germinalVector: "genetic algorithm",
-            genotypeSeed: globalSeed,
             phenotypeSeed: phenotypeSeed,
             maxAllowedDepth: "undefined",
             depth: searchedData,
