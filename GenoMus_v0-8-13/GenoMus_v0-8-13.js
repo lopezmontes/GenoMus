@@ -3522,7 +3522,6 @@ var createGenotypeBranch = (
         listsMaxNumItems,
         seedForAlea,
         germinalVector) => {
-    // createNewSeed(seedForAlea); // ¿crea repeticiones del proceso?
     initSubexpressionsArrays();
     // main variable
     var newBranch;
