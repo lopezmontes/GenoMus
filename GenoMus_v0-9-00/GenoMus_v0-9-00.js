@@ -4136,9 +4136,9 @@ maxAPI.addHandler("saveInitialConditions", (alias) => {
 var lastSpecimens = [];
 var numberOfTemporarySavedSpecs = 5;
 var saveTemporarySpecimens = (lastSpec) => {
+    lastSpec = Math.max(lastSpec, numberOfTemporarySavedSpecs) - 1;
     if (lastSpecimens.length == numberOfTemporarySavedSpecs) lastSpecimens.pop();
     lastSpecimens.unshift(lastSpec);
-    console.log(lastSpecimens);
 }
 
 
@@ -4155,6 +4155,7 @@ var saveTemporarySpecimens = (lastSpec) => {
 maxAPI.addHandlers({
     brandNewSpecimen: async () => {
         currentSpecimen = specimenDataStructure(createNewSpecimen());
+        saveTemporarySpecimens(currentSpecimen);
         await maxAPI.setDict("specimen.dict", currentSpecimen);
         await maxAPI.outlet("finished");
     },
@@ -4274,7 +4275,8 @@ maxAPI.addHandler("mutateLeaves", () => {
 });
 
 maxAPI.addHandler("loadLastSpecimens", (lastSpecIndex) => {
-    currentSpecimen = saveTemporarySpecimens(lastSpecIndex);
+    post(lastSpecimens);
+    currentSpecimen = lastSpecimens[lastSpecIndex];
     maxAPI.setDict("specimen.dict", currentSpecimen);
     maxAPI.outlet("finished");
 });
