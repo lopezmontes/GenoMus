@@ -4136,9 +4136,9 @@ maxAPI.addHandler("saveInitialConditions", (alias) => {
 var lastSpecimens = [];
 var numberOfTemporarySavedSpecs = 5;
 var saveTemporarySpecimens = (lastSpec) => {
-    lastSpec = Math.max(lastSpec, numberOfTemporarySavedSpecs) - 1;
-    if (lastSpecimens.length == numberOfTemporarySavedSpecs) lastSpecimens.pop();
+    // if (lastSpecimens.length == numberOfTemporarySavedSpecs) lastSpecimens.pop();
     lastSpecimens.unshift(lastSpec);
+    post("lastSpecimens.length", lastSpecimens.length);
 }
 
 
@@ -4276,7 +4276,8 @@ maxAPI.addHandler("mutateLeaves", () => {
 
 maxAPI.addHandler("loadLastSpecimens", (lastSpecIndex) => {
     post(lastSpecimens);
-    currentSpecimen = lastSpecimens[lastSpecIndex];
+    lastSpecIndex = Math.min(lastSpecIndex, numberOfTemporarySavedSpecs)
+    currentSpecimen = lastSpecimens[lastSpecIndex - 1];
     maxAPI.setDict("specimen.dict", currentSpecimen);
     maxAPI.outlet("finished");
 });
