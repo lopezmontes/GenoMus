@@ -660,8 +660,6 @@ var maxUnsuccededTrials = 10000;
 
 
 
-// globalSeed = parseInt(Math.random()*100000000);
-
 var simpleBACHSearch = () => {
     var timeLapse = 3000;
     var thisLoopTrials = 0;
@@ -4088,7 +4086,6 @@ maxAPI.addHandler("loadSpecimen", (savedSpecimen) => {
 
 
 // load JSON initial conditions from file
-
 maxAPI.addHandler("loadInitialConditions", (savedSpecimenIndex) => {
     var initConditionsFromFile = JSON.parse(fs.readFileSync('initialConditions.json'));
     var totalSpecimensSaved = Object.keys(initConditionsFromFile).length;
@@ -4109,6 +4106,7 @@ maxAPI.addHandler("loadInitialConditions", (savedSpecimenIndex) => {
     // genotypeSeed = currentSpecimen.initialConditions.genotypeSeed;
     phenotypeSeed = currentSpecimen.initialConditions.phenotypeSeed;
     currentSpecimen.metadata.specimenID = originalName;
+    saveTemporarySpecimens(currentSpecimen);
     maxAPI.outlet(maxAPI.setDict("specimen.dict", currentSpecimen));
     maxAPI.outlet("finished");
 });
@@ -4133,6 +4131,15 @@ maxAPI.addHandler("saveInitialConditions", (alias) => {
     createJSON(existingInitConditions, 'initialConditions.json');
 });
 
+
+// save temporarily last 5 created specimens
+var lastSpecimens = [];
+var numberOfTemporarySavedSpecs = 5;
+var saveTemporarySpecimens = (lastSpec) => {
+    if (lastSpecimens.length == numberOfTemporarySavedSpecs) lastSpecimens.pop();
+    lastSpecimens.unshift(lastSpec);
+    console.log(lastSpecimens);
+}
 
 
 /* specimenFromInitialConditions(
@@ -4175,7 +4182,8 @@ maxAPI.addHandlers({
             eligibleFunctionsForTesting, 
             genMaxDepth, 
             defaultListsMaxCardinality, 
-            phenotypeSeed));            
+            phenotypeSeed));  
+        saveTemporarySpecimens(currentSpecimen);          
         await maxAPI.setDict("specimen.dict", currentSpecimen );
         await maxAPI.outlet("finished");
     },
@@ -4188,6 +4196,7 @@ maxAPI.addHandlers({
             genMaxDepth, 
             defaultListsMaxCardinality, 
             currentSpecimen.initialConditions.phenotypeSeed));            
+        saveTemporarySpecimens(currentSpecimen);          
         await maxAPI.setDict("specimen.dict", currentSpecimen);
         await maxAPI.outlet("finished");
     },
@@ -4259,11 +4268,16 @@ maxAPI.addHandler("visualizeSpecimen", () => {
 maxAPI.addHandler("mutateLeaves", () => {
     currentSpecimen = mutateSpecimenLeaves(currentSpecimen, mutationProbability, mutationAmount);
     createNewSeed(currentSpecimen.initialConditions.phenotypeSeed);
-    // initSubexpressionsArrays();
+    saveTemporarySpecimens(currentSpecimen);          
     maxAPI.setDict("specimen.dict", currentSpecimen);
     maxAPI.outlet("finished");
 });
 
+maxAPI.addHandler("loadLastSpecimens", (lastSpecIndex) => {
+    currentSpecimen = saveTemporarySpecimens(lastSpecIndex);
+    maxAPI.setDict("specimen.dict", currentSpecimen);
+    maxAPI.outlet("finished");
+});
 
 // global variable to store specific functions depending on current species 
 var encPhen2bachRoll;
