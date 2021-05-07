@@ -4132,24 +4132,13 @@ maxAPI.addHandler("saveInitialConditions", (alias) => {
 });
 
 
-// save temporarily last 5 created specimens
+// saves temporarily last created specimens
 var lastSpecimens = [];
-var numberOfTemporarySavedSpecs = 5;
+var numberOfTemporarySavedSpecs = 25;
 var saveTemporarySpecimens = (lastSpec) => {
-    // if (lastSpecimens.length == numberOfTemporarySavedSpecs) lastSpecimens.pop();
+    if (lastSpecimens.length == numberOfTemporarySavedSpecs) lastSpecimens.pop();
     lastSpecimens.unshift(lastSpec);
-    post("lastSpecimens.length", lastSpecimens.length);
 }
-
-
-/* specimenFromInitialConditions(
-    loadedInitConds.germinalVector,
-    loadedInitConds.branchOutputType, 
-    loadedInitConds.localEligibleFunctions, 
-    loadedInitConds.maxDepth, 
-    loadedInitConds.listsMaxNumItems, 
-    loadedInitConds.seedForAlea);
- */
 
 // creates a new germinal specimen and send the dict data to Max
 maxAPI.addHandlers({
@@ -4275,7 +4264,6 @@ maxAPI.addHandler("mutateLeaves", () => {
 });
 
 maxAPI.addHandler("loadLastSpecimens", (lastSpecIndex) => {
-    post(lastSpecimens);
     lastSpecIndex = Math.min(lastSpecIndex, numberOfTemporarySavedSpecs)
     currentSpecimen = lastSpecimens[lastSpecIndex - 1];
     maxAPI.setDict("specimen.dict", currentSpecimen);
