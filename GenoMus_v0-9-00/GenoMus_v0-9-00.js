@@ -47,6 +47,13 @@ var leaves = []; // stores all numeric parameters
 var genotypeLog = {};
 var genCount = 0;
 
+// saves temporarily last created specimens
+var lastSpecimens = [];
+var numberOfTemporarySavedSpecs = 100;
+var saveTemporarySpecimens = (lastSpec) => {
+    if (lastSpecimens.length == numberOfTemporarySavedSpecs) lastSpecimens.pop();
+    lastSpecimens.unshift(lastSpec);
+}
 
 // global variable to store subexpressions
 var subexpressions = [];
@@ -748,6 +755,7 @@ var simpleBACHSearch = () => {
         maxAPI.post("proximity: " + bestResult + " after " + numGeneration);
         maxAPI.setDict("specimen.dict", newBestSpecimen);
         maxAPI.outlet("finished");
+        maxAPI.outlet("resetLastSpecsCounter");
         maxAPI.outlet("genosearch");
     } else {
         // maxAPI.post("current fitness: " + bestResult + " after " + numGeneration);
@@ -4131,15 +4139,6 @@ maxAPI.addHandler("saveInitialConditions", (alias) => {
     createJSON(existingInitConditions, 'initialConditions.json');
 });
 
-
-// saves temporarily last created specimens
-var lastSpecimens = [];
-var numberOfTemporarySavedSpecs = 25;
-var saveTemporarySpecimens = (lastSpec) => {
-    if (lastSpecimens.length == numberOfTemporarySavedSpecs) lastSpecimens.pop();
-    lastSpecimens.unshift(lastSpec);
-}
-
 // creates a new germinal specimen and send the dict data to Max
 maxAPI.addHandlers({
     brandNewSpecimen: async () => {
@@ -4147,6 +4146,7 @@ maxAPI.addHandlers({
         saveTemporarySpecimens(currentSpecimen);
         await maxAPI.setDict("specimen.dict", currentSpecimen);
         await maxAPI.outlet("finished");
+        await maxAPI.outlet("resetLastSpecsCounter");
     },
 
     //////////// IN DEVELOPMENT
@@ -4176,6 +4176,7 @@ maxAPI.addHandlers({
         saveTemporarySpecimens(currentSpecimen);          
         await maxAPI.setDict("specimen.dict", currentSpecimen );
         await maxAPI.outlet("finished");
+        await maxAPI.outlet("resetLastSpecsCounter");
     },
 
     encGenAsGerminal: async () => {
@@ -4189,6 +4190,7 @@ maxAPI.addHandlers({
         saveTemporarySpecimens(currentSpecimen);          
         await maxAPI.setDict("specimen.dict", currentSpecimen);
         await maxAPI.outlet("finished");
+        await maxAPI.outlet("resetLastSpecsCounter");
     },
 
     text: async (...args) => {
@@ -4214,10 +4216,10 @@ maxAPI.addHandlers({
             maxListCardinality: defaultListsMaxCardinality,
             leaves: extractLeaves(currentSpecimen.encGen)
         };
-
         currentSpecimen = specimenDataStructure(currentSpecimen);
         await maxAPI.setDict("specimen.dict", currentSpecimen);
         await maxAPI.outlet("finished");
+        await maxAPI.outlet("resetLastSpecsCounter");
     },
     geneAlgo: async (numElements) => {
         var startdate = new Date();
@@ -4245,6 +4247,7 @@ maxAPI.addHandlers({
         var myResult = geneticAlgoSearchMAX(integ);
 
         await maxAPI.outlet("finished");
+        await maxAPI.outlet("resetLastSpecsCounter");
     }
 });
 
@@ -4261,11 +4264,11 @@ maxAPI.addHandler("mutateLeaves", () => {
     saveTemporarySpecimens(currentSpecimen);          
     maxAPI.setDict("specimen.dict", currentSpecimen);
     maxAPI.outlet("finished");
+    maxAPI.outlet("resetLastSpecsCounter");
 });
 
 maxAPI.addHandler("loadLastSpecimens", (lastSpecIndex) => {
-    lastSpecIndex = Math.min(lastSpecIndex, numberOfTemporarySavedSpecs)
-    currentSpecimen = lastSpecimens[lastSpecIndex - 1];
+    currentSpecimen = lastSpecimens[lastSpecIndex % lastSpecimens.length];
     maxAPI.setDict("specimen.dict", currentSpecimen);
     maxAPI.outlet("finished");
 });
