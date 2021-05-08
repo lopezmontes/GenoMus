@@ -43,7 +43,7 @@ var phenMinPolyphony = 1;
 var phenMaxPolyphony = 16;
 var phenMinLength = 1;
 var phenMaxLength = 100000;
-var maxIterations = 100;
+var maxIterations = 5;
 
 // mutation constraints
 var mutationProbability = .4;
@@ -2197,7 +2197,7 @@ var vMotifLoop_csound = (listNotevalues, listPitches, listArticulations, listInt
     //////////// if (seqLength > phenMaxLength) return -1;
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        maxAPI.post("Aborted genotype due to exceeding the max length");
+        // maxAPI.post("Aborted genotype due to exceeding the max length");
         // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
@@ -2363,7 +2363,7 @@ var vPerpetuumMobileLoop_piano = (noteval, listPitches, listArticulations, listI
     var seqLength = Math.max(totalPitches, totalArticulations, totalIntensities);
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        maxAPI.post("Aborted genotype due to exceeding the max length");
+        // maxAPI.post("Aborted genotype due to exceeding the max length");
         // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
@@ -3578,7 +3578,7 @@ var createGenotypeBranch = (
     var eligibleFuncionNamesLength;
     var orderedElegibleEncIndexes;
     var valueForChoosingNewFunction;
-    var newListElementThreshold = Math.min(0.499, 1/listsMaxNumItems);
+    var newListElementThreshold = Math.min(0.499, 3/listsMaxNumItems);
     var preitemvalue; // determines if a new value must be added to a list
     var cardinality;
     var converser;
@@ -3906,7 +3906,7 @@ var createNewSpecimen = () => {
     var searchStopdate = new Date();
     if (newSpecimen == -1) {
         // console.log("VALID SPECIMEN NOT FOUND");
-        post("VALID SPECIMEN NOT FOUND");
+        // post("VALID SPECIMEN NOT FOUND");
         newSpecimen = eval("s(v(" + defaultEventExpression + "))");
         newSpecimen.data = {
             specimenID: getFileDateName("not_found"),
@@ -3921,10 +3921,11 @@ var createNewSpecimen = () => {
             leaves: extractLeaves(newSpecimen.encGen),
         };
         return newSpecimen;
-    }
+    } 
+    if (iterations < maxIterations) maxAPI.outlet("found");
     newSpecimen.data.iterations = iterations;
     newSpecimen.data.milliseconsElapsed = searchStopdate - searchStartdate;
-    post(("Search stopped after " + Math.abs(searchStopdate - searchStartdate) + " ms and " + iterations + " iter."),"");
+    // post(("Search stopped after " + Math.abs(searchStopdate - searchStartdate) + " ms and " + iterations + " iter."),"");
     return newSpecimen;
 }
 
