@@ -43,7 +43,7 @@ var phenMinPolyphony = 1;
 var phenMaxPolyphony = 16;
 var phenMinLength = 1;
 var phenMaxLength = 100000;
-var maxIterations = 5;
+var maxIterations = 50;
 
 // mutation constraints
 var mutationProbability = .4;
@@ -1876,28 +1876,28 @@ var lIterL = (list, times, seedInitValue) => {
 };
 
 // repeats and concatenates as a list re-evaluations of a parameter function (2 to 36 repeats)
-var lLineFramework = (funcName, fTyp, funcIndex, param1func, param2func, stepsFunc) => {
+var lLineFramework = (funcName, fTyp, funcIndex, converterP2Ftyp, converterFtyp2P, param1func, param2func, stepsFunc) => {
     //  var totalSteps = adjustRange(Math.abs(p2q(steps.encPhen[0])), 3, 36); // number of steps rescaled to range [3, 36], mapped according to the deviation from the center value 0.5 using the quantizedF map
     var totalSteps = p2z(stepsFunc.encPhen[0]) % 100; // number of steps rescaled to range [0, 50]
-    var line = param1func.encPhen;
-    var offset = (param2func.encPhen - param1func.encPhen) / (totalSteps - 1);
+    var line = [converterP2Ftyp(param1func.encPhen)];
+    var offset = (converterP2Ftyp(param2func.encPhen) - converterP2Ftyp(param1func.encPhen)) / (totalSteps - 1);
     for (el = 0; el < totalSteps - 1; el++) line[el + 1] = r6d(line[0] + offset * (el + 1));
     return indexExprReturnSpecimen({
         funcType: fTyp,
         encGen: flattenDeep([1, funcIndex, param1func.encGen, param2func.encGen, [ 1, 0.798374, 0.57, z2p(totalSteps), 0 ], 0]),
         decGen: funcName + "(" + param1func.decGen + "," + param2func.decGen + ",z(" + totalSteps + "))",
-        encPhen: line
+        encPhen: line.map(x => converterFtyp2P(x))
     });
 };
-var lLine = (param1, param2, steps) => lLineFramework("lLine", "listF", .588617, param1, param2, steps);
-var lnLine = (param1, param2, steps) => lLineFramework("lnLine", "lnotevalueF", .701993, param1, param2, steps);
-var ldLine = (param1, param2, steps) => lLineFramework("ldLine", "ldurationF", .320027, param1, param2, steps);
-var lmLine = (param1, param2, steps) => lLineFramework("lmLine", "lmidipitchF", .938061, param1, param2, steps);
-var lfLine = (param1, param2, steps) => lLineFramework("lfLine", "lfrequencyF", .556095, param1, param2, steps);
-var laLine = (param1, param2, steps) => lLineFramework("laLine", "larticulationF", .174129, param1, param2, steps);
-var liLine = (param1, param2, steps) => lLineFramework("liLine", "lintensityF", .792163, param1, param2, steps);
-var lzLine = (param1, param2, steps) => lLineFramework("lzLine", "lgoldenintegerF", .410197, param1, param2, steps);
-var lqLine = (param1, param2, steps) => lLineFramework("lqLine", "lquantizedF", .028231, param1, param2, steps);
+var lLine = (param1, param2, steps) => lLineFramework("lLine", "listF", .588617, p2p, p2p, param1, param2, steps);
+var lnLine = (param1, param2, steps) => lLineFramework("lnLine", "lnotevalueF", .701993, p2n, n2p, param1, param2, steps);
+var ldLine = (param1, param2, steps) => lLineFramework("ldLine", "ldurationF", .320027, p2d, d2p, param1, param2, steps);
+var lmLine = (param1, param2, steps) => lLineFramework("lmLine", "lmidipitchF", .938061, p2m, m2p, param1, param2, steps);
+var lfLine = (param1, param2, steps) => lLineFramework("lfLine", "lfrequencyF", .556095, p2f, f2p, param1, param2, steps);
+var laLine = (param1, param2, steps) => lLineFramework("laLine", "larticulationF", .174129, p2a, a2p, param1, param2, steps);
+var liLine = (param1, param2, steps) => lLineFramework("liLine", "lintensityF", .792163, p2i, i2p, param1, param2, steps);
+var lzLine = (param1, param2, steps) => lLineFramework("lzLine", "lgoldenintegerF", .410197, p2z, z2p, param1, param2, steps);
+var lqLine = (param1, param2, steps) => lLineFramework("lqLine", "lquantizedF", .028231, p2q, q2p, param1, param2, steps);
 
 var lRemapFramework = (fName, fTyp, fIndex, valueList, newMinFunc, newMaxFunc) => indexExprReturnSpecimen({
     funcType: fTyp,
@@ -3893,7 +3893,7 @@ var createNewSpecimen = () => {
         // test if preconditions are fullfilled
         (
             newSpecimen == -1
-            // || newSpecimen.decGen.includes("lTribonacci") == false
+            || newSpecimen.decGen.includes("lmLine") == false
             || newSpecimen.phenLength < phenMinLength
             || newSpecimen.phenLength > phenMaxLength
             || newSpecimen.phenVoices < phenMinPolyphony
