@@ -15,6 +15,14 @@ const fs = require('fs');
 // connection with Max interface
 const maxAPI = require('max-api');
 
+// output for debugging
+var post = (message, variable) => {
+    if (debugMode == "terminal") console.log(message + " " + variable);
+    else if (debugMode == "max_console") maxAPI.post(message + " " + variable);
+}
+var debugMode = "terminal";
+// var debugMode = "max_console";
+
 /////////////////////
 // INITIAL CONDITIONS
 var version = "0.9.00";
@@ -4049,9 +4057,22 @@ maxAPI.addHandler('depth', (integ) => {
     maxAPI.post("deepest ramification level: " + genMaxDepth);
 });
 
-maxAPI.addHandler('phenoseed', (integ) => {
-    phenotypeSeed = integ;
-    // maxAPI.post("new phenotype seed: " + integ);
+maxAPI.addHandler('phenoseed', (newPhenoSeedFromMax) => {
+    phenotypeSeed = newPhenoSeedFromMax;
+    currentSpecimen = specimenDataStructure(specimenFromInitialConditions(
+        currentSpecimen.initialConditions.germinalVector,
+        "scoreF",
+        {
+            "includedFunctions": currentSpecimen.initialConditions.localEligibleFunctions,
+            "excludedFunctions": []
+        },
+        currentSpecimen.initialConditions.maxAllowedDepth, 
+        currentSpecimen.initialConditions.maxListCardinality, 
+        phenotypeSeed));  
+    saveTemporarySpecimens(currentSpecimen); 
+    maxAPI.outlet(maxAPI.setDict("specimen.dict", currentSpecimen));
+    maxAPI.outlet("finished");
+    maxAPI.outlet("resetLastSpecsCounter");
 });
 
 maxAPI.addHandler('mutProb', (float) => {
@@ -4099,7 +4120,6 @@ maxAPI.addHandler("loadInitialConditions", (savedSpecimenIndex) => {
     var totalSpecimensSaved = Object.keys(initConditionsFromFile).length;
     post("totalSpecimensSaved",totalSpecimensSaved);
     post("savedSpecimenIndex",savedSpecimenIndex);
-
     var loadedInitConds = initConditionsFromFile[Object.keys(initConditionsFromFile)[savedSpecimenIndex % totalSpecimensSaved]];
     post("loadedInitConds",loadedInitConds);
     var originalName = loadedInitConds.name;
@@ -4319,10 +4339,5 @@ var createSpeciesDependentFunctions = (speciesName) => {
 }
 createSpeciesDependentFunctions(currentSpecies);
 
-// output for debugging
-var post = (message, variable) => {
-    if (debugMode == "terminal") console.log(message + " " + variable);
-    else if (debugMode == "max_console") maxAPI.post(message + " " + variable);
-}
-var debugMode = "terminal";
-// var debugMode = "max_console";
+// init currentSpecimen with a random default specimen
+var currentSpecimen = specimenDataStructure(createNewSpecimen());
