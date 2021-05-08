@@ -1899,21 +1899,25 @@ var liLine = (param1, param2, steps) => lLineFramework("liLine", "lintensityF", 
 var lzLine = (param1, param2, steps) => lLineFramework("lzLine", "lgoldenintegerF", .410197, p2z, z2p, param1, param2, steps);
 var lqLine = (param1, param2, steps) => lLineFramework("lqLine", "lquantizedF", .028231, p2q, q2p, param1, param2, steps);
 
-var lRemapFramework = (fName, fTyp, fIndex, valueList, newMinFunc, newMaxFunc) => indexExprReturnSpecimen({
+var lRemapFramework = (fName, fTyp, fIndex, converterP2Ftyp, converterFtyp2P, valueList, newMinFunc, newMaxFunc) => indexExprReturnSpecimen({
     funcType: fTyp,
     encGen: flattenDeep([1, fIndex, valueList.encGen, newMinFunc.encGen, newMaxFunc.encGen, 0]),
     decGen: fName + "(" + valueList.decGen + "," + newMinFunc.decGen + "," + newMaxFunc.decGen + ")",
-    encPhen: remapArray(valueList.encPhen, newMinFunc.encPhen[0], newMaxFunc.encPhen[0])
+    encPhen: remapArray(valueList.encPhen.map(x => converterP2Ftyp(x)), 
+                    converterP2Ftyp(newMinFunc.encPhen[0]),
+                    converterP2Ftyp(newMaxFunc.encPhen[0])
+                    ).map(x => converterFtyp2P(x))
 });
-var lRemap = (list, newMin, newMax) => lRemapFramework("lRemap", "listF", .914855, list, newMin, newMax);
-var lnRemap = (list, newMin, newMax) => lRemapFramework("lnRemap", "lnotevalueF", .646265, list, newMin, newMax);
-var ldRemap = (list, newMin, newMax) => lRemapFramework("ldRemap", "ldurationF", .264299, list, newMin, newMax);
-var lmRemap = (list, newMin, newMax) => lRemapFramework("lmRemap", "lmidipitchF", .882333, list, newMin, newMax);
-var lfRemap = (list, newMin, newMax) => lRemapFramework("lfRemap", "lfrequencyF", .500367, list, newMin, newMax);
-var laRemap = (list, newMin, newMax) => lRemapFramework("laRemap", "larticulationF", .118401, list, newMin, newMax);
-var liRemap = (list, newMin, newMax) => lRemapFramework("liRemap", "lintensityF", .736435, list, newMin, newMax);
-var lzRemap = (list, newMin, newMax) => lRemapFramework("lzRemap", "lgoldenintegerF", .354469, list, newMin, newMax);
-var lqRemap = (list, newMin, newMax) => lRemapFramework("lqRemap", "lquantizedF", .972503, list, newMin, newMax);
+
+var lRemap = (list, newMin, newMax) => lRemapFramework("lRemap", "listF", .914855, p2p, p2p, list, newMin, newMax);
+var lnRemap = (list, newMin, newMax) => lRemapFramework("lnRemap", "lnotevalueF", .646265, p2n, n2p, list, newMin, newMax);
+var ldRemap = (list, newMin, newMax) => lRemapFramework("ldRemap", "ldurationF", .264299, p2d, d2p, list, newMin, newMax);
+var lmRemap = (list, newMin, newMax) => lRemapFramework("lmRemap", "lmidipitchF", .882333, p2m, m2p, list, newMin, newMax);
+var lfRemap = (list, newMin, newMax) => lRemapFramework("lfRemap", "lfrequencyF", .500367, p2f, f2p, list, newMin, newMax);
+var laRemap = (list, newMin, newMax) => lRemapFramework("laRemap", "larticulationF", .118401, p2a, a2p, list, newMin, newMax);
+var liRemap = (list, newMin, newMax) => lRemapFramework("liRemap", "lintensityF", .736435, p2i, i2p, list, newMin, newMax);
+var lzRemap = (list, newMin, newMax) => lRemapFramework("lzRemap", "lgoldenintegerF", .354469, p2z, z2p, list, newMin, newMax);
+var lqRemap = (list, newMin, newMax) => lRemapFramework("lqRemap", "lquantizedF", .972503, p2q, q2p, list, newMin, newMax);
 
 // repeats and concatenates as a voice re-evaluations of an event function (2 to 36 repeats) 
 var vIterE = (event, times, seedValue) => {
