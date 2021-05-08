@@ -35,14 +35,14 @@ var decGenStringLengthLimit = 70000;
 // a extinguir
 var phenotypeSeed = Math.round(Math.random() * 1e14); // seed only for computing phenotype
 
-var germinalVecMaxLength = 2256;
-var genMaxDepth = 55;
-var defaultGenMaxDepth = 55;
-var defaultListsMaxCardinality = 8;
+var germinalVecMaxLength = 10000;
+var genMaxDepth = 60;
+var defaultGenMaxDepth = 60;
+var defaultListsMaxCardinality = 20;
 var phenMinPolyphony = 1;
 var phenMaxPolyphony = 16;
 var phenMinLength = 1;
-var phenMaxLength = 20000;
+var phenMaxLength = 100000;
 var maxIterations = 100;
 
 // mutation constraints
@@ -3578,7 +3578,7 @@ var createGenotypeBranch = (
     var eligibleFuncionNamesLength;
     var orderedElegibleEncIndexes;
     var valueForChoosingNewFunction;
-    var newListElementThreshold = Math.min(0.499, 2/listsMaxNumItems);
+    var newListElementThreshold = Math.min(0.499, 1/listsMaxNumItems);
     var preitemvalue; // determines if a new value must be added to a list
     var cardinality;
     var converser;
