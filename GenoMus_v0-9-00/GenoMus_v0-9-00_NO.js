@@ -43,7 +43,7 @@ var phenMinPolyphony = 1;
 var phenMaxPolyphony = 16;
 var phenMinLength = 1;
 var phenMaxLength = 100000;
-var maxIterations = 50;
+var maxIterations = 20;
 
 // mutation constraints
 var mutationProbability = .4;
@@ -3897,7 +3897,7 @@ var createNewSpecimen = () => {
         // test if preconditions are fullfilled
         (
             newSpecimen == -1
-            // || newSpecimen.decGen.includes("lConcatL") == false
+            || newSpecimen.decGen.includes("lmLine") == false
             || newSpecimen.phenLength < phenMinLength
             || newSpecimen.phenLength > phenMaxLength
             || newSpecimen.phenVoices < phenMinPolyphony
@@ -3908,9 +3908,16 @@ var createNewSpecimen = () => {
     // genotypeLog["gen" + genCount++] = newSpecimen.decGen;
     // createJSON(genotypeLog, 'genotipeLog.json');
     var searchStopdate = new Date();
-    if (newSpecimen == -1) {
+    if (
+        newSpecimen == -1
+        || newSpecimen.decGen.includes("lmLine") == false
+        || newSpecimen.phenLength < phenMinLength
+        || newSpecimen.phenLength > phenMaxLength
+        || newSpecimen.phenVoices < phenMinPolyphony
+        || newSpecimen.phenVoices > phenMaxPolyphony
+        ) {
         // console.log("VALID SPECIMEN NOT FOUND");
-        // post("VALID SPECIMEN NOT FOUND");
+        post("VALID SPECIMEN NOT FOUND");
         newSpecimen = eval("s(v(" + defaultEventExpression + "))");
         newSpecimen.data = {
             specimenID: getFileDateName("not_found"),
@@ -3924,9 +3931,10 @@ var createNewSpecimen = () => {
             depth: genotypeDepth,
             leaves: extractLeaves(newSpecimen.encGen),
         };
+        maxAPI.outlet("notfound");
         return newSpecimen;
     } 
-    if (iterations < maxIterations) maxAPI.outlet("found");
+    maxAPI.outlet("found");
     newSpecimen.data.iterations = iterations;
     newSpecimen.data.milliseconsElapsed = searchStopdate - searchStartdate;
     // post(("Search stopped after " + Math.abs(searchStopdate - searchStartdate) + " ms and " + iterations + " iter."),"");
@@ -4178,9 +4186,9 @@ maxAPI.addHandlers({
     //////////////
     mtries: () => {
         simpleBACHSearch();
-        // await maxAPI.setDict("specimen.dict", bestSpecimen);
-        // await maxAPI.outlet("finished");
-        // await maxAPI.outlet("genosearch");
+        // maxAPI.setDict("specimen.dict", bestSpecimen);
+        // maxAPI.outlet("finished");
+        // maxAPI.outlet("genosearch");
     },
     showPopulation: () => {
         for (var a = 0; a < specimensPerGeneration; a++) {
@@ -4269,7 +4277,7 @@ maxAPI.addHandlers({
     },
     geneticAlgoTest: (integ) => {
         maxAPI.post("Genetic Algorithm test dimension " + integ);
-        var myResult = geneticAlgoSearchMAX(integ);
+        var myResult = geneticAlgoSearchMAX(integ); 
         maxAPI.outlet("finished");
         maxAPI.outlet("resetLastSpecsCounter");
     }
@@ -4344,4 +4352,4 @@ var createSpeciesDependentFunctions = (speciesName) => {
 createSpeciesDependentFunctions(currentSpecies);
 
 // init currentSpecimen with a random default specimen
-var currentSpecimen = specimenDataStructure(createNewSpecimen());
+// var currentSpecimen = specimenDataStructure(specimenFromInitialConditions([0],"scoreF",eligibleFunctionsForTesting,defaultGenMaxDepth,defaultListsMaxCardinality,99999));

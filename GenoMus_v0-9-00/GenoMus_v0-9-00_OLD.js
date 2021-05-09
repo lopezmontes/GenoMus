@@ -3897,7 +3897,7 @@ var createNewSpecimen = () => {
         // test if preconditions are fullfilled
         (
             newSpecimen == -1
-            // || newSpecimen.decGen.includes("lConcatL") == false
+            // || newSpecimen.decGen.includes("lmLine") == false
             || newSpecimen.phenLength < phenMinLength
             || newSpecimen.phenLength > phenMaxLength
             || newSpecimen.phenVoices < phenMinPolyphony
@@ -4166,23 +4166,23 @@ maxAPI.addHandler("saveInitialConditions", (alias) => {
 
 // creates a new germinal specimen and send the dict data to Max
 maxAPI.addHandlers({
-    brandNewSpecimen: () => {
+    brandNewSpecimen: async () => {
         currentSpecimen = specimenDataStructure(createNewSpecimen());
         saveTemporarySpecimens(currentSpecimen);
-        maxAPI.setDict("specimen.dict", currentSpecimen);
-        maxAPI.outlet("finished");
-        maxAPI.outlet("resetLastSpecsCounter");
+        await maxAPI.setDict("specimen.dict", currentSpecimen);
+        await maxAPI.outlet("finished");
+        await maxAPI.outlet("resetLastSpecsCounter");
     },
 
     //////////// IN DEVELOPMENT
     //////////////
-    mtries: () => {
+    mtries: async () => {
         simpleBACHSearch();
         // await maxAPI.setDict("specimen.dict", bestSpecimen);
         // await maxAPI.outlet("finished");
         // await maxAPI.outlet("genosearch");
     },
-    showPopulation: () => {
+    showPopulation: async () => {
         for (var a = 0; a < specimensPerGeneration; a++) {
             maxAPI.post(currentPopulation[a]);
         }
@@ -4190,7 +4190,7 @@ maxAPI.addHandlers({
     //////////////
     //////////////
 
-    renderInitialConditions: (arrayAsString) => {
+    renderInitialConditions: async (arrayAsString) => {
         currentSpecimen  = specimenDataStructure(specimenFromInitialConditions(
             eval(arrayAsString),
             "scoreF", 
@@ -4199,12 +4199,12 @@ maxAPI.addHandlers({
             defaultListsMaxCardinality, 
             phenotypeSeed));  
         saveTemporarySpecimens(currentSpecimen);          
-        maxAPI.setDict("specimen.dict", currentSpecimen );
-        maxAPI.outlet("finished");
-        maxAPI.outlet("resetLastSpecsCounter");
+        await maxAPI.setDict("specimen.dict", currentSpecimen );
+        await maxAPI.outlet("finished");
+        await maxAPI.outlet("resetLastSpecsCounter");
     },
 
-    encGenAsGerminal: () => {
+    encGenAsGerminal: async () => {
         currentSpecimen = specimenDataStructure(specimenFromInitialConditions(
             currentSpecimen.encodedGenotype,
             "scoreF", 
@@ -4213,12 +4213,12 @@ maxAPI.addHandlers({
             defaultListsMaxCardinality, 
             currentSpecimen.initialConditions.phenotypeSeed));            
         saveTemporarySpecimens(currentSpecimen);          
-        maxAPI.setDict("specimen.dict", currentSpecimen);
-        maxAPI.outlet("finished");
-        maxAPI.outlet("resetLastSpecsCounter");
+        await maxAPI.setDict("specimen.dict", currentSpecimen);
+        await maxAPI.outlet("finished");
+        await maxAPI.outlet("resetLastSpecsCounter");
     },
 
-    text: (...args) => {
+    text: async (...args) => {
         // make a string from params array
         var receivedText = "";
         for (var i = 0; i < args.length; i++) {
@@ -4242,11 +4242,11 @@ maxAPI.addHandlers({
             leaves: extractLeaves(currentSpecimen.encGen)
         };
         currentSpecimen = specimenDataStructure(currentSpecimen);
-        maxAPI.setDict("specimen.dict", currentSpecimen);
-        maxAPI.outlet("finished");
-        maxAPI.outlet("resetLastSpecsCounter");
+        await maxAPI.setDict("specimen.dict", currentSpecimen);
+        await maxAPI.outlet("finished");
+        await maxAPI.outlet("resetLastSpecsCounter");
     },
-    geneAlgo: (numElements) => {
+    geneAlgo: async (numElements) => {
         var startdate = new Date();
         // genetic algorithm calculus
         var searchedData = geneticAlgoSearchMAX(numElements);
@@ -4264,14 +4264,15 @@ maxAPI.addHandlers({
             depth: searchedData,
             leaves: "no"
         };
-        const dict = maxAPI.setDict("specimen.dict", specimenDataStructure(currentSpecimen));
-        maxAPI.outlet(dict);
+        const dict = await maxAPI.setDict("specimen.dict", specimenDataStructure(currentSpecimen));
+        await maxAPI.outlet(dict);
     },
-    geneticAlgoTest: (integ) => {
+    geneticAlgoTest: async (integ) => {
         maxAPI.post("Genetic Algorithm test dimension " + integ);
         var myResult = geneticAlgoSearchMAX(integ);
-        maxAPI.outlet("finished");
-        maxAPI.outlet("resetLastSpecsCounter");
+
+        await maxAPI.outlet("finished");
+        await maxAPI.outlet("resetLastSpecsCounter");
     }
 });
 
