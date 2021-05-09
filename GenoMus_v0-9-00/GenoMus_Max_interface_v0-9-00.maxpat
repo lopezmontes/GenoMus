@@ -40,6 +40,7568 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"fontsize" : 12.0,
+					"id" : "obj-197",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 0,
+					"patcher" : 					{
+						"fileversion" : 1,
+						"appversion" : 						{
+							"major" : 8,
+							"minor" : 1,
+							"revision" : 11,
+							"architecture" : "x64",
+							"modernui" : 1
+						}
+,
+						"classnamespace" : "box",
+						"rect" : [ 34.0, 293.0, 1612.0, 453.0 ],
+						"bglocked" : 0,
+						"openinpresentation" : 0,
+						"default_fontsize" : 12.0,
+						"default_fontface" : 0,
+						"default_fontname" : "Arial",
+						"gridonopen" : 1,
+						"gridsize" : [ 15.0, 15.0 ],
+						"gridsnaponopen" : 1,
+						"objectsnaponopen" : 1,
+						"statusbarvisible" : 2,
+						"toolbarvisible" : 1,
+						"lefttoolbarpinned" : 0,
+						"toptoolbarpinned" : 0,
+						"righttoolbarpinned" : 0,
+						"bottomtoolbarpinned" : 0,
+						"toolbars_unpinned_last_save" : 0,
+						"tallnewobj" : 0,
+						"boxanimatetime" : 200,
+						"enablehscroll" : 1,
+						"enablevscroll" : 1,
+						"devicewidth" : 0.0,
+						"description" : "",
+						"digest" : "",
+						"tags" : "",
+						"style" : "",
+						"subpatcher_template" : "",
+						"assistshowspatchername" : 0,
+						"visible" : 1,
+						"boxes" : [ 							{
+								"box" : 								{
+									"format" : 6,
+									"id" : "obj-124",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 745.33335554599762, 25.3333340883255, 50.0, 22.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-122",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "float" ],
+									"patching_rect" : [ 697.000017762184143, 60.333328604698181, 33.0, 22.0 ],
+									"text" : "* 0.1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-68",
+									"maxclass" : "newobj",
+									"numinlets" : 6,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 2172.333367586135864, 219.0, 117.0, 22.0 ],
+									"text" : "scale 0 127 0.6 0. 1."
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"format" : 6,
+									"id" : "obj-69",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 2336.333367586135864, 252.0, 50.0, 22.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-70",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 2336.333367586135864, 287.0, 47.0, 22.0 ],
+									"text" : "ftom 1."
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"format" : 6,
+									"id" : "obj-71",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 2336.333367586135864, 318.0, 50.0, 23.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontface" : 0,
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"hidden" : 1,
+									"id" : "obj-72",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 2185.333367586135864, 263.0, 86.0, 23.0 ],
+									"text" : "loadmess 2.97"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontface" : 0,
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"hidden" : 1,
+									"id" : "obj-73",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 2110.333367586135864, 263.0, 79.0, 23.0 ],
+									"text" : "loadmess 0.1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-74",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "signal" ],
+									"patcher" : 									{
+										"fileversion" : 1,
+										"appversion" : 										{
+											"major" : 8,
+											"minor" : 1,
+											"revision" : 11,
+											"architecture" : "x64",
+											"modernui" : 1
+										}
+,
+										"classnamespace" : "box",
+										"rect" : [ 38.0, 87.0, 189.0, 349.0 ],
+										"bglocked" : 0,
+										"openinpresentation" : 0,
+										"default_fontsize" : 12.0,
+										"default_fontface" : 0,
+										"default_fontname" : "Lato",
+										"gridonopen" : 1,
+										"gridsize" : [ 15.0, 15.0 ],
+										"gridsnaponopen" : 1,
+										"objectsnaponopen" : 1,
+										"statusbarvisible" : 2,
+										"toolbarvisible" : 1,
+										"lefttoolbarpinned" : 0,
+										"toptoolbarpinned" : 0,
+										"righttoolbarpinned" : 0,
+										"bottomtoolbarpinned" : 0,
+										"toolbars_unpinned_last_save" : 0,
+										"tallnewobj" : 0,
+										"boxanimatetime" : 200,
+										"enablehscroll" : 1,
+										"enablevscroll" : 1,
+										"devicewidth" : 0.0,
+										"description" : "",
+										"digest" : "",
+										"tags" : "",
+										"style" : "",
+										"subpatcher_template" : "",
+										"assistshowspatchername" : 0,
+										"boxes" : [ 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-17",
+													"maxclass" : "message",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 90.0, 48.0, 23.0 ],
+													"text" : "1, 0 10"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-15",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "signal" ],
+													"patching_rect" : [ 90.0, 165.0, 47.0, 23.0 ],
+													"text" : "noise~"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-14",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 2,
+													"outlettype" : [ "signal", "bang" ],
+													"patching_rect" : [ 45.0, 165.0, 37.0, 23.0 ],
+													"text" : "line~"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-12",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "signal" ],
+													"patching_rect" : [ 45.0, 195.0, 36.0, 23.0 ],
+													"text" : "*~ 0."
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"comment" : "",
+													"id" : "obj-41",
+													"index" : 1,
+													"maxclass" : "inlet",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "bang" ],
+													"patching_rect" : [ 45.0, 30.0, 25.0, 25.0 ]
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"comment" : "",
+													"id" : "obj-42",
+													"index" : 1,
+													"maxclass" : "outlet",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 45.0, 275.0, 25.0, 25.0 ]
+												}
+
+											}
+ ],
+										"lines" : [ 											{
+												"patchline" : 												{
+													"destination" : [ "obj-42", 0 ],
+													"source" : [ "obj-12", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-12", 0 ],
+													"source" : [ "obj-14", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-12", 1 ],
+													"source" : [ "obj-15", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-14", 0 ],
+													"source" : [ "obj-17", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-17", 0 ],
+													"source" : [ "obj-41", 0 ]
+												}
+
+											}
+ ]
+									}
+,
+									"patching_rect" : [ 2275.333367586135864, 353.0, 63.0, 23.0 ],
+									"saved_object_attributes" : 									{
+										"description" : "",
+										"digest" : "",
+										"fontname" : "Lato",
+										"globalpatchername" : "",
+										"tags" : ""
+									}
+,
+									"text" : "p impulse"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-75",
+									"maxclass" : "button",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 2275.333367586135864, 323.0, 24.0, 24.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"format" : 6,
+									"id" : "obj-76",
+									"maxclass" : "flonum",
+									"minimum" : 0.0,
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 2185.333367586135864, 323.0, 53.0, 23.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-77",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 2185.333367586135864, 353.0, 61.0, 23.0 ],
+									"text" : "decay $1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"format" : 6,
+									"id" : "obj-78",
+									"maxclass" : "flonum",
+									"maximum" : 1.0,
+									"minimum" : 0.0,
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 2110.333367586135864, 323.0, 50.0, 23.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-79",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 2110.333367586135864, 353.0, 72.0, 23.0 ],
+									"text" : "dampen $1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-80",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "signal" ],
+									"patcher" : 									{
+										"fileversion" : 1,
+										"appversion" : 										{
+											"major" : 8,
+											"minor" : 1,
+											"revision" : 11,
+											"architecture" : "x64",
+											"modernui" : 1
+										}
+,
+										"classnamespace" : "dsp.gen",
+										"rect" : [ 1046.0, 173.0, 605.0, 528.0 ],
+										"bglocked" : 0,
+										"openinpresentation" : 0,
+										"default_fontsize" : 12.0,
+										"default_fontface" : 0,
+										"default_fontname" : "Lato",
+										"gridonopen" : 1,
+										"gridsize" : [ 15.0, 15.0 ],
+										"gridsnaponopen" : 1,
+										"objectsnaponopen" : 1,
+										"statusbarvisible" : 2,
+										"toolbarvisible" : 1,
+										"lefttoolbarpinned" : 0,
+										"toptoolbarpinned" : 0,
+										"righttoolbarpinned" : 0,
+										"bottomtoolbarpinned" : 0,
+										"toolbars_unpinned_last_save" : 0,
+										"tallnewobj" : 0,
+										"boxanimatetime" : 200,
+										"enablehscroll" : 1,
+										"enablevscroll" : 1,
+										"devicewidth" : 0.0,
+										"description" : "",
+										"digest" : "",
+										"tags" : "",
+										"style" : "",
+										"subpatcher_template" : "",
+										"assistshowspatchername" : 0,
+										"boxes" : [ 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-15",
+													"linecount" : 4,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 188.0, 223.0, 103.0, 64.0 ],
+													"text" : "feedback time depends proportionally on frequency!"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-13",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 151.0, 263.0, 32.5, 22.0 ],
+													"text" : "*"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-3",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 151.0, 321.0, 27.0, 22.0 ],
+													"text" : "t60"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-21",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 65.0, 132.0, 82.0, 22.0 ],
+													"text" : "!/ samplerate"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-20",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 65.0, 102.0, 35.0, 23.0 ],
+													"text" : "mtof"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-19",
+													"linecount" : 4,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 188.0, 132.0, 106.0, 64.0 ],
+													"text" : "control amplitude of feedback signal (seconds to reach -60dB)"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-18",
+													"linecount" : 3,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 270.0, 313.0, 105.0, 50.0 ],
+													"text" : "control the mix of the raw & smoothed"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-17",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 135.0, 405.0, 292.0, 21.0 ],
+													"text" : "mix+history used as a cheap smoothing filter"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-16",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 135.0, 435.0, 305.0, 21.0 ],
+													"text" : "need to use a history node for the feedback loops"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-12",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 65.0, 72.0, 208.0, 23.0 ],
+													"text" : "in 2 @comment \"MIDI note number\""
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-8",
+													"linecount" : 2,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 390.0, 30.0, 147.0, 35.0 ],
+													"text" : "Very basic Karplus-Strong string synthesis"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-5",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 151.0, 190.0, 188.0, 23.0 ],
+													"text" : "param decay 0.97 @min 0.00001"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-4",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 360.0, 32.5, 23.0 ],
+													"text" : "*"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-11",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 435.0, 70.0, 23.0 ],
+													"text" : "history avg"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-10",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 270.0, 360.0, 211.0, 23.0 ],
+													"text" : "param dampen 0.25 @min 0 @max 1"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-9",
+													"maxclass" : "newobj",
+													"numinlets" : 3,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 405.0, 46.0, 23.0 ],
+													"text" : "mix"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-6",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 165.0, 39.0, 23.0 ],
+													"text" : "delay"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-2",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 30.0, 143.0, 23.0 ],
+													"text" : "in 1 @comment impulse"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-1",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 60.0, 210.0, 38.0, 23.0 ],
+													"text" : "out 1"
+												}
+
+											}
+ ],
+										"lines" : [ 											{
+												"patchline" : 												{
+													"destination" : [ "obj-9", 2 ],
+													"midpoints" : [ 279.5, 383.5, 81.5, 383.5 ],
+													"source" : [ "obj-10", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-6", 0 ],
+													"midpoints" : [ 54.5, 464.0, 32.0, 464.0, 32.0, 155.0, 54.5, 155.0 ],
+													"order" : 1,
+													"source" : [ "obj-11", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-9", 1 ],
+													"midpoints" : [ 54.5, 464.0, 123.25, 464.0, 123.25, 395.0, 68.0, 395.0 ],
+													"order" : 0,
+													"source" : [ "obj-11", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-20", 0 ],
+													"source" : [ "obj-12", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-3", 0 ],
+													"source" : [ "obj-13", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-6", 0 ],
+													"source" : [ "obj-2", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-13", 1 ],
+													"midpoints" : [ 74.5, 127.0, 174.0, 127.0 ],
+													"order" : 0,
+													"source" : [ "obj-20", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-21", 0 ],
+													"order" : 1,
+													"source" : [ "obj-20", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-6", 1 ],
+													"source" : [ "obj-21", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-4", 1 ],
+													"midpoints" : [ 160.5, 350.0, 68.0, 350.0 ],
+													"source" : [ "obj-3", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-9", 0 ],
+													"source" : [ "obj-4", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-13", 0 ],
+													"source" : [ "obj-5", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-1", 0 ],
+													"midpoints" : [ 54.5, 197.0, 69.5, 197.0 ],
+													"order" : 0,
+													"source" : [ "obj-6", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-4", 0 ],
+													"order" : 1,
+													"source" : [ "obj-6", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-11", 0 ],
+													"midpoints" : [ 54.5, 437.0, 54.5, 437.0 ],
+													"source" : [ "obj-9", 0 ]
+												}
+
+											}
+ ],
+										"bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ],
+										"editing_bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ]
+									}
+,
+									"patching_rect" : [ 2275.333367586135864, 398.0, 38.0, 23.0 ],
+									"text" : "gen~"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-81",
+									"maxclass" : "newobj",
+									"numinlets" : 6,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1867.333367586135864, 219.0, 117.0, 22.0 ],
+									"text" : "scale 0 127 0.6 0. 1."
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"format" : 6,
+									"id" : "obj-82",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 2031.333367586135864, 252.0, 50.0, 22.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-83",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 2031.333367586135864, 287.0, 47.0, 22.0 ],
+									"text" : "ftom 1."
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"format" : 6,
+									"id" : "obj-84",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 2031.333367586135864, 318.0, 50.0, 23.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontface" : 0,
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"hidden" : 1,
+									"id" : "obj-85",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1880.333367586135864, 263.0, 86.0, 23.0 ],
+									"text" : "loadmess 2.97"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontface" : 0,
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"hidden" : 1,
+									"id" : "obj-86",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1805.333367586135864, 263.0, 79.0, 23.0 ],
+									"text" : "loadmess 0.1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-87",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "signal" ],
+									"patcher" : 									{
+										"fileversion" : 1,
+										"appversion" : 										{
+											"major" : 8,
+											"minor" : 1,
+											"revision" : 11,
+											"architecture" : "x64",
+											"modernui" : 1
+										}
+,
+										"classnamespace" : "box",
+										"rect" : [ 38.0, 87.0, 189.0, 349.0 ],
+										"bglocked" : 0,
+										"openinpresentation" : 0,
+										"default_fontsize" : 12.0,
+										"default_fontface" : 0,
+										"default_fontname" : "Lato",
+										"gridonopen" : 1,
+										"gridsize" : [ 15.0, 15.0 ],
+										"gridsnaponopen" : 1,
+										"objectsnaponopen" : 1,
+										"statusbarvisible" : 2,
+										"toolbarvisible" : 1,
+										"lefttoolbarpinned" : 0,
+										"toptoolbarpinned" : 0,
+										"righttoolbarpinned" : 0,
+										"bottomtoolbarpinned" : 0,
+										"toolbars_unpinned_last_save" : 0,
+										"tallnewobj" : 0,
+										"boxanimatetime" : 200,
+										"enablehscroll" : 1,
+										"enablevscroll" : 1,
+										"devicewidth" : 0.0,
+										"description" : "",
+										"digest" : "",
+										"tags" : "",
+										"style" : "",
+										"subpatcher_template" : "",
+										"assistshowspatchername" : 0,
+										"boxes" : [ 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-17",
+													"maxclass" : "message",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 90.0, 48.0, 23.0 ],
+													"text" : "1, 0 10"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-15",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "signal" ],
+													"patching_rect" : [ 90.0, 165.0, 47.0, 23.0 ],
+													"text" : "noise~"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-14",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 2,
+													"outlettype" : [ "signal", "bang" ],
+													"patching_rect" : [ 45.0, 165.0, 37.0, 23.0 ],
+													"text" : "line~"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-12",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "signal" ],
+													"patching_rect" : [ 45.0, 195.0, 36.0, 23.0 ],
+													"text" : "*~ 0."
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"comment" : "",
+													"id" : "obj-41",
+													"index" : 1,
+													"maxclass" : "inlet",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "bang" ],
+													"patching_rect" : [ 45.0, 30.0, 25.0, 25.0 ]
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"comment" : "",
+													"id" : "obj-42",
+													"index" : 1,
+													"maxclass" : "outlet",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 45.0, 275.0, 25.0, 25.0 ]
+												}
+
+											}
+ ],
+										"lines" : [ 											{
+												"patchline" : 												{
+													"destination" : [ "obj-42", 0 ],
+													"source" : [ "obj-12", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-12", 0 ],
+													"source" : [ "obj-14", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-12", 1 ],
+													"source" : [ "obj-15", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-14", 0 ],
+													"source" : [ "obj-17", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-17", 0 ],
+													"source" : [ "obj-41", 0 ]
+												}
+
+											}
+ ]
+									}
+,
+									"patching_rect" : [ 1970.333367586135864, 353.0, 63.0, 23.0 ],
+									"saved_object_attributes" : 									{
+										"description" : "",
+										"digest" : "",
+										"fontname" : "Lato",
+										"globalpatchername" : "",
+										"tags" : ""
+									}
+,
+									"text" : "p impulse"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-88",
+									"maxclass" : "button",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 1970.333367586135864, 323.0, 24.0, 24.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"format" : 6,
+									"id" : "obj-89",
+									"maxclass" : "flonum",
+									"minimum" : 0.0,
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 1880.333367586135864, 323.0, 53.0, 23.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-90",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1880.333367586135864, 353.0, 61.0, 23.0 ],
+									"text" : "decay $1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"format" : 6,
+									"id" : "obj-91",
+									"maxclass" : "flonum",
+									"maximum" : 1.0,
+									"minimum" : 0.0,
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 1805.333367586135864, 323.0, 50.0, 23.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-92",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1805.333367586135864, 353.0, 72.0, 23.0 ],
+									"text" : "dampen $1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-93",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "signal" ],
+									"patcher" : 									{
+										"fileversion" : 1,
+										"appversion" : 										{
+											"major" : 8,
+											"minor" : 1,
+											"revision" : 11,
+											"architecture" : "x64",
+											"modernui" : 1
+										}
+,
+										"classnamespace" : "dsp.gen",
+										"rect" : [ 1046.0, 173.0, 605.0, 528.0 ],
+										"bglocked" : 0,
+										"openinpresentation" : 0,
+										"default_fontsize" : 12.0,
+										"default_fontface" : 0,
+										"default_fontname" : "Lato",
+										"gridonopen" : 1,
+										"gridsize" : [ 15.0, 15.0 ],
+										"gridsnaponopen" : 1,
+										"objectsnaponopen" : 1,
+										"statusbarvisible" : 2,
+										"toolbarvisible" : 1,
+										"lefttoolbarpinned" : 0,
+										"toptoolbarpinned" : 0,
+										"righttoolbarpinned" : 0,
+										"bottomtoolbarpinned" : 0,
+										"toolbars_unpinned_last_save" : 0,
+										"tallnewobj" : 0,
+										"boxanimatetime" : 200,
+										"enablehscroll" : 1,
+										"enablevscroll" : 1,
+										"devicewidth" : 0.0,
+										"description" : "",
+										"digest" : "",
+										"tags" : "",
+										"style" : "",
+										"subpatcher_template" : "",
+										"assistshowspatchername" : 0,
+										"boxes" : [ 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-15",
+													"linecount" : 4,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 188.0, 223.0, 103.0, 64.0 ],
+													"text" : "feedback time depends proportionally on frequency!"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-13",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 151.0, 263.0, 32.5, 22.0 ],
+													"text" : "*"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-3",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 151.0, 321.0, 27.0, 22.0 ],
+													"text" : "t60"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-21",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 65.0, 132.0, 82.0, 22.0 ],
+													"text" : "!/ samplerate"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-20",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 65.0, 102.0, 35.0, 23.0 ],
+													"text" : "mtof"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-19",
+													"linecount" : 4,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 188.0, 132.0, 106.0, 64.0 ],
+													"text" : "control amplitude of feedback signal (seconds to reach -60dB)"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-18",
+													"linecount" : 3,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 270.0, 313.0, 105.0, 50.0 ],
+													"text" : "control the mix of the raw & smoothed"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-17",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 135.0, 405.0, 292.0, 21.0 ],
+													"text" : "mix+history used as a cheap smoothing filter"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-16",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 135.0, 435.0, 305.0, 21.0 ],
+													"text" : "need to use a history node for the feedback loops"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-12",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 65.0, 72.0, 208.0, 23.0 ],
+													"text" : "in 2 @comment \"MIDI note number\""
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-8",
+													"linecount" : 2,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 390.0, 30.0, 147.0, 35.0 ],
+													"text" : "Very basic Karplus-Strong string synthesis"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-5",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 151.0, 190.0, 188.0, 23.0 ],
+													"text" : "param decay 0.97 @min 0.00001"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-4",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 360.0, 32.5, 23.0 ],
+													"text" : "*"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-11",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 435.0, 70.0, 23.0 ],
+													"text" : "history avg"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-10",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 270.0, 360.0, 211.0, 23.0 ],
+													"text" : "param dampen 0.25 @min 0 @max 1"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-9",
+													"maxclass" : "newobj",
+													"numinlets" : 3,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 405.0, 46.0, 23.0 ],
+													"text" : "mix"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-6",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 165.0, 39.0, 23.0 ],
+													"text" : "delay"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-2",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 30.0, 143.0, 23.0 ],
+													"text" : "in 1 @comment impulse"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-1",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 60.0, 210.0, 38.0, 23.0 ],
+													"text" : "out 1"
+												}
+
+											}
+ ],
+										"lines" : [ 											{
+												"patchline" : 												{
+													"destination" : [ "obj-9", 2 ],
+													"midpoints" : [ 279.5, 383.5, 81.5, 383.5 ],
+													"source" : [ "obj-10", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-6", 0 ],
+													"midpoints" : [ 54.5, 464.0, 32.0, 464.0, 32.0, 155.0, 54.5, 155.0 ],
+													"order" : 1,
+													"source" : [ "obj-11", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-9", 1 ],
+													"midpoints" : [ 54.5, 464.0, 123.25, 464.0, 123.25, 395.0, 68.0, 395.0 ],
+													"order" : 0,
+													"source" : [ "obj-11", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-20", 0 ],
+													"source" : [ "obj-12", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-3", 0 ],
+													"source" : [ "obj-13", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-6", 0 ],
+													"source" : [ "obj-2", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-13", 1 ],
+													"midpoints" : [ 74.5, 127.0, 174.0, 127.0 ],
+													"order" : 0,
+													"source" : [ "obj-20", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-21", 0 ],
+													"order" : 1,
+													"source" : [ "obj-20", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-6", 1 ],
+													"source" : [ "obj-21", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-4", 1 ],
+													"midpoints" : [ 160.5, 350.0, 68.0, 350.0 ],
+													"source" : [ "obj-3", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-9", 0 ],
+													"source" : [ "obj-4", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-13", 0 ],
+													"source" : [ "obj-5", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-1", 0 ],
+													"midpoints" : [ 54.5, 197.0, 69.5, 197.0 ],
+													"order" : 0,
+													"source" : [ "obj-6", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-4", 0 ],
+													"order" : 1,
+													"source" : [ "obj-6", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-11", 0 ],
+													"midpoints" : [ 54.5, 437.0, 54.5, 437.0 ],
+													"source" : [ "obj-9", 0 ]
+												}
+
+											}
+ ],
+										"bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ],
+										"editing_bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ]
+									}
+,
+									"patching_rect" : [ 1970.333367586135864, 398.0, 38.0, 23.0 ],
+									"text" : "gen~"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-94",
+									"maxclass" : "newobj",
+									"numinlets" : 6,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1576.666701555252075, 219.0, 117.0, 22.0 ],
+									"text" : "scale 0 127 0.6 0. 1."
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"format" : 6,
+									"id" : "obj-95",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 1740.666701555252075, 252.0, 50.0, 22.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-96",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1740.666701555252075, 287.0, 47.0, 22.0 ],
+									"text" : "ftom 1."
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"format" : 6,
+									"id" : "obj-97",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 1740.666701555252075, 318.0, 50.0, 23.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontface" : 0,
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"hidden" : 1,
+									"id" : "obj-98",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1589.666701555252075, 263.0, 86.0, 23.0 ],
+									"text" : "loadmess 2.97"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontface" : 0,
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"hidden" : 1,
+									"id" : "obj-99",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1514.666701555252075, 263.0, 79.0, 23.0 ],
+									"text" : "loadmess 0.1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-100",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "signal" ],
+									"patcher" : 									{
+										"fileversion" : 1,
+										"appversion" : 										{
+											"major" : 8,
+											"minor" : 1,
+											"revision" : 11,
+											"architecture" : "x64",
+											"modernui" : 1
+										}
+,
+										"classnamespace" : "box",
+										"rect" : [ 38.0, 87.0, 189.0, 349.0 ],
+										"bglocked" : 0,
+										"openinpresentation" : 0,
+										"default_fontsize" : 12.0,
+										"default_fontface" : 0,
+										"default_fontname" : "Lato",
+										"gridonopen" : 1,
+										"gridsize" : [ 15.0, 15.0 ],
+										"gridsnaponopen" : 1,
+										"objectsnaponopen" : 1,
+										"statusbarvisible" : 2,
+										"toolbarvisible" : 1,
+										"lefttoolbarpinned" : 0,
+										"toptoolbarpinned" : 0,
+										"righttoolbarpinned" : 0,
+										"bottomtoolbarpinned" : 0,
+										"toolbars_unpinned_last_save" : 0,
+										"tallnewobj" : 0,
+										"boxanimatetime" : 200,
+										"enablehscroll" : 1,
+										"enablevscroll" : 1,
+										"devicewidth" : 0.0,
+										"description" : "",
+										"digest" : "",
+										"tags" : "",
+										"style" : "",
+										"subpatcher_template" : "",
+										"assistshowspatchername" : 0,
+										"boxes" : [ 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-17",
+													"maxclass" : "message",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 90.0, 48.0, 23.0 ],
+													"text" : "1, 0 10"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-15",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "signal" ],
+													"patching_rect" : [ 90.0, 165.0, 47.0, 23.0 ],
+													"text" : "noise~"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-14",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 2,
+													"outlettype" : [ "signal", "bang" ],
+													"patching_rect" : [ 45.0, 165.0, 37.0, 23.0 ],
+													"text" : "line~"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-12",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "signal" ],
+													"patching_rect" : [ 45.0, 195.0, 36.0, 23.0 ],
+													"text" : "*~ 0."
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"comment" : "",
+													"id" : "obj-41",
+													"index" : 1,
+													"maxclass" : "inlet",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "bang" ],
+													"patching_rect" : [ 45.0, 30.0, 25.0, 25.0 ]
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"comment" : "",
+													"id" : "obj-42",
+													"index" : 1,
+													"maxclass" : "outlet",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 45.0, 275.0, 25.0, 25.0 ]
+												}
+
+											}
+ ],
+										"lines" : [ 											{
+												"patchline" : 												{
+													"destination" : [ "obj-42", 0 ],
+													"source" : [ "obj-12", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-12", 0 ],
+													"source" : [ "obj-14", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-12", 1 ],
+													"source" : [ "obj-15", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-14", 0 ],
+													"source" : [ "obj-17", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-17", 0 ],
+													"source" : [ "obj-41", 0 ]
+												}
+
+											}
+ ]
+									}
+,
+									"patching_rect" : [ 1679.666701555252075, 353.0, 63.0, 23.0 ],
+									"saved_object_attributes" : 									{
+										"description" : "",
+										"digest" : "",
+										"fontname" : "Lato",
+										"globalpatchername" : "",
+										"tags" : ""
+									}
+,
+									"text" : "p impulse"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-101",
+									"maxclass" : "button",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 1679.666701555252075, 323.0, 24.0, 24.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"format" : 6,
+									"id" : "obj-102",
+									"maxclass" : "flonum",
+									"minimum" : 0.0,
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 1589.666701555252075, 323.0, 53.0, 23.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-103",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1589.666701555252075, 353.0, 61.0, 23.0 ],
+									"text" : "decay $1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"format" : 6,
+									"id" : "obj-104",
+									"maxclass" : "flonum",
+									"maximum" : 1.0,
+									"minimum" : 0.0,
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 1514.666701555252075, 323.0, 50.0, 23.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-105",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1514.666701555252075, 353.0, 72.0, 23.0 ],
+									"text" : "dampen $1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-106",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "signal" ],
+									"patcher" : 									{
+										"fileversion" : 1,
+										"appversion" : 										{
+											"major" : 8,
+											"minor" : 1,
+											"revision" : 11,
+											"architecture" : "x64",
+											"modernui" : 1
+										}
+,
+										"classnamespace" : "dsp.gen",
+										"rect" : [ 1046.0, 173.0, 605.0, 528.0 ],
+										"bglocked" : 0,
+										"openinpresentation" : 0,
+										"default_fontsize" : 12.0,
+										"default_fontface" : 0,
+										"default_fontname" : "Lato",
+										"gridonopen" : 1,
+										"gridsize" : [ 15.0, 15.0 ],
+										"gridsnaponopen" : 1,
+										"objectsnaponopen" : 1,
+										"statusbarvisible" : 2,
+										"toolbarvisible" : 1,
+										"lefttoolbarpinned" : 0,
+										"toptoolbarpinned" : 0,
+										"righttoolbarpinned" : 0,
+										"bottomtoolbarpinned" : 0,
+										"toolbars_unpinned_last_save" : 0,
+										"tallnewobj" : 0,
+										"boxanimatetime" : 200,
+										"enablehscroll" : 1,
+										"enablevscroll" : 1,
+										"devicewidth" : 0.0,
+										"description" : "",
+										"digest" : "",
+										"tags" : "",
+										"style" : "",
+										"subpatcher_template" : "",
+										"assistshowspatchername" : 0,
+										"boxes" : [ 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-15",
+													"linecount" : 4,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 188.0, 223.0, 103.0, 64.0 ],
+													"text" : "feedback time depends proportionally on frequency!"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-13",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 151.0, 263.0, 32.5, 22.0 ],
+													"text" : "*"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-3",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 151.0, 321.0, 27.0, 22.0 ],
+													"text" : "t60"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-21",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 65.0, 132.0, 82.0, 22.0 ],
+													"text" : "!/ samplerate"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-20",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 65.0, 102.0, 35.0, 23.0 ],
+													"text" : "mtof"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-19",
+													"linecount" : 4,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 188.0, 132.0, 106.0, 64.0 ],
+													"text" : "control amplitude of feedback signal (seconds to reach -60dB)"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-18",
+													"linecount" : 3,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 270.0, 313.0, 105.0, 50.0 ],
+													"text" : "control the mix of the raw & smoothed"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-17",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 135.0, 405.0, 292.0, 21.0 ],
+													"text" : "mix+history used as a cheap smoothing filter"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-16",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 135.0, 435.0, 305.0, 21.0 ],
+													"text" : "need to use a history node for the feedback loops"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-12",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 65.0, 72.0, 208.0, 23.0 ],
+													"text" : "in 2 @comment \"MIDI note number\""
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-8",
+													"linecount" : 2,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 390.0, 30.0, 147.0, 35.0 ],
+													"text" : "Very basic Karplus-Strong string synthesis"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-5",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 151.0, 190.0, 188.0, 23.0 ],
+													"text" : "param decay 0.97 @min 0.00001"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-4",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 360.0, 32.5, 23.0 ],
+													"text" : "*"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-11",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 435.0, 70.0, 23.0 ],
+													"text" : "history avg"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-10",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 270.0, 360.0, 211.0, 23.0 ],
+													"text" : "param dampen 0.25 @min 0 @max 1"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-9",
+													"maxclass" : "newobj",
+													"numinlets" : 3,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 405.0, 46.0, 23.0 ],
+													"text" : "mix"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-6",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 165.0, 39.0, 23.0 ],
+													"text" : "delay"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-2",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 30.0, 143.0, 23.0 ],
+													"text" : "in 1 @comment impulse"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-1",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 60.0, 210.0, 38.0, 23.0 ],
+													"text" : "out 1"
+												}
+
+											}
+ ],
+										"lines" : [ 											{
+												"patchline" : 												{
+													"destination" : [ "obj-9", 2 ],
+													"midpoints" : [ 279.5, 383.5, 81.5, 383.5 ],
+													"source" : [ "obj-10", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-6", 0 ],
+													"midpoints" : [ 54.5, 464.0, 32.0, 464.0, 32.0, 155.0, 54.5, 155.0 ],
+													"order" : 1,
+													"source" : [ "obj-11", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-9", 1 ],
+													"midpoints" : [ 54.5, 464.0, 123.25, 464.0, 123.25, 395.0, 68.0, 395.0 ],
+													"order" : 0,
+													"source" : [ "obj-11", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-20", 0 ],
+													"source" : [ "obj-12", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-3", 0 ],
+													"source" : [ "obj-13", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-6", 0 ],
+													"source" : [ "obj-2", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-13", 1 ],
+													"midpoints" : [ 74.5, 127.0, 174.0, 127.0 ],
+													"order" : 0,
+													"source" : [ "obj-20", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-21", 0 ],
+													"order" : 1,
+													"source" : [ "obj-20", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-6", 1 ],
+													"source" : [ "obj-21", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-4", 1 ],
+													"midpoints" : [ 160.5, 350.0, 68.0, 350.0 ],
+													"source" : [ "obj-3", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-9", 0 ],
+													"source" : [ "obj-4", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-13", 0 ],
+													"source" : [ "obj-5", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-1", 0 ],
+													"midpoints" : [ 54.5, 197.0, 69.5, 197.0 ],
+													"order" : 0,
+													"source" : [ "obj-6", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-4", 0 ],
+													"order" : 1,
+													"source" : [ "obj-6", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-11", 0 ],
+													"midpoints" : [ 54.5, 437.0, 54.5, 437.0 ],
+													"source" : [ "obj-9", 0 ]
+												}
+
+											}
+ ],
+										"bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ],
+										"editing_bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ]
+									}
+,
+									"patching_rect" : [ 1679.666701555252075, 398.0, 38.0, 23.0 ],
+									"text" : "gen~"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-107",
+									"maxclass" : "newobj",
+									"numinlets" : 6,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1289.000035405158997, 219.0, 117.0, 22.0 ],
+									"text" : "scale 0 127 0.6 0. 1."
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"format" : 6,
+									"id" : "obj-108",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 1453.000035405158997, 252.0, 50.0, 22.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-109",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1453.000035405158997, 287.0, 47.0, 22.0 ],
+									"text" : "ftom 1."
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"format" : 6,
+									"id" : "obj-110",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 1453.000035405158997, 318.0, 50.0, 23.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontface" : 0,
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"hidden" : 1,
+									"id" : "obj-111",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1302.000035405158997, 263.0, 86.0, 23.0 ],
+									"text" : "loadmess 2.97"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontface" : 0,
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"hidden" : 1,
+									"id" : "obj-112",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1227.000035405158997, 263.0, 79.0, 23.0 ],
+									"text" : "loadmess 0.1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-113",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "signal" ],
+									"patcher" : 									{
+										"fileversion" : 1,
+										"appversion" : 										{
+											"major" : 8,
+											"minor" : 1,
+											"revision" : 11,
+											"architecture" : "x64",
+											"modernui" : 1
+										}
+,
+										"classnamespace" : "box",
+										"rect" : [ 38.0, 87.0, 189.0, 349.0 ],
+										"bglocked" : 0,
+										"openinpresentation" : 0,
+										"default_fontsize" : 12.0,
+										"default_fontface" : 0,
+										"default_fontname" : "Lato",
+										"gridonopen" : 1,
+										"gridsize" : [ 15.0, 15.0 ],
+										"gridsnaponopen" : 1,
+										"objectsnaponopen" : 1,
+										"statusbarvisible" : 2,
+										"toolbarvisible" : 1,
+										"lefttoolbarpinned" : 0,
+										"toptoolbarpinned" : 0,
+										"righttoolbarpinned" : 0,
+										"bottomtoolbarpinned" : 0,
+										"toolbars_unpinned_last_save" : 0,
+										"tallnewobj" : 0,
+										"boxanimatetime" : 200,
+										"enablehscroll" : 1,
+										"enablevscroll" : 1,
+										"devicewidth" : 0.0,
+										"description" : "",
+										"digest" : "",
+										"tags" : "",
+										"style" : "",
+										"subpatcher_template" : "",
+										"assistshowspatchername" : 0,
+										"boxes" : [ 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-17",
+													"maxclass" : "message",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 90.0, 48.0, 23.0 ],
+													"text" : "1, 0 10"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-15",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "signal" ],
+													"patching_rect" : [ 90.0, 165.0, 47.0, 23.0 ],
+													"text" : "noise~"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-14",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 2,
+													"outlettype" : [ "signal", "bang" ],
+													"patching_rect" : [ 45.0, 165.0, 37.0, 23.0 ],
+													"text" : "line~"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-12",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "signal" ],
+													"patching_rect" : [ 45.0, 195.0, 36.0, 23.0 ],
+													"text" : "*~ 0."
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"comment" : "",
+													"id" : "obj-41",
+													"index" : 1,
+													"maxclass" : "inlet",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "bang" ],
+													"patching_rect" : [ 45.0, 30.0, 25.0, 25.0 ]
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"comment" : "",
+													"id" : "obj-42",
+													"index" : 1,
+													"maxclass" : "outlet",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 45.0, 275.0, 25.0, 25.0 ]
+												}
+
+											}
+ ],
+										"lines" : [ 											{
+												"patchline" : 												{
+													"destination" : [ "obj-42", 0 ],
+													"source" : [ "obj-12", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-12", 0 ],
+													"source" : [ "obj-14", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-12", 1 ],
+													"source" : [ "obj-15", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-14", 0 ],
+													"source" : [ "obj-17", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-17", 0 ],
+													"source" : [ "obj-41", 0 ]
+												}
+
+											}
+ ]
+									}
+,
+									"patching_rect" : [ 1392.000035405158997, 353.0, 63.0, 23.0 ],
+									"saved_object_attributes" : 									{
+										"description" : "",
+										"digest" : "",
+										"fontname" : "Lato",
+										"globalpatchername" : "",
+										"tags" : ""
+									}
+,
+									"text" : "p impulse"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-114",
+									"maxclass" : "button",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 1392.000035405158997, 323.0, 24.0, 24.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"format" : 6,
+									"id" : "obj-115",
+									"maxclass" : "flonum",
+									"minimum" : 0.0,
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 1302.000035405158997, 323.0, 53.0, 23.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-116",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1302.000035405158997, 353.0, 61.0, 23.0 ],
+									"text" : "decay $1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"format" : 6,
+									"id" : "obj-117",
+									"maxclass" : "flonum",
+									"maximum" : 1.0,
+									"minimum" : 0.0,
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 1227.000035405158997, 323.0, 50.0, 23.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-118",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1227.000035405158997, 353.0, 72.0, 23.0 ],
+									"text" : "dampen $1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-119",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "signal" ],
+									"patcher" : 									{
+										"fileversion" : 1,
+										"appversion" : 										{
+											"major" : 8,
+											"minor" : 1,
+											"revision" : 11,
+											"architecture" : "x64",
+											"modernui" : 1
+										}
+,
+										"classnamespace" : "dsp.gen",
+										"rect" : [ 1046.0, 173.0, 605.0, 528.0 ],
+										"bglocked" : 0,
+										"openinpresentation" : 0,
+										"default_fontsize" : 12.0,
+										"default_fontface" : 0,
+										"default_fontname" : "Lato",
+										"gridonopen" : 1,
+										"gridsize" : [ 15.0, 15.0 ],
+										"gridsnaponopen" : 1,
+										"objectsnaponopen" : 1,
+										"statusbarvisible" : 2,
+										"toolbarvisible" : 1,
+										"lefttoolbarpinned" : 0,
+										"toptoolbarpinned" : 0,
+										"righttoolbarpinned" : 0,
+										"bottomtoolbarpinned" : 0,
+										"toolbars_unpinned_last_save" : 0,
+										"tallnewobj" : 0,
+										"boxanimatetime" : 200,
+										"enablehscroll" : 1,
+										"enablevscroll" : 1,
+										"devicewidth" : 0.0,
+										"description" : "",
+										"digest" : "",
+										"tags" : "",
+										"style" : "",
+										"subpatcher_template" : "",
+										"assistshowspatchername" : 0,
+										"boxes" : [ 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-15",
+													"linecount" : 4,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 188.0, 223.0, 103.0, 64.0 ],
+													"text" : "feedback time depends proportionally on frequency!"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-13",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 151.0, 263.0, 32.5, 22.0 ],
+													"text" : "*"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-3",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 151.0, 321.0, 27.0, 22.0 ],
+													"text" : "t60"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-21",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 65.0, 132.0, 82.0, 22.0 ],
+													"text" : "!/ samplerate"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-20",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 65.0, 102.0, 35.0, 23.0 ],
+													"text" : "mtof"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-19",
+													"linecount" : 4,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 188.0, 132.0, 106.0, 64.0 ],
+													"text" : "control amplitude of feedback signal (seconds to reach -60dB)"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-18",
+													"linecount" : 3,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 270.0, 313.0, 105.0, 50.0 ],
+													"text" : "control the mix of the raw & smoothed"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-17",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 135.0, 405.0, 292.0, 21.0 ],
+													"text" : "mix+history used as a cheap smoothing filter"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-16",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 135.0, 435.0, 305.0, 21.0 ],
+													"text" : "need to use a history node for the feedback loops"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-12",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 65.0, 72.0, 208.0, 23.0 ],
+													"text" : "in 2 @comment \"MIDI note number\""
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-8",
+													"linecount" : 2,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 390.0, 30.0, 147.0, 35.0 ],
+													"text" : "Very basic Karplus-Strong string synthesis"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-5",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 151.0, 190.0, 188.0, 23.0 ],
+													"text" : "param decay 0.97 @min 0.00001"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-4",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 360.0, 32.5, 23.0 ],
+													"text" : "*"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-11",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 435.0, 70.0, 23.0 ],
+													"text" : "history avg"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-10",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 270.0, 360.0, 211.0, 23.0 ],
+													"text" : "param dampen 0.25 @min 0 @max 1"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-9",
+													"maxclass" : "newobj",
+													"numinlets" : 3,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 405.0, 46.0, 23.0 ],
+													"text" : "mix"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-6",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 165.0, 39.0, 23.0 ],
+													"text" : "delay"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-2",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 30.0, 143.0, 23.0 ],
+													"text" : "in 1 @comment impulse"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-1",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 60.0, 210.0, 38.0, 23.0 ],
+													"text" : "out 1"
+												}
+
+											}
+ ],
+										"lines" : [ 											{
+												"patchline" : 												{
+													"destination" : [ "obj-9", 2 ],
+													"midpoints" : [ 279.5, 383.5, 81.5, 383.5 ],
+													"source" : [ "obj-10", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-6", 0 ],
+													"midpoints" : [ 54.5, 464.0, 32.0, 464.0, 32.0, 155.0, 54.5, 155.0 ],
+													"order" : 1,
+													"source" : [ "obj-11", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-9", 1 ],
+													"midpoints" : [ 54.5, 464.0, 123.25, 464.0, 123.25, 395.0, 68.0, 395.0 ],
+													"order" : 0,
+													"source" : [ "obj-11", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-20", 0 ],
+													"source" : [ "obj-12", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-3", 0 ],
+													"source" : [ "obj-13", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-6", 0 ],
+													"source" : [ "obj-2", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-13", 1 ],
+													"midpoints" : [ 74.5, 127.0, 174.0, 127.0 ],
+													"order" : 0,
+													"source" : [ "obj-20", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-21", 0 ],
+													"order" : 1,
+													"source" : [ "obj-20", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-6", 1 ],
+													"source" : [ "obj-21", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-4", 1 ],
+													"midpoints" : [ 160.5, 350.0, 68.0, 350.0 ],
+													"source" : [ "obj-3", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-9", 0 ],
+													"source" : [ "obj-4", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-13", 0 ],
+													"source" : [ "obj-5", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-1", 0 ],
+													"midpoints" : [ 54.5, 197.0, 69.5, 197.0 ],
+													"order" : 0,
+													"source" : [ "obj-6", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-4", 0 ],
+													"order" : 1,
+													"source" : [ "obj-6", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-11", 0 ],
+													"midpoints" : [ 54.5, 437.0, 54.5, 437.0 ],
+													"source" : [ "obj-9", 0 ]
+												}
+
+											}
+ ],
+										"bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ],
+										"editing_bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ]
+									}
+,
+									"patching_rect" : [ 1392.000035405158997, 398.0, 38.0, 23.0 ],
+									"text" : "gen~"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-67",
+									"maxclass" : "number",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 1338.000035405158997, 83.000000596046448, 50.0, 22.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-65",
+									"maxclass" : "newobj",
+									"numinlets" : 5,
+									"numoutlets" : 4,
+									"outlettype" : [ "int", "", "", "int" ],
+									"patching_rect" : [ 1338.000035405158997, 57.000000596046448, 69.0, 22.0 ],
+									"text" : "counter 1 8"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-64",
+									"maxclass" : "button",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 1338.000035405158997, 29.000000596046448, 24.0, 24.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-32",
+									"maxclass" : "newobj",
+									"numinlets" : 6,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 984.333332180976868, 219.0, 117.0, 22.0 ],
+									"text" : "scale 0 127 0.6 0. 1."
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"format" : 6,
+									"id" : "obj-33",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 1148.333332180976868, 252.0, 50.0, 22.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-34",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1148.333332180976868, 287.0, 47.0, 22.0 ],
+									"text" : "ftom 1."
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"format" : 6,
+									"id" : "obj-35",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 1148.333332180976868, 318.0, 50.0, 23.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontface" : 0,
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"hidden" : 1,
+									"id" : "obj-36",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 997.333332180976868, 263.0, 86.0, 23.0 ],
+									"text" : "loadmess 2.97"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontface" : 0,
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"hidden" : 1,
+									"id" : "obj-38",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 922.333332180976868, 263.0, 79.0, 23.0 ],
+									"text" : "loadmess 0.1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-39",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "signal" ],
+									"patcher" : 									{
+										"fileversion" : 1,
+										"appversion" : 										{
+											"major" : 8,
+											"minor" : 1,
+											"revision" : 11,
+											"architecture" : "x64",
+											"modernui" : 1
+										}
+,
+										"classnamespace" : "box",
+										"rect" : [ 38.0, 87.0, 189.0, 349.0 ],
+										"bglocked" : 0,
+										"openinpresentation" : 0,
+										"default_fontsize" : 12.0,
+										"default_fontface" : 0,
+										"default_fontname" : "Lato",
+										"gridonopen" : 1,
+										"gridsize" : [ 15.0, 15.0 ],
+										"gridsnaponopen" : 1,
+										"objectsnaponopen" : 1,
+										"statusbarvisible" : 2,
+										"toolbarvisible" : 1,
+										"lefttoolbarpinned" : 0,
+										"toptoolbarpinned" : 0,
+										"righttoolbarpinned" : 0,
+										"bottomtoolbarpinned" : 0,
+										"toolbars_unpinned_last_save" : 0,
+										"tallnewobj" : 0,
+										"boxanimatetime" : 200,
+										"enablehscroll" : 1,
+										"enablevscroll" : 1,
+										"devicewidth" : 0.0,
+										"description" : "",
+										"digest" : "",
+										"tags" : "",
+										"style" : "",
+										"subpatcher_template" : "",
+										"assistshowspatchername" : 0,
+										"boxes" : [ 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-17",
+													"maxclass" : "message",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 90.0, 48.0, 23.0 ],
+													"text" : "1, 0 10"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-15",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "signal" ],
+													"patching_rect" : [ 90.0, 165.0, 47.0, 23.0 ],
+													"text" : "noise~"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-14",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 2,
+													"outlettype" : [ "signal", "bang" ],
+													"patching_rect" : [ 45.0, 165.0, 37.0, 23.0 ],
+													"text" : "line~"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-12",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "signal" ],
+													"patching_rect" : [ 45.0, 195.0, 36.0, 23.0 ],
+													"text" : "*~ 0."
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"comment" : "",
+													"id" : "obj-41",
+													"index" : 1,
+													"maxclass" : "inlet",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "bang" ],
+													"patching_rect" : [ 45.0, 30.0, 25.0, 25.0 ]
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"comment" : "",
+													"id" : "obj-42",
+													"index" : 1,
+													"maxclass" : "outlet",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 45.0, 275.0, 25.0, 25.0 ]
+												}
+
+											}
+ ],
+										"lines" : [ 											{
+												"patchline" : 												{
+													"destination" : [ "obj-42", 0 ],
+													"source" : [ "obj-12", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-12", 0 ],
+													"source" : [ "obj-14", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-12", 1 ],
+													"source" : [ "obj-15", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-14", 0 ],
+													"source" : [ "obj-17", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-17", 0 ],
+													"source" : [ "obj-41", 0 ]
+												}
+
+											}
+ ]
+									}
+,
+									"patching_rect" : [ 1087.333332180976868, 353.0, 63.0, 23.0 ],
+									"saved_object_attributes" : 									{
+										"description" : "",
+										"digest" : "",
+										"fontname" : "Lato",
+										"globalpatchername" : "",
+										"tags" : ""
+									}
+,
+									"text" : "p impulse"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-40",
+									"maxclass" : "button",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 1087.333332180976868, 323.0, 24.0, 24.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"format" : 6,
+									"id" : "obj-41",
+									"maxclass" : "flonum",
+									"minimum" : 0.0,
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 997.333332180976868, 323.0, 53.0, 23.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-42",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 997.333332180976868, 353.0, 61.0, 23.0 ],
+									"text" : "decay $1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"format" : 6,
+									"id" : "obj-44",
+									"maxclass" : "flonum",
+									"maximum" : 1.0,
+									"minimum" : 0.0,
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 922.333332180976868, 323.0, 50.0, 23.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-45",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 922.333332180976868, 353.0, 72.0, 23.0 ],
+									"text" : "dampen $1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-46",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "signal" ],
+									"patcher" : 									{
+										"fileversion" : 1,
+										"appversion" : 										{
+											"major" : 8,
+											"minor" : 1,
+											"revision" : 11,
+											"architecture" : "x64",
+											"modernui" : 1
+										}
+,
+										"classnamespace" : "dsp.gen",
+										"rect" : [ 1046.0, 173.0, 605.0, 528.0 ],
+										"bglocked" : 0,
+										"openinpresentation" : 0,
+										"default_fontsize" : 12.0,
+										"default_fontface" : 0,
+										"default_fontname" : "Lato",
+										"gridonopen" : 1,
+										"gridsize" : [ 15.0, 15.0 ],
+										"gridsnaponopen" : 1,
+										"objectsnaponopen" : 1,
+										"statusbarvisible" : 2,
+										"toolbarvisible" : 1,
+										"lefttoolbarpinned" : 0,
+										"toptoolbarpinned" : 0,
+										"righttoolbarpinned" : 0,
+										"bottomtoolbarpinned" : 0,
+										"toolbars_unpinned_last_save" : 0,
+										"tallnewobj" : 0,
+										"boxanimatetime" : 200,
+										"enablehscroll" : 1,
+										"enablevscroll" : 1,
+										"devicewidth" : 0.0,
+										"description" : "",
+										"digest" : "",
+										"tags" : "",
+										"style" : "",
+										"subpatcher_template" : "",
+										"assistshowspatchername" : 0,
+										"boxes" : [ 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-15",
+													"linecount" : 4,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 188.0, 223.0, 103.0, 64.0 ],
+													"text" : "feedback time depends proportionally on frequency!"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-13",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 151.0, 263.0, 32.5, 22.0 ],
+													"text" : "*"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-3",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 151.0, 321.0, 27.0, 22.0 ],
+													"text" : "t60"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-21",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 65.0, 132.0, 82.0, 22.0 ],
+													"text" : "!/ samplerate"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-20",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 65.0, 102.0, 35.0, 23.0 ],
+													"text" : "mtof"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-19",
+													"linecount" : 4,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 188.0, 132.0, 106.0, 64.0 ],
+													"text" : "control amplitude of feedback signal (seconds to reach -60dB)"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-18",
+													"linecount" : 3,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 270.0, 313.0, 105.0, 50.0 ],
+													"text" : "control the mix of the raw & smoothed"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-17",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 135.0, 405.0, 292.0, 21.0 ],
+													"text" : "mix+history used as a cheap smoothing filter"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-16",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 135.0, 435.0, 305.0, 21.0 ],
+													"text" : "need to use a history node for the feedback loops"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-12",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 65.0, 72.0, 208.0, 23.0 ],
+													"text" : "in 2 @comment \"MIDI note number\""
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-8",
+													"linecount" : 2,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 390.0, 30.0, 147.0, 35.0 ],
+													"text" : "Very basic Karplus-Strong string synthesis"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-5",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 151.0, 190.0, 188.0, 23.0 ],
+													"text" : "param decay 0.97 @min 0.00001"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-4",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 360.0, 32.5, 23.0 ],
+													"text" : "*"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-11",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 435.0, 70.0, 23.0 ],
+													"text" : "history avg"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-10",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 270.0, 360.0, 211.0, 23.0 ],
+													"text" : "param dampen 0.25 @min 0 @max 1"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-9",
+													"maxclass" : "newobj",
+													"numinlets" : 3,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 405.0, 46.0, 23.0 ],
+													"text" : "mix"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-6",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 165.0, 39.0, 23.0 ],
+													"text" : "delay"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-2",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 30.0, 143.0, 23.0 ],
+													"text" : "in 1 @comment impulse"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-1",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 60.0, 210.0, 38.0, 23.0 ],
+													"text" : "out 1"
+												}
+
+											}
+ ],
+										"lines" : [ 											{
+												"patchline" : 												{
+													"destination" : [ "obj-9", 2 ],
+													"midpoints" : [ 279.5, 383.5, 81.5, 383.5 ],
+													"source" : [ "obj-10", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-6", 0 ],
+													"midpoints" : [ 54.5, 464.0, 32.0, 464.0, 32.0, 155.0, 54.5, 155.0 ],
+													"order" : 1,
+													"source" : [ "obj-11", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-9", 1 ],
+													"midpoints" : [ 54.5, 464.0, 123.25, 464.0, 123.25, 395.0, 68.0, 395.0 ],
+													"order" : 0,
+													"source" : [ "obj-11", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-20", 0 ],
+													"source" : [ "obj-12", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-3", 0 ],
+													"source" : [ "obj-13", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-6", 0 ],
+													"source" : [ "obj-2", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-13", 1 ],
+													"midpoints" : [ 74.5, 127.0, 174.0, 127.0 ],
+													"order" : 0,
+													"source" : [ "obj-20", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-21", 0 ],
+													"order" : 1,
+													"source" : [ "obj-20", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-6", 1 ],
+													"source" : [ "obj-21", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-4", 1 ],
+													"midpoints" : [ 160.5, 350.0, 68.0, 350.0 ],
+													"source" : [ "obj-3", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-9", 0 ],
+													"source" : [ "obj-4", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-13", 0 ],
+													"source" : [ "obj-5", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-1", 0 ],
+													"midpoints" : [ 54.5, 197.0, 69.5, 197.0 ],
+													"order" : 0,
+													"source" : [ "obj-6", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-4", 0 ],
+													"order" : 1,
+													"source" : [ "obj-6", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-11", 0 ],
+													"midpoints" : [ 54.5, 437.0, 54.5, 437.0 ],
+													"source" : [ "obj-9", 0 ]
+												}
+
+											}
+ ],
+										"bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ],
+										"editing_bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ]
+									}
+,
+									"patching_rect" : [ 1087.333332180976868, 398.0, 38.0, 23.0 ],
+									"text" : "gen~"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-47",
+									"maxclass" : "newobj",
+									"numinlets" : 6,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 679.333332180976868, 219.0, 117.0, 22.0 ],
+									"text" : "scale 0 127 0.6 0. 1."
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"format" : 6,
+									"id" : "obj-48",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 843.333332180976868, 252.0, 50.0, 22.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-51",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 843.333332180976868, 287.0, 47.0, 22.0 ],
+									"text" : "ftom 1."
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"format" : 6,
+									"id" : "obj-53",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 843.333332180976868, 318.0, 50.0, 23.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontface" : 0,
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"hidden" : 1,
+									"id" : "obj-54",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 692.333332180976868, 263.0, 86.0, 23.0 ],
+									"text" : "loadmess 2.97"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontface" : 0,
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"hidden" : 1,
+									"id" : "obj-55",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 617.333332180976868, 263.0, 79.0, 23.0 ],
+									"text" : "loadmess 0.1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-56",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "signal" ],
+									"patcher" : 									{
+										"fileversion" : 1,
+										"appversion" : 										{
+											"major" : 8,
+											"minor" : 1,
+											"revision" : 11,
+											"architecture" : "x64",
+											"modernui" : 1
+										}
+,
+										"classnamespace" : "box",
+										"rect" : [ 38.0, 87.0, 189.0, 349.0 ],
+										"bglocked" : 0,
+										"openinpresentation" : 0,
+										"default_fontsize" : 12.0,
+										"default_fontface" : 0,
+										"default_fontname" : "Lato",
+										"gridonopen" : 1,
+										"gridsize" : [ 15.0, 15.0 ],
+										"gridsnaponopen" : 1,
+										"objectsnaponopen" : 1,
+										"statusbarvisible" : 2,
+										"toolbarvisible" : 1,
+										"lefttoolbarpinned" : 0,
+										"toptoolbarpinned" : 0,
+										"righttoolbarpinned" : 0,
+										"bottomtoolbarpinned" : 0,
+										"toolbars_unpinned_last_save" : 0,
+										"tallnewobj" : 0,
+										"boxanimatetime" : 200,
+										"enablehscroll" : 1,
+										"enablevscroll" : 1,
+										"devicewidth" : 0.0,
+										"description" : "",
+										"digest" : "",
+										"tags" : "",
+										"style" : "",
+										"subpatcher_template" : "",
+										"assistshowspatchername" : 0,
+										"boxes" : [ 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-17",
+													"maxclass" : "message",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 90.0, 48.0, 23.0 ],
+													"text" : "1, 0 10"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-15",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "signal" ],
+													"patching_rect" : [ 90.0, 165.0, 47.0, 23.0 ],
+													"text" : "noise~"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-14",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 2,
+													"outlettype" : [ "signal", "bang" ],
+													"patching_rect" : [ 45.0, 165.0, 37.0, 23.0 ],
+													"text" : "line~"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-12",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "signal" ],
+													"patching_rect" : [ 45.0, 195.0, 36.0, 23.0 ],
+													"text" : "*~ 0."
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"comment" : "",
+													"id" : "obj-41",
+													"index" : 1,
+													"maxclass" : "inlet",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "bang" ],
+													"patching_rect" : [ 45.0, 30.0, 25.0, 25.0 ]
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"comment" : "",
+													"id" : "obj-42",
+													"index" : 1,
+													"maxclass" : "outlet",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 45.0, 275.0, 25.0, 25.0 ]
+												}
+
+											}
+ ],
+										"lines" : [ 											{
+												"patchline" : 												{
+													"destination" : [ "obj-42", 0 ],
+													"source" : [ "obj-12", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-12", 0 ],
+													"source" : [ "obj-14", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-12", 1 ],
+													"source" : [ "obj-15", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-14", 0 ],
+													"source" : [ "obj-17", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-17", 0 ],
+													"source" : [ "obj-41", 0 ]
+												}
+
+											}
+ ]
+									}
+,
+									"patching_rect" : [ 782.333332180976868, 353.0, 63.0, 23.0 ],
+									"saved_object_attributes" : 									{
+										"description" : "",
+										"digest" : "",
+										"fontname" : "Lato",
+										"globalpatchername" : "",
+										"tags" : ""
+									}
+,
+									"text" : "p impulse"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-57",
+									"maxclass" : "button",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 782.333332180976868, 323.0, 24.0, 24.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"format" : 6,
+									"id" : "obj-58",
+									"maxclass" : "flonum",
+									"minimum" : 0.0,
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 692.333332180976868, 323.0, 53.0, 23.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-59",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 692.333332180976868, 353.0, 61.0, 23.0 ],
+									"text" : "decay $1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"format" : 6,
+									"id" : "obj-60",
+									"maxclass" : "flonum",
+									"maximum" : 1.0,
+									"minimum" : 0.0,
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 617.333332180976868, 323.0, 50.0, 23.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-61",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 617.333332180976868, 353.0, 72.0, 23.0 ],
+									"text" : "dampen $1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-62",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "signal" ],
+									"patcher" : 									{
+										"fileversion" : 1,
+										"appversion" : 										{
+											"major" : 8,
+											"minor" : 1,
+											"revision" : 11,
+											"architecture" : "x64",
+											"modernui" : 1
+										}
+,
+										"classnamespace" : "dsp.gen",
+										"rect" : [ 1046.0, 173.0, 605.0, 528.0 ],
+										"bglocked" : 0,
+										"openinpresentation" : 0,
+										"default_fontsize" : 12.0,
+										"default_fontface" : 0,
+										"default_fontname" : "Lato",
+										"gridonopen" : 1,
+										"gridsize" : [ 15.0, 15.0 ],
+										"gridsnaponopen" : 1,
+										"objectsnaponopen" : 1,
+										"statusbarvisible" : 2,
+										"toolbarvisible" : 1,
+										"lefttoolbarpinned" : 0,
+										"toptoolbarpinned" : 0,
+										"righttoolbarpinned" : 0,
+										"bottomtoolbarpinned" : 0,
+										"toolbars_unpinned_last_save" : 0,
+										"tallnewobj" : 0,
+										"boxanimatetime" : 200,
+										"enablehscroll" : 1,
+										"enablevscroll" : 1,
+										"devicewidth" : 0.0,
+										"description" : "",
+										"digest" : "",
+										"tags" : "",
+										"style" : "",
+										"subpatcher_template" : "",
+										"assistshowspatchername" : 0,
+										"boxes" : [ 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-15",
+													"linecount" : 4,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 188.0, 223.0, 103.0, 64.0 ],
+													"text" : "feedback time depends proportionally on frequency!"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-13",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 151.0, 263.0, 32.5, 22.0 ],
+													"text" : "*"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-3",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 151.0, 321.0, 27.0, 22.0 ],
+													"text" : "t60"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-21",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 65.0, 132.0, 82.0, 22.0 ],
+													"text" : "!/ samplerate"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-20",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 65.0, 102.0, 35.0, 23.0 ],
+													"text" : "mtof"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-19",
+													"linecount" : 4,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 188.0, 132.0, 106.0, 64.0 ],
+													"text" : "control amplitude of feedback signal (seconds to reach -60dB)"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-18",
+													"linecount" : 3,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 270.0, 313.0, 105.0, 50.0 ],
+													"text" : "control the mix of the raw & smoothed"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-17",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 135.0, 405.0, 292.0, 21.0 ],
+													"text" : "mix+history used as a cheap smoothing filter"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-16",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 135.0, 435.0, 305.0, 21.0 ],
+													"text" : "need to use a history node for the feedback loops"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-12",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 65.0, 72.0, 208.0, 23.0 ],
+													"text" : "in 2 @comment \"MIDI note number\""
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-8",
+													"linecount" : 2,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 390.0, 30.0, 147.0, 35.0 ],
+													"text" : "Very basic Karplus-Strong string synthesis"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-5",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 151.0, 190.0, 188.0, 23.0 ],
+													"text" : "param decay 0.97 @min 0.00001"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-4",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 360.0, 32.5, 23.0 ],
+													"text" : "*"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-11",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 435.0, 70.0, 23.0 ],
+													"text" : "history avg"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-10",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 270.0, 360.0, 211.0, 23.0 ],
+													"text" : "param dampen 0.25 @min 0 @max 1"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-9",
+													"maxclass" : "newobj",
+													"numinlets" : 3,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 405.0, 46.0, 23.0 ],
+													"text" : "mix"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-6",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 165.0, 39.0, 23.0 ],
+													"text" : "delay"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-2",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 30.0, 143.0, 23.0 ],
+													"text" : "in 1 @comment impulse"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-1",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 60.0, 210.0, 38.0, 23.0 ],
+													"text" : "out 1"
+												}
+
+											}
+ ],
+										"lines" : [ 											{
+												"patchline" : 												{
+													"destination" : [ "obj-9", 2 ],
+													"midpoints" : [ 279.5, 383.5, 81.5, 383.5 ],
+													"source" : [ "obj-10", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-6", 0 ],
+													"midpoints" : [ 54.5, 464.0, 32.0, 464.0, 32.0, 155.0, 54.5, 155.0 ],
+													"order" : 1,
+													"source" : [ "obj-11", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-9", 1 ],
+													"midpoints" : [ 54.5, 464.0, 123.25, 464.0, 123.25, 395.0, 68.0, 395.0 ],
+													"order" : 0,
+													"source" : [ "obj-11", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-20", 0 ],
+													"source" : [ "obj-12", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-3", 0 ],
+													"source" : [ "obj-13", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-6", 0 ],
+													"source" : [ "obj-2", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-13", 1 ],
+													"midpoints" : [ 74.5, 127.0, 174.0, 127.0 ],
+													"order" : 0,
+													"source" : [ "obj-20", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-21", 0 ],
+													"order" : 1,
+													"source" : [ "obj-20", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-6", 1 ],
+													"source" : [ "obj-21", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-4", 1 ],
+													"midpoints" : [ 160.5, 350.0, 68.0, 350.0 ],
+													"source" : [ "obj-3", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-9", 0 ],
+													"source" : [ "obj-4", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-13", 0 ],
+													"source" : [ "obj-5", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-1", 0 ],
+													"midpoints" : [ 54.5, 197.0, 69.5, 197.0 ],
+													"order" : 0,
+													"source" : [ "obj-6", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-4", 0 ],
+													"order" : 1,
+													"source" : [ "obj-6", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-11", 0 ],
+													"midpoints" : [ 54.5, 437.0, 54.5, 437.0 ],
+													"source" : [ "obj-9", 0 ]
+												}
+
+											}
+ ],
+										"bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ],
+										"editing_bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ]
+									}
+,
+									"patching_rect" : [ 782.333332180976868, 398.0, 38.0, 23.0 ],
+									"text" : "gen~"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-15",
+									"maxclass" : "newobj",
+									"numinlets" : 6,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 388.666666150093079, 219.0, 117.0, 22.0 ],
+									"text" : "scale 0 127 0.6 0. 1."
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"format" : 6,
+									"id" : "obj-16",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 552.666666150093079, 252.0, 50.0, 22.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-17",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 552.666666150093079, 287.0, 47.0, 22.0 ],
+									"text" : "ftom 1."
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"format" : 6,
+									"id" : "obj-18",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 552.666666150093079, 318.0, 50.0, 23.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontface" : 0,
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"hidden" : 1,
+									"id" : "obj-20",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 401.666666150093079, 263.0, 86.0, 23.0 ],
+									"text" : "loadmess 2.97"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontface" : 0,
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"hidden" : 1,
+									"id" : "obj-21",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 326.666666150093079, 263.0, 79.0, 23.0 ],
+									"text" : "loadmess 0.1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-22",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "signal" ],
+									"patcher" : 									{
+										"fileversion" : 1,
+										"appversion" : 										{
+											"major" : 8,
+											"minor" : 1,
+											"revision" : 11,
+											"architecture" : "x64",
+											"modernui" : 1
+										}
+,
+										"classnamespace" : "box",
+										"rect" : [ 38.0, 87.0, 189.0, 349.0 ],
+										"bglocked" : 0,
+										"openinpresentation" : 0,
+										"default_fontsize" : 12.0,
+										"default_fontface" : 0,
+										"default_fontname" : "Lato",
+										"gridonopen" : 1,
+										"gridsize" : [ 15.0, 15.0 ],
+										"gridsnaponopen" : 1,
+										"objectsnaponopen" : 1,
+										"statusbarvisible" : 2,
+										"toolbarvisible" : 1,
+										"lefttoolbarpinned" : 0,
+										"toptoolbarpinned" : 0,
+										"righttoolbarpinned" : 0,
+										"bottomtoolbarpinned" : 0,
+										"toolbars_unpinned_last_save" : 0,
+										"tallnewobj" : 0,
+										"boxanimatetime" : 200,
+										"enablehscroll" : 1,
+										"enablevscroll" : 1,
+										"devicewidth" : 0.0,
+										"description" : "",
+										"digest" : "",
+										"tags" : "",
+										"style" : "",
+										"subpatcher_template" : "",
+										"assistshowspatchername" : 0,
+										"boxes" : [ 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-17",
+													"maxclass" : "message",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 90.0, 48.0, 23.0 ],
+													"text" : "1, 0 10"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-15",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "signal" ],
+													"patching_rect" : [ 90.0, 165.0, 47.0, 23.0 ],
+													"text" : "noise~"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-14",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 2,
+													"outlettype" : [ "signal", "bang" ],
+													"patching_rect" : [ 45.0, 165.0, 37.0, 23.0 ],
+													"text" : "line~"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-12",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "signal" ],
+													"patching_rect" : [ 45.0, 195.0, 36.0, 23.0 ],
+													"text" : "*~ 0."
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"comment" : "",
+													"id" : "obj-41",
+													"index" : 1,
+													"maxclass" : "inlet",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "bang" ],
+													"patching_rect" : [ 45.0, 30.0, 25.0, 25.0 ]
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"comment" : "",
+													"id" : "obj-42",
+													"index" : 1,
+													"maxclass" : "outlet",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 45.0, 275.0, 25.0, 25.0 ]
+												}
+
+											}
+ ],
+										"lines" : [ 											{
+												"patchline" : 												{
+													"destination" : [ "obj-42", 0 ],
+													"source" : [ "obj-12", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-12", 0 ],
+													"source" : [ "obj-14", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-12", 1 ],
+													"source" : [ "obj-15", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-14", 0 ],
+													"source" : [ "obj-17", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-17", 0 ],
+													"source" : [ "obj-41", 0 ]
+												}
+
+											}
+ ]
+									}
+,
+									"patching_rect" : [ 491.666666150093079, 353.0, 63.0, 23.0 ],
+									"saved_object_attributes" : 									{
+										"description" : "",
+										"digest" : "",
+										"fontname" : "Lato",
+										"globalpatchername" : "",
+										"tags" : ""
+									}
+,
+									"text" : "p impulse"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-25",
+									"maxclass" : "button",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 491.666666150093079, 323.0, 24.0, 24.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"format" : 6,
+									"id" : "obj-27",
+									"maxclass" : "flonum",
+									"minimum" : 0.0,
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 401.666666150093079, 323.0, 53.0, 23.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-28",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 401.666666150093079, 353.0, 61.0, 23.0 ],
+									"text" : "decay $1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"format" : 6,
+									"id" : "obj-29",
+									"maxclass" : "flonum",
+									"maximum" : 1.0,
+									"minimum" : 0.0,
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 326.666666150093079, 323.0, 50.0, 23.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-30",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 326.666666150093079, 353.0, 72.0, 23.0 ],
+									"text" : "dampen $1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-31",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "signal" ],
+									"patcher" : 									{
+										"fileversion" : 1,
+										"appversion" : 										{
+											"major" : 8,
+											"minor" : 1,
+											"revision" : 11,
+											"architecture" : "x64",
+											"modernui" : 1
+										}
+,
+										"classnamespace" : "dsp.gen",
+										"rect" : [ 1046.0, 173.0, 605.0, 528.0 ],
+										"bglocked" : 0,
+										"openinpresentation" : 0,
+										"default_fontsize" : 12.0,
+										"default_fontface" : 0,
+										"default_fontname" : "Lato",
+										"gridonopen" : 1,
+										"gridsize" : [ 15.0, 15.0 ],
+										"gridsnaponopen" : 1,
+										"objectsnaponopen" : 1,
+										"statusbarvisible" : 2,
+										"toolbarvisible" : 1,
+										"lefttoolbarpinned" : 0,
+										"toptoolbarpinned" : 0,
+										"righttoolbarpinned" : 0,
+										"bottomtoolbarpinned" : 0,
+										"toolbars_unpinned_last_save" : 0,
+										"tallnewobj" : 0,
+										"boxanimatetime" : 200,
+										"enablehscroll" : 1,
+										"enablevscroll" : 1,
+										"devicewidth" : 0.0,
+										"description" : "",
+										"digest" : "",
+										"tags" : "",
+										"style" : "",
+										"subpatcher_template" : "",
+										"assistshowspatchername" : 0,
+										"boxes" : [ 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-15",
+													"linecount" : 4,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 188.0, 223.0, 103.0, 64.0 ],
+													"text" : "feedback time depends proportionally on frequency!"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-13",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 151.0, 263.0, 32.5, 22.0 ],
+													"text" : "*"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-3",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 151.0, 321.0, 27.0, 22.0 ],
+													"text" : "t60"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-21",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 65.0, 132.0, 82.0, 22.0 ],
+													"text" : "!/ samplerate"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-20",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 65.0, 102.0, 35.0, 23.0 ],
+													"text" : "mtof"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-19",
+													"linecount" : 4,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 188.0, 132.0, 106.0, 64.0 ],
+													"text" : "control amplitude of feedback signal (seconds to reach -60dB)"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-18",
+													"linecount" : 3,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 270.0, 313.0, 105.0, 50.0 ],
+													"text" : "control the mix of the raw & smoothed"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-17",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 135.0, 405.0, 292.0, 21.0 ],
+													"text" : "mix+history used as a cheap smoothing filter"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-16",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 135.0, 435.0, 305.0, 21.0 ],
+													"text" : "need to use a history node for the feedback loops"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-12",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 65.0, 72.0, 208.0, 23.0 ],
+													"text" : "in 2 @comment \"MIDI note number\""
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-8",
+													"linecount" : 2,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 390.0, 30.0, 147.0, 35.0 ],
+													"text" : "Very basic Karplus-Strong string synthesis"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-5",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 151.0, 190.0, 188.0, 23.0 ],
+													"text" : "param decay 0.97 @min 0.00001"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-4",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 360.0, 32.5, 23.0 ],
+													"text" : "*"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-11",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 435.0, 70.0, 23.0 ],
+													"text" : "history avg"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-10",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 270.0, 360.0, 211.0, 23.0 ],
+													"text" : "param dampen 0.25 @min 0 @max 1"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-9",
+													"maxclass" : "newobj",
+													"numinlets" : 3,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 405.0, 46.0, 23.0 ],
+													"text" : "mix"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-6",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 165.0, 39.0, 23.0 ],
+													"text" : "delay"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-2",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 30.0, 143.0, 23.0 ],
+													"text" : "in 1 @comment impulse"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-1",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 60.0, 210.0, 38.0, 23.0 ],
+													"text" : "out 1"
+												}
+
+											}
+ ],
+										"lines" : [ 											{
+												"patchline" : 												{
+													"destination" : [ "obj-9", 2 ],
+													"midpoints" : [ 279.5, 383.5, 81.5, 383.5 ],
+													"source" : [ "obj-10", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-6", 0 ],
+													"midpoints" : [ 54.5, 464.0, 32.0, 464.0, 32.0, 155.0, 54.5, 155.0 ],
+													"order" : 1,
+													"source" : [ "obj-11", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-9", 1 ],
+													"midpoints" : [ 54.5, 464.0, 123.25, 464.0, 123.25, 395.0, 68.0, 395.0 ],
+													"order" : 0,
+													"source" : [ "obj-11", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-20", 0 ],
+													"source" : [ "obj-12", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-3", 0 ],
+													"source" : [ "obj-13", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-6", 0 ],
+													"source" : [ "obj-2", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-13", 1 ],
+													"midpoints" : [ 74.5, 127.0, 174.0, 127.0 ],
+													"order" : 0,
+													"source" : [ "obj-20", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-21", 0 ],
+													"order" : 1,
+													"source" : [ "obj-20", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-6", 1 ],
+													"source" : [ "obj-21", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-4", 1 ],
+													"midpoints" : [ 160.5, 350.0, 68.0, 350.0 ],
+													"source" : [ "obj-3", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-9", 0 ],
+													"source" : [ "obj-4", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-13", 0 ],
+													"source" : [ "obj-5", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-1", 0 ],
+													"midpoints" : [ 54.5, 197.0, 69.5, 197.0 ],
+													"order" : 0,
+													"source" : [ "obj-6", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-4", 0 ],
+													"order" : 1,
+													"source" : [ "obj-6", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-11", 0 ],
+													"midpoints" : [ 54.5, 437.0, 54.5, 437.0 ],
+													"source" : [ "obj-9", 0 ]
+												}
+
+											}
+ ],
+										"bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ],
+										"editing_bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ]
+									}
+,
+									"patching_rect" : [ 491.666666150093079, 398.0, 38.0, 23.0 ],
+									"text" : "gen~"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-14",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 8,
+									"outlettype" : [ "", "", "", "", "", "", "", "" ],
+									"patching_rect" : [ 1212.750035405158997, 79.666667461395264, 92.5, 22.0 ],
+									"text" : "gate 8"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-12",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 8,
+									"outlettype" : [ "", "", "", "", "", "", "", "" ],
+									"patching_rect" : [ 1105.833332180976868, 79.666667461395264, 92.5, 22.0 ],
+									"text" : "gate 8"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-10",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 8,
+									"outlettype" : [ "", "", "", "", "", "", "", "" ],
+									"patching_rect" : [ 997.333332180976868, 79.666667461395264, 92.5, 22.0 ],
+									"text" : "gate 8"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-9",
+									"maxclass" : "newobj",
+									"numinlets" : 6,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 101.0, 219.0, 117.0, 22.0 ],
+									"text" : "scale 0 127 0.6 0. 1."
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato Regular",
+									"fontsize" : 8.0,
+									"id" : "obj-26",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1224.000035405158997, 30.000000596046448, 70.0, 18.0 ],
+									"text" : "r eventFrequency"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato Regular",
+									"fontsize" : 8.0,
+									"id" : "obj-13",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1157.000035405158997, 30.000000596046448, 61.0, 18.0 ],
+									"text" : "r eventVelocity"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato Regular",
+									"fontsize" : 8.0,
+									"id" : "obj-11",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 1090.000035405158997, 30.000000596046448, 64.0, 18.0 ],
+									"text" : "r eventDuration"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"format" : 6,
+									"id" : "obj-8",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 265.0, 252.0, 50.0, 22.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-2",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 265.0, 287.0, 47.0, 22.0 ],
+									"text" : "ftom 1."
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"format" : 6,
+									"id" : "obj-52",
+									"maxclass" : "flonum",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 265.0, 318.0, 50.0, 23.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontface" : 0,
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"hidden" : 1,
+									"id" : "obj-50",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 114.0, 263.0, 86.0, 23.0 ],
+									"text" : "loadmess 2.97"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontface" : 0,
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"hidden" : 1,
+									"id" : "obj-49",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 39.0, 263.0, 79.0, 23.0 ],
+									"text" : "loadmess 0.1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-43",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "signal" ],
+									"patcher" : 									{
+										"fileversion" : 1,
+										"appversion" : 										{
+											"major" : 8,
+											"minor" : 1,
+											"revision" : 11,
+											"architecture" : "x64",
+											"modernui" : 1
+										}
+,
+										"classnamespace" : "box",
+										"rect" : [ 38.0, 87.0, 189.0, 349.0 ],
+										"bglocked" : 0,
+										"openinpresentation" : 0,
+										"default_fontsize" : 12.0,
+										"default_fontface" : 0,
+										"default_fontname" : "Lato",
+										"gridonopen" : 1,
+										"gridsize" : [ 15.0, 15.0 ],
+										"gridsnaponopen" : 1,
+										"objectsnaponopen" : 1,
+										"statusbarvisible" : 2,
+										"toolbarvisible" : 1,
+										"lefttoolbarpinned" : 0,
+										"toptoolbarpinned" : 0,
+										"righttoolbarpinned" : 0,
+										"bottomtoolbarpinned" : 0,
+										"toolbars_unpinned_last_save" : 0,
+										"tallnewobj" : 0,
+										"boxanimatetime" : 200,
+										"enablehscroll" : 1,
+										"enablevscroll" : 1,
+										"devicewidth" : 0.0,
+										"description" : "",
+										"digest" : "",
+										"tags" : "",
+										"style" : "",
+										"subpatcher_template" : "",
+										"assistshowspatchername" : 0,
+										"boxes" : [ 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-17",
+													"maxclass" : "message",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 90.0, 48.0, 23.0 ],
+													"text" : "1, 0 10"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-15",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "signal" ],
+													"patching_rect" : [ 90.0, 165.0, 47.0, 23.0 ],
+													"text" : "noise~"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-14",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 2,
+													"outlettype" : [ "signal", "bang" ],
+													"patching_rect" : [ 45.0, 165.0, 37.0, 23.0 ],
+													"text" : "line~"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-12",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "signal" ],
+													"patching_rect" : [ 45.0, 195.0, 36.0, 23.0 ],
+													"text" : "*~ 0."
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"comment" : "",
+													"id" : "obj-41",
+													"index" : 1,
+													"maxclass" : "inlet",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "bang" ],
+													"patching_rect" : [ 45.0, 30.0, 25.0, 25.0 ]
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"comment" : "",
+													"id" : "obj-42",
+													"index" : 1,
+													"maxclass" : "outlet",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 45.0, 275.0, 25.0, 25.0 ]
+												}
+
+											}
+ ],
+										"lines" : [ 											{
+												"patchline" : 												{
+													"destination" : [ "obj-42", 0 ],
+													"source" : [ "obj-12", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-12", 0 ],
+													"source" : [ "obj-14", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-12", 1 ],
+													"source" : [ "obj-15", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-14", 0 ],
+													"source" : [ "obj-17", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-17", 0 ],
+													"source" : [ "obj-41", 0 ]
+												}
+
+											}
+ ]
+									}
+,
+									"patching_rect" : [ 204.0, 353.0, 63.0, 23.0 ],
+									"saved_object_attributes" : 									{
+										"description" : "",
+										"digest" : "",
+										"fontname" : "Lato",
+										"globalpatchername" : "",
+										"tags" : ""
+									}
+,
+									"text" : "p impulse"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-37",
+									"maxclass" : "button",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 204.0, 323.0, 24.0, 24.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"format" : 6,
+									"id" : "obj-5",
+									"maxclass" : "flonum",
+									"minimum" : 0.0,
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 114.0, 323.0, 53.0, 23.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-6",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 114.0, 353.0, 61.0, 23.0 ],
+									"text" : "decay $1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"format" : 6,
+									"id" : "obj-23",
+									"maxclass" : "flonum",
+									"maximum" : 1.0,
+									"minimum" : 0.0,
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 39.0, 323.0, 50.0, 23.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-24",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 39.0, 353.0, 72.0, 23.0 ],
+									"text" : "dampen $1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Lato",
+									"fontsize" : 12.0,
+									"id" : "obj-3",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "signal" ],
+									"patcher" : 									{
+										"fileversion" : 1,
+										"appversion" : 										{
+											"major" : 8,
+											"minor" : 1,
+											"revision" : 11,
+											"architecture" : "x64",
+											"modernui" : 1
+										}
+,
+										"classnamespace" : "dsp.gen",
+										"rect" : [ 1046.0, 173.0, 605.0, 528.0 ],
+										"bglocked" : 0,
+										"openinpresentation" : 0,
+										"default_fontsize" : 12.0,
+										"default_fontface" : 0,
+										"default_fontname" : "Lato",
+										"gridonopen" : 1,
+										"gridsize" : [ 15.0, 15.0 ],
+										"gridsnaponopen" : 1,
+										"objectsnaponopen" : 1,
+										"statusbarvisible" : 2,
+										"toolbarvisible" : 1,
+										"lefttoolbarpinned" : 0,
+										"toptoolbarpinned" : 0,
+										"righttoolbarpinned" : 0,
+										"bottomtoolbarpinned" : 0,
+										"toolbars_unpinned_last_save" : 0,
+										"tallnewobj" : 0,
+										"boxanimatetime" : 200,
+										"enablehscroll" : 1,
+										"enablevscroll" : 1,
+										"devicewidth" : 0.0,
+										"description" : "",
+										"digest" : "",
+										"tags" : "",
+										"style" : "",
+										"subpatcher_template" : "",
+										"assistshowspatchername" : 0,
+										"boxes" : [ 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-15",
+													"linecount" : 4,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 188.0, 223.0, 103.0, 64.0 ],
+													"text" : "feedback time depends proportionally on frequency!"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-13",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 151.0, 263.0, 32.5, 22.0 ],
+													"text" : "*"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-3",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 151.0, 321.0, 27.0, 22.0 ],
+													"text" : "t60"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial",
+													"fontsize" : 12.0,
+													"id" : "obj-21",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 65.0, 132.0, 82.0, 22.0 ],
+													"text" : "!/ samplerate"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-20",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 65.0, 102.0, 35.0, 23.0 ],
+													"text" : "mtof"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-19",
+													"linecount" : 4,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 188.0, 132.0, 106.0, 64.0 ],
+													"text" : "control amplitude of feedback signal (seconds to reach -60dB)"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-18",
+													"linecount" : 3,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 270.0, 313.0, 105.0, 50.0 ],
+													"text" : "control the mix of the raw & smoothed"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-17",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 135.0, 405.0, 292.0, 21.0 ],
+													"text" : "mix+history used as a cheap smoothing filter"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-16",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 135.0, 435.0, 305.0, 21.0 ],
+													"text" : "need to use a history node for the feedback loops"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-12",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 65.0, 72.0, 208.0, 23.0 ],
+													"text" : "in 2 @comment \"MIDI note number\""
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-8",
+													"linecount" : 2,
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 390.0, 30.0, 147.0, 35.0 ],
+													"text" : "Very basic Karplus-Strong string synthesis"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-5",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 151.0, 190.0, 188.0, 23.0 ],
+													"text" : "param decay 0.97 @min 0.00001"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-4",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 360.0, 32.5, 23.0 ],
+													"text" : "*"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-11",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 435.0, 70.0, 23.0 ],
+													"text" : "history avg"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-10",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 270.0, 360.0, 211.0, 23.0 ],
+													"text" : "param dampen 0.25 @min 0 @max 1"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-9",
+													"maxclass" : "newobj",
+													"numinlets" : 3,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 405.0, 46.0, 23.0 ],
+													"text" : "mix"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-6",
+													"maxclass" : "newobj",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 165.0, 39.0, 23.0 ],
+													"text" : "delay"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-2",
+													"maxclass" : "newobj",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 45.0, 30.0, 143.0, 23.0 ],
+													"text" : "in 1 @comment impulse"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Lato",
+													"fontsize" : 12.0,
+													"id" : "obj-1",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 60.0, 210.0, 38.0, 23.0 ],
+													"text" : "out 1"
+												}
+
+											}
+ ],
+										"lines" : [ 											{
+												"patchline" : 												{
+													"destination" : [ "obj-9", 2 ],
+													"midpoints" : [ 279.5, 383.5, 81.5, 383.5 ],
+													"source" : [ "obj-10", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-6", 0 ],
+													"midpoints" : [ 54.5, 464.0, 32.0, 464.0, 32.0, 155.0, 54.5, 155.0 ],
+													"order" : 1,
+													"source" : [ "obj-11", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-9", 1 ],
+													"midpoints" : [ 54.5, 464.0, 123.25, 464.0, 123.25, 395.0, 68.0, 395.0 ],
+													"order" : 0,
+													"source" : [ "obj-11", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-20", 0 ],
+													"source" : [ "obj-12", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-3", 0 ],
+													"source" : [ "obj-13", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-6", 0 ],
+													"source" : [ "obj-2", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-13", 1 ],
+													"midpoints" : [ 74.5, 127.0, 174.0, 127.0 ],
+													"order" : 0,
+													"source" : [ "obj-20", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-21", 0 ],
+													"order" : 1,
+													"source" : [ "obj-20", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-6", 1 ],
+													"source" : [ "obj-21", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-4", 1 ],
+													"midpoints" : [ 160.5, 350.0, 68.0, 350.0 ],
+													"source" : [ "obj-3", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-9", 0 ],
+													"source" : [ "obj-4", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-13", 0 ],
+													"source" : [ "obj-5", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-1", 0 ],
+													"midpoints" : [ 54.5, 197.0, 69.5, 197.0 ],
+													"order" : 0,
+													"source" : [ "obj-6", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-4", 0 ],
+													"order" : 1,
+													"source" : [ "obj-6", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-11", 0 ],
+													"midpoints" : [ 54.5, 437.0, 54.5, 437.0 ],
+													"source" : [ "obj-9", 0 ]
+												}
+
+											}
+ ],
+										"bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ],
+										"editing_bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ]
+									}
+,
+									"patching_rect" : [ 204.0, 398.0, 38.0, 23.0 ],
+									"text" : "gen~"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-1",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 0,
+									"patching_rect" : [ 1235.000025629997253, 530.333333015441895, 35.0, 22.0 ],
+									"text" : "dac~"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-19",
+									"maxclass" : "gain~",
+									"multichannelvariant" : 0,
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "signal", "" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 1219.000025153160095, 476.999999523162842, 111.0, 32.0 ]
+								}
+
+							}
+ ],
+						"lines" : [ 							{
+								"patchline" : 								{
+									"destination" : [ "obj-102", 0 ],
+									"source" : [ "obj-10", 5 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-115", 0 ],
+									"source" : [ "obj-10", 4 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-27", 0 ],
+									"source" : [ "obj-10", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-41", 0 ],
+									"source" : [ "obj-10", 3 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-5", 0 ],
+									"source" : [ "obj-10", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-58", 0 ],
+									"source" : [ "obj-10", 2 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-76", 0 ],
+									"source" : [ "obj-10", 7 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-89", 0 ],
+									"source" : [ "obj-10", 6 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-106", 0 ],
+									"source" : [ "obj-100", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-100", 0 ],
+									"source" : [ "obj-101", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-103", 0 ],
+									"source" : [ "obj-102", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-106", 0 ],
+									"source" : [ "obj-103", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-105", 0 ],
+									"source" : [ "obj-104", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-106", 0 ],
+									"source" : [ "obj-105", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-19", 0 ],
+									"source" : [ "obj-106", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-117", 0 ],
+									"source" : [ "obj-107", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-109", 0 ],
+									"source" : [ "obj-108", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-110", 0 ],
+									"source" : [ "obj-109", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-122", 0 ],
+									"source" : [ "obj-11", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-114", 0 ],
+									"midpoints" : [ 1462.500035405158997, 349.0, 1443.000035405158997, 349.0, 1443.000035405158997, 319.0, 1401.500035405158997, 319.0 ],
+									"order" : 1,
+									"source" : [ "obj-110", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-119", 1 ],
+									"midpoints" : [ 1462.500035405158997, 386.0, 1420.500035405158997, 386.0 ],
+									"order" : 0,
+									"source" : [ "obj-110", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-115", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-111", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-117", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-112", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-119", 0 ],
+									"source" : [ "obj-113", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-113", 0 ],
+									"source" : [ "obj-114", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-116", 0 ],
+									"source" : [ "obj-115", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-119", 0 ],
+									"source" : [ "obj-116", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-118", 0 ],
+									"source" : [ "obj-117", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-119", 0 ],
+									"source" : [ "obj-118", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-19", 0 ],
+									"source" : [ "obj-119", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-107", 0 ],
+									"source" : [ "obj-12", 4 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-15", 0 ],
+									"source" : [ "obj-12", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-32", 0 ],
+									"source" : [ "obj-12", 3 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-47", 0 ],
+									"source" : [ "obj-12", 2 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-68", 0 ],
+									"source" : [ "obj-12", 7 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-81", 0 ],
+									"source" : [ "obj-12", 6 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-9", 0 ],
+									"source" : [ "obj-12", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-94", 0 ],
+									"source" : [ "obj-12", 5 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-10", 1 ],
+									"source" : [ "obj-122", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-122", 1 ],
+									"source" : [ "obj-124", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-12", 1 ],
+									"source" : [ "obj-13", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-108", 0 ],
+									"source" : [ "obj-14", 4 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-16", 0 ],
+									"source" : [ "obj-14", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-33", 0 ],
+									"source" : [ "obj-14", 3 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-48", 0 ],
+									"source" : [ "obj-14", 2 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-69", 0 ],
+									"source" : [ "obj-14", 7 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-8", 0 ],
+									"source" : [ "obj-14", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-82", 0 ],
+									"source" : [ "obj-14", 6 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-95", 0 ],
+									"source" : [ "obj-14", 5 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-29", 0 ],
+									"source" : [ "obj-15", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-17", 0 ],
+									"source" : [ "obj-16", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-18", 0 ],
+									"source" : [ "obj-17", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-25", 0 ],
+									"midpoints" : [ 562.166666150093079, 349.0, 542.666666150093079, 349.0, 542.666666150093079, 319.0, 501.166666150093079, 319.0 ],
+									"order" : 1,
+									"source" : [ "obj-18", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-31", 1 ],
+									"midpoints" : [ 562.166666150093079, 386.0, 520.166666150093079, 386.0 ],
+									"order" : 0,
+									"source" : [ "obj-18", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-1", 1 ],
+									"order" : 0,
+									"source" : [ "obj-19", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-1", 0 ],
+									"order" : 1,
+									"source" : [ "obj-19", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-52", 0 ],
+									"source" : [ "obj-2", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-27", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-20", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-29", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-21", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-31", 0 ],
+									"source" : [ "obj-22", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-24", 0 ],
+									"source" : [ "obj-23", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-3", 0 ],
+									"source" : [ "obj-24", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-22", 0 ],
+									"source" : [ "obj-25", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-14", 1 ],
+									"order" : 1,
+									"source" : [ "obj-26", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-64", 0 ],
+									"order" : 0,
+									"source" : [ "obj-26", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-28", 0 ],
+									"source" : [ "obj-27", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-31", 0 ],
+									"source" : [ "obj-28", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-30", 0 ],
+									"source" : [ "obj-29", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-19", 0 ],
+									"source" : [ "obj-3", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-31", 0 ],
+									"source" : [ "obj-30", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-19", 0 ],
+									"source" : [ "obj-31", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-44", 0 ],
+									"source" : [ "obj-32", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-34", 0 ],
+									"source" : [ "obj-33", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-35", 0 ],
+									"source" : [ "obj-34", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-40", 0 ],
+									"midpoints" : [ 1157.833332180976868, 349.0, 1138.333332180976868, 349.0, 1138.333332180976868, 319.0, 1096.833332180976868, 319.0 ],
+									"order" : 1,
+									"source" : [ "obj-35", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-46", 1 ],
+									"midpoints" : [ 1157.833332180976868, 386.0, 1115.833332180976868, 386.0 ],
+									"order" : 0,
+									"source" : [ "obj-35", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-41", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-36", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-43", 0 ],
+									"source" : [ "obj-37", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-44", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-38", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-46", 0 ],
+									"source" : [ "obj-39", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-39", 0 ],
+									"source" : [ "obj-40", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-42", 0 ],
+									"source" : [ "obj-41", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-46", 0 ],
+									"source" : [ "obj-42", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-3", 0 ],
+									"source" : [ "obj-43", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-45", 0 ],
+									"source" : [ "obj-44", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-46", 0 ],
+									"source" : [ "obj-45", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-19", 0 ],
+									"source" : [ "obj-46", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-60", 0 ],
+									"source" : [ "obj-47", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-51", 0 ],
+									"source" : [ "obj-48", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-23", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-49", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-6", 0 ],
+									"source" : [ "obj-5", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-5", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-50", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-53", 0 ],
+									"source" : [ "obj-51", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-3", 1 ],
+									"midpoints" : [ 274.5, 386.0, 232.5, 386.0 ],
+									"order" : 0,
+									"source" : [ "obj-52", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-37", 0 ],
+									"midpoints" : [ 274.5, 349.0, 255.0, 349.0, 255.0, 319.0, 213.5, 319.0 ],
+									"order" : 1,
+									"source" : [ "obj-52", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-57", 0 ],
+									"midpoints" : [ 852.833332180976868, 349.0, 833.333332180976868, 349.0, 833.333332180976868, 319.0, 791.833332180976868, 319.0 ],
+									"order" : 1,
+									"source" : [ "obj-53", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-62", 1 ],
+									"midpoints" : [ 852.833332180976868, 386.0, 810.833332180976868, 386.0 ],
+									"order" : 0,
+									"source" : [ "obj-53", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-58", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-54", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-60", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-55", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-62", 0 ],
+									"source" : [ "obj-56", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-56", 0 ],
+									"source" : [ "obj-57", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-59", 0 ],
+									"source" : [ "obj-58", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-62", 0 ],
+									"source" : [ "obj-59", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-3", 0 ],
+									"source" : [ "obj-6", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-61", 0 ],
+									"source" : [ "obj-60", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-62", 0 ],
+									"source" : [ "obj-61", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-19", 0 ],
+									"source" : [ "obj-62", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-65", 0 ],
+									"source" : [ "obj-64", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-67", 0 ],
+									"source" : [ "obj-65", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-10", 0 ],
+									"order" : 2,
+									"source" : [ "obj-67", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-12", 0 ],
+									"order" : 1,
+									"source" : [ "obj-67", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-14", 0 ],
+									"order" : 0,
+									"source" : [ "obj-67", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-78", 0 ],
+									"source" : [ "obj-68", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-70", 0 ],
+									"source" : [ "obj-69", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-71", 0 ],
+									"source" : [ "obj-70", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-75", 0 ],
+									"midpoints" : [ 2345.833367586135864, 349.0, 2326.333367586135864, 349.0, 2326.333367586135864, 319.0, 2284.833367586135864, 319.0 ],
+									"order" : 1,
+									"source" : [ "obj-71", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-80", 1 ],
+									"midpoints" : [ 2345.833367586135864, 386.0, 2303.833367586135864, 386.0 ],
+									"order" : 0,
+									"source" : [ "obj-71", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-76", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-72", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-78", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-73", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-80", 0 ],
+									"source" : [ "obj-74", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-74", 0 ],
+									"source" : [ "obj-75", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-77", 0 ],
+									"source" : [ "obj-76", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-80", 0 ],
+									"source" : [ "obj-77", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-79", 0 ],
+									"source" : [ "obj-78", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-80", 0 ],
+									"source" : [ "obj-79", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-2", 0 ],
+									"source" : [ "obj-8", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-19", 0 ],
+									"source" : [ "obj-80", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-91", 0 ],
+									"source" : [ "obj-81", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-83", 0 ],
+									"source" : [ "obj-82", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-84", 0 ],
+									"source" : [ "obj-83", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-88", 0 ],
+									"midpoints" : [ 2040.833367586135864, 349.0, 2021.333367586135864, 349.0, 2021.333367586135864, 319.0, 1979.833367586135864, 319.0 ],
+									"order" : 1,
+									"source" : [ "obj-84", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-93", 1 ],
+									"midpoints" : [ 2040.833367586135864, 386.0, 1998.833367586135864, 386.0 ],
+									"order" : 0,
+									"source" : [ "obj-84", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-89", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-85", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-91", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-86", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-93", 0 ],
+									"source" : [ "obj-87", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-87", 0 ],
+									"source" : [ "obj-88", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-90", 0 ],
+									"source" : [ "obj-89", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-23", 0 ],
+									"source" : [ "obj-9", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-93", 0 ],
+									"source" : [ "obj-90", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-92", 0 ],
+									"source" : [ "obj-91", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-93", 0 ],
+									"source" : [ "obj-92", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-19", 0 ],
+									"source" : [ "obj-93", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-104", 0 ],
+									"source" : [ "obj-94", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-96", 0 ],
+									"source" : [ "obj-95", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-97", 0 ],
+									"source" : [ "obj-96", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-101", 0 ],
+									"midpoints" : [ 1750.166701555252075, 349.0, 1730.666701555252075, 349.0, 1730.666701555252075, 319.0, 1689.166701555252075, 319.0 ],
+									"order" : 1,
+									"source" : [ "obj-97", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-106", 1 ],
+									"midpoints" : [ 1750.166701555252075, 386.0, 1708.166701555252075, 386.0 ],
+									"order" : 0,
+									"source" : [ "obj-97", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-102", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-98", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-104", 0 ],
+									"hidden" : 1,
+									"source" : [ "obj-99", 0 ]
+								}
+
+							}
+ ]
+					}
+,
+					"patching_rect" : [ 462.0, 233.0, 145.0, 22.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 415.138073104259092, 232.663719415664616, 131.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"description" : "",
+						"digest" : "",
+						"globalpatchername" : "",
+						"tags" : ""
+					}
+,
+					"text" : "p simpleAudioExample"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-196",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1088.900070548057556, 630.8333420753479, 52.0, 17.0 ],
+					"text" : "r toEzPlayer"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"fontname" : "Lato Regular",
 					"id" : "obj-195",
 					"maxclass" : "comment",
@@ -361,6 +7923,7 @@
 				"box" : 				{
 					"id" : "obj-44",
 					"maxclass" : "number",
+					"minimum" : 0,
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
@@ -1069,7 +8632,7 @@
 									"presentation_rect" : [ 2.400070548057556, 25.5, 1533.0, 327.544953280687423 ],
 									"setminmax" : [ 0.0, 1.0 ],
 									"setstyle" : 1,
-									"size" : 8243,
+									"size" : 7832,
 									"slidercolor" : [ 0.419607843137255, 0.419607843137255, 0.427450980392157, 1.0 ],
 									"style" : "chiba"
 								}
@@ -1409,7 +8972,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 116.0, 1017.0, 832.0, 134.0 ],
+						"rect" : [ 93.0, 640.0, 832.0, 221.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -1446,7 +9009,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 146.933326780796051, 197.0, 70.0, 18.0 ],
+									"patching_rect" : [ 191.933326780796051, 148.0, 70.0, 18.0 ],
 									"text" : "s eventFrequency"
 								}
 
@@ -1460,7 +9023,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 146.933326780796051, 155.0, 34.0, 18.0 ],
+									"patching_rect" : [ 191.933326780796051, 125.0, 34.0, 18.0 ],
 									"text" : "mtof 1."
 								}
 
@@ -1474,7 +9037,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "float" ],
-									"patching_rect" : [ 146.933326780796051, 133.0, 30.0, 18.0 ],
+									"patching_rect" : [ 191.933326780796051, 103.0, 30.0, 18.0 ],
 									"text" : "* 0.01"
 								}
 
@@ -1578,7 +9141,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 146.933326780796051, 103.0, 62.0, 18.0 ],
+									"patching_rect" : [ 122.933326780796051, 103.0, 62.0, 18.0 ],
 									"text" : "s eventVelocity"
 								}
 
@@ -1604,7 +9167,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 21.933326780796051, 103.0, 54.0, 18.0 ],
+									"patching_rect" : [ -2.066673219203949, 103.0, 54.0, 18.0 ],
 									"text" : "s eventCents"
 								}
 
@@ -1617,7 +9180,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 79.933326780796051, 103.0, 65.0, 18.0 ],
+									"patching_rect" : [ 55.933326780796051, 103.0, 65.0, 18.0 ],
 									"text" : "s eventDuration"
 								}
 
@@ -4881,59 +12444,59 @@
 				"box" : 				{
 					"data" : 					{
 						"metadata" : 						{
-							"specimenID" : "20210509194617305_jlm",
+							"specimenID" : "20210509222119722_jlm",
 							"GenoMusVersion" : "0.9.00",
 							"species" : "piano",
 							"iterations" : 1,
-							"milliseconsElapsed" : 13,
-							"depth" : 4,
+							"milliseconsElapsed" : 5,
+							"depth" : 1,
 							"voices" : 1,
-							"events" : 3,
-							"decGenotypeLength" : 101,
-							"encGenotypeLength" : 45,
-							"germinalVectorLength" : 8243,
-							"germinalVectorDeviation" : 2487.733807939430335
+							"events" : 1,
+							"decGenotypeLength" : 16,
+							"encGenotypeLength" : 27,
+							"germinalVectorLength" : 7832,
+							"germinalVectorDeviation" : 2361.942660707107734
 						}
 ,
 						"initialConditions" : 						{
-							"germinalVector" : [ 0.248676, 0.605443, 0.612056, 0.449538, 0.413075, 0.920323, 0.107828, 0.067236, 0.240819, 0.817469, 0.663807, 0.770916, 0.256306, 0.523866, 0.176262, 0.490831, 0.872929, 0.366783, 0.408021, 0.844027, 0.590636, 0.1726, 0.309516, 0.830618, 0.461016, 0.967935, 0.382849, 0.872487, 0.240113, 0.696481, 0.028451, 0.902913, 0.001499, 0.410986, 0.610814, 0.355196, 0.480351, 0.59783, 0.991759, 0.708994, 0.473648, 0.070855, 0.636481, 0.976924, 0.936677, 0.422415, 0.57661, 0.204652, 0.171607, 0.922211, 0.334363, 0.719534, 0.575086, 0.071519, 0.558198, 0.154565, 0.470034, 0.012656, 0.952767, 0.793345, 0.989686, 0.610081, 0.331127, 0.020568, 0.279733, 0.873709, 0.413537, 0.858795, 0.91637, 0.344941, 0.219751, 0.070827, 0.306773, 0.388872, 0.531189, 0.429646, 0.647352, 0.270221, 0.383832, 0.376219, 0.011751, 0.230836, 0.988005, 0.481636, 0.033899, 0.050365, 0.358919, 0.391044, 0.946468, 0.220095, 0.735772, 0.050411, 0.080233, 0.580497, 0.50565, 0.707228, 0.611368, 0.676479, 0.054355, 0.657117, 0.992879, 0.251841, 0.768051, 0.706458, 0.075411, 0.891651, 0.802737, 0.157459, 0.022951, 0.066065, 0.405658, 0.979974, 0.562975, 0.074327, 0.374992, 0.687224, 0.025236, 0.518658, 0.795353, 0.771055, 0.639808, 0.19072, 0.371009, 0.708318, 0.321158, 0.00081, 0.770167, 0.945122, 0.730939, 0.315518, 0.930635, 0.896143, 0.883362, 0.352133, 0.659422, 0.257853, 0.83788, 0.342263, 0.92118, 0.242369, 0.53505, 0.321, 0.799459, 0.274042, 0.53733, 0.858068, 0.365268, 0.985181, 0.639652, 0.058661, 0.694548, 0.401516, 0.280177, 0.50803, 0.63339, 0.894888, 0.560406, 0.679606, 0.624121, 0.848159, 0.601487, 0.911383, 0.514683, 0.591049, 0.59854, 0.792671, 0.591461, 0.153201, 0.60553, 0.320733, 0.41784, 0.571877, 0.94516, 0.588985, 0.363717, 0.96242, 0.416136, 0.790857, 0.564046, 0.922025, 0.89495, 0.478406, 0.877937, 0.582876, 0.351436, 0.64542, 0.499449, 0.177421, 0.62698, 0.694068, 0.42283, 0.88894, 0.27454, 0.320085, 0.474383, 0.471894, 0.04459, 0.234596, 0.590951, 0.924274, 0.765863, 0.487439, 0.01959, 0.888052, 0.661829, 0.606467, 0.695116, 0.151191, 0.813829, 0.619441, 0.93226, 0.630298, 0.063615, 0.368273, 0.37712, 0.929131, 0.298377, 0.531374, 0.665081, 0.801548, 0.017559, 0.863543, 0.817937, 0.13817, 0.177734, 0.135339, 0.424373, 0.46923, 0.071406, 0.72594, 0.22372, 0.655416, 0.042013, 0.591644, 0.171037, 0.626108, 0.627067, 0.394968, 0.167766, 0.840103, 0.449613, 0.996447, 0.832169, 0.70699, 0.484815, 0.085747, 0.150459, 0.459049, 0.576868, 0.070406, 0.198928, 0.269454, 0.439825, 0.637616, 0.622068, 0.700452, 0.4929, 0.99089, 0.97633, 0.016772, 0.021665, 0.004213, 0.932285, 0.809093, 0.93974, 0.278454, 0.19285, 0.926628, 0.432194, 0.612495, 0.510865, 0.465864, 0.74706, 0.906831, 0.970348, 0.027436, 0.694052, 0.814346, 0.426697, 0.682126, 0.867567, 0.613961, 0.464307, 0.60275, 0.235692, 0.819489, 0.92349, 0.470545, 0.778027, 0.317528, 0.130307, 0.153178, 0.442099, 0.102076, 0.922004, 0.02822, 0.569436, 0.108719, 0.264185, 0.312807, 0.572871, 0.595308, 0.137978, 0.387786, 0.485091, 0.856417, 0.984384, 0.460391, 0.326455, 0.45371, 0.02872, 0.239163, 0.911157, 0.25541, 0.854666, 0.799101, 0.7657, 0.253958, 0.939446, 0.422301, 0.288831, 0.060341, 0.168182, 0.904423, 0.29265, 0.086217, 0.23094, 0.505704, 0.420651, 0.665607, 0.719894, 0.508276, 0.077365, 0.828396, 0.783369, 0.397803, 0.90205, 0.011244, 0.286051, 0.425617, 0.510499, 0.306635, 0.943323, 0.648637, 0.897331, 0.570359, 0.31337, 0.72041, 0.463258, 0.079037, 0.118124, 0.191599, 0.314546, 0.033158, 0.253914, 0.310351, 0.047487, 0.750681, 0.862659, 0.811534, 0.887564, 0.960373, 0.193824, 0.70546, 0.871566, 0.448149, 0.065464, 0.76096, 0.420026, 0.341539, 0.565106, 0.947856, 0.011469, 0.124536, 0.59446, 0.759655, 0.044235, 0.197636, 0.447221, 0.342988, 0.770259, 0.78071, 0.835902, 0.302084, 0.246723, 0.130905, 0.9914, 0.661819, 0.296463, 0.026913, 0.296103, 0.773238, 0.167114, 0.471947, 0.027316, 0.018915, 0.674508, 0.07342, 0.249726, 0.537065, 0.719426, 0.269844, 0.585449, 0.371041, 0.463921, 0.876568, 0.38119, 0.369385, 0.091239, 0.273386, 0.14852, 0.737213, 0.12476, 0.421358, 0.909345, 0.055576, 0.52297, 0.126158, 0.646415, 0.947636, 0.248639, 0.791943, 0.117722, 0.37564, 0.648626, 0.608926, 0.059201, 0.288051, 0.846727, 0.298847, 0.982904, 0.073005, 0.29178, 0.413401, 0.066947, 0.743641, 0.125793, 0.73048, 0.68155, 0.370964, 0.878856, 0.341108, 0.146297, 0.033197, 0.519542, 0.161866, 0.529954, 0.119083, 0.154776, 0.891383, 0.024819, 0.558994, 0.877533, 0.786834, 0.002979, 0.981047, 0.570974, 0.824506, 0.424586, 0.676503, 0.293375, 0.455445, 0.054342, 0.199248, 0.16681, 0.390235, 0.36971, 0.580516, 0.919467, 0.621856, 0.93216, 0.814855, 0.817139, 0.954103, 0.976381, 0.368779, 0.114078, 0.051002, 0.727715, 0.838697, 0.811325, 0.485358, 0.007159, 0.062506, 0.414748, 0.772532, 0.684538, 0.195897, 0.217107, 0.695208, 0.414694, 0.465756, 0.885564, 0.955206, 0.589815, 0.869369, 0.847666, 0.546941, 0.49341, 0.816558, 0.593448, 0.775354, 0.511687, 0.597689, 0.754927, 0.965919, 0.979934, 0.122665, 0.912834, 0.206056, 0.844182, 0.740819, 0.124824, 0.357876, 0.346506, 0.428768, 0.626682, 0.18651, 0.176203, 0.662187, 0.56449, 0.419379, 0.520854, 0.77486, 0.26609, 0.762833, 0.104307, 0.52896, 0.498873, 0.530561, 0.837343, 0.891686, 0.815704, 0.115117, 0.394044, 0.237062, 0.250622, 0.851401, 0.59734, 0.934605, 0.526384, 0.214099, 0.506665, 0.972362, 0.406396, 0.738179, 0.795241, 0.628648, 0.149975, 0.20824, 0.924502, 0.427888, 0.733906, 0.8048, 0.526236, 0.427047, 0.77588, 0.792242, 0.93396, 0.173929, 0.35261, 0.755731, 0.96906, 0.772457, 0.607916, 0.918702, 0.801788, 0.133125, 0.737457, 0.85967, 0.402196, 0.803412, 0.771365, 0.072211, 0.303021, 0.026541, 0.89333, 0.803618, 0.094347, 0.033351, 0.680054, 0.566668, 0.326697, 0.245825, 0.576319, 0.815815, 0.975036, 0.410329, 0.677817, 0.206435, 0.074362, 0.195359, 0.428905, 0.588467, 0.909021, 0.644082, 0.990139, 0.838618, 0.039299, 0.250215, 0.358417, 0.292507, 0.26403, 0.460708, 0.655942, 0.399552, 0.821092, 0.633396, 0.291351, 0.131024, 0.783979, 0.787597, 0.672131, 0.699977, 0.976626, 0.265058, 0.658786, 0.880122, 0.097152, 0.617119, 0.953745, 0.263066, 0.864119, 0.293686, 0.783302, 0.340971, 0.315845, 0.000982, 0.525089, 0.668552, 0.030035, 0.593518, 0.797339, 0.808422, 0.912134, 0.156651, 0.371682, 0.373775, 0.131761, 0.991013, 0.92515, 0.843744, 0.459498, 0.597, 0.345239, 0.141096, 0.31762, 0.756099, 0.818024, 0.381481, 0.653074, 0.537657, 0.289887, 0.309705, 0.802872, 0.438543, 0.708037, 0.93463, 0.348084, 0.121464, 0.312584, 0.610505, 0.728273, 0.37965, 0.737563, 0.385272, 0.041158, 0.290284, 0.950969, 0.356522, 0.619789, 0.940324, 0.339507, 0.005553, 0.20038, 0.297788, 0.508515, 0.406088, 0.198484, 0.706764, 0.892721, 0.658705, 0.032756, 0.658573, 0.619008, 0.920773, 0.390205, 0.237601, 0.416061, 0.906639, 0.762075, 0.424711, 0.589106, 0.790608, 0.255522, 0.37273, 0.213497, 0.177443, 0.728577, 0.00224, 0.941312, 0.491328, 0.258776, 0.7048, 0.024265, 0.914344, 0.46909, 0.616357, 0.424852, 0.28197, 0.599893, 0.693997, 0.656233, 0.699167, 0.734418, 0.976408, 0.249374, 0.868372, 0.500295, 0.157164, 0.962188, 0.930512, 0.302902, 0.253397, 0.905268, 0.880265, 0.133245, 0.696965, 0.089584, 0.964654, 0.638967, 0.865275, 0.407043, 0.817486, 0.419574, 0.163487, 0.96402, 0.650287, 0.221083, 0.706161, 0.0356, 0.822541, 0.156431, 0.580091, 0.93085, 0.396229, 0.93806, 0.231637, 0.4977, 0.634765, 0.920368, 0.221887, 0.367372, 0.907228, 0.781448, 0.089257, 0.203605, 0.153539, 0.19286, 0.608055, 0.978633, 0.851866, 0.76579, 0.15843, 0.819567, 0.195985, 0.403265, 0.569008, 0.879696, 0.717135, 0.872103, 0.653602, 0.351005, 0.450349, 0.007602, 0.158935, 0.572463, 0.325023, 0.032322, 0.82029, 0.813087, 0.33082, 0.489292, 0.987325, 0.680907, 0.032407, 0.229477, 0.48774, 0.902468, 0.568856, 0.733061, 0.256148, 0.300788, 0.43547, 0.645003, 0.36072, 0.500664, 0.072498, 0.014303, 0.98549, 0.592603, 0.25198, 0.29325, 0.569834, 0.567565, 0.577361, 0.278968, 0.665104, 0.534107, 0.195574, 0.311158, 0.952102, 0.638798, 0.530053, 0.291019, 0.848606, 0.094239, 0.558685, 0.796526, 0.182476, 0.6442, 0.382107, 0.583128, 0.371055, 0.391293, 0.962044, 0.97569, 0.615136, 0.984854, 0.2664, 0.204591, 0.834478, 0.636372, 0.051302, 0.843918, 0.37474, 0.779748, 0.900814, 0.650331, 0.778765, 0.742743, 0.331314, 0.313373, 0.629666, 0.105772, 0.347127, 0.977123, 0.033169, 0.176785, 0.488752, 0.554452, 0.057204, 0.640655, 0.132677, 0.84685, 0.614262, 0.270076, 0.312339, 0.263246, 0.184159, 0.719383, 0.529113, 0.204191, 0.311411, 0.234425, 0.630801, 0.646044, 0.983135, 0.728425, 0.523816, 0.269433, 0.395596, 0.944377, 0.852395, 0.547802, 0.779763, 0.490158, 0.135107, 0.05024, 0.288694, 0.607835, 0.062758, 0.597054, 0.025663, 0.073172, 0.132836, 0.350356, 0.327787, 0.793846, 0.423761, 0.608577, 0.15735, 0.089745, 0.257337, 0.116312, 0.388703, 0.953897, 0.181811, 0.603005, 0.296826, 0.154724, 0.208584, 0.419734, 0.365357, 0.170355, 0.438148, 0.151255, 0.985603, 0.074236, 0.404207, 0.729918, 0.162172, 0.7904, 0.97598, 0.097593, 0.968566, 0.005053, 0.574043, 0.624551, 0.823323, 0.721512, 0.767269, 0.989315, 0.172668, 0.030753, 0.266759, 0.618677, 0.654198, 0.67012, 0.983219, 0.710886, 0.10246, 0.729485, 0.788716, 0.693219, 0.410267, 0.344979, 0.427782, 0.335773, 0.52888, 0.969604, 0.775009, 0.603567, 0.972993, 0.700338, 0.486145, 0.285469, 0.942044, 0.967847, 0.685896, 0.383179, 0.87698, 0.081465, 0.848795, 0.76198, 0.737223, 0.040402, 0.727619, 0.6185, 0.150553, 0.197145, 0.920166, 0.769797, 0.559244, 0.039675, 0.972316, 0.79256, 0.171462, 0.436847, 0.83708, 0.552283, 0.629199, 0.307617, 0.213494, 0.640887, 0.068894, 0.505248, 0.015534, 0.088162, 0.521684, 0.664995, 0.656934, 0.905682, 0.479983, 0.981808, 0.155067, 0.486886, 0.742198, 0.539038, 0.080746, 0.328977, 0.048534, 0.481212, 0.89049, 0.556127, 0.03954, 0.766302, 0.779767, 0.13688, 0.54548, 0.156482, 0.44502, 0.057228, 0.68164, 0.584239, 0.368224, 0.706624, 0.701425, 0.971406, 0.120453, 0.745391, 0.269462, 0.795451, 0.312124, 0.55945, 0.295926, 0.35679, 0.858377, 0.183427, 0.965466, 0.653524, 0.069963, 0.70146, 0.888023, 0.575663, 0.022128, 0.855994, 0.440333, 0.627218, 0.542302, 0.604256, 0.499375, 0.448494, 0.00516, 0.757925, 0.684491, 0.862377, 0.754844, 0.203067, 0.273745, 0.442435, 0.364507, 0.706519, 0.436219, 0.920001, 0.81546, 0.056169, 0.782754, 0.519351, 0.211539, 0.250755, 0.40677, 0.73991, 0.82002, 0.587467, 0.0537, 0.572336, 0.294336, 0.513946, 0.157594, 0.46006, 0.461652, 0.160092, 0.284682, 0.714379, 0.437053, 0.931401, 0.780646, 0.678259, 0.82236, 0.338392, 0.348922, 0.494483, 0.875001, 0.746919, 0.609547, 0.409158, 0.220458, 0.388637, 0.548398, 0.175461, 0.68217, 0.501348, 0.013299, 0.844714, 0.134863, 0.61614, 0.123985, 0.936712, 0.710918, 0.546415, 0.07248, 0.781846, 0.988712, 0.567266, 0.666942, 0.578032, 0.697085, 0.585147, 0.631737, 0.179943, 0.193577, 0.694453, 0.674431, 0.855639, 0.068297, 0.43441, 0.689751, 0.550144, 0.768984, 0.634202, 0.706746, 0.453466, 0.269474, 0.387527, 0.182027, 0.994661, 0.057359, 0.193025, 0.846678, 0.443289, 0.241079, 0.858007, 0.180697, 0.37428, 0.432103, 0.424195, 0.510227, 0.897865, 0.063842, 0.539025, 0.28885, 0.879791, 0.893246, 0.885815, 0.281381, 0.420495, 0.60913, 0.337946, 0.826266, 0.372398, 0.94052, 0.175334, 0.707928, 0.076677, 0.391993, 0.8882, 0.198329, 0.949863, 0.700313, 0.61776, 0.116562, 0.079244, 0.323866, 0.709273, 0.247604, 0.207593, 0.818143, 0.9575, 0.472415, 0.367489, 0.398344, 0.123248, 0.078898, 0.706799, 0.48495, 0.071266, 0.442554, 0.146442, 0.044977, 0.000749, 0.178708, 0.792975, 0.406382, 0.44255, 0.575094, 0.845861, 0.639966, 0.713809, 0.624861, 0.091529, 0.651904, 0.863659, 0.756167, 0.238455, 0.030525, 0.916165, 0.076949, 0.491188, 0.477473, 0.139093, 0.186048, 0.114317, 0.228515, 0.964717, 0.831481, 0.326902, 0.921299, 0.824895, 0.459787, 0.275874, 0.339491, 0.502236, 0.997818, 0.44918, 0.414739, 0.039337, 0.877799, 0.778055, 0.53229, 0.401084, 0.533521, 0.895831, 0.403619, 0.578932, 0.169389, 0.802754, 0.303003, 0.368215, 0.890904, 0.795324, 0.831596, 0.138516, 0.624411, 0.607878, 0.531634, 0.036892, 0.225236, 0.323982, 0.492129, 0.898479, 0.726704, 0.128974, 0.493419, 0.810684, 0.469221, 0.114783, 0.416013, 0.846637, 0.074469, 0.023331, 0.425011, 0.689243, 0.083548, 0.661313, 0.993501, 0.155579, 0.630601, 0.618299, 0.513368, 0.226748, 0.697665, 0.012404, 0.603898, 0.081357, 0.419349, 0.934697, 0.534609, 0.261619, 0.844468, 0.003421, 0.856539, 0.074669, 0.302752, 0.296326, 0.911389, 0.64608, 0.83531, 0.210413, 0.633087, 0.526753, 0.33549, 0.949016, 0.73331, 0.782753, 0.003281, 0.006713, 0.969407, 0.934927, 0.426103, 0.012535, 0.46835, 0.234354, 0.682552, 0.065074, 0.337975, 0.519571, 0.213794, 0.348622, 0.669071, 0.060387, 0.158504, 0.772397, 0.889826, 0.595296, 0.23555, 0.291385, 0.155317, 0.447656, 0.423819, 0.79969, 0.033334, 0.884534, 0.235114, 0.823738, 0.136808, 0.504918, 0.585118, 0.939076, 0.023399, 0.456659, 0.848508, 0.923554, 0.269076, 0.209139, 0.763963, 0.794488, 0.489649, 0.314511, 0.56766, 0.225445, 0.491246, 0.712012, 0.967497, 0.363657, 0.546561, 0.731989, 0.346797, 0.208778, 0.853847, 0.896652, 0.697024, 0.099915, 0.604017, 0.807675, 0.687107, 0.133517, 0.799044, 0.988604, 0.08984, 0.788882, 0.721417, 0.56149, 0.243503, 0.806446, 0.237378, 0.92375, 0.048278, 0.856007, 0.170466, 0.493488, 0.192517, 0.703476, 0.186613, 0.9614, 0.348056, 0.014164, 0.652697, 0.691027, 0.796901, 0.172891, 0.702836, 0.017621, 0.538259, 0.544779, 0.273034, 0.334869, 0.927613, 0.844812, 0.09437, 0.309176, 0.259046, 0.530245, 0.028687, 0.843799, 0.205473, 0.586334, 0.219387, 0.621594, 0.385093, 0.841707, 0.167026, 0.461381, 0.061588, 0.101072, 0.988249, 0.773864, 0.129879, 0.086361, 0.017047, 0.657383, 0.01659, 0.814531, 0.000995, 0.597727, 0.593266, 0.882681, 0.199011, 0.390198, 0.350018, 0.082409, 0.923937, 0.615693, 0.527504, 0.663149, 0.99855, 0.350634, 0.197461, 0.798847, 0.019634, 0.544641, 0.142247, 0.445518, 0.413151, 0.047798, 0.721056, 0.821672, 0.729288, 0.766192, 0.280025, 0.11295, 0.862984, 0.165932, 0.263472, 0.70179, 0.708994, 0.498765, 0.234248, 0.868992, 0.533553, 0.066159, 0.942978, 0.817051, 0.179127, 0.39104, 0.168129, 0.87858, 0.849147, 0.041918, 0.548941, 0.312148, 0.974642, 0.56132, 0.838077, 0.969178, 0.763927, 0.056341, 0.138158, 0.904925, 0.136751, 0.859387, 0.768054, 0.89193, 0.383576, 0.87654, 0.51738, 0.040632, 0.205765, 0.448696, 0.662159, 0.809897, 0.151035, 0.396922, 0.715593, 0.849663, 0.526752, 0.327208, 0.042316, 0.651915, 0.889309, 0.417302, 0.708389, 0.92484, 0.691663, 0.015576, 0.118179, 0.161091, 0.536842, 0.736627, 0.156647, 0.903596, 0.887219, 0.180192, 0.868938, 0.681837, 0.093978, 0.001262, 0.949673, 0.318509, 0.868717, 0.412426, 0.733313, 0.487319, 0.038692, 0.531369, 0.371329, 0.424447, 0.514007, 0.267718, 0.153185, 0.219675, 0.633996, 0.976018, 0.317054, 0.822881, 0.182067, 0.821793, 0.854953, 0.543499, 0.029982, 0.909389, 0.717732, 0.651375, 0.555858, 0.500274, 0.695285, 0.446331, 0.648462, 0.306076, 0.412054, 0.011621, 0.067607, 0.565319, 0.002119, 0.029683, 0.110362, 0.126426, 0.237457, 0.629424, 0.608123, 0.137855, 0.221298, 0.657338, 0.099663, 0.718442, 0.163349, 0.913816, 0.599521, 0.693476, 0.462789, 0.478532, 0.105547, 0.332341, 0.229539, 0.10605, 0.869176, 0.974322, 0.722098, 0.449249, 0.789012, 0.835972, 0.027491, 0.350014, 0.141858, 0.868197, 0.119721, 0.449232, 0.703874, 0.053046, 0.593097, 0.808655, 0.305766, 0.082003, 0.487696, 0.199507, 0.887617, 0.477243, 0.324612, 0.109159, 0.273684, 0.248728, 0.585623, 0.748865, 0.921559, 0.257817, 0.139513, 0.485016, 0.426745, 0.76668, 0.504546, 0.357256, 0.116576, 0.119306, 0.628322, 0.70862, 0.838684, 0.065557, 0.486398, 0.238306, 0.228097, 0.763645, 0.378736, 0.78752, 0.798417, 0.113327, 0.311984, 0.57213, 0.68732, 0.651747, 0.90416, 0.116345, 0.373677, 0.109397, 0.064993, 0.505621, 0.94693, 0.265739, 0.528447, 0.169913, 0.352837, 0.610097, 0.321761, 0.266694, 0.805345, 0.778885, 0.035867, 0.29763, 0.569175, 0.685377, 0.094466, 0.01519, 0.902542, 0.447278, 0.092356, 0.462766, 0.598574, 0.965313, 0.404011, 0.770942, 0.271706, 0.633541, 0.737102, 0.730308, 0.422855, 0.192994, 0.788968, 0.109159, 0.823644, 0.936534, 0.716404, 0.406624, 0.669903, 0.703379, 0.09615, 0.021225, 0.436532, 0.31542, 0.316711, 0.062667, 0.897506, 0.607063, 0.502674, 0.597793, 0.761182, 0.414275, 0.842428, 0.183756, 0.019311, 0.273148, 0.194296, 0.69587, 0.612356, 0.5111, 0.549083, 0.995325, 0.639758, 0.004601, 0.052821, 0.248796, 0.929987, 0.697576, 0.17495, 0.242929, 0.473268, 0.538933, 0.641491, 0.692069, 0.45329, 0.899356, 0.017699, 0.228442, 0.977114, 0.365687, 0.491123, 0.48126, 0.193297, 0.212871, 0.870917, 0.429577, 0.896218, 0.36649, 0.767598, 0.981518, 0.439789, 0.685609, 0.443686, 0.193254, 0.667515, 0.549112, 0.178859, 0.880971, 0.467134, 0.270354, 0.298837, 0.940293, 0.241584, 0.761233, 0.061837, 0.699975, 0.424313, 0.606906, 0.372553, 0.403729, 0.78061, 0.216346, 0.820521, 0.041454, 0.947701, 0.782702, 0.410249, 0.470236, 0.881308, 0.954034, 0.067948, 0.97099, 0.906265, 0.118453, 0.756628, 0.68095, 0.957396, 0.65149, 0.371393, 0.494759, 0.939489, 0.956051, 0.683629, 0.513196, 0.042801, 0.801716, 0.171371, 0.352941, 0.022487, 0.638452, 0.401312, 0.513688, 0.891592, 0.86257, 0.394291, 0.027705, 0.635859, 0.238619, 0.966887, 0.728197, 0.396059, 0.472745, 0.75856, 0.441122, 0.497969, 0.585203, 0.718003, 0.747013, 0.53551, 0.026102, 0.812867, 0.847383, 0.245786, 0.398789, 0.467183, 0.712205, 0.972925, 0.578198, 0.263002, 0.683335, 0.689134, 0.426152, 0.611585, 0.541876, 0.20895, 0.561012, 0.729082, 0.312611, 0.681854, 0.148604, 0.237153, 0.446729, 0.521223, 0.412099, 0.184199, 0.710705, 0.234003, 0.42116, 0.231344, 0.551014, 0.321242, 0.299913, 0.979147, 0.338229, 0.82294, 0.732632, 0.307702, 0.935978, 0.841413, 0.146531, 0.229698, 0.626659, 0.826548, 0.433977, 0.524533, 0.8234, 0.266664, 0.511662, 0.449699, 0.933783, 0.152101, 0.07472, 0.08557, 0.441819, 0.087583, 0.819737, 0.068383, 0.89178, 0.451145, 0.340796, 0.068058, 0.608349, 0.819737, 0.459703, 0.857844, 0.086869, 0.782285, 0.12089, 0.815404, 0.75983, 0.818721, 0.754495, 0.876484, 0.706001, 0.718152, 0.305125, 0.645969, 0.763984, 0.868341, 0.141868, 0.350484, 0.887419, 0.838514, 0.024743, 0.015563, 0.653955, 0.708853, 0.288692, 0.602902, 0.768983, 0.312832, 0.197605, 0.891201, 0.607263, 0.024615, 0.020005, 0.923044, 0.76041, 0.820284, 0.900256, 0.234221, 0.102597, 0.947412, 0.579124, 0.115179, 0.263599, 0.799594, 0.492668, 0.710049, 0.01321, 0.980163, 0.121596, 0.773551, 0.172703, 0.417192, 0.563807, 0.242534, 0.629994, 0.763019, 0.211749, 0.072728, 0.244015, 0.139035, 0.98854, 0.536598, 0.554887, 0.307925, 0.554635, 0.045955, 0.850991, 0.082228, 0.519233, 0.892227, 0.115846, 0.39899, 0.009297, 0.203607, 0.754016, 0.395934, 0.816664, 0.840683, 0.495168, 0.657854, 0.092845, 0.613135, 0.549644, 0.071015, 0.960108, 0.604158, 0.38945, 0.50928, 0.163621, 0.374307, 0.987809, 0.75126, 0.529777, 0.570851, 0.292685, 0.031, 0.105611, 0.752942, 0.112866, 0.495083, 0.971099, 0.137115, 0.578427, 0.067649, 0.249167, 0.292389, 0.673575, 0.657856, 0.37006, 0.329525, 0.84575, 0.381583, 0.634544, 0.971274, 0.685004, 0.934394, 0.98963, 0.648988, 0.96016, 0.806546, 0.270198, 0.244352, 0.928472, 0.224419, 0.386522, 0.611042, 0.42286, 0.695746, 0.400316, 0.269266, 0.142841, 0.906017, 0.590689, 0.86082, 0.086518, 0.480701, 0.134993, 0.748207, 0.220667, 0.363044, 0.644589, 0.127775, 0.399387, 0.850237, 0.276124, 0.295764, 0.635555, 0.66344, 0.863153, 0.412356, 0.482751, 0.839026, 0.096549, 0.919694, 0.099071, 0.105696, 0.644409, 0.380788, 0.499729, 0.798815, 0.193031, 0.276258, 0.530033, 0.847822, 0.772264, 0.692083, 0.659075, 0.384578, 0.657234, 0.322565, 0.14135, 0.958247, 0.00884, 0.799136, 0.881372, 0.997484, 0.695454, 0.484909, 0.284275, 0.44488, 0.083237, 0.233653, 0.528428, 0.852754, 0.587251, 0.950745, 0.497029, 0.868675, 0.387819, 0.382156, 0.469561, 0.624678, 0.309701, 0.209342, 0.809126, 0.650783, 0.964641, 0.656749, 0.645758, 0.433901, 0.468612, 0.894757, 0.311642, 0.222709, 0.452006, 0.330465, 0.007229, 0.402572, 0.92708, 0.809676, 0.43557, 0.634553, 0.243263, 0.461155, 0.919624, 0.836428, 0.215952, 0.650111, 0.912687, 0.112903, 0.003615, 0.729463, 0.502048, 0.567972, 0.817703, 0.376958, 0.096358, 0.185915, 0.588619, 0.534708, 0.903791, 0.397831, 0.935897, 0.991722, 0.609359, 0.653434, 0.976081, 0.838451, 0.185822, 0.330413, 0.488089, 0.7688, 0.22988, 0.794997, 0.944382, 0.067868, 0.445228, 0.552585, 0.823289, 0.417061, 0.823779, 0.923089, 0.867975, 0.574052, 0.540622, 0.655737, 0.26775, 0.198727, 0.59356, 0.134647, 0.044732, 0.73594, 0.324485, 0.940544, 0.949726, 0.698915, 0.960446, 0.018718, 0.886886, 0.198718, 0.0297, 0.565975, 0.172645, 0.931541, 0.587404, 0.667712, 0.112554, 0.441661, 0.185982, 0.005547, 0.440494, 0.670055, 0.885867, 0.10895, 0.247767, 0.19053, 0.889151, 0.940699, 0.366932, 0.662304, 0.596492, 0.053677, 0.152018, 0.628973, 0.87229, 0.713358, 0.054133, 0.599589, 0.250163, 0.573297, 0.139937, 0.534322, 0.794296, 0.080852, 0.053442, 0.078244, 0.805801, 0.758781, 0.004166, 0.556592, 0.503353, 0.118589, 0.030868, 0.560755, 0.82375, 0.365527, 0.495544, 0.416192, 0.365234, 0.069174, 0.3678, 0.003473, 0.915601, 0.447007, 0.288054, 0.094913, 0.608402, 0.492087, 0.933201, 0.112675, 0.752557, 0.121913, 0.878479, 0.143578, 0.323962, 0.297435, 0.938882, 0.654834, 0.548755, 0.796801, 0.935051, 0.97734, 0.440195, 0.484348, 0.523873, 0.948649, 0.884045, 0.297491, 0.498757, 0.984481, 0.527841, 0.534381, 0.694233, 0.500187, 0.317195, 0.771149, 0.837759, 0.659612, 0.337208, 0.722691, 0.876526, 0.658771, 0.085331, 0.881675, 0.120578, 0.025911, 0.86636, 0.471662, 0.308977, 0.79352, 0.353077, 0.668456, 0.611821, 0.111038, 0.868691, 0.202781, 0.81586, 0.356775, 0.888683, 0.632103, 0.129709, 0.417889, 0.789138, 0.740971, 0.655472, 0.103448, 0.061432, 0.768837, 0.835906, 0.510671, 0.976045, 0.754682, 0.716091, 0.732838, 0.312998, 0.658964, 0.605048, 0.122511, 0.709238, 0.333157, 0.789909, 0.643582, 0.666778, 0.393467, 0.01134, 0.194731, 0.789487, 0.74538, 0.583379, 0.024377, 0.269479, 0.21949, 0.158366, 0.43862, 0.941807, 0.728383, 0.744502, 0.505712, 0.758436, 0.695665, 0.59857, 0.115867, 0.005559, 0.766918, 0.434159, 0.720897, 0.62263, 0.328921, 0.342613, 0.928863, 0.747456, 0.225482, 0.384638, 0.867152, 0.493369, 0.337216, 0.623897, 0.551536, 0.862232, 0.90764, 0.327026, 0.14977, 0.661517, 0.620463, 0.153433, 0.169143, 0.757574, 0.663253, 0.653537, 0.069217, 0.406538, 0.928305, 0.656648, 0.23172, 0.836277, 0.010789, 0.963626, 0.160146, 0.154368, 0.402527, 0.001738, 0.658377, 0.520601, 0.630166, 0.344015, 0.479409, 0.406265, 0.758364, 0.630716, 0.102995, 0.650537, 0.180124, 0.389694, 0.948572, 0.558464, 0.189716, 0.098447, 0.699205, 0.139092, 0.173177, 0.262506, 0.242448, 0.909871, 0.376668, 0.365041, 0.059249, 0.380219, 0.883263, 0.293769, 0.770813, 0.718996, 0.082702, 0.119003, 0.966983, 0.477592, 0.129532, 0.281972, 0.898351, 0.321451, 0.22242, 0.153723, 0.934451, 0.953693, 0.682137, 0.704571, 0.537404, 0.324303, 0.298203, 0.595779, 0.005485, 0.052949, 0.139234, 0.21382, 0.8283, 0.101521, 0.310887, 0.25716, 0.291465, 0.000994, 0.792406, 0.472856, 0.278114, 0.478673, 0.062705, 0.959055, 0.405019, 0.150877, 0.466166, 0.843157, 0.770623, 0.78574, 0.410148, 0.829596, 0.072897, 0.613755, 0.674956, 0.965474, 0.840828, 0.293955, 0.880668, 0.262627, 0.895512, 0.274724, 0.098848, 0.700784, 0.990086, 0.613835, 0.435141, 0.218388, 0.037879, 0.835475, 0.760346, 0.637359, 0.33471, 0.058829, 0.632295, 0.685004, 0.522302, 0.555808, 0.271079, 0.161117, 0.069572, 0.607568, 0.429825, 0.567239, 0.013544, 0.814909, 0.174455, 0.419048, 0.283751, 0.586032, 0.879983, 0.120715, 0.105115, 0.170067, 0.961056, 0.561759, 0.050224, 0.264529, 0.587056, 0.138083, 0.650649, 0.523855, 0.651411, 0.450134, 0.993178, 0.422691, 0.336764, 0.892176, 0.321139, 0.605576, 0.260989, 0.902867, 0.894142, 0.588714, 0.319768, 0.040008, 0.275529, 0.031289, 0.232343, 0.476566, 0.263527, 0.643181, 0.380617, 0.724014, 0.590864, 0.142401, 0.712401, 0.380712, 0.558723, 0.32163, 0.99852, 0.749077, 0.348246, 0.221171, 0.015366, 0.068452, 0.273606, 0.206702, 0.388315, 0.410582, 0.191444, 0.941768, 0.9098, 0.319309, 0.736753, 0.45172, 0.366741, 0.898478, 0.666918, 0.804205, 0.286908, 0.907775, 0.174657, 0.194852, 0.553705, 0.649713, 0.696148, 0.716556, 0.345848, 0.31321, 0.382085, 0.592776, 0.971053, 0.008679, 0.410659, 0.753305, 0.835134, 0.31316, 0.715284, 0.170122, 0.784808, 0.124881, 0.743372, 0.76199, 0.889699, 0.921982, 0.250386, 0.527532, 0.477349, 0.302834, 0.351953, 0.135347, 0.037963, 0.254554, 0.797737, 0.93021, 0.639751, 0.10684, 0.07854, 0.280232, 0.301687, 0.393636, 0.691637, 0.969835, 0.285936, 0.669042, 0.47573, 0.138759, 0.919066, 0.899391, 0.453795, 0.295296, 0.896449, 0.17113, 0.101569, 0.736586, 0.653624, 0.931407, 0.459731, 0.984367, 0.360367, 0.093724, 0.31272, 0.557251, 0.978013, 0.967885, 0.476414, 0.514555, 0.872551, 0.186827, 0.155893, 0.506966, 0.18812, 0.885022, 0.999191, 0.461383, 0.568495, 0.179332, 0.739794, 0.497429, 0.658855, 0.856941, 0.142298, 0.647771, 0.063505, 0.718056, 0.849087, 0.209655, 0.113322, 0.407677, 0.436417, 0.970231, 0.870042, 0.735024, 0.905598, 0.827404, 0.148546, 0.882189, 0.500697, 0.903981, 0.992648, 0.010237, 0.940898, 0.074115, 0.992667, 0.153904, 0.482699, 0.054486, 0.284294, 0.825693, 0.326185, 0.380305, 0.670077, 0.177144, 0.774064, 0.328072, 0.251396, 0.752811, 0.172131, 0.165232, 0.723813, 0.932372, 0.976477, 0.979169, 0.060072, 0.001774, 0.790086, 0.229757, 0.073587, 0.148471, 0.562812, 0.792223, 0.494292, 0.260803, 0.38636, 0.687988, 0.04588, 0.082059, 0.698335, 0.787866, 0.759756, 0.849689, 0.484922, 0.317906, 0.747412, 0.460466, 0.328803, 0.852196, 0.846899, 0.366667, 0.152756, 0.642278, 0.078672, 0.404452, 0.811225, 0.793875, 0.668202, 0.152221, 0.09157, 0.886764, 0.68854, 0.695121, 0.171516, 0.29647, 0.52145, 0.290571, 0.083123, 0.523668, 0.225822, 0.365073, 0.823059, 0.84169, 0.034579, 0.49286, 0.093539, 0.487189, 0.37931, 0.758447, 0.96351, 0.910715, 0.417859, 0.111554, 0.097582, 0.593357, 0.024339, 0.490398, 0.831344, 0.547381, 0.801643, 0.291072, 0.056872, 0.35136, 0.231411, 0.798322, 0.111539, 0.990807, 0.885089, 0.21037, 0.921882, 0.923131, 0.70633, 0.779954, 0.394486, 0.774328, 0.443177, 0.618515, 0.145482, 0.56134, 0.460939, 0.801973, 0.312922, 0.439211, 0.218231, 0.977301, 0.789, 0.292725, 0.861322, 0.947668, 0.516569, 0.656782, 0.143396, 0.244283, 0.310794, 0.313057, 0.73416, 0.843242, 0.879293, 0.781145, 0.084792, 0.86348, 0.277956, 0.763066, 0.170939, 0.477118, 0.150359, 0.719193, 0.470159, 0.476843, 0.892619, 0.447878, 0.654608, 0.106707, 0.496676, 0.83147, 0.331785, 0.615818, 0.959561, 0.560026, 0.456744, 0.308102, 0.292933, 0.693327, 0.138147, 0.134702, 0.616686, 0.987651, 0.475318, 0.541917, 0.629719, 0.440878, 0.645871, 0.203489, 0.968889, 0.308763, 0.878728, 0.629152, 0.51467, 0.584044, 0.507406, 0.932258, 0.663107, 0.422029, 0.322766, 0.201537, 0.197521, 0.633644, 0.459292, 0.253292, 0.705806, 0.985092, 0.747694, 0.641572, 0.746146, 0.420614, 0.396676, 0.836933, 0.878934, 0.930141, 0.558621, 0.165233, 0.671191, 0.066339, 0.336975, 0.694479, 0.973984, 0.588795, 0.283456, 0.572099, 0.898124, 0.876187, 0.232192, 0.761915, 0.544328, 0.939476, 0.011562, 0.666789, 0.785546, 0.883553, 0.942668, 0.562251, 0.713864, 0.781146, 0.480712, 0.275324, 0.878947, 0.120581, 0.506856, 0.06222, 0.8508, 0.274457, 0.504353, 0.118354, 0.548944, 0.150213, 0.970092, 0.667222, 0.877846, 0.139639, 0.727095, 0.516357, 0.580918, 0.2481, 0.665619, 0.019678, 0.323375, 0.302653, 0.573778, 0.904992, 0.029003, 0.545189, 0.366005, 0.270405, 0.646464, 0.204598, 0.795716, 0.835562, 0.657916, 0.087811, 0.581992, 0.696106, 0.77521, 0.775901, 0.776799, 0.247762, 0.916444, 0.109625, 0.975779, 0.006377, 0.642295, 0.084171, 0.142939, 0.611175, 0.240758, 0.227012, 0.44574, 0.774273, 0.206727, 0.692577, 0.974369, 0.876762, 0.8913, 0.939158, 0.272926, 0.96067, 0.298026, 0.522223, 0.936467, 0.831088, 0.950456, 0.002303, 0.105665, 0.946565, 0.395831, 0.466125, 0.801627, 0.249409, 0.02215, 0.36264, 0.0441, 0.630544, 0.673935, 0.288881, 0.743354, 0.432588, 0.661583, 0.889701, 0.613931, 0.990079, 0.488305, 0.180797, 0.732878, 0.938522, 0.117622, 0.96028, 0.381504, 0.542395, 0.484844, 0.83346, 0.329315, 0.517406, 0.147256, 0.586039, 0.186997, 0.14213, 0.342934, 0.375877, 0.196701, 0.822133, 0.136443, 0.55546, 0.734622, 0.937475, 0.476737, 0.247983, 0.250458, 0.458604, 0.448569, 0.279619, 0.13344, 0.044512, 0.520153, 0.479965, 0.47505, 0.469066, 0.63529, 0.169284, 0.986611, 0.197592, 0.334838, 0.884323, 0.602109, 0.893884, 0.118662, 0.256885, 0.241592, 0.83875, 0.158174, 0.135026, 0.584803, 0.708616, 0.92891, 0.027392, 0.262867, 0.46075, 0.254979, 0.623088, 0.498136, 0.785023, 0.694913, 0.909929, 0.705529, 0.622898, 0.659787, 0.387101, 0.838134, 0.754582, 0.597779, 0.292257, 0.589323, 0.006422, 0.130753, 0.270937, 0.023316, 0.540197, 0.993442, 0.288834, 0.955035, 0.193031, 0.981987, 0.425145, 0.910911, 0.634072, 0.30934, 0.809801, 0.953183, 0.291635, 0.689358, 0.081125, 0.35759, 0.723028, 0.803625, 0.38687, 0.975087, 0.746022, 0.492526, 0.050897, 0.483713, 0.479412, 0.632827, 0.676051, 0.235216, 0.040307, 0.189389, 0.65753, 0.770475, 0.030786, 0.408655, 0.067709, 0.459229, 0.293972, 0.042767, 0.174516, 0.76996, 0.890354, 0.932873, 0.070813, 0.442314, 0.484563, 0.467988, 0.544111, 0.681317, 0.560746, 0.685575, 0.132378, 0.762199, 0.988125, 0.880655, 0.314943, 0.358322, 0.074428, 0.27183, 0.185853, 0.272216, 0.921122, 0.535434, 0.543923, 0.063707, 0.198259, 0.351002, 0.51847, 0.105272, 0.934149, 0.247926, 0.454585, 0.090912, 0.973525, 0.888305, 0.851736, 0.484248, 0.033559, 0.038512, 0.183402, 0.610981, 0.5745, 0.010668, 0.528671, 0.528564, 0.611653, 0.6044, 0.750187, 0.200535, 0.70305, 0.816025, 0.559627, 0.411883, 0.944852, 0.316328, 0.234315, 0.257336, 0.845798, 0.272563, 0.827542, 0.406767, 0.89772, 0.027854, 0.965137, 0.198106, 0.91962, 0.783198, 0.05897, 0.7857, 0.784289, 0.728259, 0.579354, 0.567132, 0.259457, 0.852889, 0.536527, 0.586235, 0.075116, 0.567658, 0.634801, 0.378226, 0.856128, 0.368152, 0.504928, 0.809851, 0.11359, 0.925511, 0.525, 0.47699, 0.469274, 0.443135, 0.324606, 0.300782, 0.126268, 0.459865, 0.451682, 0.542125, 0.309845, 0.925481, 0.99795, 0.438214, 0.427623, 0.034027, 0.802866, 0.176327, 0.646355, 0.424743, 0.806745, 0.799275, 0.296669, 0.363016, 0.176496, 0.510623, 0.896457, 0.504726, 0.95766, 0.582907, 0.631422, 0.532884, 0.088816, 0.336687, 0.706976, 0.289867, 0.788837, 0.022579, 0.863233, 0.28428, 0.234421, 0.093244, 0.965248, 0.621292, 0.209607, 0.059917, 0.134359, 0.890856, 0.987855, 0.132226, 0.571182, 0.131361, 0.847706, 0.43629, 0.933398, 0.778091, 0.316071, 0.187872, 0.587204, 0.208576, 0.95778, 0.194519, 0.16522, 0.874284, 0.563736, 0.201384, 0.31054, 0.630624, 0.528297, 0.711623, 0.334301, 0.088734, 0.317418, 0.93061, 0.416731, 0.757019, 0.466879, 0.916138, 0.553277, 0.434419, 0.010325, 0.768981, 0.496344, 0.673041, 0.072181, 0.916762, 0.862326, 0.648243, 0.73423, 0.994854, 0.197648, 0.853305, 0.143376, 0.165358, 0.901019, 0.659032, 0.104129, 0.425453, 0.452387, 0.662711, 0.725746, 0.44553, 0.010413, 0.279562, 0.064143, 0.493606, 0.996157, 0.495897, 0.003201, 0.839789, 0.496485, 0.093421, 0.732646, 0.102607, 0.806003, 0.084823, 0.916489, 0.748814, 0.345057, 0.810328, 0.399136, 0.897835, 0.09939, 0.429135, 0.399704, 0.37233, 0.814203, 0.4407, 0.690586, 0.78349, 0.881418, 0.795702, 0.077511, 0.936779, 0.566255, 0.895034, 0.508769, 0.036173, 0.346969, 0.349508, 0.02933, 0.365128, 0.951723, 0.199302, 0.428777, 0.785578, 0.703372, 0.768339, 0.610111, 0.762944, 0.244636, 0.868923, 0.404251, 0.915292, 0.892868, 0.978109, 0.577469, 0.754762, 0.878333, 0.91993, 0.989632, 0.380351, 0.444873, 0.278609, 0.814203, 0.41955, 0.416084, 0.348858, 0.710129, 0.316907, 0.013315, 0.731314, 0.008162, 0.239434, 0.441664, 0.361715, 0.558542, 0.947945, 0.434907, 0.440673, 0.48969, 0.03901, 0.700679, 0.77784, 0.486487, 0.866241, 0.443623, 0.783325, 0.058142, 0.521088, 0.260279, 0.405052, 0.237758, 0.108096, 0.490393, 0.845966, 0.020336, 0.890109, 0.508549, 0.752404, 0.560987, 0.652321, 0.667817, 0.191004, 0.693747, 0.039495, 0.489164, 0.022884, 0.876334, 0.509916, 0.330974, 0.696282, 0.622146, 0.821678, 0.850868, 0.972826, 0.467924, 0.868666, 0.948145, 0.374586, 0.855319, 0.000337, 0.601158, 0.274358, 0.263384, 0.615499, 0.688886, 0.172745, 0.752498, 0.475781, 0.393008, 0.791594, 0.883952, 0.048702, 0.80696, 0.738125, 0.072081, 0.291232, 0.873455, 0.135626, 0.166267, 0.158657, 0.003474, 0.513591, 0.477921, 0.942915, 0.867726, 0.852679, 0.645104, 0.565947, 0.065471, 0.655213, 0.326891, 0.237523, 0.070858, 0.133033, 0.598335, 0.49628, 0.746733, 0.368922, 0.900708, 0.342897, 0.725328, 0.711307, 0.48651, 0.475723, 0.884415, 0.94387, 0.166774, 0.044265, 0.32415, 0.921964, 0.545195, 0.425957, 0.237804, 0.911499, 0.998932, 0.335496, 0.047684, 0.356494, 0.825295, 0.931315, 0.899532, 0.008658, 0.657318, 0.713169, 0.235629, 0.779734, 0.701613, 0.207703, 0.370373, 0.279483, 0.443605, 0.067477, 0.389512, 0.021394, 0.624658, 0.692986, 0.867195, 0.596173, 0.978587, 0.814851, 0.204911, 0.146661, 0.768038, 0.100057, 0.923315, 0.963533, 0.432865, 0.649238, 0.158678, 0.48604, 0.923368, 0.199896, 0.161277, 0.532935, 0.85047, 0.467714, 0.106993, 0.569152, 0.266277, 0.826352, 0.994009, 0.476411, 0.634757, 0.108079, 0.518641, 0.275034, 0.405944, 0.952316, 0.527376, 0.945513, 0.210956, 0.864056, 0.574457, 0.429621, 0.987499, 0.88567, 0.172971, 0.753428, 0.254875, 0.364381, 0.52174, 0.601897, 0.746136, 0.074949, 0.308724, 0.035867, 0.955092, 0.465872, 0.898764, 0.85423, 0.726436, 0.700888, 0.144954, 0.895496, 0.874833, 0.676349, 0.637, 0.033059, 0.099192, 0.305519, 0.526252, 0.15026, 0.266561, 0.832444, 0.748874, 0.774286, 0.22293, 0.337833, 0.386272, 0.090528, 0.090552, 0.448947, 0.619914, 0.985165, 0.721106, 0.821046, 0.899099, 0.512005, 0.027353, 0.316879, 0.542465, 0.856918, 0.653818, 0.036097, 0.759481, 0.697444, 0.268658, 0.671147, 0.561716, 0.946515, 0.350317, 0.147214, 0.621793, 0.414369, 0.601291, 0.648911, 0.149688, 0.296711, 0.848724, 0.291992, 0.184963, 0.820307, 0.311039, 0.466688, 0.615864, 0.731615, 0.925745, 0.127918, 0.140069, 0.170768, 0.280146, 0.093777, 0.702625, 0.635837, 0.032072, 0.041774, 0.581361, 0.136426, 0.881062, 0.150593, 0.196009, 0.633427, 0.469262, 0.951905, 0.110642, 0.359565, 0.937183, 0.442507, 0.749376, 0.819747, 0.284398, 0.500667, 0.22163, 0.078689, 0.881839, 0.808458, 0.195339, 0.672166, 0.318272, 0.35961, 0.838463, 0.010363, 0.197201, 0.24186, 0.390485, 0.925343, 0.50066, 0.040653, 0.719047, 0.682082, 0.981502, 0.228839, 0.766808, 0.865257, 0.461242, 0.784844, 0.146022, 0.316417, 0.185039, 0.531196, 0.827043, 0.138099, 0.754856, 0.580222, 0.543929, 0.639462, 0.715026, 0.731739, 0.085721, 0.383773, 0.185698, 0.717731, 0.801992, 0.892156, 0.436739, 0.24474, 0.999636, 0.476004, 0.921317, 0.731252, 0.795752, 0.761171, 0.810148, 0.303748, 0.431354, 0.778115, 0.992957, 0.498899, 0.466858, 0.190219, 0.961774, 0.337929, 0.841446, 0.565936, 0.814865, 0.634104, 0.908684, 0.091737, 0.401604, 0.978083, 0.953529, 0.969954, 0.069562, 0.04445, 0.336672, 0.243394, 0.363288, 0.66173, 0.226578, 0.487509, 0.955542, 0.17555, 0.295835, 0.216127, 0.626255, 0.921521, 0.336447, 0.896927, 0.710232, 0.027757, 0.287042, 0.105632, 0.901191, 0.981402, 0.25367, 0.434591, 0.836755, 0.188719, 0.541811, 0.483685, 0.467451, 0.397515, 0.301314, 0.4719, 0.066681, 0.163313, 0.590289, 0.95656, 0.24069, 0.65864, 0.231028, 0.540219, 0.885595, 0.216976, 0.521746, 0.245731, 0.885101, 0.589856, 0.618388, 0.462598, 0.964205, 0.374278, 0.252507, 0.249966, 0.368139, 0.65371, 0.872223, 0.944292, 0.915418, 0.121063, 0.499726, 0.230415, 0.926787, 0.253304, 0.827152, 0.201617, 0.730607, 0.65704, 0.921558, 0.978947, 0.357782, 0.406564, 0.009902, 0.885011, 0.40899, 0.775643, 0.434135, 0.699234, 0.56394, 0.525287, 0.93514, 0.746652, 0.72306, 0.086794, 0.207335, 0.180653, 0.310528, 0.23, 0.23382, 0.684547, 0.503249, 0.999237, 0.022548, 0.524712, 0.830052, 0.731592, 0.841187, 0.094176, 0.618781, 0.523265, 0.688793, 0.149088, 0.234387, 0.327665, 0.999435, 0.217753, 0.864305, 0.596792, 0.70682, 0.827912, 0.300323, 0.618336, 0.399571, 0.646297, 0.129132, 0.417879, 0.04936, 0.827628, 0.935004, 0.189252, 0.090276, 0.042621, 0.037802, 0.884095, 0.720602, 0.411409, 0.420627, 0.058694, 0.529741, 0.676154, 0.713613, 0.194834, 0.999623, 0.189447, 0.28757, 0.930738, 0.43356, 0.936745, 0.443382, 0.12965, 0.108259, 0.937971, 0.911583, 0.878237, 0.02542, 0.373068, 0.730083, 0.926115, 0.931069, 0.862699, 0.885118, 0.8154, 0.510649, 0.744412, 0.613285, 0.612646, 0.638335, 0.341766, 0.800817, 0.554643, 0.653339, 0.380169, 0.536074, 0.535271, 0.633914, 0.269588, 0.653262, 0.497887, 0.148751, 0.7864, 0.918402, 0.245782, 0.731464, 0.971374, 0.938387, 0.422645, 0.05678, 0.59451, 0.489294, 0.829583, 0.377398, 0.353312, 0.729329, 0.092898, 0.422207, 0.007383, 0.5151, 0.923389, 0.486125, 0.213851, 0.929737, 0.38939, 0.132954, 0.806171, 0.692924, 0.645628, 0.258237, 0.141433, 0.089346, 0.749623, 0.715262, 0.436845, 0.438978, 0.334442, 0.434216, 0.433661, 0.727579, 0.592819, 0.580451, 0.336312, 0.056268, 0.445552, 0.229978, 0.083425, 0.129235, 0.395042, 0.266913, 0.238066, 0.832505, 0.883839, 0.223835, 0.662026, 0.692623, 0.627887, 0.776659, 0.04952, 0.301451, 0.199484, 0.331042, 0.707781, 0.910362, 0.423083, 0.417453, 0.390936, 0.643203, 0.587475, 0.501852, 0.668925, 0.559657, 0.838659, 0.130899, 0.332461, 0.324708, 0.286427, 0.272109, 0.993181, 0.132684, 0.319041, 0.893408, 0.393764, 0.405881, 0.817083, 0.607489, 0.344205, 0.65783, 0.312744, 0.966781, 0.031998, 0.612916, 0.269629, 0.829844, 0.482329, 0.619382, 0.929009, 0.474595, 0.805387, 0.346858, 0.877202, 0.86279, 0.304188, 0.469355, 0.224859, 0.955224, 0.12304, 0.996897, 0.869049, 0.988556, 0.655203, 0.36861, 0.612532, 0.985724, 0.989183, 0.177088, 0.595204, 0.890824, 0.474598, 0.771582, 0.108024, 0.660196, 0.971449, 0.415955, 0.557082, 0.479867, 0.597186, 0.624661, 0.016015, 0.585915, 0.187603, 0.439185, 0.396552, 0.979294, 0.551696, 0.900746, 0.304422, 0.902821, 0.38632, 0.892283, 0.27027, 0.483276, 0.917233, 0.52628, 0.785453, 0.646342, 0.906902, 0.982047, 0.339674, 0.591283, 0.05954, 0.300788, 0.240249, 0.476609, 0.530106, 0.458358, 0.313132, 0.673754, 0.357324, 0.159987, 0.70313, 0.359036, 0.74387, 0.608917, 0.271286, 0.57324, 0.388215, 0.271947, 0.877551, 0.873951, 0.509018, 0.997466, 0.646868, 0.070851, 0.104098, 0.476415, 0.425254, 0.951542, 0.850606, 0.357521, 0.072378, 0.401566, 0.747119, 0.663511, 0.532479, 0.107729, 0.410271, 0.479261, 0.084557, 0.50162, 0.593021, 0.129704, 0.366032, 0.852253, 0.446776, 0.775139, 0.042234, 0.83003, 0.863629, 0.532915, 0.426372, 0.667617, 0.106116, 0.833257, 0.289412, 0.469761, 0.675025, 0.594048, 0.285815, 0.064552, 0.963753, 0.900131, 0.711291, 0.277377, 0.916703, 0.475458, 0.855992, 0.523443, 0.278718, 0.016857, 0.435497, 0.035747, 0.176571, 0.498504, 0.302456, 0.375908, 0.56753, 0.282708, 0.174164, 0.264057, 0.104427, 0.701857, 0.325031, 0.890858, 0.833124, 0.631725, 0.463788, 0.292803, 0.507703, 0.660718, 0.522442, 0.807002, 0.067774, 0.081661, 0.985376, 0.065289, 0.516271, 0.386976, 0.564208, 0.285975, 0.669573, 0.681737, 0.760659, 0.891365, 0.844005, 0.926584, 0.949328, 0.462744, 0.188546, 0.12304, 0.124098, 0.925631, 0.816421, 0.070765, 0.286103, 0.556084, 0.598494, 0.732001, 0.087065, 0.556219, 0.485725, 0.582483, 0.022665, 0.011769, 0.623888, 0.407309, 0.98622, 0.896028, 0.35057, 0.479178, 0.930063, 0.197338, 0.458904, 0.227008, 0.459219, 0.675445, 0.630126, 0.005675, 0.513616, 0.447897, 0.891154, 0.870626, 0.566725, 0.759402, 0.583301, 0.148027, 0.894815, 0.373736, 0.065493, 0.878276, 0.225079, 0.912116, 0.679691, 0.033556, 0.778899, 0.607858, 0.011866, 0.125373, 0.260262, 0.703788, 0.271685, 0.289197, 0.878469, 0.606673, 0.786462, 0.118785, 0.211185, 0.070112, 0.607963, 0.697539, 0.91446, 0.300371, 0.434401, 0.824541, 0.074741, 0.829344, 0.203588, 0.805142, 0.189721, 0.392451, 0.724851, 0.956414, 0.259713, 0.508158, 0.933075, 0.139772, 0.916242, 0.585021, 0.233422, 0.359619, 0.50641, 0.109553, 0.469381, 0.592069, 0.412617, 0.721998, 0.214677, 0.724595, 0.222335, 0.432089, 0.095179, 0.071514, 0.103348, 0.228461, 0.738382, 0.112614, 0.294394, 0.121033, 0.146983, 0.535936, 0.68155, 0.45095, 0.51749, 0.617498, 0.735039, 0.729588, 0.911272, 0.993436, 0.573645, 0.861432, 0.785712, 0.380942, 0.036919, 0.031555, 0.524208, 0.865852, 0.798748, 0.115641, 0.706228, 0.575863, 0.426849, 0.420409, 0.76708, 0.151101, 0.392431, 0.870846, 0.486743, 0.84722, 0.228738, 0.993171, 0.107159, 0.45127, 0.988582, 0.045938, 0.367435, 0.034981, 0.282926, 0.91868, 0.858952, 0.927649, 0.11667, 0.244934, 0.973212, 0.336954, 0.560682, 0.091784, 0.82494, 0.828991, 0.965223, 0.731366, 0.953322, 0.795941, 0.353182, 0.979731, 0.194121, 0.242184, 0.99938, 0.27674, 0.572072, 0.443789, 0.064262, 0.96949, 0.416347, 0.489142, 0.053117, 0.017921, 0.062807, 0.703528, 0.249627, 0.564349, 0.608012, 0.991758, 0.407348, 0.024695, 0.304584, 0.791888, 0.029719, 0.970147, 0.729952, 0.521946, 0.730554, 0.624955, 0.237722, 0.143155, 0.374998, 0.198155, 0.430418, 0.51483, 0.700479, 0.337327, 0.078016, 0.372174, 0.609637, 0.901349, 0.131643, 0.965112, 0.953778, 0.031631, 0.595077, 0.700812, 0.429861, 0.266774, 0.474559, 0.793772, 0.290102, 0.252224, 0.832436, 0.033317, 0.082612, 0.596175, 0.99105, 0.312876, 0.208379, 0.374947, 0.172078, 0.501318, 0.993233, 0.889501, 0.752652, 0.774639, 0.301574, 0.198982, 0.548033, 0.633411, 0.214635, 0.14355, 0.670107, 0.861742, 0.802522, 0.882796, 0.400038, 0.312643, 0.98082, 0.617504, 0.952603, 0.888164, 0.107105, 0.62703, 0.249236, 0.028546, 0.886118, 0.704237, 0.04576, 0.447581, 0.358079, 0.462882, 0.676595, 0.053041, 0.308697, 0.089406, 0.684801, 0.024036, 0.433048, 0.058315, 0.74479, 0.162809, 0.23949, 0.149497, 0.188116, 0.596426, 0.604448, 0.91971, 0.153516, 0.430247, 0.470517, 0.911963, 0.100701, 0.66, 0.20659, 0.66564, 0.85383, 0.839686, 0.060495, 0.573054, 0.396255, 0.809361, 0.085346, 0.78442, 0.438015, 0.919131, 0.508623, 0.110072, 0.522407, 0.870082, 0.029608, 0.264344, 0.858107, 0.559692, 0.063024, 0.748809, 0.225237, 0.506748, 0.106745, 0.814628, 0.36608, 0.051625, 0.832054, 0.626094, 0.749, 0.636892, 0.907792, 0.900683, 0.714933, 0.489828, 0.88206, 0.224183, 0.430547, 0.378553, 0.18141, 0.797198, 0.324317, 0.652422, 0.998731, 0.540961, 0.596866, 0.603917, 0.99433, 0.246495, 0.518386, 0.650566, 0.346423, 0.162231, 0.128037, 0.503319, 0.16269, 0.459422, 0.886278, 0.890178, 0.608592, 0.203574, 0.840334, 0.181678, 0.471821, 0.254351, 0.572901, 0.970149, 0.098471, 0.889729, 0.491071, 0.996507, 0.861629, 0.665529, 0.120196, 0.744111, 0.637499, 0.757142, 0.783235, 0.163235, 0.325519, 0.621566, 0.3243, 0.931353, 0.228057, 0.144619, 0.946086, 0.508666, 0.613071, 0.219053, 0.247186, 0.887003, 0.327775, 0.599173, 0.870753, 0.032858, 0.929566, 0.85042, 0.300608, 0.569241, 0.68761, 0.474091, 0.021906, 0.457518, 0.754466, 0.479348, 0.765998, 0.533498, 0.034787, 0.246764, 0.027073, 0.44692, 0.981604, 0.679603, 0.560641, 0.216328, 0.82291, 0.849939, 0.115882, 0.982426, 0.90153, 0.03308, 0.306481, 0.577748, 0.527179, 0.404282, 0.064805, 0.083758, 0.887659, 0.258638, 0.974354, 0.111103, 0.814009, 0.096845, 0.562413, 0.950231, 0.584362, 0.54608, 0.396457, 0.475976, 0.194739, 0.862181, 0.297311, 0.799899, 0.842711, 0.81224, 0.13886, 0.535446, 0.68644, 0.757367, 0.290745, 0.233066, 0.416057, 0.702773, 0.322726, 0.773769, 0.254931, 0.173722, 0.766583, 0.768775, 0.682529, 0.29045, 0.274655, 0.045064, 0.537196, 0.010774, 0.032786, 0.055465, 0.549626, 0.468494, 0.033722, 0.912508, 0.977829, 0.53578, 0.857873, 0.585413, 0.413248, 0.666995, 0.069834, 0.410712, 0.345171, 0.366771, 0.588444, 0.463547, 0.659911, 0.789886, 0.688344, 0.6198, 0.148104, 0.337844, 0.339376, 0.840498, 0.683584, 0.549614, 0.768427, 0.855458, 0.937148, 0.00537, 0.207055, 0.96663, 0.438034, 0.90764, 0.168803, 0.3029, 0.924739, 0.240724, 0.822767, 0.100882, 0.938461, 0.433398, 0.706061, 0.49575, 0.604601, 0.946044, 0.794608, 0.225749, 0.585158, 0.341807, 0.416391, 0.001548, 0.451309, 0.057363, 0.50044, 0.389852, 0.921227, 0.579703, 0.832709, 0.083379, 0.63215, 0.88983, 0.87525, 0.609188, 0.26767, 0.82769, 0.977061, 0.491218, 0.526511, 0.423194, 0.152066, 0.264931, 0.511021, 0.093995, 0.761703, 0.934287, 0.66114, 0.499499, 0.303001, 0.058307, 0.419943, 0.604399, 0.340657, 0.116929, 0.661531, 0.350424, 0.0307, 0.56645, 0.504059, 0.963079, 0.685856, 0.552356, 0.540719, 0.040402, 0.307843, 0.811616, 0.431001, 0.055575, 0.474412, 0.878282, 0.84368, 0.700968, 0.624262, 0.748742, 0.293005, 0.048866, 0.928824, 0.781401, 0.564918, 0.833154, 0.529114, 0.007386, 0.729736, 0.927172, 0.398754, 0.167048, 0.777688, 0.075846, 0.116857, 0.145829, 0.065388, 0.241568, 0.600122, 0.644736, 0.923931, 0.777912, 0.775254, 0.077134, 0.138387, 0.821674, 0.947306, 0.240153, 0.831588, 0.187954, 0.809908, 0.270893, 0.161853, 0.42004, 0.504789, 0.165088, 0.240895, 0.857394, 0.388631, 0.700238, 0.036714, 0.299948, 0.376443, 0.063095, 0.908415, 0.464104, 0.240099, 0.8265, 0.551118, 0.458925, 0.676956, 0.209332, 0.795448, 0.006848, 0.944804, 0.705946, 0.140225, 0.251387, 0.430245, 0.470711, 0.78312, 0.603778, 0.658223, 0.010377, 0.499767, 0.642256, 0.070835, 0.876581, 0.465839, 0.341613, 0.437921, 0.021604, 0.077801, 0.613181, 0.172002, 0.375227, 0.319948, 0.157574, 0.539702, 0.374475, 0.865594, 0.959856, 0.480881, 0.502966, 0.800531, 0.499767, 0.101179, 0.751843, 0.667211, 0.79634, 0.09463, 0.835831, 0.932256, 0.517404, 0.968398, 0.176338, 0.167433, 0.153258, 0.625393, 0.666382, 0.405899, 0.071979, 0.733433, 0.817459, 0.110237, 0.985372, 0.237286, 0.498399, 0.345813, 0.295121, 0.830301, 0.293613, 0.073839, 0.791255, 0.254145, 0.359494, 0.201109, 0.325223, 0.238353, 0.521251, 0.781261, 0.762487, 0.934299, 0.211459, 0.134222, 0.991352, 0.304177, 0.693361, 0.06062, 0.377587, 0.509711, 0.850758, 0.556439, 0.740707, 0.9252, 0.559733, 0.777805, 0.796034, 0.098702, 0.106933, 0.36492, 0.095478, 0.686352, 0.484818, 0.221898, 0.360256, 0.962799, 0.360816, 0.668942, 0.495368, 0.835812, 0.555853, 0.796474, 0.180743, 0.018045, 0.544499, 0.977564, 0.847094, 0.10171, 0.875842, 0.880861, 0.750092, 0.720729, 0.396565, 0.905476, 0.063515, 0.442008, 0.777811, 0.611032, 0.89254, 0.276881, 0.357133, 0.791845, 0.694363, 0.361811, 0.02963, 0.351514, 0.044646, 0.349121, 0.356694, 0.495984, 0.560858, 0.926141, 0.299213, 0.743732, 0.138802, 0.805416, 0.264725, 0.612721, 0.451657, 0.305175, 0.089708, 0.67044, 0.23388, 0.753567, 0.726206, 0.809959, 0.358812, 0.163417, 0.177029, 0.26292, 0.951609, 0.393526, 0.016153, 0.391845, 0.037265, 0.328358, 0.279107, 0.013094, 0.054277, 0.175757, 0.664194, 0.573106, 0.241964, 0.252571, 0.311533, 0.689925, 0.079142, 0.074728, 0.695857, 0.874163, 0.594597, 0.627538, 0.975395, 0.515051, 0.622407, 0.056943, 0.631674, 0.921761, 0.150551, 0.925248, 0.729833, 0.701299, 0.197163, 0.489834, 0.279748, 0.584054, 0.231328, 0.976968, 0.113944, 0.093893, 0.554272, 0.137379, 0.086726, 0.752426, 0.970902, 0.634858, 0.014449, 0.333373, 0.547347, 0.300633, 0.949504, 0.990514, 0.634404, 0.179456, 0.786778, 0.652389, 0.067458, 0.694446, 0.871628, 0.888306, 0.238048, 0.674765, 0.474835, 0.887767, 0.235287, 0.526606, 0.268912, 0.009707, 0.503192, 0.245286, 0.811163, 0.991555, 0.657141, 0.942426, 0.416848, 0.043901, 0.583512, 0.932563, 0.161686, 0.6507, 0.605592, 0.506521, 0.915315, 0.273367, 0.470722, 0.229827, 0.211565, 0.59382, 0.676707, 0.707924, 0.504355, 0.276773, 0.997161, 0.618626, 0.80672, 0.662626, 0.639916, 0.578819, 0.404342, 0.692574, 0.743329, 0.479652, 0.208765, 0.117042, 0.824412, 0.367416, 0.484127, 0.981453, 0.680437, 0.790748, 0.032407, 0.087433, 0.58332, 0.115949, 0.545621, 0.484365, 0.788741, 0.008735, 0.78969, 0.702858, 0.074481, 0.540786, 0.822348, 0.612046, 0.231766, 0.973949, 0.5518, 0.459664, 0.073309, 0.328119, 0.801252, 0.147416, 0.271875, 0.975115, 0.626503, 0.780609, 0.643182, 0.807313, 0.598814, 0.386206, 0.374162, 0.012664, 0.838038, 0.965656, 0.495201, 0.074467, 0.230808, 0.970285, 0.713132, 0.003425, 0.404242, 0.823382, 0.953753, 0.883961, 0.223215, 0.600904, 0.771924, 0.498478, 0.36341, 0.649189, 0.725447, 0.048196, 0.997829, 0.875662, 0.598038, 0.638479, 0.879751, 0.715258, 0.003186, 0.097855, 0.529471, 0.824058, 0.826071, 0.634248, 0.930579, 0.283577, 0.124007, 0.237427, 0.871731, 0.001286, 0.544858, 0.701704, 0.86778, 0.198696, 0.265909, 0.083991, 0.683065, 0.559854, 0.255252, 0.638491, 0.906985, 0.047352, 0.278203, 0.268395, 0.837736, 0.248479, 0.679946, 0.906584, 0.034641, 0.733211, 0.641187, 0.414479, 0.699924, 0.313741, 0.296203, 0.290534, 0.12706, 0.092922, 0.80974, 0.165439, 0.477013, 0.28484, 0.030947, 0.185171, 0.047589, 0.820045, 0.818948, 0.877717, 0.279586, 0.461816, 0.32895, 0.822526, 0.547873, 0.126012, 0.804183, 0.676017, 0.133403, 0.774793, 0.878087, 0.608948, 0.690827, 0.359222, 0.866054, 0.875395, 0.489584, 0.800393, 0.988394, 0.590851, 0.926459, 0.86651, 0.42117, 0.243001, 0.606479, 0.476009, 0.507317, 0.451063, 0.586829, 0.779048, 0.552629, 0.843089, 0.28117, 0.014171, 0.461949, 0.482848, 0.662706, 0.523149, 0.518246, 0.470997, 0.341898, 0.435604, 0.566001, 0.483831, 0.86766, 0.385626, 0.723476, 0.219682, 0.624753, 0.498835, 0.516669, 0.758271, 0.982633, 0.585908, 0.872811, 0.581283, 0.454872, 0.942134, 0.207236, 0.586259, 0.759368, 0.217739, 0.285948, 0.528851, 0.791859, 0.480968, 0.381224, 0.422506, 0.922458, 0.827759, 0.151779, 0.11441, 0.662574, 0.303115, 0.951872, 0.180156, 0.942734, 0.789294, 0.809132, 0.199305, 0.591843, 0.965071, 0.06114, 0.290695, 0.192933, 0.716435, 0.499273, 0.763657, 0.765227, 0.226167, 0.533586, 0.673311, 0.360763, 0.808702, 0.042837, 0.66407, 0.359319, 0.37279, 0.291004, 0.72129, 0.602202, 0.129021, 0.757541, 0.507564, 0.119863, 0.715073, 0.483204, 0.88821, 0.88574, 0.251029, 0.564468, 0.025139, 0.463986, 0.121429, 0.146456, 0.077454, 0.701403, 0.357538, 0.46823, 0.644277, 0.658355, 0.024069, 0.836393, 0.718472, 0.199124, 0.703121, 0.101156, 0.378098, 0.18347, 0.283747, 0.664267, 0.6784, 0.846045, 0.66975, 0.629218, 0.354518, 0.793272, 0.94857, 0.152531, 0.491371, 0.406342, 0.865915, 0.045798, 0.703706, 0.728721, 0.273641, 0.492539, 0.720067, 0.142622, 0.55244, 0.571841, 0.401489, 0.451821, 0.715408, 0.175328, 0.640216, 0.43213, 0.676595, 0.09001, 0.706361, 0.354287, 0.962185, 0.116076, 0.849354, 0.045511, 0.757601, 0.277921, 0.950017, 0.172108, 0.19485, 0.997568, 0.758893, 0.102875, 0.877872, 0.355275, 0.692409, 0.11616, 0.973578, 0.394819, 0.08429, 0.166392, 0.305498, 0.904213, 0.199034, 0.121611, 0.984593, 0.688955, 0.160265, 0.73145, 0.264322, 0.072069, 0.803155, 0.370531, 0.935092, 0.362396, 0.55502, 0.918127, 0.237199, 0.76835, 0.93059, 0.080014, 0.675216, 0.673837, 0.424261, 0.750613, 0.919415, 0.828567, 0.07445, 0.471734, 0.194744, 0.723603, 0.988621, 0.316562, 0.835644, 0.667298, 0.082033, 0.317858, 0.124077, 0.266088, 0.087946, 0.932727, 0.487271, 0.016187, 0.117652, 0.913415, 0.361104, 0.335023, 0.807056, 0.053552, 0.157742, 0.552472, 0.168625, 0.739081, 0.843876, 0.764311, 0.339726, 0.581026, 0.208792, 0.266617, 0.839308, 0.085001, 0.378713, 0.359569, 0.433025, 0.802187, 0.153418, 0.476507, 0.000943, 0.209187, 0.905014, 0.580586, 0.102413, 0.514316, 0.577511, 0.133197, 0.287326, 0.378289, 0.061143, 0.750571, 0.402366, 0.713559, 0.095866, 0.656065, 0.777099, 0.756633, 0.31867, 0.299123, 0.384133, 0.365214, 0.192664, 0.265062, 0.516699, 0.561805, 0.031739, 0.446417, 0.827872, 0.684502, 0.963322, 0.435646, 0.444719, 0.784687, 0.4985, 0.131819, 0.167143, 0.010867, 0.614061, 0.99744, 0.651888, 0.340853, 0.969299, 0.847309, 0.064412, 0.382711, 0.673325, 0.0059, 0.409511, 0.820447, 0.705464, 0.026842, 0.185307, 0.922258, 0.932401, 0.498577, 0.13719, 0.644764, 0.448358, 0.796623, 0.520661, 0.681937, 0.385746, 0.336603, 0.790631, 0.558029, 0.215129, 0.353036, 0.941643, 0.428451, 0.543903, 0.629672, 0.395428, 0.290948, 0.955797, 0.265449, 0.71183, 0.436158, 0.661774, 0.018556, 0.019375, 0.038786, 0.05714, 0.572876, 0.781586, 0.943215, 0.842441, 0.222497, 0.263752, 0.560803, 0.885304, 0.023645, 0.689156, 0.760844, 0.767182, 0.515569, 0.223101, 0.787652, 0.570596, 0.412994, 0.230701, 0.946443, 0.328412, 0.648308, 0.321586, 0.994367, 0.060671, 0.479106, 0.171569, 0.272464, 0.490442, 0.751411, 0.642385, 0.187506, 0.138286, 0.258849, 0.411161, 0.431771, 0.463733, 0.766908, 0.063221, 0.615256, 0.151729, 0.443616, 0.36346, 0.975379, 0.411393, 0.230847, 0.360795, 0.732511, 0.150859, 0.750157, 0.800174, 0.505337, 0.021587, 0.849152, 0.881113, 0.044509, 0.224037, 0.640299, 0.837079, 0.578035, 0.537383, 0.204583, 0.398841, 0.136478, 0.969162, 0.56314, 0.466663, 0.652016, 0.704319, 0.719643, 0.12734, 0.799632, 0.543005, 0.172877, 0.833734, 0.767244, 0.842616, 0.792221, 0.728964, 0.16075, 0.356014, 0.031548, 0.023321, 0.594189, 0.211909, 0.293345, 0.298239, 0.180782, 0.374958, 0.834374, 0.386455, 0.302665, 0.658047, 0.357942, 0.402951, 0.89359, 0.227483, 0.4667, 0.049767, 0.992723, 0.095607, 0.414842, 0.496725, 0.243151, 0.581528, 0.515646, 0.640138, 0.931044, 0.076285, 0.319724, 0.123709, 0.244235, 0.49269, 0.397489, 0.557719, 0.822295, 0.502555, 0.388989, 0.841668, 0.307032, 0.011953, 0.642077, 0.845692, 0.993851, 0.594443, 0.946453, 0.894393, 0.067144, 0.251095, 0.256324, 0.044111, 0.759069, 0.877333, 0.069809, 0.244574, 0.496631, 0.896217, 0.218785, 0.89351, 0.702851, 0.769012, 0.261414, 0.565968, 0.299284, 0.04734, 0.809228, 0.305294, 0.764907, 0.067828, 0.326867, 0.990245, 0.425319, 0.770543, 0.180978, 0.053602, 0.147714, 0.933584, 0.167497, 0.786854, 0.999177, 0.890871, 0.783203, 0.549627, 0.556329, 0.177078, 0.297496, 0.620036, 0.195591, 0.796764, 0.840353, 0.747112, 0.081514, 0.478151, 0.480334, 0.861439, 0.741161, 0.437258, 0.585972, 0.043929, 0.069746, 0.962179, 0.690891, 0.257561, 0.98067, 0.028894, 0.684941, 0.066822, 0.344107, 0.550592, 0.480065, 0.009929, 0.639369, 0.451005, 0.448184, 0.272782, 0.46689, 0.950255, 0.312198, 0.320081, 0.567247, 0.851507, 0.744628, 0.466422, 0.512861, 0.733713, 0.542248, 0.287739, 0.728543, 0.563457, 0.91722, 0.708306, 0.051381, 0.527856, 0.675446, 0.680922, 0.367393, 0.513117, 0.098196, 0.587938, 0.881407, 0.142378, 0.028361, 0.879689, 0.605901, 0.498835, 0.232456, 0.236812, 0.315359, 0.630427, 0.109796, 0.187123, 0.100446, 0.580436, 0.617968, 0.01721, 0.409526, 0.707266, 0.631117, 0.286807, 0.277595, 0.771363, 0.266332, 0.907634, 0.412607, 0.850182, 0.273792, 0.917884, 0.283816, 0.338625, 0.196152, 0.355475, 0.495648, 0.81455, 0.380801, 0.151691, 0.045202, 0.84864, 0.668564, 0.577806, 0.361211, 0.67137, 0.868069, 0.357763, 0.381634, 0.551121, 0.743269, 0.750328, 0.208863, 0.1928, 0.933395, 0.413469, 0.690828, 0.744171, 0.004114, 0.183593, 0.365674, 0.79658, 0.848476, 0.984703, 0.566257, 0.765436, 0.880706, 0.349017, 0.353624, 0.895692, 0.854536, 0.437793, 0.506429, 0.923949, 0.736804, 0.825096, 0.272536, 0.165886, 0.197252, 0.151124, 0.834622, 0.135601, 0.499838, 0.367903, 0.040781, 0.602057, 0.767863, 0.465873, 0.728955, 0.154916, 0.396523, 0.168903, 0.462484, 0.319764, 0.298047, 0.205958, 0.22707, 0.872362, 0.076179, 0.250023, 0.058696, 0.307745, 0.974279, 0.147235, 0.14547, 0.850539, 0.591839, 0.60815, 0.271048, 0.258302, 0.312064, 0.411019, 0.138087, 0.046737, 0.825987, 0.812641, 0.636337, 0.781681, 0.264286, 0.384945, 0.552344, 0.327394, 0.452392, 0.253442, 0.430823, 0.858537, 0.652426, 0.983349, 0.04111, 0.714514, 0.876556, 0.327849, 0.945263, 0.193584, 0.847247, 0.712034, 0.705407, 0.644405, 0.87163, 0.006903, 0.687653, 0.420004, 0.034351, 0.559451, 0.677756, 0.741012, 0.959111, 0.63668, 0.22122, 0.848526, 0.478146, 0.566606, 0.185723, 0.110366, 0.759135, 0.525144, 0.336099, 0.210706, 0.232592, 0.793185, 0.681182, 0.468942, 0.819163, 0.68183, 0.238332, 0.8257, 0.124451, 0.164665, 0.466799, 0.799221, 0.859669, 0.131107, 0.197988, 0.679049, 0.548738, 0.492893, 0.158564, 0.168797, 0.223734, 0.003856, 0.780248, 0.834955, 0.324451, 0.367956, 0.482904, 0.16953, 0.325035, 0.85131, 0.421189, 0.443754, 0.817805, 0.005846, 0.993616, 0.823626, 0.962223, 0.865194, 0.765206, 0.970373, 0.332491, 0.166065, 0.290742, 0.981141, 0.478351, 0.672175, 0.09359, 0.954175, 0.199802, 0.73539, 0.348821, 0.053031, 0.227486, 0.589457, 0.275993, 0.360341, 0.131586, 0.600512, 0.635838, 0.895821, 0.849034, 0.391473, 0.274652, 0.897495, 0.748636, 0.872183, 0.408251, 0.950734, 0.333069, 0.848712, 0.654046, 0.669559, 0.411162, 0.16223, 0.858605, 0.787889, 0.624541, 0.199916, 0.119306, 0.227948, 0.142749, 0.246998, 0.811628, 0.18498, 0.406707, 0.185074, 0.925466, 0.19285, 0.637817, 0.846785, 0.221819, 0.351966, 0.031217, 0.254554, 0.630246, 0.174337, 0.182544, 0.264132, 0.616442, 0.193677, 0.167484, 0.615609, 0.468005, 0.836489, 0.552291, 0.927153, 0.195203, 0.95694, 0.006281, 0.93173, 0.230249, 0.397447, 0.071234, 0.39418, 0.622198, 0.881809, 0.690467, 0.580215, 0.429063, 0.385363, 0.0248, 0.433729, 0.561353, 0.675115, 0.198001, 0.814158, 0.78007, 0.555269, 0.795341, 0.606215, 0.708771, 0.76872, 0.19022, 0.656208, 0.401723, 0.348479, 0.086888, 0.378259, 0.318225, 0.656416, 0.523808, 0.564285, 0.258587, 0.333515, 0.597421, 0.4327, 0.734945, 0.856939, 0.126467, 0.837605, 0.33507, 0.891636, 0.587055, 0.576756, 0.726894, 0.129836, 0.760837, 0.964874, 0.189494, 0.354301, 0.025829, 0.274652, 0.322618, 0.488655, 0.748533, 0.302855, 0.012918, 0.931168, 0.44385, 0.25408, 0.622621, 0.213952, 0.399678, 0.332923, 0.778933, 0.717899, 0.514048, 0.526446, 0.883665, 0.345117, 0.663101, 0.661353, 0.472561, 0.399195, 0.089475, 0.378064, 0.04092, 0.520212, 0.881207, 0.799584, 0.436804, 0.298381, 0.835227, 0.139307, 0.914889, 0.553458, 0.969074, 0.839568, 0.451035, 0.824238, 0.471559, 0.817608, 0.859972, 0.324896, 0.523736, 0.695113, 0.845933, 0.964593, 0.846963, 0.619092, 0.550852, 0.616282, 0.102751, 0.925971, 0.695008, 0.061127, 0.856817, 0.992483, 0.440084, 0.933062, 0.485623, 0.360669, 0.287379, 0.417793, 0.129215, 0.913501, 0.694228, 0.585039, 0.874456, 0.445995, 0.775156, 0.732518, 0.924187, 0.070196, 0.749596, 0.684153, 0.715939, 0.088272, 0.026887, 0.803661, 0.510531, 0.469532, 0.219853, 0.053304, 0.826209, 0.851779, 0.311538, 0.345211, 0.723319, 0.42666, 0.090768, 0.463076, 0.357878, 0.328652, 0.116435, 0.078569, 0.953848, 0.440032, 0.312225, 0.367898, 0.081936, 0.729365, 0.934436, 0.054372, 0.68973, 0.596659, 0.896618, 0.059324, 0.956133, 0.189607, 0.052779, 0.733288, 0.988945, 0.84736, 0.046864, 0.294785, 0.818303, 0.455189, 0.466047, 0.677305, 0.158242, 0.764665, 0.742525, 0.893282, 0.437805, 0.579377, 0.982778, 0.781724, 0.912601, 0.202252, 0.602288, 0.760463, 0.499595, 0.481554, 0.798661, 0.23964, 0.323216, 0.748768, 0.727741, 0.41468, 0.533798, 0.945242, 0.549977, 0.527953, 0.618445, 0.426681, 0.835501, 0.737613, 0.001394, 0.628272, 0.480608, 0.344596, 0.958457, 0.697392, 0.459044, 0.725707, 0.369016, 0.895566, 0.168938, 0.296642, 0.785121, 0.04318, 0.386183, 0.072321, 0.234275, 0.697173, 0.172388, 0.720424, 0.493341, 0.678503, 0.659758, 0.814588, 0.636659, 0.9382, 0.867235, 0.291598, 0.924435, 0.201848, 0.456347, 0.994574, 0.076066, 0.427079, 0.080497, 0.607383, 0.611699, 0.334924, 0.359866, 0.832498, 0.130324, 0.681658, 0.471627, 0.656215, 0.458182, 0.62556, 0.190749, 0.516929, 0.164997, 0.223582, 0.325315, 0.053182, 0.21366, 0.369162, 0.878034, 0.19721, 0.187136, 0.086109, 0.855981, 0.605358, 0.794182, 0.429888, 0.614517, 0.294343, 0.92569, 0.37329, 0.253269, 0.200451, 0.339072, 0.729263, 0.66968, 0.541706, 0.731899, 0.506663, 0.732075, 0.520124, 0.909476, 0.256714, 0.973006, 0.080239, 0.706165, 0.377038, 0.473607, 0.514667, 0.47588, 0.385444, 0.803639, 0.570445, 0.404009, 0.975182, 0.583496, 0.858683, 0.29838, 0.665098, 0.870282, 0.258349, 0.864965, 0.454682, 0.196793, 0.913606, 0.553415, 0.438261, 0.354079, 0.096476, 0.127225, 0.503839, 0.239797, 0.58786, 0.04626, 0.523955, 0.215485, 0.474017, 0.549808, 0.065382, 0.101892, 0.110015, 0.228985, 0.604211, 0.631907, 0.490241, 0.688233, 0.514504, 0.627928, 0.506404, 0.673055, 0.390845, 0.869422, 0.793272, 0.917651, 0.740213, 0.13765, 0.6667, 0.891105, 0.148884, 0.458587, 0.601134, 0.220896, 0.442118, 0.439822, 0.393256, 0.675024, 0.322448, 0.702645, 0.348284, 0.476831, 0.766296, 0.917485, 0.436702, 0.824989, 0.011998, 0.363328, 0.05903, 0.444126, 0.062404, 0.352981, 0.198364, 0.425909, 0.812951, 0.897, 0.147808, 0.403301, 0.278422, 0.505261, 0.624235, 0.894922, 0.515594, 0.536684, 0.475487, 0.732001, 0.173107, 0.529769, 0.293629, 0.434832, 0.956985, 0.373503, 0.23396, 0.655446, 0.316274, 0.890287, 0.368744, 0.252595, 0.753706, 0.311438, 0.623642, 0.534642, 0.340937, 0.251143, 0.361835, 0.620473, 0.350589, 0.755376, 0.72999, 0.629947, 0.763895, 0.426287, 0.579373, 0.235492, 0.42646, 0.764024, 0.51787, 0.562825, 0.172573, 0.326286, 0.142973, 0.435593, 0.849965, 0.214437, 0.246584, 0.085008, 0.160594, 0.105786, 0.00085, 0.381888, 0.10374, 0.652057, 0.292121, 0.415008, 0.269152, 0.346665, 0.136418, 0.252624, 0.039497, 0.857371, 0.978024, 0.485593, 0.460424, 0.814825, 0.628496, 0.547578, 0.698255, 0.944876, 0.05115, 0.60334, 0.011458, 0.124766, 0.512574, 0.3324, 0.256335, 0.725397, 0.351559, 0.152647, 0.60941, 0.014419, 0.267616, 0.78169, 0.752797, 0.729858, 0.369736, 0.135255, 0.997337, 0.85858, 0.169171, 0.018488, 0.950091, 0.466443, 0.859045, 0.866703, 0.827685, 0.432559, 0.477723, 0.900674, 0.824991, 0.254999, 0.158886, 0.608563, 0.764251, 0.095826, 0.479686, 0.007609, 0.16696, 0.835162, 0.253533, 0.457067, 0.464298, 0.826626, 0.812864, 0.444654, 0.240371, 0.601616, 0.653486, 0.412603, 0.616131, 0.736847, 0.882149, 0.091684, 0.980353, 0.05517, 0.867614, 0.438486, 0.713942, 0.39038, 0.298718, 0.27138, 0.766955, 0.661335, 0.737847, 0.854374, 0.133894, 0.018908, 0.511794, 0.202616, 0.414273, 0.342001, 0.737478, 0.793407, 0.507881, 0.656288, 0.734387, 0.929716, 0.915695, 0.520007, 0.650977, 0.098301, 0.593465, 0.088075, 0.700621, 0.995057, 0.045459, 0.366631, 0.38991, 0.564639, 0.991047, 0.297567, 0.158219, 0.01117, 0.378611, 0.613466, 0.339782, 0.835101, 0.526798, 0.148786, 0.201964, 0.451125, 0.059496, 0.565448, 0.88551, 0.096673, 0.051187, 0.687836, 0.016173, 0.736703, 0.913339, 0.361681, 0.603842, 0.039656, 0.193446, 0.83166, 0.363705, 0.547903, 0.612991, 0.384871, 0.661973, 0.44012, 0.491692, 0.507871, 0.952239, 0.469506, 0.035124, 0.680548, 0.648647, 0.631717, 0.091845, 0.459109, 0.901927, 0.585105, 0.246959, 0.74663, 0.860233, 0.726769, 0.668038, 0.874056, 0.761832, 0.107358, 0.851143, 0.410526, 0.484862, 0.403336, 0.170844, 0.764975, 0.395951, 0.757443, 0.729815, 0.803101, 0.798398, 0.123398, 0.552353, 0.021142, 0.891876, 0.305232, 0.085486, 0.643298, 0.365951, 0.038853, 0.934895, 0.854124, 0.583684, 0.591037, 0.323279, 0.488559, 0.379409, 0.673399, 0.580899, 0.586857, 0.461737, 0.617841, 0.118707, 0.71462, 0.772546, 0.118294, 0.464218, 0.752711, 0.723827, 0.709349, 0.476941, 0.784355, 0.649533, 0.835721, 0.803132, 0.211552, 0.159099, 0.48072, 0.051165, 0.059796, 0.469373, 0.258822, 0.338536, 0.782429, 0.858493, 0.447199, 0.015406, 0.400965, 0.989405, 0.397471, 0.205786, 0.830732, 0.302335, 0.089388, 0.706428, 0.758428, 0.069333, 0.502975, 0.503438, 0.159432, 0.948981, 0.214849, 0.29024, 0.379216, 0.657861, 0.717841, 0.04239, 0.877319, 0.145641, 0.81594, 0.793295, 0.827811, 0.403539, 0.134256, 0.987366, 0.661751, 0.723292, 0.061282, 0.840843, 0.335932, 0.774384, 0.442644, 0.564364, 0.968395, 0.752488, 0.289307, 0.46041, 0.14244, 0.784394, 0.013782, 0.970677, 0.569797, 0.439333, 0.306533, 0.621559, 0.536065, 0.984089, 0.032345, 0.888124, 0.110635, 0.923081, 0.74148, 0.28308, 0.963365, 0.985057, 0.927338, 0.873766, 0.866548, 0.396347, 0.989931, 0.805492, 0.444393, 0.466284, 0.676067, 0.332749, 0.045718, 0.74743, 0.60082, 0.000822, 0.60379, 0.135575, 0.398049, 0.332117, 0.099617, 0.509857, 0.436511, 0.053631, 0.925066, 0.890909, 0.424198, 0.355632, 0.977241, 0.108153, 0.628612, 0.539064, 0.200994, 0.223261, 0.0831, 0.645632, 0.116064, 0.294559, 0.367094, 0.204007, 0.597978, 0.189968, 0.237475, 0.803725, 0.200396, 0.512936, 0.007266, 0.657399, 0.597109, 0.709963, 0.059326, 0.734463, 0.723739, 0.195625, 0.843669, 0.364355, 0.53705, 0.604576, 0.777028, 0.377248, 0.623685, 0.978434, 0.894375, 0.058287, 0.392399, 0.825181, 0.399927, 0.367402, 0.556943, 0.555842, 0.61811, 0.603308, 0.871786, 0.356261, 0.530238, 0.286881, 0.724029, 0.107185, 0.56155, 0.792859, 0.80737, 0.846051, 0.142006, 0.72894, 0.154459, 0.08348, 0.928791, 0.922774, 0.053953, 0.829688, 0.986613, 0.145029, 0.257309, 0.575833, 0.609948, 0.136643, 0.451073, 0.767553, 0.054487, 0.866669, 0.516118, 0.765933, 0.564917, 0.151872, 0.822957, 0.065652, 0.487147, 0.468513, 0.876062, 0.191455, 0.294634, 0.468838, 0.28289, 0.762522, 0.794558, 0.379887, 0.092301, 0.428147, 0.066676, 0.563718, 0.370058, 0.336903, 0.522148, 0.052758, 0.735323, 0.124509, 0.872668, 0.206451, 0.257847, 0.313466, 0.714599, 0.983619, 0.184303, 0.317629, 0.648398, 0.753471, 0.9783, 0.219696, 0.510024, 0.346061, 0.423416, 0.686105, 0.876787, 0.086639, 0.54031, 0.164166, 0.709886, 0.525428, 0.233363, 0.931995, 0.704184, 0.945322, 0.482019, 0.720868, 0.497963, 0.011339, 0.191076, 0.425727, 0.849264, 0.897224, 0.612616, 0.024767, 0.780274, 0.461143, 0.011997, 0.889339, 0.234055, 0.864965, 0.950689, 0.39056, 0.085068, 0.686951, 0.249439, 0.556045, 0.65093, 0.895798, 0.746725, 0.491284, 0.546962, 0.140807, 0.460652, 0.090106, 0.219435, 0.603683, 0.105722, 0.642092, 0.535858, 0.980922, 0.681046, 0.805891, 0.30622, 0.114764, 0.413664, 0.236868, 0.701039, 0.129969, 0.494976, 0.278347, 0.874642, 0.987425, 0.561549, 0.385116, 0.15374, 0.970779, 0.019333, 0.719802, 0.597507, 0.085056, 0.88072, 0.870846, 0.337042, 0.815049, 0.352445, 0.022261, 0.206662, 0.051588, 0.614186, 0.522994, 0.993303, 0.459378, 0.781366, 0.970031, 0.984608, 0.383895, 0.109449, 0.650003, 0.993906, 0.958547, 0.279335, 0.742373, 0.773025, 0.329437, 0.399473, 0.695048, 0.630183, 0.298468, 0.356324, 0.640496, 0.613312, 0.435485, 0.359476, 0.886429, 0.14868, 0.713361, 0.804886, 0.780587, 0.547739, 0.554215, 0.182214, 0.068722, 0.681118, 0.622202, 0.804341, 0.915588, 0.222555, 0.619956, 0.674449, 0.668388, 0.712155, 0.757814, 0.720193, 0.92702, 0.490928, 0.568746, 0.053374, 0.434436, 0.408727, 0.969977, 0.347449, 0.343607, 0.982142, 0.615816, 0.083556, 0.940507, 0.544803, 0.342299, 0.348336, 0.531325, 0.170593, 0.590775, 0.0253, 0.712046, 0.214277, 0.386277, 0.402666, 0.12864, 0.319554, 0.673523, 0.223246, 0.136593, 0.290183, 0.841359, 0.632962, 0.073083, 0.904744, 0.882171, 0.2444, 0.987473, 0.730432, 0.482087, 0.374567, 0.477559, 0.679196, 0.87178, 0.084022, 0.240834, 0.027245, 0.95748, 0.618559, 0.270044, 0.104737, 0.30255, 0.37703, 0.594186, 0.354324, 0.096673, 0.28965, 0.76909, 0.100461, 0.932329, 0.140961, 0.89508, 0.303336, 0.62451, 0.195269, 0.477559, 0.05334, 0.346682, 0.344204, 0.016084, 0.736204, 0.307608, 0.019164, 0.449238, 0.333604, 0.625139, 0.545054, 0.655071, 0.895762, 0.715585, 0.324092, 0.90351, 0.328069, 0.420537, 0.150887, 0.576564, 0.822845, 0.23438, 0.654538, 0.046544, 0.478134, 0.252244, 0.229758, 0.449944, 0.288282, 0.617052, 0.030131, 0.784076, 0.137545, 0.073772, 0.261732, 0.457365, 0.927995, 0.846737, 0.698861, 0.922054, 0.337779, 0.916051, 0.158154, 0.835342, 0.891035, 0.083412, 0.977685, 0.027067, 0.781514, 0.519982, 0.287877, 0.428878, 0.760212, 0.598989, 0.108832, 0.579035, 0.469494, 0.998922, 0.547637, 0.897768, 0.815377, 0.321609, 0.112862, 0.209692, 0.105491, 0.619788, 0.879074, 0.207076, 0.26328, 0.549944, 0.266283, 0.264651, 0.147906, 0.936969, 0.72082, 0.641312, 0.641387, 0.194004, 0.649367, 0.996403, 0.788522, 0.263691, 0.063172, 0.692285, 0.549291, 0.031893, 0.518214, 0.664553, 0.862012, 0.839536, 0.362843, 0.111737, 0.442639, 0.155287, 0.183239, 0.824556, 0.87711, 0.235107, 0.008077, 0.94683, 0.560206, 0.039417, 0.49765, 0.788981, 0.110242, 0.406044, 0.305961, 0.160312, 0.954524, 0.571781, 0.363708, 0.025279, 0.737125, 0.584686, 0.444973, 0.956439, 0.11447, 0.846609, 0.477935, 0.391499, 0.406702, 0.670326, 0.893587, 0.51295, 0.263877, 0.596736, 0.242488, 0.033278, 0.956417, 0.970335, 0.846383, 0.176431, 0.154085, 0.06839, 0.24145, 0.414237, 0.632797, 0.55205, 0.983431, 0.587227, 0.161779, 0.24564, 0.542504, 0.5464, 0.115394, 0.204837, 0.260645, 0.144204, 0.699007, 0.917453, 0.076693, 0.342968, 0.177949, 0.678932, 0.757328, 0.779001, 0.342845, 0.379843, 0.375235, 0.39051, 0.553868, 0.62026, 0.594518, 0.507146, 0.691147, 0.531289, 0.947707, 0.481815, 0.032305, 0.396995, 0.437248, 0.718184, 0.827954, 0.561972, 0.355434, 0.627295, 0.334818, 0.690143, 0.905844, 0.818932, 0.86216, 0.216952, 0.937625, 0.342208, 0.157921, 0.03408, 0.849683, 0.627043, 0.557173, 0.809949, 0.758776, 0.226379, 0.702495, 0.267885, 0.143815, 0.706235, 0.749183, 0.025042, 0.4394, 0.737341, 0.672893, 0.89508, 0.079451, 0.539471, 0.460517, 0.830332, 0.655006, 0.820139, 0.079382, 0.073927, 0.723672, 0.397589, 0.760488, 0.353604, 0.254857, 0.309999, 0.134864, 0.601309, 0.384068, 0.278712, 0.612383, 0.248093, 0.494086, 0.154086, 0.80911, 0.864456, 0.832851, 0.33788, 0.179572, 0.453155, 0.646649, 0.76797, 0.740156, 0.948661, 0.837242, 0.217791, 0.637992, 0.424508, 0.544633, 0.124042, 0.464086, 0.118993, 0.203603, 0.973718, 0.236683, 0.862899, 0.784097, 0.033394, 0.500676, 0.748714, 0.459739, 0.948845, 0.548397, 0.279856, 0.536932, 0.66642, 0.204717, 0.026728, 0.38994, 0.856605, 0.198694, 0.24556, 0.737322, 0.54752, 0.84442, 0.743233, 0.585803, 0.558618, 0.950896, 0.67474, 0.459372, 0.007487, 0.390223, 0.106908, 0.253075, 0.878646, 0.992996, 0.671054, 0.261945, 0.225736, 0.716123, 0.677057, 0.238454, 0.405772, 0.653707, 0.606875, 0.017551, 0.152944, 0.605879, 0.943376, 0.722539, 0.940647, 0.836752, 0.073897, 0.959639, 0.37717, 0.956827, 0.271624, 0.043343, 0.089491, 0.606449, 0.650405, 0.410706, 0.969132, 0.891804, 0.729208, 0.374998, 0.846918, 0.11506, 0.954969, 0.218411, 0.14876, 0.996386, 0.748642, 0.802738, 0.648658, 0.830295, 0.846499, 0.0778, 0.69415, 0.158171, 0.448801, 0.18889, 0.083099, 0.336915, 0.546909, 0.859315, 0.435598, 0.067273, 0.520746, 0.438555, 0.686383, 0.751608, 0.921512, 0.041941, 0.839472, 0.794083, 0.875983, 0.188775, 0.471327, 0.742113, 0.098374, 0.447196, 0.652126, 0.014212, 0.155611, 0.059927, 0.689779, 0.88897, 0.058214, 0.980435, 0.542721, 0.796641, 0.447116, 0.820546, 0.671211, 0.811553, 0.704378, 0.926311, 0.378159, 0.582069, 0.291388, 0.861179, 0.244369, 0.569997, 0.856003, 0.474096, 0.358955, 0.099898, 0.982165, 0.052125, 0.598086, 0.901977, 0.637335, 0.41943, 0.952451, 0.242188, 0.171919, 0.361654, 0.278725, 0.034176, 0.831444, 0.177084, 0.512716, 0.646156, 0.077722, 0.839715, 0.957841, 0.984283, 0.106298, 0.733906, 0.771237, 0.579167, 0.833112, 0.713603, 0.190836, 0.978134, 0.675659, 0.626596, 0.073673, 0.567481, 0.277099, 0.68169, 0.83647, 0.648722, 0.635337, 0.474482, 0.647083, 0.596155, 0.72173, 0.254641, 0.21274, 0.572586, 0.340131, 0.057228, 0.811575, 0.496008, 0.79292, 0.071108, 0.887157, 0.888982, 0.709626, 0.829084, 0.639383, 0.318795, 0.954671, 0.702895, 0.91461, 0.061435, 0.74393, 0.194627, 0.819671, 0.323729, 0.472204, 0.858428, 0.225126, 0.749944, 0.642613, 0.812181, 0.619207, 0.037121, 0.521667, 0.004786, 0.022673, 0.038439, 0.124999, 0.540173, 0.499704, 0.021693, 0.885208, 0.143165, 0.511167, 0.342743, 0.958495, 0.226399, 0.718778, 0.174672, 0.196334, 0.237925, 0.785385, 0.951723, 0.254017, 0.022125, 0.119372, 0.759075, 0.694146, 0.129927, 0.982063, 0.161496, 0.908078, 0.503538, 0.129601, 0.235641, 0.289638, 0.535029, 0.774146, 0.893421, 0.006402, 0.184897, 0.440595, 0.053195, 0.474143, 0.998103, 0.056287, 0.422056, 0.353582, 0.550644, 0.200534, 0.088905, 0.0973, 0.968552, 0.109123, 0.823662, 0.134884, 0.329277, 0.621209, 0.192935, 0.625508, 0.899814, 0.215348, 0.849543, 0.723444, 0.199797, 0.965738, 0.218633, 0.021161, 0.490641, 0.255451, 0.114241, 0.451488, 0.648728, 0.79251, 0.847156, 0.020247, 0.096072, 0.02385, 0.771424, 0.979036, 0.948086, 0.641912, 0.007506, 0.520438, 0.041095, 0.259857, 0.880439, 0.699765, 0.74197, 0.268653, 0.24609, 0.990342, 0.652826, 0.997032, 0.711309, 0.416229, 0.465045, 0.740588, 0.255278, 0.919713, 0.351675, 0.744069, 0.520434, 0.177656, 0.02358, 0.339283, 0.868214, 0.86704, 0.241086, 0.777358, 0.30633, 0.278577, 0.04401, 0.860183, 0.421782, 0.536116, 0.462748, 0.841332, 0.972904, 0.111982, 0.510595, 0.245064, 0.360626, 0.237867, 0.301322, 0.343648, 0.548636, 0.214438, 0.707856, 0.284993, 0.431798, 0.746613, 0.270322, 0.562649, 0.500295, 0.114147, 0.152996, 0.402865, 0.133641, 0.254212, 0.0227, 0.759949, 0.042389, 0.220331, 0.827629, 0.625534, 0.806812, 0.78558, 0.78839, 0.571999, 0.734001, 0.876193, 0.317802, 0.801166, 0.697606, 0.388418, 0.220654, 0.071027, 0.452664, 0.958381, 0.03626, 0.762833, 0.470848, 0.799554, 0.171743, 0.208465, 0.138801, 0.904634, 0.898374, 0.57535, 0.000188, 0.343496, 0.720876, 0.601686, 0.601773, 0.811505, 0.183709, 0.620467, 0.744027, 0.314595, 0.978356, 0.756787, 0.925234, 0.431495, 0.411659, 0.347531, 0.566944, 0.812703, 0.388303, 0.993183, 0.458476, 0.975172, 0.379939, 0.677321, 0.680413, 0.92786, 0.435683, 0.299146, 0.255112, 0.295772, 0.926222, 0.733439, 0.405701, 0.814942, 0.744199, 0.310279, 0.88008, 0.756769, 0.888091, 0.530252, 0.05496, 0.046475, 0.18912, 0.377296, 0.576194, 0.126068, 0.750492, 0.222404, 0.998616, 0.858741, 0.54703, 0.835022, 0.386073, 0.235812, 0.471181, 0.254078, 0.106213, 0.600062, 0.937133, 0.103917, 0.228681, 0.684663, 0.021782, 0.361376, 0.626817, 0.885847, 0.517094, 0.736952, 0.794445, 0.263669, 0.283706, 0.102357, 0.594772, 0.240187, 0.051984, 0.007674, 0.230485, 0.13754, 0.468538, 0.293304, 0.028603, 0.220223, 0.202196, 0.809582, 0.615741, 0.616355, 0.729503, 0.034573, 0.891001, 0.541557, 0.074166, 0.282811, 0.283656, 0.638606, 0.536173, 0.332574, 0.778164, 0.599939, 0.900564, 0.36791, 0.174132, 0.113325, 0.276725, 0.313152, 0.751566, 0.789985, 0.872619, 0.917483, 0.981426, 0.861027, 0.203531, 0.360724, 0.386977, 0.043888, 0.214318, 0.029351, 0.646611, 0.620666, 0.581145, 0.826234, 0.649084, 0.486055, 0.548021, 0.568759, 0.373613, 0.075133, 0.346788, 0.273434, 0.782448, 0.054716, 0.763244, 0.552539, 0.937787, 0.667598, 0.318661, 0.168385, 0.531764, 0.798678, 0.233591, 0.313517, 0.293873, 0.484633, 0.835456, 0.280751, 0.325472, 0.06114, 0.704935, 0.75495, 0.469496, 0.962711, 0.519523, 0.54858, 0.144377, 0.236766, 0.540137, 0.604771, 0.250757, 0.748843, 0.796872, 0.70374, 0.272024, 0.008673, 0.793142, 0.410243, 0.039173, 0.166352, 0.862123, 0.562558, 0.960952, 0.397812, 0.763416, 0.220791, 0.988406, 0.318182, 0.862167, 0.168019, 0.550299, 0.983869, 0.098764, 0.40979, 0.606342, 0.159298, 0.708015, 0.980493, 0.324885, 0.221173, 0.859608, 0.479972, 0.737797, 0.540728, 0.382007, 0.433365, 0.288494, 0.10322, 0.58584, 0.249537, 0.277378, 0.716787, 0.285381, 0.46811, 0.45848, 0.237417, 0.862192, 0.751518, 0.402885, 0.600112, 0.355907, 0.211671, 0.612676, 0.437878, 0.031618, 0.828737, 0.374398, 0.7552, 0.756766, 0.566764, 0.940058, 0.208442, 0.926268, 0.90494, 0.175591, 0.270583, 0.716617, 0.721115, 0.900075, 0.2925, 0.53417, 0.110275, 0.49045, 0.521471, 0.225402, 0.911192, 0.206521, 0.208057, 0.044626, 0.210405, 0.852614, 0.180464, 0.247851, 0.14566, 0.926092, 0.610545, 0.182258, 0.16157, 0.683018, 0.069745, 0.849428, 0.752432, 0.435655, 0.703013, 0.227144, 0.782409, 0.959813, 0.393019, 0.10819, 0.690781, 0.572021, 0.245762, 0.197228, 0.987197, 0.263836, 0.446912, 0.887976, 0.649324, 0.163999, 0.724206, 0.93524, 0.475339, 0.882569, 0.968494, 0.205311, 0.451587, 0.744796, 0.38713, 0.507434, 0.160011, 0.528184, 0.273177, 0.835576, 0.843528, 0.62084, 0.869674, 0.929797, 0.24551, 0.347756, 0.784462, 0.427162, 0.423596, 0.522407, 0.187953, 0.343567, 0.211131, 0.2879, 0.148791, 0.907536, 0.574902, 0.047487, 0.877151, 0.939878, 0.642911, 0.693997, 0.77887, 0.99166, 0.766758, 0.663854, 0.623404, 0.676931, 0.045391, 0.27085, 0.210709, 0.278638, 0.310344, 0.66774, 0.143145, 0.982225, 0.543142, 0.436087, 0.406795, 0.494994, 0.89831, 0.523614, 0.598407, 0.442563, 0.996026, 0.135925, 0.726093, 0.86274, 0.562397, 0.103393, 0.961783, 0.090785, 0.901678, 0.846773, 0.822771, 0.811889, 0.525296, 0.362991, 0.771546, 0.771479, 0.775936, 0.779188, 0.114253, 0.609172, 0.067621, 0.921802, 0.520001, 0.926041, 0.667305, 0.816986, 0.672665, 0.415911, 0.254702, 0.259479, 0.179463, 0.252713, 0.802639, 0.615551, 0.31683, 0.261742, 0.021443, 0.490526, 0.964846, 0.596791, 0.670441, 0.077736, 0.51088, 0.9715, 0.555397, 0.428392, 0.910618, 0.595273, 0.378198, 0.31734, 0.62965, 0.78245, 0.661231, 0.340517, 0.228628, 0.42998, 0.704134, 0.37227, 0.534838, 0.367213, 0.938684, 0.632377, 0.680433, 0.296505, 0.468741, 0.543246, 0.370154, 0.087453, 0.140588, 0.385201, 0.309698, 0.624827, 0.124511, 0.207134, 0.316191, 0.945568, 0.991815, 0.837844, 0.03973, 0.822748, 0.373911, 0.49241, 0.012724, 0.704842, 0.635498, 0.489524, 0.085242, 0.135207, 0.674526, 0.191051, 0.017228, 0.046753, 0.356629, 0.911991, 0.876165, 0.663286, 0.981412, 0.6483, 0.671872, 0.55463, 0.972421, 0.026775, 0.608016, 0.819641, 0.321348, 0.162755, 0.314451, 0.769118, 0.974277, 0.63383, 0.155651, 0.507048, 0.604476, 0.758729, 0.693512, 0.218931, 0.660195, 0.915603, 0.924977, 0.370777, 0.471186, 0.70788, 0.69668, 0.726139, 0.434357, 0.699296, 0.461658, 0.311156, 0.542618, 0.143184, 0.229343, 0.738815, 0.436168, 0.179658, 0.429213, 0.068187, 0.379641, 0.463521, 0.950519, 0.213701, 0.571775, 0.303244, 0.382551, 0.473871, 0.109507, 0.684267, 0.75261, 0.760776, 0.067773, 0.618329, 0.029605, 0.729192, 0.713555, 0.620526, 0.475099, 0.866769, 0.988599, 0.508075, 0.630325, 0.95266, 0.280242, 0.771619, 0.317463, 0.654236, 0.789041, 0.110362, 0.443392, 0.19298, 0.188823, 0.79118, 0.113091, 0.543836, 0.409727, 0.269467, 0.661614, 0.342559, 0.303593, 0.722099, 0.474846, 0.693466, 0.753839, 0.32789, 0.340401, 0.550206, 0.889703, 0.542385, 0.729253, 0.34722, 0.08705, 0.369841, 0.054525, 0.609764, 0.750051, 0.720359, 0.239247, 0.999834, 0.026716, 0.09295, 0.74414, 0.446673, 0.028654, 0.886583, 0.053564, 0.236369, 0.860735, 0.785763, 0.353331, 0.491843, 0.212898, 0.747429, 0.410053, 0.671203, 0.855124, 0.077409, 0.355731, 0.872271, 0.438745, 0.857206, 0.75541, 0.589322, 0.722302, 0.372112, 0.11967, 0.49816, 0.911633, 0.66458, 0.065205, 0.344602, 0.01251, 0.00186, 0.341261, 0.917238, 0.605049, 0.607728, 0.321659, 0.590697, 0.913312, 0.679673, 0.23119, 0.848811, 0.362622, 0.25665, 0.988764, 0.311394, 0.772867, 0.014922, 0.242197, 0.646122, 0.438183, 0.67166, 0.008018, 0.260147, 0.895938, 0.573795, 0.981196, 0.723531, 0.651354, 0.39723, 0.464796, 0.450042, 0.546849, 0.312652, 0.650433, 0.903322, 0.949947, 0.81056, 0.278587, 0.697178, 0.628725, 0.563937, 0.171468, 0.980759, 0.771957, 0.61843, 0.332653, 0.838037, 0.035894, 0.570517, 0.64787, 0.609275, 0.179016, 0.596468, 0.307482, 0.449222, 0.938154, 0.169257, 0.434935, 0.341698, 0.206174, 0.971659, 0.615812, 0.828345, 0.194925, 0.570085, 0.829859, 0.983275, 0.844431, 0.125627, 0.704987, 0.690916, 0.858197, 0.523395, 0.96621, 0.639808, 0.301686, 0.301414, 0.185777, 0.830483, 0.584779, 0.372864, 0.136398, 0.054395, 0.465148, 0.573834, 0.301998, 0.75168, 0.612549, 0.108067, 0.960529, 0.318463, 0.317541, 0.322618, 0.614225, 0.363232, 0.682831, 0.101208, 0.405696, 0.678447, 0.966803, 0.978839, 0.28727, 0.72488, 0.444612, 0.060387, 0.43136, 0.955542, 0.389493, 0.701562, 0.934054, 0.03352, 0.502166, 0.385869, 0.34679, 0.448737, 0.894351, 0.295111, 0.414808, 0.463648, 0.125575, 0.683114, 0.633108, 0.811124, 0.505478, 0.198831, 0.920153, 0.533854, 0.596432, 0.809392, 0.958009, 0.666392, 0.134869, 0.377475, 0.698199, 0.09248, 0.185807, 0.782928, 0.602527, 0.016226, 0.072824, 0.79807, 0.389612, 0.890727, 0.765484, 0.166049, 0.183544, 0.158895, 0.152808, 0.271006, 0.05529, 0.454818, 0.046535, 0.502842, 0.324722, 0.53559, 0.881987, 0.202881, 0.398701, 0.910687, 0.443083, 0.786749, 0.736023, 0.607341, 0.34664, 0.941489, 0.160458, 0.879683, 0.502291, 0.589623, 0.619978, 0.692674, 0.355531, 0.645976, 0.49698, 0.200294, 0.986157, 0.928784, 0.86567, 0.93274, 0.247158, 0.498713, 0.693959, 0.939136, 0.379817, 0.436377, 0.609258, 0.860953, 0.956921, 0.423778, 0.478682, 0.624778, 0.850816, 0.9511, 0.640235, 0.410267, 0.693883, 0.836579, 0.796535, 0.555674, 0.090557, 0.980905, 0.065272, 0.266031, 0.900966, 0.449999, 0.508456, 0.742232, 0.687453, 0.867239, 0.234599, 0.236872, 0.273846, 0.140751, 0.134315, 0.843626, 0.525987, 0.12004, 0.162145, 0.650312, 0.736682, 0.320623, 0.771803, 0.624032, 0.789488, 0.092005, 0.288543, 0.700903, 0.087141, 0.513209, 0.759535, 0.700987, 0.349574, 0.605536, 0.332111, 0.194695, 0.247254, 0.045113, 0.087275, 0.241094, 0.255351, 0.679057, 0.004796, 0.272347, 0.273653, 0.588082, 0.202136, 0.177332, 0.986218, 0.026023, 0.634916, 0.111449, 0.096635, 0.569174, 0.268349, 0.52361, 0.649588, 0.331948, 0.91737, 0.36222, 0.315104, 0.47704, 0.273324, 0.593221, 0.935165, 0.350382, 0.686021, 0.393587, 0.878728, 0.727794, 0.383423, 0.383507, 0.144505, 0.453365, 0.130357, 0.433531, 0.639585, 0.42591, 0.200154, 0.243775, 0.898212, 0.064213, 0.35595, 0.607613, 0.208973, 0.805768, 0.223161, 0.418349, 0.429002, 0.524526, 0.433473, 0.723579, 0.942884, 0.388552, 0.128008, 0.818871, 0.146468, 0.060127, 0.493009, 0.858251, 0.530175, 0.322573, 0.529124, 0.400479, 0.855612, 0.04906, 0.957699, 0.007655, 0.502643, 0.947473, 0.442747, 0.393373, 0.198501, 0.871353, 0.113644, 0.17031, 0.959433, 0.795022 ],
+							"germinalVector" : [ 0.441952, 0.921862, 0.929952, 0.324789, 0.135109, 0.151791, 0.562816, 0.193571, 0.624075, 0.511457, 0.083735, 0.523704, 0.927522, 0.906729, 0.009623, 0.350793, 0.30082, 0.966397, 0.023114, 0.098043, 0.976732, 0.826023, 0.743148, 0.992604, 0.450516, 0.839617, 0.769221, 0.068972, 0.663823, 0.152287, 0.122224, 0.721895, 0.921594, 0.406424, 0.363584, 0.843058, 0.471082, 0.322733, 0.196499, 0.832578, 0.208878, 0.579253, 0.471449, 0.633156, 0.978727, 0.956962, 0.184101, 0.38237, 0.512662, 0.140643, 0.851185, 0.678293, 0.629535, 0.666749, 0.354401, 0.389545, 0.785163, 0.572179, 0.301035, 0.093789, 0.543497, 0.82202, 0.531756, 0.260788, 0.393669, 0.793827, 0.60931, 0.202487, 0.628511, 0.36161, 0.009175, 0.849562, 0.353151, 0.916353, 0.515135, 0.838087, 0.402313, 0.310519, 0.554375, 0.306398, 0.440718, 0.243757, 0.921961, 0.144394, 0.614594, 0.067068, 0.351388, 0.471597, 0.744458, 0.420408, 0.500101, 0.429452, 0.894552, 0.761874, 0.810927, 0.774096, 0.204834, 0.574268, 0.862481, 0.583686, 0.541595, 0.69815, 0.999532, 0.443335, 0.451248, 0.769837, 0.724835, 0.633549, 0.334798, 0.361813, 0.999923, 0.43981, 0.681321, 0.982183, 0.236395, 0.66547, 0.782756, 0.164605, 0.504075, 0.919539, 0.365898, 0.49264, 0.967801, 0.292002, 0.462363, 0.492724, 0.65493, 0.698103, 0.164135, 0.410678, 0.827023, 0.887691, 0.548919, 0.500994, 0.280509, 0.061613, 0.536157, 0.327012, 0.049397, 0.715285, 0.097226, 0.964496, 0.253432, 0.367101, 0.119972, 0.421292, 0.485894, 0.981718, 0.805379, 0.172817, 0.733476, 0.088155, 0.196161, 0.624604, 0.725087, 0.64546, 0.147315, 0.866321, 0.171977, 0.19513, 0.402392, 0.92928, 0.653705, 0.469546, 0.74686, 0.666728, 0.610171, 0.702851, 0.773147, 0.951645, 0.866899, 0.819761, 0.408224, 0.398855, 0.573913, 0.631782, 0.009683, 0.90251, 0.13259, 0.124486, 0.490661, 0.226838, 0.684036, 0.603438, 0.285666, 0.826819, 0.694655, 0.151257, 0.758374, 0.846301, 0.983886, 0.862573, 0.478873, 0.362406, 0.305186, 0.471151, 0.203623, 0.735842, 0.151737, 0.143316, 0.754156, 0.840507, 0.202561, 0.623241, 0.582519, 0.217718, 0.564176, 0.439577, 0.942653, 0.615024, 0.048618, 0.245027, 0.207625, 0.865731, 0.424065, 0.487614, 0.792548, 0.529303, 0.271103, 0.887154, 0.169041, 0.495855, 0.711613, 0.9508, 0.62852, 0.998339, 0.665759, 0.079199, 0.273746, 0.259481, 0.233094, 0.245512, 0.265597, 0.964981, 0.965143, 0.806134, 0.944888, 0.590438, 0.834195, 0.462576, 0.172939, 0.924018, 0.100359, 0.097645, 0.820741, 0.027968, 0.003647, 0.360652, 0.220477, 0.190918, 0.537225, 0.926027, 0.292078, 0.962215, 0.993502, 0.992675, 0.959407, 0.013447, 0.319768, 0.75544, 0.48016, 0.35803, 0.686177, 0.323399, 0.44503, 0.837437, 0.19424, 0.400428, 0.162856, 0.749275, 0.550827, 0.162276, 0.200202, 0.567369, 0.000651, 0.719797, 0.091842, 0.857681, 0.427167, 0.015678, 0.379923, 0.793249, 0.238709, 0.062672, 0.232363, 0.950602, 0.528064, 0.597164, 0.511569, 0.04587, 0.865248, 0.091954, 0.313529, 0.074945, 0.126753, 0.050954, 0.363524, 0.491383, 0.692568, 0.623504, 0.627876, 0.776787, 0.31422, 0.894152, 0.748245, 0.899187, 0.33131, 0.777689, 0.458895, 0.176961, 0.340999, 0.825175, 0.890366, 0.752856, 0.467147, 0.632757, 0.690643, 0.305224, 0.555862, 0.637306, 0.399893, 0.400075, 0.081378, 0.119677, 0.931102, 0.139794, 0.832036, 0.85767, 0.112235, 0.417953, 0.406933, 0.813632, 0.914549, 0.516094, 0.593887, 0.37569, 0.953189, 0.022314, 0.162939, 0.660693, 0.455362, 0.009694, 0.884909, 0.975245, 0.544331, 0.738479, 0.97229, 0.486829, 0.985721, 0.356509, 0.344209, 0.440732, 0.283252, 0.671532, 0.706897, 0.256756, 0.453658, 0.676199, 0.607283, 0.790716, 0.122883, 0.451303, 0.423919, 0.622491, 0.823292, 0.899374, 0.556457, 0.789767, 0.250346, 0.347146, 0.605756, 0.217096, 0.477463, 0.02083, 0.187764, 0.564597, 0.707697, 0.833206, 0.737529, 0.300061, 0.239502, 0.626878, 0.139719, 0.957404, 0.431651, 0.303756, 0.702076, 0.598089, 0.324836, 0.830114, 0.030256, 0.665141, 0.396098, 0.507768, 0.028507, 0.479132, 0.852975, 0.46836, 0.440645, 0.257565, 0.980848, 0.319213, 0.835982, 0.80552, 0.325715, 0.491449, 0.8109, 0.961736, 0.200926, 0.296289, 0.864295, 0.751881, 0.727002, 0.932163, 0.498208, 0.073545, 0.860567, 0.734135, 0.475005, 0.877615, 0.201376, 0.166972, 0.717837, 0.073083, 0.920677, 0.261699, 0.637997, 0.194334, 0.554807, 0.452453, 0.642624, 0.366579, 0.997442, 0.10951, 0.619737, 0.797132, 0.753712, 0.71388, 0.109691, 0.483246, 0.475501, 0.546171, 0.771074, 0.471874, 0.624539, 0.544577, 0.885613, 0.651188, 0.91567, 0.949633, 0.214853, 0.789941, 0.07009, 0.614936, 0.254697, 0.754567, 0.603773, 0.618649, 0.066975, 0.97707, 0.592138, 0.611196, 0.799104, 0.843744, 0.872422, 0.936803, 0.480158, 0.954587, 0.021366, 0.654476, 0.834411, 0.316596, 0.843721, 0.381575, 0.207979, 0.366965, 0.909928, 0.869907, 0.116017, 0.471265, 0.227326, 0.036216, 0.438831, 0.585234, 0.530249, 0.354026, 0.478789, 0.913638, 0.653472, 0.148121, 0.839353, 0.458767, 0.147172, 0.375564, 0.883267, 0.273092, 0.418084, 0.762338, 0.664348, 0.674169, 0.018039, 0.245132, 0.279968, 0.037503, 0.404308, 0.384951, 0.46564, 0.332161, 0.700925, 0.004088, 0.563639, 0.821433, 0.166395, 0.807818, 0.74698, 0.012363, 0.259427, 0.125505, 0.717799, 0.049821, 0.692203, 0.754956, 0.259832, 0.945814, 0.896914, 0.946528, 0.231515, 0.26155, 0.167903, 0.734001, 0.030682, 0.011072, 0.41999, 0.65055, 0.909915, 0.505905, 0.490626, 0.652219, 0.764165, 0.825574, 0.243583, 0.237814, 0.341626, 0.495975, 0.884625, 0.395542, 0.726401, 0.259645, 0.721522, 0.941139, 0.244013, 0.991945, 0.818479, 0.071109, 0.498837, 0.567616, 0.623203, 0.125173, 0.157816, 0.973259, 0.540691, 0.066163, 0.068014, 0.451463, 0.238098, 0.69983, 0.914177, 0.057324, 0.619652, 0.020216, 0.227874, 0.530953, 0.150026, 0.683367, 0.456968, 0.910058, 0.691066, 0.623268, 0.290294, 0.537428, 0.594243, 0.349862, 0.628745, 0.231073, 0.700293, 0.794041, 0.724569, 0.167739, 0.014379, 0.613578, 0.941082, 0.455146, 0.431055, 0.194106, 0.420659, 0.598715, 0.100687, 0.406871, 0.784976, 0.653533, 0.740117, 0.707623, 0.444859, 0.570449, 0.209727, 0.210066, 0.551737, 0.831476, 0.038124, 0.743586, 0.303113, 0.82144, 0.304611, 0.61969, 0.150994, 0.562758, 0.653469, 0.771954, 0.529215, 0.267923, 0.08069, 0.217548, 0.343813, 0.481979, 0.734415, 0.15904, 0.117624, 0.830695, 0.840872, 0.396845, 0.90726, 0.434432, 0.148281, 0.708482, 0.333816, 0.371228, 0.969258, 0.244617, 0.976282, 0.018736, 0.311152, 0.73365, 0.462244, 0.758528, 0.483035, 0.25029, 0.21267, 0.762835, 0.810803, 0.506804, 0.41851, 0.421497, 0.218693, 0.239084, 0.64439, 0.384393, 0.968334, 0.779751, 0.27318, 0.994732, 0.38371, 0.052718, 0.065858, 0.784673, 0.099704, 0.350334, 0.634379, 0.391222, 0.087907, 0.57789, 0.798743, 0.5787, 0.982776, 0.475709, 0.552642, 0.342022, 0.970993, 0.567169, 0.407446, 0.037344, 0.430197, 0.209244, 0.402022, 0.641177, 0.568149, 0.530946, 0.967682, 0.052167, 0.202169, 0.103135, 0.019265, 0.104417, 0.078326, 0.207645, 0.11758, 0.278582, 0.629781, 0.007202, 0.945154, 0.053679, 0.40746, 0.416572, 0.038504, 0.822721, 0.74561, 0.401539, 0.988504, 0.681244, 0.460832, 0.029884, 0.428916, 0.8335, 0.273887, 0.305355, 0.195856, 0.337651, 0.128496, 0.62945, 0.299025, 0.543572, 0.311049, 0.955244, 0.153966, 0.027733, 0.464328, 0.399958, 0.311359, 0.118986, 0.520668, 0.31747, 0.607397, 0.886308, 0.239135, 0.196505, 0.328689, 0.251708, 0.442379, 0.73412, 0.554501, 0.802255, 0.94115, 0.173269, 0.020911, 0.27718, 0.708871, 0.251349, 0.316761, 0.589839, 0.683528, 0.218378, 0.156826, 0.104908, 0.468122, 0.990826, 0.186771, 0.253557, 0.219258, 0.341646, 0.967325, 0.87052, 0.896751, 0.883258, 0.106717, 0.919967, 0.29539, 0.479359, 0.101403, 0.692, 0.17207, 0.107143, 0.298648, 0.426137, 0.943216, 0.054027, 0.039912, 0.380047, 0.279092, 0.898243, 0.854419, 0.828797, 0.45712, 0.08295, 0.64821, 0.809582, 0.15859, 0.284948, 0.020453, 0.817599, 0.560661, 0.681011, 0.851279, 0.066976, 0.043038, 0.324516, 0.552349, 0.526737, 0.018157, 0.720952, 0.939948, 0.660997, 0.133314, 0.051002, 0.585662, 0.568197, 0.864618, 0.910802, 0.006126, 0.031839, 0.210559, 0.718721, 0.095281, 0.715517, 0.886055, 0.560162, 0.430359, 0.971931, 0.395259, 0.157529, 0.747271, 0.356831, 0.434685, 0.314441, 0.454056, 0.637003, 0.427496, 0.549252, 0.788197, 0.169995, 0.565585, 0.629974, 0.44209, 0.992702, 0.20349, 0.192879, 0.975517, 0.118847, 0.837103, 0.764733, 0.545315, 0.417684, 0.940861, 0.647839, 0.787102, 0.228349, 0.538968, 0.850932, 0.820014, 0.37436, 0.097422, 0.04242, 0.272394, 0.083334, 0.906225, 0.967439, 0.94362, 0.69483, 0.831304, 0.418897, 0.317602, 0.008056, 0.273026, 0.200476, 0.492811, 0.776478, 0.804143, 0.29062, 0.944225, 0.918431, 0.32292, 0.608, 0.77886, 0.859956, 0.944447, 0.431333, 0.244974, 0.697194, 0.846783, 0.806966, 0.361118, 0.547947, 0.771663, 0.626228, 0.81162, 0.293876, 0.925018, 0.836229, 0.681971, 0.942011, 0.32584, 0.526687, 0.480824, 0.179853, 0.972374, 0.66428, 0.033695, 0.689445, 0.446772, 0.914697, 0.488208, 0.999791, 0.478052, 0.249968, 0.111572, 0.264014, 0.050936, 0.411057, 0.734224, 0.170668, 0.298795, 0.292517, 0.425101, 0.667928, 0.337132, 0.310931, 0.816803, 0.527802, 0.202298, 0.488465, 0.825517, 0.07459, 0.184202, 0.426208, 0.111539, 0.29726, 0.203778, 0.836063, 0.230457, 0.261472, 0.825616, 0.33898, 0.64922, 0.006268, 0.496905, 0.979509, 0.964963, 0.309156, 0.934519, 0.80741, 0.342217, 0.027029, 0.049326, 0.842438, 0.33338, 0.345453, 0.493535, 0.685444, 0.262138, 0.524851, 0.117542, 0.939651, 0.612523, 0.028078, 0.46104, 0.173748, 0.405439, 0.162204, 0.02591, 0.135425, 0.357311, 0.721996, 0.610334, 0.140392, 0.110311, 0.366874, 0.560933, 0.809334, 0.562498, 0.941906, 0.15113, 0.541193, 0.617677, 0.71491, 0.364978, 0.104489, 0.658259, 0.366144, 0.853856, 0.739284, 0.326304, 0.336629, 0.550389, 0.652669, 0.330505, 0.908652, 0.252113, 0.21292, 0.868878, 0.159702, 0.642444, 0.912378, 0.209035, 0.228424, 0.385749, 0.760622, 0.645725, 0.046253, 0.525843, 0.450447, 0.08392, 0.944947, 0.009223, 0.752762, 0.692351, 0.834807, 0.953408, 0.343716, 0.575527, 0.010687, 0.294, 0.359863, 0.590467, 0.522357, 0.833721, 0.914078, 0.226494, 0.889168, 0.107572, 0.490485, 0.340619, 0.80463, 0.491549, 0.471356, 0.464685, 0.05163, 0.050132, 0.533438, 0.413121, 0.289708, 0.673794, 0.053644, 0.569196, 0.424646, 0.8325, 0.068735, 0.843533, 0.675015, 0.915327, 0.491123, 0.265075, 0.689717, 0.634736, 0.567597, 0.680695, 0.289199, 0.570329, 0.106885, 0.285126, 0.18456, 0.703153, 0.756359, 0.678487, 0.420908, 0.014548, 0.115061, 0.357494, 0.620346, 0.680657, 0.732155, 0.751405, 0.666747, 0.078877, 0.66438, 0.394169, 0.858461, 0.889817, 0.060463, 0.480384, 0.075886, 0.344608, 0.031694, 0.652563, 0.830676, 0.1789, 0.240902, 0.56267, 0.430859, 0.551692, 0.645154, 0.952689, 0.564858, 0.852308, 0.640087, 0.108743, 0.42054, 0.064195, 0.608311, 0.087309, 0.459242, 0.157243, 0.50906, 0.787828, 0.150201, 0.036817, 0.448608, 0.200481, 0.79864, 0.114964, 0.067912, 0.924806, 0.282534, 0.612044, 0.59241, 0.564025, 0.523277, 0.254702, 0.546845, 0.288271, 0.181784, 0.013815, 0.620062, 0.445072, 0.044308, 0.37828, 0.996445, 0.689694, 0.641178, 0.452281, 0.326777, 0.052246, 0.724132, 0.192323, 0.700247, 0.19632, 0.753452, 0.783894, 0.477622, 0.666229, 0.742337, 0.163351, 0.938835, 0.527936, 0.649656, 0.266748, 0.527474, 0.727663, 0.708337, 0.246097, 0.106272, 0.068543, 0.923996, 0.830153, 0.718755, 0.463377, 0.388458, 0.626007, 0.928803, 0.791434, 0.838542, 0.482403, 0.870664, 0.469046, 0.00492, 0.163214, 0.900394, 0.539273, 0.340116, 0.57457, 0.919395, 0.207186, 0.866891, 0.750687, 0.633215, 0.256455, 0.819595, 0.732995, 0.171741, 0.125142, 0.18816, 0.881971, 0.948101, 0.737621, 0.812964, 0.113774, 0.820367, 0.291424, 0.818162, 0.09397, 0.503091, 0.974353, 0.454807, 0.574225, 0.973983, 0.498743, 0.546424, 0.297732, 0.447216, 0.584476, 0.974138, 0.311286, 0.888467, 0.246404, 0.590822, 0.021084, 0.325096, 0.73235, 0.758699, 0.496125, 0.029041, 0.998131, 0.263152, 0.459515, 0.069738, 0.997504, 0.52742, 0.85516, 0.900159, 0.592214, 0.302239, 0.951121, 0.141279, 0.641033, 0.435613, 0.341721, 0.052993, 0.420526, 0.253874, 0.353116, 0.752118, 0.969608, 0.441883, 0.083292, 0.446523, 0.17993, 0.486551, 0.830247, 0.2359, 0.417632, 0.85909, 0.905784, 0.960482, 0.484628, 0.271999, 0.486426, 0.610171, 0.901343, 0.615397, 0.803908, 0.793407, 0.326455, 0.29392, 0.457681, 0.263757, 0.853539, 0.01453, 0.586206, 0.139329, 0.037653, 0.326818, 0.662228, 0.565726, 0.878937, 0.703194, 0.728869, 0.797388, 0.567548, 0.523501, 0.14852, 0.043228, 0.309354, 0.662214, 0.223095, 0.531893, 0.152571, 0.741687, 0.456341, 0.080591, 0.447098, 0.875534, 0.600521, 0.781237, 0.684718, 0.319517, 0.637449, 0.044008, 0.551025, 0.626175, 0.284401, 0.159026, 0.700586, 0.558837, 0.374153, 0.054571, 0.291357, 0.052147, 0.710789, 0.882324, 0.982154, 0.587316, 0.344607, 0.172808, 0.846868, 0.381332, 0.58856, 0.231645, 0.259417, 0.282106, 0.848511, 0.418174, 0.83162, 0.257281, 0.875289, 0.087846, 0.767496, 0.511357, 0.78961, 0.02553, 0.896206, 0.344932, 0.834902, 0.327048, 0.258652, 0.751065, 0.47253, 0.793761, 0.107672, 0.762298, 0.546852, 0.82543, 0.642668, 0.759148, 0.210181, 0.482473, 0.642873, 0.358696, 0.565157, 0.6327, 0.43246, 0.507106, 0.943614, 0.752714, 0.200976, 0.553927, 0.258121, 0.810063, 0.967299, 0.658229, 0.099245, 0.691286, 0.323663, 0.097201, 0.709671, 0.418871, 0.136502, 0.043301, 0.630254, 0.229114, 0.590298, 0.337756, 0.938217, 0.368283, 0.51799, 0.918151, 0.711709, 0.585953, 0.443069, 0.979227, 0.295271, 0.137419, 0.726386, 0.926385, 0.127514, 0.558965, 0.807377, 0.055564, 0.806267, 0.568787, 0.989236, 0.013614, 0.18545, 0.885503, 0.087342, 0.441221, 0.437805, 0.179493, 0.316827, 0.838624, 0.048312, 0.214412, 0.908865, 0.943224, 0.065547, 0.125305, 0.883464, 0.380739, 0.112161, 0.94893, 0.44209, 0.764379, 0.475323, 0.062725, 0.843051, 0.745498, 0.672157, 0.677526, 0.320409, 0.775796, 0.121245, 0.766604, 0.177095, 0.393821, 0.274035, 0.996945, 0.031711, 0.997698, 0.179456, 0.406896, 0.400941, 0.156216, 0.925585, 0.62435, 0.126615, 0.806101, 0.100527, 0.454514, 0.081066, 0.441164, 0.405572, 0.359042, 0.477897, 0.156234, 0.057561, 0.177975, 0.433888, 0.345174, 0.017378, 0.334155, 0.436132, 0.824993, 0.272726, 0.826342, 0.294774, 0.84385, 0.134687, 0.409043, 0.846886, 0.09696, 0.653701, 0.661421, 0.828381, 0.541841, 0.710126, 0.214374, 0.243309, 0.887992, 0.858352, 0.997314, 0.522559, 0.91322, 0.461012, 0.53945, 0.11486, 0.792478, 0.325609, 0.734688, 0.622962, 0.282596, 0.791381, 0.57544, 0.19907, 0.99398, 0.365771, 0.601948, 0.375939, 0.096454, 0.302471, 0.929072, 0.406306, 0.744986, 0.197163, 0.944394, 0.07642, 0.063568, 0.847801, 0.53436, 0.371082, 0.620307, 0.043004, 0.358555, 0.565325, 0.957559, 0.346108, 0.374596, 0.095785, 0.806628, 0.693543, 0.613786, 0.496866, 0.048926, 0.651153, 0.644637, 0.871418, 0.368023, 0.500454, 0.45334, 0.7325, 0.035099, 0.301817, 0.671727, 0.609986, 0.927324, 0.030967, 0.975071, 0.83534, 0.918114, 0.724406, 0.711057, 0.952798, 0.730247, 0.524638, 0.190521, 0.180253, 0.742255, 0.023145, 0.263165, 0.859657, 0.780437, 0.514313, 0.535744, 0.252114, 0.394561, 0.902725, 0.031977, 0.401354, 0.3284, 0.971838, 0.755021, 0.236689, 0.924623, 0.604724, 0.424596, 0.409162, 0.481846, 0.420047, 0.953282, 0.159922, 0.50195, 0.518832, 0.039863, 0.918123, 0.998336, 0.97234, 0.555411, 0.674665, 0.899677, 0.111165, 0.064793, 0.493956, 0.262537, 0.288358, 0.718543, 0.600725, 0.540526, 0.935447, 0.783201, 0.208494, 0.053651, 0.460688, 0.139493, 0.070752, 0.677544, 0.517013, 0.159692, 0.499416, 0.112753, 0.104691, 0.839716, 0.776402, 0.48188, 0.24676, 0.841968, 0.687691, 0.390924, 0.399097, 0.448341, 0.142001, 0.491258, 0.171018, 0.181235, 0.151256, 0.332244, 0.196779, 0.762903, 0.151113, 0.123677, 0.113267, 0.825474, 0.938943, 0.137941, 0.763531, 0.269098, 0.36768, 0.505919, 0.432515, 0.502044, 0.110039, 0.426938, 0.180005, 0.941985, 0.865799, 0.572351, 0.453491, 0.22645, 0.393749, 0.6169, 0.760046, 0.504693, 0.431077, 0.751165, 0.123043, 0.405184, 0.970729, 0.121185, 0.020546, 0.108443, 0.460027, 0.631013, 0.554468, 0.788371, 0.643029, 0.295605, 0.364241, 0.968871, 0.608838, 0.47333, 0.893738, 0.077155, 0.438902, 0.691805, 0.017944, 0.449976, 0.074816, 0.003356, 0.570672, 0.193472, 0.208342, 0.171928, 0.04508, 0.866523, 0.550127, 0.450061, 0.381922, 0.41638, 0.490696, 0.368449, 0.3909, 0.126622, 0.134752, 0.618233, 0.487696, 0.207744, 0.949935, 0.807649, 0.540233, 0.545418, 0.727467, 0.612821, 0.230784, 0.022135, 0.646261, 0.534742, 0.392583, 0.703824, 0.404167, 0.341166, 0.041248, 0.887954, 0.044413, 0.943032, 0.540687, 0.426944, 0.184699, 0.970352, 0.047866, 0.049801, 0.7455, 0.940556, 0.0697, 0.830237, 0.956728, 0.823397, 0.425473, 0.943391, 0.536674, 0.472683, 0.361351, 0.264614, 0.51677, 0.677403, 0.778506, 0.71824, 0.213669, 0.825267, 0.695799, 0.366615, 0.91612, 0.417257, 0.072428, 0.975419, 0.230812, 0.656173, 0.906786, 0.580678, 0.099658, 0.98666, 0.891447, 0.393463, 0.825627, 0.003979, 0.731597, 0.218299, 0.454058, 0.502863, 0.929419, 0.22113, 0.392711, 0.645562, 0.420743, 0.968718, 0.36236, 0.823091, 0.590254, 0.399521, 0.863202, 0.838039, 0.691812, 0.354229, 0.654938, 0.642885, 0.445913, 0.370451, 0.670473, 0.163872, 0.54746, 0.189212, 0.913955, 0.853386, 0.676064, 0.687308, 0.898642, 0.536564, 0.856556, 0.178235, 0.713871, 0.265041, 0.63759, 0.963506, 0.170208, 0.264428, 0.295568, 0.928148, 0.850361, 0.006695, 0.031085, 0.775229, 0.802223, 0.925322, 0.409551, 0.128296, 0.856299, 0.112287, 0.604233, 0.018761, 0.78906, 0.141953, 0.281852, 0.395451, 0.221179, 0.733496, 0.753141, 0.75299, 0.87735, 0.811367, 0.187354, 0.50506, 0.84665, 0.368014, 0.49045, 0.647054, 0.602018, 0.42935, 0.196424, 0.214992, 0.350868, 0.76963, 0.819, 0.472065, 0.141527, 0.530557, 0.300765, 0.986608, 0.960239, 0.146652, 0.447619, 0.035722, 0.187995, 0.014675, 0.311159, 0.230531, 0.449022, 0.336177, 0.560349, 0.230027, 0.865701, 0.662756, 0.087925, 0.947106, 0.672987, 0.828918, 0.294408, 0.595918, 0.340519, 0.110338, 0.451082, 0.057334, 0.114014, 0.203676, 0.200881, 0.939662, 0.572513, 0.874643, 0.660968, 0.164768, 0.70409, 0.268792, 0.64161, 0.350247, 0.929994, 0.058993, 0.424379, 0.751228, 0.698849, 0.113931, 0.023681, 0.247501, 0.782437, 0.70901, 0.19671, 0.530223, 0.000176, 0.911578, 0.899403, 0.07252, 0.637265, 0.448178, 0.828526, 0.003046, 0.826289, 0.14658, 0.150528, 0.566665, 0.644915, 0.751973, 0.426179, 0.196142, 0.136281, 0.917462, 0.360287, 0.368987, 0.550202, 0.038463, 0.938429, 0.084953, 0.24141, 0.929568, 0.359641, 0.469795, 0.657476, 0.630283, 0.216909, 0.461757, 0.046426, 0.270684, 0.944702, 0.838441, 0.434152, 0.378399, 0.620224, 0.660153, 0.705553, 0.916524, 0.461302, 0.796035, 0.460804, 0.952663, 0.633021, 0.500706, 0.182059, 0.129869, 0.160723, 0.942746, 0.198379, 0.784275, 0.993247, 0.641117, 0.98585, 0.711695, 0.474639, 0.932818, 0.535862, 0.486879, 0.70065, 0.675804, 0.528486, 0.670847, 0.974347, 0.063606, 0.058447, 0.864222, 0.365226, 0.615951, 0.197221, 0.482971, 0.482725, 0.47652, 0.639514, 0.97351, 0.387777, 0.385955, 0.393538, 0.948736, 0.135372, 0.142517, 0.827274, 0.257962, 0.997865, 0.588456, 0.529635, 0.214549, 0.338462, 0.043969, 0.148549, 0.496695, 0.530776, 0.249853, 0.711243, 0.886436, 0.470807, 0.54882, 0.495364, 0.847458, 0.604458, 0.734256, 0.696763, 0.658263, 0.728123, 0.515626, 0.601555, 0.703661, 0.76316, 0.303174, 0.156251, 0.543332, 0.9195, 0.109263, 0.762629, 0.2628, 0.292792, 0.104473, 0.934613, 0.220266, 0.707982, 0.915173, 0.340691, 0.124436, 0.491921, 0.251784, 0.896723, 0.736844, 0.771634, 0.575265, 0.814552, 0.640213, 0.290469, 0.854988, 0.064507, 0.300668, 0.937229, 0.907321, 0.973996, 0.134641, 0.102259, 0.766642, 0.520621, 0.567252, 0.213276, 0.747216, 0.843552, 0.7017, 0.764716, 0.743126, 0.97095, 0.60544, 0.0265, 0.968154, 0.89202, 0.610048, 0.275952, 0.661473, 0.454521, 0.911681, 0.730304, 0.728275, 0.805438, 0.140587, 0.748646, 0.340744, 0.337775, 0.082514, 0.464129, 0.491516, 0.621213, 0.361804, 0.900393, 0.600807, 0.30912, 0.512422, 0.130845, 0.598195, 0.254609, 0.871692, 0.857668, 0.816726, 0.326467, 0.248199, 0.992383, 0.452599, 0.998416, 0.678661, 0.870777, 0.928822, 0.382241, 0.767779, 0.729322, 0.271648, 0.920318, 0.79726, 0.147705, 0.49147, 0.419606, 0.06546, 0.958521, 0.594607, 0.018783, 0.072717, 0.252307, 0.777498, 0.569771, 0.241289, 0.609957, 0.402019, 0.041777, 0.447435, 0.422644, 0.966044, 0.694396, 0.335006, 0.76728, 0.144125, 0.972453, 0.172174, 0.733706, 0.217685, 0.729187, 0.917528, 0.464154, 0.867291, 0.075118, 0.355261, 0.557808, 0.710969, 0.247572, 0.255765, 0.995413, 0.322329, 0.891134, 0.408172, 0.795554, 0.674238, 0.319599, 0.191688, 0.347298, 0.485201, 0.295859, 0.898212, 0.7965, 0.147396, 0.684383, 0.515785, 0.150572, 0.273835, 0.98732, 0.448304, 0.236055, 0.816003, 0.046146, 0.640022, 0.809163, 0.714157, 0.004723, 0.988272, 0.365194, 0.836695, 0.606132, 0.558584, 0.205886, 0.069532, 0.496702, 0.276643, 0.606585, 0.630348, 0.519173, 0.096179, 0.794883, 0.911303, 0.764796, 0.559384, 0.742557, 0.333202, 0.568481, 0.685169, 0.020196, 0.274956, 0.5153, 0.736175, 0.090631, 0.542093, 0.008944, 0.476328, 0.444067, 0.453199, 0.95956, 0.017944, 0.692475, 0.741582, 0.13854, 0.581036, 0.469705, 0.722112, 0.363326, 0.794282, 0.512083, 0.929748, 0.510207, 0.173246, 0.846735, 0.601305, 0.934051, 0.162223, 0.748155, 0.17941, 0.79594, 0.847081, 0.281068, 0.721547, 0.408015, 0.198088, 0.018722, 0.621, 0.589761, 0.310735, 0.46261, 0.726274, 0.833276, 0.123639, 0.336738, 0.902543, 0.317504, 0.233692, 0.447034, 0.622474, 0.386689, 0.595299, 0.125978, 0.460598, 0.465508, 0.881035, 0.086136, 0.938842, 0.569171, 0.074177, 0.239521, 0.261329, 0.233268, 0.642228, 0.32671, 0.243213, 0.895115, 0.561787, 0.357965, 0.489012, 0.650247, 0.698775, 0.997853, 0.940397, 0.182694, 0.555043, 0.024842, 0.773001, 0.262299, 0.01105, 0.548007, 0.649187, 0.731614, 0.237862, 0.680125, 0.436813, 0.097154, 0.121045, 0.563612, 0.942117, 0.893281, 0.154763, 0.58491, 0.150978, 0.326274, 0.860796, 0.908373, 0.067261, 0.297473, 0.806313, 0.542451, 0.096555, 0.259533, 0.577315, 0.078864, 0.794387, 0.281738, 0.668767, 0.712405, 0.6602, 0.094181, 0.532561, 0.724266, 0.540714, 0.136246, 0.675214, 0.812807, 0.648748, 0.682079, 0.025098, 0.734186, 0.340847, 0.905473, 0.057726, 0.979035, 0.488059, 0.879577, 0.770808, 0.741717, 0.206604, 0.93812, 0.850885, 0.252844, 0.488047, 0.105841, 0.773657, 0.695408, 0.360378, 0.877479, 0.778181, 0.54955, 0.754931, 0.18814, 0.696591, 0.002463, 0.038714, 0.045115, 0.947694, 0.171664, 0.772589, 0.170753, 0.322681, 0.428139, 0.561346, 0.615372, 0.567456, 0.019815, 0.370212, 0.940966, 0.803888, 0.690558, 0.741763, 0.590427, 0.564151, 0.511342, 0.213114, 0.611146, 0.601746, 0.017233, 0.435648, 0.555268, 0.707151, 0.598872, 0.491489, 0.742315, 0.611731, 0.790179, 0.58292, 0.391754, 0.871319, 0.872256, 0.481265, 0.350226, 0.967242, 0.428482, 0.386459, 0.770719, 0.30733, 0.269403, 0.237428, 0.747956, 0.317348, 0.265708, 0.145521, 0.450111, 0.285158, 0.909001, 0.63213, 0.088598, 0.869762, 0.857721, 0.392901, 0.316556, 0.204656, 0.889122, 0.973693, 0.006393, 0.416539, 0.233507, 0.132253, 0.554596, 0.118017, 0.241415, 0.588487, 0.707726, 0.604197, 0.818092, 0.601906, 0.14554, 0.019386, 0.110753, 0.307551, 0.319455, 0.678768, 0.303596, 0.186015, 0.411923, 0.292265, 0.809646, 0.936357, 0.105457, 0.512538, 0.132594, 0.87559, 0.383662, 0.023504, 0.609476, 0.253283, 0.668552, 0.679211, 0.50222, 0.927063, 0.762835, 0.382947, 0.320446, 0.028697, 0.694959, 0.281907, 0.234523, 0.455765, 0.713591, 0.233824, 0.195612, 0.691592, 0.163571, 0.174837, 0.471986, 0.662327, 0.038975, 0.311556, 0.620418, 0.11116, 0.946927, 0.190276, 0.447204, 0.273193, 0.308882, 0.798127, 0.020094, 0.224363, 0.545457, 0.239145, 0.652002, 0.767481, 0.046086, 0.361236, 0.331014, 0.908601, 0.943737, 0.056909, 0.312295, 0.269307, 0.630171, 0.758963, 0.535826, 0.72323, 0.059867, 0.874183, 0.675168, 0.823325, 0.869942, 0.974111, 0.802696, 0.125952, 0.686716, 0.816981, 0.388398, 0.123314, 0.463851, 0.263913, 0.039548, 0.429205, 0.817893, 0.436589, 0.673235, 0.326612, 0.504799, 0.622105, 0.978538, 0.225632, 0.030034, 0.495666, 0.954203, 0.674199, 0.328354, 0.683438, 0.273587, 0.853902, 0.852742, 0.146742, 0.531853, 0.153425, 0.275928, 0.926355, 0.306406, 0.526519, 0.200075, 0.760572, 0.393619, 0.657265, 0.576081, 0.363023, 0.912993, 0.170441, 0.38043, 0.453322, 0.527419, 0.114424, 0.635578, 0.874687, 0.021834, 0.859475, 0.866711, 0.448538, 0.03327, 0.524846, 0.481549, 0.874109, 0.368701, 0.536361, 0.876633, 0.525253, 0.213588, 0.590761, 0.663527, 0.047907, 0.798784, 0.202986, 0.751012, 0.222306, 0.687889, 0.120577, 0.978004, 0.769489, 0.376984, 0.629999, 0.602023, 0.50399, 0.877831, 0.333278, 0.783679, 0.070963, 0.282123, 0.567341, 0.551032, 0.101548, 0.484005, 0.661165, 0.113048, 0.64269, 0.776853, 0.225584, 0.154623, 0.423728, 0.404061, 0.702815, 0.93621, 0.209122, 0.744095, 0.006235, 0.863913, 0.270726, 0.724653, 0.413295, 0.854609, 0.526343, 0.685007, 0.149099, 0.772771, 0.367234, 0.035777, 0.41439, 0.095336, 0.694461, 0.488373, 0.912847, 0.322676, 0.185237, 0.421017, 0.196583, 0.279896, 0.66266, 0.702487, 0.059648, 0.869375, 0.097169, 0.060331, 0.150089, 0.747806, 0.095326, 0.082345, 0.457855, 0.638127, 0.239213, 0.341609, 0.883055, 0.14394, 0.160983, 0.801781, 0.333111, 0.926023, 0.896053, 0.347668, 0.563426, 0.070252, 0.556243, 0.83799, 0.47965, 0.205692, 0.811318, 0.058627, 0.140678, 0.504399, 0.987266, 0.677335, 0.948567, 0.388354, 0.902695, 0.912854, 0.443803, 0.501244, 0.132394, 0.590236, 0.456808, 0.774639, 0.888942, 0.256546, 0.392202, 0.733222, 0.277958, 0.604316, 0.856955, 0.119756, 0.181491, 0.160399, 0.041906, 0.435842, 0.759329, 0.88201, 0.658827, 0.95985, 0.554695, 0.734112, 0.383637, 0.235787, 0.471351, 0.168714, 0.523244, 0.10799, 0.62563, 0.808318, 0.352828, 0.509258, 0.669655, 0.436301, 0.109446, 0.435853, 0.050353, 0.423775, 0.556262, 0.117701, 0.773718, 0.49576, 0.32127, 0.23368, 0.57681, 0.445225, 0.742293, 0.564655, 0.150745, 0.844741, 0.49932, 0.524308, 0.635354, 0.298357, 0.340606, 0.047302, 0.544293, 0.321072, 0.585733, 0.864328, 0.52247, 0.160722, 0.535247, 0.007395, 0.427039, 0.907424, 0.305054, 0.427419, 0.424568, 0.14176, 0.140512, 0.22081, 0.721551, 0.490093, 0.979941, 0.925726, 0.405117, 0.447368, 0.406326, 0.543414, 0.37997, 0.346563, 0.562833, 0.260609, 0.176363, 0.629555, 0.972055, 0.654984, 0.767257, 0.216087, 0.072307, 0.191127, 0.999737, 0.080997, 0.715016, 0.185254, 0.314662, 0.855465, 0.624418, 0.719054, 0.782208, 0.337625, 0.954144, 0.85519, 0.35592, 0.592164, 0.993454, 0.282133, 0.437437, 0.77653, 0.879142, 0.916948, 0.416285, 0.351911, 0.926506, 0.640522, 0.518168, 0.739402, 0.575126, 0.454216, 0.411564, 0.48034, 0.97969, 0.080631, 0.347874, 0.511393, 0.160169, 0.660909, 0.918538, 0.41363, 0.021196, 0.445906, 0.861892, 0.80751, 0.736301, 0.779273, 0.712903, 0.157955, 0.934438, 0.183969, 0.476885, 0.383917, 0.648902, 0.631515, 0.689252, 0.910118, 0.665617, 0.943589, 0.411357, 0.478021, 0.590092, 0.085263, 0.625614, 0.986668, 0.08008, 0.677301, 0.440597, 0.298722, 0.954197, 0.630111, 0.340231, 0.862219, 0.722791, 0.260341, 0.731663, 0.645119, 0.556421, 0.775522, 0.423341, 0.850729, 0.083976, 0.085208, 0.735912, 0.138038, 0.943129, 0.660937, 0.722225, 0.263517, 0.144093, 0.930048, 0.736185, 0.293781, 0.123196, 0.22381, 0.556462, 0.933088, 0.177296, 0.947614, 0.75329, 0.403509, 0.481121, 0.450109, 0.820649, 0.804793, 0.658467, 0.945782, 0.105155, 0.195865, 0.817669, 0.397067, 0.724113, 0.82612, 0.538576, 0.974835, 0.407778, 0.090442, 0.155594, 0.435449, 0.426687, 0.814786, 0.25674, 0.350316, 0.220197, 0.37005, 0.052397, 0.39687, 0.571558, 0.386756, 0.839391, 0.051309, 0.967795, 0.947617, 0.743738, 0.956901, 0.314736, 0.649967, 0.809845, 0.490915, 0.381762, 0.578899, 0.091738, 0.010076, 0.623296, 0.854394, 0.452398, 0.04309, 0.526891, 0.441497, 0.232337, 0.143076, 0.670016, 0.196926, 0.430808, 0.519088, 0.137566, 0.93998, 0.819866, 0.05854, 0.089218, 0.061638, 0.677971, 0.915126, 0.117378, 0.998715, 0.557729, 0.081045, 0.980247, 0.451816, 0.465779, 0.76828, 0.654919, 0.530233, 0.636618, 0.355733, 0.955035, 0.501861, 0.067686, 0.971865, 0.544342, 0.649239, 0.957224, 0.051855, 0.639113, 0.047314, 0.423302, 0.865862, 0.704068, 0.874065, 0.696523, 0.332609, 0.827142, 0.178647, 0.621285, 0.784005, 0.174678, 0.439392, 0.574479, 0.408504, 0.194736, 0.971895, 0.039877, 0.757109, 0.637573, 0.002576, 0.539559, 0.144223, 0.306259, 0.708912, 0.403124, 0.400819, 0.09566, 0.924776, 0.448361, 0.399848, 0.038166, 0.939417, 0.677557, 0.578809, 0.855854, 0.125047, 0.805781, 0.870602, 0.264111, 0.688545, 0.446324, 0.405949, 0.312118, 0.049091, 0.184878, 0.336519, 0.195876, 0.269983, 0.776192, 0.920501, 0.110819, 0.962814, 0.650361, 0.301683, 0.757917, 0.527111, 0.170519, 0.730284, 0.416728, 0.48935, 0.845387, 0.884732, 0.589172, 0.754876, 0.104989, 0.689458, 0.693215, 0.820792, 0.177641, 0.707749, 0.412512, 0.811812, 0.558892, 0.917036, 0.218642, 0.922364, 0.388146, 0.238831, 0.594506, 0.242293, 0.784183, 0.45682, 0.499196, 0.14028, 0.85599, 0.287503, 0.742634, 0.039105, 0.828237, 0.730229, 0.778606, 0.742566, 0.637889, 0.335772, 0.455416, 0.964828, 0.992792, 0.046831, 0.386552, 0.009694, 0.932324, 0.932304, 0.891698, 0.203271, 0.786606, 0.749061, 0.057763, 0.168819, 0.551156, 0.046644, 0.534246, 0.773625, 0.668496, 0.255778, 0.454915, 0.38656, 0.576786, 0.754357, 0.631603, 0.128391, 0.035498, 0.282327, 0.265158, 0.957458, 0.75025, 0.186017, 0.825545, 0.055333, 0.403415, 0.772614, 0.696512, 0.436209, 0.222719, 0.838833, 0.576132, 0.753537, 0.212484, 0.808732, 0.619565, 0.687363, 0.425013, 0.346235, 0.917066, 0.241208, 0.798086, 0.766031, 0.024185, 0.664964, 0.881833, 0.463855, 0.118065, 0.260407, 0.445734, 0.564917, 0.605938, 0.127741, 0.536753, 0.360248, 0.872858, 0.548472, 0.290234, 0.121124, 0.918465, 0.754784, 0.026754, 0.509319, 0.286759, 0.170068, 0.305177, 0.837828, 0.536144, 0.63757, 0.288412, 0.021047, 0.637695, 0.579238, 0.038625, 0.272678, 0.726602, 0.127456, 0.397002, 0.098372, 0.1941, 0.287436, 0.965808, 0.762501, 0.767864, 0.425839, 0.365088, 0.750547, 0.993028, 0.920673, 0.61916, 0.993993, 0.584732, 0.261554, 0.019215, 0.948734, 0.380947, 0.131736, 0.932832, 0.780977, 0.294015, 0.886733, 0.534754, 0.369417, 0.050942, 0.477595, 0.326217, 0.062518, 0.200926, 0.833703, 0.269847, 0.350266, 0.411925, 0.883413, 0.577327, 0.199095, 0.471424, 0.222668, 0.129303, 0.385484, 0.190969, 0.948316, 0.25728, 0.236617, 0.129945, 0.753851, 0.894382, 0.412455, 0.575681, 0.083885, 0.822214, 0.660487, 0.77718, 0.788795, 0.748809, 0.387706, 0.708018, 0.213228, 0.351131, 0.30079, 0.199586, 0.143913, 0.864815, 0.284976, 0.380119, 0.407565, 0.424239, 0.704474, 0.664403, 0.265957, 0.333945, 0.23059, 0.05354, 0.942346, 0.67051, 0.309819, 0.743852, 0.440116, 0.821352, 0.439296, 0.540652, 0.171251, 0.056004, 0.451689, 0.624313, 0.799744, 0.777544, 0.766958, 0.940672, 0.575568, 0.400238, 0.060379, 0.170358, 0.963614, 0.931506, 0.568244, 0.966606, 0.693625, 0.307226, 0.02517, 0.029373, 0.144851, 0.686024, 0.162697, 0.701144, 0.007708, 0.666706, 0.469546, 0.23949, 0.802054, 0.815287, 0.688428, 0.307043, 0.293775, 0.2879, 0.134388, 0.276269, 0.943398, 0.95766, 0.07827, 0.946082, 0.790014, 0.598615, 0.491584, 0.903187, 0.954394, 0.012406, 0.517471, 0.003473, 0.855915, 0.502113, 0.28446, 0.565078, 0.020122, 0.308887, 0.000947, 0.187973, 0.385526, 0.050337, 0.817672, 0.004902, 0.576831, 0.580117, 0.88303, 0.199686, 0.640767, 0.899515, 0.843723, 0.165348, 0.766883, 0.047639, 0.34879, 0.994714, 0.096628, 0.951659, 0.767978, 0.513114, 0.500985, 0.745946, 0.741438, 0.343001, 0.344802, 0.158343, 0.265508, 0.144143, 0.608415, 0.658206, 0.772456, 0.584372, 0.102814, 0.479867, 0.722707, 0.25043, 0.397213, 0.592748, 0.761633, 0.419399, 0.517648, 0.039072, 0.182193, 0.493891, 0.887982, 0.67004, 0.996486, 0.759894, 0.876859, 0.506662, 0.151179, 0.084647, 0.196432, 0.308805, 0.565328, 0.229173, 0.416985, 0.848924, 0.273308, 0.967689, 0.527727, 0.476442, 0.5719, 0.743908, 0.882404, 0.942784, 0.274602, 0.391472, 0.299772, 0.157735, 0.492244, 0.449989, 0.197479, 0.754372, 0.551584, 0.351258, 0.460368, 0.270266, 0.96474, 0.338429, 0.87791, 0.441717, 0.09396, 0.335145, 0.787975, 0.42746, 0.942289, 0.551938, 0.88152, 0.827663, 0.16914, 0.905077, 0.783498, 0.585231, 0.446184, 0.550463, 0.709898, 0.428927, 0.685321, 0.167397, 0.700252, 0.657454, 0.584274, 0.81372, 0.310756, 0.574291, 0.020065, 0.644086, 0.107393, 0.169811, 0.134511, 0.893228, 0.663616, 0.373617, 0.002942, 0.316283, 0.879335, 0.620711, 0.265401, 0.55658, 0.323087, 0.630695, 0.169724, 0.542813, 0.292278, 0.521136, 0.873007, 0.876279, 0.289568, 0.068667, 0.779572, 0.838242, 0.280469, 0.950226, 0.418857, 0.464079, 0.389654, 0.077133, 0.174668, 0.59011, 0.840005, 0.769067, 0.616329, 0.29762, 0.00565, 0.375653, 0.979157, 0.280152, 0.733792, 0.664599, 0.895518, 0.950345, 0.301666, 0.857532, 0.106617, 0.157619, 0.948237, 0.402419, 0.772399, 0.098339, 0.335967, 0.379889, 0.729116, 0.61477, 0.630071, 0.63963, 0.825064, 0.248047, 0.669386, 0.78146, 0.418402, 0.084811, 0.712345, 0.304991, 0.108293, 0.319685, 0.203708, 0.926394, 0.682278, 0.988285, 0.718884, 0.014408, 0.326277, 0.629707, 0.683996, 0.724661, 0.425978, 0.095451, 0.927981, 0.575136, 0.551983, 0.335314, 0.165115, 0.242593, 0.485822, 0.367084, 0.597057, 0.555357, 0.40104, 0.414703, 0.895727, 0.629997, 0.302001, 0.756859, 0.010589, 0.568986, 0.129438, 0.473312, 0.147443, 0.074744, 0.115994, 0.239391, 0.557284, 0.334076, 0.449478, 0.531678, 0.207846, 0.423028, 0.047721, 0.046625, 0.91209, 0.350256, 0.64807, 0.974737, 0.417072, 0.356296, 0.09126, 0.834726, 0.62525, 0.87684, 0.27196, 0.02729, 0.457777, 0.33783, 0.925821, 0.49977, 0.68008, 0.155229, 0.134794, 0.995697, 0.067281, 0.36545, 0.316533, 0.419067, 0.3782, 0.089562, 0.802904, 0.706332, 0.490752, 0.673811, 0.686612, 0.62062, 0.458749, 0.237197, 0.96533, 0.850369, 0.281565, 0.348927, 0.512574, 0.122468, 0.018782, 0.256433, 0.10231, 0.742941, 0.712424, 0.778267, 0.780076, 0.601039, 0.494294, 0.241092, 0.023647, 0.682143, 0.129628, 0.589046, 0.728991, 0.261103, 0.810789, 0.583119, 0.026547, 0.570149, 0.292619, 0.15546, 0.372537, 0.295671, 0.832066, 0.198834, 0.081088, 0.515789, 0.731616, 0.816151, 0.86737, 0.061265, 0.024026, 0.271275, 0.478524, 0.19094, 0.127668, 0.459515, 0.864324, 0.365062, 0.128314, 0.666992, 0.304792, 0.375102, 0.275754, 0.258095, 0.544645, 0.517406, 0.660741, 0.94078, 0.757296, 0.935817, 0.589033, 0.377523, 0.912648, 0.546186, 0.853851, 0.073255, 0.12336, 0.113339, 0.062199, 0.36137, 0.904329, 0.51099, 0.690138, 0.5899, 0.437201, 0.148039, 0.121715, 0.63153, 0.180901, 0.88225, 0.644993, 0.907109, 0.563655, 0.153204, 0.078164, 0.900231, 0.645252, 0.845323, 0.915694, 0.552206, 0.293197, 0.7525, 0.096344, 0.358875, 0.587755, 0.817842, 0.868739, 0.054952, 0.419776, 0.56516, 0.485252, 0.964894, 0.843741, 0.649434, 0.428071, 0.963076, 0.572738, 0.521338, 0.798196, 0.068226, 0.894568, 0.684704, 0.326308, 0.211824, 0.089139, 0.628436, 0.640112, 0.427692, 0.149016, 0.747328, 0.620683, 0.353247, 0.532255, 0.982908, 0.456954, 0.845483, 0.740054, 0.759584, 0.996675, 0.606158, 0.683785, 0.105746, 0.120313, 0.536749, 0.447279, 0.780002, 0.87592, 0.892723, 0.58826, 0.75663, 0.609021, 0.234208, 0.917907, 0.860766, 0.808011, 0.349779, 0.617284, 0.777064, 0.722587, 0.15015, 0.894264, 0.06682, 0.959042, 0.181387, 0.381798, 0.803625, 0.35989, 0.41188, 0.000791, 0.74016, 0.052545, 0.946133, 0.73752, 0.067403, 0.53588, 0.811101, 0.050472, 0.418468, 0.048294, 0.692517, 0.741725, 0.347873, 0.639041, 0.310024, 0.097183, 0.41882, 0.185383, 0.824406, 0.881267, 0.159638, 0.486861, 0.115947, 0.595906, 0.108182, 0.155661, 0.617155, 0.643128, 0.823209, 0.456136, 0.666138, 0.629554, 0.031602, 0.13558, 0.744936, 0.744989, 0.748628, 0.718404, 0.56815, 0.926611, 0.567523, 0.294114, 0.792512, 0.205783, 0.524937, 0.207922, 0.256401, 0.768023, 0.503172, 0.87972, 0.774093, 0.869974, 0.297712, 0.858088, 0.777026, 0.743787, 0.758074, 0.429524, 0.25611, 0.746449, 0.51351, 0.395239, 0.982892, 0.277545, 0.239353, 0.077687, 0.538073, 0.947868, 0.078101, 0.824888, 0.473978, 0.528008, 0.529044, 0.985753, 0.604485, 0.543747, 0.173306, 0.977041, 0.207201, 0.819309, 0.447491, 0.520539, 0.254201, 0.233663, 0.730006, 0.455759, 0.559759, 0.578675, 0.143642, 0.431243, 0.669872, 0.868913, 0.09823, 0.333533, 0.758612, 0.256945, 0.363695, 0.618364, 0.67238, 0.887847, 0.072844, 0.655754, 0.017034, 0.624098, 0.268339, 0.676727, 0.930196, 0.37455, 0.950158, 0.839201, 0.135117, 0.532673, 0.946955, 0.239333, 0.798421, 0.264309, 0.390514, 0.589039, 0.033969, 0.911304, 0.796179, 0.428817, 0.12855, 0.20674, 0.114998, 0.154393, 0.949683, 0.912853, 0.659639, 0.588087, 0.407766, 0.748994, 0.965181, 0.318067, 0.571017, 0.131628, 0.169703, 0.340708, 0.740283, 0.24832, 0.558859, 0.535413, 0.226672, 0.647251, 0.270695, 0.570201, 0.790499, 0.960244, 0.483812, 0.879266, 0.363624, 0.127503, 0.581771, 0.943138, 0.754053, 0.163367, 0.684719, 0.776397, 0.423203, 0.615487, 0.449508, 0.772132, 0.447696, 0.792824, 0.152727, 0.995688, 0.987072, 0.589199, 0.806542, 0.978588, 0.754482, 0.836881, 0.163478, 0.181613, 0.174649, 0.055343, 0.462075, 0.309399, 0.141805, 0.815898, 0.054942, 0.627914, 0.368959, 0.850687, 0.839689, 0.932316, 0.970692, 0.454811, 0.449335, 0.66639, 0.324426, 0.932237, 0.989111, 0.235919, 0.898701, 0.052077, 0.068051, 0.803666, 0.855859, 0.322987, 0.59702, 0.301203, 0.206023, 0.130957, 0.465212, 0.603991, 0.545492, 0.640313, 0.781019, 0.655085, 0.41137, 0.30018, 0.97949, 0.98775, 0.121079, 0.589601, 0.999848, 0.698191, 0.958676, 0.318907, 0.445587, 0.082358, 0.025051, 0.676463, 0.545946, 0.708942, 0.99419, 0.99003, 0.375298, 0.85163, 0.507136, 0.788689, 0.268515, 0.631562, 0.130281, 0.893986, 0.001074, 0.957126, 0.397279, 0.968058, 0.922742, 0.127062, 0.946478, 0.703184, 0.344525, 0.533342, 0.468207, 0.171996, 0.537138, 0.357011, 0.785225, 0.301501, 0.202338, 0.804296, 0.246362, 0.222647, 0.198099, 0.749353, 0.596139, 0.161104, 0.865514, 0.9901, 0.524097, 0.606165, 0.236901, 0.224878, 0.586784, 0.743914, 0.779598, 0.821304, 0.33934, 0.770254, 0.279476, 0.940403, 0.561273, 0.951442, 0.392117, 0.931197, 0.851605, 0.930865, 0.515644, 0.374038, 0.02691, 0.257793, 0.880218, 0.510246, 0.569001, 0.486063, 0.875772, 0.939717, 0.900984, 0.096586, 0.55731, 0.512742, 0.020564, 0.725198, 0.270424, 0.292693, 0.280104, 0.738176, 0.634053, 0.216793, 0.373034, 0.170726, 0.058548, 0.387124, 0.954299, 0.049485, 0.241782, 0.405105, 0.954509, 0.648578, 0.544007, 0.498678, 0.916117, 0.817621, 0.841297, 0.07234, 0.432134, 0.94714, 0.589994, 0.50121, 0.058796, 0.011255, 0.289431, 0.608901, 0.920778, 0.953355, 0.930841, 0.17565, 0.749697, 0.330221, 0.188662, 0.048215, 0.38773, 0.39744, 0.152467, 0.575756, 0.270689, 0.495422, 0.016929, 0.496085, 0.920672, 0.19569, 0.252841, 0.567505, 0.154723, 0.383396, 0.49978, 0.967851, 0.513288, 0.946114, 0.398151, 0.598058, 0.489379, 0.902534, 0.38061, 0.379637, 0.851664, 0.15547, 0.814756, 0.679401, 0.758711, 0.808042, 0.995305, 0.100822, 0.22312, 0.060488, 0.76825, 0.710463, 0.055149, 0.174116, 0.397225, 0.886442, 0.221051, 0.279463, 0.953247, 0.633325, 0.876848, 0.039788, 0.690028, 0.926666, 0.45571, 0.135207, 0.026827, 0.774602, 0.153966, 0.115983, 0.173921, 0.941518, 0.315618, 0.170081, 0.140699, 0.635141, 0.627243, 0.423411, 0.034416, 0.544336, 0.268528, 0.560113, 0.31858, 0.104763, 0.620876, 0.637844, 0.51433, 0.58251, 0.298766, 0.555378, 0.48604, 0.244834, 0.33343, 0.387733, 0.627931, 0.135353, 0.916221, 0.498616, 0.348124, 0.210727, 0.709166, 0.163793, 0.833887, 0.24992, 0.586508, 0.827014, 0.871335, 0.88656, 0.146062, 0.125699, 0.269661, 0.050252, 0.243507, 0.940193, 0.468784, 0.733179, 0.350533, 0.155407, 0.399002, 0.486608, 0.431002, 0.814317, 0.044309, 0.975134, 0.928549, 0.129323, 0.619263, 0.760152, 0.626314, 0.371094, 0.138119, 0.214258, 0.866337, 0.044792, 0.075216, 0.78624, 0.095211, 0.317243, 0.030008, 0.143756, 0.582761, 0.267197, 0.633807, 0.557904, 0.766517, 0.930966, 0.233723, 0.885833, 0.785267, 0.652807, 0.934577, 0.480723, 0.334067, 0.106734, 0.372051, 0.838043, 0.894308, 0.102284, 0.47383, 0.054854, 0.990603, 0.060771, 0.947194, 0.745589, 0.134823, 0.003554, 0.268078, 0.60465, 0.347844, 0.047818, 0.506606, 0.483168, 0.395923, 0.256647, 0.49033, 0.8045, 0.951918, 0.02984, 0.159759, 0.979974, 0.492606, 0.818151, 0.198922, 0.390355, 0.647675, 0.572461, 0.927339, 0.884045, 0.233174, 0.354862, 0.132669, 0.781552, 0.875228, 0.126299, 0.603477, 0.21194, 0.217178, 0.968692, 0.35721, 0.411476, 0.868155, 0.219016, 0.440443, 0.093276, 0.884654, 0.663676, 0.798662, 0.838608, 0.54586, 0.170501, 0.410007, 0.198372, 0.538895, 0.831308, 0.02147, 0.920197, 0.88353, 0.729774, 0.866227, 0.853411, 0.301123, 0.622331, 0.446854, 0.235716, 0.870551, 0.635893, 0.078961, 0.168433, 0.915828, 0.210373, 0.684509, 0.751103, 0.531697, 0.428096, 0.396027, 0.027103, 0.887907, 0.629827, 0.60966, 0.416204, 0.993813, 0.110948, 0.076468, 0.331431, 0.627185, 0.402679, 0.875939, 0.107683, 0.679854, 0.865467, 0.63161, 0.435865, 0.633134, 0.538586, 0.837969, 0.716198, 0.115393, 0.982305, 0.274479, 0.351372, 0.418313, 0.592267, 0.399542, 0.89581, 0.393415, 0.904306, 0.062855, 0.711268, 0.796171, 0.899236, 0.304066, 0.001602, 0.086639, 0.984266, 0.400405, 0.445515, 0.908263, 0.609057, 0.879396, 0.805137, 0.9967, 0.858018, 0.279268, 0.534807, 0.364848, 0.142615, 0.695138, 0.738793, 0.365713, 0.737505, 0.835616, 0.493402, 0.200718, 0.046933, 0.495727, 0.187306, 0.901852, 0.678047, 0.033024, 0.655421, 0.924475, 0.850931, 0.076004, 0.68243, 0.948119, 0.022666, 0.673234, 0.968277, 0.07768, 0.348738, 0.374769, 0.345937, 0.510068, 0.139349, 0.038895, 0.282014, 0.905767, 0.584991, 0.260882, 0.943191, 0.808068, 0.829624, 0.923427, 0.760644, 0.279791, 0.726679, 0.958184, 0.143996, 0.086443, 0.758968, 0.670899, 0.11877, 0.821291, 0.062811, 0.090534, 0.696438, 0.77639, 0.561558, 0.128277, 0.8197, 0.043873, 0.831183, 0.643531, 0.958406, 0.158093, 0.683141, 0.410153, 0.909045, 0.126263, 0.224164, 0.23994, 0.837382, 0.842441, 0.450769, 0.794164, 0.605614, 0.719251, 0.192321, 0.520019, 0.393565, 0.879981, 0.184356, 0.287881, 0.276107, 0.862976, 0.191073, 0.885363, 0.732842, 0.476152, 0.777417, 0.485324, 0.989197, 0.373677, 0.713986, 0.977546, 0.018667, 0.923685, 0.338552, 0.389544, 0.607727, 0.859107, 0.125413, 0.091608, 0.48172, 0.002158, 0.797777, 0.530483, 0.238156, 0.974187, 0.227083, 0.256926, 0.023297, 0.578534, 0.41836, 0.821996, 0.76628, 0.167223, 0.575795, 0.018755, 0.077189, 0.484388, 0.032606, 0.855348, 0.444249, 0.359958, 0.65744, 0.628359, 0.306558, 0.847592, 0.077272, 0.022541, 0.29063, 0.030197, 0.589843, 0.253708, 0.695525, 0.134507, 0.948301, 0.454029, 0.968433, 0.584189, 0.594954, 0.615621, 0.439136, 0.339778, 0.328352, 0.941207, 0.104975, 0.955731, 0.163325, 0.784378, 0.268215, 0.443842, 0.09861, 0.359772, 0.224403, 0.676507, 0.848649, 0.952036, 0.705117, 0.100195, 0.047755, 0.714818, 0.143396, 0.718397, 0.903566, 0.1705, 0.813822, 0.924285, 0.8832, 0.577395, 0.922416, 0.267893, 0.88801, 0.907395, 0.339986, 0.158926, 0.133522, 0.790434, 0.070291, 0.419852, 0.361245, 0.9122, 0.237598, 0.445547, 0.346785, 0.683666, 0.721261, 0.802874, 0.58184, 0.905073, 0.094273, 0.090365, 0.324868, 0.509469, 0.594317, 0.019609, 0.436651, 0.782524, 0.130324, 0.568057, 0.856415, 0.187144, 0.443626, 0.04545, 0.020625, 0.398562, 0.458864, 0.671047, 0.784512, 0.672243, 0.291586, 0.390189, 0.321825, 0.19149, 0.817041, 0.630419, 0.436537, 0.850924, 0.514462, 0.198386, 0.78034, 0.042211, 0.527774, 0.056659, 0.091818, 0.382814, 0.801003, 0.673487, 0.8669, 0.09346, 0.634251, 0.441303, 0.34201, 0.566221, 0.839685, 0.436216, 0.006866, 0.298974, 0.429717, 0.66574, 0.603583, 0.449783, 0.121677, 0.915475, 0.670634, 0.660495, 0.124711, 0.128955, 0.968893, 0.770491, 0.954647, 0.67038, 0.682021, 0.964864, 0.664799, 0.681559, 0.678319, 0.355388, 0.141324, 0.320788, 0.951698, 0.623934, 0.689661, 0.088124, 0.428494, 0.473034, 0.88498, 0.145002, 0.059932, 0.973327, 0.405186, 0.757895, 0.540644, 0.69367, 0.642302, 0.291112, 0.189381, 0.383126, 0.356617, 0.835507, 0.184848, 0.085664, 0.56734, 0.586392, 0.154189, 0.980076, 0.556532, 0.62263, 0.764291, 0.885034, 0.850768, 0.545707, 0.314474, 0.197477, 0.051759, 0.344369, 0.288641, 0.313589, 0.189286, 0.078895, 0.489609, 0.786725, 0.627478, 0.868515, 0.579076, 0.95619, 0.144575, 0.188635, 0.813713, 0.15292, 0.68496, 0.352587, 0.740626, 0.765293, 0.828524, 0.734074, 0.139225, 0.566073, 0.168657, 0.939338, 0.988156, 0.95012, 0.829772, 0.355673, 0.776994, 0.993049, 0.847004, 0.820529, 0.263695, 0.465921, 0.965098, 0.144823, 0.644338, 0.989967, 0.594906, 0.783041, 0.609535, 0.696253, 0.360159, 0.882405, 0.183411, 0.329948, 0.870305, 0.74306, 0.916974, 0.951993, 0.045066, 0.857597, 0.277411, 0.936501, 0.529746, 0.159091, 0.135656, 0.954261, 0.429244, 0.128001, 0.258922, 0.043185, 0.14624, 0.579424, 0.894839, 0.077816, 0.32218, 0.911081, 0.832821, 0.429852, 0.874234, 0.477887, 0.088123, 0.09125, 0.626816, 0.406249, 0.565083, 0.518676, 0.487724, 0.060658, 0.964555, 0.02067, 0.233206, 0.741667, 0.471991, 0.520794, 0.058151, 0.878816, 0.613675, 0.222386, 0.211334, 0.874893, 0.868876, 0.633029, 0.255174, 0.98717, 0.966714, 0.536425, 0.782491, 0.186272, 0.201271, 0.795373, 0.124094, 0.287016, 0.259363, 0.730716, 0.471331, 0.036951, 0.770064, 0.926936, 0.790068, 0.316906, 0.951888, 0.440487, 0.020327, 0.968113, 0.159071, 0.31326, 0.903184, 0.228844, 0.166051, 0.850776, 0.57297, 0.672908, 0.394131, 0.664186, 0.301421, 0.375869, 0.292093, 0.686952, 0.045103, 0.020144, 0.789944, 0.054916, 0.933134, 0.897351, 0.030205, 0.118662, 0.592748, 0.038071, 0.877798, 0.526213, 0.463754, 0.902231, 0.111001, 0.614301, 0.357411, 0.763298, 0.554731, 0.124433, 0.551957, 0.054702, 0.810742, 0.967653, 0.541775, 0.681827, 0.732497, 0.591833, 0.027065, 0.181193, 0.708373, 0.47249, 0.676538, 0.763108, 0.69266, 0.773355, 0.473883, 0.868752, 0.485257, 0.35937, 0.769962, 0.211655, 0.387848, 0.78975, 0.00152, 0.596364, 0.673512, 0.441463, 0.14954, 0.256197, 0.280119, 0.996302, 0.500826, 0.588648, 0.445673, 0.667964, 0.846995, 0.002502, 0.771407, 0.808127, 0.219129, 0.231393, 0.92517, 0.260651, 0.35994, 0.848638, 0.152576, 0.088188, 0.430442, 0.740224, 0.78866, 0.337582, 0.618712, 0.198559, 0.851538, 0.022408, 0.189698, 0.152383, 0.044897, 0.153644, 0.70988, 0.426099, 0.284683, 0.363581, 0.339193, 0.030523, 0.941345, 0.592589, 0.465047, 0.624357, 0.369871, 0.888745, 0.814417, 0.614303, 0.429527, 0.827439, 0.544118, 0.991625, 0.431052, 0.828845, 0.35997, 0.523354, 0.15895, 0.80004, 0.226822, 0.228304, 0.557437, 0.156659, 0.01471, 0.018108, 0.034273, 0.510069, 0.537147, 0.072785, 0.198399, 0.758415, 0.212665, 0.750678, 0.174453, 0.200921, 0.725774, 0.242729, 0.672176, 0.619711, 0.139838, 0.098311, 0.644977, 0.052593, 0.115438, 0.220464, 0.376519, 0.774015, 0.007915, 0.083832, 0.721162, 0.764771, 0.028274, 0.794492, 0.936991, 0.484791, 0.432971, 0.987112, 0.859283, 0.758838, 0.135224, 0.179651, 0.971495, 0.380679, 0.403455, 0.610639, 0.631767, 0.374028, 0.063148, 0.802381, 0.211594, 0.915343, 0.869938, 0.516471, 0.55965, 0.040988, 0.674169, 0.268845, 0.51646, 0.34751, 0.048381, 0.633767, 0.498192, 0.129724, 0.403319, 0.190192, 0.181927, 0.001178, 0.933364, 0.890075, 0.271657, 0.453212, 0.316197, 0.833343, 0.68995, 0.938665, 0.191576, 0.896164, 0.024987, 0.28067, 0.080723, 0.986319, 0.623776, 0.145951, 0.882654, 0.723045, 0.693483, 0.573149, 0.799349, 0.788068, 0.363108, 0.791153, 0.730506, 0.98203, 0.39791, 0.834202, 0.408621, 0.845393, 0.597855, 0.466261, 0.826679, 0.173304, 0.503279, 0.238595, 0.295049, 0.138502, 0.120836, 0.91601, 0.951217, 0.038019, 0.940626, 0.449866, 0.621082, 0.822871, 0.145135, 0.616311, 0.264979, 0.678813, 0.321975, 0.31969, 0.537012, 0.866101, 0.424788, 0.591887, 0.809532, 0.212713, 0.013216, 0.599996, 0.107595, 0.971942, 0.428671, 0.174262, 0.384657, 0.506483, 0.073008, 0.987583, 0.741357, 0.611918, 0.138333, 0.550106, 0.657102, 0.08059, 0.289629, 0.529353, 0.136674, 0.465508, 0.23919, 0.373709, 0.78974, 0.590574, 0.730935, 0.358465, 0.620212, 0.576412, 0.707644, 0.658704, 0.015526, 0.037514, 0.668078, 0.043018, 0.552233, 0.412246, 0.190401, 0.741966, 0.416894, 0.637153, 0.734734, 0.923485, 0.177865, 0.416949, 0.607032, 0.858896, 0.222829, 0.114409, 0.486095, 0.713686, 0.898189, 0.8676, 0.823871, 0.542471, 0.376782, 0.144269, 0.66869, 0.080908, 0.612269, 0.209728, 0.926002, 0.976129, 0.151191, 0.254253, 0.506561, 0.76737, 0.243186, 0.023205, 0.692686, 0.308412, 0.822586, 0.011901, 0.151677, 0.595737, 0.991513, 0.326509, 0.361166, 0.775697, 0.396318, 0.778455, 0.423411, 0.510671, 0.179764, 0.088808, 0.955507, 0.440651, 0.380649, 0.29822, 0.565492, 0.076156, 0.08209, 0.072634, 0.277499, 0.643722, 0.827579, 0.723943, 0.234207, 0.815941, 0.680759, 0.661226, 0.22226, 0.744007, 0.293551, 0.326461, 0.053748, 0.552581, 0.328533, 0.61694, 0.921095, 0.64994, 0.807632, 0.079451, 0.012733, 0.653191, 0.605361, 0.346478, 0.412796, 0.809598, 0.89217, 0.265387, 0.907866, 0.495808, 0.713538, 0.925326, 0.136903, 0.983201, 0.304048, 0.204492, 0.40804, 0.18269, 0.989013, 0.055762, 0.049708, 0.812023, 0.505591, 0.487328, 0.477124, 0.009289, 0.288821, 0.425305, 0.78255, 0.865122, 0.098859, 0.659174, 0.332637, 0.469015, 0.288539, 0.57132, 0.285462, 0.008722, 0.327401, 0.3498, 0.491993, 0.044056, 0.983562, 0.615413, 0.869802, 0.130757, 0.427246, 0.743759, 0.192971, 0.266024, 0.928605, 0.543228, 0.909783, 0.27843, 0.439453, 0.994048, 0.345639, 0.340706, 0.32535, 0.811649, 0.074401, 0.43999, 0.022827, 0.570721, 0.188875, 0.371634, 0.431329, 0.475964, 0.531592, 0.057076, 0.061725, 0.307199, 0.52686, 0.299373, 0.611811, 0.86188, 0.290134, 0.997715, 0.467809, 0.658569, 0.328436, 0.26116, 0.407106, 0.437432, 0.533596, 0.463714, 0.908686, 0.396714, 0.925205, 0.339246, 0.885922, 0.22364, 0.984962, 0.846748, 0.131845, 0.360495, 0.114683, 0.981939, 0.300142, 0.855896, 0.282174, 0.77452, 0.861998, 0.519904, 0.369662, 0.195013, 0.943001, 0.701735, 0.638034, 0.303507, 0.814437, 0.419976, 0.577628, 0.799765, 0.736019, 0.845544, 0.570745, 0.708752, 0.82457, 0.659645, 0.98186, 0.124437, 0.923147, 0.739797, 0.15477, 0.675531, 0.763158, 0.599091, 0.052386, 0.290167, 0.267576, 0.976264, 0.2047, 0.680943, 0.66227, 0.844943, 0.433343, 0.135824, 0.18511, 0.910143, 0.542095, 0.365551, 0.947675, 0.283589, 0.698768, 0.413331, 0.833913, 0.322591, 0.993652, 0.884183, 0.668606, 0.933182, 0.119712, 0.258551, 0.671418, 0.412247, 0.947496, 0.367049, 0.792634, 0.342725, 0.218668, 0.697349, 0.763913, 0.664834, 0.094195, 0.701782, 0.855136, 0.591794, 0.901126, 0.84976, 0.700999, 0.706659, 0.246877, 0.864554, 0.496178, 0.468644, 0.556492, 0.83451, 0.488227, 0.272884, 0.569858, 0.048967, 0.030578, 0.570618, 0.037259, 0.803929, 0.438745, 0.132159, 0.365362, 0.887501, 0.440866, 0.175429, 0.764284, 0.599588, 0.067095, 0.493959, 0.443539, 0.039808, 0.174318, 0.595384, 0.86763, 0.454513, 0.262415, 0.543527, 0.326654, 0.905681, 0.57102, 0.984533, 0.528679, 0.084457, 0.310601, 0.972602, 0.928179, 0.802554, 0.624717, 0.479881, 0.1499, 0.597299, 0.793537, 0.574365, 0.166964, 0.344483, 0.70133, 0.129473, 0.252408, 0.404847, 0.646342, 0.992988, 0.482807, 0.96738, 0.627323, 0.311282, 0.026805, 0.892887, 0.616942, 0.062732, 0.888154, 0.058081, 0.819498, 0.379335, 0.811089, 0.273467, 0.56127, 0.850805, 0.909741, 0.479603, 0.556688, 0.187664, 0.636183, 0.179885, 0.2716, 0.951222, 0.558264, 0.609372, 0.914846, 0.052098, 0.340385, 0.449681, 0.114423, 0.310629, 0.874932, 0.576108, 0.541942, 0.231492, 0.938673, 0.563609, 0.693188, 0.675784, 0.277694, 0.428946, 0.138563, 0.219717, 0.399209, 0.211791, 0.480301, 0.578213, 0.938588, 0.52218, 0.143747, 0.523913, 0.167584, 0.243994, 0.399389, 0.479481, 0.780887, 0.572915, 0.625939, 0.43136, 0.47916, 0.994035, 0.423146, 0.592656, 0.834966, 0.589463, 0.389516, 0.241361, 0.43045, 0.638611, 0.588876, 0.667639, 0.69412, 0.134406, 0.435788, 0.358218, 0.15557, 0.656679, 0.621829, 0.17083, 0.778721, 0.424071, 0.291098, 0.744192, 0.712114, 0.39872, 0.466286, 0.133743, 0.811718, 0.802059, 0.97114, 0.899639, 0.754768, 0.858139, 0.96242, 0.965799, 0.827261, 0.689001, 0.212985, 0.764864, 0.097878, 0.390539, 0.207128, 0.022595, 0.528226, 0.670485, 0.190493, 0.525183, 0.278048, 0.986213, 0.734888, 0.55575, 0.084998, 0.999706, 0.900225, 0.99897, 0.41539, 0.626222, 0.436698, 0.595414, 0.511353, 0.364037, 0.419196, 0.760168, 0.033328, 0.982753, 0.696146, 0.053319, 0.97463, 0.784488, 0.930009, 0.769632, 0.180386, 0.302795, 0.68504, 0.622379, 0.912356, 0.728359, 0.320999, 0.630553, 0.735219, 0.868671, 0.374469, 0.277771, 0.365052, 0.549975, 0.265611, 0.1184, 0.84814, 0.509773, 0.794869, 0.874552, 0.023694, 0.577781, 0.217187, 0.550444, 0.655017, 0.632396, 0.581349, 0.048207, 0.478035, 0.42008, 0.523376, 0.533451, 0.664327, 0.171123, 0.688467, 0.197167, 0.29042, 0.451168, 0.210472, 0.04923, 0.565434, 0.309776, 0.438031, 0.819191, 0.17789, 0.35867, 0.487486, 0.437195, 0.147649, 0.066481, 0.95439, 0.146694, 0.305547, 0.247739, 0.828743, 0.867359, 0.727202, 0.407141, 0.523112, 0.853761, 0.65083, 0.169291, 0.118179, 0.017799, 0.381703, 0.979932, 0.92009, 0.763273, 0.669991, 0.634115, 0.310005, 0.392897, 0.629159, 0.582034, 0.01205, 0.55486, 0.72205, 0.304981, 0.336518, 0.105749, 0.360167, 0.170577, 0.118015, 0.404156, 0.320674, 0.487872, 0.73101, 0.060133, 0.769725, 0.463513, 0.666933, 0.58173, 0.732783, 0.450043, 0.834604, 0.155745, 0.622053, 0.273406, 0.541691, 0.834284, 0.13502, 0.095645, 0.615036, 0.661157, 0.859132, 0.065575, 0.190596, 0.292522, 0.74911, 0.888881, 0.234513, 0.630592, 0.046073, 0.370284, 0.237428, 0.999704, 0.484607, 0.056399, 0.043151, 0.966188, 0.332712, 0.849414, 0.870283, 0.20347, 0.825218, 0.485933, 0.140969, 0.47786, 0.666243, 0.180834, 0.542305, 0.203886, 0.394395, 0.463018, 0.692929, 0.985392, 0.286521, 0.684872, 0.23789, 0.388208, 0.137577, 0.888179, 0.586626, 0.863234, 0.975635, 0.910116, 0.44028, 0.44806, 0.351318, 0.930886, 0.282643, 0.750723, 0.717896, 0.599942, 0.258908, 0.004228, 0.239381, 0.547699, 0.149555, 0.680457, 0.167098, 0.384973, 0.192385, 0.654047, 0.924483, 0.446413, 0.069398, 0.155425, 0.777007, 0.341411, 0.764453, 0.004134, 0.120534, 0.0308, 0.165098, 0.920724, 0.187149, 0.826572, 0.019433, 0.298894, 0.178264, 0.704995, 0.261603, 0.122161, 0.800856, 0.432191, 0.525256, 0.57262, 0.751068, 0.953111, 0.478792, 0.042862, 0.52279, 0.23111, 0.734796, 0.373879, 0.787374, 0.057834, 0.21296, 0.08181, 0.423554, 0.375899, 0.204745, 0.018157, 0.979005, 0.190523, 0.874348, 0.577246, 0.891754, 0.296862, 0.737422, 0.6583, 0.210324, 0.727829, 0.206356, 0.413546, 0.669959, 0.070159, 0.904818, 0.868354, 0.361224, 0.700283, 0.804457, 0.48089, 0.542727, 0.305027, 0.568529, 0.233138, 0.791931, 0.131089, 0.40653, 0.808633, 0.810403, 0.166673, 0.628003, 0.188997, 0.794956, 0.975635, 0.949756, 0.839032, 0.129204, 0.342808, 0.995857, 0.522865, 0.729828, 0.848426, 0.18837, 0.606246, 0.463092, 0.000539, 0.669892, 0.511924, 0.960857, 0.14268, 0.260838, 0.862568, 0.099824, 0.01802, 0.915491, 0.03559, 0.358292, 0.504357, 0.253747, 0.748844, 0.575491, 0.372936, 0.720397, 0.957782, 0.01864, 0.280431, 0.794675, 0.092386, 0.786861, 0.693209, 0.379145, 0.150398, 0.088951, 0.096821, 0.976571, 0.898996, 0.317281, 0.856298, 0.694654, 0.763926, 0.947758, 0.869058, 0.47422, 0.196117, 0.884113, 0.324692, 0.440972, 0.324542, 0.327128, 0.840505, 0.42096, 0.75335, 0.090879, 0.45196, 0.267381, 0.387354, 0.258137, 0.14696, 0.41568, 0.129492, 0.337877, 0.401817, 0.961198, 0.695835, 0.75135, 0.826724, 0.425409, 0.461056, 0.679212, 0.490893, 0.151219, 0.725462, 0.544306, 0.19249, 0.210604, 0.004895, 0.621348, 0.735277, 0.740847, 0.716973, 0.162391, 0.456623, 0.689046, 0.405096, 0.295287, 0.828331, 0.806125, 0.613593, 0.004293, 0.919586, 0.660924, 0.653582, 0.883601, 0.099678, 0.976995, 0.021334, 0.305769, 0.2804, 0.267007, 0.562099, 0.396861, 0.810849, 0.410939, 0.95322, 0.507732, 0.528039, 0.437696, 0.79521, 0.343444, 0.801666, 0.520809, 0.112257, 0.302114, 0.89866, 0.052498, 0.245475, 0.58521, 0.21193, 0.583702, 0.6472, 0.31592, 0.489173, 0.787235, 0.139723, 0.796533, 0.037662, 0.599776, 0.610418, 0.792661, 0.918215, 0.797496, 0.937384, 0.027395, 0.627982, 0.785432, 0.5657, 0.553391, 0.579536, 0.769092, 0.072122, 0.034065, 0.838331, 0.611074, 0.229315, 0.231375, 0.185517, 0.388869, 0.132159, 0.63186, 0.725253, 0.129253, 0.571799, 0.470512, 0.638043, 0.643794, 0.144454, 0.550132, 0.277413, 0.976006, 0.183687, 0.437738, 0.467331, 0.660972, 0.947537, 0.498626, 0.351813, 0.661941, 0.064494, 0.132367, 0.261948, 0.179287, 0.547961, 0.16051, 0.932283, 0.714974, 0.354766, 0.702422, 0.265353, 0.799706, 0.16214, 0.925472, 0.322957, 0.642774, 0.554409, 0.288688, 0.118552, 0.660775, 0.32252, 0.036123, 0.703666, 0.990486, 0.330601, 0.107652, 0.8812, 0.360216, 0.370865, 0.441087, 0.62661, 0.839828, 0.630164, 0.513587, 0.037354, 0.430954, 0.977389, 0.800376, 0.994363, 0.249063, 0.086259, 0.003845, 0.867957, 0.722088, 0.992088, 0.044829, 0.975871, 0.763366, 0.869732, 0.948479, 0.405835, 0.330313, 0.089589, 0.978185, 0.72557, 0.185771, 0.0782, 0.06565, 0.678945, 0.89884, 0.851078, 0.75807, 0.156843, 0.040059, 0.41833, 0.948405, 0.828303, 0.960948, 0.583634, 0.424785, 0.305779, 0.41415, 0.667552, 0.788949, 0.531486, 0.497468, 0.033618, 0.902724, 0.422394, 0.487201, 0.550777, 0.969248, 0.241727, 0.587544, 0.081699, 0.955058, 0.246621, 0.916083, 0.733798, 0.157099, 0.16672, 0.625513, 0.87492, 0.123563, 0.443201, 0.264016, 0.882822, 0.228305, 0.183476, 0.968811, 0.927567, 0.778989, 0.753123, 0.452075, 0.154353, 0.869794, 0.050447, 0.854794, 0.101658, 0.054509, 0.367148, 0.445163, 0.485733, 0.93471, 0.122587, 0.798004, 0.469883, 0.95965, 0.067319, 0.330161, 0.771617, 0.259175, 0.602571, 0.032635, 0.787835, 0.132625, 0.654393, 0.005952, 0.385945, 0.623633, 0.878632, 0.497249, 0.091866, 0.284896, 0.105513, 0.582014, 0.843994, 0.7562, 0.223839, 0.296459, 0.598716, 0.788292, 0.943131, 0.497865, 0.047446, 0.89856, 0.697414, 0.563275, 0.75763, 0.444188, 0.961902, 0.398066, 0.524456, 0.199308, 0.307367, 0.22575, 0.518239, 0.125742, 0.561389, 0.690455, 0.478669, 0.723852, 0.708334, 0.25519, 0.867835, 0.752271, 0.72919, 0.253079, 0.526723, 0.784458, 0.389012, 0.382202, 0.607035, 0.747019, 0.331823, 0.231797, 0.728392, 0.95121, 0.499468, 0.957012, 0.912113, 0.322044, 0.101864, 0.598925, 0.320049, 0.61206, 0.257334, 0.277427, 0.835769, 0.279146, 0.941323, 0.726955, 0.200242, 0.804256, 0.178203, 0.432452, 0.428503, 0.191277, 0.648193, 0.026567, 0.257018, 0.838424, 0.062286, 0.877238, 0.799604, 0.003826, 0.360574, 0.796311, 0.636502, 0.870534, 0.77806, 0.317771, 0.33726, 0.756848, 0.417607, 0.962086, 0.150389, 0.874017, 0.018578, 0.72419, 0.984509, 0.511917, 0.854586, 0.240542, 0.892904, 0.351114, 0.851899, 0.056033, 0.486637, 0.00867, 0.11143, 0.85137, 0.033847, 0.584732, 0.525693, 0.652074, 0.930066, 0.606988, 0.841274, 0.8458, 0.617232, 0.530041, 0.053328, 0.786073, 0.783354, 0.2204, 0.976691, 0.654956, 0.984808, 0.324013, 0.355365, 0.817822, 0.962819, 0.124142, 0.144024, 0.593975, 0.244035, 0.92288, 0.661115, 0.679223, 0.223167, 0.72208, 0.929352, 0.188599, 0.059891, 0.0317, 0.798913, 0.959522, 0.566588, 0.873565, 0.466954, 0.349671, 0.825996, 0.816262, 0.881484, 0.832723, 0.24197, 0.117995, 0.602282, 0.623898, 0.890066, 0.860854, 0.502015, 0.415083, 0.572693, 0.9909, 0.26958, 0.238401, 0.410041, 0.85907, 0.302912, 0.060256, 0.938556, 0.989083, 0.493759, 0.843073, 0.417101, 0.65193, 0.75424, 0.188441, 0.708176, 0.887736, 0.505597, 0.082176, 0.746312, 0.066937, 0.382997, 0.203987, 0.726345, 0.821805, 0.348611, 0.583905, 0.60597, 0.745809, 0.116562, 0.005278, 0.863724, 0.972818, 0.384309, 0.026026, 0.17201, 0.760364, 0.001344, 0.811226, 0.378847, 0.346104, 0.010893, 0.186517, 0.063087, 0.914534, 0.096117, 0.298119, 0.774363, 0.1409, 0.004738, 0.145081, 0.715103, 0.140001, 0.729662, 0.40475, 0.539558, 0.715007, 0.702933, 0.400177, 0.59065, 0.651704, 0.723801, 0.280871, 0.662439, 0.44842, 0.090771, 0.442091, 0.143126, 0.247428, 0.693106, 0.152807, 0.572868, 0.34195, 0.758032, 0.964803, 0.691916, 0.071077, 0.497161, 0.147966, 0.847598, 0.116487, 0.567857, 0.802133, 0.431537, 0.858645, 0.704087, 0.568819, 0.423117, 0.076874, 0.739983, 0.694475, 0.02712, 0.990173, 0.030274, 0.090503, 0.200426, 0.207876, 0.008392, 0.762195, 0.850512, 0.703669, 0.423526, 0.237484, 0.229366, 0.49148, 0.725517, 0.593425, 0.093006, 0.314736, 0.553582, 0.732582, 0.919103, 0.508851, 0.095187, 0.312772, 0.486877, 0.182513, 0.475903, 0.401788, 0.155808, 0.659994, 0.194145, 0.847686, 0.392538, 0.661285, 0.241663, 0.845815, 0.229505, 0.645825, 0.516602, 0.502102, 0.062729, 0.389025, 0.731468, 0.506212, 0.993555, 0.075285, 0.249156, 0.107676, 0.976115, 0.554983, 0.476458, 0.375201, 0.853846, 0.225902, 0.960844, 0.298225, 0.761103, 0.475444, 0.289734, 0.859677, 0.305801, 0.082332, 0.490173, 0.31546, 0.869484, 0.455246, 0.417008, 0.728555, 0.388655, 0.155008, 0.145381, 0.032705, 0.980415, 0.915689, 0.196297, 0.843347, 0.254055, 0.533497, 0.566648, 0.795377, 0.768432, 0.983436, 0.505655, 0.660768, 0.591299, 0.01475, 0.322672, 0.52037, 0.194174, 0.452602, 0.142333, 0.162803, 0.113288, 0.017173, 0.547789, 0.455868, 0.588523, 0.448635, 0.959622, 0.011718, 0.625515, 0.214428, 0.272739, 0.718613, 0.626723, 0.67445, 0.010665, 0.486382, 0.43957, 0.567305, 0.492778, 0.281534, 0.87575, 0.910232, 0.472945, 0.155075, 0.689808, 0.870423, 0.651455, 0.932041, 0.606607, 0.39584, 0.302432, 0.155566, 0.956355, 0.289529, 0.160616, 0.64345, 0.831512, 0.248107, 0.780391, 0.835524, 0.226222, 0.369192, 0.723529, 0.880446, 0.466658, 0.964205, 0.216243, 0.911632, 0.677407, 0.028048, 0.182669, 0.485269, 0.684993, 0.477793, 0.241019, 0.188568, 0.242868, 0.01625, 0.421037, 0.450976, 0.914299, 0.453364, 0.734026, 0.202525, 0.885772, 0.794953, 0.79396, 0.011477, 0.756473, 0.626884, 0.178989, 0.776807, 0.724462, 0.047854, 0.563223, 0.481898, 0.172707, 0.600387, 0.115745, 0.029616, 0.322536, 0.699481, 0.206229, 0.630714, 0.097127, 0.786278, 0.136113, 0.44444, 0.777289, 0.945547, 0.666034, 0.873067, 0.866683, 0.553849, 0.16392, 0.92952, 0.007365, 0.202962, 0.787743, 0.670206, 0.790563, 0.493802, 0.949496, 0.157735, 0.801596, 0.66346, 0.930149, 0.946753, 0.085915, 0.658912, 0.87687, 0.334723, 0.537285, 0.648598, 0.281386, 0.701746, 0.13957, 0.594266, 0.459779, 0.376812, 0.393612, 0.922578, 0.359677, 0.152143, 0.956277, 0.141603, 0.53761, 0.042067, 0.974599, 0.455662, 0.116956, 0.662973, 0.6526, 0.583012, 0.994822, 0.550176, 0.638731, 0.291345, 0.327118, 0.827797, 0.921458, 0.441582, 0.112554, 0.135797, 0.979942, 0.014018, 0.273467, 0.432112, 0.770099, 0.888243, 0.173491, 0.460678, 0.831174, 0.004853, 0.797752, 0.764839, 0.482411, 0.325063, 0.099146, 0.127446, 0.611598, 0.10883, 0.080401, 0.657715, 0.529348, 0.201789, 0.256487, 0.03058, 0.493985, 0.46104, 0.561117, 0.651301, 0.892011, 0.214904, 0.290204, 0.70286, 0.303873, 0.14493, 0.366862, 0.329704, 0.568359, 0.280466, 0.283175, 0.584619, 0.899637, 0.577498, 0.379581, 0.835572, 0.861612, 0.337914, 0.675524, 0.974425, 0.253954, 0.477474, 0.787129, 0.796879, 0.288224, 0.62779, 0.357721, 0.115422, 0.56795, 0.956054, 0.264165, 0.412977, 0.562069, 0.353031, 0.640569, 0.677512, 0.395632, 0.82455, 0.013238, 0.418895, 0.658181, 0.707311, 0.778806, 0.385713, 0.635956, 0.484319, 0.001102, 0.39313, 0.58078, 0.985323, 0.651198, 0.555777, 0.739748, 0.642246, 0.67705, 0.865851, 0.586674, 0.887867, 0.276695, 0.342254, 0.081456, 0.981704, 0.714644, 0.530046, 0.77454, 0.434752, 0.566963, 0.132659, 0.121612, 0.005515, 0.865792, 0.47858, 0.107085, 0.518894, 0.537472, 0.887951, 0.379011, 0.100248, 0.833871, 0.933822, 0.071653, 0.484565, 0.189565, 0.745148, 0.065756, 0.218732, 0.579312, 0.692888, 0.120484, 0.836253, 0.263403, 0.795311, 0.325675, 0.243299, 0.377685, 0.959694, 0.784726, 0.283029, 0.887576, 0.242063, 0.980916, 0.751944, 0.501865, 0.829635, 0.134986, 0.119089, 0.574, 0.752928, 0.782649, 0.505122, 0.814837, 0.279735, 0.449027, 0.529883, 0.732962, 0.408977, 0.147787, 0.196041, 0.308964, 0.369524, 0.459519, 0.138775, 0.184582, 0.077611, 0.892193, 0.681562, 0.448447, 0.221606, 0.089885, 0.05721, 0.951367, 0.59749, 0.29791, 0.578334, 0.124223, 0.158306, 0.147535, 0.477625, 0.217934, 0.791703, 0.122705, 0.049871, 0.634721, 0.501017, 0.319762, 0.281195, 0.299235, 0.397732, 0.102392, 0.519657, 0.957656, 0.899497, 0.77237, 0.926283, 0.650378, 0.846722, 0.562843, 0.217877, 0.624926, 0.357371, 0.098495, 0.576786, 0.809381, 0.28755, 0.264569, 0.465199, 0.458609, 0.314031, 0.576372, 0.22364, 0.92432, 0.671873, 0.423042, 0.806492, 0.103619, 0.625429, 0.087839, 0.947021, 0.919666, 0.56853, 0.412294, 0.514915, 0.078034, 0.196017, 0.099719, 0.557519, 0.49461, 0.155567, 0.707558, 0.266064, 0.811083, 0.880073, 0.897793, 0.636515, 0.741816, 0.678509, 0.351356, 0.963772, 0.608525, 0.623147, 0.19853, 0.785506, 0.504668, 0.274951, 0.630047, 0.890863, 0.888559, 0.138979, 0.738274, 0.65037, 0.386374, 0.134579, 0.365356, 0.856376, 0.98929, 0.118292, 0.282302, 0.684153, 0.041415, 0.31726, 0.290167, 0.815916, 0.203908, 0.706239, 0.795142, 0.810717, 0.455628, 0.795537, 0.495302, 0.406021, 0.566227, 0.529396, 0.972088, 0.942231, 0.925458, 0.03408, 0.159091, 0.39321, 0.480677, 0.00366, 0.915473, 0.41236, 0.975492, 0.67461, 0.345968, 0.098588, 0.833713, 0.179612, 0.747175, 0.330059, 0.930714, 0.174807, 0.500385, 0.663679, 0.706527, 0.159351, 0.959626, 0.151622, 0.366198, 0.54975, 0.117707, 0.888285, 0.000617, 0.185457, 0.155224, 0.255575, 0.07054, 0.509978, 0.555828, 0.946418, 0.353806, 0.552307, 0.608118, 0.724386, 0.610028, 0.85483, 0.935558, 0.865207, 0.545541, 0.694804, 0.434401, 0.104344, 0.012418, 0.528834, 0.807388, 0.084369, 0.982262, 0.983548, 0.744719, 0.158637, 0.62357, 0.215198, 0.89075, 0.143816, 0.75633, 0.26952, 0.184091, 0.991786, 0.665161, 0.089341, 0.654163, 0.031866, 0.065887, 0.355013, 0.350738, 0.390177, 0.573224, 0.716434, 0.220106, 0.224604, 0.352639, 0.061443, 0.072093, 0.746191, 0.329217, 0.805155, 0.790366, 0.24495, 0.181989, 0.074262, 0.744701, 0.361129, 0.420595, 0.577902, 0.554486, 0.331094, 0.683699, 0.17879, 0.664087, 0.627224, 0.307311, 0.921533, 0.991854, 0.655413, 0.615447, 0.348573, 0.70754, 0.499964, 0.009932, 0.592987, 0.09206, 0.568307, 0.350398, 0.430011, 0.476225, 0.490126, 0.490585, 0.143911, 0.232112, 0.114018, 0.396004, 0.096188, 0.506109, 0.840469, 0.975597, 0.369112, 0.84539, 0.106259, 0.131906, 0.030697, 0.37389, 0.693012, 0.056571, 0.723905, 0.214331, 0.727084, 0.895125, 0.497247, 0.456223, 0.841099, 0.961357, 0.283341, 0.421693, 0.881912, 0.418217, 0.348523, 0.733968, 0.651982, 0.933615, 0.650327, 0.348879, 0.071743, 0.668567, 0.477332, 0.51544, 0.889374, 0.161386, 0.96688, 0.298649, 0.212284, 0.415667, 0.39436, 0.623763, 0.309334, 0.068218, 0.495278, 0.073595, 0.028272, 0.547413, 0.373852, 0.895901, 0.641149, 0.572317, 0.502803, 0.943729, 0.524665, 0.383213, 0.108393, 0.89237, 0.549257, 0.943199, 0.560087, 0.252876, 0.754234, 0.14792, 0.267573, 0.684337, 0.254291, 0.340369, 0.284552, 0.880244, 0.248956, 0.962516, 0.170761, 0.247563, 0.511125, 0.00602, 0.033541, 0.324461, 0.599414, 0.101395, 0.295971, 0.69387, 0.355526, 0.128557, 0.977926, 0.818567, 0.946627, 0.775839, 0.731518, 0.972279, 0.372125, 0.501433, 0.633874, 0.496641, 0.11139, 0.581348, 0.383131, 0.808602, 0.535356, 0.986628, 0.33504, 0.064763, 0.708479, 0.015399, 0.645465, 0.631981, 0.327922, 0.644113, 0.830114, 0.971771, 0.055462, 0.876668, 0.902353, 0.290695, 0.541237, 0.328773, 0.257419, 0.009092, 0.827018, 0.891186, 0.693143, 0.57705, 0.741371, 0.578875, 0.397107, 0.055225, 0.061134, 0.95413, 0.121849, 0.21217, 0.672836, 0.396159, 0.219416, 0.73231, 0.031497, 0.736234, 0.068464, 0.653657, 0.701183, 0.1281, 0.699825, 0.608329, 0.90699, 0.252404, 0.561207, 0.58215, 0.010879, 0.97887, 0.72936, 0.78858, 0.318024, 0.505554, 0.531289, 0.077944, 0.920594, 0.433931, 0.51423, 0.563996, 0.483288, 0.83144, 0.210359, 0.971037, 0.564114, 0.313925, 0.013001, 0.971888, 0.357757, 0.822761, 0.564902, 0.040681, 0.320092, 0.622264, 0.108936, 0.214665, 0.743111, 0.167948, 0.457422, 0.575731, 0.382622, 0.695624, 0.053308, 0.596743, 0.572496, 0.153779, 0.481554, 0.037652, 0.43402, 0.521886, 0.737338, 0.886545, 0.028935, 0.37865, 0.386067, 0.79159, 0.81239, 0.338293, 0.072301, 0.995803, 0.286651, 0.757871, 0.095917, 0.029108, 0.871738, 0.930069, 0.591214, 0.696815, 0.240914, 0.766933, 0.833595, 0.816871, 0.38786, 0.035651, 0.269189, 0.409051, 0.893545, 0.647999, 0.942656, 0.568304, 0.782785, 0.682612, 0.62697, 0.472287, 0.16174, 0.38647, 0.798935, 0.937353, 0.115043, 0.985817, 0.516907, 0.558491, 0.417611, 0.967759, 0.090704, 0.123847, 0.280381, 0.519978, 0.942519, 0.011566, 0.988165, 0.606199, 0.682615, 0.83089, 0.575308, 0.878689, 0.314874, 0.798877, 0.285583, 0.190852, 0.055257, 0.150218, 0.139666, 0.603064, 0.107349, 0.999982, 0.162873, 0.630796, 0.781574, 0.720666, 0.456268, 0.797744, 0.528333, 0.20061, 0.387175, 0.882848, 0.571606, 0.388609, 0.685573, 0.522739, 0.391683, 0.726471, 0.313335, 0.597504, 0.109116, 0.448669, 0.731496, 0.491099, 0.739064, 0.629641, 0.586469, 0.827345, 0.252634, 0.516584, 0.168886, 0.709334, 0.763899, 0.595591, 0.99043, 0.866508, 0.788042, 0.656667, 0.759079, 0.511408, 0.841839, 0.870239, 0.595371, 0.703304, 0.314017, 0.509685, 0.296063, 0.804282, 0.572596, 0.859871, 0.703447, 0.661065, 0.987406, 0.116388, 0.223526, 0.448743, 0.966742, 0.966816, 0.068904, 0.895855, 0.215761, 0.140622, 0.178801, 0.592295, 0.92636, 0.411607, 0.613542, 0.887499, 0.231916, 0.299274, 0.649172, 0.247403, 0.055549, 0.566492, 0.983983, 0.018076, 0.311137, 0.486898, 0.610336, 0.067041, 0.508637, 0.136737, 0.159624, 0.286673, 0.487776, 0.860077, 0.777913, 0.598352, 0.754968, 0.282838, 0.524178, 0.470502, 0.699472, 0.714123, 0.103704, 0.582749, 0.642219, 0.514271, 0.941646, 0.278744, 0.507681, 0.919277, 0.027799, 0.165048, 0.492435, 0.464356, 0.436549, 0.738241, 0.07697, 0.669263, 0.489498, 0.649085, 0.299357, 0.925425, 0.363427, 0.421914, 0.773685, 0.959262, 0.870415, 0.989535, 0.435197, 0.798916, 0.98825, 0.409955, 0.354798, 0.092332, 0.081398, 0.274375, 0.148839, 0.735374, 0.963641, 0.935053, 0.994477, 0.931728, 0.944154, 0.683003, 0.027936, 0.340956, 0.137594, 0.773567, 0.206999, 0.775768, 0.954532, 0.189719, 0.414263, 0.123227, 0.330139, 0.64594, 0.163166, 0.606376, 0.404358, 0.601052, 0.839455, 0.740278, 0.496949, 0.695846, 0.622464, 0.31165, 0.531548, 0.663184, 0.76601, 0.100536, 0.611259, 0.349629, 0.068207, 0.391358, 0.77272, 0.839926, 0.111475, 0.415019, 0.765789, 0.688234, 0.36637, 0.617077, 0.838048, 0.194988, 0.756375, 0.138217, 0.561352, 0.703637, 0.855423, 0.355787, 0.842659, 0.055223, 0.737079, 0.63662, 0.228985, 0.432558, 0.535216, 0.827557, 0.714241, 0.116639, 0.748255, 0.723319, 0.89436, 0.321461, 0.791306, 0.7662, 0.701393, 0.150656, 0.913314, 0.032298, 0.235836, 0.780418, 0.37012, 0.060758, 0.385045, 0.703152, 0.196328, 0.394789, 0.330766, 0.946291, 0.952474, 0.112936, 0.781184, 0.536004, 0.178816, 0.577325, 0.145167, 0.917982, 0.876967, 0.044045, 0.510579, 0.890583, 0.344159, 0.132242, 0.211514, 0.747735, 0.677761, 0.071119, 0.71751, 0.476198, 0.461267, 0.274136, 0.532993, 0.06298, 0.523266, 0.09536, 0.27207, 0.886243, 0.92006, 0.57228, 0.659082, 0.741822, 0.243658, 0.566241, 0.452005, 0.152596, 0.184184, 0.59884, 0.070162, 0.059019, 0.904998, 0.254484, 0.387344, 0.149909, 0.93583, 0.162738, 0.655298, 0.1711, 0.655145, 0.494935, 0.123103, 0.127928, 0.578568, 0.032628, 0.774202, 0.988806, 0.74176, 0.401597, 0.765737, 0.412338, 0.308468, 0.905478, 0.186239, 0.469492, 0.479025, 0.406112, 0.560963, 0.023237, 0.092502, 0.871514, 0.450309, 0.625514, 0.384913, 0.276505, 0.859075, 0.106464, 0.428528, 0.809269, 0.910068, 0.324384, 0.373021, 0.983399, 0.972042, 0.706587, 0.573955, 0.147569, 0.483965, 0.991743, 0.818673, 0.852096, 0.465051, 0.193085, 0.821216, 0.150217, 0.20565, 0.701332, 0.067648, 0.816881, 0.440313, 0.764298, 0.461325, 0.98755, 0.555159, 0.749597, 0.455414, 0.326443, 0.502835, 0.926441, 0.082508, 0.334144, 0.222107, 0.335162, 0.038447, 0.766221, 0.787093, 0.284258, 0.078058, 0.938499, 0.598571, 0.138494, 0.657768, 0.137404, 0.417432, 0.886809, 0.944456, 0.904894, 0.211855, 0.067095, 0.595296, 0.431059, 0.417181, 0.896363, 0.147277, 0.867882, 0.321832, 0.316093, 0.297532, 0.23932, 0.510053, 0.534464, 0.299773, 0.857974, 0.504778, 0.653601, 0.406792, 0.575367, 0.487484, 0.553188, 0.644916, 0.146326, 0.174255, 0.868846, 0.663586, 0.818294, 0.211672, 0.507913, 0.944171, 0.358835, 0.341932, 0.912736, 0.38925, 0.119709, 0.668351, 0.166338, 0.821357, 0.231743, 0.666093, 0.980739, 0.695959, 0.236908, 0.766351, 0.985975, 0.191198, 0.344454, 0.508793, 0.803179, 0.502749, 0.357399, 0.471804, 0.759757, 0.970837, 0.407883, 0.253455, 0.775375, 0.612215, 0.41796, 0.759198, 0.586603, 0.232229, 0.851744, 0.735511, 0.94714, 0.663308, 0.771562, 0.943043, 0.335959, 0.768716, 0.157158, 0.131119, 0.545991, 0.732225, 0.426844, 0.995336, 0.982793, 0.302243, 0.675156, 0.904209, 0.268325, 0.667568, 0.484681, 0.237996, 0.979266, 0.06898, 0.4872, 0.889034, 0.190059, 0.52955, 0.090155, 0.462955, 0.041734, 0.729478, 0.784222, 0.713986, 0.398201, 0.15703, 0.328948, 0.655297, 0.273374, 0.187061, 0.933965, 0.803229, 0.97578, 0.095945, 0.539797, 0.072632, 0.810028, 0.759889, 0.903038, 0.837638, 0.593374, 0.012763, 0.658402, 0.747591, 0.815429, 0.556342, 0.357077, 0.309736, 0.899665, 0.639406, 0.911709, 0.413178, 0.993318, 0.389819, 0.959964, 0.011715, 0.127277, 0.113981, 0.667297, 0.562028, 0.500798, 0.28166, 0.100173, 0.063632, 0.086539, 0.6836, 0.322047, 0.578287, 0.852461, 0.99403, 0.124685, 0.126679, 0.311039, 0.693607, 0.855895, 0.534632, 0.033707, 0.195576, 0.186693, 0.96969, 0.903777, 0.085815, 0.119216, 0.917765, 0.551236, 0.699201, 0.511727, 0.827349, 0.658185, 0.785617, 0.214154, 0.803295, 0.321626, 0.485933, 0.355051, 0.523893, 0.940118, 0.457513, 0.470995, 0.657602, 0.454266, 0.277664, 0.770607, 0.907831, 0.486839, 0.102659, 0.223571, 0.551519, 0.104051, 0.815087, 0.418081, 0.178458, 0.074056, 0.798118, 0.371467, 0.710677, 0.972302, 0.810753, 0.015969, 0.241406, 0.203962, 0.769426, 0.412046, 0.315076, 0.85723, 0.667636, 0.710336, 0.635879, 0.977218, 0.149485, 0.390743, 0.429134, 0.653038, 0.292621, 0.24634, 0.811132, 0.945304, 0.368495, 0.676421, 0.751188, 0.407641, 0.041528, 0.43918, 0.498377, 0.091886, 0.865377, 0.221816, 0.948795, 0.937522, 0.521279, 0.009556, 0.037244, 0.692971, 0.350252, 0.317047, 0.645187, 0.799404, 0.261397, 0.297667, 0.222647, 0.627757, 0.360292, 0.801652, 0.801362, 0.202971, 0.844451, 0.941521, 0.009426, 0.053483, 0.673226, 0.926545, 0.745319, 0.240676, 0.403993, 0.955206, 0.117514, 0.660171, 0.726327, 0.268641, 0.530547, 0.523159, 0.94586, 0.983415, 0.975488, 0.515512, 0.223944, 0.194273, 0.075028, 0.878649, 0.347125, 0.105194, 0.954939, 0.236838, 0.287695, 0.290819, 0.829517, 0.666614, 0.795168, 0.811503, 0.300155, 0.211039, 0.825017, 0.739262, 0.56657, 0.971834, 0.56389, 0.480136, 0.83986, 0.065807, 0.50352, 0.703776, 0.960927, 0.338013, 0.830935, 0.876876, 0.947423, 0.680032, 0.420013, 0.931463, 0.796378, 0.725126, 0.027085, 0.079845, 0.858657, 0.621552, 0.143615, 0.276065, 0.603338, 0.201685, 0.957376, 0.878355, 0.474515, 0.5246, 0.387978, 0.255158, 0.117825, 0.478643, 0.331636, 0.995862, 0.075325, 0.193418, 0.363509, 0.786102, 0.373015, 0.625072, 0.176278, 0.909902, 0.568028, 0.977113, 0.584524, 0.889187, 0.34507, 0.181986, 0.039987, 0.312639, 0.057503, 0.697428, 0.897983, 0.091118, 0.365957, 0.888857, 0.917395, 0.04617, 0.416074, 0.770404, 0.884974, 0.08331, 0.780278, 0.086862, 0.175884, 0.741306, 0.731621, 0.157084, 0.311038, 0.381526, 0.417901, 0.203053, 0.202274, 0.694863, 0.548574, 0.889202, 0.673037, 0.082809, 0.084774, 0.227172, 0.67022, 0.437653, 0.858797, 0.566603, 0.231661, 0.384294, 0.193458, 0.779654, 0.158228, 0.674954, 0.23998, 0.816577, 0.142777, 0.074074, 0.253966, 0.548952, 0.35028, 0.592381, 0.524151, 0.477217, 0.40718, 0.043254, 0.239822, 0.464456, 0.864148, 0.618301, 0.58921, 0.223409, 0.974988, 0.50873, 0.98118, 0.790631, 0.953932, 0.580714, 0.238561, 0.398717, 0.295273, 0.745861, 0.66536, 0.422174, 0.847073, 0.426527, 0.765673, 0.781417, 0.34866, 0.209638, 0.025816, 0.222756, 0.38936, 0.184515, 0.370691, 0.134879, 0.037306, 0.401042, 0.009765, 0.900434, 0.958919, 0.327294, 0.275035, 0.97932, 0.693494, 0.788832, 0.332254, 0.518943, 0.742376, 0.935882, 0.279473, 0.598037, 0.01267, 0.407213, 0.008749, 0.079667, 0.776768, 0.448032, 0.344795, 0.627991, 0.319229, 0.928058, 0.933115, 0.426434, 0.940418, 0.077717, 0.308964, 0.930808, 0.199856, 0.48531, 0.66131, 0.876629, 0.377959, 0.139978, 0.002916, 0.892175, 0.153664, 0.477243, 0.378976, 0.96964, 0.861498, 0.296538, 0.108716, 0.212601, 0.150995, 0.695341, 0.394807, 0.209546, 0.634934, 0.633603, 0.891051, 0.555393, 0.78013, 0.889912, 0.067362, 0.230636, 0.735968, 0.022772, 0.404528, 0.321954, 0.667501, 0.287433, 0.690315, 0.00282, 0.225253, 0.230465, 0.992912, 0.364315, 0.002038, 0.433596, 0.767065, 0.419832, 0.413342, 0.197858, 0.008771, 0.411696, 0.479561, 0.954856, 0.04537, 0.741997, 0.6708, 0.240744, 0.199534, 0.044296, 0.570748, 0.452221, 0.593366, 0.984203, 0.317118, 0.380447, 0.362014, 0.099999, 0.75969, 0.723456, 0.80196, 0.433363, 0.270965, 0.173166, 0.096998, 0.216832, 0.132268, 0.063726, 0.407543, 0.617793, 0.721216, 0.375631, 0.449536, 0.405486, 0.013637, 0.590739, 0.796161, 0.518195, 0.609334, 0.066453, 0.485517, 0.565086, 0.631247, 0.290105, 0.364813, 0.671568, 0.201941, 0.44882, 0.390341, 0.418002 ],
 							"localEligibleFunctions" : [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15, 16, 17, 18, 19, 20, 25, 26, 27, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 48, 58, 63, 65, 66, 67, 68, 76, 77, 84, 98, 99, 100, 101, 104, 109, 110, 111, 131, 132, 134, 135, 199, 200, 201, 202, 266, 272, 274, 277, 278, 279, 280, 281, 282, 284, 286, 288, 290, 291, 294, 296, 298, 299, 302, 304, 306, 307, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325 ],
 							"maxAllowedDepth" : 60,
 							"maxListCardinality" : 20,
-							"phenotypeSeed" : 470614140950084
+							"phenotypeSeed" : 733248077629407
 						}
 ,
-						"encodedGenotype" : [ 1, 0.472136, 1, 0.429563, 1, 0.803399, 1, 0.09017, 0.51, 0.817468, 0, 1, 0.326238, 0.53, 0.182426, 0, 1, 0.326238, 0.53, 0.845535, 0, 1, 0.326238, 0.53, 0.450166, 0, 1, 0.826604, 0, 1, 0.062672, 0, 1, 0.18034, 0.56, 0.731059, 0, 0, 1, 0.416408, 0.58, 0.802184, 0, 0, 0 ],
-						"decodedGenotype" : "s(vRepeatE(e4Pitches(n(0.353379),m(47),m(79),m(60),mRnd(),aRnd(),i(60)),q(3)))",
-						"formattedGenotype" : "s(\n   vRepeatE(\n      e4Pitches(\n         n(0.353379),\n         m(47),\n         m(79),\n         m(60),\n         mRnd(),\n         aRnd(),\n         i(60)),\n      q(3)))",
-						"encodedPhenotype" : [ 0.618034, 0.854102, 0.817468, 0.472136, 0.182426, 0.845535, 0.450166, 0.726125, 0.409431, 0.731059, 0.817468, 0.472136, 0.182426, 0.845535, 0.450166, 0.726125, 0.409431, 0.731059, 0.817468, 0.472136, 0.182426, 0.845535, 0.450166, 0.726125, 0.409431, 0.731059 ],
+						"encodedGenotype" : [ 1, 0.472136, 1, 0.854102, 1, 0.236068, 1, 0.09017, 0.51, 0, 0, 1, 0.326238, 0.53, 0.130109, 0, 1, 0.062672, 0, 1, 0.18034, 0.56, 0, 0, 0, 0, 0 ],
+						"decodedGenotype" : "s(v(e(n(0),m(43),aRnd(),i(0))))",
+						"formattedGenotype" : "s(\n   v(\n      e(\n         n(0),\n         m(43),\n         aRnd(),\n         i(0))))",
+						"encodedPhenotype" : [ 0.618034, 0.618034, 0, 0.618034, 0.130109, 0.413892, 0 ],
 						"subexpressions" : 						{
 							"paramF" : [  ],
 							"listF" : [  ],
-							"eventF" : [ "e4Pitches(n(0.353379),m(47),m(79),m(60),mRnd(),aRnd(),i(60))" ],
-							"voiceF" : [ "vRepeatE(e4Pitches(n(0.353379),m(47),m(79),m(60),mRnd(),aRnd(),i(60)),q(3))" ],
-							"scoreF" : [ "s(vRepeatE(e4Pitches(n(0.353379),m(47),m(79),m(60),mRnd(),aRnd(),i(60)),q(3)))" ],
-							"notevalueF" : [ "n(0.353379)" ],
+							"eventF" : [ "e(n(0),m(43),aRnd(),i(0))" ],
+							"voiceF" : [ "v(e(n(0),m(43),aRnd(),i(0)))" ],
+							"scoreF" : [ "s(v(e(n(0),m(43),aRnd(),i(0))))" ],
+							"notevalueF" : [ "n(0)" ],
 							"lnotevalueF" : [  ],
 							"durationF" : [  ],
 							"ldurationF" : [  ],
-							"midipitchF" : [ "m(47)", "m(79)", "m(60)", "mRnd()" ],
+							"midipitchF" : [ "m(43)" ],
 							"lmidipitchF" : [  ],
 							"frequencyF" : [  ],
 							"lfrequencyF" : [  ],
 							"articulationF" : [ "aRnd()" ],
 							"larticulationF" : [  ],
-							"intensityF" : [ "i(60)" ],
+							"intensityF" : [ "i(0)" ],
 							"lintensityF" : [  ],
 							"goldenintegerF" : [  ],
 							"lgoldenintegerF" : [  ],
-							"quantizedF" : [ "q(3)" ],
+							"quantizedF" : [  ],
 							"lquantizedF" : [  ],
 							"operationF" : [  ]
 						}
 ,
-						"leaves" : [ [ 9, 0.817468, 0.353379 ], [ 14, 0.182426, 47 ], [ 19, 0.845535, 79 ], [ 24, 0.450166, 60 ], [ 35, 0.731059, 60 ], [ 41, 0.802184, 3 ] ],
-						"roll" : [ "(", "(", 0, "(", 4700, 523.000920000000065, 87, ")", "(", 7900, 523.000920000000065, 87, ")", "(", 6000, 523.000920000000065, 87, ")", "(", 7200, 523.000920000000065, 87, ")", ")", "(", 1413.516000000000076, "(", 4700, 523.000920000000065, 87, ")", "(", 7900, 523.000920000000065, 87, ")", "(", 6000, 523.000920000000065, 87, ")", "(", 7200, 523.000920000000065, 87, ")", ")", "(", 2827.032000000000153, "(", 4700, 523.000920000000065, 87, ")", "(", 7900, 523.000920000000065, 87, ")", "(", 6000, 523.000920000000065, 87, ")", "(", 7200, 523.000920000000065, 87, ")", ")", ")" ]
+						"leaves" : [ [ 9, 0, 0 ], [ 14, 0.130109, 43 ], [ 22, 0, 0 ] ],
+						"roll" : [ "(", "(", 0, ")", ")" ]
 					}
 ,
 					"fontname" : "Lato Regular",
@@ -5191,7 +12754,7 @@
 									"versionnumber" : 80100,
 									"voicenames" : [ "[", "]" ],
 									"voicespacing" : [ 0.0, 17.0 ],
-									"whole_roll_data_0000000000" : [ "roll", "[", "slotinfo", "[", 1, "[", "name", "amplitude envelope", "]", "[", "type", "function", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080016896, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "grid", "]", "[", "ysnap", "]", "[", "domain", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "domainslope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "relative", "]", "[", "extend", 0, "]", "[", "width", "duration", "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 2, "[", "name", "slot function", "]", "[", "type", "function", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "grid", "]", "[", "ysnap", "]", "[", "domain", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "domainslope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "relative", "]", "[", "extend", 0, "]", "[", "width", "duration", "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 3, "[", "name", "slot intlist", "]", "[", "type", "intlist", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080016896, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1078984704, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 4, "[", "name", "slot floatlist", "]", "[", "type", "floatlist", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 5, "[", "name", "slot int", "]", "[", "type", "int", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080016896, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1078984704, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 6, "[", "name", "slot float", "]", "[", "type", "float", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 7, "[", "name", "lyrics", "]", "[", "type", "text", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 8, "[", "name", "filelist", "]", "[", "type", "filelist", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080213504, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 9, "[", "name", "spat", "]", "[", "type", "spat", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1076101120, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "temporalmode", "relative", "]", "[", "extend", 0, "]", "[", "width", "duration", "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 10, "[", "name", "slot 10", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 11, "[", "name", "slot 11", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 12, "[", "name", "slot 12", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 13, "[", "name", "slot 13", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 14, "[", "name", "slot 14", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 15, "[", "name", "slot 15", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 16, "[", "name", "slot 16", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 17, "[", "name", "slot 17", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 18, "[", "name", "slot 18", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 19, "[", "name", "slot 19", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 20, "[", "name", "slot 20", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 21, "[", "name", "slot 21", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 22, "[", "name", "slot 22", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 23, "[", "name", "slot 23", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 24, "[", "name", "slot 24", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 25, "[", "name", "slot 25", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 26, "[", "name", "slot 26", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 27, "[", "name", "slot 27", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 28, "[", "name", "slot 28", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 29, "[", "name", "slot 29", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 30, "[", "name", "slot 30", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "]", "[", "commands", "[", 1, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 2, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 3, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 4, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 5, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "]", "[", "groups", "]", "[", "markers", "]", "[", "midichannels", 1, "]", "[", "articulationinfo", "]", "[", "noteheadinfo", "]", "[", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085430784, "_x_x_x_x_bach_float64_x_x_x_x_", 3797438285, 1082152961, 87, 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085763584, "_x_x_x_x_bach_float64_x_x_x_x_", 3797438285, 1082152961, 87, 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086070784, "_x_x_x_x_bach_float64_x_x_x_x_", 3797438285, 1082152961, 87, 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086249984, "_x_x_x_x_bach_float64_x_x_x_x_", 3797438285, 1082152961, 87, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1649267442, 1083577872, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085430784, "_x_x_x_x_bach_float64_x_x_x_x_", 3797438285, 1082152961, 87, 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085763584, "_x_x_x_x_bach_float64_x_x_x_x_", 3797438285, 1082152961, 87, 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086070784, "_x_x_x_x_bach_float64_x_x_x_x_", 3797438285, 1082152961, 87, 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086249984, "_x_x_x_x_bach_float64_x_x_x_x_", 3797438285, 1082152961, 87, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1649267442, 1084626448, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085430784, "_x_x_x_x_bach_float64_x_x_x_x_", 3797438285, 1082152961, 87, 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085763584, "_x_x_x_x_bach_float64_x_x_x_x_", 3797438285, 1082152961, 87, 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086070784, "_x_x_x_x_bach_float64_x_x_x_x_", 3797438285, 1082152961, 87, 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086249984, "_x_x_x_x_bach_float64_x_x_x_x_", 3797438285, 1082152961, 87, 0, "]", 0, "]", 0, "]" ],
+									"whole_roll_data_0000000000" : [ "roll", "[", "slotinfo", "[", 1, "[", "name", "amplitude envelope", "]", "[", "type", "function", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080016896, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "grid", "]", "[", "ysnap", "]", "[", "domain", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "domainslope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "relative", "]", "[", "extend", 0, "]", "[", "width", "duration", "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 2, "[", "name", "slot function", "]", "[", "type", "function", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "grid", "]", "[", "ysnap", "]", "[", "domain", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "domainslope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "relative", "]", "[", "extend", 0, "]", "[", "width", "duration", "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 3, "[", "name", "slot intlist", "]", "[", "type", "intlist", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080016896, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1078984704, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 4, "[", "name", "slot floatlist", "]", "[", "type", "floatlist", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 5, "[", "name", "slot int", "]", "[", "type", "int", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080016896, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1078984704, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 6, "[", "name", "slot float", "]", "[", "type", "float", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 7, "[", "name", "lyrics", "]", "[", "type", "text", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 8, "[", "name", "filelist", "]", "[", "type", "filelist", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080213504, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 9, "[", "name", "spat", "]", "[", "type", "spat", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1076101120, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "temporalmode", "relative", "]", "[", "extend", 0, "]", "[", "width", "duration", "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 10, "[", "name", "slot 10", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 11, "[", "name", "slot 11", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 12, "[", "name", "slot 12", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 13, "[", "name", "slot 13", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 14, "[", "name", "slot 14", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 15, "[", "name", "slot 15", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 16, "[", "name", "slot 16", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 17, "[", "name", "slot 17", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 18, "[", "name", "slot 18", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 19, "[", "name", "slot 19", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 20, "[", "name", "slot 20", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 21, "[", "name", "slot 21", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 22, "[", "name", "slot 22", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 23, "[", "name", "slot 23", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 24, "[", "name", "slot 24", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 25, "[", "name", "slot 25", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 26, "[", "name", "slot 26", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 27, "[", "name", "slot 27", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 28, "[", "name", "slot 28", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 29, "[", "name", "slot 29", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 30, "[", "name", "slot 30", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "]", "[", "commands", "[", 1, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 2, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 3, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 4, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 5, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "]", "[", "groups", "]", "[", "markers", "]", "[", "midichannels", 1, "]", "[", "articulationinfo", "]", "[", "noteheadinfo", "]", "[", 0, "]" ],
 									"whole_roll_data_count" : [ 1 ],
 									"zoom" : 9.0
 								}
@@ -5305,9 +12868,9 @@
 					"versionnumber" : 80100,
 					"voicenames" : [ "[", "]" ],
 					"voicespacing" : [ 0.0, 17.0 ],
-					"whole_roll_data_0000000000" : [ "roll", "[", "slotinfo", "[", 1, "[", "name", "amplitude envelope", "]", "[", "type", "function", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080016896, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "grid", "]", "[", "ysnap", "]", "[", "domain", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "domainslope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "relative", "]", "[", "extend", 0, "]", "[", "width", "duration", "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 2, "[", "name", "slot function", "]", "[", "type", "function", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "grid", "]", "[", "ysnap", "]", "[", "domain", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "domainslope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "relative", "]", "[", "extend", 0, "]", "[", "width", "duration", "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 3, "[", "name", "slot intlist", "]", "[", "type", "intlist", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080016896, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1078984704, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 4, "[", "name", "slot floatlist", "]", "[", "type", "floatlist", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 5, "[", "name", "slot int", "]", "[", "type", "int", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080016896, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1078984704, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 6, "[", "name", "slot float", "]", "[", "type", "float", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 7, "[", "name", "lyrics", "]", "[", "type", "text", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 8, "[", "name", "filelist", "]", "[", "type", "filelist", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080213504, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 9, "[", "name", "spat", "]", "[", "type", "spat", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1076101120, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "temporalmode", "relative", "]", "[", "extend", 0, "]", "[", "width", "duration", "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 10, "[", "name", "slot 10", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 11, "[", "name", "slot 11", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 12, "[", "name", "slot 12", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 13, "[", "name", "slot 13", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 14, "[", "name", "slot 14", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 15, "[", "name", "slot 15", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 16, "[", "name", "slot 16", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 17, "[", "name", "slot 17", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 18, "[", "name", "slot 18", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 19, "[", "name", "slot 19", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 20, "[", "name", "slot 20", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 21, "[", "name", "slot 21", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 22, "[", "name", "slot 22", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 23, "[", "name", "slot 23", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 24, "[", "name", "slot 24", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 25, "[", "name", "slot 25", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 26, "[", "name", "slot 26", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 27, "[", "name", "slot 27", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 28, "[", "name", "slot 28", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 29, "[", "name", "slot 29", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 30, "[", "name", "slot 30", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "]", "[", "commands", "[", 1, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 2, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 3, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 4, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 5, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "]", "[", "groups", "]", "[", "markers", "]", "[", "midichannels", 1, "]", "[", "articulationinfo", "]", "[", "noteheadinfo", "]", "[", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085430784, "_x_x_x_x_bach_float64_x_x_x_x_", 3797438285, 1082152961, 87, 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085763584, "_x_x_x_x_bach_float64_x_x_x_x_", 3797438285, 1082152961, 87, 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086070784, "_x_x_x_x_bach_float64_x_x_x_x_", 3797438285, 1082152961, 87, 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086249984, "_x_x_x_x_bach_float64_x_x_x_x_", 3797438285, 1082152961, 87, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1649267442, 1083577872, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085430784, "_x_x_x_x_bach_float64_x_x_x_x_", 3797438285, 1082152961, 87, 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085763584, "_x_x_x_x_bach_float64_x_x_x_x_", 3797438285, 1082152961, 87, 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086070784, "_x_x_x_x_bach_float64_x_x_x_x_", 3797438285, 1082152961, 87, 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086249984, "_x_x_x_x_bach_float64_x_x_x_x_", 3797438285, 1082152961, 87, 0, "]", 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 1649267442, 1084626448, "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085430784, "_x_x_x_x_bach_float64_x_x_x_x_", 3797438285, 1082152961, 87, 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1085763584, "_x_x_x_x_bach_float64_x_x_x_x_", 3797438285, 1082152961, 87, 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086070784, "_x_x_x_x_bach_float64_x_x_x_x_", 3797438285, 1082152961, 87, 0, "]", "[", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1086249984, "_x_x_x_x_bach_float64_x_x_x_x_", 3797438285, 1082152961, 87, 0, "]", 0, "]", 0, "]" ],
+					"whole_roll_data_0000000000" : [ "roll", "[", "slotinfo", "[", 1, "[", "name", "amplitude envelope", "]", "[", "type", "function", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080016896, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "grid", "]", "[", "ysnap", "]", "[", "domain", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "domainslope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "relative", "]", "[", "extend", 0, "]", "[", "width", "duration", "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 2, "[", "name", "slot function", "]", "[", "type", "function", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "grid", "]", "[", "ysnap", "]", "[", "domain", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "domainslope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "relative", "]", "[", "extend", 0, "]", "[", "width", "duration", "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 3, "[", "name", "slot intlist", "]", "[", "type", "intlist", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080016896, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1078984704, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 4, "[", "name", "slot floatlist", "]", "[", "type", "floatlist", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 5, "[", "name", "slot int", "]", "[", "type", "int", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080016896, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1078984704, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 6, "[", "name", "slot float", "]", "[", "type", "float", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1072693248, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "default", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 7, "[", "name", "lyrics", "]", "[", "type", "text", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 8, "[", "name", "filelist", "]", "[", "type", "filelist", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1080213504, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 9, "[", "name", "spat", "]", "[", "type", "spat", "]", "[", "key", 0, "]", "[", "range", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1076101120, "]", "[", "slope", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 0, "]", "[", "representation", "]", "[", "temporalmode", "relative", "]", "[", "extend", 0, "]", "[", "width", "duration", "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 10, "[", "name", "slot 10", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 11, "[", "name", "slot 11", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 12, "[", "name", "slot 12", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 13, "[", "name", "slot 13", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 14, "[", "name", "slot 14", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 15, "[", "name", "slot 15", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 16, "[", "name", "slot 16", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 17, "[", "name", "slot 17", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 18, "[", "name", "slot 18", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 19, "[", "name", "slot 19", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 20, "[", "name", "slot 20", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 21, "[", "name", "slot 21", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 0, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 22, "[", "name", "slot 22", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 23, "[", "name", "slot 23", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 24, "[", "name", "slot 24", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 25, "[", "name", "slot 25", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 26, "[", "name", "slot 26", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 27, "[", "name", "slot 27", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 28, "[", "name", "slot 28", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 29, "[", "name", "slot 29", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "[", 30, "[", "name", "slot 30", "]", "[", "type", "none", "]", "[", "key", 0, "]", "[", "temporalmode", "none", "]", "[", "extend", 0, "]", "[", "width", "_x_x_x_x_bach_float64_x_x_x_x_", 0, 1079574528, "]", "[", "height", "auto", "]", "[", "copywhensplit", 1, "]", "[", "access", "readandwrite", "]", "[", "follownotehead", 0, "]", "]", "]", "[", "commands", "[", 1, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 2, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 3, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 4, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "[", 5, "[", "note", "note", "]", "[", "chord", "chord", "]", "[", "rest", "rest", "]", "[", "key", 0, "]", "]", "]", "[", "groups", "]", "[", "markers", "]", "[", "midichannels", 1, "]", "[", "articulationinfo", "]", "[", "noteheadinfo", "]", "[", 0, "]" ],
 					"whole_roll_data_count" : [ 1 ],
-					"zoom" : 56.0
+					"zoom" : 51.0
 				}
 
 			}
@@ -5734,7 +13297,7 @@
 									"fontname" : "Courier New",
 									"fontsize" : 11.0,
 									"id" : "obj-43",
-									"linecount" : 11,
+									"linecount" : 7,
 									"maxclass" : "textedit",
 									"numinlets" : 1,
 									"numoutlets" : 4,
@@ -5742,9 +13305,9 @@
 									"parameter_enable" : 0,
 									"patching_rect" : [ 0.833334445953369, 2.750006437301636, 728.0, 3908.0 ],
 									"presentation" : 1,
-									"presentation_linecount" : 11,
+									"presentation_linecount" : 7,
 									"presentation_rect" : [ 0.833334445953369, 26.750006437301636, 770.0, 3908.0 ],
-									"text" : "\"s(\n   vRepeatE(\n      e4Pitches(\n         n(0.353379),\n         m(47),\n         m(79),\n         m(60),\n         mRnd(),\n         aRnd(),\n         i(60)),\n      q(3)))\"",
+									"text" : "\"s(\n   v(\n      e(\n         n(0),\n         m(43),\n         aRnd(),\n         i(0))))\"",
 									"textcolor" : [ 0.8000000119, 0.8000000119, 0.8000000119, 1.0 ]
 								}
 
@@ -6058,9 +13621,8 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ -0.5, -2.0, 1823.0, 18.0 ],
 									"presentation" : 1,
-									"presentation_linecount" : 4,
-									"presentation_rect" : [ -210.5, 5.0, 364.0, 45.0 ],
-									"text" : "0.618034 0.854102 0.817468 0.472136 0.182426 0.845535 0.450166 0.726125 0.409431 0.731059 0.817468 0.472136 0.182426 0.845535 0.450166 0.726125 0.409431 0.731059 0.817468 0.472136 0.182426 0.845535 0.450166 0.726125 0.409431 0.731059"
+									"presentation_rect" : [ -210.5, 5.0, 364.0, 18.0 ],
+									"text" : "0.618034 0.618034 0 0.618034 0.130109 0.413892 0"
 								}
 
 							}
@@ -6631,7 +14193,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 963.0, 53.0, 717.0, 997.0 ],
+						"rect" : [ 1009.0, 53.0, 717.0, 997.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -7029,7 +14591,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 38.0, 79.0, 415.0, 251.0 ],
+						"rect" : [ 38.0, 87.0, 415.0, 251.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -7057,7 +14619,19 @@
 						"style" : "",
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
+						"visible" : 1,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-1",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 13.285705999999998, 194.419997999999993, 76.0, 22.0 ],
+									"text" : "s toEzPlayer"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"fontname" : "Arial",
 									"fontsize" : 12.0,
@@ -7236,7 +14810,16 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-1", 0 ],
+									"order" : 1,
+									"source" : [ "obj-56", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-19", 0 ],
+									"order" : 0,
 									"source" : [ "obj-56", 0 ]
 								}
 
@@ -7537,16 +15120,14 @@
 									"fontsize" : 8.0,
 									"gradient" : 1,
 									"id" : "obj-33",
-									"linecount" : 4,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 0.0, 2.5, 397.0, 18.0 ],
 									"presentation" : 1,
-									"presentation_linecount" : 4,
 									"presentation_rect" : [ 0.0, -0.5, 397.0, 18.0 ],
-									"text" : "roll ( ( 0 ( 4700 523. 87 ) ( 7900 523. 87 ) ( 6000 523. 87 ) ( 7200 523. 87 ) ) ( 1413.516 ( 4700 523. 87 ) ( 7900 523. 87 ) ( 6000 523. 87 ) ( 7200 523. 87 ) ) ( 2827.032 ( 4700 523. 87 ) ( 7900 523. 87 ) ( 6000 523. 87 ) ( 7200 523. 87 ) ) )",
+									"text" : "roll ( ( 0 ) )",
 									"textcolor" : [ 0.901960784313726, 0.901960784313726, 0.901960784313726, 1.0 ]
 								}
 
@@ -8332,6 +15913,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-80", 0 ],
 					"source" : [ "obj-194", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-52", 0 ],
+					"source" : [ "obj-196", 0 ]
 				}
 
 			}
