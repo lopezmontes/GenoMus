@@ -44,6 +44,7 @@ var phenMaxPolyphony = 16;
 var phenMinLength = 1;
 var phenMaxLength = 100000;
 var maxIterations = 50;
+var mandatoryFunction = "";
 
 // mutation constraints
 var mutationProbability = .4;
@@ -3897,7 +3898,7 @@ var createNewSpecimen = () => {
         // test if preconditions are fullfilled
         (
             newSpecimen == -1
-            // || newSpecimen.decGen.includes("lConcatL") == false
+            || newSpecimen.decGen.includes(mandatoryFunction) == false
             || newSpecimen.phenLength < phenMinLength
             || newSpecimen.phenLength > phenMaxLength
             || newSpecimen.phenVoices < phenMinPolyphony
@@ -4089,6 +4090,13 @@ maxAPI.addHandler('mutAmou', (float) => {
     mutationAmount = float;
     maxAPI.post("new maximal amount of a mutation: " + float);
 });
+
+maxAPI.addHandler('setMandatoryFunction', (str) => {
+    mandatoryFunction = str;
+    maxAPI.post("new mandatory function: " + str);
+});
+
+
 // 
 // maxAPI.addHandler('geneticAlgoTest', (integ) => {
 //     maxAPI.post("Genetic Algorithm test dimension " + integ);
