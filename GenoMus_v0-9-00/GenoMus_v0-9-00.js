@@ -9,6 +9,8 @@
 // var currentSpecies = "csound";
 var currentSpecies = "piano";
 var notesPerOctave = 12;
+var initialConditionsJSONfilename = "jornadasSonologiaValencia.json";
+// var initialConditionsJSONfilename = "initialConditions.json";
 
 // DEPENDENCIES
 // files handling
@@ -4143,7 +4145,7 @@ maxAPI.addHandler("loadSpecimen", (savedSpecimen) => {
 
 // load JSON initial conditions from file
 maxAPI.addHandler("loadInitialConditions", (savedSpecimenIndex) => {
-    var initConditionsFromFile = JSON.parse(fs.readFileSync('initialConditions.json'));
+    var initConditionsFromFile = JSON.parse(fs.readFileSync(initialConditionsJSONfilename));
     var totalSpecimensSaved = Object.keys(initConditionsFromFile).length;
     post("totalSpecimensSaved",totalSpecimensSaved);
     post("savedSpecimenIndex",savedSpecimenIndex);
@@ -4181,9 +4183,9 @@ maxAPI.addHandler("saveInitialConditions", (alias) => {
         "listsMaxNumItems": currentSpecimen.initialConditions.maxListCardinality,
         "seedForAlea": currentSpecimen.initialConditions.phenotypeSeed
     }
-    var existingInitConditions = JSON.parse(fs.readFileSync('initialConditions.json'));
+    var existingInitConditions = JSON.parse(fs.readFileSync(initialConditionsJSONfilename));
     existingInitConditions[newSpecimenName] = newInitConds;
-    createJSON(existingInitConditions, 'initialConditions.json');
+    createJSON(existingInitConditions, initialConditionsJSONfilename);
 });
 
 // creates a new germinal specimen and send the dict data to Max

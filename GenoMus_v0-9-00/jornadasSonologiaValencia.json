@@ -1,0 +1,35 @@
+{
+    "20210506015701056_jlm": {
+        "name": "tercera",
+        "branchOutputType": "scoreF",
+        "localEligibleFunctions": {
+            "includedFunctions": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12
+            ],
+            "excludedFunctions": []
+        },
+        "maxDepth": 13,
+        "listsMaxNumItems": 5,
+        "seedForAlea": 1234567891,
+        "germinalVector": [
+            0.14,
+            0.82,
+            0.16,
+            0.88,
+            0.17,
+            0.59
+        ]
+    }
+}
