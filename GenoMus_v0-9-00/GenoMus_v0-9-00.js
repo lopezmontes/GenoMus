@@ -34,14 +34,14 @@ var decGenStringLengthLimit = 70000;
 // var globalSeed;
 
 var phenotypeSeed = Math.round(Math.random() * 1e14); // seed only for computing phenotype
-var germinalVecMaxLength = 10000;
-var genMaxDepth = 60;
-var defaultGenMaxDepth = 60;
+var germinalVecMaxLength = 2000;
+var genMaxDepth = 30;
+var defaultGenMaxDepth = 30;
 var defaultListsMaxCardinality = 20;
 var phenMinPolyphony = 1;
 var phenMaxPolyphony = 16;
 var phenMinLength = 1;
-var phenMaxLength = 100000;
+var phenMaxLength = 10000;
 var maxIterations = 50;
 var mandatoryFunction = "";
 
