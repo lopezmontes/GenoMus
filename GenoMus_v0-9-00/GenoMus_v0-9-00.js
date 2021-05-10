@@ -8,6 +8,7 @@
 // TESTING DIFFERENT SPECIES
 // var currentSpecies = "csound";
 var currentSpecies = "piano";
+var notesPerOctave = 12;
 
 // DEPENDENCIES
 // files handling
@@ -32,9 +33,7 @@ var validGenotype = true;
 var decGenStringLengthLimit = 70000;
 // var globalSeed;
 
-// a extinguir
 var phenotypeSeed = Math.round(Math.random() * 1e14); // seed only for computing phenotype
-
 var germinalVecMaxLength = 10000;
 var genMaxDepth = 60;
 var defaultGenMaxDepth = 60;
@@ -197,10 +196,18 @@ var norm2duration = p => r6d(Math.pow(2, 10 * u2n(p) - 6));
 var p2d = norm2duration;
 var duration2norm = s => n2u(r6d((Math.log10(s) + 6 * Math.log10(2)) / (10 * Math.log10(2))));
 var d2p = duration2norm;
+
+// set temperament
 var norm2midipitch = p => Math.round(100 * u2n(p) + 12);
-var p2m = norm2midipitch;
 var norm2microtonalmidipitch = p => r6d(100 * u2n(p) + 12);
-var p2mm = norm2microtonalmidipitch;
+var p2m = norm2midipitch; // 12 semitones
+if (notesPerOctave == 12) var p2m = norm2midipitch;
+else if (notesPerOctave == 0) var p2m = norm2microtonalmidipitch; 
+else {
+    var norm2equalTemperamentDivisionMidipitch = p => r6d((Math.round((notesPerOctave/12) * 100 * u2n(p) + (notesPerOctave))) / (notesPerOctave/12));
+    var p2m = norm2equalTemperamentDivisionMidipitch;
+}
+
 var midipitch2norm = m => n2u(r6d((m - 12) / 100));
 var m2p = midipitch2norm;
 var norm2frequency = p => p < 0.003 ? 0.000001 : r6d(20000 * Math.pow(u2n(p), 4));
@@ -3597,7 +3604,6 @@ var createGenotypeBranch = (
             valueForChoosingNewFunction = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
             germinalVectorReadingPos++;
             eligibleFuncionNames = (Object.keys(local_functions_catalogue.functionLibrary[nextFunctionType]));
-                // console.log(eligibleFuncionNames);
             eligibleFuncionNamesLength = eligibleFuncionNames.length;
             orderedElegibleEncIndexes = [];
             for (var elegitem = 0; elegitem < eligibleFuncionNamesLength; elegitem++) {
@@ -3910,7 +3916,6 @@ var createNewSpecimen = () => {
     // createJSON(genotypeLog, 'genotipeLog.json');
     var searchStopdate = new Date();
     if (newSpecimen == -1) {
-        // console.log("VALID SPECIMEN NOT FOUND");
         // post("VALID SPECIMEN NOT FOUND");
         newSpecimen = eval("s(v(" + defaultEventExpression + "))");
         newSpecimen.data = {
@@ -3930,7 +3935,6 @@ var createNewSpecimen = () => {
     if (iterations < maxIterations) maxAPI.outlet("found");
     newSpecimen.data.iterations = iterations;
     newSpecimen.data.milliseconsElapsed = searchStopdate - searchStartdate;
-    // post(("Search stopped after " + Math.abs(searchStopdate - searchStartdate) + " ms and " + iterations + " iter."),"");
     return newSpecimen;
 }
 
@@ -4096,6 +4100,16 @@ maxAPI.addHandler('setMandatoryFunction', (str) => {
     maxAPI.post("new mandatory function: " + str);
 });
 
+maxAPI.addHandler('setMicrotonalDivision', (newOctaveDivision) => {
+    notesPerOctave = newOctaveDivision;
+    if (notesPerOctave == 12) p2m = norm2midipitch;
+    else if (notesPerOctave == 0) p2m = norm2microtonalmidipitch; 
+    else {
+        norm2equalTemperamentDivisionMidipitch = p => r6d((Math.round((notesPerOctave/12) * 100 * u2n(p) + (notesPerOctave))) / (notesPerOctave/12));
+        p2m = norm2equalTemperamentDivisionMidipitch;
+    };
+    maxAPI.post("new temperament: " + newOctaveDivision + " notes per octave");
+});
 
 // 
 // maxAPI.addHandler('geneticAlgoTest', (integ) => {
