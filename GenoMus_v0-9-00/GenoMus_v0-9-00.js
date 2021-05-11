@@ -6,8 +6,9 @@
 // Genetic algorithms
 
 // TESTING DIFFERENT SPECIES
-// var currentSpecies = "csound";
-var currentSpecies = "piano";
+var currentSpecies = "csound";
+// var currentSpecies = "piano";
+
 var notesPerOctave = 12;
 var initialConditionsJSONfilename = "jornadasSonologiaValencia.json";
 // var initialConditionsJSONfilename = "initialConditions.json";
@@ -204,11 +205,12 @@ var norm2midipitch = p => Math.round(100 * u2n(p) + 12);
 var norm2microtonalmidipitch = p => r6d(100 * u2n(p) + 12);
 var p2m = norm2midipitch; // 12 semitones
 if (notesPerOctave == 12) var p2m = norm2midipitch;
-else if (notesPerOctave == 0) var p2m = norm2microtonalmidipitch; 
-else {
+if (notesPerOctave == 0) var p2m = norm2microtonalmidipitch; 
+if (notesPerOctave != 0 && notesPerOctave != 12) {
     var norm2equalTemperamentDivisionMidipitch = p => r6d((Math.round((notesPerOctave/12) * 100 * u2n(p) + (notesPerOctave))) / (notesPerOctave/12));
     var p2m = norm2equalTemperamentDivisionMidipitch;
-}
+};
+var p2mm = norm2microtonalmidipitch;
 
 var midipitch2norm = m => n2u(r6d((m - 12) / 100));
 var m2p = midipitch2norm;
@@ -1297,10 +1299,10 @@ var e5Pitches_csound = (duration, freq1, freq2, freq3, freq4, freq5, articulatio
 });
 
 // !!!! check how do times qRnd compatible
-// repeats an event a number of times between 2 and 12 (eventP, quantizedP)
+// repeats an event a number of times between 2 and 30 (eventP, quantizedP)
 var vRepeatE = (event, times) => {
     // ar numRepeats = 4; // number of times rescaled to range [2, 12], mapped according to the deviation from the center value 0.5 
-    var numRepeats = adjustRange(Math.round(p2q(times.encPhen[0])), 2, 12); // number of times rescaled to range [2, 12], mapped according to the deviation from the center value 0.5
+    var numRepeats = adjustRange(Math.round(p2q(times.encPhen[0])), 2, 30); // number of times rescaled to range [2, 12], mapped according to the deviation from the center value 0.5
     // var numRepeats = adjustRange(Math.abs(p2q(adjustRange(q2p(times.encPhen[0]), q2p(-12), q2p(12)))), 2, 12); // number of times rescaled to range [2, 12], mapped according to the deviation from the center value 0.5
     //////////// if (numRepeats > phenMaxLength) return -1;
     if (numRepeats > phenMaxLength) {
@@ -2478,7 +2480,7 @@ var vPerpetuumMobileLoop_csound = (noteval, listPitches, listArticulations, list
 
 // repeats a voice a number of times
 var vRepeatV = (voice, times) => {
-    var repeats = adjustRange(Math.round(p2q(times.encPhen[0])), 2, 12); // number of times rescaled to range [2, 12], mapped according to the deviation from the center value 0.5    // var repeats = adjustRange(Math.abs(p2q(times.encPhen)), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5
+    var repeats = adjustRange(Math.round(p2q(times.encPhen[0])), 2, 30); // number of times rescaled to range [2, 30], mapped according to the deviation from the center value 0.5    // var repeats = adjustRange(Math.abs(p2q(times.encPhen)), 2, 36); // number of times rescaled to range [2, 36], mapped according to the deviation from the center value 0.5
     var totalEvents = voice.phenLength * repeats;
     if (totalEvents > phenMaxLength) {
         validGenotype = false;

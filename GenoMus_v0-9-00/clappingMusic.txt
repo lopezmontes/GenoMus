@@ -2,43 +2,7 @@ Clapping music in GenoMus:
 
 NEW APPROACH:
 
-"s2V(
-   vRepeatV(
-      vRepeatV(
-         vConcatV(
-            vConcatV(
-               vConcatV(
-                  vMotifLoop(
-                     ln(
-                        0.04,
-                        0.04,
-                        0.08),
-                     lm(
-                        63),
-                     la(
-                        0.6),
-                     li(
-                        50,
-                        50,
-                        120)),
-                  vSlice(
-                     vAutoref(0),
-                     q(1))),
-               vSlice(
-                  vAutoref(2),
-                  q(1))),
-            vAutoref(2)),
-         q(8)),
-      q(13)),
-   vConcatV(
-      vConcatV(
-         vAutoref(8),
-         vRepeatV(
-            vSlice(
-               vAutoref(8),
-               q(1)),
-            q(12))),
-      vAutoref(7)))"
+s2V ( // score L: joins the 2 voices verticallyvSlice ( // voice J: slices last cycle due to phase shiftvRepeatV ( // phase G: F 13 timesvRepeatV ( // cycle F: E 8 timesvConcatV ( // pattern E: C + DvConcatV ( // motif C: A + BvMotifLoop ( // core motif A: 3 8th - notes and a silenceln (1/8) , // note valueslm (65) , // pitch ( irrelevant for this piece )la (50) , // articulationli (60 ,60 ,90 ,0)), // intensities ( last note louder for clarity )vSlice ( // motif B: A with 1st note slicedvAutoref (0) ,q(1))),vSlice ( // motif D: C with first two notes slicedvAutoref (3) ,q(2))),q(8)),q (13) ),q( -12)),vConcatV ( // voice K: F + HvAutoref (7) ,vRepeatV ( // phase I: H 12 timesvSlice ( // cycle H: F without 1st note , for phase shiftvAutoref (10) ,q(1)),q (12) )))
 
 
 
