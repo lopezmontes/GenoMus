@@ -46,7 +46,7 @@ var defaultListsMaxCardinality = 20;
 var phenMinPolyphony = 1;
 var phenMaxPolyphony = 16;
 var phenMinLength = 1;
-var phenMaxLength = 10000;
+var phenMaxLength = 40000;
 var maxIterations = 50;
 var mandatoryFunction = "";
 
