@@ -65,7 +65,7 @@ instr 10
     aS zar 3      ; Read instr 2 audio.
     aT zar 4      ; Read instr 3 audio.
 
-    kroomsize    init      0.98          ; room size (range 0 to 1)
+    kroomsize    init      0.78          ; room size (range 0 to 1)
     kHFDamp      init      0.1           ; high freq. damping (range 0 to 1)
     ; create reverberated version of input signal (note stereo input and output)
     aRvbL,aRvbR  freeverb  aL+aR+aS+aT, aL+aR+aS+aT, kroomsize, kHFDamp
@@ -92,7 +92,7 @@ inoisepow       = p10*2+1 	; potencia para modular la envolvencia del ruido para
 iharmonicsstart = p11		; cantidad de armónicos para el opcode buzz en el inicio del evento
 iharmonicsend   = p12+1	; cantidad de armónicos al final del evento
 iseed           = p13		; inicialización para la generación de valores aleatorios
-igain       =        5000
+igain           = p14
 
 ;ichannel        = floor(p14)	; canal de audio asignado al evento sonoro
 
