@@ -130,7 +130,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 197.5, 805.0, 65.0, 22.0 ],
-					"presentation_linecount" : 2,
 					"text" : "prepend i2"
 				}
 
@@ -154,8 +153,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 131.0, 843.0, 527.0, 22.0 ],
-					"text" : "e i2 0 1.373797 136.080643 2336.81226 0.042007 0.161559 0.002059 0 63 75 59 0. 6299"
+					"patching_rect" : [ 58.0, 850.0, 527.0, 22.0 ],
+					"text" : "e i2 0 0.198704 136.080643 2689.087817 0.863237 0.891809 0.017064 0 63 60 59 0. 6062"
 				}
 
 			}
@@ -1420,7 +1419,7 @@
 		"lines" : [ 			{
 				"patchline" : 				{
 					"destination" : [ "obj-86", 0 ],
-					"order" : 2,
+					"order" : 3,
 					"source" : [ "obj-100", 0 ]
 				}
 
@@ -1428,7 +1427,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-90", 0 ],
-					"order" : 3,
+					"order" : 2,
 					"source" : [ "obj-100", 0 ]
 				}
 
