@@ -6,12 +6,12 @@
 // Genetic algorithms
 
 // TESTING DIFFERENT SPECIES
-var currentSpecies = "csound";
-// var currentSpecies = "piano";
+// var currentSpecies = "csound";
+var currentSpecies = "piano";
 
 var notesPerOctave = 12;
-// var initialConditionsJSONfilename = "jornadasSonologiaValencia.json";
-var initialConditionsJSONfilename = "csound_species_test.json";
+var initialConditionsJSONfilename = "jornadasSonologiaValencia.json";
+// var initialConditionsJSONfilename = "csound_species_test.json";
 
 // var initialConditionsJSONfilename = "initialConditions.json";
 
