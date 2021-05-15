@@ -703,8 +703,6 @@ var bestResult = Infinity;
 var generationsWithoutBetterResults = 0;
 var maxUnsuccededTrials = 10000;
 
-
-
 var simpleBACHSearch = () => {
     var timeLapse = 3000;
     var thisLoopTrials = 0;
@@ -773,7 +771,6 @@ var simpleBACHSearch = () => {
         newTryBestDistance = currentErrors[0][1];
         // maxAPI.post("newTryBestDistance " + newTryBestDistance);
         // maxAPI.post("but bestResult " + bestResult);
-        
         
         // var newGerminalV = mutateItem(currentPopulation[0], Math.random(), 0.4);
         // var newCandidate = specimenDataStructure(specimenFromInitialConditions(newGerminalV, globalSeed, phenotypeSeed));
@@ -3590,12 +3587,13 @@ var autorefTypes = [
 
 // new unified CORE FUNCTION, introducing reversible germinal vector <-> encoded genotype
 var createGenotypeBranch = (
+        germinalVector,
         branchOutputType,
         localEligibleFunctions,
         maxDepth,
         listsMaxNumItems,
-        seedForAlea,
-        germinalVector) => {
+        seedForAlea
+    ) => {
     initSubexpressionsArrays();
     // main variable
     var newBranch;
@@ -3923,7 +3921,7 @@ var createNewSpecimen = () => {
         // creates a new genotype
         germinalVec = randomVector(parseInt(Math.random()*germinalVecMaxLength) + 1);
         newSpecimen = createGenotypeBranch(
-            outputType, eligibleFuncs, maxAllowedDepth, listMaxLength, aleaSeed, germinalVec);
+            germinalVec, outputType, eligibleFuncs, maxAllowedDepth, listMaxLength, aleaSeed);
         // save last genotype created as log file
         // createJSON(iterations + ": " + newSpecimen.decGen, 'lastGenotype.json');
     } while (
@@ -3974,7 +3972,7 @@ var specimenFromInitialConditions = (
     var genotypeDepth;
     // render the genotype
     specimenFromInitConds = createGenotypeBranch(
-        outputType, eligibleFuncs, maxAllowedDepth, listMaxLength, aleaSeed, germinalVec);
+        germinalVec, outputType, eligibleFuncs, maxAllowedDepth, listMaxLength, aleaSeed);
     // save last genotype created as log file
     createJSON("from init conds: " + specimenFromInitConds.decGen, 'lastGenotype.json');
     if (specimenFromInitConds == -1) {

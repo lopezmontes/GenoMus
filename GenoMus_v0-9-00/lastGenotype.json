@@ -1,1 +1,1 @@
-"from init conds: s(vRepeatE(e4Pitches(n(0.831639),m(55),mRnd(),mRnd(),mRnd(),a(11),i(57)),q(3)))"
+"from init conds: s2V(vPerpetuumMobile(n(0.6),lmLine(mRnd(),mRnd(),z(57)),la(47),liRemap(liRemap(li(41,62),i(41),i(54)),iAutoref(1),iRnd())),vPerpetuumMobileLoop(n(0.245134),lm(72,93,46),laAutoref(0),liLine(i(73),iRnd(),z(84))))"
