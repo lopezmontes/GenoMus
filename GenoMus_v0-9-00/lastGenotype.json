@@ -1,1 +1,1 @@
-"from init conds: s2V(vRepeatV(vIterE(e4Pitches(nRnd(),mRnd(),mRnd(),m(43),m(75),aRnd(),iRnd()),q(8),p(0.738967)),q(6)),vRepeatV(vIterE(e4Pitches(nRnd(),mRnd(),mRnd(),mRnd(),m(79),a(200),i(30)),q(8),p(0.589369)),q(6)))"
+"from init conds: s(vRepeatE(e(nRnd(),mRnd(),aRnd(),i(80)),q(8)))"
