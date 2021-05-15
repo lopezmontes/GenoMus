@@ -435,7 +435,7 @@ function mulberry32(a) {
         return ((t ^ t >>> 14) >>> 0) / 4294967296;
     }
 }
-// Output one 32-bit hash to provide the seed for mulberry32.
+// outputs one 32-bit hash to provide the seed for mulberry32
 var initSeed = (parseInt(Math.random() * 1e16)).toString();
 var seed = xmur3(initSeed);
 // Create rand() function
@@ -3734,132 +3734,6 @@ var createGenotypeBranch = (
     return newBranch;
 }
 
-/*
-
-var newV = randomVector(20);
-
-createGenotypeBranch("paramF",eligibleFunctionsForTesting,genMaxDepth,defaultListsMaxCardinality,phenotypeSeed,
-[ 1, 0, 0.5, 0.123456, 0 ]);
-
-createGenotypeBranch("midipitchF",eligibleFunctionsForTesting,genMaxDepth,defaultListsMaxCardinality,phenotypeSeed,
-[ 1, 0.326238, 0.53, 0.154465, 0 ]);
-  
-createGenotypeBranch("articulationF",eligibleFunctionsForTesting,genMaxDepth,defaultListsMaxCardinality,phenotypeSeed,
-[ 1, 0.562306, 0.55, 0.462948, 0 ]);
-
-specimenDataStructure( createGenotypeBranch("scoreF",eligibleFunctionsForTesting,genMaxDepth,defaultListsMaxCardinality,phenotypeSeed,
-[ 1, 0.472136, 1, 0.854102, 1, 0.236068, 1, 0.09017, 0.51, 0, 0, 1, 0.326238, 0.53, 0, 0, 1, 0.562306, 0.55, 0, 0, 1, 0.18034, 0.56, 0, 0, 0, 0, 0 ])
-);
-
-createGenotypeBranch("eventF",eligibleFunctionsForTesting,genMaxDepth,defaultListsMaxCardinality,phenotypeSeed,
-  [ 1,
-     0.567331,
-     1,
-     0.590537,
-     0,
-     1,
-     0.326238,
-     0.53,
-     0.091123,
-     0,
-     1,
-     0.326238,
-     0.53,
-     0.091123,
-     0,
-     1,
-     0.562306,
-     0.55,
-     0,
-     0,
-     1,
-     0.680706,
-     0,
-     0 ]);
-
-
-specimenDataStructure( createGenotypeBranch("scoreF",eligibleFunctionsForTesting,genMaxDepth,defaultListsMaxCardinality,phenotypeSeed,
-[ 1, 0.472136, 1, 0.224832, 1, 0.09017, 0.51, 0.905769, 0, 1, 0.506578, 0.53, 0.197816, 0.53, 0.425558, 0.53, 0.052154, 0.53, 0.549834, 0, 1, 0.742646, 0.55, 0.629894, 0, 1, 0.36068, 0.56, 0.71095, 0.56, 0.75026, 0, 0, 0 ]
-));
-[ 1, 0.472136, 1, 0.224832, 1, 0.09017, 0.51, 0.905769, 0, 1, 0.506578, 0.53, 0.197816, 0.53, 0.425558, 0.53, 0.052154, 0.53, 0.549834, 0, 1, 0.742646, 0.55, 0.629894, 0, 1, 0.36068, 0.56, 0.71095, 0.56, 0.75026, 0, 0, 0 ]
-[ 1, 0.472136, 1, 0.224832, 1, 0.09017, 0.51, 0.905769, 0, 1, 0.506578, 0.53, 0.197816, 0.53, 0.425558, 0.53, 0.052154, 0.53, 0.549834, 0, 1, 0.742646, 0.55, 0.629894, 0.55, 1, 0, 1, 0.36068, 0.56, 0.731059, 0, 0, 0 ]
-
-specimenDataStructure( createGenotypeBranch("scoreF",eligibleFunctionsForTesting,genMaxDepth,defaultListsMaxCardinality,phenotypeSeed,
-
-createGenotypeBranch("scoreF",eligibleFunctionsForTesting,14,4,tempGermi);
-
-
-createGenotypeBranch("scoreF",eligibleFunctionsForTesting,24,14,newV);
-createGenotypeBranch("scoreF",eligibleFunctionsForTesting,14,4,[ 1,0.472136,1,0.575462,1,0.854102,1,0.236068,1,0.09017,0.51,0,0,1,0.326238,0.53,0.31,0,1,0.062672,0,1,0.18034,0.56,0,0,0,0,1,0.304952,0.57,0,0,0,0 ]);
-createGenotypeBranch("eventF",0,14,70,[ 1,0.185365,1,0.09017,0.51,0.53,0,1,0.326238,0.53,0.31,0,1,0.431483,0.57,0,0,1,0.431483,0.57,0.618034,0,1,0.562306,0.55,0.323858,0,1,0.18034,0.56,0.57,0,0 ]);
-createGenotypeBranch("eventF",eligibleFunctionsForTesting,14,70,[ 1,0.185365,1,0.09017,0.51,0.53,0,1,0.326238,0.53,0.31,0,1,0.431483,0.57,0,0,1,0.431483,0.57,0.618034,0,1,0.562306,0.55,0.323858,0,1,0.18034,0.56,0.57,0,0 ]);
-createGenotypeBranch("eventF",eligibleFunctionsForTesting,14,70,[ 1,0.567331,1,0.590537,0,1,0.326238,0.53,0.31,0,1,0.431483,0.57,0,0,1,0.562306,0.55,0.497624,0,1,0.680706,0,0 ]);
-createGenotypeBranch("eventF",eligibleFunctionsForTesting,14,70,[ 1, 0.618034, 0.5, 0.666, 0.5, 0.888, 0.5, 0.999888, 0.43, 0.12345, 0.5, 0.43, .56,.7,.7,.7 ]);
-createGenotypeBranch("listF",eligibleFunctionsForTesting,14,7,[ 1, 0.618034, 0.5, 0.58, 0.5, 0.59, 0.5, 0.60,  0 ]);
-createGenotypeBranch("lnotevalueF",eligibleFunctionsForTesting,14,7,[ 1, 0.618034, 0.5, 0.58, 0.5, 0.59, 0.5, 0.60,  0 ]);
-createGenotypeBranch("lmidipitchF",eligibleFunctionsForTesting,14,7,[ 1, 0.618034, 0.5, 0.58, 0.5, 0.59, 0.5, 0.60,  0 ]);
-createGenotypeBranch("larticulationF",eligibleFunctionsForTesting,14,7,[ 1, 0.618034, 0.5, 0.58, 0.5, 0.59, 0.5, 0.60,  0 ]);
-createGenotypeBranch("lintensityF",eligibleFunctionsForTesting,14,7,[ 1, 0.618034, 0.5, 0.58, 0.5, 0.59, 0.5, 0.60,  0 ]);
-createGenotypeBranch("listF",eligibleFunctionsForTesting,14,70,[ 1, 0.618034, 0.5, 0.666, 0.5, 0.888, 0.5, 0.1111,  0 ]);
-createGenotypeBranch("eventF",eligibleFunctionsForTesting,14,70,[ 1,     0.567331,     1,     0.590537,     0,     1,     0.326238,     0.53,     0.09,     0,     1,     0.326238,     0.53,     0.09,     0,     1,     0.562306,     0.55,     0,     0,     1,     0.680706,     0,     0 ]);
-createGenotypeBranch("eventF",eligibleFunctionsForTesting,14,70,[ 1, 0.618034, 0.5, 0.666, 0.5, 0.888, 0.5, 0.999888, 0.5, 0.12345, 0.5, 0, 0 ]);
-createGenotypeBranch("listF",eligibleFunctionsForTesting,14,70,[ 1, 0.618034, 0.5, 0.666, 0.5, 0.888, 0.5, 0.999888, 0.5, 0.12345, 0.5, 0, 0 ]);
-createGenotypeBranch("listF",eligibleFunctionsForTesting,14,6,[ 1, 0.618034, 0.5, 0.666, 0.4, 0.888, 0.5, 0.999888, 0 ]);
-createGenotypeBranch("listF",eligibleFunctionsForTesting,14,6,[ 1, 0.618034, 0.5, 0.666, 0.5, 0.888, 0.5, 0.999, 0.5, 0.222, 0 ]);
-createGenotypeBranch("listF",eligibleFunctionsForTesting,14,6,[0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]);
-createGenotypeBranch("scoreF",eligibleFunctionsForTesting,14,6,[ 1,     0.275535,     1,     0.429563,     1,     0.567331,     1,     0.590537,     0,     1,     0.826604,     0,     1,     0.326238,     0.53,     0.4,     0,     1,     0.562306,     0.55,     0.899575,     0,     1,     0.18034,     0.56,     0.3,     0,     0,     1,     0.916774,     0,     0,     1,     0.429563,     1,     0.185365,     1,     0.590537,     0,     1,     0.826604,     0,     1,     0.826604,     0,     1,     0.326238,     0.53,     0.4,     0,     1,     0.562306,     0.55,     0.899575,     0,     1,     0.18034,     0.56,     0.3,     0,     0,     1,     0.916774,     0,     0,     0 ]);
-createGenotypeBranch("scoreF",eligibleFunctionsForTesting,14,6,[0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]);
-createGenotypeBranch("voiceF",eligibleFunctionsForTesting,14,6,[0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]);
-createGenotypeBranch("eventF",eligibleFunctionsForTesting,14,6,[ 1,0.185365,1,0.590537,0,1,0.326238,0.53,1,0,1,0.826604,0,1,0.826604,0,1,0.562306,0.55,0,0,1,0.18034,0.56,0.59,0,0 ]);
-createGenotypeBranch("paramF",eligibleFunctionsForTesting,14,6,[ 0.3333, 0.4444, 0.5555, 0.6666 ]);
-createGenotypeBranch("paramF",eligibleFunctionsForTesting,14,6,[ 1, 0.962453, 0 ]);
-createGenotypeBranch("paramF",eligibleFunctionsForTesting,14,6,[ 1, 0, 0.5, 0.2, 0 ]);
-createGenotypeBranch("scoreF",eligibleFunctionsForTesting,14,6,[0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]);
-
- */
-
-
-// var eligibleFunctionsForTesting = [0,1,2,3,4,5,7,9,10,11,12,15,17,19,20,43,44,46,98,99,104,110,131,134,199,310,312,314,315,317,
-// 25, 26, 27, 28, 29, 279, 99, 100, 101];
-
-
-// "11": "z",
-// "26": "lAutoref",
-// "27": "eAutoref",
-// "28": "vAutoref",
-// "29": "sAutoref",
-// "46": "vRepeatE",
-// "48": "vRepeatV",
-// "58": "vABAv",
-// "63": "vABCABv",
-// "65": "l2P",
-// "66": "l3P",
-// "67": "l4P",
-// "68": "l5P",
-// "76": "lRepeatP",
-// "77": "lLine",
-// "84": "lRemap",
-// "99": "e3Pitches",
-// "100": "e4Pitches",
-// "111": "oSum",
-// "132": "pUniformRnd",
-// "200": "vMotifLoop",
-// "201": "vPerpetuumMobile",
-// "202": "vPerpetuumMobileLoop",
-// "286": "lnAutoref",
-// "288": "lmAutoref",
-// "290": "laAutoref",
-// "291": "liAutoref",
-// "294": "lnLine",
-// "296": "lmLine",
-// "298": "laLine",
-// "299": "liLine",
-// "302": "lnRemap",
-// "304": "lmRemap",
-// "306": "laRemap",
-// "307": "liRemap",
-// "318": "vSlice"
-
 var minimalFunctions = [0,1,2,3,4,5,6,7,8,9,10,11,12];
 var randomFunctions = [131,134,310,311,312,313,314,315,316,317];
 var minimalLists = [135,199,15,16,17,18,19,20];
@@ -3874,7 +3748,6 @@ var manyFuncs = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19,
     109, 110, 111, 131, 134, 135, 199, 200, 202, 277, 278, 279, 281, 282, 284, 286, 288, 290, 291,
     294, 296, 298, 299, 302, 304, 306, 307, 310, 311, 312, 313, 314, 315, 316, 317, 318, 201, 280,
 98, 99, 100, 101, 266 ];
-
 
 // testing functions
 var eligibleFunctionsForTesting = {
@@ -4013,8 +3886,6 @@ var specimenFromInitialConditions = (
 };
 
 
-
-
 // mutates only leaves of a specimen according to certain probabilities
 // mutProbability is mutations probability (0 -> no mutations, 1 -> everything mutated)
 // mutAmount is range of a mutation, no trespassing interval [0, 1]
@@ -4048,6 +3919,7 @@ var mutateSpecimenLeaves = (originalSpecimen, mutProbability, mutAmount) => {
     };
     return specimenDataStructure(mutatedSpecimen);
 };
+
 
 // MAX COMMUNICATION
 
@@ -4308,7 +4180,7 @@ var vMotif, vMotifLoop, vPerpetuumMobile, vPerpetuumMobileLoop;
 var vSlice;
 var e2Pitches, e3Pitches, e4Pitches, e5Pitches;
 
-// create specific functions for the current specieszz
+// create specific functions for the current species
 var createSpeciesDependentFunctions = (speciesName) => {
     switch (speciesName) {
         case "piano":
