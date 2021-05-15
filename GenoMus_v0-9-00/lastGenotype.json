@@ -1,1 +1,1 @@
-"from init conds: s(vRepeatE(e(nRnd(),mRnd(),aRnd(),i(80)),q(8)))"
+"from init conds: s(vRepeatE(e4Pitches(n(0.831639),m(55),mRnd(),mRnd(),mRnd(),a(11),i(57)),q(3)))"
