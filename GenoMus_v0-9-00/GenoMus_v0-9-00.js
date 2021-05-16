@@ -3925,7 +3925,7 @@ var replaceBranch = (originalSpecimen, replacedBranchType, branchIndex) => {
     var replacedBranch = replacedBranchSet[branchIndex % replacedBranchSet.length];
     newRndSeed();
     var branchReplacement = createGenotypeBranch(
-        randomVector(100),
+        randomVector(germinalVecMaxLength),
         replacedBranchType,
         {
             includedFunctions: originalSpecimen.initialConditions.localEligibleFunctions,
@@ -3935,6 +3935,10 @@ var replaceBranch = (originalSpecimen, replacedBranchType, branchIndex) => {
         originalSpecimen.initialConditions.maxListCardinality,
         originalSpecimen.initialConditions.phenotypeSeed
     ).decGen;
+    if (branchReplacement == -1) {
+        post("not valid branch replacement found", "");
+        return originalSpecimen.decodedGenotype;
+    }
     return originalSpecimen.decodedGenotype.replace(replacedBranch, branchReplacement);
 };
 
