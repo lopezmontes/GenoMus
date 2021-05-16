@@ -542,7 +542,6 @@ Math.pow2 = function (n, p) {
     }
 }
 
-
 // test decoded genotypes with Terminal
 var tt = decGenotype => {
     initSubexpressionsArrays();
@@ -3410,11 +3409,11 @@ var specimenDataStructure = (specimen) => ({
     formattedGenotype: expandExpr(specimen.decGen),
     encodedPhenotype: specimen.encPhen,
     subexpressions: {
+        scoreF: subexpressions["scoreF"],
+        voiceF: subexpressions["voiceF"],
+        eventF: subexpressions["eventF"],
         paramF: subexpressions["paramF"],
         listF: subexpressions["listF"],
-        eventF: subexpressions["eventF"],
-        voiceF: subexpressions["voiceF"],
-        scoreF: subexpressions["scoreF"],
         notevalueF: subexpressions["notevalueF"],
         lnotevalueF: subexpressions["lnotevalueF"],
         durationF: subexpressions["durationF"],
@@ -3921,12 +3920,9 @@ var mutateSpecimenLeaves = (originalSpecimen, mutProbability, mutAmount) => {
 
 // replaces a branch of a given output type in a specimen, 
 // with a brand new generated branch, a returns only the new decodedGenotype
-var sustituteBranch = (originalSpecimen, replacedBranchType, branchIndex) => {
+var replaceBranch = (originalSpecimen, replacedBranchType, branchIndex) => {
     var replacedBranchSet = originalSpecimen.subexpressions[replacedBranchType];
-    var replacedBranchLength = replacedBranchSet.length;
-    var replacedBranch = replacedBranchSet[branchIndex % replacedBranchLength];
-    console.log(replacedBranch);
-    console.log(originalSpecimen.decodedGenotype);
+    var replacedBranch = replacedBranchSet[branchIndex % replacedBranchSet.length];
     newRndSeed();
     var branchReplacement = createGenotypeBranch(
         randomVector(100),
@@ -3939,7 +3935,6 @@ var sustituteBranch = (originalSpecimen, replacedBranchType, branchIndex) => {
         originalSpecimen.initialConditions.maxListCardinality,
         originalSpecimen.initialConditions.phenotypeSeed
     ).decGen;
-    console.log(branchReplacement);
     return originalSpecimen.decodedGenotype.replace(replacedBranch, branchReplacement);
 };
 
@@ -4055,7 +4050,7 @@ maxAPI.addHandlers({
         for (var i = 0; i < args.length; i++) {
             receivedText += args[i];
         }
-        // createNewSeed(phenotypeSeed);
+        createNewSeed(currentSpecimen.initialConditions.phenotypeSeed);
         currentSpecimen = evalDecGen(receivedText);
         currentSpecimen.data = {
             specimenID: getFileDateName("jlm"),
@@ -4070,6 +4065,31 @@ maxAPI.addHandlers({
             maxAllowedDepth: defaultGenMaxDepth,
             depth: measureStringMaxDepth(currentSpecimen.decGen),
             maxListCardinality: defaultListsMaxCardinality,
+            leaves: extractLeaves(currentSpecimen.encGen)
+        };
+        currentSpecimen = specimenDataStructure(currentSpecimen);
+        maxAPI.setDict("specimen.dict", currentSpecimen);
+        maxAPI.outlet("finished");
+        maxAPI.outlet("resetLastSpecsCounter");
+    },
+    changeBranch: (branchTyp) => {
+        var copyOfCurrentSpec = currentSpecimen;
+        var newDecGen = replaceBranch(currentSpecimen, branchTyp, parseInt(Math.random()*10000));
+        createNewSeed(copyOfCurrentSpec.initialConditions.phenotypeSeed);
+        currentSpecimen = evalDecGen(newDecGen);
+        currentSpecimen.data = {
+            specimenID: getFileDateName("jlm"),
+            iterations: 0,
+            milliseconsElapsed: 0,
+            encGenotypeLength: currentSpecimen.encGen.length,
+            decGenotypeLength: currentSpecimen.decGen.length,
+            germinalVector: currentSpecimen.encGen,
+            germinalVectDeviation: 0,
+            phenotypeSeed: copyOfCurrentSpec.initialConditions.phenotypeSeed,
+            localEligibleFunctions: copyOfCurrentSpec.initialConditions.localEligibleFunctions,
+            maxAllowedDepth: copyOfCurrentSpec.initialConditions.maxAllowedDepth,
+            depth: measureStringMaxDepth(currentSpecimen.decGen),
+            maxListCardinality: copyOfCurrentSpec.initialConditions.maxListCardinality,
             leaves: extractLeaves(currentSpecimen.encGen)
         };
         currentSpecimen = specimenDataStructure(currentSpecimen);

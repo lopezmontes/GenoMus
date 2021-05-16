@@ -1,6 +1,6 @@
 
 var aspec = createGenotypeBranch(
-                [0.3,0.5,0.8,0.1,0.23,0.8,0.9],
+                randomVector(40),
                 "scoreF",
                 eligibleFunctionsForTesting,
                 defaultGenMaxDepth,
@@ -9,4 +9,7 @@ var aspec = createGenotypeBranch(
 
 var tespec = specimenDataStructure(aspec);
 
-sustituteBranch(tespec, "intensityF", 0);
+sustituteBranch(tespec, "eventF", 14);
+
+
+paramF, listF, lnotevalueF, durationF, ldurationF, midipitchF, lmidipitchF, frequencyF, lfrequencyF, articulationF, larticulationF, intensityF, lintensityF, goldenintegerF, lgoldenintegerF, quantizedF, lquantizedF, operationF, booleanF
