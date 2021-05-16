@@ -1,0 +1,12 @@
+
+var aspec = createGenotypeBranch(
+                [0.3,0.5,0.8,0.1,0.23,0.8,0.9],
+                "scoreF",
+                eligibleFunctionsForTesting,
+                defaultGenMaxDepth,
+                defaultListsMaxCardinality,
+                phenotypeSeed);
+
+var tespec = specimenDataStructure(aspec);
+
+sustituteBranch(tespec, "intensityF", 0);

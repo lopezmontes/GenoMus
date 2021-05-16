@@ -438,13 +438,16 @@ function mulberry32(a) {
 // outputs one 32-bit hash to provide the seed for mulberry32
 var initSeed = (parseInt(Math.random() * 1e16)).toString();
 var seed = xmur3(initSeed);
-// Create rand() function
+// creates rand() function
 var rand = mulberry32(seed());
-// Reinit seed
+// reinits seed
 function createNewSeed(seedInput) {
     seed = xmur3(seedInput.toString());
     rand = mulberry32(seed());
 }
+// reinits seed randomly
+var newRndSeed = () => createNewSeed(parseInt(Math.random()*100000000));
+
 // SEEDED RANDOM FRACTAL RANDOM GENERATOR BASED ON LOGISTIC MAP
 // logistic map for creating random numbers
 var logisticSeed = 0.481920;
@@ -742,7 +745,7 @@ var simpleBACHSearch = () => {
         }
         // adds brand new specimens
         for (var specIndx3 = 0; specIndx3 < numNewSpecs; specIndx3++) {
-            createNewSeed(parseInt(Math.random()*100000000));
+            newRndSeed();
             newGeneration.push(randomVector(germinalVectorMaximalLength));
         }
         // maxAPI.post(newGeneration);
@@ -3436,10 +3439,7 @@ var specimenDataStructure = (specimen) => ({
     // csoundScore: encPhen2csoundScore(specimen.encPhen)
 });
 
-
-///////////////
 // CORE FUNCTIONS FOR SPECIMEN CREATION AND EVOLUTION
-
 var functionTypesConverters = {
     "leaf": {
         "conversionFunc": p2p, 
@@ -3663,7 +3663,7 @@ var createGenotypeBranch = (
                 typeIdentifier = functionTypesConverters[nextFunctionType].identifier;
                 newDecodedGenotype += converser(newLeaf);
                 preEncGen.push(typeIdentifier, newLeaf);
-                // console.log(newDecodedGenotype);
+                // post(newDecodedGenotype);
                 germinalVectorReadingPos++;
                 preitemvalue = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                 // when leaf is actually a list
@@ -3885,7 +3885,6 @@ var specimenFromInitialConditions = (
     return specimenFromInitConds;
 };
 
-
 // mutates only leaves of a specimen according to certain probabilities
 // mutProbability is mutations probability (0 -> no mutations, 1 -> everything mutated)
 // mutAmount is range of a mutation, no trespassing interval [0, 1]
@@ -3920,6 +3919,29 @@ var mutateSpecimenLeaves = (originalSpecimen, mutProbability, mutAmount) => {
     return specimenDataStructure(mutatedSpecimen);
 };
 
+// replaces a branch of a given output type in a specimen, 
+// with a brand new generated branch, a returns only the new decodedGenotype
+var sustituteBranch = (originalSpecimen, replacedBranchType, branchIndex) => {
+    var replacedBranchSet = originalSpecimen.subexpressions[replacedBranchType];
+    var replacedBranchLength = replacedBranchSet.length;
+    var replacedBranch = replacedBranchSet[branchIndex % replacedBranchLength];
+    console.log(replacedBranch);
+    console.log(originalSpecimen.decodedGenotype);
+    newRndSeed();
+    var branchReplacement = createGenotypeBranch(
+        randomVector(100),
+        replacedBranchType,
+        {
+            includedFunctions: originalSpecimen.initialConditions.localEligibleFunctions,
+            excludedFunctions: []
+        },
+        originalSpecimen.initialConditions.maxAllowedDepth,
+        originalSpecimen.initialConditions.maxListCardinality,
+        originalSpecimen.initialConditions.phenotypeSeed
+    ).decGen;
+    console.log(branchReplacement);
+    return originalSpecimen.decodedGenotype.replace(replacedBranch, branchReplacement);
+};
 
 // MAX COMMUNICATION
 
