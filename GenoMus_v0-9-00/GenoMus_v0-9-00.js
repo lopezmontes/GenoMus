@@ -4072,6 +4072,7 @@ maxAPI.addHandlers({
             leaves: extractLeaves(currentSpecimen.encGen)
         };
         currentSpecimen = specimenDataStructure(currentSpecimen);
+        saveTemporarySpecimens(currentSpecimen);          
         maxAPI.setDict("specimen.dict", currentSpecimen);
         maxAPI.outlet("finished");
         maxAPI.outlet("resetLastSpecsCounter");
@@ -4097,6 +4098,7 @@ maxAPI.addHandlers({
             leaves: extractLeaves(currentSpecimen.encGen)
         };
         currentSpecimen = specimenDataStructure(currentSpecimen);
+        saveTemporarySpecimens(currentSpecimen);          
         maxAPI.setDict("specimen.dict", currentSpecimen);
         maxAPI.outlet("finished");
         maxAPI.outlet("resetLastSpecsCounter");
