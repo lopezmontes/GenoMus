@@ -3810,14 +3810,13 @@ var createNewSpecimen = () => {
     // save all genotypes as log file
     // genotypeLog["gen" + genCount++] = newSpecimen.decGen;
     // createJSON(genotypeLog, 'genotipeLog.json');
-    var searchStopdate = new Date();
     if (newSpecimen == -1) {
         // post("VALID SPECIMEN NOT FOUND");
         newSpecimen = eval("s(v(" + defaultEventExpression + "))");
         newSpecimen.data = {
             specimenID: getFileDateName("not_found"),
             iterations: iterations,
-            milliseconsElapsed: searchStopdate - searchStartdate,
+            milliseconsElapsed: new Date() - searchStartdate,
             encGenotypeLength: "using default expression",
             decGenotypeLength: ("s(v(" + defaultEventExpression + "))").length,
             germinalVector: germinalVec,
@@ -3830,7 +3829,7 @@ var createNewSpecimen = () => {
     } 
     if (iterations < maxIterations) maxAPI.outlet("found");
     newSpecimen.data.iterations = iterations;
-    newSpecimen.data.milliseconsElapsed = searchStopdate - searchStartdate;
+    newSpecimen.data.milliseconsElapsed = new Date() - searchStartdate;
     return newSpecimen;
 }
 
@@ -3852,7 +3851,7 @@ var specimenFromInitialConditions = (
         specimenFromInitConds.data = {
             specimenID: getFileDateName("not_valid_initial_conditions"),
             iterations: 0,
-            milliseconsElapsed: Math.abs(searchStopdate - searchStartdate),
+            milliseconsElapsed: new Date() - searchStartdate,
             encGenotypeLength: specimenFromInitConds.encGen.length,
             decGenotypeLength: specimenFromInitConds.decGen.length,
             localEligibleFunctions: eligibleFuncs,
@@ -3865,11 +3864,10 @@ var specimenFromInitialConditions = (
         };
         return specimenFromInitConds;
     }
-    var searchStopdate = new Date();
     specimenFromInitConds.data = {
         specimenID: getFileDateName("jlm"),
         iterations: 0,
-        milliseconsElapsed: Math.abs(searchStopdate - searchStartdate),
+        milliseconsElapsed: new Date() - searchStartdate,
         encGenotypeLength: specimenFromInitConds.encGen.length,
         decGenotypeLength: specimenFromInitConds.decGen.length,
         localEligibleFunctions: specimenFromInitConds.data.localEligibleFunctions,
@@ -3888,6 +3886,7 @@ var specimenFromInitialConditions = (
 // mutProbability is mutations probability (0 -> no mutations, 1 -> everything mutated)
 // mutAmount is range of a mutation, no trespassing interval [0, 1]
 var mutateSpecimenLeaves = (originalSpecimen, mutProbability, mutAmount) => {
+    var startDate = new Date();
     initSubexpressionsArrays();
     var mutatedSpecimen = originalSpecimen;
     var extractedLeaves = extractLeaves(mutatedSpecimen.encodedGenotype);
@@ -3903,7 +3902,7 @@ var mutateSpecimenLeaves = (originalSpecimen, mutProbability, mutAmount) => {
     mutatedSpecimen.data = {
         specimenID: getFileDateName("jlm"),
         iterations: 0,
-        milliseconsElapsed: 0,
+        milliseconsElapsed: new Date() - startDate,
         encGenotypeLength: mutatedSpecimen.encGen.length,
         decGenotypeLength: mutatedSpecimen.decGen.length,
         germinalVector: mutatedSpecimen.encGen,
@@ -4078,6 +4077,7 @@ maxAPI.addHandlers({
         maxAPI.outlet("resetLastSpecsCounter");
     },
     changeBranch: (branchTyp) => {
+        var startDate = new Date();
         var copyOfCurrentSpec = currentSpecimen;
         var newDecGen = replaceBranch(currentSpecimen, branchTyp, parseInt(Math.random()*10000));
         createNewSeed(copyOfCurrentSpec.initialConditions.phenotypeSeed);
@@ -4085,7 +4085,7 @@ maxAPI.addHandlers({
         currentSpecimen.data = {
             specimenID: getFileDateName("jlm"),
             iterations: 0,
-            milliseconsElapsed: 0,
+            milliseconsElapsed: new Date() - startDate,
             encGenotypeLength: currentSpecimen.encGen.length,
             decGenotypeLength: currentSpecimen.decGen.length,
             germinalVector: currentSpecimen.encGen,
@@ -4104,6 +4104,7 @@ maxAPI.addHandlers({
         maxAPI.outlet("resetLastSpecsCounter");
     },
     growSpecimen: () => {
+        var searchStartdate = new Date();
         var newScoreToAdd;
         var copyOfCurrentSpec = currentSpecimen;
         newRndSeed();
@@ -4126,7 +4127,7 @@ maxAPI.addHandlers({
         currentSpecimen.data = {
             specimenID: getFileDateName("jlm"),
             iterations: 0,
-            milliseconsElapsed: 0,
+            milliseconsElapsed: new Date() - searchStartdate,
             encGenotypeLength: currentSpecimen.encGen.length,
             decGenotypeLength: currentSpecimen.decGen.length,
             germinalVector: currentSpecimen.encGen,
@@ -4238,11 +4239,10 @@ maxAPI.addHandlers({
         var searchedData = geneticAlgoSearchMAX(numElements);
         createNewSeed(phenotypeSeed);
         currentSpecimen = evalDecGen("s(v(e(p(0.5),p(0.5),p(0.5),p(0.5))))");
-        var stopdate = new Date();
         currentSpecimen.data = {
             specimenID: getFileDateName("jlm"),
             iterations: 0,
-            milliseconsElapsed: Math.abs(stopdate - startdate),
+            milliseconsElapsed: Math.abs(new Date() - startdate),
             genotypeLength: currentSpecimen.length,
             germinalVector: "genetic algorithm",
             phenotypeSeed: phenotypeSeed,
