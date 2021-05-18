@@ -4103,6 +4103,47 @@ maxAPI.addHandlers({
         maxAPI.outlet("finished");
         maxAPI.outlet("resetLastSpecsCounter");
     },
+    growSpecimen: () => {
+        var newScoreToAdd;
+        var copyOfCurrentSpec = currentSpecimen;
+        newRndSeed();
+        do {
+            newScoreToAdd = createGenotypeBranch(
+                randomVector(germinalVecMaxLength),
+                "scoreF",
+                {
+                    "includedFunctions": copyOfCurrentSpec.initialConditions.localEligibleFunctions,
+                    "excludedFunctions": []
+                },
+                defaultGenMaxDepth,
+                defaultListsMaxCardinality,
+                copyOfCurrentSpec.initialConditions.phenotypeSeed,
+            )
+        } while (newScoreToAdd == -1);
+        var newDecGen = "sConcatS(" + copyOfCurrentSpec.decodedGenotype + "," + newScoreToAdd.decGen + ")";
+        createNewSeed(copyOfCurrentSpec.initialConditions.phenotypeSeed);
+        currentSpecimen = evalDecGen(newDecGen);
+        currentSpecimen.data = {
+            specimenID: getFileDateName("jlm"),
+            iterations: 0,
+            milliseconsElapsed: 0,
+            encGenotypeLength: currentSpecimen.encGen.length,
+            decGenotypeLength: currentSpecimen.decGen.length,
+            germinalVector: currentSpecimen.encGen,
+            germinalVectDeviation: 0,
+            phenotypeSeed: copyOfCurrentSpec.initialConditions.phenotypeSeed,
+            localEligibleFunctions: copyOfCurrentSpec.initialConditions.localEligibleFunctions,
+            maxAllowedDepth: copyOfCurrentSpec.initialConditions.maxAllowedDepth,
+            depth: measureStringMaxDepth(currentSpecimen.decGen),
+            maxListCardinality: copyOfCurrentSpec.initialConditions.maxListCardinality,
+            leaves: extractLeaves(currentSpecimen.encGen)
+        };
+        currentSpecimen = specimenDataStructure(currentSpecimen);
+        saveTemporarySpecimens(currentSpecimen);          
+        maxAPI.setDict("specimen.dict", currentSpecimen);
+        maxAPI.outlet("finished");
+        maxAPI.outlet("resetLastSpecsCounter");
+    },
     printCurrentSpecimen: () => {
         maxAPI.post(currentSpecimen);
     },
