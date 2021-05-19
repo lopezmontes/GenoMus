@@ -1,1 +1,1 @@
-"from init conds: s2V(v(e(n(0),m(43),aRnd(),i(0))),vConcatE(e4Pitches(nRnd(),mRnd(),m(74),mAutoref(1),m(112),aRnd(),iRnd()),e3Pitches(nRnd(),mRnd(),mRnd(),mAutoref(4),aAutoref(0),iRnd())))"
+"from init conds: s(v(e(n(0),m(43),aRnd(),i(0))))"
