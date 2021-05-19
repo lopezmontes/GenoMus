@@ -1,1 +1,1 @@
-"from init conds: sConcatS(sConcatS(sConcatS(s(v(e(n(0.38527),m(69),a(99),i(100)))),sAutoref(0)),s(vPerpetuumMobile(n(0.354319),lm(72),la(154,23,15,43,191,50,64,37,41,76,53,113,10,33),li(63)))),sAutoref(0))"
+"from init conds: s2V(v(e(n(0),m(43),aRnd(),i(0))),vConcatE(e4Pitches(nRnd(),mRnd(),m(74),mAutoref(1),m(112),aRnd(),iRnd()),e3Pitches(nRnd(),mRnd(),mRnd(),mAutoref(4),aAutoref(0),iRnd())))"
