@@ -38,7 +38,7 @@ var validGenotype = true;
 var decGenStringLengthLimit = 70000;
 
 var phenotypeSeed = Math.round(Math.random() * 1e14); // seed only for computing phenotype
-var germinalVecMaxLength = 2000;
+var defaultGerminalVecMaxLength = 2000;
 var genMaxDepth = 30;
 var defaultGenMaxDepth = 30;
 var defaultListsMaxCardinality = 20;
@@ -653,11 +653,12 @@ var BACH = [0.618034, 0.472136, 0.842649, 0.618034, 0.689975, 0.842293, 1, 0.842
 var fitnessFunction = (candidate) => distanceBetweenArrays(BACH, candidate);  
 
 var specimensPerGeneration = 50;
-var createPopulation = (germinalVecMaxLength) => {
+var createPopulation = () => {
     var newPopulation = [];
     var newItemLength;
+    var maxLengthForGerminalVectors = defaultGerminalVecMaxLength;
     for (var a=0; a<specimensPerGeneration; a++) {
-        newItemLength = parseInt((germinalVecMaxLength - 5) * Math.random() + 1) + 5;
+        newItemLength = parseInt((maxLengthForGerminalVectors - 5) * Math.random() + 1) + 5;
         newPopulation[a] = randomVector(newItemLength);
     }    
     return newPopulation;
@@ -681,9 +682,9 @@ var mutateItem = (cand, mutPr, mutAm) => {
     return newArr;
 }
 
-// creates a brand new population
-var germinalVectorMaximalLength = 600;
-var currentPopulation = createPopulation(germinalVectorMaximalLength);
+
+var currentPopulation = createPopulation(100);
+var storeErrors = [];
 
 var currentErrors = [];
 var newGeneration = [];
@@ -692,14 +693,20 @@ var newGenerationMappedGerminalVectors = [];
 var currentGenPhenotypeSeeds = []; // phenotype seed for each specimen
 var numGeneration = 0;
 var elitePreservedSpecimens = 0.15; // ratio of best specimens preserved withoud mutation for next generation
-var brandNewSpecimens = 0.5; // ratio of total new specimens introduced at each generation in the genetic pool
+var graftedSpecimens = 0.3; // ratio of spceimens with a replaced branch
+var brandNewSpecimens = 0.2; // ratio of total new specimens introduced at each generation in the genetic pool
 var numEliteSpecs = Math.ceil(specimensPerGeneration * elitePreservedSpecimens);
-maxAPI.post("numEliteSpecs: " + numEliteSpecs);
+var numGraftedSpecimens = Math.ceil(specimensPerGeneration * graftedSpecimens);
 var numNewSpecs = Math.ceil(specimensPerGeneration * brandNewSpecimens);
-maxAPI.post("numNewSpecs: " + numNewSpecs);
-var numMutatedSpecs = specimensPerGeneration - numEliteSpecs - numNewSpecs;
-maxAPI.post("numMutatedSpecs: " + numMutatedSpecs);
+var numMutatedSpecs = specimensPerGeneration - numEliteSpecs - numGraftedSpecimens - numNewSpecs;
 var bestResult = Infinity;
+
+post("numEliteSpecs:", numEliteSpecs);
+post("numGraftedSpecs:", numGraftedSpecimens);
+post("numNewSpecs:", numNewSpecs);
+post("numMutatedSpecs:", numMutatedSpecs);
+
+
 // var germinalVectorLength = 50;
 // var refineSearchRange = germinalVectorLength * 0.01;
 var generationsWithoutBetterResults = 0;
@@ -715,6 +722,27 @@ var simpleBACHSearch = () => {
     var generationsWithoutBetterResults = 0;
     var oscilFactor1, oscilFactor2;
     var evaluatedNewCandidate;
+    var evaluatedSpecimenToGraft;
+    var graftedDecGenotype;
+    var branchTypeToGraft;
+    var outputTypes = [
+        "scoreF", 
+        "voiceF", 
+        "eventF", 
+        "paramF", 
+        "listF", 
+        "notevalueF", 
+        "lnotevalueF", 
+        "midipitchF", 
+        "lmidipitchF", 
+        "articulationF", 
+        "larticulationF", 
+        "intensityF", 
+        "lintensityF", 
+        "goldenintegerF", 
+        "lgoldenintegerF", 
+        "quantizedF", 
+        "lquantizedF"];
     // maxAPI.post(currentPopulation[0]);
     do {
         generationsWithoutBetterResults++;
@@ -723,6 +751,7 @@ var simpleBACHSearch = () => {
         // maxAPI.post("trials:" + thisLoopTrials);
         // creates new generation
         newGeneration = [];
+        // preserve elite specimens
         for (var specIndx = 0; specIndx < numEliteSpecs; specIndx++) {
             newGeneration.push(currentPopulation[specIndx].slice());            
         }
@@ -735,19 +764,41 @@ var simpleBACHSearch = () => {
             oscilFactor1 = (Math.sin(numGeneration * 0.01) + 1) * 0.8;
             oscilFactor2 = (Math.sin(numGeneration * 0.017) + 1) * 0.8;
             newGeneration.push(
-                mutateItem(currentPopulation[specIndx2 % numMutatedSpecs].slice(), 
-                (progressiveMutationFactor+0.01) * oscilFactor1, 
-                (progressiveMutationFactor+0.01+generationsWithoutBetterResults*0.005) * oscilFactor2 ) 
+                mutateItem(
+                    currentPopulation[specIndx2 % numMutatedSpecs].slice(), 
+                    (progressiveMutationFactor+0.01) * oscilFactor1, 
+                    (progressiveMutationFactor+0.01+generationsWithoutBetterResults*0.005) * oscilFactor2
+                ) 
             );
 
             // newGeneration.push(mutateItem(currentPopulation[specIndx2].slice(), 0.05, 0.2));
         }
-        // adds brand new specimens
-        for (var specIndx3 = 0; specIndx3 < numNewSpecs; specIndx3++) {
-            newRndSeed();
-            newGeneration.push(randomVector(germinalVectorMaximalLength));
+        // adds specimen with replaced branches
+        for (var specIndx3 = 0; specIndx3 < numGraftedSpecimens; specIndx3++) {
+            // newRndSeed();
+            evaluatedSpecimenToGraft = specimenDataStructure(specimenFromInitialConditions(
+                currentPopulation[specIndx3 % numEliteSpecs].slice(),
+                "scoreF",
+                eligibleFunctionsForTesting,
+                defaultGenMaxDepth,
+                defaultListsMaxCardinality,
+                phenotypeSeed));
+            // post("tomado: ", evaluatedSpecimenToGraft.decodedGenotype);
+            branchTypeToGraft = outputTypes[parseInt(Math.random()*outputTypes.length)];
+            // post("branchTypeToGraft",branchTypeToGraft);
+            graftedDecGenotype = replaceBranch(
+                evaluatedSpecimenToGraft, 
+                branchTypeToGraft, 
+                parseInt(Math.random()*1000)
+            );  
+            newGeneration.push(encodeGenotype(graftedDecGenotype));   
+            // post("graftedSpecimen", graftedDecGenotype);
         }
-        // maxAPI.post(newGeneration);
+        // adds brand new specimens
+        for (var specIndx4 = 0; specIndx4 < numNewSpecs; specIndx4++) {
+            newRndSeed();
+            newGeneration.push(randomVector(defaultGerminalVecMaxLength));
+        }
         // evaluates fitness of each new specimen
         for (var a=0; a<specimensPerGeneration; a++) {
             evaluatedNewCandidate = specimenDataStructure(specimenFromInitialConditions(
@@ -760,6 +811,7 @@ var simpleBACHSearch = () => {
             currentErrors[a] = [a,fitnessFunction(evaluatedNewCandidate.encodedPhenotype)];
             newGenerationMappedGerminalVectors[a] = evaluatedNewCandidate.encodedGenotype;
             newGeneration[a] = newGenerationMappedGerminalVectors[a];
+            storeErrors = currentErrors;
         }
         // order specimen indexes according to errors 
         currentErrors.sort((a,b)=>a[1]-b[1]);
@@ -3791,7 +3843,7 @@ var createNewSpecimen = () => {
     do {
         iterations++;
         // creates a new genotype
-        germinalVec = randomVector(parseInt(Math.random()*germinalVecMaxLength) + 1);
+        germinalVec = randomVector(parseInt(Math.random()*defaultGerminalVecMaxLength) + 1);
         newSpecimen = createGenotypeBranch(
             germinalVec, outputType, eligibleFuncs, maxAllowedDepth, listMaxLength, aleaSeed);
         // save last genotype created as log file
@@ -3921,10 +3973,11 @@ var mutateSpecimenLeaves = (originalSpecimen, mutProbability, mutAmount) => {
 // with a brand new generated branch, a returns only the new decodedGenotype
 var replaceBranch = (originalSpecimen, replacedBranchType, branchIndex) => {
     var replacedBranchSet = originalSpecimen.subexpressions[replacedBranchType];
+    if (replacedBranchSet.length == 0) return originalSpecimen.decodedGenotype;
     var replacedBranch = replacedBranchSet[branchIndex % replacedBranchSet.length];
     newRndSeed();
     var branchReplacement = createGenotypeBranch(
-        randomVector(germinalVecMaxLength),
+        randomVector(defaultGerminalVecMaxLength),
         replacedBranchType,
         {
             includedFunctions: originalSpecimen.initialConditions.localEligibleFunctions,
@@ -3937,7 +3990,7 @@ var replaceBranch = (originalSpecimen, replacedBranchType, branchIndex) => {
     if (branchReplacement == -1) {
         post("not valid branch replacement found", "");
         return originalSpecimen.decodedGenotype;
-    }
+    } 
     return originalSpecimen.decodedGenotype.replace(replacedBranch, branchReplacement);
 };
 
@@ -4110,7 +4163,7 @@ maxAPI.addHandlers({
         newRndSeed();
         do {
             newScoreToAdd = createGenotypeBranch(
-                randomVector(germinalVecMaxLength),
+                randomVector(defaultGerminalVecMaxLength),
                 "scoreF",
                 {
                     "includedFunctions": copyOfCurrentSpec.initialConditions.localEligibleFunctions,
@@ -4228,9 +4281,10 @@ maxAPI.addHandlers({
         // await maxAPI.outlet("genosearch");
     },
     showPopulation: () => {
-        for (var a = 0; a < specimensPerGeneration; a++) {
-            maxAPI.post(currentPopulation[a]);
-        }
+        currentPopulation.map(x => maxAPI.post(x));
+    },
+    showErrors: () => {
+        storeErrors.map(x => maxAPI.post(x));
     },
     // OLD TESTS
     geneAlgo: (numElements) => {
