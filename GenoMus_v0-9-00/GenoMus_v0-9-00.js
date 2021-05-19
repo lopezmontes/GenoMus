@@ -684,7 +684,7 @@ var mutateItem = (cand, mutPr, mutAm) => {
 
 
 var currentPopulation = createPopulation(100);
-var storeErrors = [];
+var onlyErrors = [];
 
 var currentErrors = [];
 var newGeneration = [];
@@ -725,6 +725,7 @@ var simpleBACHSearch = () => {
     var evaluatedSpecimenToGraft;
     var graftedDecGenotype;
     var branchTypeToGraft;
+    var errorsWithoutDuplicates;
     var outputTypes = [
         "scoreF", 
         "voiceF", 
@@ -751,9 +752,12 @@ var simpleBACHSearch = () => {
         // maxAPI.post("trials:" + thisLoopTrials);
         // creates new generation
         newGeneration = [];
-        // preserve elite specimens
-        for (var specIndx = 0; specIndx < numEliteSpecs; specIndx++) {
-            newGeneration.push(currentPopulation[specIndx].slice());            
+        // preserve elite specimens avoiding duplicates
+        var takenEliteSpecIdx = 0;
+        // post("currentErrors",currentErrors);
+        for (var specIndx = 0; takenEliteSpecIdx < numEliteSpecs; specIndx++) {
+            newGeneration.push(currentPopulation[takenEliteSpecIdx].slice());
+            takenEliteSpecIdx++;       
         }
         // adds mutated specimens
         for (var specIndx2 = 0; specIndx2 < numMutatedSpecs; specIndx2++) {
@@ -811,17 +815,26 @@ var simpleBACHSearch = () => {
             currentErrors[a] = [a,fitnessFunction(evaluatedNewCandidate.encodedPhenotype)];
             newGenerationMappedGerminalVectors[a] = evaluatedNewCandidate.encodedGenotype;
             newGeneration[a] = newGenerationMappedGerminalVectors[a];
-            storeErrors = currentErrors;
         }
         // order specimen indexes according to errors 
         currentErrors.sort((a,b)=>a[1]-b[1]);
+        onlyErrors = [...new Set(currentErrors.map(x => x[1]))];
+
         // reorder newGeneration according to its previous calculated error, replacing current population
         currentPopulation = [];
+        errorsWithoutDuplicates = [];
         for (var a=0; a<specimensPerGeneration; a++) {
-            currentPopulation.push(newGeneration[currentErrors[a][0]]);
+            // check if specimen error is yet included
+            if (errorsWithoutDuplicates.includes(currentErrors[a][1]) == false) {
+                currentPopulation.push(newGeneration[currentErrors[a][0]]);
+                errorsWithoutDuplicates.push(currentErrors[a][1]);
+            }  
         }
+        //maxAPI.post("after ordering: " + currentErrors);
+        //maxAPI.post("errorsWithoutDuplicates: " + errorsWithoutDuplicates);
+//
+        //maxAPI.post("currentPopulationlength: " + currentPopulation.length);
 
-        // maxAPI.post(currentErrors);
         newTryBestDistance = currentErrors[0][1];
         // maxAPI.post("newTryBestDistance " + newTryBestDistance);
         // maxAPI.post("but bestResult " + bestResult);
@@ -834,6 +847,14 @@ var simpleBACHSearch = () => {
             bestResult = newTryBestDistance; 
             foundNewBest = true;       
             maxAPI.post("best specimen was number " + currentErrors[0][0]);
+        }
+
+        // after deleting duplicates, adds more brand new specimens to complete the population, if needed
+        if (specimensPerGeneration - currentPopulation.length > 0) {
+            for (var specIndx5 = 0; specIndx5 < specimensPerGeneration - currentPopulation.length; specIndx5++) {
+                newRndSeed();
+                currentPopulation.push(randomVector(defaultGerminalVecMaxLength));
+            }
         }
     } while ((new Date()) - startTime < timeLapse && foundNewBest == false);
     // } while ( thisLoopTrials < 10 && foundNewBest == false);
@@ -4284,7 +4305,7 @@ maxAPI.addHandlers({
         currentPopulation.map(x => maxAPI.post(x));
     },
     showErrors: () => {
-        storeErrors.map(x => maxAPI.post(x));
+        maxAPI.post(onlyErrors);
     },
     // OLD TESTS
     geneAlgo: (numElements) => {
