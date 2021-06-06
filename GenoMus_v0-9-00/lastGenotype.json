@@ -1,1 +1,1 @@
-"from init conds: s(v(e(n(0),m(43),aRnd(),i(0))))"
+"from init conds: s(vSlice(vRepeatE(e3Pitches(nRnd(),m(43),mRnd(),mAutoref(0),a(60),iRnd()),q(2)),q(36)))"
