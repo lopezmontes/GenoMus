@@ -1,1 +1,1 @@
-"from init conds: s(vSlice(vPerpetuumMobileLoop(nRnd(),lP2M(lRemap(lTribonacci(p(0.486318),p(0.192202),p(0.516721),p(0.074113),pAutoref(0),z(30)),pAutoref(3),pUniformRnd())),lP2A(l(0.901677,0.648604,0.590164,0.621225,0.591085,0.827578,0.579384,0.342164,0.806574,0.329399,0.659691,0.395409,0.679212,0.567085,0.35407)),li(35,46,35,42)),q(-11)))"
+"from init conds: s(v(e(n(0),m(43),aRnd(),i(0))))"
