@@ -919,6 +919,7 @@ An identity function simply pass its arguments without any musical transformatio
 For the sake of simplicity, identity functions are named using only their corresponding function type identifiers. They serve primarily as wrappers and testing functions.
 
 Both function indexes, ordinal and encoded function index (smaller) are shown.
+Highest function index so far: 326
 
 | function name | function type       | function index        | example decoded genotype &rarr; encoded phenotype
 | ------------- | ------------------- | --------------------- | -------------------------------------------------
@@ -997,9 +998,6 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `sIterV`    | 39  <sub>not yet implemented</sub>  | repeats and overlays in a score re-evaluations of a voice function
 | `sIterS`    | 40  <sub>not yet implemented</sub>  | repeats and concatenates as a score re-evaluations of a score function
 
-
-
-
 ---------
 ## External references
 | name                   | index                              | description
@@ -1064,7 +1062,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `e2Pitches` | 98  <sub>.567331 in progress</sub> | creates an event with two pitches
 | `e3Pitches` | 99  <sub>.185365 in progress</sub> | creates an event with three pitches
 | `e4Pitches` | 100 <sub>.803399 in progress</sub> | creates an event with four pitches
-| `e5Pitches` | 101 <sub>not yet implemented</sub> | creates an event with five pitches
+| `e5Pitches` | 101 <sub>.421433 in progress</sub> | creates an event with five pitches
 | `e6Pitches` | 102 <sub>not yet implemented</sub> | creates an event with six pitches
 | `eChord`    | 103 <sub>not yet implemented</sub> | creates an event with more than six pitches, with a maximal of 12 pitches
 | `s2V`       | 104 <sub>.275535 in progress</sub> | creates an score with two simultaneous voices
@@ -1220,7 +1218,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `fRnd`             | 313 <sub>.444638 in progress</sub> | returns a random frequency with with Gaussian (or normal) distribution
 | `aRnd`             | 314 <sub>.062672 in progress</sub> | returns a random articulation with with Gaussian (or normal) distribution
 | `iRnd`             | 315 <sub>.680706 in progress</sub> | returns a random intensity with with Gaussian (or normal) distribution
-| `zRnd`             | 316 <sub>.29874 in progress</sub> | returns a random goldeninteger with with Gaussian (or normal) distribution
+| `zRnd`             | 316 <sub>.29874 in progress</sub>  | returns a random goldeninteger with with Gaussian (or normal) distribution
 | `qRnd`             | 317 <sub>.916774 in progress</sub> | returns a random quantized parameter with with Gaussian (or normal) distribution
 | `lRnd`             | 134 <sub>.816554 in progress</sub> | returns a complete random list with with Gaussian distribution of parameters
 | `lUniformRnd`      | 135 <sub>.434588 in progress</sub> | returns a complete random list with uniform distribution of values
@@ -1242,6 +1240,7 @@ Both function indexes, ordinal and encoded function index (smaller) are shown.
 | `sMutate`          | 151 <sub>not yet implemented</sub> | changes parameters of a score according to probability and range of mutations
 | `lPermutate`       | 152 <sub>not yet implemented</sub> | permutates value positions of a list
 | `vPermutate`       | 153 <sub>not yet implemented</sub> | permutates events positions of a voice
+| `lJitter`          | 326 <sub>.47908 in progress </sub> | modifies randomly all values of a list according to a range
 
 ---------
 ## Algorithmic techniques
