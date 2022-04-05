@@ -4340,7 +4340,7 @@ var createGenotypeBranch = (
     // aux variables
     var germinalVectorLength = germinalVector.length;
     var germinalVectorReadingPos = 0;
-    var preEncGen = [];
+    var preEncGen = []; // rewriting of the germinal vector, to be an "identity germinal vector"
     var newDecodedGenotype = "";
     var genotypeDepth = 0;
     var newLeaf;
@@ -4355,8 +4355,8 @@ var createGenotypeBranch = (
     var eligibleFuncionNamesLength;
     var orderedElegibleEncIndexes;
     var valueForChoosingNewFunction;
-    var newListElementThreshold = Math.min(0.499, 3/listsMaxNumItems);
-    var preitemvalue; // determines if a new value must be added to a list
+    var newListElementThreshold = Math.min(0.499, 3/listsMaxNumItems); // important trick here: as leaf types codes are numbers bigger than 0.5, this values always will pass the threshold value
+    var preItemValue; // determines if a new value must be added to a list
     var cardinality;
     var converser;
     var typeIdentifier;
@@ -4405,14 +4405,14 @@ var createGenotypeBranch = (
                 preEncGen.push(typeIdentifier, newLeaf);
                 // post(newDecodedGenotype);
                 germinalVectorReadingPos++;
-                preitemvalue = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
+                preItemValue = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                 // when leaf is actually a list
                 if (listLeafTypes.includes(nextFunctionType)) {
-                    while (preitemvalue > newListElementThreshold && cardinality < listsMaxNumItems) {
+                    while (preItemValue > newListElementThreshold && cardinality < listsMaxNumItems) {
                         germinalVectorReadingPos++;
                         newLeaf = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                         germinalVectorReadingPos++;
-                        preitemvalue = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
+                        preItemValue = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                         newDecodedGenotype += "," + converser(newLeaf);
                         preEncGen.push(typeIdentifier, newLeaf);
                         cardinality++;
