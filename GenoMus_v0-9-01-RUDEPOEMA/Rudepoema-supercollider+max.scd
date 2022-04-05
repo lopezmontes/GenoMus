@@ -169,17 +169,28 @@ SynthDef(\dunePulse, { arg out=0,ffreq=1000;
 
 Synth(\dunePulse, [\ffreq, 10000.linrand]);
 
+
+(
+o = Server.default.options;
+o.device ="MOTU Traveler";
+o.numOutputBusChannels = 4;
+Server.default.reboot;
+
+)
+
+
 (
 SynthDef("help-KlankOverlapTexture",
 {|out = 0, freqs = #[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], rings = #[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], atk = 0.9, sus = 8, rel = 5, pan = 0|
-	var e = EnvGen.kr(Env([1,1,0],[sus,rel]), doneAction: 2);
-    //var i = Decay.ar(Impulse.ar(0.0001, mul: atk), 0.03, ClipNoise.ar(0.01));
-		var i = PinkNoise.ar(atk*0.001);
+	//var e = EnvGen.kr(Env.perc(attackTime: 0.0001, releaseTime: sus, level: 1.0, curve: -4.0), doneAction: 2);
+		var e = EnvGen.ar(Env([1,1,0],[sus]), doneAction: 2);
+    // var i = Decay.ar(Impulse.ar(0.00001, mul: atk), 0.03, ClipNoise.ar(0.02));
+	var i = PinkNoise.ar(atk*0.01);
     var z = Klank.ar(
         `[freqs, nil, rings],     // specs
         i                    // input
     );
-    Out.ar(out, Pan2.ar(z*e, pan));
+    Out.ar(out, PanAz.ar(4, z * e, pan));
 }).add;
 )
 
@@ -187,14 +198,16 @@ Synth("help-KlankOverlapTexture");
 
 (
 Synth("help-KlankOverlapTexture", [
-    \atk, 1.0.rand,
-    \sus, 8.0.rand,
-    \rel, 3*2+8/4,
-    \pan, 1.0.rand2,
-    \freqs, (6000 * 0.01).midicps * ( (1..20)+({(0.1.rand)}!20) ),
-    \rings, {0.1.rrand(2)}.dup(12)
+    \atk, 0.5,
+    \sus, 6.0.rand,
+    \rel, 1,
+    \pan, 2.0.rand2,
+    \freqs, (20000.rand * 0.01).midicps * ( (1..20)+({(0.1.rand)}!20) ),
+    \rings, {0.1.rrand(2.0)}.dup(12)
 ]);
 )
+
+~partiels = 20;
 
 (
 ~playGenoMusScoreFromMax = { |msg|
@@ -202,16 +215,28 @@ Synth("help-KlankOverlapTexture", [
 		// msg.postln;
 
 		Synth("help-KlankOverlapTexture", [
-			\atk, 1.0.rand,
-			\sus, msg[2]*0.001,
-			\rel, 3*2+8/4,
-			\pan, 1.0.rand2,
-			\freqs, (msg[1]*0.01).midicps * ( (1..20)+({(0.1.rand)}!20) ),
-			\rings, {0.1.rrand(2)}.dup(12)
+			\atk, msg[5] + 0.01,
+			\sus, msg[2] * 0.001 + 0.01,
+			\rel, msg[4] + 0.05,
+			\pan, msg[6] * 4.0 - 2.0,
+			\freqs, (msg[1] * 0.01).midicps * ( (1..~partiels)+({(msg[7].rand)}!~partiels) ),
+			\rings, Array.rand(~partiels, 0.1, 1)
 		]);
     }
 };
 thisProcess.addOSCRecvFunc(~playGenoMusScoreFromMax);
 );
 
+
+s.record(numChannels: 4);
+s.stopRecording;
+
+
+
+
+Array.rand(10, 0.1, 1)
+
+
 (1..20)+({(0.1.rand)}!20)
+
+(Env.perc(attackTime: 0.0001, releaseTime: 2, level: 1.0, curve: 8.0)).plot

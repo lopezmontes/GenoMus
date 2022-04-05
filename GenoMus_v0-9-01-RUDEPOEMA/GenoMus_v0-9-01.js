@@ -6,14 +6,14 @@
 // Genetic algorithms
 
 // TESTING DIFFERENT SPECIES
-// var currentSpecies = "piano";
-var currentSpecies = "piano_4xtra"; // as piano species with 4 extra generic parameters addedpiano_4xtra
+var currentSpecies = "piano";
+// var currentSpecies = "piano_4xtra"; // as piano species with 4 extra generic parameters addedpiano_4xtra
 // var currentSpecies = "csound";
 
 var notesPerOctave = 12;
 // var initialConditionsJSONfilename = "jornadasSonologiaValencia.json";
 // var initialConditionsJSONfilename = "csound_species_test.json";
-var initialConditionsJSONfilename = "piano_4xtra_species_test.json";
+// var initialConditionsJSONfilename = "piano_4xtra_species_test.json";
 // var initialConditionsJSONfilename = "initialConditions.json";
 
 // DEPENDENCIES
@@ -47,7 +47,9 @@ var phenMinPolyphony = 1;
 var phenMaxPolyphony = 8;
 var phenMinLength = 1;
 var phenMaxLength = 1000;
-var maxIterations = 30;
+var maxIterations = 20000;
+var maxIntervalPerSearch = 3000; // in milliseconds
+var maxIntervalPerNewBranch = 1000; // in milliseconds
 var mandatoryFunction = "";
 
 // mutation constraints
@@ -4358,6 +4360,8 @@ var createGenotypeBranch = (
     var cardinality;
     var converser;
     var typeIdentifier;
+    // start time for measuring creation loop and comparing to maxIntervalPerNewBranch
+    var newBranchStartTime = new Date();
     do {
         // adds a function
         if (leafTypes.includes(nextFunctionType) == false) {
@@ -4448,7 +4452,7 @@ var createGenotypeBranch = (
     // removes trailing commas
     newDecodedGenotype.substring(0, newDecodedGenotype.length - 1);
     // phenotype seed only for evaluation of random functions (to be removed by using seed parameters in random funcs.)
-    if (validGenotype == true) {
+    if (validGenotype == true && new Date() - newBranchStartTime < maxIntervalPerNewBranch) {
         createNewSeed(seedForAlea);
         newBranch = eval(newDecodedGenotype);
     } else {
@@ -4478,15 +4482,20 @@ var iterFuncs = [35,36,37];
 var repeatFuncs = [98,42,43];
 var extendersFuncs = [35,36,37,41,42,43,44,46,48,104,109,110];
 var paramAutorefFuncs = [25,280,277,279,281,282,284,286,288,290,291];
-var moreAutorefFuncs = [28]; // 26(bad arg) , 27(good?),28,29];
+var moreAutorefFuncs = [27,28,29]; // 26(bad arg) , 27(good?),28(good?),29(good?)];
 var vmotifs = [199,200,201,202];
 var multiplePitchesEventsFuncs = [99, 100, 101];
 
 var listConvertersFuncs = [319,320,321,322,323,324];
-var testingFuncs = [326];
+var testingFuncs = [25]; // [326];
 
 var manyFuncs = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19,
     20, 25, 26, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 48, 58, 63, 65, 66, 67, 68, 76, 77, 84, 104, 
+    109, 110, 111, 131, 134, 135, 199, 200, 202, 277, 278, 279, 281, 282, 284, 286, 288, 290, 291,
+    294, 296, 298, 299, 302, 304, 306, 307, 310, 311, 312, 313, 314, 315, 316, 317, 318, 201, 280,
+98, 99, 100, 101, 266 ];
+var manyFuncsWithoutAutoRefs = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19,
+    20, 25, 35, 36, 37, 41, 42, 43, 44, 46, 48, 58, 63, 65, 66, 67, 68, 76, 77, 84, 104, 
     109, 110, 111, 131, 134, 135, 199, 200, 202, 277, 278, 279, 281, 282, 284, 286, 288, 290, 291,
     294, 296, 298, 299, 302, 304, 306, 307, 310, 311, 312, 313, 314, 315, 316, 317, 318, 201, 280,
 98, 99, 100, 101, 266 ];
@@ -4504,11 +4513,12 @@ var eligibleFunctionsForTesting = {
         .concat(extendersFuncs)
         .concat(vmotifs)
         .concat(multiplePitchesEventsFuncs)
-        //.concat(listConvertersFuncs)
-        //.concat(testingFuncs)
+        .concat(listConvertersFuncs)
+        
+        .concat(testingFuncs)
 //
-        //.concat(manyFuncs)
-        .concat(moreAutorefFuncs)
+        .concat(manyFuncs)
+        //.concat(manyFuncsWithoutAutoRefs)
 
         ,
 //     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19, 20,
@@ -4558,7 +4568,8 @@ var createNewSpecimen = () => {
             || newSpecimen.phenVoices < phenMinPolyphony
             || newSpecimen.phenVoices > phenMaxPolyphony
         )
-        && iterations < maxIterations);
+        && iterations < maxIterations
+        && new Date() - searchStartdate < maxIntervalPerSearch);
     // save all genotypes as log file
     // genotypeLog["gen" + genCount++] = newSpecimen.decGen;
     // createJSON(genotypeLog, 'genotipeLog.json');
@@ -4974,6 +4985,14 @@ maxAPI.addHandlers({
     setMandatoryFunction: (str) => {
         mandatoryFunction = str;
         maxAPI.post("new mandatory function: " + str);
+    },
+    setMaxIntervalPerSearch: (integ) => {
+        maxIntervalPerSearch = integ;
+        maxAPI.post("new max interval per search: " + integ +  " milliseconds");
+    },
+    setMaxIntervalPerBranch: (integ) => {
+        maxIntervalPerNewBranch = integ;
+        maxAPI.post("new max interval per new branch: " + integ +  " milliseconds");
     },
     setMicrotonalDivision: (newOctaveDivision) => {
         notesPerOctave = newOctaveDivision;
