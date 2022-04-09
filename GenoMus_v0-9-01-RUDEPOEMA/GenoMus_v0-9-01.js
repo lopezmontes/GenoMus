@@ -4394,6 +4394,7 @@ var createGenotypeBranch = (
         }
         // adds a leaf
         else {
+            // possibly optimizable if-block with less redundancy
             if (nextFunctionType != "voidLeaf") {
                 germinalVectorReadingPos++; // ignores germinal value, since it will be replaced with the leaf type identifier
                 // reads leaf value

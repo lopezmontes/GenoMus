@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1 (c4e8f9e, 2021-05-24)"
+   sodipodi:docname="retrotranscrption_scheme.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.3416246"
+     inkscape:cx="396.90686"
+     inkscape:cy="579.52129"
+     inkscape:window-width="1296"
+     inkscape:window-height="2251"
+     inkscape:window-x="1680"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <ellipse
+       style="fill:none;stroke:#000000;stroke-width:0.432197;stroke-opacity:1"
+       id="path846"
+       cx="49.052921"
+       cy="123.75156"
+       rx="8.1341429"
+       ry="7.8925338" />
+    <text
+       xml:space="preserve"
+       style="font-size:12.8508px;line-height:1.25;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif';stroke-width:0.741392"
+       x="46.201797"
+       y="128.17955"
+       id="text1119"><tspan
+         sodipodi:role="line"
+         id="tspan1117"
+         style="stroke-width:0.741392"
+         x="46.201797"
+         y="128.17955">1</tspan></text>
+    <ellipse
+       style="fill:none;stroke:#000000;stroke-width:0.432197;stroke-opacity:1"
+       id="path846-8"
+       cx="175.91235"
+       cy="123.05977"
+       rx="8.1341429"
+       ry="7.8925338" />
+    <text
+       xml:space="preserve"
+       style="font-size:12.8508px;line-height:1.25;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif';stroke-width:0.741392"
+       x="173.06122"
+       y="127.48776"
+       id="text1119-4"><tspan
+         sodipodi:role="line"
+         id="tspan1117-0"
+         style="stroke-width:0.741392"
+         x="173.06122"
+         y="127.48776">0</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.5861px;line-height:1.25;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif';stroke-width:0.264583"
+       x="37.075695"
+       y="139.4283"
+       id="text2151"><tspan
+         sodipodi:role="line"
+         id="tspan2149"
+         style="stroke-width:0.264583"
+         x="37.075695"
+         y="139.4283">new function</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.5861px;line-height:1.25;font-family:'CMU Serif';-inkscape-font-specification:'CMU Serif';stroke-width:0.264583"
+       x="166.64342"
+       y="138.83665"
+       id="text2893"><tspan
+         sodipodi:role="line"
+         id="tspan2891"
+         style="stroke-width:0.264583"
+         x="166.64342"
+         y="138.83665">function</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="166.64342"
+         y="144.56927"
+         id="tspan3663">completed</tspan></text>
+  </g>
+</svg>

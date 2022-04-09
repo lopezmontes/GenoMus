@@ -1347,27 +1347,25 @@ An encoded genotype is an unidimensional array of normalized values &isinv; [0, 
 ---------
 ## Conversion table for genotypes
 
-|  type               | identifier      | value                  | example encoded &#x21C6; decoded 
-| ------------------- | --------------- | ---------------------- | ------------------------------------
-| `)` or `),`         | 0               | -                      | `[0]` &#x21C6; `"), "`
-| `]` or `],`         | 0.2             | -                      | `[0.2]` &#x21C6; `"], "` 
-| voidLeaf            | no identifier   | -                      | - 
-| leaf                | 0.5             | parameter              | `[0.5, 0.3]` &#x21C6; `"0.3, "` 
-| notevalueLeaf       | 0.51            | normalized parameter   | `[0.51, 0.3]` &#x21C6; `"1/32, "` 
-| durationLeaf        | 0.52            | normalized parameter   | `[0.52, 0.3]` &#x21C6; `"0.125, "` 
-| midipitchLeaf       | 0.53            | normalized parameter   | `[0.53, 0.3]` &#x21C6; `"42, "` 
-| frequencyLeaf       | 0.54            | normalized parameter   | `[0.54, 0.3]` &#x21C6; `"162, "` 
-| articulationLeaf    | 0.55            | normalized parameter   | `[0.55, 0.3]` &#x21C6; `"0.113708, "` 
-| intensityLeaf       | 0.56            | normalized parameter   | `[0.56, 0.3]` &#x21C6; `"38.1, "` 
-| goldenintegerLeaf   | 0.57            | normalized parameter   | `[0.57, 0.3]` &#x21C6; `"514262, "` 
-| quantizedLeaf       | 0.58            | normalized parameter   | `[0.58, 0.3]` &#x21C6; `"-6, "` 
-| booleanLeaf         | 0.59            | normalized parameter   | `[0.59, 0.3]` &#x21C6; `"0, "` 
-| operationLeaf       | 0.6             | normalized parameter   | `[0.6, 0.56]` &#x21C6; (unnecessary?) 
-| *newtypeLeaf*       | 0.6 < *x* < 0.8 | normalized parameter   | `[x, 0.3]` &#x21C6; human-readable converted value 
-| `[`                 | 0.8             | -                      | `[0.8]` &#x21C6; `"["` 
-| function name + `(` | 1               | encoded function index | `[1, 0.304952]` &#x21C6; `"vMotif("`
+|  type               | identifier    | value                  | example encoded &#x21C6; decoded 
+| ------------------- | ------------- | ---------------------- | ------------------------------------
+| `)` or `),`         | 0             | -                      | `[0]` &#x21C6; `"), "`
+| voidLeaf            | no identifier | -                      | - 
+| leaf                | 0.5           | parameter              | `[0.5, 0.3]` &#x21C6; `"0.3, "` 
+| notevalueLeaf       | 0.51          | normalized parameter   | `[0.51, 0.3]` &#x21C6; `"1/32, "` 
+| durationLeaf        | 0.52          | normalized parameter   | `[0.52, 0.3]` &#x21C6; `"0.125, "` 
+| midipitchLeaf       | 0.53          | normalized parameter   | `[0.53, 0.3]` &#x21C6; `"42, "` 
+| frequencyLeaf       | 0.54          | normalized parameter   | `[0.54, 0.3]` &#x21C6; `"162, "` 
+| articulationLeaf    | 0.55          | normalized parameter   | `[0.55, 0.3]` &#x21C6; `"0.113708, "` 
+| intensityLeaf       | 0.56          | normalized parameter   | `[0.56, 0.3]` &#x21C6; `"38.1, "` 
+| goldenintegerLeaf   | 0.57          | normalized parameter   | `[0.57, 0.3]` &#x21C6; `"514262, "` 
+| quantizedLeaf       | 0.58          | normalized parameter   | `[0.58, 0.3]` &#x21C6; `"-6, "` 
+| booleanLeaf         | 0.59          | normalized parameter   | `[0.59, 0.3]` &#x21C6; `"0, "` 
+| operationLeaf       | 0.6           | normalized parameter   | `[0.6, 0.56]` &#x21C6; (unnecessary?) 
+| *newtypeLeaf*       | 0.6 < *x* < 1 | normalized parameter   | `[x, 0.3]` &#x21C6; human-readable converted value 
+| function name + `(` | 1             | encoded function index | `[1, 0.304952]` &#x21C6; `"vMotif("`
 
-For each new function type, its identifier must be in interval (0.6, 0.8) and unique. 
+For each new function type, its identifier must be in interval (0.6, 1) and unique. 
 
 ----------
 ## Formatting decoded genotypes
