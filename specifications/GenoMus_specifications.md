@@ -1370,7 +1370,7 @@ For each new function type, its identifier must be in interval (0.6, 1) and uniq
 ----------
 ## Formatting decoded genotypes
 
-![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) IMPORTANT: All following examples must be updated: parameter list are now between parenthesis instead of square brackets. 
+![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) *IMPORTANT: All following examples must be updated: parameter list are now between parenthesis instead of square brackets.*
 
 
 Given the decoded expression 
