@@ -1369,6 +1369,9 @@ For each new function type, its identifier must be in interval (0.6, 1) and uniq
 
 ----------
 ## Formatting decoded genotypes
+```diff
+IMPORTANT: All following examples must be updated: parameter list are now between parenthesis instead of square brackets. 
+```
 
 Given the decoded expression 
 
