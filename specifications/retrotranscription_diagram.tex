@@ -11,11 +11,11 @@
 
 % \draw[help lines] (0,0) grid (12,5);
 
-\node[initial, circle,fill=gray,draw=gray,text=white] (newF) at (0,1.7) {1};
-\node[ellipse,fill=red!80,draw=red!80,text=white] (funcEncIdx) at (2.5,1.7) {[0, 1]};
-\node[ellipse,fill=orange!90,draw=orange!90,text=white] (leafId) at (5.5,1.7) {[0.5, 1)};
-\node[ellipse,fill=red!80,draw=red!80,text=white,] (leafValue) at (8.5,1.7) {[0, 1]};
-\node[circle,fill=gray,draw=gray,text=white,accepting] (funcEnd) at (11,1.7) {0};
+\node[initial  , circle,fill=black,draw=black,text=white] (newF) at (0,1.7) {1};
+\node[ellipse  , fill=none,draw=black,text=black] (funcEncIdx) at (2.5,1.7) {[0, 1]};
+\node[ellipse  , fill=gray,draw=black,text=white] (leafId) at (5.5,1.7) {[0.5, 1)};
+\node[ellipse  , fill=none,draw=black,text=black] (leafValue) at (8.5,1.7) {[0, 1]};
+\node[accepting  , circle,fill=black,draw=black,text=white] (funcEnd) at (11,1.7) {0};
 
 \node[text width=2.2cm,text badly centered, font=\bfseries] at (0,1) {\footnotesize{new function}};
 \node[text width=2.2cm,text badly centered, font=\bfseries] at (0,0.7) {\footnotesize{flag }};
@@ -58,39 +58,39 @@
 
       
      
-\draw[->, semithick, font=\tiny, text width=5.1cm, text badly centered] (funcEnd) to [out=52,in=-90] (11.5,2.8)
-      to [out=90,in=0] (5.5,5.1) node[above,sloped] {if current function is completed and a new function must be added in the parent level} 
+\draw[->, font=\tiny, text width=5.1cm, text badly centered] (funcEnd) to [out=52,in=-90] (11.5,2.8)
+      to [out=90,in=0] (5.5,5.2) node[above,sloped] {if current function is completed and a new function must be added in the parent level} 
       to [out=180,in=90] (-0.5,2.7) 
-      to [out=270,in=130] (newF);
+      to [out=270,in=135] (newF);
 
 
 
 
 
-\draw[->, semithick, font=\tiny, text width=2.6cm, text badly centered] (leafValue) to [out=90,in=-90] (8.5,2.2)
-      to [out=90,in=0] (7,2.78) node[above,sloped] {if leaf is part of a list and a new item is added} 
+\draw[->, font=\tiny, text width=2.6cm, text badly centered] (leafValue) to [out=90,in=-90] (8.5,2.2)
+      to [out=90,in=0] (7,2.83) node[above,sloped] {if leaf is part of a list and a new item is added} 
       to [out=180,in=90] (5.5, 2.2) 
       to [out=270,in=90] (leafId);
 
- \draw[->, semithick, font=\tiny, text width=4.3cm, text badly centered] (funcEncIdx) to [out=52.75,in=240] (2.8,2.1)
-      to [out=80,in=180] (6.75,3.9) node[above,sloped] {if current function has no leaves} 
+ \draw[->  , font=\tiny, text width=4.3cm, text badly centered] (funcEncIdx) to [out=52.75,in=240] (2.8,2.1)
+      to [out=80,in=180] (6.75,3.95) node[above,sloped] {if current function has no leaves} 
       to [out=0,in=90] (11, 2.2) 
       to [out=270,in=90] (funcEnd);
 
 
       
-\path[->, semithick] (newF) edge node {} (funcEncIdx);     
-\path[->, semithick, font=\tiny, text width=1cm, text badly centered] (funcEncIdx) edge node {if a leaf is added} (leafId);
-\path[->, semithick] (leafId) edge node {} (leafValue);
-\path[->, semithick, font=\tiny, text width=1.5cm, text badly centered] (leafValue) edge node {if current function is completed} (funcEnd);
+\path[->, very thick] (newF) edge node {} (funcEncIdx);     
+\path[->  , font=\tiny, text width=1cm, text badly centered] (funcEncIdx) edge node {if a leaf is added} (leafId);
+\path[->, very thick] (leafId) edge node {} (leafValue);
+\path[->  , font=\tiny, text width=1.5cm, text badly centered] (leafValue) edge node {if current function is completed} (funcEnd);
 
-\path[->, semithick, font=\tiny, text width=1.5cm, text badly centered] (funcEnd) edge [loop right] node {if parent function is completed} (funcEnd);
+\path[->  , font=\tiny, text width=1.5cm, text badly centered] (funcEnd) edge [loop right] node {if parent function is completed} (funcEnd);
 
 
 
 % \draw[->, font=\tiny, text width=2.3cm, text badly centered] (funcEncIdx) .. controls +(up:1.3cm) and +(up:1.3cm) .. node[above,sloped] {a new function inside a parent function} (newF);
 
-\draw[->, semithick, font=\tiny, text width=2.9cm, text badly centered] (funcEncIdx) to [out=90,in=-90] (2.5,2.2)
+\draw[->  , font=\tiny, text width=2.9cm, text badly centered] (funcEncIdx) to [out=90,in=-90] (2.5,2.2)
       to [out=90,in=0] (1.25,2.78) node[above,sloped] {if a new function is added inside a parent function} 
       to [out=180,in=90] (0, 2.2) 
       to [out=270,in=90] (newF);
