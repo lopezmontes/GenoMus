@@ -1,1 +1,1 @@
-"from init conds: sConcatS(sAddV(s(v(e(n(0),m(43),aRnd(),i(0)))),vMotif(lnRemap(lnRemap(ln(0),nRnd(),nAutoref(0)),nRnd(),n(0.525736)),lm(70,83,46,60,50),lP2A(l3P(p(0.5),pAutoref(0),pAutoref(1))),li(60))),sAutoref(0))"
+"from init conds: sAddV(s(vSlice(vRepeatV(vRepeatE(e4Pitches(nRnd(),m(43),mRnd(),m(64),mAutoref(1),a(60),iRnd()),q(7)),q(2)),qRnd())),vMotif(lnLine(nRnd(),n(0.269902),z(33)),lmRemap(lm(50,42,61),mAutoref(2),m(70)),la(58,11),liRemap(liRemap(li(60),iAutoref(0),i(65)),iRnd(),iRnd())))"

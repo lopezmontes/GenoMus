@@ -625,15 +625,17 @@ Nueva figura que ilustre como enlazan las diferentes estructuras descritas.
 
 
 
-Any random sequence of numbers generates a valid program. 
+Any random sequence of numbers generates a valid program. This sequences are named \emph{germinal vectors}, and will be represented as the set $G_{vec}$:
 
-$$ P = \{x_n \in \mathbb{R} \: | \: 0 \leq x_n \leq1 \} $$
+$$ G_{vec} = \{g_n \in \mathbb{R} \: | \: 0 \leq g_n \leq1 \} $$
 Multidimensional search space of all possible vectors with normalized parameters:
-$$ P^n $$
-Each vector in P is mapped to a valid encoded genotype (that is a valid functional expression which generates an excerpt of music.
-Let G be the set of all possible valid encoded genotypes. To create genotypes, the map $f$ works as a decision tree such as every vector $\vec{p} = (p_1, p_2, ..., p_n) \in P^n$ will be mapped to $G$: 
-$$f:\ P^n\to G$$
-Most of times $n$ doesn't match the number of required items to complete a valid encoded genotype. If $\vec{p}$ has more items than needed, they are ignored. If $f$ needs more items than those supplied by $\vec{p}$, $f$ reads $\vec{p}$ repeatedly from the beginning as a loop, until closing the valid encoded genotype. That implies that even vectors with a single value can be mapped to large functional expressions.  
+$$ G_{vec}^n $$
+Each germinal vector in $G_{vec}$ is mapped to a valid encoded genotype (that is a valid functional expression which generates an excerpt of music.
+Let $E_{gen}$ be the set of all possible valid encoded genotypes. To create genotypes, the map $f$ works as a decision tree such as every vector $\vec{g} = (g_1, g_2, ..., g_n) \in G_{vec}^n$ will be mapped to a new vector $\vec{e_g} = (x_1, x_2, ..., x_n) \in E_{gen}$: 
+$$f:\ G_{vec}^n\to E_{gen}$$
+As the number of choices needed to complete a valid valid encoded genotype $E_{gen}$ rarely match the number of items of a germinal vector $G_{vec}^n$, truncation of loops are employed:
+
+If $\vec{g}$ has more items than needed, they are ignored. If $f$ needs more items than those supplied by $\vec{g}$, $f$ reads $\vec{g}$ repeatedly from the beginning as a loop, until closing the valid encoded genotype. That implies that even vectors with a single value can be mapped to large functional expressions.  
 
 
 

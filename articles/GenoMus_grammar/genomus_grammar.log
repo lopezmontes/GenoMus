@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.9.12)  10 APR 2022 21:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.9.12)  11 APR 2022 13:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -638,104 +638,101 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [9]
 [10 <./figs/germinal_vector_to_encoded_genotype_coding/germinal_vector_to_encod
 ed_genotype_coding.pdf>]
-<figs/clapping_patterns.pdf, id=302, 577.87482pt x 212.68312pt>
+<figs/clapping_patterns.pdf, id=303, 577.87482pt x 212.68312pt>
 File: figs/clapping_patterns.pdf Graphic file (type pdf)
 <use figs/clapping_patterns.pdf>
-Package pdftex.def Info: figs/clapping_patterns.pdf  used on input line 696.
+Package pdftex.def Info: figs/clapping_patterns.pdf  used on input line 698.
 (pdftex.def)             Requested size: 469.75499pt x 172.89871pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 707--721
+Underfull \hbox (badness 10000) in paragraph at lines 709--723
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 707--721
+Underfull \hbox (badness 10000) in paragraph at lines 709--723
 
  []
 
-
-Underfull \vbox (badness 1888) has occurred while \output is active []
-
- [11 <./figs/clapping_patterns.pdf>]
+[11 <./figs/clapping_patterns.pdf>]
 (/usr/local/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 728.
+nput line 730.
  [12]
-<figs/clapping_tree_graph_colours_code.pdf, id=358, 476.43866pt x 263.4135pt>
+<figs/clapping_tree_graph_colours_code.pdf, id=359, 476.43866pt x 263.4135pt>
 File: figs/clapping_tree_graph_colours_code.pdf Graphic file (type pdf)
 <use figs/clapping_tree_graph_colours_code.pdf>
 Package pdftex.def Info: figs/clapping_tree_graph_colours_code.pdf  used on inp
-ut line 825.
+ut line 827.
 (pdftex.def)             Requested size: 469.75499pt x 259.73512pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [13]
-<figs/clappingVisualized.pdf, id=382, 1033.46097pt x 112.42pt>
+<figs/clappingVisualized.pdf, id=383, 1033.46097pt x 112.42pt>
 File: figs/clappingVisualized.pdf Graphic file (type pdf)
 <use figs/clappingVisualized.pdf>
-Package pdftex.def Info: figs/clappingVisualized.pdf  used on input line 835.
+Package pdftex.def Info: figs/clappingVisualized.pdf  used on input line 837.
 (pdftex.def)             Requested size: 312.9803pt x 34.04532pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 848--848
+Underfull \hbox (badness 10000) in paragraph at lines 850--850
 []\T1/cmr/m/n/10 (+20) arguments
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 851--851
+Underfull \hbox (badness 10000) in paragraph at lines 853--853
 []\T1/cmr/m/n/10 (+20) (\T1/cmr/m/it/10 (+20) lnotevaluesF\T1/cmr/m/n/10 (+20) 
 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 851--851
+Underfull \hbox (badness 10000) in paragraph at lines 853--853
 \T1/cmr/m/it/10 (+20) lmidip-itchF\T1/cmr/m/n/10 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 851--851
+Underfull \hbox (badness 10000) in paragraph at lines 853--853
 \T1/cmr/m/it/10 (+20) lar-tic-u-la-tionF\T1/cmr/m/n/10 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 851--851
+Underfull \hbox (badness 10000) in paragraph at lines 853--853
 \T1/cmr/m/it/10 (+20) lin-ten-si-tyF\T1/cmr/m/n/10 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 851--851
+Underfull \hbox (badness 10000) in paragraph at lines 853--853
 \T1/cmr/m/it/10 (+20) quan-tizedF\T1/cmr/m/n/10 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 851--851
+Underfull \hbox (badness 10000) in paragraph at lines 853--853
 \T1/cmr/m/it/10 (+20) quan-tizedF\T1/cmr/m/n/10 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 851--851
+Underfull \hbox (badness 10000) in paragraph at lines 853--853
 \T1/cmr/m/it/10 (+20) quan-tizedF\T1/cmr/m/n/10 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 851--851
+Underfull \hbox (badness 10000) in paragraph at lines 853--853
 \T1/cmr/m/it/10 (+20) quan-tizedF\T1/cmr/m/n/10 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 851--851
+Underfull \hbox (badness 10000) in paragraph at lines 853--853
 \T1/cmr/m/it/10 (+20) quan-tizedF\T1/cmr/m/n/10 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 851--851
+Underfull \hbox (badness 10000) in paragraph at lines 853--853
 \T1/cmr/m/it/10 (+20) quan-tizedF\T1/cmr/m/n/10 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 847--857
+Underfull \hbox (badness 10000) in paragraph at lines 849--859
 [][]
  []
 
@@ -754,15 +751,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `genomus_grammar.out' has not changed.
 (rerunfilecheck)             Checksum: 57B675695A785CC27091C9BE45F5A2E5;5760.
  ) 
 Here is how much of TeX's memory you used:
- 16452 strings out of 478994
- 252251 string characters out of 5858184
- 1222195 words of memory out of 5000000
+ 16450 strings out of 478994
+ 252233 string characters out of 5858184
+ 1222194 words of memory out of 5000000
  33255 multiletter control sequences out of 15000+600000
- 435651 words of font info for 217 fonts, out of 8000000 for 9000
+ 435591 words of font info for 216 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,12n,88p,1341b,1213s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
@@ -770,35 +770,36 @@ Here is how much of TeX's memory you used:
 /usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.e
 nc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/fontawesome/FontAweso
 me.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
-0.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.
-pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
-fb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
-></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></us
-r/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/l
-ocal/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/lo
-cal/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></us
-r/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbi1000.pfb></usr/
-local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbl1000.pfb></usr/lo
-cal/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbl1200.pfb></usr/loca
-l/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/
-texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/te
-xlive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texl
-ive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb></usr/local/texliv
-e/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/
-2021/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/20
-21/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2021
-/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2021/t
-exmf-dist/fonts/type1/public/cm-super/sfsl1000.pfb></usr/local/texlive/2021/tex
-mf-dist/fonts/type1/public/cm-super/sfti0900.pfb></usr/local/texlive/2021/texmf
--dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2021/texmf-d
-ist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2021/texmf-dis
-t/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2021/texmf-dist/
-fonts/type1/public/cm-super/sfxc1200.pfb>
-Output written on genomus_grammar.pdf (19 pages, 697675 bytes).
+0.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.
+pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pf
+b></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><
+/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
+sr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/
+local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loc
+al/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
+l/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/
+local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbi1000.pfb></usr/lo
+cal/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbl1000.pfb></usr/loca
+l/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbl1200.pfb></usr/local/
+texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/te
+xlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texl
+ive/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texliv
+e/2021/texmf-dist/fonts/type1/public/cm-super/sfcc1728.pfb></usr/local/texlive/
+2021/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/20
+21/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2021
+/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2021/t
+exmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2021/tex
+mf-dist/fonts/type1/public/cm-super/sfsl1000.pfb></usr/local/texlive/2021/texmf
+-dist/fonts/type1/public/cm-super/sfti0900.pfb></usr/local/texlive/2021/texmf-d
+ist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2021/texmf-dis
+t/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2021/texmf-dist/
+fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2021/texmf-dist/fo
+nts/type1/public/cm-super/sfxc1200.pfb>
+Output written on genomus_grammar.pdf (19 pages, 705997 bytes).
 PDF statistics:
- 573 PDF objects out of 1000 (max. 8388607)
- 509 compressed objects within 6 object streams
+ 577 PDF objects out of 1000 (max. 8388607)
+ 512 compressed objects within 6 object streams
  145 named destinations out of 1000 (max. 500000)
  60653 words of extra memory for PDF output out of 61914 (max. 10000000)
 

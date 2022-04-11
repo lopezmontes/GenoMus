@@ -3,6 +3,7 @@
 
 // GOALS:
 // Testing Inital Conditons without branch depth limit (only with default set out of Initial Conditions)
+// Considering add branch type (and mayybe species) to the intial conditions, to be autocontained.
 // Last redesign of data arquitecture, previous to GenoMus 1.0
 // Genetic algorithms
 
@@ -40,7 +41,7 @@ var validGenotype = true;
 var decGenStringLengthLimit = 5000;
 
 var phenotypeSeed = Math.round(Math.random() * 1e14); // seed only for computing phenotype
-var defaultGerminalVecMaxLength = 256;
+var defaultGerminalVecMaxLength = 2000;
 var genMaxDepth = 25;
 var defaultListsMaxCardinality = 20;
 var phenMinPolyphony = 1;
@@ -4335,7 +4336,9 @@ var createGenotypeBranch = (
     var eligibleFuncionNamesLength;
     var orderedElegibleEncIndexes;
     var valueForChoosingNewFunction;
-    var newListElementThreshold = Math.min(0.499, 3/listsMaxNumItems); // important trick here: as leaf types codes are numbers bigger than 0.5, this values always will pass the threshold value
+    // important trick here: as leaf types codes are numbers bigger than 0.5, this values always will pass the threshold value
+    // with the following threshold design, there is an absolute minimum of 2 elements per list
+    var newListElementThreshold = Math.min(0.5, 1/listsMaxNumItems); 
     var preItemValue; // determines if a new value must be added to a list
     var cardinality;
     var converser;
@@ -4389,7 +4392,7 @@ var createGenotypeBranch = (
                 preItemValue = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                 // when leaf is actually a list
                 if (listLeafTypes.includes(nextFunctionType)) {
-                    while (preItemValue > newListElementThreshold && cardinality < listsMaxNumItems) {
+                    while (preItemValue >= newListElementThreshold && cardinality < listsMaxNumItems) {
                         germinalVectorReadingPos++;
                         newLeaf = checkRange(r6d(germinalVector[germinalVectorReadingPos % germinalVectorLength]));
                         germinalVectorReadingPos++;
