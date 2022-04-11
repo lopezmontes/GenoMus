@@ -4910,19 +4910,23 @@ maxAPI.addHandlers({
     },
     minVoices: (integ) => {
         phenMinPolyphony = integ;
-        maxAPI.post("Phenotype minimal polyphony: " + phenMinPolyphony + " voices");
+        maxAPI.post("phenotype minimal polyphony: " + phenMinPolyphony + " voices");
     },
     maxVoices: (integ) => {
         phenMaxPolyphony = integ;
-        maxAPI.post("Phenotype maximal polyphony: " + phenMaxPolyphony + " voices");
+        maxAPI.post("phenotype maximal polyphony: " + phenMaxPolyphony + " voices");
     },
     minLength: (integ) => {
         phenMinLength = integ;
-        maxAPI.post("Phenotype minimal number of events: " + phenMinLength);
+        maxAPI.post("phenotype minimal number of events: " + phenMinLength);
     },
     maxLength: (integ) => {
         phenMaxLength = integ;
-        maxAPI.post("Phenotype maximal number of events: " + phenMaxLength);
+        maxAPI.post("phenotype maximal number of events: " + phenMaxLength);
+    },
+    listsCardinality: (integ) => {
+        defaultListsMaxCardinality = integ;
+        maxAPI.post("maximal lists length: " + defaultListsMaxCardinality);
     },
     depth: (integ) => {
         genMaxDepth = integ;
@@ -4930,23 +4934,23 @@ maxAPI.addHandlers({
     },
     mutProb: (float) => {
         mutationProbability = float;
-        maxAPI.post("new probability of mutations: " + float);
+        maxAPI.post("probability of mutations: " + float);
     },
     mutAmou: (float) => {
         mutationAmount = float;
-        maxAPI.post("new maximal amount of a mutation: " + float);
+        maxAPI.post("maximal amount of a mutation: " + float);
     },
     setMandatoryFunction: (str) => {
         mandatoryFunction = str;
-        maxAPI.post("new mandatory function: " + str);
+        maxAPI.post("mandatory function: " + str);
     },
     setMaxIntervalPerSearch: (integ) => {
         maxIntervalPerSearch = integ;
-        maxAPI.post("new max interval per search: " + integ +  " milliseconds");
+        maxAPI.post("max interval per search: " + integ +  " milliseconds");
     },
     setMaxIntervalPerBranch: (integ) => {
         maxIntervalPerNewBranch = integ;
-        maxAPI.post("new max interval per new branch: " + integ +  " milliseconds");
+        maxAPI.post("max interval per new branch: " + integ +  " milliseconds");
     },
     setMicrotonalDivision: (newOctaveDivision) => {
         notesPerOctave = newOctaveDivision;
@@ -4956,7 +4960,7 @@ maxAPI.addHandlers({
             norm2equalTemperamentDivisionMidipitch = p => r6d((Math.round((notesPerOctave/12) * 100 * u2n(p) + (notesPerOctave))) / (notesPerOctave/12));
             p2m = norm2equalTemperamentDivisionMidipitch;
         };
-        maxAPI.post("new temperament: " + newOctaveDivision + " notes per octave");
+        maxAPI.post("temperament: " + newOctaveDivision + " notes per octave");
     },
     //////////// IN DEVELOPMENT
     mtries: () => {
