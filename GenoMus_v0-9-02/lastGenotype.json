@@ -1,1 +1,1 @@
-"from init conds: sAddV(s(v(e(n(0),m(43),aRnd(),i(0)))),vRepeatV(vSlice(vPerpetuumMobile(nRnd(),lP2M(l3P(pRnd(),pAutoref(0),pRnd())),la(60),liRemap(lP2I(lAutoref(0)),iRnd(),iAutoref(0))),q(5)),q(2)))"
+"from init conds: sConcatS(sAddV(s(v(e(n(0),m(43),aRnd(),i(0)))),vMotif(lnRemap(lnRemap(ln(0),nRnd(),nAutoref(0)),nRnd(),n(0.525736)),lm(70,83,46,60,50),lP2A(l3P(p(0.5),pAutoref(0),pAutoref(1))),li(60))),sAutoref(0))"

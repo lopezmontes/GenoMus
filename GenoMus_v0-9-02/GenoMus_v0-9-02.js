@@ -3448,14 +3448,6 @@ var encodeGenotype = decGen => {
             encodedGenotype.push(0);
             decGen = decGen.substr(1);
         }
-        else if (/^\]/.test(decGen)) {
-            encodedGenotype.push(0.2);
-            decGen = decGen.substr(1);
-        }
-        else if (/^\[/.test(decGen)) {
-            encodedGenotype.push(0.8);
-            decGen = decGen.substr(1);
-        }
         else if (/^[a-zA-Z]/.test(decGen)) {
             do {
                 readToken += decGen[0];
@@ -3472,8 +3464,8 @@ var encodeGenotype = decGen => {
             readToken = "";
             decGen = decGen.substr(1);
         }
-        else if ((/^\d/.test(decGen) || /^./.test(decGen) || /^\//.test(decGen)) && /^\,/.test(decGen) == false && /^\)/.test(decGen) == false && /^\]/.test(decGen) == false) {
-            while ((/^\d/.test(decGen) || /^./.test(decGen) || /^\//.test(decGen)) && /^\,/.test(decGen) == false && /^\)/.test(decGen) == false && /^\]/.test(decGen) == false) {
+        else if ((/^\d/.test(decGen) || /^./.test(decGen) || /^\//.test(decGen)) && /^\,/.test(decGen) == false && /^\)/.test(decGen) == false) {
+            while ((/^\d/.test(decGen) || /^./.test(decGen) || /^\//.test(decGen)) && /^\,/.test(decGen) == false && /^\)/.test(decGen) == false) {
                 readToken += decGen[0];
                 decGen = decGen.substr(1);
             };
@@ -3529,8 +3521,6 @@ var decodeGenotype = encGen => {
         switch (encGen[pos]) {
             case 0:
                 decodedGenotype += "),"; break;
-            case 0.2:
-                decodedGenotype += "],"; break;
             case 0.5:
                 pos++; decodedGenotype += encGen[pos] + ","; break;
             case 0.51:
@@ -3551,8 +3541,6 @@ var decodeGenotype = encGen => {
                 pos++; decodedGenotype += p2q(encGen[pos]) + ","; break;
             case 0.6:
                 pos++; decodedGenotype += encGen[pos] + ","; break;
-            case 0.8:
-                decodedGenotype += "["; break;
             case 1:
                 pos++; decodedGenotype += GenoMusFunctionLibrary.encodedIndexes[encGen[pos]] + "("; break;
             default:
@@ -3563,7 +3551,7 @@ var decodeGenotype = encGen => {
         pos++;
     }
     // removes trailing commas after returning decoded genotype
-    return decodedGenotype.replace(/\,\)/g, ")").replace(/\,\]/g, "]").slice(0, -1);
+    return decodedGenotype.replace(/\,\)/g, ")").slice(0, -1);
 };
 
 // Extraction of leaves
@@ -3577,8 +3565,6 @@ var extractLeaves = encGen => {
     while (pos < encGenLength) {
         switch (encGen[pos]) {
             case 0:
-                break;
-            case 0.2:
                 break;
             case 0.5:
                 pos++; encodedLeaves.push([pos, encGen[pos], encGen[pos]]); break;
@@ -3607,8 +3593,6 @@ var extractLeaves = encGen => {
                 pos++; encodedLeaves.push([pos, encGen[pos], p2q(encGen[pos])]); break;
             case 0.6:
                 pos++; encodedLeaves.push([pos, encGen[pos], encGen[pos]]); break;
-            case 0.8:
-                break;
             case 1:
                 break;
         }
