@@ -4498,35 +4498,23 @@ var manyFuncsWithoutAutoRefs = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 1
 
 // testing functions
 var eligibleFunctionsForTesting = {
-    includedFunctions:  
-        // [] // all functions   
-        minimalFunctions
-        .concat(randomFunctions)
-        .concat(minimalLists)
-        .concat(iterFuncs)
-        .concat(repeatFuncs)
-        .concat(paramAutorefFuncs)
-        .concat(extendersFuncs)
-        .concat(vmotifs)
-        .concat(multiplePitchesEventsFuncs)
-        .concat(listConvertersFuncs)
-        
-        .concat(testingFuncs)
-//
-        .concat(manyFuncs)
-        //.concat(manyFuncsWithoutAutoRefs)
-
-        ,
-//     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19, 20,
-//        26, 28, 29,
-//    42,
-//    43,
-//    44,
-//    46, 
-//    48,
-//    98, 99, 100, 101,
-//    104, 109
-//    ],
+    includedFunctions: 
+        // [] // all functions    
+        [...new Set(
+            minimalFunctions
+            .concat(randomFunctions)
+            .concat(minimalLists)
+            .concat(iterFuncs)
+            .concat(repeatFuncs)
+            .concat(paramAutorefFuncs)
+            .concat(extendersFuncs)
+            .concat(vmotifs)
+            .concat(multiplePitchesEventsFuncs)
+            .concat(listConvertersFuncs)
+            .concat(testingFuncs)
+            .concat(manyFuncs)
+            //.concat(manyFuncsWithoutAutoRefs)
+        )],
     excludedFunctions: [] // 84,302,303,304,305,306,307,308,309] //  319,320,321,322,323,324] // [37,46,98,99,100,101]// 310,311,312,313,314,315,316,317,131,132,133,134,135] // 
 };
 
