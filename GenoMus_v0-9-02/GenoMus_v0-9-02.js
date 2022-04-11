@@ -31,7 +31,7 @@ var post = (message, variable) => {
 var debugMode = "terminal";
 // var debugMode = "max_console";
 
-/////////////////////[]
+/////////////////////
 // INITIAL CONDITIONS
 var version = "0.9.02";
 
