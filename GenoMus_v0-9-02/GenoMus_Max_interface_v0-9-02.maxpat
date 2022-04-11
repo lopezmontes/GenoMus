@@ -21996,7 +21996,7 @@
 					"patching_rect" : [ 19.333287398020389, 14.666666507720947, 234.0, 35.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 19.333287398020389, 14.666666507720947, 234.0, 35.0 ],
-					"text" : "GenoMus v. 0.9.01",
+					"text" : "GenoMus v. 0.9.02",
 					"textcolor" : [ 0.72156862745098, 0.72156862745098, 0.72156862745098, 1.0 ]
 				}
 
@@ -22945,7 +22945,7 @@
 										"watch" : 0
 									}
 ,
-									"text" : "node.script GenoMus_v0-9-01.js"
+									"text" : "node.script GenoMus_v0-9-02.js"
 								}
 
 							}
@@ -25604,7 +25604,7 @@
  ],
 		"dependency_cache" : [ 			{
 				"name" : "GenoMus_v0-9-01.js",
-				"bootpath" : "~/Dropbox/tesis/GenoMus/GenoMus_v0-9-01-RUDEPOEMA",
+				"bootpath" : "~/Dropbox/tesis/GenoMus/GenoMus_v0-9-02",
 				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1
@@ -25733,7 +25733,7 @@
 			}
 , 			{
 				"name" : "expandCompressedGenotype.js",
-				"bootpath" : "~/Dropbox/tesis/GenoMus/GenoMus_v0-9-01-RUDEPOEMA",
+				"bootpath" : "~/Dropbox/tesis/GenoMus/GenoMus_v0-9-02",
 				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1
@@ -25746,7 +25746,7 @@
 			}
 , 			{
 				"name" : "listToArrayAsString.js",
-				"bootpath" : "~/Dropbox/tesis/GenoMus/GenoMus_v0-9-01-RUDEPOEMA",
+				"bootpath" : "~/Dropbox/tesis/GenoMus/GenoMus_v0-9-02",
 				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1
@@ -25759,14 +25759,14 @@
 			}
 , 			{
 				"name" : "randomList.js",
-				"bootpath" : "~/Dropbox/tesis/GenoMus/GenoMus_v0-9-01-RUDEPOEMA",
+				"bootpath" : "~/Dropbox/tesis/GenoMus/GenoMus_v0-9-02",
 				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "regressionTests.js",
-				"bootpath" : "~/Dropbox/tesis/GenoMus/GenoMus_v0-9-01-RUDEPOEMA",
+				"bootpath" : "~/Dropbox/tesis/GenoMus/GenoMus_v0-9-02",
 				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1

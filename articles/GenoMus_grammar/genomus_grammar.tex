@@ -165,7 +165,7 @@ El survey de Vico \cite{DBLP:journals/corr/RodriguezV14}
 
 
 Research in artificial musical intelligence demand for formalized
-grammars of musical structures. Besides, a model of creative
+grammars of musical structures. {\color{gray} \textsl{[introducir cita, y hablar en el background de gramáticas generativas]}} Besides, a model of creative
 mind is required to operate these abstractions.
 Aesthetic criteria are extremely subjective, furthermore the details
 of every model of automatic composition impose, consciously
@@ -307,13 +307,20 @@ After studying the potential and limitations of previous research {\color{red}(r
 {\color{red}Ahora mismo, hay una mezcla de niveles de abstraccion; por ejemplo, 'a', 'g' o 'j' son caracteristicas, mientras que 'd' dice como se debe de hacer.}
 
 {\color{red}Mi propuesta simplificada de caracteristicas:
-- Representacion modular.
-- Representacion compacta (es menor o igual que el resultado que codifica).
-- Representacion extensible (se pueden usar subconjuntos de la gramatica)
-- Representacion manipulable procedimentalmente.
-- Representacion consistente (un codigo siempre genera la misma salida)
-- Soporte para autoreferencias internas.
-- Aplicabilidad a otros contexto.
+
+- Representacion modular.
+
+- Representacion compacta (es menor o igual que el resultado que codifica).
+
+- Representacion extensible (se pueden usar subconjuntos de la gramatica)
+
+- Representacion manipulable procedimentalmente.
+
+- Representacion consistente (un codigo siempre genera la misma salida)
+
+- Soporte para autoreferencias internas.
+
+- Aplicabilidad a otros contexto.
 }
 
 \textbf{a) Grammar based on a symbolic and generative approach to music composition and analysis.}
@@ -607,6 +614,17 @@ Nueva figura que ilustre como enlazan las diferentes estructuras descritas.
 }
 
 
+\subsection{Germinal vector, encoded genotype and encoded phenotype}
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{figs/germinal_vector_to_encoded_genotype_coding/germinal_vector_to_encoded_genotype_coding.pdf}
+  \caption{From germinal vector to encoded genotype}
+  \label{fig:fromGerminalToEncGen}
+\end{figure}
+
+
+
+
 Any random sequence of numbers generates a valid program. 
 
 $$ P = \{x_n \in \mathbb{R} \: | \: 0 \leq x_n \leq1 \} $$
@@ -620,6 +638,13 @@ Most of times $n$ doesn't match the number of required items to complete a valid
 
 
 \subsection{Scores represented as normalized vectors}
+
+
+
+
+
+  
+  
 \subsection{A unique format for procedures and results}
 \subsection{Safety through encoding}
 
@@ -647,7 +672,7 @@ Most of times $n$ doesn't match the number of required items to complete a valid
 
 
 
-To illustrate how GenoMus represents and encodes music procedures in an abstract format, we will apply the framework to model \emph{Clapping Music}, a famous piece composed by Steve Reich in 1972. As many of the pieces of the composer, it begins with a minimal motif, which undergoes simple transformations that have big consequences in the overall form. Two performers start the piece repeating a clapped pattern. One of the performers removes the first note of the pattern after each cycle of 8 repetitions\footnote{According to the score, each loop can consist of 8 or 12 repetitions. We have chosen 8 repetitions for the sake of clarity and because is the preferred version for most of recordings.}, creating a phase shift among both voices. The work finished when both lines are in phase again.
+To illustrate how GenoMus represents and encodes a piece of music using basic procedures in an abstract format, we will apply the framework to model \emph{Clapping Music}, a famous piece composed by Steve Reich in 1972. As many of the pieces of the composer, it begins with a minimal motif, which undergoes simple transformations that have big consequences in the overall form. Two performers start the piece repeating a clapped pattern. One of the performers removes the first note of the pattern after each cycle of 8 repetitions\footnote{According to the score, each loop can consist of 8 or 12 repetitions. We have chosen 8 repetitions for the sake of clarity and because is the preferred version for most of recordings.}, creating a phase shift among both voices. The work finished when both lines are in phase again.
 
 The piece was modeled using the \emph{piano} species which, according to the formalism stated in section~\ref{sec:formaldef}, is defined as the set $G_{piano} = \{P, \vec{e}, T, i, F_{piano}, E, L, M, C, \vec{d}\}$, where
 

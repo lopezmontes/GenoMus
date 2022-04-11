@@ -1,7 +1,8 @@
-// GENOMUS 0.9.01 UNIT TESTING
+// GENOMUS 0.9.02 UNIT TESTING
 ///////////////////////////
 
 // GOALS:
+// Testing Inital Conditons without branch depth limit (only with default set out of Initial Conditions)
 // Last redesign of data arquitecture, previous to GenoMus 1.0
 // Genetic algorithms
 
@@ -14,7 +15,7 @@ var notesPerOctave = 12;
 // var initialConditionsJSONfilename = "jornadasSonologiaValencia.json";
 // var initialConditionsJSONfilename = "csound_species_test.json";
 // var initialConditionsJSONfilename = "piano_4xtra_species_test.json";
-// var initialConditionsJSONfilename = "initialConditions.json";
+var initialConditionsJSONfilename = "initialConditions.json";
 
 // DEPENDENCIES
 // files handling
@@ -32,7 +33,7 @@ var debugMode = "terminal";
 
 /////////////////////[]
 // INITIAL CONDITIONS
-var version = "0.9.01";
+var version = "0.9.02";
 
 var defaultEventExpression; // variable to store a default event when no autoreferences are possible
 var validGenotype = true;
@@ -40,8 +41,7 @@ var decGenStringLengthLimit = 5000;
 
 var phenotypeSeed = Math.round(Math.random() * 1e14); // seed only for computing phenotype
 var defaultGerminalVecMaxLength = 256;
-var genMaxDepth = 16;
-var defaultGenMaxDepth = 16;
+var genMaxDepth = 25;
 var defaultListsMaxCardinality = 20;
 var phenMinPolyphony = 1;
 var phenMaxPolyphony = 8;
@@ -790,7 +790,7 @@ var simpleBACHSearch = () => {
                 currentPopulation[specIndx3 % numEliteSpecs].slice(),
                 "scoreF",
                 eligibleFunctionsForTesting,
-                defaultGenMaxDepth,
+                // genMaxDepth,
                 defaultListsMaxCardinality,
                 phenotypeSeed));
             // post("tomado: ", evaluatedSpecimenToGraft.decodedGenotype);
@@ -815,7 +815,7 @@ var simpleBACHSearch = () => {
                 newGeneration[a],
                 "scoreF",
                 eligibleFunctionsForTesting,
-                defaultGenMaxDepth,
+                // genMaxDepth,
                 defaultListsMaxCardinality,
                 phenotypeSeed));
             currentErrors[a] = [a,fitnessFunction(evaluatedNewCandidate.encodedPhenotype)];
@@ -869,7 +869,7 @@ var simpleBACHSearch = () => {
             newGeneration[0],
             "scoreF",
             eligibleFunctionsForTesting,
-            defaultGenMaxDepth,
+            // genMaxDepth,
             defaultListsMaxCardinality,
             phenotypeSeed))
         // for (var nums = 0; nums < specimensPerGeneration; nums++) {
@@ -4128,6 +4128,7 @@ var specimenDataStructure = (specimen) => ({
         iterations: specimen.data.iterations,
         milliseconsElapsed: specimen.data.milliseconsElapsed,
         depth: specimen.data.depth,
+        maxAllowedDepth: specimen.data.maxAllowedDepth,
         voices: specimen.phenVoices,
         events: specimen.phenLength,
         decGenotypeLength: specimen.data.decGenotypeLength,
@@ -4139,7 +4140,6 @@ var specimenDataStructure = (specimen) => ({
     initialConditions: {
         germinalVector: specimen.data.germinalVector,
         localEligibleFunctions: specimen.data.localEligibleFunctions,
-        maxAllowedDepth: specimen.data.maxAllowedDepth,
         maxListCardinality: specimen.data.maxListCardinality,
         phenotypeSeed: specimen.data.phenotypeSeed
     },
@@ -4328,7 +4328,7 @@ var createGenotypeBranch = (
         germinalVector,
         branchOutputType,
         localEligibleFunctions,
-        maxDepth,
+        // maxDepth,
         listsMaxNumItems,
         seedForAlea
     ) => {
@@ -4388,7 +4388,7 @@ var createGenotypeBranch = (
                 (local_functions_catalogue.functionLibrary[nextFunctionType][chosenFunction].arguments).length;
             expectedFunctions[notFilledParameters.length - 1] = chosenFunction;
             // checks depth limits
-            if (notFilledParameters.length > maxDepth) {
+            if (notFilledParameters.length > genMaxDepth) {
                 validGenotype = false;
             } else if (notFilledParameters.length > genotypeDepth) genotypeDepth = notFilledParameters.length;
         }
@@ -4446,7 +4446,7 @@ var createGenotypeBranch = (
             [openFunctionTypes[openFunctionTypes.length - 1]]
             [expectedFunctions[expectedFunctions.length - 1]]
                 .arguments.length - notFilledParameters[notFilledParameters.length - 1]];
-        if (notFilledParameters.length > maxDepth) validGenotype == false;
+        if (notFilledParameters.length > genMaxDepth) validGenotype == false;
     } while (
         notFilledParameters[0] > 0 &&
         validGenotype == true); // &&
@@ -4466,7 +4466,7 @@ var createGenotypeBranch = (
         germinalVector: germinalVector,
         phenotypeSeed: seedForAlea,
         localEligibleFunctions: local_functions_catalogue.eligibleFunctions,
-        maxAllowedDepth: maxDepth,
+        maxAllowedDepth: genMaxDepth,
         maxListCardinality: listsMaxNumItems,
         depth: genotypeDepth,
         leaves: extractLeaves(newBranch.encGen),
@@ -4544,7 +4544,7 @@ var createNewSpecimen = () => {
     var germinalVec;
     var outputType = "scoreF";
     var eligibleFuncs = eligibleFunctionsForTesting;
-    var maxAllowedDepth = genMaxDepth;
+    // var maxAllowedDepth = genMaxDepth;
     var listMaxLength = defaultListsMaxCardinality;
     var aleaSeed = parseInt(Math.random()*1e15);
     // aux variables
@@ -4556,7 +4556,8 @@ var createNewSpecimen = () => {
         // creates a new genotype
         germinalVec = randomVector(parseInt(Math.random()*defaultGerminalVecMaxLength) + 1);
         newSpecimen = createGenotypeBranch(
-            germinalVec, outputType, eligibleFuncs, maxAllowedDepth, listMaxLength, aleaSeed);
+            // germinalVec, outputType, eligibleFuncs, maxAllowedDepth, listMaxLength, aleaSeed);
+            germinalVec, outputType, eligibleFuncs, listMaxLength, aleaSeed);
         // save last genotype created as log file
         // createJSON(iterations + ": " + newSpecimen.decGen, 'lastGenotype.json');
     } while (
@@ -4600,7 +4601,7 @@ var createNewSpecimen = () => {
 
 // creates specimen from initial conditions
 var specimenFromInitialConditions = (
-    germinalVec, outputType, eligibleFuncs, maxAllowedDepth, listMaxLength, aleaSeed) => {
+    germinalVec, outputType, eligibleFuncs, listMaxLength, aleaSeed) => {
     var searchStartdate = new Date();
     // main variable
     var specimenFromInitConds;
@@ -4608,7 +4609,8 @@ var specimenFromInitialConditions = (
     var genotypeDepth;
     // render the genotype
     specimenFromInitConds = createGenotypeBranch(
-        germinalVec, outputType, eligibleFuncs, maxAllowedDepth, listMaxLength, aleaSeed);
+//        germinalVec, outputType, eligibleFuncs, maxAllowedDepth, listMaxLength, aleaSeed);
+        germinalVec, outputType, eligibleFuncs, listMaxLength, aleaSeed);
     // save last genotype created as log file
     createJSON("from init conds: " + specimenFromInitConds.decGen, 'lastGenotype.json');
     if (specimenFromInitConds == -1) {
@@ -4623,7 +4625,7 @@ var specimenFromInitialConditions = (
             germinalVector: germinalVec,
             germinalVectDeviation: distanceBetweenArrays(specimenFromInitConds.encGen, germinalVec),
             phenotypeSeed: aleaSeed,            
-            maxAllowedDepth: maxAllowedDepth,
+            maxAllowedDepth: genMaxDepth,
             depth: genotypeDepth,
             leaves: extractLeaves(specimenFromInitConds.encGen)
         };
@@ -4639,7 +4641,7 @@ var specimenFromInitialConditions = (
         germinalVector: germinalVec,
         germinalVectDeviation: distanceBetweenArrays(specimenFromInitConds.encGen, germinalVec),
         phenotypeSeed: aleaSeed,            
-        maxAllowedDepth: maxAllowedDepth,
+        maxAllowedDepth: genMaxDepth,
         maxListCardinality: listMaxLength,
         depth: specimenFromInitConds.data.depth,
         leaves: extractLeaves(specimenFromInitConds.encGen)
@@ -4674,7 +4676,7 @@ var mutateSpecimenLeaves = (originalSpecimen, mutProbability, mutAmount) => {
         germinalVectDeviation: 0,
         phenotypeSeed: originalSpecimen.initialConditions.phenotypeSeed,
         localEligibleFunctions: originalSpecimen.initialConditions.localEligibleFunctions,
-        maxAllowedDepth: originalSpecimen.initialConditions.maxAllowedDepth,
+        maxAllowedDepth: originalSpecimen.metadata.maxAllowedDepth,
         depth: originalSpecimen.metadata.depth,
         maxListCardinality: originalSpecimen.initialConditions.maxListCardinality,
         leaves: extractLeaves(mutatedSpecimen.encGen)
@@ -4696,7 +4698,7 @@ var replaceBranch = (originalSpecimen, replacedBranchType, branchIndex) => {
             includedFunctions: originalSpecimen.initialConditions.localEligibleFunctions,
             excludedFunctions: []
         },
-        originalSpecimen.initialConditions.maxAllowedDepth,
+        // originalSpecimen.initialConditions.maxAllowedDepth,
         originalSpecimen.initialConditions.maxListCardinality,
         originalSpecimen.initialConditions.phenotypeSeed
     ).decGen;
@@ -4757,7 +4759,7 @@ maxAPI.addHandlers({
                 "includedFunctions":  currentSpecimen.initialConditions.localEligibleFunctions,   
                 "excludedFunctions": []
             },
-            "maxDepth": currentSpecimen.initialConditions.maxAllowedDepth,
+            "maxDepth": currentSpecimen.metadata.maxAllowedDepth,
             "listsMaxNumItems": currentSpecimen.initialConditions.maxListCardinality,
             "seedForAlea": currentSpecimen.initialConditions.phenotypeSeed
         }
@@ -4792,7 +4794,7 @@ maxAPI.addHandlers({
             eval(arrayAsString),
             "scoreF", 
             eligibleFunctionsForTesting, 
-            genMaxDepth, 
+//            genMaxDepth, 
             defaultListsMaxCardinality, 
             phenotypeSeed));  
         saveTemporarySpecimens(currentSpecimen);          
@@ -4805,7 +4807,7 @@ maxAPI.addHandlers({
             currentSpecimen.encodedGenotype,
             "scoreF", 
             eligibleFunctionsForTesting, 
-            genMaxDepth, 
+ //           genMaxDepth, 
             defaultListsMaxCardinality, 
             currentSpecimen.initialConditions.phenotypeSeed));            
         saveTemporarySpecimens(currentSpecimen);          
@@ -4842,7 +4844,7 @@ maxAPI.addHandlers({
             germinalVectDeviation: 0,
             phenotypeSeed: phenotypeSeed,
             localEligibleFunctions: [],
-            maxAllowedDepth: defaultGenMaxDepth,
+            maxAllowedDepth: genMaxDepth,
             depth: measureStringMaxDepth(currentSpecimen.decGen),
             maxListCardinality: defaultListsMaxCardinality,
             leaves: extractLeaves(currentSpecimen.encGen)
@@ -4869,7 +4871,7 @@ maxAPI.addHandlers({
             germinalVectDeviation: 0,
             phenotypeSeed: copyOfCurrentSpec.initialConditions.phenotypeSeed,
             localEligibleFunctions: copyOfCurrentSpec.initialConditions.localEligibleFunctions,
-            maxAllowedDepth: copyOfCurrentSpec.initialConditions.maxAllowedDepth,
+            maxAllowedDepth: copyOfCurrentSpec.metadata.maxAllowedDepth,
             depth: measureStringMaxDepth(currentSpecimen.decGen),
             maxListCardinality: copyOfCurrentSpec.initialConditions.maxListCardinality,
             leaves: extractLeaves(currentSpecimen.encGen)
@@ -4893,7 +4895,7 @@ maxAPI.addHandlers({
                     "includedFunctions": copyOfCurrentSpec.initialConditions.localEligibleFunctions,
                     "excludedFunctions": []
                 },
-                defaultGenMaxDepth,
+                // genMaxDepth,
                 defaultListsMaxCardinality,
                 copyOfCurrentSpec.initialConditions.phenotypeSeed,
             )
@@ -4911,7 +4913,7 @@ maxAPI.addHandlers({
             germinalVectDeviation: 0,
             phenotypeSeed: copyOfCurrentSpec.initialConditions.phenotypeSeed,
             localEligibleFunctions: copyOfCurrentSpec.initialConditions.localEligibleFunctions,
-            maxAllowedDepth: copyOfCurrentSpec.initialConditions.maxAllowedDepth,
+            maxAllowedDepth: copyOfCurrentSpec.metadata.maxAllowedDepth,
             depth: measureStringMaxDepth(currentSpecimen.decGen),
             maxListCardinality: copyOfCurrentSpec.initialConditions.maxListCardinality,
             leaves: extractLeaves(currentSpecimen.encGen)
@@ -4947,7 +4949,7 @@ maxAPI.addHandlers({
                 "includedFunctions": currentSpecimen.initialConditions.localEligibleFunctions,
                 "excludedFunctions": []
             },
-            currentSpecimen.initialConditions.maxAllowedDepth, 
+            currentSpecimen.metadata.maxAllowedDepth, 
             currentSpecimen.initialConditions.maxListCardinality, 
             phenotypeSeed));  
         saveTemporarySpecimens(currentSpecimen); 

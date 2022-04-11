@@ -1,5 +1,5 @@
 \contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Composing composers}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.1}Composing composers}{3}{subsection.1.1}%
 \contentsline {section}{\numberline {2}Background and related works}{3}{section.2}%
 \contentsline {subsection}{\numberline {2.1}New challenges for automatic composition}{3}{subsection.2.1}%
 \contentsline {section}{\numberline {3}Methods}{4}{section.3}%
@@ -14,13 +14,14 @@
 \contentsline {subsection}{\numberline {3.9}Specimen data structure}{8}{subsection.3.9}%
 \contentsline {section}{\numberline {4}Encoded genotypes and phenotypes}{8}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Encoding genotypes with G{\"o}delian resonances}{9}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Scores represented as normalized vectors}{10}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}A unique format for procedures and results}{10}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Safety through encoding}{10}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.2}Germinal vector, encoded genotype and encoded phenotype}{10}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Scores represented as normalized vectors}{10}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}A unique format for procedures and results}{10}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Safety through encoding}{10}{subsection.4.5}%
 \contentsline {section}{\numberline {5}A minimal example: \textsl {Clapping Music}}{10}{section.5}%
-\contentsline {section}{\numberline {6}Evaluation and evolution}{14}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Evolutionary paradigm}{15}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Scalability}{15}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Integrating traditional and contemporary techniques}{15}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Expanding our musical perception}{15}{subsection.6.4}%
-\contentsline {section}{\numberline {7}Conclusions and ongoing work}{16}{section.7}%
+\contentsline {section}{\numberline {6}Evaluation and evolution}{15}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Evolutionary paradigm}{16}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Scalability}{16}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Integrating traditional and contemporary techniques}{16}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Expanding our musical perception}{16}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Conclusions and ongoing work}{17}{section.7}%
