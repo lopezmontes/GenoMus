@@ -4306,12 +4306,11 @@ var autorefTypes = [
 
 // new unified CORE FUNCTION, introducing reversible germinal vector <-> encoded genotype
 var createGenotypeBranch = (
-        germinalVector,
         branchOutputType,
         localEligibleFunctions,
-        // maxDepth,
         listsMaxNumItems,
-        seedForAlea
+        seedForAlea,
+        germinalVector
     ) => {
     initSubexpressionsArrays();
     // main variable
@@ -4525,7 +4524,7 @@ var createNewSpecimen = () => {
         // creates a new genotype
         germinalVec = randomVector(parseInt(Math.random()*defaultGerminalVecMaxLength) + 1);
         newSpecimen = createGenotypeBranch(
-            germinalVec, outputType, eligibleFuncs, listMaxLength, aleaSeed);
+            outputType, eligibleFuncs, listMaxLength, aleaSeed, germinalVec);
         // save last genotype created as log file
         // createJSON(iterations + ": " + newSpecimen.decGen, 'lastGenotype.json');
     } while (
@@ -4576,7 +4575,7 @@ var specimenFromInitialConditions = (
     var genotypeDepth;
     // render the genotype
     specimenFromInitConds = createGenotypeBranch(
-        germinalVec, outputType, eligibleFuncs, listMaxLength, aleaSeed);
+        outputType, eligibleFuncs, listMaxLength, aleaSeed, germinalVec);
     // save last genotype created as log file
     createJSON("from init conds: " + specimenFromInitConds.decGen, 'lastGenotype.json');
     if (specimenFromInitConds == -1) {
@@ -4655,14 +4654,14 @@ var replaceBranch = (originalSpecimen, replacedBranchType, branchIndex) => {
     var replacedBranch = replacedBranchSet[branchIndex % replacedBranchSet.length];
     newRndSeed();
     var branchReplacement = createGenotypeBranch(
-        randomVector(defaultGerminalVecMaxLength),
         replacedBranchType,
         {
             includedFunctions: originalSpecimen.initialConditions.localEligibleFunctions,
             excludedFunctions: []
         },
         originalSpecimen.initialConditions.maxListCardinality,
-        originalSpecimen.initialConditions.phenotypeSeed
+        originalSpecimen.initialConditions.phenotypeSeed,
+        randomVector(defaultGerminalVecMaxLength)
     ).decGen;
     if (branchReplacement == -1) {
         post("not valid branch replacement found", "");
@@ -4846,7 +4845,6 @@ maxAPI.addHandlers({
         newRndSeed();
         do {
             newScoreToAdd = createGenotypeBranch(
-                randomVector(defaultGerminalVecMaxLength),
                 "scoreF",
                 {
                     "includedFunctions": copyOfCurrentSpec.initialConditions.localEligibleFunctions,
@@ -4854,6 +4852,7 @@ maxAPI.addHandlers({
                 },
                 defaultListsMaxCardinality,
                 copyOfCurrentSpec.initialConditions.phenotypeSeed,
+                randomVector(defaultGerminalVecMaxLength)
             )
         } while (newScoreToAdd == -1);
         var newDecGen = "sConcatS(" + copyOfCurrentSpec.decodedGenotype + "," + newScoreToAdd.decGen + ")";
