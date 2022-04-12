@@ -42,8 +42,8 @@ var decGenStringLengthLimit = 5000;
 
 var phenotypeSeed = Math.round(Math.random() * 1e14); // seed only for computing phenotype
 var defaultGerminalVecMaxLength = 2000;
-var genMaxDepth = 25;
-var defaultListsMaxCardinality = 20;
+var genMaxDepth = 35;
+var defaultListsMaxCardinality = 16;
 var phenMinPolyphony = 1;
 var phenMaxPolyphony = 8;
 var phenMinLength = 1;
@@ -1037,9 +1037,9 @@ var e_piano = (notevalue, midiPitch, articulation, intensity) => indexExprReturn
         + intensity.decGen + ")",
     encPhen: [notevalue.encPhen[0],
         0.618034,
-    midiPitch.encPhen[0],
-    articulation.encPhen[0],
-    intensity.encPhen[0]],
+        midiPitch.encPhen[0],
+        articulation.encPhen[0],
+        intensity.encPhen[0]],
     phenLength: 1,
     tempo: 0.6,
     harmony: {
@@ -1066,13 +1066,13 @@ var e_piano_4xtra = (notevalue, midiPitch, articulation, intensity,
         + param8.decGen + ")",
     encPhen: [notevalue.encPhen[0],
         0.618034,
-    midiPitch.encPhen[0],
-    articulation.encPhen[0],
-    intensity.encPhen[0],
-    param5.encPhen[0],
-    param6.encPhen[0],
-    param7.encPhen[0],
-    param8.encPhen[0]],
+        midiPitch.encPhen[0],
+        articulation.encPhen[0],
+        intensity.encPhen[0],
+        param5.encPhen[0],
+        param6.encPhen[0],
+        param7.encPhen[0],
+        param8.encPhen[0]],
     phenLength: 1,
     tempo: 0.6,
     harmony: {
@@ -1104,17 +1104,17 @@ var e_csound = (duration, frequency, articulation, intensity,
         + param12.decGen + ")",
     encPhen: [duration.encPhen[0],
         0.618034,
-    frequency.encPhen[0],
-    articulation.encPhen[0],
-    intensity.encPhen[0],
-    param5.encPhen[0],
-    param6.encPhen[0],
-    param7.encPhen[0],
-    param8.encPhen[0],
-    param9.encPhen[0],
-    param10.encPhen[0],
-    param11.encPhen[0],
-    param12.encPhen[0]],
+        frequency.encPhen[0],
+        articulation.encPhen[0],
+        intensity.encPhen[0],
+        param5.encPhen[0],
+        param6.encPhen[0],
+        param7.encPhen[0],
+        param8.encPhen[0],
+        param9.encPhen[0],
+        param10.encPhen[0],
+        param11.encPhen[0],
+        param12.encPhen[0]],
     phenLength: 1,
     tempo: 0.6,
     harmony: {
@@ -2669,7 +2669,7 @@ var vMotif_csound = (listNotevalues, listPitches, listArticulations, listIntensi
     });
 };
 
-// creates a voice based on lists without loops (largest list determines number of events)
+// creates a voice based on lists with loops (largest list determines number of events)
 var vMotifLoop_piano = (listNotevalues, listPitches, listArticulations, listIntensities) => {
     var totalNotevalues = listNotevalues.encPhen.length;
     var totalPitches = listPitches.encPhen.length;
@@ -2707,7 +2707,7 @@ var vMotifLoop_piano = (listNotevalues, listPitches, listArticulations, listInte
     });
 };
 
-// creates a voice based on lists without loops (largest list determines number of events)
+// creates a voice based on lists with loops (largest list determines number of events)
 var vMotifLoop_piano_4xtra = (listNotevalues, listPitches, listArticulations, listIntensities, 
     listParam5, listParam6, listParam7, listParam8) => {
     var totalNotevalues = listNotevalues.encPhen.length;
@@ -2763,7 +2763,7 @@ var vMotifLoop_piano_4xtra = (listNotevalues, listPitches, listArticulations, li
     });
 };
 
-// creates a voice based on lists without loops (largest list determines number of events)
+// creates a voice based on lists with loops (largest list determines number of events)
 var vMotifLoop_csound = (listNotevalues, listPitches, listArticulations, listIntensities, 
     listParam5, listParam6, listParam7, listParam8, listParam9, listParam10, listParam11, listParam12) => {
         var totalNotevalues = listNotevalues.encPhen.length;
@@ -3769,6 +3769,34 @@ var expandExpr = compressedFormExpr => {
 /////////////////////
 // PHENOTYPE DECODERS
 
+// wraps genotypes into a scoreF function before decoding phenotypes
+// to enable experimentation simple genotypes of any output type
+var wrapDecGen = specimen => {
+    var wrappedEncPhen = [];
+    var receivedData = specimen.encPhen;
+    var receivedDataLength = specimen.encPhen.length;
+    
+    switch (specimen.data.specimenType) {
+        case "scoreF":
+            return specimen.encPhen;
+        case "lmidipitchF":
+            wrappedEncPhen = [0.618034, z2p(receivedDataLength)];
+            for (var el = 0; el < receivedDataLength; el++) {
+                wrappedEncPhen.push(0.842652, 0.618034, receivedData[el], 0.842293, 0.880797)
+            }
+            return wrappedEncPhen;
+        case "piano_4xtra":
+            break;
+        case "csound":
+            break;
+        default:
+            break;
+    }
+};
+
+
+
+
 // bach roll converter for piano species
 var encPhen2bachRoll_piano = encPhen => {
     var wholeNoteDur = 4000; // default value for tempo, 1/4 note = 1 seg 
@@ -4102,10 +4130,17 @@ var encPhen2csoundScore = encPhen => {
 
 // WRITE SPECIMEN JSON FILES
 var specimenDataStructure = (specimen) => ({
+    initialConditions: {
+        species: currentSpecies,
+        specimenType: specimen.data.specimenType,
+        localEligibleFunctions: specimen.data.localEligibleFunctions,
+        maxListCardinality: specimen.data.maxListCardinality,
+        phenotypeSeed: specimen.data.phenotypeSeed,
+        germinalVector: specimen.data.germinalVector
+    },
     metadata: {
         specimenID: specimen.data.specimenID,
         GenoMusVersion: version,
-        species: currentSpecies,
         iterations: specimen.data.iterations,
         milliseconsElapsed: specimen.data.milliseconsElapsed,
         depth: specimen.data.depth,
@@ -4116,13 +4151,6 @@ var specimenDataStructure = (specimen) => ({
         germinalVectorLength: specimen.data.germinalVector.length,
         germinalVectorDeviation: specimen.data.germinalVectDeviation,
         genotypeSeed: specimen.data.genotypeSeed
-    },
-    initialConditions: {
-        branchOutputType: specimen.data.branchOutputType,
-        localEligibleFunctions: specimen.data.localEligibleFunctions,
-        maxListCardinality: specimen.data.maxListCardinality,
-        phenotypeSeed: specimen.data.phenotypeSeed,
-        germinalVector: specimen.data.germinalVector
     },
     encodedGenotype: specimen.encGen,
     decodedGenotype: specimen.decGen,
@@ -4154,7 +4182,8 @@ var specimenDataStructure = (specimen) => ({
         booleanF: subexpressions["booleanF"]
     },
     leaves: specimen.data.leaves,
-    roll: encPhen2bachRoll(specimen.encPhen),
+    // wraps encPhen before creating bach roll for Max
+    roll: encPhen2bachRoll(wrapDecGen(specimen)),
     // csoundScore: encPhen2csoundScore(specimen.encPhen)
 });
 
@@ -4305,8 +4334,8 @@ var autorefTypes = [
     "lqAutoRef"]
 
 // new unified CORE FUNCTION, introducing reversible germinal vector <-> encoded genotype
-var createGenotypeBranch = (
-        branchOutputType,
+var createGenotype = (
+        specimenType,
         localEligibleFunctions,
         listsMaxNumItems,
         seedForAlea,
@@ -4326,11 +4355,11 @@ var createGenotypeBranch = (
     var newLeaf;
     var validGenotype = true;    
     var notFilledParameters = [];
-    var expectedFunctions = [branchOutputType]; // stores functions names in process of writing; starting with the output type function
+    var expectedFunctions = [specimenType]; // stores functions names in process of writing; starting with the output type function
     var chosenFunction;
     var chosenEncIndex;
     var openFunctionTypes = [];
-    var nextFunctionType = branchOutputType;
+    var nextFunctionType = specimenType;
     var eligibleFuncionNames;
     var eligibleFuncionNamesLength;
     var orderedElegibleEncIndexes;
@@ -4443,7 +4472,7 @@ var createGenotypeBranch = (
     }  
     newBranch.data = {
         specimenID: getFileDateName("jlm"),
-        branchOutputType: branchOutputType,
+        specimenType: specimenType,
         localEligibleFunctions: local_functions_catalogue.eligibleFunctions,
         maxListCardinality: listsMaxNumItems,
         phenotypeSeed: seedForAlea,
@@ -4524,7 +4553,7 @@ var createNewSpecimen = () => {
         iterations++;
         // creates a new genotype
         germinalVec = randomVector(parseInt(Math.random()*defaultGerminalVecMaxLength) + 1);
-        newSpecimen = createGenotypeBranch(
+        newSpecimen = createGenotype(
             outputType, eligibleFuncs, listMaxLength, aleaSeed, germinalVec);
         // save last genotype created as log file
         // createJSON(iterations + ": " + newSpecimen.decGen, 'lastGenotype.json');
@@ -4575,7 +4604,7 @@ var specimenFromInitialConditions = (
     // aux variables
     var genotypeDepth;
     // render the genotype
-    specimenFromInitConds = createGenotypeBranch(
+    specimenFromInitConds = createGenotype(
         outputType, eligibleFuncs, listMaxLength, aleaSeed, germinalVec);
     // save last genotype created as log file
     createJSON("from init conds: " + specimenFromInitConds.decGen, 'lastGenotype.json');
@@ -4598,7 +4627,7 @@ var specimenFromInitialConditions = (
     }
     specimenFromInitConds.data = {
         specimenID: getFileDateName("jlm"),
-        branchOutputType: outputType,
+        specimenType: outputType,
         localEligibleFunctions: specimenFromInitConds.data.localEligibleFunctions,
         maxListCardinality: listMaxLength,
         phenotypeSeed: aleaSeed,            
@@ -4633,7 +4662,7 @@ var mutateSpecimenLeaves = (originalSpecimen, mutProbability, mutAmount) => {
     mutatedSpecimen = eval(decodeGenotype(mutatedSpecimen.encodedGenotype));
     mutatedSpecimen.data = {
         specimenID: getFileDateName("jlm"),
-        branchOutputType: originalSpecimen.initialConditions.branchOutputType,
+        specimenType: originalSpecimen.initialConditions.specimenType,
         localEligibleFunctions: originalSpecimen.initialConditions.localEligibleFunctions,
         maxListCardinality: originalSpecimen.initialConditions.maxListCardinality,
         phenotypeSeed: originalSpecimen.initialConditions.phenotypeSeed,
@@ -4656,7 +4685,7 @@ var replaceBranch = (originalSpecimen, replacedBranchType, branchIndex) => {
     if (replacedBranchSet.length == 0) return originalSpecimen.decodedGenotype;
     var replacedBranch = replacedBranchSet[branchIndex % replacedBranchSet.length];
     newRndSeed();
-    var branchReplacement = createGenotypeBranch(
+    var branchReplacement = createGenotype(
         replacedBranchType,
         {
             includedFunctions: originalSpecimen.initialConditions.localEligibleFunctions,
@@ -4698,7 +4727,7 @@ maxAPI.addHandlers({
         post("loadedInitConds",loadedInitConds);
         var originalName = loadedInitConds.name;
         currentSpecimen = specimenDataStructure(specimenFromInitialConditions(
-            loadedInitConds.branchOutputType, 
+            loadedInitConds.specimenType, 
             loadedInitConds.localEligibleFunctions, 
             loadedInitConds.listsMaxNumItems, 
             loadedInitConds.seedForAlea,
@@ -4716,7 +4745,7 @@ maxAPI.addHandlers({
         if (alias != undefined) newSpecimenName = newSpecimenName + "_" + alias;
         var newInitConds = {
             "name": newSpecimenName,
-            "branchOutputType": currentSpecimen.initialConditions.branchOutputType,
+            "specimenType": currentSpecimen.initialConditions.specimenType,
             "localEligibleFunctions": {
                 "includedFunctions":  currentSpecimen.initialConditions.localEligibleFunctions,   
                 "excludedFunctions": []
@@ -4796,7 +4825,7 @@ maxAPI.addHandlers({
         currentSpecimen = evalDecGen(typedDecGen);
         currentSpecimen.data = {
             specimenID: getFileDateName("jlm"),
-            branchOutputType: "scoreF", // to be done: recognition of the first function entered typing
+            specimenType: currentSpecimen.funcType, // to be done: recognition of the first function entered typing
             localEligibleFunctions: [],
             maxListCardinality: defaultListsMaxCardinality,
             phenotypeSeed: phenotypeSeed,
@@ -4823,7 +4852,7 @@ maxAPI.addHandlers({
         currentSpecimen = evalDecGen(newDecGen);
         currentSpecimen.data = {
             specimenID: getFileDateName("jlm"),
-            branchOutputType: copyOfCurrentSpec.initialConditions.branchOutputType,
+            specimenType: copyOfCurrentSpec.initialConditions.specimenType,
             localEligibleFunctions: copyOfCurrentSpec.initialConditions.localEligibleFunctions,
             maxListCardinality: copyOfCurrentSpec.initialConditions.maxListCardinality,
             phenotypeSeed: copyOfCurrentSpec.initialConditions.phenotypeSeed,
@@ -4848,7 +4877,7 @@ maxAPI.addHandlers({
         var copyOfCurrentSpec = currentSpecimen;
         newRndSeed();
         do {
-            newScoreToAdd = createGenotypeBranch(
+            newScoreToAdd = createGenotype(
                 "scoreF",
                 {
                     "includedFunctions": copyOfCurrentSpec.initialConditions.localEligibleFunctions,
@@ -4864,7 +4893,7 @@ maxAPI.addHandlers({
         currentSpecimen = evalDecGen(newDecGen);
         currentSpecimen.data = {
             specimenID: getFileDateName("jlm"),
-            branchOutputType: "scoreF",
+            specimenType: "scoreF",
             localEligibleFunctions: copyOfCurrentSpec.initialConditions.localEligibleFunctions,
             maxListCardinality: copyOfCurrentSpec.initialConditions.maxListCardinality,
             phenotypeSeed: copyOfCurrentSpec.initialConditions.phenotypeSeed,
