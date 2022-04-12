@@ -40,6 +40,7 @@ var defaultEventExpression; // variable to store a default event when no autoref
 var validGenotype = true;
 var decGenStringLengthLimit = 5000;
 
+var specimenMainFunctionType = "scoreF";
 var phenotypeSeed = Math.round(Math.random() * 1e14); // seed only for computing phenotype
 var defaultGerminalVecMaxLength = 2000;
 var genMaxDepth = 35;
@@ -47,15 +48,15 @@ var defaultListsMaxCardinality = 16;
 var phenMinPolyphony = 1;
 var phenMaxPolyphony = 8;
 var phenMinLength = 1;
-var phenMaxLength = 1000;
+var phenMaxLength = 10000;
 var maxIterations = 20000;
-var maxIntervalPerSearch = 3000; // in milliseconds
+var maxIntervalPerSearch = 5000; // in milliseconds
 var maxIntervalPerNewBranch = 1000; // in milliseconds
 var mandatoryFunction = "";
 
 // mutation constraints
-var mutationProbability = .4;
-var mutationAmount = .2;
+var mutationProbability = .5;
+var mutationAmount = .3;
 
 // stores the last specimen used
 var currentSpecimen;
@@ -4578,7 +4579,7 @@ var createNewSpecimen = () => {
     var newSpecimen;
     // initial conditions
     var germinalVec;
-    var outputType = "scoreF";
+    var outputType = specimenMainFunctionType;
     var eligibleFuncs = eligibleFunctionsForTesting;
     var listMaxLength = defaultListsMaxCardinality;
     var aleaSeed = parseInt(Math.random()*1e15);
@@ -4817,21 +4818,22 @@ maxAPI.addHandlers({
         maxAPI.setDict("specimen.dict", currentSpecimen);
         maxAPI.outlet("finished");
     },
+    // render from graphical germinal vector (to do: rename this function)
     renderInitialConditions: (arrayAsString) => {
         currentSpecimen  = specimenDataStructure(specimenFromInitialConditions(
-            "scoreF", 
+            specimenMainFunctionType, 
             eligibleFunctionsForTesting, 
             defaultListsMaxCardinality, 
             phenotypeSeed,
             eval(arrayAsString)));  
         saveTemporarySpecimens(currentSpecimen);          
-        maxAPI.setDict("specimen.dict", currentSpecimen );
+        maxAPI.setDict("specimen.dict", currentSpecimen);
         maxAPI.outlet("finished");
         maxAPI.outlet("resetLastSpecsCounter");
     },
     encGenAsGerminal: () => {
         currentSpecimen = specimenDataStructure(specimenFromInitialConditions(
-            "scoreF", // to be done: recognize different types
+            currentSpecimen.initialConditions.specimenType,
             eligibleFunctionsForTesting, 
             defaultListsMaxCardinality, 
             currentSpecimen.initialConditions.phenotypeSeed,
@@ -4909,45 +4911,50 @@ maxAPI.addHandlers({
         maxAPI.outlet("resetLastSpecsCounter");
     },
     growSpecimen: () => {
-        var searchStartdate = new Date();
-        var newScoreToAdd;
-        var copyOfCurrentSpec = currentSpecimen;
-        newRndSeed();
-        do {
-            newScoreToAdd = createGenotype(
-                "scoreF",
-                {
-                    "includedFunctions": copyOfCurrentSpec.initialConditions.localEligibleFunctions,
-                    "excludedFunctions": []
-                },
-                defaultListsMaxCardinality,
-                copyOfCurrentSpec.initialConditions.phenotypeSeed,
-                randomVector(defaultGerminalVecMaxLength)
-            )
-        } while (newScoreToAdd == -1);
-        var newDecGen = "sConcatS(" + copyOfCurrentSpec.decodedGenotype + "," + newScoreToAdd.decGen + ")";
-        createNewSeed(copyOfCurrentSpec.initialConditions.phenotypeSeed);
-        currentSpecimen = evalDecGen(newDecGen);
-        currentSpecimen.data = {
-            specimenID: getFileDateName("jlm"),
-            specimenType: "scoreF",
-            localEligibleFunctions: copyOfCurrentSpec.initialConditions.localEligibleFunctions,
-            maxListCardinality: copyOfCurrentSpec.initialConditions.maxListCardinality,
-            phenotypeSeed: copyOfCurrentSpec.initialConditions.phenotypeSeed,
-            germinalVector: currentSpecimen.encGen,
-            iterations: 0,
-            milliseconsElapsed: new Date() - searchStartdate,
-            encGenotypeLength: currentSpecimen.encGen.length,
-            decGenotypeLength: currentSpecimen.decGen.length,
-            germinalVectDeviation: 0,
-            depth: measureStringMaxDepth(currentSpecimen.decGen),
-            leaves: extractLeaves(currentSpecimen.encGen)
-        };
-        currentSpecimen = specimenDataStructure(currentSpecimen);
-        saveTemporarySpecimens(currentSpecimen);          
-        maxAPI.setDict("specimen.dict", currentSpecimen);
-        maxAPI.outlet("finished");
-        maxAPI.outlet("resetLastSpecsCounter");
+        if (currentSpecimen.initialConditions.specimenType == "scoreF") {
+            var searchStartdate = new Date();
+            var newScoreToAdd;
+            var copyOfCurrentSpec = currentSpecimen;
+            newRndSeed();
+            do {
+                newScoreToAdd = createGenotype(
+                    "scoreF",
+                    {
+                        "includedFunctions": copyOfCurrentSpec.initialConditions.localEligibleFunctions,
+                        "excludedFunctions": []
+                    },
+                    defaultListsMaxCardinality,
+                    copyOfCurrentSpec.initialConditions.phenotypeSeed,
+                    randomVector(defaultGerminalVecMaxLength)
+                )
+            } while (newScoreToAdd == -1);
+            var newDecGen = "sConcatS(" + copyOfCurrentSpec.decodedGenotype + "," + newScoreToAdd.decGen + ")";
+            createNewSeed(copyOfCurrentSpec.initialConditions.phenotypeSeed);
+            currentSpecimen = evalDecGen(newDecGen);
+            currentSpecimen.data = {
+                specimenID: getFileDateName("jlm"),
+                specimenType: "scoreF",
+                localEligibleFunctions: copyOfCurrentSpec.initialConditions.localEligibleFunctions,
+                maxListCardinality: copyOfCurrentSpec.initialConditions.maxListCardinality,
+                phenotypeSeed: copyOfCurrentSpec.initialConditions.phenotypeSeed,
+                germinalVector: currentSpecimen.encGen,
+                iterations: 0,
+                milliseconsElapsed: new Date() - searchStartdate,
+                encGenotypeLength: currentSpecimen.encGen.length,
+                decGenotypeLength: currentSpecimen.decGen.length,
+                germinalVectDeviation: 0,
+                depth: measureStringMaxDepth(currentSpecimen.decGen),
+                leaves: extractLeaves(currentSpecimen.encGen)
+            };
+            currentSpecimen = specimenDataStructure(currentSpecimen);
+            saveTemporarySpecimens(currentSpecimen);          
+            maxAPI.setDict("specimen.dict", currentSpecimen);
+            maxAPI.outlet("finished");
+            maxAPI.outlet("resetLastSpecsCounter");
+        }
+        else {
+            maxAPI.post("Error: only scoreF specimens can use the growing method");
+        }
     },
     printCurrentSpecimen: () => {
         maxAPI.post(currentSpecimen);
@@ -4965,10 +4972,14 @@ maxAPI.addHandlers({
         maxAPI.outlet("finished");
         maxAPI.outlet("resetLastSpecsCounter");
     },
+    specimenType: (str) => {
+    specimenMainFunctionType = str;
+    maxAPI.post("output type for creation of new specimens: " + str);
+    },
     phenoseed: (newPhenoSeedFromMax) => {
         phenotypeSeed = newPhenoSeedFromMax;
         currentSpecimen = specimenDataStructure(specimenFromInitialConditions(
-            "scoreF",
+            currentSpecimen.initialConditions.specimenType,
             {
                 "includedFunctions": currentSpecimen.initialConditions.localEligibleFunctions,
                 "excludedFunctions": []
