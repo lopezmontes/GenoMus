@@ -3775,27 +3775,64 @@ var wrapDecGen = specimen => {
     var wrappedEncPhen = [];
     var receivedData = specimen.encPhen;
     var receivedDataLength = specimen.encPhen.length;
-    
+    // default values for notation of parameters
+    var defaultN = n(0.3).encPhen;
+    var defaultM = m(69).encPhen;
+    var defaultA = a(75).encPhen;
+    var defaultI = i(70).encPhen;
+    // wrapping transformations only for bach roll in Max
     switch (specimen.data.specimenType) {
         case "scoreF":
             return specimen.encPhen;
-        case "lmidipitchF":
+        case "voiceF":
+            return [0.618034].concat(receivedData);
+        case "eventF":
+            return [0.618034, 0.618034].concat(receivedData);
+        case "lnotevalueF":
             wrappedEncPhen = [0.618034, z2p(receivedDataLength)];
-            for (var el = 0; el < receivedDataLength; el++) {
-                wrappedEncPhen.push(0.842652, 0.618034, receivedData[el], 0.842293, 0.880797)
+            for (var it = 0; it < receivedDataLength; it++) {
+                wrappedEncPhen.push(receivedData[it], 0.618034, defaultM, defaultA, defaultI)
             }
             return wrappedEncPhen;
-        case "piano_4xtra":
-            break;
-        case "csound":
-            break;
+        case "lmidipitchF":
+            wrappedEncPhen = [0.618034, z2p(receivedDataLength)];
+            for (var it = 0; it < receivedDataLength; it++) {
+                wrappedEncPhen.push(defaultN, 0.618034, receivedData[it], defaultA, defaultI)
+            }
+            return wrappedEncPhen;
+        case "larticulationF":
+            wrappedEncPhen = [0.618034, z2p(receivedDataLength)];
+            for (var it = 0; it < receivedDataLength; it++) {
+                wrappedEncPhen.push(defaultN, 0.618034, defaultM, receivedData[it], defaultI)
+            }
+            return wrappedEncPhen;
+        case "lintensityF":
+            wrappedEncPhen = [0.618034, z2p(receivedDataLength)];
+            for (var it = 0; it < receivedDataLength; it++) {
+                wrappedEncPhen.push(defaultN, 0.618034, defaultM, defaultA, receivedData[it])
+            }
+            return wrappedEncPhen;
+        case "listF": // uses the generic list for all event features
+            wrappedEncPhen = [0.618034, z2p(receivedDataLength)];
+            for (var it = 0; it < receivedDataLength; it++) {
+                wrappedEncPhen.push(receivedData[it], 0.618034, receivedData[it], receivedData[it], receivedData[it])
+            }
+            return wrappedEncPhen;
+        case "notevalueF":
+            return [0.618034, 0.618034, receivedData[0], 0.618034, defaultM, defaultA, defaultI];
+        case "midipitchF":
+            return [0.618034, 0.618034, defaultN, 0.618034, receivedData[0], defaultA, defaultI];
+        case "articulationF":
+            return [0.618034, 0.618034, defaultN, 0.618034, defaultM, receivedData[0], defaultI];
+        case "intensityF":
+            return [0.618034, 0.618034, defaultN, 0.618034, defaultM, defaultA, receivedData[0]];
+        case "paramF": // uses the generic parameter for all event features
+            return [0.618034, 0.618034, receivedData[0], 0.618034, receivedData[0], receivedData[0], receivedData[0]];
         default:
+            maxAPI.post("Error: Genotype type not found");
             break;
     }
 };
-
-
-
 
 // bach roll converter for piano species
 var encPhen2bachRoll_piano = encPhen => {

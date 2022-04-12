@@ -1,1 +1,1 @@
-"from init conds: sAddV(s2V(vPerpetuumMobile(n(0.11946),lP2M(l5P(pRnd(),pRnd(),pRnd(),pAutoref(0),pRnd())),lP2A(l5P(p(0.38891),pRnd(),p(0.483656),p(0),pRnd())),liRemap(li(60),i(74),iAutoref(0))),vRepeatE(e(n(0),m(12),aRnd(),i(0)),q(2))),vPerpetuumMobile(nRnd(),lm(50),laRemap(laAutoref(0),aAutoref(0),aAutoref(0)),liAutoref(0)))"
+"from init conds: s(vPerpetuumMobile(nRnd(),lmRemap(lm(43),m(78),m(63)),lP2A(l5P(p(0.425558),pRnd(),p(1),pRnd(),pRnd())),li(60)))"
