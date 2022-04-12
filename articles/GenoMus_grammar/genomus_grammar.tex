@@ -3,6 +3,8 @@
 
 \usepackage{arxiv}
 
+\usepackage{amssymb}
+
 \usepackage[utf8]{inputenc} % allow utf-8 input
 \usepackage[T1]{fontenc}    % use 8-bit T1 fonts
 \usepackage{hyperref}       % hyperlinks
@@ -626,11 +628,11 @@ Let $G_{vec}$ be the multidimensional search space of all possible of germinal v
 
 $$ G_{vec} = \bigcup_{i=1}^{n}G_{vec}^i \: | \: i \in \mathbb N_{> 0} $$
 
-
-
 Each germinal vector in $G_{vec}$ is mapped to a valid encoded genotype (that is a valid functional expression which generates an excerpt of music.
 Let $E_{gen}$ be the set of all possible valid encoded genotypes. To create genotypes, the map $f$ works as a decision tree such as every vector $\vec{g} = (g_1, g_2, ..., g_n) \in G_{vec}^n$ will be mapped to a vector $\vec{e_g} = (x_1, x_2, ..., x_n) \in E_{gen}$: 
-$$f:\ G_{vec}^n\to E_{gen}$$
+
+$$f:\ G_{vec}^n\twoheadrightarrow E_{gen}$$
+
 As the number of choices needed to complete a valid valid encoded genotype $E_{gen}$ rarely match the number of items of a germinal vector $G_{vec}^n$, truncation of loops are employed:
 
 \begin{itemize}
