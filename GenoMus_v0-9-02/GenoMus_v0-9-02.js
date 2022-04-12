@@ -199,7 +199,6 @@ var p2p = p => p;
 // u2n = p2p;
 // n2u = p2p;
 
-
 var norm2notevalue = p => p < 0.006695 ? 0 : r6d(Math.pow(2, 10 * u2n(p) - 8));
 var p2n = norm2notevalue;
 var notevalue2norm = n => n < 0.003907 ? 0 : r6d(n2u((Math.log10(n) + 8 * Math.log10(2)) / (10 * Math.log10(2))));
@@ -788,11 +787,11 @@ var simpleBACHSearch = () => {
         for (var specIndx3 = 0; specIndx3 < numGraftedSpecimens; specIndx3++) {
             // newRndSeed();
             evaluatedSpecimenToGraft = specimenDataStructure(specimenFromInitialConditions(
-                currentPopulation[specIndx3 % numEliteSpecs].slice(),
                 "scoreF",
                 eligibleFunctionsForTesting,
                 defaultListsMaxCardinality,
-                phenotypeSeed));
+                phenotypeSeed,
+                currentPopulation[specIndx3 % numEliteSpecs].slice()));
             // post("tomado: ", evaluatedSpecimenToGraft.decodedGenotype);
             branchTypeToGraft = outputTypes[parseInt(Math.random()*outputTypes.length)];
             // post("branchTypeToGraft",branchTypeToGraft);
@@ -812,11 +811,11 @@ var simpleBACHSearch = () => {
         // evaluates fitness of each new specimen
         for (var a=0; a<specimensPerGeneration; a++) {
             evaluatedNewCandidate = specimenDataStructure(specimenFromInitialConditions(
-                newGeneration[a],
                 "scoreF",
                 eligibleFunctionsForTesting,
                 defaultListsMaxCardinality,
-                phenotypeSeed));
+                phenotypeSeed,
+                newGeneration[a]));
             currentErrors[a] = [a,fitnessFunction(evaluatedNewCandidate.encodedPhenotype)];
             newGenerationMappedGerminalVectors[a] = evaluatedNewCandidate.encodedGenotype;
             newGeneration[a] = newGenerationMappedGerminalVectors[a];
@@ -865,11 +864,11 @@ var simpleBACHSearch = () => {
     } while ( thisLoopTrials < 10 && foundNewBest == false);
     if (foundNewBest) {
         var newBestSpecimen = specimenDataStructure(specimenFromInitialConditions(
-            newGeneration[0],
             "scoreF",
             eligibleFunctionsForTesting,
             defaultListsMaxCardinality,
-            phenotypeSeed))
+            phenotypeSeed,
+            newGeneration[0]))
         // for (var nums = 0; nums < specimensPerGeneration; nums++) {
         //     maxAPI.post(currentPopulation[nums][0] + " " + currentPopulation[nums][1] + " " + currentPopulation[nums][2] + " " + currentPopulation[nums][3] + " " + currentPopulation[nums][4] + " " + currentPopulation[nums][5] + " " + currentPopulation[nums][6] + " " + currentPopulation[nums][7] + " " + currentPopulation[nums][8]);
         // }
@@ -4119,10 +4118,11 @@ var specimenDataStructure = (specimen) => ({
         genotypeSeed: specimen.data.genotypeSeed
     },
     initialConditions: {
-        germinalVector: specimen.data.germinalVector,
+        branchOutputType: specimen.data.branchOutputType,
         localEligibleFunctions: specimen.data.localEligibleFunctions,
         maxListCardinality: specimen.data.maxListCardinality,
-        phenotypeSeed: specimen.data.phenotypeSeed
+        phenotypeSeed: specimen.data.phenotypeSeed,
+        germinalVector: specimen.data.germinalVector
     },
     encodedGenotype: specimen.encGen,
     decodedGenotype: specimen.decGen,
@@ -4443,12 +4443,13 @@ var createGenotypeBranch = (
     }  
     newBranch.data = {
         specimenID: getFileDateName("jlm"),
-        encGenotypeLength: newBranch.encGen.length,
-        decGenotypeLength: newDecodedGenotype.length,
-        germinalVector: germinalVector,
-        phenotypeSeed: seedForAlea,
+        branchOutputType: branchOutputType,
         localEligibleFunctions: local_functions_catalogue.eligibleFunctions,
         maxListCardinality: listsMaxNumItems,
+        phenotypeSeed: seedForAlea,
+        germinalVector: germinalVector,
+        encGenotypeLength: newBranch.encGen.length,
+        decGenotypeLength: newDecodedGenotype.length,
         depth: genotypeDepth,
         leaves: extractLeaves(newBranch.encGen),
         germinalVectDeviation: distanceBetweenArrays(newBranch.encGen, germinalVector)
@@ -4469,7 +4470,7 @@ var vmotifs = [199,200,201,202];
 var multiplePitchesEventsFuncs = [99, 100, 101];
 
 var listConvertersFuncs = [319,320,321,322,323,324];
-var testingFuncs = [25]; // [326];
+var testingFuncs = [25, 326]; // [326];
 
 var manyFuncs = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19,
     20, 25, 26, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 48, 58, 63, 65, 66, 67, 68, 76, 77, 84, 104, 
@@ -4567,7 +4568,7 @@ var createNewSpecimen = () => {
 
 // creates specimen from initial conditions
 var specimenFromInitialConditions = (
-    germinalVec, outputType, eligibleFuncs, listMaxLength, aleaSeed) => {
+    outputType, eligibleFuncs, listMaxLength, aleaSeed, germinalVec) => {
     var searchStartdate = new Date();
     // main variable
     var specimenFromInitConds;
@@ -4597,15 +4598,16 @@ var specimenFromInitialConditions = (
     }
     specimenFromInitConds.data = {
         specimenID: getFileDateName("jlm"),
+        branchOutputType: outputType,
+        localEligibleFunctions: specimenFromInitConds.data.localEligibleFunctions,
+        maxListCardinality: listMaxLength,
+        phenotypeSeed: aleaSeed,            
+        germinalVector: germinalVec,
         iterations: 0,
         milliseconsElapsed: new Date() - searchStartdate,
         encGenotypeLength: specimenFromInitConds.encGen.length,
         decGenotypeLength: specimenFromInitConds.decGen.length,
-        localEligibleFunctions: specimenFromInitConds.data.localEligibleFunctions,
-        germinalVector: germinalVec,
         germinalVectDeviation: distanceBetweenArrays(specimenFromInitConds.encGen, germinalVec),
-        phenotypeSeed: aleaSeed,            
-        maxListCardinality: listMaxLength,
         depth: specimenFromInitConds.data.depth,
         leaves: extractLeaves(specimenFromInitConds.encGen)
     };    
@@ -4631,16 +4633,17 @@ var mutateSpecimenLeaves = (originalSpecimen, mutProbability, mutAmount) => {
     mutatedSpecimen = eval(decodeGenotype(mutatedSpecimen.encodedGenotype));
     mutatedSpecimen.data = {
         specimenID: getFileDateName("jlm"),
+        branchOutputType: originalSpecimen.initialConditions.branchOutputType,
+        localEligibleFunctions: originalSpecimen.initialConditions.localEligibleFunctions,
+        maxListCardinality: originalSpecimen.initialConditions.maxListCardinality,
+        phenotypeSeed: originalSpecimen.initialConditions.phenotypeSeed,
+        germinalVector: mutatedSpecimen.encGen,
         iterations: 0,
         milliseconsElapsed: new Date() - startDate,
         encGenotypeLength: mutatedSpecimen.encGen.length,
         decGenotypeLength: mutatedSpecimen.decGen.length,
-        germinalVector: mutatedSpecimen.encGen,
         germinalVectDeviation: 0,
-        phenotypeSeed: originalSpecimen.initialConditions.phenotypeSeed,
-        localEligibleFunctions: originalSpecimen.initialConditions.localEligibleFunctions,
         depth: originalSpecimen.metadata.depth,
-        maxListCardinality: originalSpecimen.initialConditions.maxListCardinality,
         leaves: extractLeaves(mutatedSpecimen.encGen)
     };
     return specimenDataStructure(mutatedSpecimen);
@@ -4695,12 +4698,11 @@ maxAPI.addHandlers({
         post("loadedInitConds",loadedInitConds);
         var originalName = loadedInitConds.name;
         currentSpecimen = specimenDataStructure(specimenFromInitialConditions(
-            loadedInitConds.germinalVector,
             loadedInitConds.branchOutputType, 
             loadedInitConds.localEligibleFunctions, 
-            loadedInitConds.maxDepth, 
             loadedInitConds.listsMaxNumItems, 
-            loadedInitConds.seedForAlea));
+            loadedInitConds.seedForAlea,
+            loadedInitConds.germinalVector));
         leaves = currentSpecimen.leaves;
         // genotypeSeed = currentSpecimen.initialConditions.genotypeSeed;
         phenotypeSeed = currentSpecimen.initialConditions.phenotypeSeed;
@@ -4714,14 +4716,14 @@ maxAPI.addHandlers({
         if (alias != undefined) newSpecimenName = newSpecimenName + "_" + alias;
         var newInitConds = {
             "name": newSpecimenName,
-            "germinalVector": currentSpecimen.initialConditions.germinalVector,
-            "branchOutputType": "scoreF",
+            "branchOutputType": currentSpecimen.initialConditions.branchOutputType,
             "localEligibleFunctions": {
                 "includedFunctions":  currentSpecimen.initialConditions.localEligibleFunctions,   
                 "excludedFunctions": []
             },
             "listsMaxNumItems": currentSpecimen.initialConditions.maxListCardinality,
-            "seedForAlea": currentSpecimen.initialConditions.phenotypeSeed
+            "seedForAlea": currentSpecimen.initialConditions.phenotypeSeed,
+            "germinalVector": currentSpecimen.initialConditions.germinalVector,
         }
         var existingInitConditions = JSON.parse(fs.readFileSync(initialConditionsJSONfilename));
         existingInitConditions[newSpecimenName] = newInitConds;
@@ -4751,11 +4753,11 @@ maxAPI.addHandlers({
     },
     renderInitialConditions: (arrayAsString) => {
         currentSpecimen  = specimenDataStructure(specimenFromInitialConditions(
-            eval(arrayAsString),
             "scoreF", 
             eligibleFunctionsForTesting, 
             defaultListsMaxCardinality, 
-            phenotypeSeed));  
+            phenotypeSeed,
+            eval(arrayAsString)));  
         saveTemporarySpecimens(currentSpecimen);          
         maxAPI.setDict("specimen.dict", currentSpecimen );
         maxAPI.outlet("finished");
@@ -4763,11 +4765,11 @@ maxAPI.addHandlers({
     },
     encGenAsGerminal: () => {
         currentSpecimen = specimenDataStructure(specimenFromInitialConditions(
-            currentSpecimen.encodedGenotype,
-            "scoreF", 
+            "scoreF", // to be done: recognize different types
             eligibleFunctionsForTesting, 
             defaultListsMaxCardinality, 
-            currentSpecimen.initialConditions.phenotypeSeed));            
+            currentSpecimen.initialConditions.phenotypeSeed,
+            currentSpecimen.encodedGenotype));            
         saveTemporarySpecimens(currentSpecimen);          
         maxAPI.setDict("specimen.dict", currentSpecimen);
         maxAPI.outlet("finished");
@@ -4794,16 +4796,17 @@ maxAPI.addHandlers({
         currentSpecimen = evalDecGen(typedDecGen);
         currentSpecimen.data = {
             specimenID: getFileDateName("jlm"),
+            branchOutputType: "scoreF", // to be done: recognition of the first function entered typing
+            localEligibleFunctions: [],
+            maxListCardinality: defaultListsMaxCardinality,
+            phenotypeSeed: phenotypeSeed,
+            germinalVector: currentSpecimen.encGen,
             iterations: 0,
             milliseconsElapsed: 0,
             encGenotypeLength: currentSpecimen.encGen.length,
             decGenotypeLength: currentSpecimen.decGen.length,
-            germinalVector: currentSpecimen.encGen,
             germinalVectDeviation: 0,
-            phenotypeSeed: phenotypeSeed,
-            localEligibleFunctions: [],
             depth: measureStringMaxDepth(currentSpecimen.decGen),
-            maxListCardinality: defaultListsMaxCardinality,
             leaves: extractLeaves(currentSpecimen.encGen)
         };
         currentSpecimen = specimenDataStructure(currentSpecimen);
@@ -4820,16 +4823,17 @@ maxAPI.addHandlers({
         currentSpecimen = evalDecGen(newDecGen);
         currentSpecimen.data = {
             specimenID: getFileDateName("jlm"),
+            branchOutputType: copyOfCurrentSpec.initialConditions.branchOutputType,
+            localEligibleFunctions: copyOfCurrentSpec.initialConditions.localEligibleFunctions,
+            maxListCardinality: copyOfCurrentSpec.initialConditions.maxListCardinality,
+            phenotypeSeed: copyOfCurrentSpec.initialConditions.phenotypeSeed,
+            germinalVector: currentSpecimen.encGen,
             iterations: 0,
             milliseconsElapsed: new Date() - startDate,
             encGenotypeLength: currentSpecimen.encGen.length,
             decGenotypeLength: currentSpecimen.decGen.length,
-            germinalVector: currentSpecimen.encGen,
             germinalVectDeviation: 0,
-            phenotypeSeed: copyOfCurrentSpec.initialConditions.phenotypeSeed,
-            localEligibleFunctions: copyOfCurrentSpec.initialConditions.localEligibleFunctions,
             depth: measureStringMaxDepth(currentSpecimen.decGen),
-            maxListCardinality: copyOfCurrentSpec.initialConditions.maxListCardinality,
             leaves: extractLeaves(currentSpecimen.encGen)
         };
         currentSpecimen = specimenDataStructure(currentSpecimen);
@@ -4860,16 +4864,17 @@ maxAPI.addHandlers({
         currentSpecimen = evalDecGen(newDecGen);
         currentSpecimen.data = {
             specimenID: getFileDateName("jlm"),
+            branchOutputType: "scoreF",
+            localEligibleFunctions: copyOfCurrentSpec.initialConditions.localEligibleFunctions,
+            maxListCardinality: copyOfCurrentSpec.initialConditions.maxListCardinality,
+            phenotypeSeed: copyOfCurrentSpec.initialConditions.phenotypeSeed,
+            germinalVector: currentSpecimen.encGen,
             iterations: 0,
             milliseconsElapsed: new Date() - searchStartdate,
             encGenotypeLength: currentSpecimen.encGen.length,
             decGenotypeLength: currentSpecimen.decGen.length,
-            germinalVector: currentSpecimen.encGen,
             germinalVectDeviation: 0,
-            phenotypeSeed: copyOfCurrentSpec.initialConditions.phenotypeSeed,
-            localEligibleFunctions: copyOfCurrentSpec.initialConditions.localEligibleFunctions,
             depth: measureStringMaxDepth(currentSpecimen.decGen),
-            maxListCardinality: copyOfCurrentSpec.initialConditions.maxListCardinality,
             leaves: extractLeaves(currentSpecimen.encGen)
         };
         currentSpecimen = specimenDataStructure(currentSpecimen);
@@ -4897,14 +4902,14 @@ maxAPI.addHandlers({
     phenoseed: (newPhenoSeedFromMax) => {
         phenotypeSeed = newPhenoSeedFromMax;
         currentSpecimen = specimenDataStructure(specimenFromInitialConditions(
-            currentSpecimen.initialConditions.germinalVector,
             "scoreF",
             {
                 "includedFunctions": currentSpecimen.initialConditions.localEligibleFunctions,
                 "excludedFunctions": []
             },
             currentSpecimen.initialConditions.maxListCardinality, 
-            phenotypeSeed));  
+            phenotypeSeed,
+            currentSpecimen.initialConditions.germinalVector));  
         saveTemporarySpecimens(currentSpecimen); 
         maxAPI.outlet(maxAPI.setDict("specimen.dict", currentSpecimen));
         maxAPI.outlet("finished");

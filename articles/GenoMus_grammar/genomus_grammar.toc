@@ -16,13 +16,13 @@
 \contentsline {subsection}{\numberline {4.1}Encoding genotypes with G{\"o}delian resonances}{9}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Scores represented as normalized vectors}{10}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Germinal vector, encoded genotype and encoded phenotype}{10}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Reversivility of encoded genotypes}{10}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.4}Reversivility of encoded genotypes}{11}{subsection.4.4}%
 \contentsline {subsection}{\numberline {4.5}A unique format for procedures and results}{11}{subsection.4.5}%
 \contentsline {subsection}{\numberline {4.6}Safety through encoding}{11}{subsection.4.6}%
 \contentsline {section}{\numberline {5}A minimal example: \textsl {Clapping Music}}{11}{section.5}%
 \contentsline {section}{\numberline {6}Evaluation and evolution}{15}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Evolutionary paradigm}{16}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Scalability}{16}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Integrating traditional and contemporary techniques}{16}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Expanding our musical perception}{16}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.2}Scalability}{17}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Integrating traditional and contemporary techniques}{17}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Expanding our musical perception}{17}{subsection.6.4}%
 \contentsline {section}{\numberline {7}Conclusions and ongoing work}{17}{section.7}%
