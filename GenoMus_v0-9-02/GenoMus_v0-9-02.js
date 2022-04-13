@@ -1,9 +1,9 @@
-// GENOMUS 0.9.02 UNIT TESTING
-///////////////////////////
+// GENOMUS 0.9.02 
+/////////////////
 
 // GOALS:
-// Testing Inital Conditons without branch depth limit (only with default set out of Initial Conditions)
-// Considering add branch type (and mayybe species) to the intial conditions, to be autocontained.
+// Testing Inital Conditons without branch depth limit (only with default set out of Initial Conditions) - DONE
+// Considering add branch type (and maybe species) to the initial conditions, to be autocontained - DONE
 // Last redesign of data arquitecture, previous to GenoMus 1.0
 // Genetic algorithms
 
@@ -33,18 +33,17 @@ var debugMode = "terminal";
 // var debugMode = "max_console";
 
 /////////////////////
-// INITIAL CONDITIONS
+// DEFAULT CONDITIONS
 var version = "0.9.02";
 
+var specimenMainFunctionType = "scoreF";
+var defaultListsMaxCardinality = 16;
+var phenotypeSeed = Math.round(Math.random() * 1e14);
+var defaultGerminalVecMaxLength = 2000;
+
+var genMaxDepth = 35;
 var defaultEventExpression; // variable to store a default event when no autoreferences are possible
 var validGenotype = true;
-var decGenStringLengthLimit = 5000;
-
-var specimenMainFunctionType = "scoreF";
-var phenotypeSeed = Math.round(Math.random() * 1e14); // seed only for computing phenotype
-var defaultGerminalVecMaxLength = 2000;
-var genMaxDepth = 35;
-var defaultListsMaxCardinality = 16;
 var phenMinPolyphony = 1;
 var phenMaxPolyphony = 8;
 var phenMinLength = 1;
@@ -58,8 +57,8 @@ var mandatoryFunction = "";
 var mutationProbability = .5;
 var mutationAmount = .3;
 
-// stores the last specimen used
-var currentSpecimen;
+
+var currentSpecimen; // stores the last specimen used
 var leaves = []; // stores all numeric parameters
 var genotypeLog = {};
 var genCount = 0;
@@ -171,7 +170,8 @@ var checkRange = x => {
     }
 };
 
-// homemade function to remap valor from a equal distribution to a normal (gaussian) distribution adapting logit function (inverse of sigmoid)
+// homemade function to remap valor from a equal distribution to a normal (gaussian) distribution
+// adapting logit function (inverse of sigmoid)
 
 var uniform2normal = (x) => {
     if (x < 0.006693) return 0;
@@ -578,9 +578,6 @@ var mt = decGenotype => {
     maxAPI.post("manually encoded genotype: " + encodeGenotype(decGenotype));
     return output;
 };
-
-
-////// AUX FUNCTIONS
 
 // flats arrays with any level of nesting
 var flattenDeep = arr1 => arr1.reduce((acc, val) => Array.isArray(val) ? acc.concat(flattenDeep(val)) : acc.concat(val), []);
