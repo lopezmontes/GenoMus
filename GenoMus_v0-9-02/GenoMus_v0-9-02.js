@@ -3642,14 +3642,19 @@ var visualizeSpecimen = (normArray, filename) => {
         "' style='fill:white;' />\n";
     for (var i = 0; i < specimenLength; i++) {
         lineHeight = normArray[i] * (lineMaxHeight - lineWidth) + lineWidth;
-        if (normArray[i] == 0 || normArray[i] == 1) {
-            lineColor = "black";
-        } else
-            if (normArray[i] == 0.2 || normArray[i] == 0.5 || normArray[i] == 0.8) {
-                lineColor = "dimgray";
-            } else {
-                lineColor = "hsl(" + (norm2goldeninteger(normArray[i]) % 360) + "," + 93 + "%," + 50 + "%)";
-            }
+        if (normArray[i] == 0 || normArray[i] == 1) lineColor = "black";
+        else if (normArray[i] == 0.5) lineColor = "#999999";
+        else if (normArray[i] == 0.51) lineColor = "#A0A0A0";
+        else if (normArray[i] == 0.52) lineColor = "#AAAAAA";
+        else if (normArray[i] == 0.53) lineColor = "#B0B0B0";
+        else if (normArray[i] == 0.54) lineColor = "#BBBBBB";
+        else if (normArray[i] == 0.55) lineColor = "#C0C0C0";
+        else if (normArray[i] == 0.56) lineColor = "#CCCCCC";
+        else if (normArray[i] == 0.57) lineColor = "#D0D0D0";
+        else if (normArray[i] == 0.58) lineColor = "#DDDDDD";
+        else if (normArray[i] == 0.59) lineColor = "#E0E0E0";
+        else if (normArray[i] == 0.6) lineColor = "#EEEEEE";
+        else lineColor = "hsl(" + (norm2goldeninteger(normArray[i]) % 360) + "," + 93 + "%," + 50 + "%)";
         lines = lines +
             "    <rect x='" + (i * (lineWidth + lineOffset) - Math.floor(i / maxLinesPerRow) * maxLinesPerRow * (lineWidth + lineOffset)) +
             "' y='" + (Math.floor(i / maxLinesPerRow) * (lineMaxHeight + rowOffset) + lineMaxHeight - lineHeight) +
