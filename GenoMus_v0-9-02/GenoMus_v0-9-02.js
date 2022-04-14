@@ -25,9 +25,10 @@ const fs = require('fs');
 const maxAPI = require('max-api');
 
 // output for debugging
-var post = (message, variable) => {
-    if (debugMode == "terminal") console.log(message + " " + variable);
-    else if (debugMode == "max_console") maxAPI.post(message + " " + variable);
+var post = (message, monitoredVar) => {
+    if (monitoredVar == undefined) monitoredVar = "";
+    if (debugMode == "terminal") console.log(message + " " + monitoredVar);
+    else if (debugMode == "max_console") maxAPI.post(message + " " + monitoredVar);
 }
 var debugMode = "terminal";
 // var debugMode = "max_console";
@@ -4733,8 +4734,8 @@ var replaceBranch = (originalSpecimen, replacedBranchType, branchIndex) => {
 maxAPI.addHandlers({
     initNode: () => {
         debugMode = "max_console";
-        maxAPI.post("_________________________________");
-        maxAPI.post("GenoMus - version " + version);
+        post("_________________________________");
+        post("GenoMus - version " + version);
     },
     brandNewSpecimen: () => {
         currentSpecimen = specimenDataStructure(createNewSpecimen());
@@ -4747,11 +4748,12 @@ maxAPI.addHandlers({
     loadInitialConditions: (savedSpecimenIndex) => {
         var initConditionsFromFile = JSON.parse(fs.readFileSync(initialConditionsJSONfilename));
         var totalSpecimensSaved = Object.keys(initConditionsFromFile).length;
-        post("totalSpecimensSaved",totalSpecimensSaved);
-        post("savedSpecimenIndex",savedSpecimenIndex);
-        var loadedInitConds = initConditionsFromFile[Object.keys(initConditionsFromFile)[savedSpecimenIndex % totalSpecimensSaved]];
-        post("loadedInitConds",loadedInitConds);
-        var originalName = loadedInitConds.name;
+        // post("totalSpecimensSaved", totalSpecimensSaved);
+        // post("loaded", Object.keys(initConditionsFromFile)[savedSpecimenIndex]);
+        // post("savedSpecimenIndex", savedSpecimenIndex);
+        var loadedInitConds = initConditionsFromFile[Object.keys(initConditionsFromFile)[savedSpecimenIndex]];
+        // post("loadedInitConds", loadedInitConds);
+        var specimenID = Object.keys(initConditionsFromFile)[savedSpecimenIndex];
         currentSpecimen = specimenDataStructure(specimenFromInitialConditions(
             loadedInitConds.specimenType, 
             loadedInitConds.localEligibleFunctions, 
@@ -4759,9 +4761,8 @@ maxAPI.addHandlers({
             loadedInitConds.seedForAlea,
             loadedInitConds.germinalVector));
         leaves = currentSpecimen.leaves;
-        // genotypeSeed = currentSpecimen.initialConditions.genotypeSeed;
         phenotypeSeed = currentSpecimen.initialConditions.phenotypeSeed;
-        currentSpecimen.metadata.specimenID = originalName;
+        currentSpecimen.metadata.specimenID = specimenID;
         saveTemporarySpecimens(currentSpecimen);
         maxAPI.outlet(maxAPI.setDict("specimen.dict", currentSpecimen));
         maxAPI.outlet("finished");
@@ -4770,7 +4771,7 @@ maxAPI.addHandlers({
         newSpecimenName = currentSpecimen.metadata.specimenID;
         if (alias != undefined) newSpecimenName = newSpecimenName + "_" + alias;
         var newInitConds = {
-            "name": newSpecimenName,
+            "species": currentSpecimen.initialConditions.species,
             "specimenType": currentSpecimen.initialConditions.specimenType,
             "localEligibleFunctions": {
                 "includedFunctions":  currentSpecimen.initialConditions.localEligibleFunctions,   

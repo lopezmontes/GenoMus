@@ -1,1 +1,1 @@
-"from init conds: lP2M(l4P(p(0.337203),pRnd(),pAutoref(0),p(0.839124)))"
+"from init conds: lP2M(lBrownian(p(0.023637),p(0.240299),z(29),pAutoref(1)))"
