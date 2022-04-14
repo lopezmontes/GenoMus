@@ -4704,7 +4704,6 @@ var replaceBranch = (originalSpecimen, replacedBranchType, branchIndex) => {
 maxAPI.addHandlers({
     initNode: () => {
         debugMode = "max_console";
-        post("_________________________________");
         post("GenoMus - version " + version);
     },
     brandNewSpecimen: () => {
