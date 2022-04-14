@@ -13,10 +13,9 @@ var currentSpecies = "piano";
 // var currentSpecies = "csound";
 
 var notesPerOctave = 12;
-// var initialConditionsJSONfilename = "jornadasSonologiaValencia.json";
-// var initialConditionsJSONfilename = "csound_species_test.json";
-// var initialConditionsJSONfilename = "piano_4xtra_species_test.json";
-var initialConditionsJSONfilename = "initialConditions.json";
+
+// temporary file while experimenting in Max (leaving other collections untouched until saving)
+var currentInitialConditionsCollection = "initialConditions.json";
 
 // DEPENDENCIES
 // files handling
@@ -4746,14 +4745,67 @@ maxAPI.addHandlers({
     },
     // load JSON initial conditions from file
     loadInitialConditions: (savedSpecimenIndex) => {
-        var initConditionsFromFile = JSON.parse(fs.readFileSync(initialConditionsJSONfilename));
+        var initConditionsFromFile = JSON.parse(fs.readFileSync(currentInitialConditionsCollection));
         var totalSpecimensSaved = Object.keys(initConditionsFromFile).length;
-        // post("totalSpecimensSaved", totalSpecimensSaved);
-        // post("loaded", Object.keys(initConditionsFromFile)[savedSpecimenIndex]);
-        // post("savedSpecimenIndex", savedSpecimenIndex);
-        var loadedInitConds = initConditionsFromFile[Object.keys(initConditionsFromFile)[savedSpecimenIndex]];
-        // post("loadedInitConds", loadedInitConds);
-        var specimenID = Object.keys(initConditionsFromFile)[savedSpecimenIndex];
+        if (savedSpecimenIndex >= totalSpecimensSaved) {
+            post("Error: it doesn't exist specimen with index",savedSpecimenIndex);
+        }
+        else {
+            // post("totalSpecimensSaved", totalSpecimensSaved);
+            // post("loaded", Object.keys(initConditionsFromFile)[savedSpecimenIndex]);
+            // post("savedSpecimenIndex", savedSpecimenIndex);
+            var loadedInitConds = initConditionsFromFile[Object.keys(initConditionsFromFile)[savedSpecimenIndex]];
+            // post("loadedInitConds", loadedInitConds);
+            var specimenID = Object.keys(initConditionsFromFile)[savedSpecimenIndex];
+            currentSpecimen = specimenDataStructure(specimenFromInitialConditions(
+                loadedInitConds.specimenType, 
+                loadedInitConds.localEligibleFunctions, 
+                loadedInitConds.listsMaxNumItems, 
+                loadedInitConds.seedForAlea,
+                loadedInitConds.germinalVector));
+            leaves = currentSpecimen.leaves;
+            phenotypeSeed = currentSpecimen.initialConditions.phenotypeSeed;
+            currentSpecimen.metadata.specimenID = specimenID;
+            saveTemporarySpecimens(currentSpecimen);
+            maxAPI.outlet(maxAPI.setDict("specimen.dict", currentSpecimen));
+            maxAPI.outlet("finished");
+        }
+    },
+    saveInitialConditions: (alias) => {
+        newSpecimenName = currentSpecimen.metadata.specimenID;
+        if (alias != "") newSpecimenName = newSpecimenName + "_" + alias;
+        var newInitConds = {
+            "species": currentSpecimen.initialConditions.species,
+            "specimenType": currentSpecimen.initialConditions.specimenType,
+            "localEligibleFunctions": {
+                "includedFunctions":  currentSpecimen.initialConditions.localEligibleFunctions,   
+                "excludedFunctions": []
+            },
+            "listsMaxNumItems": currentSpecimen.initialConditions.maxListCardinality,
+            "seedForAlea": currentSpecimen.initialConditions.phenotypeSeed,
+            "germinalVector": currentSpecimen.initialConditions.germinalVector,
+        }
+        var existingInitConditions = JSON.parse(fs.readFileSync(currentInitialConditionsCollection));
+        existingInitConditions[newSpecimenName] = newInitConds;
+        createJSON(existingInitConditions, currentInitialConditionsCollection);
+    },
+    deleteInitialConditions: (savedSpecimenIndex) => {
+        var existingInitConditionsFromFile = JSON.parse(fs.readFileSync(currentInitialConditionsCollection));
+        post('deleted specimen', Object.keys(existingInitConditionsFromFile)[savedSpecimenIndex]);
+        var itemToRemove = Object.keys(existingInitConditionsFromFile)[savedSpecimenIndex];
+        delete existingInitConditionsFromFile[itemToRemove];
+        createJSON(existingInitConditionsFromFile, currentInitialConditionsCollection);
+    },
+    // saves and loads collections of initial conditions
+    savePopulation: (filename) => {
+        var existingInitConditionsFromFile = JSON.parse(fs.readFileSync(currentInitialConditionsCollection));
+        createJSON(existingInitConditionsFromFile, 'initialConditions/' + filename + '.json');
+    },
+    loadPopulation: (filename) => {
+        var initConditionsFromFile = JSON.parse(fs.readFileSync('initialConditions/' + filename));
+        createJSON(initConditionsFromFile, currentInitialConditionsCollection);
+        var loadedInitConds = initConditionsFromFile[Object.keys(initConditionsFromFile)[0]];
+        var specimenID = Object.keys(initConditionsFromFile)[0];
         currentSpecimen = specimenDataStructure(specimenFromInitialConditions(
             loadedInitConds.specimenType, 
             loadedInitConds.localEligibleFunctions, 
@@ -4766,48 +4818,19 @@ maxAPI.addHandlers({
         saveTemporarySpecimens(currentSpecimen);
         maxAPI.outlet(maxAPI.setDict("specimen.dict", currentSpecimen));
         maxAPI.outlet("finished");
+        post("loaded initial conditions collection", filename);
     },
-    saveInitialConditions: (alias) => {
-        newSpecimenName = currentSpecimen.metadata.specimenID;
-        if (alias != undefined) newSpecimenName = newSpecimenName + "_" + alias;
-        var newInitConds = {
-            "species": currentSpecimen.initialConditions.species,
-            "specimenType": currentSpecimen.initialConditions.specimenType,
-            "localEligibleFunctions": {
-                "includedFunctions":  currentSpecimen.initialConditions.localEligibleFunctions,   
-                "excludedFunctions": []
-            },
-            "listsMaxNumItems": currentSpecimen.initialConditions.maxListCardinality,
-            "seedForAlea": currentSpecimen.initialConditions.phenotypeSeed,
-            "germinalVector": currentSpecimen.initialConditions.germinalVector,
-        }
-        var existingInitConditions = JSON.parse(fs.readFileSync(initialConditionsJSONfilename));
-        existingInitConditions[newSpecimenName] = newInitConds;
-        createJSON(existingInitConditions, initialConditionsJSONfilename);
+    // saves and loads complete specimen data
+    saveSpecimen: (filename) => {;
+        currentSpecimen.metadata.specimenID += "_" + filename;
+        createJSON(currentSpecimen, 'specimens/' + filename + '.json');
     },
-    deleteInitialConditions: (savedSpecimenIndex) => {
-        var existingInitConditionsFromFile = JSON.parse(fs.readFileSync(initialConditionsJSONfilename));
-        post('deleted specimen', Object.keys(existingInitConditionsFromFile)[savedSpecimenIndex]);
-        var itemToRemove = Object.keys(existingInitConditionsFromFile)[savedSpecimenIndex];
-        delete existingInitConditionsFromFile[itemToRemove];
-        createJSON(existingInitConditionsFromFile, initialConditionsJSONfilename);
-    },
-    // Old style functions, to be deleted?
-    // save JSON specimen
-    saveSpecimen: (title) => {
-        currentSpecimen.data.specimenID = currentSpecimen.data.specimenID +  '_' + title;
-        createJSON(specimenDataStructure(currentSpecimen), 'specimens/' + currentSpecimen.data.specimenID + '.json');
-    },
-    // load JSON specimen
-    loadSpecimen: (savedSpecimen) => {
-        currentSpecimen = JSON.parse(fs.readFileSync('specimens/' + savedSpecimen));
+    loadSpecimen: (filename) => {
+        currentSpecimen = JSON.parse(fs.readFileSync('specimens/' + filename));
         leaves = currentSpecimen.leaves;
-        genotypeSeed = currentSpecimen.initialConditions.genotypeSeed;
         phenotypeSeed = currentSpecimen.initialConditions.phenotypeSeed;
-        //maxAPI.post("genotypeSeed = " + genotypeSeed);
-        //maxAPI.post("phenotypeSeed = " + phenotypeSeed);
-        maxAPI.post("leaves = " + leaves);
-        maxAPI.outlet(maxAPI.setDict("specimen.dict", currentSpecimen));
+        maxAPI.setDict("specimen.dict", currentSpecimen);
+        maxAPI.outlet("finished");
     },
     loadLastSpecimens: (lastSpecIndex) => {
         currentSpecimen = lastSpecimens[lastSpecIndex % lastSpecimens.length];
