@@ -4785,6 +4785,13 @@ maxAPI.addHandlers({
         existingInitConditions[newSpecimenName] = newInitConds;
         createJSON(existingInitConditions, initialConditionsJSONfilename);
     },
+    deleteInitialConditions: (savedSpecimenIndex) => {
+        var existingInitConditionsFromFile = JSON.parse(fs.readFileSync(initialConditionsJSONfilename));
+        post('deleted specimen', Object.keys(existingInitConditionsFromFile)[savedSpecimenIndex]);
+        var itemToRemove = Object.keys(existingInitConditionsFromFile)[savedSpecimenIndex];
+        delete existingInitConditionsFromFile[itemToRemove];
+        createJSON(existingInitConditionsFromFile, initialConditionsJSONfilename);
+    },
     // Old style functions, to be deleted?
     // save JSON specimen
     saveSpecimen: (title) => {
