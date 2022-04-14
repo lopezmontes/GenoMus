@@ -15,7 +15,7 @@ var currentSpecies = "piano";
 var notesPerOctave = 12;
 
 // temporary file while experimenting in Max (leaving other collections untouched until saving)
-var currentInitialConditionsCollection = "initialConditions.json";
+var currentInitialConditionsCollection = "current_initial_conditions.json";
 
 // DEPENDENCIES
 // files handling
@@ -774,7 +774,7 @@ var simpleBACHSearch = () => {
             // newRndSeed();
             evaluatedSpecimenToGraft = specimenDataStructure(specimenFromInitialConditions(
                 "scoreF",
-                eligibleFunctionsForTesting,
+                eligibleFunctions,
                 defaultListsMaxCardinality,
                 phenotypeSeed,
                 currentPopulation[specIndx3 % numEliteSpecs].slice()));
@@ -798,7 +798,7 @@ var simpleBACHSearch = () => {
         for (var a=0; a<specimensPerGeneration; a++) {
             evaluatedNewCandidate = specimenDataStructure(specimenFromInitialConditions(
                 "scoreF",
-                eligibleFunctionsForTesting,
+                eligibleFunctions,
                 defaultListsMaxCardinality,
                 phenotypeSeed,
                 newGeneration[a]));
@@ -851,7 +851,7 @@ var simpleBACHSearch = () => {
     if (foundNewBest) {
         var newBestSpecimen = specimenDataStructure(specimenFromInitialConditions(
             "scoreF",
-            eligibleFunctionsForTesting,
+            eligibleFunctions,
             defaultListsMaxCardinality,
             phenotypeSeed,
             newGeneration[0]))
@@ -3383,35 +3383,6 @@ var GenoMusFunctionLibrary = createFunctionIndexesCatalogues(currentSpecies + "_
 // exports the catalogues of function indexes, ordered by function name, encoded indexes and integer indexes
 createJSON(GenoMusFunctionLibrary, 'GenoMus_function_library.json');
 
-// sospechosas de crear errores: 44
-
-
-
-
-
-var eligibleFunctions = {
-    includedFunctions: [0,1,2,3,4,5,6,7,8,9,10,11,12,266],
-    excludedFunctions: [277, 278, 279, 281, 282, 284, 286, 288, 290, 291]
-    // 46, 37, 48] // only to avoid repeated note as solution for genetic algo. 
-};
-
-var testingFunctionsOLD = {
-    includedFunctions: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 17, 25, 26, 27, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 58, 63, 65,
-        66, 67, 68, 76, 98, 99, 100, 104, 109, 110, 131, 134, 135, 199, 200, 277, 279, 281, 282, 284, 15, 286, 17, 288,
-        19, 290, 20, 291, 48, 77, 294, 296, 298, 299, 11, 84, 302, 304, 306, 307,
-        310, 312, 314, 315, 316, 317, 201, 202, 318],
-    excludedFunctions: [281, 282] // 25,26,27,28,29,277,279,281,282,284] // [1, 9, 27, 10, 26, 17, 15, 7, 5, 25, 12, 29, 28, 131, 132, 40, 36, 35]
-};
-
-// generates the catalogues of eligible functions to be used for genotype generation
-
-var eligibleFunctionsLibrary = createEligibleFunctionLibrary(GenoMusFunctionLibrary, eligibleFunctions);
-// exports the catalogues of eligible function indexes, ordered by function name, encoded indexes and integer indexes, and containing the initial conditions of the subset
-createJSON(eligibleFunctionsLibrary, 'eligible_functions_library.json');
-
-// global variable containing functions catalogue
-var complete_functions_catalogue = JSON.parse(fs.readFileSync('eligible_functions_library.json'));
-
 
 
 //// GENOTYPES ENCODING, DECODING AND EVALUATION
@@ -4539,7 +4510,7 @@ var manyFuncsWithoutAutoRefs = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 1
 98, 99, 100, 101, 266 ];
 
 // testing functions
-var eligibleFunctionsForTesting = {
+var eligibleFunctions = {
     includedFunctions: 
         // [] // all functions    
         [...new Set(
@@ -4568,7 +4539,7 @@ var createNewSpecimen = () => {
     // initial conditions
     var germinalVec;
     var outputType = specimenMainFunctionType;
-    var eligibleFuncs = eligibleFunctionsForTesting;
+    var eligibleFuncs = eligibleFunctions;
     var listMaxLength = defaultListsMaxCardinality;
     var aleaSeed = parseInt(Math.random()*1e15);
     // aux variables
@@ -4827,8 +4798,10 @@ maxAPI.addHandlers({
     },
     loadSpecimen: (filename) => {
         currentSpecimen = JSON.parse(fs.readFileSync('specimens/' + filename));
-        leaves = currentSpecimen.leaves;
+        specimenMainFunctionType = currentSpecimen.initialConditions.specimenType;
+        defaultListsMaxCardinality = currentSpecimen.initialConditions.maxListCardinality;
         phenotypeSeed = currentSpecimen.initialConditions.phenotypeSeed;
+        leaves = currentSpecimen.leaves;
         maxAPI.setDict("specimen.dict", currentSpecimen);
         maxAPI.outlet("finished");
     },
@@ -4841,7 +4814,7 @@ maxAPI.addHandlers({
     renderInitialConditions: (arrayAsString) => {
         currentSpecimen  = specimenDataStructure(specimenFromInitialConditions(
             specimenMainFunctionType, 
-            eligibleFunctionsForTesting, 
+            eligibleFunctions, 
             defaultListsMaxCardinality, 
             phenotypeSeed,
             eval(arrayAsString)));  
@@ -4853,7 +4826,7 @@ maxAPI.addHandlers({
     encGenAsGerminal: () => {
         currentSpecimen = specimenDataStructure(specimenFromInitialConditions(
             currentSpecimen.initialConditions.specimenType,
-            eligibleFunctionsForTesting, 
+            eligibleFunctions, 
             defaultListsMaxCardinality, 
             currentSpecimen.initialConditions.phenotypeSeed,
             currentSpecimen.encodedGenotype));            
