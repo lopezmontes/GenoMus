@@ -4604,7 +4604,7 @@ var specimenFromInitialConditions = (
     specimenFromInitConds = createGenotype(
         outputType, eligibleFuncs, listMaxLength, aleaSeed, germinalVec);
     // saves last genotype created as log file
-    createJSON("from init conds: " + specimenFromInitConds.decGen, 'lastGenotype.json');
+    createJSON("from init conds: " + specimenFromInitConds.decGen, 'aux/lastGenotype.json');
     if (specimenFromInitConds == -1) {
         specimenFromInitConds = eval("s(v(" + defaultEventExpression + "))");
         specimenFromInitConds.data = {
