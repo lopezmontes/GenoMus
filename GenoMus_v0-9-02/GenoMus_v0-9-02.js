@@ -15,7 +15,7 @@ var currentSpecies = "piano";
 var notesPerOctave = 12;
 
 // temporary file while experimenting in Max (leaving other collections untouched until saving)
-var currentInitialConditionsCollection = "current_initial_conditions.json";
+var currentInitialConditionsCollection = "aux/current_initial_conditions.json";
 
 // DEPENDENCIES
 // files handling
@@ -3378,10 +3378,10 @@ var createEligibleFunctionLibrary = (completeLib, eligibleFunc) => {
 };
 
 // generates the catalogues of function indexes
-var GenoMusFunctionLibrary = createFunctionIndexesCatalogues(currentSpecies + "_functions.json");
+var GenoMusFunctionLibrary = createFunctionIndexesCatalogues("aux/" + currentSpecies + "_functions.json");
 
 // exports the catalogues of function indexes, ordered by function name, encoded indexes and integer indexes
-createJSON(GenoMusFunctionLibrary, 'GenoMus_function_library.json');
+createJSON(GenoMusFunctionLibrary, 'aux/GenoMus_function_library.json');
 
 
 

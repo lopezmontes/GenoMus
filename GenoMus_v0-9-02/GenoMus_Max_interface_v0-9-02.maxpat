@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 0.0, 53.0, 1033.0, 804.0 ],
+		"rect" : [ 0.0, 53.0, 1539.0, 1048.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 8.0,
@@ -118,7 +118,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 863.97506053249117, 256.625075578689575, 268.0, 22.0 ],
+					"patching_rect" : [ 990.558485855659796, 319.900949035536371, 112.000000000000114, 22.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 798.97506053249117, 255.625075578689575, 187.20457760258148, 22.0 ],
 					"style" : "genomus comment",
@@ -794,7 +794,7 @@
 					"patching_rect" : [ 585.262033603950044, 249.84367204693848, 143.0, 25.695932305105998 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 556.262033603950044, 143.707319193026251, 182.321320054567195, 21.0 ],
-					"text" : "90178734511692"
+					"text" : "90252166634675"
 				}
 
 			}
@@ -4028,7 +4028,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 244.0, 799.0, 1540.0, 356.0 ],
+						"rect" : [ 50.0, 471.0, 1540.0, 356.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 1,
 						"default_fontsize" : 12.0,
@@ -4056,7 +4056,6 @@
 						"style" : "",
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-287",
@@ -9296,7 +9295,7 @@
 									"presentation" : 1,
 									"presentation_linecount" : 4,
 									"presentation_rect" : [ 0.833334445953369, 26.750006437301636, 816.0, 4592.0 ],
-									"text" : "\"lmLine(\n   m(71),\n   m(12),\n   z(52))\"",
+									"text" : "\"\"lmLine(\n   m(71),\n   m(12),\n   z(52))\"\"",
 									"textcolor" : [ 0.8000000119, 0.8000000119, 0.8000000119, 1.0 ]
 								}
 
@@ -9819,6 +9818,8 @@
 									"saved_object_attributes" : 									{
 										"autostart" : 0,
 										"defer" : 0,
+										"node_bin_path" : "",
+										"npm_bin_path" : "",
 										"watch" : 0
 									}
 ,
@@ -10011,7 +10012,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 1619.0, 53.0, 698.0, 985.0 ],
+						"rect" : [ 1222.0, 53.0, 698.0, 985.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -12366,22 +12367,8 @@
 				"type" : "iLaX"
 			}
 , 			{
-				"name" : "expandCompressedGenotype.js",
-				"bootpath" : "~/Dropbox/tesis/GenoMus/GenoMus_v0-9-02",
-				"patcherrelativepath" : ".",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
 				"name" : "fit_jweb_to_bounds.js",
 				"bootpath" : "C74:/packages/Node for Max/patchers/debug-monitor",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "listToArrayAsString.js",
-				"bootpath" : "~/Dropbox/tesis/GenoMus/GenoMus_v0-9-02",
-				"patcherrelativepath" : ".",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
@@ -12389,20 +12376,6 @@
 				"name" : "n4m.monitor.maxpat",
 				"bootpath" : "C74:/packages/Node for Max/patchers/debug-monitor",
 				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "randomList.js",
-				"bootpath" : "~/Dropbox/tesis/GenoMus/GenoMus_v0-9-02",
-				"patcherrelativepath" : ".",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "regressionTests_decGens.js",
-				"bootpath" : "~/Dropbox/tesis/GenoMus/GenoMus_v0-9-02",
-				"patcherrelativepath" : ".",
-				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
