@@ -7,34 +7,24 @@
 // Last redesign of data arquitecture, previous to GenoMus 1.0
 // Genetic algorithms
 
-// TESTING DIFFERENT SPECIES
-var currentSpecies = "piano";
-// var currentSpecies = "piano_4xtra"; // as piano species with 4 extra generic parameters addedpiano_4xtra
-// var currentSpecies = "csound";
-
-var notesPerOctave = 12;
-
-// temporary file while experimenting in Max (leaving other collections untouched until saving)
-var currentInitialConditionsCollection = "aux/current_initial_conditions.json";
-
 // DEPENDENCIES
 // files handling
 const fs = require('fs');
 // connection with Max interface
 const maxAPI = require('max-api');
 
-// output for debugging
-var post = (message, monitoredVar) => {
-    if (monitoredVar == undefined) monitoredVar = "";
-    if (debugMode == "terminal") console.log(message + " " + monitoredVar);
-    else if (debugMode == "max_console") maxAPI.post(message + " " + monitoredVar);
-}
-var debugMode = "terminal";
-// var debugMode = "max_console";
-
 
 //// DEFAULT CONDITIONS
 var version = "0.9.02";
+var currentUser = "jlm";
+
+var currentSpecies = "piano";
+// var currentSpecies = "piano_4xtra"; // as piano species with 4 extra generic parameters addedpiano_4xtra
+// var currentSpecies = "csound";
+
+var notesPerOctave = 12;
+// temporary file while experimenting in Max (leaving other collections untouched until saving)
+var currentInitialConditionsCollection = "aux/current_population.json";
 
 var specimenMainFunctionType = "scoreF";
 var defaultListsMaxCardinality = 16;
@@ -268,6 +258,15 @@ var quantizedLookupTable = [0, 0.0005, 0.001, 0.003, 0.006, 0.008, 0.01, 0.015, 
 
 
 //// AUX FUNCTIONS
+
+// output for debugging
+var post = (message, monitoredVar) => {
+    if (monitoredVar == undefined) monitoredVar = "";
+    if (debugMode == "terminal") console.log(message + " " + monitoredVar);
+    else if (debugMode == "max_console") maxAPI.post(message + " " + monitoredVar);
+}
+var debugMode = "terminal";
+// var debugMode = "max_console";
 
 // find the right value to map a normalized parameter to an eligible function encIndex,
 // to guarantee reproducibility of evaluations when new functions are available
@@ -4468,7 +4467,7 @@ var createGenotype = (
         return -1; // indicates not valid genotype found
     }  
     newBranch.data = {
-        specimenID: getFileDateName("jlm"),
+        specimenID: getFileDateName(currentUser),
         specimenType: specimenType,
         localEligibleFunctions: local_functions_catalogue.eligibleFunctions,
         maxListCardinality: listsMaxNumItems,
@@ -4623,7 +4622,7 @@ var specimenFromInitialConditions = (
         return specimenFromInitConds;
     }
     specimenFromInitConds.data = {
-        specimenID: getFileDateName("jlm"),
+        specimenID: getFileDateName(currentUser),
         specimenType: outputType,
         localEligibleFunctions: specimenFromInitConds.data.localEligibleFunctions,
         maxListCardinality: listMaxLength,
@@ -4658,7 +4657,7 @@ var mutateSpecimenLeaves = (originalSpecimen, mutProbability, mutAmount) => {
     createNewSeed(originalSpecimen.initialConditions.phenotypeSeed);
     mutatedSpecimen = eval(decodeGenotype(mutatedSpecimen.encodedGenotype));
     mutatedSpecimen.data = {
-        specimenID: getFileDateName("jlm"),
+        specimenID: getFileDateName(currentUser),
         specimenType: originalSpecimen.initialConditions.specimenType,
         localEligibleFunctions: originalSpecimen.initialConditions.localEligibleFunctions,
         maxListCardinality: originalSpecimen.initialConditions.maxListCardinality,
@@ -4718,7 +4717,7 @@ maxAPI.addHandlers({
         var initConditionsFromFile = JSON.parse(fs.readFileSync(currentInitialConditionsCollection));
         var totalSpecimensSaved = Object.keys(initConditionsFromFile).length;
         if (savedSpecimenIndex >= totalSpecimensSaved) {
-            post("Error: it doesn't exist specimen with index",savedSpecimenIndex);
+            post("it doesn't exist specimen with index",savedSpecimenIndex);
         }
         else {
             // post("totalSpecimensSaved", totalSpecimensSaved);
@@ -4769,10 +4768,10 @@ maxAPI.addHandlers({
     // saves and loads collections of initial conditions
     savePopulation: (filename) => {
         var existingInitConditionsFromFile = JSON.parse(fs.readFileSync(currentInitialConditionsCollection));
-        createJSON(existingInitConditionsFromFile, 'initialConditions/' + filename + '.json');
+        createJSON(existingInitConditionsFromFile, 'populations/' + filename + '.json');
     },
     loadPopulation: (filename) => {
-        var initConditionsFromFile = JSON.parse(fs.readFileSync('initialConditions/' + filename));
+        var initConditionsFromFile = JSON.parse(fs.readFileSync('populations/' + filename));
         createJSON(initConditionsFromFile, currentInitialConditionsCollection);
         var loadedInitConds = initConditionsFromFile[Object.keys(initConditionsFromFile)[0]];
         var specimenID = Object.keys(initConditionsFromFile)[0];
@@ -4796,6 +4795,7 @@ maxAPI.addHandlers({
         createJSON(currentSpecimen, 'specimens/' + filename + '.json');
     },
     loadSpecimen: (filename) => {
+        post(filename);
         currentSpecimen = JSON.parse(fs.readFileSync('specimens/' + filename));
         specimenMainFunctionType = currentSpecimen.initialConditions.specimenType;
         defaultListsMaxCardinality = currentSpecimen.initialConditions.maxListCardinality;
@@ -4806,6 +4806,10 @@ maxAPI.addHandlers({
     },
     loadLastSpecimens: (lastSpecIndex) => {
         currentSpecimen = lastSpecimens[lastSpecIndex % lastSpecimens.length];
+        specimenMainFunctionType = currentSpecimen.initialConditions.specimenType;
+        defaultListsMaxCardinality = currentSpecimen.initialConditions.maxListCardinality;
+        phenotypeSeed = currentSpecimen.initialConditions.phenotypeSeed;
+        leaves = currentSpecimen.leaves;
         maxAPI.setDict("specimen.dict", currentSpecimen);
         maxAPI.outlet("finished");
     },
@@ -4843,7 +4847,7 @@ maxAPI.addHandlers({
         createNewSeed(currentSpecimen.initialConditions.phenotypeSeed);
         currentSpecimen = evalDecGen(typedDecGen);
         currentSpecimen.data = {
-            specimenID: getFileDateName("jlm"),
+            specimenID: getFileDateName(currentUser),
             specimenType: currentSpecimen.funcType, // to be done: recognition of the first function entered typing
             localEligibleFunctions: [],
             maxListCardinality: defaultListsMaxCardinality,
@@ -4870,7 +4874,7 @@ maxAPI.addHandlers({
         createNewSeed(copyOfCurrentSpec.initialConditions.phenotypeSeed);
         currentSpecimen = evalDecGen(newDecGen);
         currentSpecimen.data = {
-            specimenID: getFileDateName("jlm"),
+            specimenID: getFileDateName(currentUser),
             specimenType: copyOfCurrentSpec.initialConditions.specimenType,
             localEligibleFunctions: copyOfCurrentSpec.initialConditions.localEligibleFunctions,
             maxListCardinality: copyOfCurrentSpec.initialConditions.maxListCardinality,
@@ -4912,7 +4916,7 @@ maxAPI.addHandlers({
             createNewSeed(copyOfCurrentSpec.initialConditions.phenotypeSeed);
             currentSpecimen = evalDecGen(newDecGen);
             currentSpecimen.data = {
-                specimenID: getFileDateName("jlm"),
+                specimenID: getFileDateName(currentUser),
                 specimenType: "scoreF",
                 localEligibleFunctions: copyOfCurrentSpec.initialConditions.localEligibleFunctions,
                 maxListCardinality: copyOfCurrentSpec.initialConditions.maxListCardinality,
@@ -5049,7 +5053,7 @@ maxAPI.addHandlers({
         createNewSeed(phenotypeSeed);
         currentSpecimen = evalDecGen("s(v(e(p(0.5),p(0.5),p(0.5),p(0.5))))");
         currentSpecimen.data = {
-            specimenID: getFileDateName("jlm"),
+            specimenID: getFileDateName(currentUser),
             iterations: 0,
             milliseconsElapsed: Math.abs(new Date() - startdate),
             genotypeLength: currentSpecimen.length,
