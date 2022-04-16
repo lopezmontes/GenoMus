@@ -4795,7 +4795,6 @@ maxAPI.addHandlers({
         createJSON(currentSpecimen, 'specimens/' + filename + '.json');
     },
     loadSpecimen: (filename) => {
-        post(filename);
         currentSpecimen = JSON.parse(fs.readFileSync('specimens/' + filename));
         specimenMainFunctionType = currentSpecimen.initialConditions.specimenType;
         defaultListsMaxCardinality = currentSpecimen.initialConditions.maxListCardinality;
