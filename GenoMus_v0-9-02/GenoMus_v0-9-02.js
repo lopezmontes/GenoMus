@@ -4128,34 +4128,34 @@ var encPhen2csoundScore = encPhen => {
 
 //// CORE FUNCTIONS FOR SPECIMEN CREATION AND EVOLUTION
 
-// SPECIMEN OUTPUT DATA STRUCTURE AS OBJECT FOR JSON FILES
-var specimenDataStructure = (specimen) => ({
+// FORMATS SPECIMEN DATA ACCORDING TO AN OUTPUT DATA STRUCTURE FOR AN OBJECT AND JSON FILES
+var specimenDataStructure = (specimenData) => ({
     initialConditions: {
         species: currentSpecies,
-        specimenType: specimen.data.specimenType,
-        localEligibleFunctions: specimen.data.localEligibleFunctions,
-        maxListCardinality: specimen.data.maxListCardinality,
-        phenotypeSeed: specimen.data.phenotypeSeed,
-        germinalVector: specimen.data.germinalVector
+        specimenType: specimenData.data.specimenType,
+        localEligibleFunctions: specimenData.data.localEligibleFunctions,
+        maxListCardinality: specimenData.data.maxListCardinality,
+        phenotypeSeed: specimenData.data.phenotypeSeed,
+        germinalVector: specimenData.data.germinalVector
     },
     metadata: {
-        specimenID: specimen.data.specimenID,
+        specimenID: specimenData.data.specimenID,
         GenoMusVersion: version,
-        iterations: specimen.data.iterations,
-        milliseconsElapsed: specimen.data.milliseconsElapsed,
-        depth: specimen.data.depth,
-        voices: specimen.phenVoices,
-        events: specimen.phenLength,
-        decGenotypeLength: specimen.data.decGenotypeLength,
-        encGenotypeLength: specimen.data.encGenotypeLength,
-        germinalVectorLength: specimen.data.germinalVector.length,
-        germinalVectorDeviation: specimen.data.germinalVectDeviation,
-        genotypeSeed: specimen.data.genotypeSeed
+        iterations: specimenData.data.iterations,
+        milliseconsElapsed: specimenData.data.milliseconsElapsed,
+        depth: specimenData.data.depth,
+        voices: specimenData.phenVoices,
+        events: specimenData.phenLength,
+        decGenotypeLength: specimenData.data.decGenotypeLength,
+        encGenotypeLength: specimenData.data.encGenotypeLength,
+        germinalVectorLength: specimenData.data.germinalVector.length,
+        germinalVectorDeviation: specimenData.data.germinalVectDeviation,
+        genotypeSeed: specimenData.data.genotypeSeed
     },
-    encodedGenotype: specimen.encGen,
-    decodedGenotype: specimen.decGen,
-    formattedGenotype: expandExpr(specimen.decGen),
-    encodedPhenotype: specimen.encPhen,
+    encodedGenotype: specimenData.encGen,
+    decodedGenotype: specimenData.decGen,
+    formattedGenotype: expandExpr(specimenData.decGen),
+    encodedPhenotype: specimenData.encPhen,
     subexpressions: {
         scoreF: subexpressions["scoreF"],
         voiceF: subexpressions["voiceF"],
@@ -4181,9 +4181,9 @@ var specimenDataStructure = (specimen) => ({
         operationF: subexpressions["operationF"],
         booleanF: subexpressions["booleanF"]
     },
-    leaves: specimen.data.leaves,
+    leaves: specimenData.data.leaves,
     // wraps encPhen before creating bach roll for Max
-    roll: encPhen2bachRoll(wrapDecGen(specimen)),
+    roll: encPhen2bachRoll(wrapDecGen(specimenData)),
     // csoundScore: encPhen2csoundScore(specimen.encPhen)
 });
 
@@ -4576,6 +4576,7 @@ var createNewSpecimen = () => {
         newSpecimen = eval("s(v(" + defaultEventExpression + "))");
         newSpecimen.data = {
             specimenID: getFileDateName("not_found"),
+            specimenType: specimenMainFunctionType,
             iterations: iterations,
             milliseconsElapsed: new Date() - searchStartdate,
             encGenotypeLength: "using default expression",
