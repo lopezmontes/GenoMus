@@ -38,7 +38,7 @@ var phenMinPolyphony = 1;
 var phenMaxPolyphony = 8;
 var phenMinLength = 1;
 var phenMaxLength = 10000;
-var maxIterations = 20000;
+var maxIterations = 2;
 var maxIntervalPerSearch = 5000; // in milliseconds
 var maxIntervalPerNewBranch = 1000; // in milliseconds
 var mandatoryFunction = "";
@@ -4547,6 +4547,7 @@ var createNewSpecimen = () => {
     // aux variables
     var genotypeDepth;
     var iterations = 0;
+    var satisfiedConstraints;
     // searches a specimen
     do {
         iterations++;
@@ -4556,18 +4557,21 @@ var createNewSpecimen = () => {
             outputType, eligibleFuncs, listMaxLength, aleaSeed, germinalVec);
         // save last genotype created as log file
         // createJSON(iterations + ": " + newSpecimen.decGen, 'lastGenotype.json');
-    } while (
         // test if preconditions are fullfilled
-        (
+        if (
             newSpecimen == -1
             || newSpecimen.decGen.includes(mandatoryFunction) == false
             || newSpecimen.phenLength < phenMinLength
             || newSpecimen.phenLength > phenMaxLength
             || newSpecimen.phenVoices < phenMinPolyphony
             || newSpecimen.phenVoices > phenMaxPolyphony
-        )
+        ) satisfiedConstraints = false
+        else satisfiedConstraints = true;
+    } while (
+        // test if preconditions are fullfilled
+        satisfiedConstraints == false
         && iterations < maxIterations
-        && new Date() - searchStartdate < maxIntervalPerSearch);
+        && new Date() - searchStartdate <= maxIntervalPerSearch);
     // save all genotypes as log file
     // genotypeLog["gen" + genCount++] = newSpecimen.decGen;
     // createJSON(genotypeLog, 'genotipeLog.json');
@@ -4588,8 +4592,8 @@ var createNewSpecimen = () => {
             leaves: extractLeaves(newSpecimen.encGen),
         };
         return newSpecimen;
-    } 
-    if (iterations < maxIterations && new Date() - searchStartdate < maxIntervalPerSearch) maxAPI.outlet("found")
+    }; 
+    if (satisfiedConstraints) maxAPI.outlet("found") 
     else maxAPI.outlet("notfound");
     newSpecimen.data.iterations = iterations;
     newSpecimen.data.milliseconsElapsed = new Date() - searchStartdate;
