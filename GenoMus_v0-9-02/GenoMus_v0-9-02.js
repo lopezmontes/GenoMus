@@ -4588,7 +4588,8 @@ var createNewSpecimen = () => {
         };
         return newSpecimen;
     } 
-    if (iterations < maxIterations) maxAPI.outlet("found");
+    if (iterations < maxIterations && new Date() - searchStartdate < maxIntervalPerSearch) maxAPI.outlet("found")
+    else maxAPI.outlet("notfound");
     newSpecimen.data.iterations = iterations;
     newSpecimen.data.milliseconsElapsed = new Date() - searchStartdate;
     return newSpecimen;
