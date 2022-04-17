@@ -172,6 +172,16 @@ which the aims have been satisfied.
 %------------------------------------------------
 \section{Background and related works}
 
+\begin{samepage}
+\begin{quotation}
+\textsl{Lerner appears to believe that transformations that could be carried
+out by a computer program [...] could not possibly generate anything sensible---and that no program could tell sense from nonsense anyway. The implication [...] is that no computational theory could describe the generation of valuable new ideas, and that only an unanalyzable faculty of ``intuition'' or ``insight'' could recognize their value. None of these beliefs is justified.}
+
+---Margaret Boden \cite{BodenWhatIsCr}
+\end{quotation}
+\end{samepage}
+
+
 hablar de gramaticas generativas
 
 explicar las caracteristicas necesarias para luego enlazar con las caracteristicas que presenta GenoMus
@@ -276,7 +286,7 @@ Hacer resumen del proyecto completo, referencias a los antecedentes y dejar clar
 
 
 %------------------------------------------------
-\section{Methods}
+\section{Methods: The GenoMus framework}
 %A simple functional grammar to represent musical procedures
 \begin{samepage}
 \begin{quotation}
@@ -437,7 +447,7 @@ too \cite{Bod_thedata-oriented} -> para justificar el uso de arboles de funcione
 
 
 
-\subsection{Knowledge representation: scores and procedures as one-dimensional arrays}
+\subsection{Knowledge representation as one-dimensional arrays}
 % Genotypes, phenotypes, species and specimens
 Although its target is not only genetic algorithms but a variety of machine learning techniques, our framework uses the evolutionary analogy, similarly as many other automatic composition systems \cite{Sulyok2019, SnchezQuintana2013, add more...}. The Darwinian metaphor can be confusing, since each system has its particular application of the same terms, sometimes denoting even opposite concepts. 
 
@@ -517,7 +527,7 @@ phenotype.
 
 
 
-\subsection{Germinal vector, encoded genotype and encoded phenotype}
+\subsection{Musical genotypes, phenotypes and germinal vectors}
 
 A \emph{germinal vector} determines a decision tree for the core algorithm that leads to an encoded genotype, a valid executable expression that represents musical procedures.
 
@@ -546,38 +556,6 @@ The application $f$ involves several subprocesses that we will cover next, in su
 \end{itemize}
 
 
-\subsection{Reversivility of encoded genotypes}
-
-\begin{figure}[H]
-  \includegraphics[width=\linewidth]{figs/germinal_vector_to_encoded_genotype_coding/germinal_vector_to_encoded_genotype_coding.pdf}
-  \caption{From germinal vector to encoded genotype}
-  \label{fig:fromGerminalToEncGen}
-\end{figure}
-
-
-
-
-  
-  
-\subsection{A unique format for procedures and results}
-\subsection{Safety through encoding}
-
-
-
-
-
-
-%------------------------------------------------
-\section{The GenoMus framework}
-
-\begin{samepage}
-\begin{quotation}
-\textsl{Lerner appears to believe that transformations that could be carried
-out by a computer program [...] could not possibly generate anything sensible---and that no program could tell sense from nonsense anyway. The implication [...] is that no computational theory could describe the generation of valuable new ideas, and that only an unanalyzable faculty of ``intuition'' or ``insight'' could recognize their value. None of these beliefs is justified.}
-
----Margaret Boden \cite{BodenWhatIsCr}
-\end{quotation}
-\end{samepage}
 
 
 \subsection{Overview of the model and complementary materials}
@@ -602,14 +580,6 @@ out by a computer program [...] could not possibly generate anything sensible---
 
 Nueva figura que ilustre como enlazan las diferentes estructuras descritas.
 
-
-\subsection{Encoding genotypes with G{\"o}delian resonances}
-
-{\color{red}
-
-\cite{deLemosAlmada2017} -> para las resonancias godelianas
-
-}
 
 
 
@@ -647,6 +617,36 @@ The data content in $\vec{d}$ has the form of a dictionary (actually a JavaScrip
 This data structure is what each genotype function expects for every argument, and what is passed to the next one. A crucial item is \textbf{decGen}, where a function returns its own code as a string. It allows reevaluations of this code, which is essential to procedures involving iteration, recursion or stochastic processes.
 
 The decoding of GenoMus encoded phenotypes into standard formats for any musical application can be seen as an external operation, not concerning directly this formal definition. 
+
+
+\subsection{Encoding and decoding strategies for data normalization}
+
+
+{\color{gray}
+
+Detalle del uso de golden angle para codificar enteros.
+Aplicaciones:
+- Espaciado equilibrado de punteros a funciones en el rango 0-1
+- Codificación de enteros en fenotipos (número de voces, de notas, etc.)
+
+}
+
+\subsection{Germinal vectors as retrotranscription of decoded genotypes}
+
+{\color{red}
+
+\cite{deLemosAlmada2017} -> para las resonancias godelianas
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{figs/germinal_vector_to_encoded_genotype_coding/germinal_vector_to_encoded_genotype_coding.pdf}
+  \caption{From germinal vector to encoded genotype}
+  \label{fig:fromGerminalToEncGen}
+\end{figure}
+
+}
+
+
+
 
 
 \subsection{Anatomy of a genotype function}
@@ -885,7 +885,7 @@ The encoded genotype is an unidimensional numeric vector. To get a better insigh
   \label{fig:boat3}
 \end{figure}
 
-\subsection{Extraction of a new function}
+\subsection{Extraction of new functions from music}
 
 The genotype of a whole composition like this (or only part of it) can be automatically flattened to create a new genotype function where all leaves are assembled as a single array of arguments\footnote{The numeric values that feed arguments for the autoreferences are excluded from the arguments array of the new derivate function because of their structural character. These number must be immutable to preserve the internal consistency of the procedure.}.  For instance, a new function called \texttt{sClapping} could be created to be handled as a new procedure, abstracted from the original piece:
 
@@ -1031,6 +1031,7 @@ Approaches based on neural networks need a very controlled format of data and bi
 
 }
 
+\subsection{Safety through encoding}
 
 \subsection{Integrating traditional and contemporary techniques}
 

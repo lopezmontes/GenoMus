@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.9.12)  17 APR 2022 17:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.9.12)  17 APR 2022 20:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -600,26 +600,22 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5]
 
-LaTeX Warning: Citation `add more...' on page 6 undefined on input line 442.
+LaTeX Warning: Citation `add more...' on page 6 undefined on input line 452.
 
-[6] [7]
+[6] [7] [8]
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 607.
 <figs/germinal_vector_to_encoded_genotype_coding/germinal_vector_to_encoded_gen
-otype_coding.pdf, id=259, 431.76407pt x 197.70462pt>
+otype_coding.pdf, id=263, 431.76407pt x 197.70462pt>
 File: figs/germinal_vector_to_encoded_genotype_coding/germinal_vector_to_encode
 d_genotype_coding.pdf Graphic file (type pdf)
 <use figs/germinal_vector_to_encoded_genotype_coding/germinal_vector_to_encoded
 _genotype_coding.pdf>
 Package pdftex.def Info: figs/germinal_vector_to_encoded_genotype_coding/germin
-al_vector_to_encoded_genotype_coding.pdf  used on input line 552.
+al_vector_to_encoded_genotype_coding.pdf  used on input line 641.
 (pdftex.def)             Requested size: 469.75499pt x 215.1046pt.
-
-Underfull \vbox (badness 1286) has occurred while \output is active []
-
- [8 <./figs/germinal_vector_to_encoded_genotype_coding/germinal_vector_to_encod
+ [9 <./figs/germinal_vector_to_encoded_genotype_coding/germinal_vector_to_encod
 ed_genotype_coding.pdf>]
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 637.
- [9]
 Underfull \hbox (badness 10000) in paragraph at lines 678--678
 \T1/cmtt/m/n/9 iterations\T1/cmr/m/n/9 (+20) , \T1/cmtt/m/n/9 millisecondsElaps
 ed\T1/cmr/m/n/9 (+20) , \T1/cmtt/m/n/9 encGenotypeLength\T1/cmr/m/n/9 (+20) , \
@@ -644,16 +640,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 675--696
 
  []
 
-[10]
-<figs/clapping_patterns.pdf, id=316, 577.87482pt x 212.68312pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10]
+<figs/clapping_patterns.pdf, id=304, 577.87482pt x 212.68312pt>
 File: figs/clapping_patterns.pdf Graphic file (type pdf)
 <use figs/clapping_patterns.pdf>
 Package pdftex.def Info: figs/clapping_patterns.pdf  used on input line 743.
 (pdftex.def)             Requested size: 469.75499pt x 172.89871pt.
 
-Underfull \vbox (badness 7168) has occurred while \output is active []
-
- [11]
 Underfull \hbox (badness 10000) in paragraph at lines 754--768
 [][]
  []
@@ -663,10 +659,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 754--768
 
  []
 
+[11 <./figs/clapping_patterns.pdf>]
 (/usr/local/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-) [12 <./figs/clapping_patterns.pdf>]
-<figs/clapping_tree_graph_colours_code.pdf, id=354, 476.43866pt x 263.4135pt>
+) [12]
+<figs/clapping_tree_graph_colours_code.pdf, id=362, 476.43866pt x 263.4135pt>
 File: figs/clapping_tree_graph_colours_code.pdf Graphic file (type pdf)
 <use figs/clapping_tree_graph_colours_code.pdf>
 Package pdftex.def Info: figs/clapping_tree_graph_colours_code.pdf  used on inp
@@ -676,7 +673,7 @@ ut line 872.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [13]
-<figs/clappingVisualized.pdf, id=395, 1033.46097pt x 112.42pt>
+<figs/clappingVisualized.pdf, id=386, 1033.46097pt x 112.42pt>
 File: figs/clappingVisualized.pdf Graphic file (type pdf)
 <use figs/clappingVisualized.pdf>
 Package pdftex.def Info: figs/clappingVisualized.pdf  used on input line 882.
@@ -757,23 +754,17 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-
-Package rerunfilecheck Warning: File `genomus_grammar.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `genomus_grammar.out':
-(rerunfilecheck)             Before: DB8254A72D0FB40517BC9FF9150C24F4;6308
-(rerunfilecheck)             After:  85D4CD3C14AE43591B6FDA28738DFE72;6308.
+Package rerunfilecheck Info: File `genomus_grammar.out' has not changed.
+(rerunfilecheck)             Checksum: 537DF863DE7E61A15FFC188065F267FB;6092.
  ) 
 Here is how much of TeX's memory you used:
- 16869 strings out of 478994
- 256439 string characters out of 5858184
- 1059739 words of memory out of 5000000
- 33663 multiletter control sequences out of 15000+600000
- 435711 words of font info for 218 fonts, out of 8000000 for 9000
+ 16867 strings out of 478994
+ 256415 string characters out of 5858184
+ 1222577 words of memory out of 5000000
+ 33661 multiletter control sequences out of 15000+600000
+ 435769 words of font info for 219 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,12n,88p,1341b,1944s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 83i,12n,88p,1341b,1216s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{
 /usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.e
@@ -806,10 +797,10 @@ mf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2021/texmf
 -dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2021/texmf-d
 ist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2021/texmf-dis
 t/fonts/type1/public/cm-super/sfxc1200.pfb>
-Output written on genomus_grammar.pdf (19 pages, 717566 bytes).
+Output written on genomus_grammar.pdf (19 pages, 717092 bytes).
 PDF statistics:
- 593 PDF objects out of 1000 (max. 8388607)
- 527 compressed objects within 6 object streams
- 148 named destinations out of 1000 (max. 500000)
- 60669 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 583 PDF objects out of 1000 (max. 8388607)
+ 517 compressed objects within 6 object streams
+ 146 named destinations out of 1000 (max. 500000)
+ 60653 words of extra memory for PDF output out of 61914 (max. 10000000)
 
