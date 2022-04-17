@@ -4590,7 +4590,7 @@ var createNewSpecimen = () => {
             leaves: extractLeaves(newSpecimen.encGen),
         };
         return newSpecimen;
-    }; 
+    };
     if (satisfiedConstraints) maxAPI.outlet("found") 
     else maxAPI.outlet("notfound");
     newSpecimen.data.iterations = iterations;
