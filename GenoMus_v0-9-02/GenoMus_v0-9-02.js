@@ -4547,7 +4547,7 @@ var createNewSpecimen = () => {
     // aux variables
     var genotypeDepth;
     var iterations = 0;
-    var satisfiedConstraints;
+    var satisfiedConstraints = false;
     // searches a specimen
     do {
         iterations++;
@@ -4555,24 +4555,22 @@ var createNewSpecimen = () => {
         germinalVec = randomVector(parseInt(Math.random()*defaultGerminalVecMaxLength) + 1);
         newSpecimen = createGenotype(
             outputType, eligibleFuncs, listMaxLength, aleaSeed, germinalVec);
-        // save last genotype created as log file
+        // saves last genotype created as log file
         // createJSON(iterations + ": " + newSpecimen.decGen, 'lastGenotype.json');
-        // test if preconditions are fullfilled
+        // tests if preconditions are fullfilled
         if (
-            newSpecimen == -1
-            || newSpecimen.decGen.includes(mandatoryFunction) == false
-            || newSpecimen.phenLength < phenMinLength
-            || newSpecimen.phenLength > phenMaxLength
-            || newSpecimen.phenVoices < phenMinPolyphony
-            || newSpecimen.phenVoices > phenMaxPolyphony
-        ) satisfiedConstraints = false
-        else satisfiedConstraints = true;
+            newSpecimen != -1
+            && newSpecimen.decGen.includes(mandatoryFunction) == true
+            && newSpecimen.phenLength >= phenMinLength
+            && newSpecimen.phenLength <= phenMaxLength
+            && newSpecimen.phenVoices >= phenMinPolyphony
+            && newSpecimen.phenVoices <= phenMaxPolyphony
+        ) satisfiedConstraints = true;
     } while (
-        // test if preconditions are fullfilled
         satisfiedConstraints == false
         && iterations < maxIterations
         && new Date() - searchStartdate <= maxIntervalPerSearch);
-    // save all genotypes as log file
+    // saves all genotypes as log file
     // genotypeLog["gen" + genCount++] = newSpecimen.decGen;
     // createJSON(genotypeLog, 'genotipeLog.json');
     if (newSpecimen == -1) {
