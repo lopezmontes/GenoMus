@@ -3251,6 +3251,9 @@ var lqAutoRef = subexprIndex => autoref("lqAutoRef", "lquantizedF", 0.083959, su
 // create JSON files from data in JavaScript Object 
 var createJSON = (objectData, filename) => fs.writeFileSync(filename, JSON.stringify(objectData));
 
+// delete initial conditions from last session
+createJSON({}, currentInitialConditionsCollection);
+
 // create the complet catalogue of all available functions
 var createFunctionIndexesCatalogues = (library) => {
     var functionLibrary = JSON.parse(fs.readFileSync(library));

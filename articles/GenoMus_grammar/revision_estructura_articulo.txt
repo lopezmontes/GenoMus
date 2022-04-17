@@ -1,0 +1,40 @@
+1. Introduction
+
+2. Background and related work
+
+	2.1 COMPOSING COMPOSERS
+	2.2 NEW CHALLENGES FOR AUTOMATIC COMPOSITION
+
+3. Methods
+
+Orden lógico de explicación del modelo:
+
+- Objetivos del modelo:
+	- Herramienta de creatividad aumentada
+	- Dicotomía entre representación legible y codificada, optimizada para IA, tanto para procesos como para resultado final
+	- Relación entre procesos y resultado desde la teoría de la información
+
+- geno y feno, como elementos formales ideales
+
+- Estrategias de codificación:
+	- Representación de funciones
+	- Trabajo con listas
+	- Tipos específicos legibles para parámetros musicales
+	- Posibilidad de reevaluación y recursividad
+	- Autorreferencias internas
+
+- El vector germinal y retrotranscripción
+
+
+4. The GenoMus framework
+
+	4.1 OVERVIEW of the framework and complementary materials
+
+Parte formal tras los planteamientos anteriores
+
+
+5. A minimal example: Clapping Music
+
+6. Evaluation and evolutio
+
+7. Conclusions and ongoing work

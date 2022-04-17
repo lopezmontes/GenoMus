@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.9.12)  12 APR 2022 14:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.9.12)  17 APR 2022 17:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -85,6 +85,161 @@ Package: inputenc 2020/08/01 v1.3d Input encoding file
 (/usr/local/texlive/2021/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2020/08/10 v2.0s Standard LaTeX package
 )
+(/usr/local/texlive/2021/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip16
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen147
+\lightrulewidth=\dimen148
+\cmidrulewidth=\dimen149
+\belowrulesep=\dimen150
+\belowbottomsep=\dimen151
+\aboverulesep=\dimen152
+\abovetopsep=\dimen153
+\cmidrulesep=\dimen154
+\cmidrulekern=\dimen155
+\defaultaddspace=\dimen156
+\@cmidla=\count190
+\@cmidlb=\count191
+\@aboverulesep=\dimen157
+\@belowrulesep=\dimen158
+\@thisruleclass=\count192
+\@lastruleclass=\count193
+\@thisrulewidth=\dimen159
+)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/units/nicefrac.sty
+Package: nicefrac 1998/08/04 v0.9b Nice fractions
+\L@UnitsRaiseDisplaystyle=\skip60
+\L@UnitsRaiseTextstyle=\skip61
+\L@UnitsRaiseScriptstyle=\skip62
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+))
+(/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2021/03/14 v2.8c Micro-typographical refinements (RS)
+\MT@toks=\toks20
+\MT@count=\count194
+LaTeX Info: Redefining \textls on input line 790.
+\MT@outer@kern=\dimen160
+LaTeX Info: Redefining \textmicrotypecontext on input line 1374.
+\MT@listname@count=\count195
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/microtype-pdftex.def
+File: microtype-pdftex.def 2021/03/14 v2.8c Definitions specific to pdftex (RS)
+
+LaTeX Info: Redefining \lsstyle on input line 915.
+LaTeX Info: Redefining \lslig on input line 915.
+\MT@outer@space=\skip63
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2021/03/14 v2.8c microtype main configuration file (RS)
+))
+(/usr/local/texlive/2021/texmf-dist/tex/latex/lipsum/lipsum.sty
+(/usr/local/texlive/2021/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2021-02-18 L3 programming layer (loader) 
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count196
+\l__pdf_internal_box=\box47
+))
+(/usr/local/texlive/2021/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/local/texlive/2021/texmf-dist/tex/latex/l3packages/xparse/xparse-2020-10-
+01.sty
+(/usr/local/texlive/2021/texmf-dist/tex/latex/l3packages/xparse/xparse-generic.
+tex)))
+Package: lipsum 2021-03-03 v2.3 150 paragraphs of Lorem Ipsum dummy text
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex
+File: lipsum.ltd.tex 2021-03-03 v2.3 The Lorem ipsum dummy text
+))
+(/usr/local/texlive/2021/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count197
+\lst@gtempboxa=\box48
+\lst@token=\toks21
+\lst@length=\count198
+\lst@currlwidth=\dimen161
+\lst@column=\count199
+\lst@pos=\count266
+\lst@lostspace=\dimen162
+\lst@width=\dimen163
+\lst@newlines=\count267
+\lst@lineno=\count268
+\lst@maxwidth=\dimen164
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count269
+\lst@skipnumbers=\count270
+\lst@framebox=\box49
+)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+)
+\Gin@req@height=\dimen165
+\Gin@req@width=\dimen166
+)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/fontawesome/fontawesome.sty
+Package: fontawesome 2016/05/15 v4.6.3.1 font awesome icons
+
+(/usr/local/texlive/2021/texmf-dist/tex/generic/iftex/ifxetex.sty
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+)
+(/usr/local/texlive/2021/texmf-dist/tex/generic/iftex/ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/fontawesome/fontawesomesymbols-ge
+neric.tex)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/fontawesome/fontawesomesymbols-pd
+ftex.tex)) (/usr/local/texlive/2021/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count271
+\float@exts=\toks22
+\float@box=\box50
+\@float@everytoks=\toks23
+\@floatcapt=\box51
+)
 (/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2021-02-27 v7.00k Hypertext links for LaTeX
 
@@ -123,9 +278,9 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 (/usr/local/texlive/2021/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
 )
-\@linkdim=\dimen147
-\Hy@linkcounter=\count190
-\Hy@pagecounter=\count191
+\@linkdim=\dimen167
+\Hy@linkcounter=\count272
+\Hy@pagecounter=\count273
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2021-02-27 v7.00k Hyperref: PDFDocEncoding definition (HO)
@@ -141,7 +296,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 (/usr/local/texlive/2021/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count192
+\Hy@SavedSpaceFactor=\count274
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2021-02-27 v7.00k Hyperref: PDF Unicode definition (HO)
@@ -155,14 +310,9 @@ Package hyperref Info: Plain pages OFF on input line 4207.
 Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4445.
-\c@Hy@tempcnt=\count193
-
-(/usr/local/texlive/2021/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip16
-Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-)
+\c@Hy@tempcnt=\count275
 LaTeX Info: Redefining \url on input line 4804.
-\XeTeXLinkMargin=\dimen148
+\XeTeXLinkMargin=\dimen168
 
 (/usr/local/texlive/2021/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -171,9 +321,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count194
-\Field@Width=\dimen149
-\Fld@charsize=\dimen150
+\Fld@menulength=\count276
+\Field@Width=\dimen169
+\Fld@charsize=\dimen170
 Package hyperref Info: Hyper figures OFF on input line 6075.
 Package hyperref Info: Link nesting OFF on input line 6080.
 Package hyperref Info: Hyper index ON on input line 6083.
@@ -189,9 +339,9 @@ Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi packa
 ge
 with kernel methods
 )
-\Hy@abspage=\count195
-\c@Item=\count196
-\c@Hfootnote=\count197
+\Hy@abspage=\count277
+\c@Item=\count278
+\c@Hfootnote=\count279
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
@@ -203,8 +353,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
 e
 with kernel methods
 )
-\Fld@listcount=\count198
-\c@bookmark@seq@number=\count199
+\Fld@listcount=\count280
+\c@bookmark@seq@number=\count281
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
@@ -215,159 +365,10 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 86.
 )
-\Hy@SectionHShift=\skip60
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/booktabs/booktabs.sty
-Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen151
-\lightrulewidth=\dimen152
-\cmidrulewidth=\dimen153
-\belowrulesep=\dimen154
-\belowbottomsep=\dimen155
-\aboverulesep=\dimen156
-\abovetopsep=\dimen157
-\cmidrulesep=\dimen158
-\cmidrulekern=\dimen159
-\defaultaddspace=\dimen160
-\@cmidla=\count266
-\@cmidlb=\count267
-\@aboverulesep=\dimen161
-\@belowrulesep=\dimen162
-\@thisruleclass=\count268
-\@lastruleclass=\count269
-\@thisrulewidth=\dimen163
+\Hy@SectionHShift=\skip64
 )
-(/usr/local/texlive/2021/texmf-dist/tex/latex/units/nicefrac.sty
-Package: nicefrac 1998/08/04 v0.9b Nice fractions
-\L@UnitsRaiseDisplaystyle=\skip61
-\L@UnitsRaiseTextstyle=\skip62
-\L@UnitsRaiseScriptstyle=\skip63
-
-(/usr/local/texlive/2021/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
-))
-(/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/microtype.sty
-Package: microtype 2021/03/14 v2.8c Micro-typographical refinements (RS)
-\MT@toks=\toks20
-\MT@count=\count270
-LaTeX Info: Redefining \textls on input line 790.
-\MT@outer@kern=\dimen164
-LaTeX Info: Redefining \textmicrotypecontext on input line 1374.
-\MT@listname@count=\count271
-
-(/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/microtype-pdftex.def
-File: microtype-pdftex.def 2021/03/14 v2.8c Definitions specific to pdftex (RS)
-
-LaTeX Info: Redefining \lsstyle on input line 915.
-LaTeX Info: Redefining \lslig on input line 915.
-\MT@outer@space=\skip64
-)
-Package microtype Info: Loading configuration file microtype.cfg.
-
-(/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/microtype.cfg
-File: microtype.cfg 2021/03/14 v2.8c microtype main configuration file (RS)
-))
-(/usr/local/texlive/2021/texmf-dist/tex/latex/lipsum/lipsum.sty
-(/usr/local/texlive/2021/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2021-02-18 L3 programming layer (loader) 
-
-(/usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count272
-\l__pdf_internal_box=\box47
-))
-(/usr/local/texlive/2021/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-(/usr/local/texlive/2021/texmf-dist/tex/latex/l3packages/xparse/xparse-2020-10-
-01.sty
-(/usr/local/texlive/2021/texmf-dist/tex/latex/l3packages/xparse/xparse-generic.
-tex)))
-Package: lipsum 2021-03-03 v2.3 150 paragraphs of Lorem Ipsum dummy text
- (/usr/local/texlive/2021/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex
-File: lipsum.ltd.tex 2021-03-03 v2.3 The Lorem ipsum dummy text
-))
-(/usr/local/texlive/2021/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
-
-(/usr/local/texlive/2021/texmf-dist/tex/latex/graphics-cfg/color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package xcolor Info: Driver file: pdftex.def on input line 225.
-
-(/usr/local/texlive/2021/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
-)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
-Package xcolor Info: Model `RGB' extended on input line 1364.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
-)
-(/usr/local/texlive/2021/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count273
-\lst@gtempboxa=\box48
-\lst@token=\toks21
-\lst@length=\count274
-\lst@currlwidth=\dimen165
-\lst@column=\count275
-\lst@pos=\count276
-\lst@lostspace=\dimen166
-\lst@width=\dimen167
-\lst@newlines=\count277
-\lst@lineno=\count278
-\lst@maxwidth=\dimen168
-
-(/usr/local/texlive/2021/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count279
-\lst@skipnumbers=\count280
-\lst@framebox=\box49
-)
-(/usr/local/texlive/2021/texmf-dist/tex/latex/listings/listings.cfg
-File: listings.cfg 2020/03/24 1.8d listings configuration
-))
-Package: listings 2020/03/24 1.8d (Carsten Heinz)
-
-(/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
-
-(/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
-
-(/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-)
-(/usr/local/texlive/2021/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
-)
-Package graphics Info: Driver file: pdftex.def on input line 105.
-)
-\Gin@req@height=\dimen169
-\Gin@req@width=\dimen170
-)
-(/usr/local/texlive/2021/texmf-dist/tex/latex/fontawesome/fontawesome.sty
-Package: fontawesome 2016/05/15 v4.6.3.1 font awesome icons
-
-(/usr/local/texlive/2021/texmf-dist/tex/generic/iftex/ifxetex.sty
-Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
-)
-(/usr/local/texlive/2021/texmf-dist/tex/generic/iftex/ifluatex.sty
-Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
-)
-(/usr/local/texlive/2021/texmf-dist/tex/latex/fontawesome/fontawesomesymbols-ge
-neric.tex)
-(/usr/local/texlive/2021/texmf-dist/tex/latex/fontawesome/fontawesomesymbols-pd
-ftex.tex)) (/usr/local/texlive/2021/texmf-dist/tex/latex/float/float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count281
-\float@exts=\toks22
-\float@box=\box50
-\@float@everytoks=\toks23
-\@floatcapt=\box51
-)
-(/usr/local/texlive/2021/texmf-dist/tex/latex/caption/caption.sty
+Package hyperref Info: Option `colorlinks' set `true' on input line 43.
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2020/10/26 v3.5g Customizing captions (AR)
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/caption/caption3.sty
@@ -399,24 +400,24 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 (./genomus_grammar.aux)
 \openout1 = `genomus_grammar.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -484,54 +485,33 @@ LaTeX Font Info:    ... okay on input line 89.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 89.
-(/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
-
-(/usr/local/texlive/2021/texmf-dist/tex/latex/refcount/refcount.sty
-Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-)
-(/usr/local/texlive/2021/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
-ty
-Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-)
-\c@section@level=\count286
-)
-LaTeX Info: Redefining \ref on input line 89.
-LaTeX Info: Redefining \pageref on input line 89.
-LaTeX Info: Redefining \nameref on input line 89.
- (./genomus_grammar.out) (./genomus_grammar.out)
-\@outlinefile=\write3
-\openout3 = `genomus_grammar.out'.
-
-LaTeX Info: Redefining \microtypecontext on input line 89.
+LaTeX Info: Redefining \microtypecontext on input line 113.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 89.
+LaTeX Info: Redefining \showhyphens on input line 113.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
-
 (/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
 (/usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count287
+\scratchcounter=\count286
 \scratchdimen=\dimen179
 \scratchbox=\box53
-\nofMPsegments=\count288
-\nofMParguments=\count289
+\nofMPsegments=\count287
+\nofMParguments=\count288
 \everyMPshowfont=\toks25
-\MPscratchCnt=\count290
+\MPscratchCnt=\count289
 \MPscratchDim=\dimen180
-\MPnumerator=\count291
-\makeMPintoPDFobject=\count292
+\MPnumerator=\count290
+\makeMPintoPDFobject=\count291
 \everyMPtoPDFconversion=\toks26
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -542,11 +522,32 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count293
+\c@lstlisting=\count292
+Package hyperref Info: Link coloring ON on input line 113.
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(/usr/local/texlive/2021/texmf-dist/tex/generic/gettitlestring/gettitlestring.s
+ty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count293
+)
+LaTeX Info: Redefining \ref on input line 113.
+LaTeX Info: Redefining \pageref on input line 113.
+LaTeX Info: Redefining \nameref on input line 113.
+ (./genomus_grammar.out) (./genomus_grammar.out)
+\@outlinefile=\write3
+\openout3 = `genomus_grammar.out'.
+
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 91.
-
+LaTeX Font Info:    Trying to load font information for U+msa on input line 115
+.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -554,8 +555,8 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 91.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 115
+.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -564,17 +565,17 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Trying to load font information for U+fontawesometwo on inp
-ut line 91.
+ut line 115.
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/fontawesome/ufontawesometwo.fd
 File: ufontawesometwo.fd 2016/05/22 Font definitions for U/fontawesometwo.
 )
 
 LaTeX Font Warning: Font shape `U/fontawesometwo/bx/n' undefined
-(Font)              using `U/fontawesometwo/m/n' instead on input line 91.
+(Font)              using `U/fontawesometwo/m/n' instead on input line 115.
 
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 9
-1.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
+15.
 (/usr/local/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
@@ -583,32 +584,50 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-(./genomus_grammar.toc [1
+(./genomus_grammar.toc
+Underfull \vbox (badness 1087) has occurred while \output is active []
+
+ [1
 
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
 \tf@toc=\write4
 \openout4 = `genomus_grammar.toc'.
 
- [2] [3] [4]
+ [2] [3]
+[4]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5]
 
-LaTeX Warning: Citation `add more...' on page 6 undefined on input line 418.
+LaTeX Warning: Citation `add more...' on page 6 undefined on input line 442.
 
 [6] [7]
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 516.
+<figs/germinal_vector_to_encoded_genotype_coding/germinal_vector_to_encoded_gen
+otype_coding.pdf, id=259, 431.76407pt x 197.70462pt>
+File: figs/germinal_vector_to_encoded_genotype_coding/germinal_vector_to_encode
+d_genotype_coding.pdf Graphic file (type pdf)
+<use figs/germinal_vector_to_encoded_genotype_coding/germinal_vector_to_encoded
+_genotype_coding.pdf>
+Package pdftex.def Info: figs/germinal_vector_to_encoded_genotype_coding/germin
+al_vector_to_encoded_genotype_coding.pdf  used on input line 552.
+(pdftex.def)             Requested size: 469.75499pt x 215.1046pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 557--557
+Underfull \vbox (badness 1286) has occurred while \output is active []
+
+ [8 <./figs/germinal_vector_to_encoded_genotype_coding/germinal_vector_to_encod
+ed_genotype_coding.pdf>]
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 637.
+ [9]
+Underfull \hbox (badness 10000) in paragraph at lines 678--678
 \T1/cmtt/m/n/9 iterations\T1/cmr/m/n/9 (+20) , \T1/cmtt/m/n/9 millisecondsElaps
 ed\T1/cmr/m/n/9 (+20) , \T1/cmtt/m/n/9 encGenotypeLength\T1/cmr/m/n/9 (+20) , \
 T1/cmtt/m/n/9 encPhenotypeLength\T1/cmr/m/n/9 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 568--568
+Underfull \hbox (badness 10000) in paragraph at lines 689--689
 \T1/cmtt/m/n/9 chromaticism\T1/cmr/m/n/9 (+20) , \T1/cmtt/m/n/9 dissonance\T1/c
 mr/m/n/9 (+20) , \T1/cmtt/m/n/9 disjunctivity\T1/cmr/m/n/9 (+20) , \T1/cmtt/m/n
 /9 modalChroma\T1/cmr/m/n/9 (+20) , \T1/cmtt/m/n/9 tonalStability\T1/cmr/m/n/9 
@@ -616,150 +635,145 @@ mr/m/n/9 (+20) , \T1/cmtt/m/n/9 disjunctivity\T1/cmr/m/n/9 (+20) , \T1/cmtt/m/n
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 554--575
+Underfull \hbox (badness 10000) in paragraph at lines 675--696
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 554--575
+Underfull \hbox (badness 10000) in paragraph at lines 675--696
 
  []
 
-[8]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [9]
-<figs/germinal_vector_to_encoded_genotype_coding/germinal_vector_to_encoded_gen
-otype_coding.pdf, id=271, 431.76407pt x 197.70462pt>
-File: figs/germinal_vector_to_encoded_genotype_coding/germinal_vector_to_encode
-d_genotype_coding.pdf Graphic file (type pdf)
-<use figs/germinal_vector_to_encoded_genotype_coding/germinal_vector_to_encoded
-_genotype_coding.pdf>
-Package pdftex.def Info: figs/germinal_vector_to_encoded_genotype_coding/germin
-al_vector_to_encoded_genotype_coding.pdf  used on input line 652.
-(pdftex.def)             Requested size: 469.75499pt x 215.1046pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [10]
-[11 <./figs/germinal_vector_to_encoded_genotype_coding/germinal_vector_to_encod
-ed_genotype_coding.pdf>]
+[10]
 <figs/clapping_patterns.pdf, id=316, 577.87482pt x 212.68312pt>
 File: figs/clapping_patterns.pdf Graphic file (type pdf)
 <use figs/clapping_patterns.pdf>
-Package pdftex.def Info: figs/clapping_patterns.pdf  used on input line 710.
+Package pdftex.def Info: figs/clapping_patterns.pdf  used on input line 743.
 (pdftex.def)             Requested size: 469.75499pt x 172.89871pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 721--735
+Underfull \vbox (badness 7168) has occurred while \output is active []
+
+ [11]
+Underfull \hbox (badness 10000) in paragraph at lines 754--768
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 721--735
+Underfull \hbox (badness 10000) in paragraph at lines 754--768
 
  []
 
 (/usr/local/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 ) [12 <./figs/clapping_patterns.pdf>]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 742.
-<figs/clapping_tree_graph_colours_code.pdf, id=339, 476.43866pt x 263.4135pt>
+<figs/clapping_tree_graph_colours_code.pdf, id=354, 476.43866pt x 263.4135pt>
 File: figs/clapping_tree_graph_colours_code.pdf Graphic file (type pdf)
 <use figs/clapping_tree_graph_colours_code.pdf>
 Package pdftex.def Info: figs/clapping_tree_graph_colours_code.pdf  used on inp
-ut line 839.
+ut line 872.
 (pdftex.def)             Requested size: 469.75499pt x 259.73512pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [13]
-<figs/clappingVisualized.pdf, id=376, 1033.46097pt x 112.42pt>
+<figs/clappingVisualized.pdf, id=395, 1033.46097pt x 112.42pt>
 File: figs/clappingVisualized.pdf Graphic file (type pdf)
 <use figs/clappingVisualized.pdf>
-Package pdftex.def Info: figs/clappingVisualized.pdf  used on input line 849.
+Package pdftex.def Info: figs/clappingVisualized.pdf  used on input line 882.
 (pdftex.def)             Requested size: 312.9803pt x 34.04532pt.
 
-[14 <./figs/clapping_tree_graph_colours_code.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 862--862
+Underfull \hbox (badness 10000) in paragraph at lines 897--897
 []\T1/cmr/m/n/10 (+20) arguments
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 865--865
+Underfull \hbox (badness 10000) in paragraph at lines 900--900
 []\T1/cmr/m/n/10 (+20) (\T1/cmr/m/it/10 (+20) lnotevaluesF\T1/cmr/m/n/10 (+20) 
 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 865--865
+Underfull \hbox (badness 10000) in paragraph at lines 900--900
 \T1/cmr/m/it/10 (+20) lmidip-itchF\T1/cmr/m/n/10 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 865--865
+Underfull \hbox (badness 10000) in paragraph at lines 900--900
 \T1/cmr/m/it/10 (+20) lar-tic-u-la-tionF\T1/cmr/m/n/10 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 865--865
+Underfull \hbox (badness 10000) in paragraph at lines 900--900
 \T1/cmr/m/it/10 (+20) lin-ten-si-tyF\T1/cmr/m/n/10 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 865--865
+Underfull \hbox (badness 10000) in paragraph at lines 900--900
 \T1/cmr/m/it/10 (+20) quan-tizedF\T1/cmr/m/n/10 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 865--865
+Underfull \hbox (badness 10000) in paragraph at lines 900--900
 \T1/cmr/m/it/10 (+20) quan-tizedF\T1/cmr/m/n/10 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 865--865
+Underfull \hbox (badness 10000) in paragraph at lines 900--900
 \T1/cmr/m/it/10 (+20) quan-tizedF\T1/cmr/m/n/10 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 865--865
+Underfull \hbox (badness 10000) in paragraph at lines 900--900
 \T1/cmr/m/it/10 (+20) quan-tizedF\T1/cmr/m/n/10 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 865--865
+Underfull \hbox (badness 10000) in paragraph at lines 900--900
 \T1/cmr/m/it/10 (+20) quan-tizedF\T1/cmr/m/n/10 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 865--865
+Underfull \hbox (badness 10000) in paragraph at lines 900--900
 \T1/cmr/m/it/10 (+20) quan-tizedF\T1/cmr/m/n/10 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 861--871
+Underfull \hbox (badness 10000) in paragraph at lines 896--906
 [][]
  []
 
-[15 <./figs/clappingVisualized.pdf>] [16] (./genomus_grammar.bbl [17] [18])
-[19] (./genomus_grammar.aux)
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [14 <./figs/clapping_tree_graph_colours_code.pdf> <./figs/clappingVisualized.p
+df
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./figs/clappingVisualized.pd
+f): PDF inclusion: multiple pdfs with page group included in a single page
+>] [15] [16] (./genomus_grammar.bbl [17] [18]) [19] (./genomus_grammar.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
 LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: File `genomus_grammar.out' has not changed.
-(rerunfilecheck)             Checksum: 01445C2F094CAB4C252A20BAA615EF90;5997.
+
+Package rerunfilecheck Warning: File `genomus_grammar.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `genomus_grammar.out':
+(rerunfilecheck)             Before: DB8254A72D0FB40517BC9FF9150C24F4;6308
+(rerunfilecheck)             After:  85D4CD3C14AE43591B6FDA28738DFE72;6308.
  ) 
 Here is how much of TeX's memory you used:
- 16866 strings out of 478994
- 256406 string characters out of 5858184
- 1221798 words of memory out of 5000000
- 33662 multiletter control sequences out of 15000+600000
+ 16869 strings out of 478994
+ 256439 string characters out of 5858184
+ 1059739 words of memory out of 5000000
+ 33663 multiletter control sequences out of 15000+600000
  435711 words of font info for 218 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,12n,88p,1341b,1213s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 83i,12n,88p,1341b,1944s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{
 /usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.e
@@ -792,10 +806,10 @@ mf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2021/texmf
 -dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2021/texmf-d
 ist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2021/texmf-dis
 t/fonts/type1/public/cm-super/sfxc1200.pfb>
-Output written on genomus_grammar.pdf (19 pages, 716190 bytes).
+Output written on genomus_grammar.pdf (19 pages, 717566 bytes).
 PDF statistics:
- 589 PDF objects out of 1000 (max. 8388607)
- 523 compressed objects within 6 object streams
- 147 named destinations out of 1000 (max. 500000)
- 60661 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 593 PDF objects out of 1000 (max. 8388607)
+ 527 compressed objects within 6 object streams
+ 148 named destinations out of 1000 (max. 500000)
+ 60669 words of extra memory for PDF output out of 61914 (max. 10000000)
 

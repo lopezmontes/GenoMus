@@ -7,7 +7,6 @@
 
 \usepackage[utf8]{inputenc} % allow utf-8 input
 \usepackage[T1]{fontenc}    % use 8-bit T1 fonts
-\usepackage{hyperref}       % hyperlinks
 \usepackage{url}            % simple URL typesetting
 \usepackage{booktabs}       % professional-quality tables
 \usepackage{amsfonts}       % blackboard math symbols
@@ -19,6 +18,31 @@
 \usepackage{graphicx}
 \usepackage{fontawesome}
 \usepackage{float}
+
+
+\usepackage{hyperref}       % hyperlinks
+\hypersetup{
+%    bookmarks=true,         % show bookmarks bar?
+%    unicode=false,          % non-Latin characters in Acrobat�s bookmarks
+%    pdftoolbar=true,        % show Acrobat�s toolbar?
+%    pdfmenubar=true,        % show Acrobat�s menu?
+%    pdffitwindow=true,     % window fit to page when opened
+%    %pdfstartview={FitH},    % fits the width of the page to the window
+%    pdftitle={\emph{Título del documento en el PDF},    % title
+%    pdfauthor={Nombre de autor/a},     % author
+%    pdfsubject={Tema del documento},   % subject of the document
+%    pdfcreator={Creator},   % creator of the document
+%    % pdfproducer={Producer}, % producer of the document
+%    pdfkeywords={palabra clave 1} {palabra clave 2}, % list of keywords
+%    pdfnewwindow=true,      % links in new window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=black,          % color of internal links (change box color with linkbordercolor)
+    citecolor=black,        % color of links to bibliography
+    filecolor=black,      % color of file links
+    urlcolor=black           % color of external links
+}
+
+
 \usepackage[hypcap]{caption} % for displaying figures in the viewer, and not only captions
 
 \definecolor{backcolour}{rgb}{0.96,0.96,0.96}
@@ -145,6 +169,32 @@ which the aims have been satisfied.
 
 }
 
+%------------------------------------------------
+\section{Background and related works}
+
+hablar de gramaticas generativas
+
+explicar las caracteristicas necesarias para luego enlazar con las caracteristicas que presenta GenoMus
+
+\cite{DBLP:journals/air/RoweP93} -> Conditions for creativity:
+Knowledge representation is organised in such a
+way that the number of possible associations is
+maximised. A flexible knowledge representation
+scheme. Similarly Boden (1996) says that representation
+should allow to explore and transform the
+conceptual space.
+Tolerate ambiguity in representations.
+Allow multiple representations in order to avoid the
+problem of ?functional fixity?.
+The usefulness of new combinations should be assessable.
+New combinations need to be elaboratable to find
+out their consequences.
+El articulo de Boden es: 
+What is Creativity. In M. Boden, editor, Dimensions of Creativity, pages 75?118. MIT Press, 1996. (citado antes).
+
+
+
+
 \subsection{Composing composers}
 
 
@@ -199,28 +249,8 @@ Many approaches to artificial intelligence applied to the automatic composition 
 {\color{gray} \textsl{[Complejidad del diseno de lenguajes de representacion musical en la composicion asistida por ordenador. Cita de algunas aproximaciones analogas.]}}
 
 
-%------------------------------------------------
-\section{Background and related works}
 
-hablar de gramaticas generativas
 
-explicar las caracteristicas necesarias para luego enlazar con las caracteristicas que presenta GenoMus
-
-\cite{DBLP:journals/air/RoweP93} -> Conditions for creativity:
-Knowledge representation is organised in such a
-way that the number of possible associations is
-maximised. A flexible knowledge representation
-scheme. Similarly Boden (1996) says that representation
-should allow to explore and transform the
-conceptual space.
-Tolerate ambiguity in representations.
-Allow multiple representations in order to avoid the
-problem of ?functional fixity?.
-The usefulness of new combinations should be assessable.
-New combinations need to be elaboratable to find
-out their consequences.
-El articulo de Boden es: 
-What is Creativity. In M. Boden, editor, Dimensions of Creativity, pages 75?118. MIT Press, 1996. (citado antes).
 
 \subsection{New challenges for automatic composition}
 
@@ -260,12 +290,6 @@ musical sciences.}
 ---Iannis Xenakis \cite{xenakis1971formalized}
 \end{quotation}
 \end{samepage}
-
-
-
-\subsection{Overview of the framework and complementary materials}
-
-{\color{gray} \textsl{[Specifications. Code, Max Patches, Examples of specimens, Music excerpts]}}
 
 
 
@@ -413,7 +437,7 @@ too \cite{Bod_thedata-oriented} -> para justificar el uso de arboles de funcione
 
 
 
-\subsection{Knowledge representation}
+\subsection{Knowledge representation: scores and procedures as one-dimensional arrays}
 % Genotypes, phenotypes, species and specimens
 Although its target is not only genetic algorithms but a variety of machine learning techniques, our framework uses the evolutionary analogy, similarly as many other automatic composition systems \cite{Sulyok2019, SnchezQuintana2013, add more...}. The Darwinian metaphor can be confusing, since each system has its particular application of the same terms, sometimes denoting even opposite concepts. 
 
@@ -489,6 +513,103 @@ phenotype.
 
 {\color{gray} \textsl{[Similitud con la programacion funcional: la pieza musical como funcion de funciones.]}}
 
+
+
+
+
+\subsection{Germinal vector, encoded genotype and encoded phenotype}
+
+A \emph{germinal vector} determines a decision tree for the core algorithm that leads to an encoded genotype, a valid executable expression that represents musical procedures.
+
+Let $D_{gen}$ be the set of possible decoded genotypes for a given GenoMus species, using the available functions $E$. Let $dec$ be the conversion function that decodes an encoded genotype:
+
+$$dec:\ E_{gen}\to D_{gen}$$
+
+
+
+A germinal vector is a random sequence of $n$ numbers $\in [0, 1]$.  Let $G_{vec}$ be the multidimensional search space\footnote{Obviously, in a practical implementation, the theoretical infinite germinal vectors are reduced to a finite subset due to computability and memory limits, as well as the number of significant figures used to store and operate on the vectors.} of all possible of germinal vectors  $\vec{g} = (g_1, g_2, ..., g_n)$ of any cardinality $n$, and similarly let $E_{gen}$ be the set of all possible valid encoded genotypes $\vec{e_g} = (x_1, x_2, ..., x_m)$:
+
+$$ G_{vec} = \{\vec{g} \in \mathbb{R}^n \: | \: 0 \leq g_n \leq1, n \in \mathbb N_{> 0} \} $$
+$$ E_{gen} = \{\vec{e_g} \in \mathbb{R}^m \: | \: 0 \leq x_m \leq1, m \in \mathbb N_{> 0}, \exists \: \vec{d_g} = dec(\vec{e_g}) \} $$
+
+Each germinal vector in $G_{vec}$ is mapped to a valid encoded genotype (that is a valid functional expression which generates an excerpt of music). To create genotypes, the surjective map $f$ converts every germinal vector $\vec{g} = (g_1, g_2, ..., g_n) \in G_{vec}$ into an encoded genotype: 
+
+$$f:\ G_{vec}\twoheadrightarrow E_{gen}$$
+
+The application $f$ involves several subprocesses that we will cover next, in such a way that the vector $\vec{g}$ generates a deterministic decision tree that leads to the construction of a unique genotype. As the number of choices needed to build a valid encoded genotype $E_{gen}$ rarely match the number of items of a germinal vector $G_{vec}^n$, truncation and loops are employed:
+
+\begin{itemize}
+\item If $\vec{g}$ has more items than needed, they are ignored, effectively acting as a truncation of the remaining unused part of $\vec{g}$.
+
+\item If $f$ needs more items than those supplied by $\vec{g}$, $f$ reads $\vec{g}$ repeatedly from the beginning as a loop, until closing the valid encoded genotype. That implies that even vectors with a single value can be mapped to large functional expressions. 
+
+\end{itemize}
+
+
+\subsection{Reversivility of encoded genotypes}
+
+\begin{figure}[H]
+  \includegraphics[width=\linewidth]{figs/germinal_vector_to_encoded_genotype_coding/germinal_vector_to_encoded_genotype_coding.pdf}
+  \caption{From germinal vector to encoded genotype}
+  \label{fig:fromGerminalToEncGen}
+\end{figure}
+
+
+
+
+  
+  
+\subsection{A unique format for procedures and results}
+\subsection{Safety through encoding}
+
+
+
+
+
+
+%------------------------------------------------
+\section{The GenoMus framework}
+
+\begin{samepage}
+\begin{quotation}
+\textsl{Lerner appears to believe that transformations that could be carried
+out by a computer program [...] could not possibly generate anything sensible---and that no program could tell sense from nonsense anyway. The implication [...] is that no computational theory could describe the generation of valuable new ideas, and that only an unanalyzable faculty of ``intuition'' or ``insight'' could recognize their value. None of these beliefs is justified.}
+
+---Margaret Boden \cite{BodenWhatIsCr}
+\end{quotation}
+\end{samepage}
+
+
+\subsection{Overview of the model and complementary materials}
+
+{\color{gray} \textsl{[Specifications. Code, Max Patches, Examples of specimens, Music excerpts]}}
+
+
+
+{\color{gray}
+
+
+\begin{itemize}
+\item Proposito de la codificacion en el marco del machine learning
+\item Codificacion como vectores unidimensionales normalizados
+\item Universal valid format
+\item Modularidad y posibilidad de manipulacion manual
+\item Encoding as safety filter
+
+\end{itemize}
+
+}
+
+Nueva figura que ilustre como enlazan las diferentes estructuras descritas.
+
+
+\subsection{Encoding genotypes with G{\"o}delian resonances}
+
+{\color{red}
+
+\cite{deLemosAlmada2017} -> para las resonancias godelianas
+
+}
 
 
 
@@ -577,94 +698,6 @@ Selected specimens are permanently saved as JSON files in the Specimen catalogue
 \end{table}
 
 
-%------------------------------------------------
-\section{Encoded genotypes and phenotypes}
-
-\begin{samepage}
-\begin{quotation}
-\textsl{Lerner appears to believe that transformations that could be carried
-out by a computer program [...] could not possibly generate anything sensible---and that no program could tell sense from nonsense anyway. The implication [...] is that no computational theory could describe the generation of valuable new ideas, and that only an unanalyzable faculty of ``intuition'' or ``insight'' could recognize their value. None of these beliefs is justified.}
-
----Margaret Boden \cite{BodenWhatIsCr}
-\end{quotation}
-\end{samepage}
-
-
-{\color{gray}
-
-
-\begin{itemize}
-\item Proposito de la codificacion en el marco del machine learning
-\item Codificacion como vectores unidimensionales normalizados
-\item Universal valid format
-\item Modularidad y posibilidad de manipulacion manual
-\item Encoding as safety filter
-
-\end{itemize}
-
-}
-
-Nueva figura que ilustre como enlazan las diferentes estructuras descritas.
-
-
-\subsection{Encoding genotypes with G{\"o}delian resonances}
-
-{\color{red}
-
-\cite{deLemosAlmada2017} -> para las resonancias godelianas
-
-}
-
-\subsection{Scores represented as normalized vectors}
-
-\subsection{Germinal vector, encoded genotype and encoded phenotype}
-
-A \emph{germinal vector} determines a decision tree for the core algorithm that leads to an encoded genotype, a valid executable expression that represents musical procedures.
-
-Let $D_{gen}$ be the set of possible decoded genotypes for a given GenoMus species, using the available functions $E$. Let $dec$ be the conversion function that decodes an encoded genotype:
-
-$$dec:\ E_{gen}\to D_{gen}$$
-
-
-
-A germinal vector is a random sequence of $n$ numbers $\in [0, 1]$.  Let $G_{vec}$ be the multidimensional search space\footnote{Obviously, in a practical implementation, the theoretical infinite germinal vectors are reduced to a finite subset due to computability and memory limits, as well as the number of significant figures used to store and operate on the vectors.} of all possible of germinal vectors  $\vec{g} = (g_1, g_2, ..., g_n)$ of any cardinality $n$, and similarly let $E_{gen}$ be the set of all possible valid encoded genotypes $\vec{e_g} = (x_1, x_2, ..., x_m)$:
-
-$$ G_{vec} = \{\vec{g} \in \mathbb{R}^n \: | \: 0 \leq g_n \leq1, n \in \mathbb N_{> 0} \} $$
-$$ E_{gen} = \{\vec{e_g} \in \mathbb{R}^m \: | \: 0 \leq x_m \leq1, m \in \mathbb N_{> 0}, \exists \: \vec{d_g} = dec(\vec{e_g}) \} $$
-
-Each germinal vector in $G_{vec}$ is mapped to a valid encoded genotype (that is a valid functional expression which generates an excerpt of music). To create genotypes, the surjective map $f$ converts every germinal vector $\vec{g} = (g_1, g_2, ..., g_n) \in G_{vec}$ into an encoded genotype: 
-
-$$f:\ G_{vec}\twoheadrightarrow E_{gen}$$
-
-The application $f$ involves several subprocesses that we will cover next, in such a way that the vector $\vec{g}$ generates a deterministic decision tree that leads to the construction of a unique genotype. As the number of choices needed to build a valid encoded genotype $E_{gen}$ rarely match the number of items of a germinal vector $G_{vec}^n$, truncation and loops are employed:
-
-\begin{itemize}
-\item If $\vec{g}$ has more items than needed, they are ignored, effectively acting as a truncation of the remaining unused part of $\vec{g}$.
-
-\item If $f$ needs more items than those supplied by $\vec{g}$, $f$ reads $\vec{g}$ repeatedly from the beginning as a loop, until closing the valid encoded genotype. That implies that even vectors with a single value can be mapped to large functional expressions. 
-
-\end{itemize}
-
-
-\subsection{Reversivility of encoded genotypes}
-
-\begin{figure}[H]
-  \includegraphics[width=\linewidth]{figs/germinal_vector_to_encoded_genotype_coding/germinal_vector_to_encoded_genotype_coding.pdf}
-  \caption{From germinal vector to encoded genotype}
-  \label{fig:fromGerminalToEncGen}
-\end{figure}
-
-
-
-
-  
-  
-\subsection{A unique format for procedures and results}
-\subsection{Safety through encoding}
-
-
-
-
 
 
 
@@ -683,7 +716,7 @@ The application $f$ involves several subprocesses that we will cover next, in su
 
 
 
-
+\subsection{Procedural representation}
 
 
 To illustrate how GenoMus represents and encodes a piece of music using basic procedures in an abstract format, we will apply the framework to model \emph{Clapping Music}, a famous piece composed by Steve Reich in 1972. As many of the pieces of the composer, it begins with a minimal motif, which undergoes simple transformations that have big consequences in the overall form. Two performers start the piece repeating a clapped pattern. One of the performers removes the first note of the pattern after each cycle of 8 repetitions\footnote{According to the score, each loop can consist of 8 or 12 repetitions. We have chosen 8 repetitions for the sake of clarity and because is the preferred version for most of recordings.}, creating a phase shift among both voices. The work finished when both lines are in phase again.
@@ -852,6 +885,8 @@ The encoded genotype is an unidimensional numeric vector. To get a better insigh
   \label{fig:boat3}
 \end{figure}
 
+\subsection{Extraction of a new function}
+
 The genotype of a whole composition like this (or only part of it) can be automatically flattened to create a new genotype function where all leaves are assembled as a single array of arguments\footnote{The numeric values that feed arguments for the autoreferences are excluded from the arguments array of the new derivate function because of their structural character. These number must be immutable to preserve the internal consistency of the procedure.}.  For instance, a new function called \texttt{sClapping} could be created to be handled as a new procedure, abstracted from the original piece:
 
 \begin{table}[H]
@@ -873,6 +908,8 @@ function name & arguments type & output type & description\\
 %\begin{lstlisting}[float,floatplacement=H, language=Java, caption=Encoded genotype for S. Reich's \emph{Clapping Music}]
 %[1, 0.275535, 1, 0.534808, 1, 0.665631, 1, 0.665631, 1, 0.575462, 1, 0.575462, 1, 0.606798, 1, 0.27051, 0.51, 0.5, 0, 1, 0.506578, 0.53, 0.53, 0, 1, 0.742646, 0.55, 0.51346, 0, 1, 0.36068, 0.56, 0.6, 0.56, 0.6, 0.56, 0.9, 0.56, 0, 0, 0, 1, 0.534808, 1, 0.304952, 0.57, 0, 0, 1, 0.416408, 0.58, 0.55, 0, 0, 0, 1, 0.534808, 1, 0.304952, 0.57, 0.854102, 0, 1, 0.416408, 0.58, 0.6, 0, 0, 0, 1, 0.416408, 0.58, 0.75, 0, 0, 1, 0.416408, 0.58, 0.84, 0, 0, 1, 0.416408, 0.58, 0.75, 0, 0, 1, 0.575462, 1, 0.304952, 0.57, 0.326238, 0, 1, 0.665631, 1, 0.534808, 1, 0.304952, 0.57, 0.18034, 0, 1, 0.416408, 0.58, 0.55, 0, 0, 1, 0.416408, 0.58, 0.82, 0, 0, 0, 0]
 %\end{lstlisting}
+
+
 
 
 %------------------------------------------------
