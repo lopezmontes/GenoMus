@@ -4585,8 +4585,8 @@ var createNewSpecimen = () => {
         if (fitness > bestFitness && satisfiedConstraints == false && newSpecimen != -1) {
             bestSpecimen = newSpecimen;
             bestFitness = fitness;
-            //post("new best fitness", bestFitness);
-            //post("satisfiedConstraints", satisfiedConstraints);
+            // post("new best fitness", bestFitness);
+            // post("satisfiedConstraints", satisfiedConstraints);
         };
     } while (
         satisfiedConstraints == false
@@ -4617,8 +4617,8 @@ var createNewSpecimen = () => {
     else maxAPI.outlet("notfound");
     bestSpecimen.data.iterations = iterations;
     bestSpecimen.data.milliseconsElapsed = new Date() - searchStartdate;
-    post("final fitness",fitness);
-    post("satisfiedConstraints", satisfiedConstraints);
+    // post("final fitness",fitness);
+    // post("satisfiedConstraints", satisfiedConstraints);
     return bestSpecimen;
 }
 
