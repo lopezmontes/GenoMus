@@ -38,7 +38,7 @@ var phenMinPolyphony = 1;
 var phenMaxPolyphony = 8;
 var phenMinLength = 1;
 var phenMaxLength = 10000;
-var maxIterations = 2;
+var maxIterations = 2000;
 var maxIntervalPerSearch = 5000; // in milliseconds
 var maxIntervalPerNewBranch = 1000; // in milliseconds
 var mandatoryFunction = "";
@@ -616,6 +616,14 @@ var indexExprReturnSpecimen = s => {
     subexpressions[s.funcType].push(s.decGen);
     return s;
 };
+
+// evaluates how far is a value from the desired range, giving a 1 as maximal score
+var howNearToRange = (testedValue, rangeMin, rangeMax) => {
+    if (testedValue < rangeMin) return testedValue/rangeMin;
+    if (testedValue > rangeMax) return rangeMax/testedValue;
+    return 1;
+}
+
 
 
 //// GENETIC ALGORITHM FIRST APPROACH
@@ -4536,8 +4544,9 @@ var eligibleFunctions = {
 // creates brand new specimen
 var createNewSpecimen = () => {
     var searchStartdate = new Date();
-    // main variable
+    // main variables
     var newSpecimen;
+    var bestSpecimen = -1;
     // initial conditions
     var germinalVec;
     var outputType = specimenMainFunctionType;
@@ -4548,6 +4557,8 @@ var createNewSpecimen = () => {
     var genotypeDepth;
     var iterations = 0;
     var satisfiedConstraints = false;
+    var fitness = 0;
+    var bestFitness = -1;
     // searches a specimen
     do {
         iterations++;
@@ -4565,18 +4576,27 @@ var createNewSpecimen = () => {
             && newSpecimen.phenLength <= phenMaxLength
             && newSpecimen.phenVoices >= phenMinPolyphony
             && newSpecimen.phenVoices <= phenMaxPolyphony
-        ) satisfiedConstraints = true;
+        ) {
+            satisfiedConstraints = true;
+        };
+        fitness = howNearToRange(newSpecimen.phenLength, phenMinLength, phenMaxLength)
+        + howNearToRange(newSpecimen.phenVoices, phenMinPolyphony, phenMinPolyphony);
+        if (fitness > bestFitness) {
+            bestSpecimen = newSpecimen;
+            bestFitness = fitness;
+            post("new best fitness", bestFitness);
+        };
     } while (
         satisfiedConstraints == false
         && iterations < maxIterations
         && new Date() - searchStartdate <= maxIntervalPerSearch);
     // saves all genotypes as log file
-    // genotypeLog["gen" + genCount++] = newSpecimen.decGen;
+    // genotypeLog["gen" + genCount++] = bestSpecimen.decGen;
     // createJSON(genotypeLog, 'genotipeLog.json');
-    if (newSpecimen == -1) {
+    if (bestSpecimen == -1) {
         // post("VALID SPECIMEN NOT FOUND");
-        newSpecimen = eval("s(v(" + defaultEventExpression + "))");
-        newSpecimen.data = {
+        bestSpecimen = eval("s(v(" + defaultEventExpression + "))");
+        bestSpecimen.data = {
             specimenID: getFileDateName("not_found"),
             specimenType: specimenMainFunctionType,
             iterations: iterations,
@@ -4587,15 +4607,16 @@ var createNewSpecimen = () => {
             germinalVectorDeviation: 0,
             phenotypeSeed: aleaSeed,            
             depth: 4,
-            leaves: extractLeaves(newSpecimen.encGen),
+            leaves: extractLeaves(bestSpecimen.encGen),
         };
-        return newSpecimen;
+        return bestSpecimen;
     };
     if (satisfiedConstraints) maxAPI.outlet("found") 
     else maxAPI.outlet("notfound");
-    newSpecimen.data.iterations = iterations;
-    newSpecimen.data.milliseconsElapsed = new Date() - searchStartdate;
-    return newSpecimen;
+    bestSpecimen.data.iterations = iterations;
+    bestSpecimen.data.milliseconsElapsed = new Date() - searchStartdate;
+    post("fitness",fitness);
+    return bestSpecimen;
 }
 
 // creates specimen from initial conditions
