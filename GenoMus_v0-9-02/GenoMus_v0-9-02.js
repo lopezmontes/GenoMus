@@ -5194,6 +5194,11 @@ var tuneArray = (arr, gridArr) => {
     });
 };
 
+// removes duplicates in array
+var removeArrayDuplicates = (arr) => {
+    return [...new Set(arr)];
+};
+
 
 
 // calculates a harmonic grid
@@ -5204,15 +5209,19 @@ var calculateHarmonicGrid = (
     chord,
     root,
     octavation) => {
-    var adjutedScale = tuneArray(scale, tuning)
+    var adjustedScale = removeArrayDuplicates(tuneArray(scale, tuning));
+    var adjustedMode = removeArrayDuplicates(tuneArray(mode, adjustedScale));
 
+    return adjustedMode;
 };
 
 calculateHarmonicGrid(
     [],
     [0,1,2,3,4,5,6,7,8,9,10,11],
+    [0,1,2,3,4,5,6,7,8,9,10,11],
     [0,4,7],
     48,
     2);
 
+calculateHarmonicGrid([],[0,1,2,3,4,5,6,7,8,9,10,11],[0,1,2,3,4,5,6,7,8,9,10,11],[0,4,7],48,2);
 // [48,52,55,60,64,67,72,76,79]

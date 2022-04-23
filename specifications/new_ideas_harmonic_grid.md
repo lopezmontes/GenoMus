@@ -4,12 +4,14 @@ The output of a harmonic function is an array of pitches, that is, a **harmonic 
 
 Elements defining a harmonic grid:
 
-- **tuning**: tuning system applied as the main basis. This is the total pitches that can be used to define scales. 
+- **tuning**: tuning system applied as the main basis. This is the total pitches that can be used to define scales. If this is an empty array all pitches without any quantization are employed. 
 - **scale**: subset of eligible pitches from the tuning system to construct modes.
 - **mode**: subset of eligible pitches from the scale to construct chords.
 - **chord**: subset of eligible pitches from the scale to define the harmonic grid.
 - **root**: first pitch defining the transposition of the chord that will be used for the grid.
 - **octavation**: amount of octaves to replicate the transposed chord. It can be also negative and not integer. 0 means that only the original chord will be used, without transposition.
+
+The process of obtaining harmonic grids is tolerant to unordered arrays, duplications of number ouut of range. All this input arrays are remapped to allways make sense.
 
 Example of the data defining a harmonic grid:
 
