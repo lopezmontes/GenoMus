@@ -1,0 +1,2 @@
+@image{harmonic_grid_framework-1}
+@c eof

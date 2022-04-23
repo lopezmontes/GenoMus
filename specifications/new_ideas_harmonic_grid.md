@@ -21,3 +21,4 @@ Example of the data defining a harmonic grid:
     octavation: 3
 }
 ```
+<img src="figures/c-major-grid.svg" width="450">
