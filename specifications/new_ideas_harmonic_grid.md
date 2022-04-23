@@ -13,19 +13,11 @@ Elements defining a harmonic grid:
 Example of the data defining a harmonic grid:
 
 ```
-"outputType": {
-    "<functionType>": {
-        "<functionName>": {
-            "arguments": ["<functionType>", "<functionType>", ...],
-            "description": "String describing what the function does.",
-        "metadata": {
-            "date": (date of creation, in compressed style),
-            "creator": "<username>",
-            ... (optional information if needed.)
-        },
-        ...
-    },
-    "<functionType>": {
-    ...
+{
+    tuning: [0,1,2,3,4,5,6,7,8,9,10,11],
+    scale: [0,2,4,5,7,9,11],
+    chord: [0,4,7],
+    root: 48,
+    octavation: 3
 }
 ```
