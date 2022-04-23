@@ -5167,3 +5167,46 @@ createSpeciesDependentFunctions(currentSpecies);
 
 // init currentSpecimen with a random default specimen
 var currentSpecimen = specimenDataStructure(createNewSpecimen());
+
+
+
+/////// approaching the computation of a harmonic grid
+
+// takes a value and aproximate each number to the nearest value of an array of values
+var closest = (val, arr) => {
+    return arr.reduce((a, b) => {
+        let aDiff = Math.abs(a - val);
+        let bDiff = Math.abs(b - val);
+        if (aDiff == bDiff) {
+            return a > b ? a : b;
+        } else {
+            return bDiff < aDiff ? b : a;
+        }
+    });
+};
+
+// takes an array and aproximate each value to a second array (that will be the harmonic grid to adjust)
+var tuneArray = (arr, gridArr) => arr.map(function(element){
+    return closest(element, gridArr);
+});
+
+
+
+var calculateHarmonicGrid = (
+    tuning,
+    scale,
+    mode,
+    chord,
+    root,
+    octavation) => {
+
+};
+
+calculateHarmonicGrid(
+    [],
+    [0,1,2,3,4,5,6,7,8,9,10,11],
+    [0,4,7],
+    48,
+    2);
+
+// [48,52,55,60,64,67,72,76,79]
