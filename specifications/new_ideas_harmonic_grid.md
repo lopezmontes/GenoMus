@@ -8,4 +8,24 @@ Elements defining a harmonic grid:
 - **scale**: subset of eligible pitches from the tuning system to construct chords.
 - **chord**: subset of eligible pitches from the scale to define the harmonic grid.
 - **root**: first pitch defining the transposition of the chord that will be used for the grid.
-- **octavation**: 
+- **octavation**: amount of octaves to replicate the transposed chord. It can be also negative and not integer.
+
+Example of the data defining a harmonic grid:
+
+```
+"outputType": {
+    "<functionType>": {
+        "<functionName>": {
+            "arguments": ["<functionType>", "<functionType>", ...],
+            "description": "String describing what the function does.",
+        "metadata": {
+            "date": (date of creation, in compressed style),
+            "creator": "<username>",
+            ... (optional information if needed.)
+        },
+        ...
+    },
+    "<functionType>": {
+    ...
+}
+```
