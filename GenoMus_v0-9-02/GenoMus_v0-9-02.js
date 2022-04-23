@@ -417,6 +417,74 @@ var testRepetitions = function (n) {
     return 1;
 };
 
+//// Aux functions for hamonic grid creation
+
+// takes an array and aproximate each value to a second array (that will be the harmonic grid to adjust)
+// if gridArr is an empty array the first array is returned unchanged
+var tuneArray = (arr, gridArr) => {
+    if (gridArr.length === 0) { return arr };
+    return arr.map(function(element){
+        return closest(element, gridArr);
+    });
+};
+
+// removes duplicates in array
+var removeArrayDuplicates = (arr) => {
+    return [...new Set(arr)];
+};
+
+// create octavations of an array
+var octavateArray = (arr, numOctaves) => {
+    arr.sort((a, b) => a - b);
+    var octavatedArr = arr;
+    var arrItem = 0;
+    if (numOctaves == 0) return arr;
+    if (numOctaves > 0) {
+        var firstValue = arr[0];
+        var newValue = 0;
+        while (newValue < numOctaves * 12 + 12 + firstValue) {
+            newValue = arr[arrItem] + 12;
+            octavatedArr.push(newValue);
+            arrItem++;
+        };
+        octavatedArr.pop();
+    };
+    if (numOctaves < 0) {
+        var firstValue = arr[0];
+        arr.reverse();
+        var newValue = firstValue;
+        while (newValue > numOctaves * 12 + firstValue) {
+            newValue = arr[arrItem] - 12;
+            octavatedArr.push(newValue);
+            arrItem++;
+        };
+        octavatedArr.reverse();
+    }
+    return octavatedArr;
+};
+
+// calculates a harmonic grid
+var calculateHarmonicGrid = (tuning, scale, mode, chord, root, octavation) => {
+    var adjustedScale = removeArrayDuplicates(tuneArray(scale, tuning));
+    var adjustedMode = removeArrayDuplicates(tuneArray(mode, octavateArray(adjustedScale,20)));
+    var adjustedChords = removeArrayDuplicates(tuneArray(chord, octavateArray(adjustedMode,20))).sort((a, b) => a - b);
+    root = closest(root,octavateArray(adjustedScale, 12));
+    var adjustedChords = adjustedChords.map(function(num) {
+        return num + root });
+    return removeArrayDuplicates(octavateArray(adjustedChords, octavation).sort((a, b) => a - b));
+};
+
+calculateHarmonicGrid(
+    [],
+    [0,1,2,3,4,5,6,7,8,9,10,11],
+    [0,1,2,3,4,5,6,7,8,9,10,11],
+    [0,4,7],
+    48,
+    2);
+
+// calculateHarmonicGrid([],[0,1,2,3,4,5,6,7,8,9,10,11],[0,1,2,3,4,5,6,7,8,9,10,11],[0,4,7],48,2);
+// [48,52,55,60,64,67,72,76,79]
+
 
 //// RANDOM HANDLING
 
@@ -5185,75 +5253,6 @@ var closest = (val, arr) => {
     });
 };
 
-// takes an array and aproximate each value to a second array (that will be the harmonic grid to adjust)
-// if gridArr is an empty array the first array is returned unchanged
-var tuneArray = (arr, gridArr) => {
-    if (gridArr.length === 0) { return arr };
-    return arr.map(function(element){
-        return closest(element, gridArr);
-    });
-};
-
-// removes duplicates in array
-var removeArrayDuplicates = (arr) => {
-    return [...new Set(arr)];
-};
-
-// create octavations of an array
-var octavateArray = (arr, numOctaves) => {
-    arr.sort((a, b) => a - b);
-    var octavatedArr = arr;
-    var arrItem = 0;
-    if (numOctaves == 0) return arr;
-    if (numOctaves > 0) {
-        var firstValue = arr[0];
-        var newValue = 0;
-        while (newValue < numOctaves * 12 + 12 + firstValue) {
-            newValue = arr[arrItem] + 12;
-            octavatedArr.push(newValue);
-            arrItem++;
-        };
-        octavatedArr.pop();
-    };
-    if (numOctaves < 0) {
-        var firstValue = arr[0];
-        arr.reverse();
-        var newValue = firstValue;
-        while (newValue > numOctaves * 12 + firstValue) {
-            newValue = arr[arrItem] - 12;
-            octavatedArr.push(newValue);
-            arrItem++;
-        };
-        octavatedArr.reverse();
-    }
-    return octavatedArr;
-};
 
 
-// calculates a harmonic grid
-var calculateHarmonicGrid = (
-    tuning,
-    scale,
-    mode,
-    chord,
-    root,
-    octavation) => {
-    var adjustedScale = removeArrayDuplicates(tuneArray(scale, tuning));
-    var adjustedMode = removeArrayDuplicates(tuneArray(mode, octavateArray(adjustedScale,20)));
-    var adjustedChords = removeArrayDuplicates(tuneArray(chord, octavateArray(adjustedMode,20))).sort((a, b) => a - b);
-    root = closest(root,octavateArray(adjustedScale, 12));
-    var adjustedChords = adjustedChords.map(function(num) {
-        return num + root });
-    return removeArrayDuplicates(octavateArray(adjustedChords, octavation).sort((a, b) => a - b));
-};
 
-calculateHarmonicGrid(
-    [],
-    [0,1,2,3,4,5,6,7,8,9,10,11],
-    [0,1,2,3,4,5,6,7,8,9,10,11],
-    [0,4,7],
-    48,
-    2);
-
-calculateHarmonicGrid([],[0,1,2,3,4,5,6,7,8,9,10,11],[0,1,2,3,4,5,6,7,8,9,10,11],[0,4,7],48,2);
-// [48,52,55,60,64,67,72,76,79]
