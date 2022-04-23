@@ -5186,12 +5186,17 @@ var closest = (val, arr) => {
 };
 
 // takes an array and aproximate each value to a second array (that will be the harmonic grid to adjust)
-var tuneArray = (arr, gridArr) => arr.map(function(element){
-    return closest(element, gridArr);
-});
+// if gridArr is an empty array the first array is returned unchanged
+var tuneArray = (arr, gridArr) => {
+    if (gridArr.length === 0) { return arr };
+    return arr.map(function(element){
+        return closest(element, gridArr);
+    });
+};
 
 
 
+// calculates a harmonic grid
 var calculateHarmonicGrid = (
     tuning,
     scale,
@@ -5199,6 +5204,7 @@ var calculateHarmonicGrid = (
     chord,
     root,
     octavation) => {
+    var adjutedScale = tuneArray(scale, tuning)
 
 };
 
