@@ -5199,6 +5199,35 @@ var removeArrayDuplicates = (arr) => {
     return [...new Set(arr)];
 };
 
+// create octavations of an array
+var octavateArray = (arr, numOctaves) => {
+    arr.sort((a, b) => a - b);
+    var octavatedArr = arr;
+    var arrItem = 0;
+    if (numOctaves == 0) return arr;
+    if (numOctaves > 0) {
+        var firstValue = arr[0];
+        var newValue = 0;
+        while (newValue < numOctaves * 12 + 12 + firstValue) {
+            newValue = arr[arrItem] + 12;
+            octavatedArr.push(newValue);
+            arrItem++;
+        };
+        octavatedArr.pop();
+    };
+    if (numOctaves < 0) {
+        var firstValue = arr[0];
+        arr.reverse();
+        var newValue = firstValue;
+        while (newValue > numOctaves * 12 + firstValue) {
+            newValue = arr[arrItem] - 12;
+            octavatedArr.push(newValue);
+            arrItem++;
+        };
+        octavatedArr.reverse();
+    }
+    return octavatedArr;
+};
 
 
 // calculates a harmonic grid
@@ -5211,8 +5240,11 @@ var calculateHarmonicGrid = (
     octavation) => {
     var adjustedScale = removeArrayDuplicates(tuneArray(scale, tuning));
     var adjustedMode = removeArrayDuplicates(tuneArray(mode, adjustedScale));
-
-    return adjustedMode;
+    var adjustedChords = removeArrayDuplicates(tuneArray(chord, adjustedMode)).sort((a, b) => a - b);
+    root = closest(root,octavateArray(adjustedScale, 12));
+    var adjustedChords = adjustedChords.map(function(num) {
+        return num + root });
+    return octavateArray(adjustedChords, octavation);
 };
 
 calculateHarmonicGrid(
