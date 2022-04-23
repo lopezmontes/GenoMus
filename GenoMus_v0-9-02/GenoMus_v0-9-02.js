@@ -5239,12 +5239,12 @@ var calculateHarmonicGrid = (
     root,
     octavation) => {
     var adjustedScale = removeArrayDuplicates(tuneArray(scale, tuning));
-    var adjustedMode = removeArrayDuplicates(tuneArray(mode, adjustedScale));
-    var adjustedChords = removeArrayDuplicates(tuneArray(chord, adjustedMode)).sort((a, b) => a - b);
+    var adjustedMode = removeArrayDuplicates(tuneArray(mode, octavateArray(adjustedScale,20)));
+    var adjustedChords = removeArrayDuplicates(tuneArray(chord, octavateArray(adjustedMode,20))).sort((a, b) => a - b);
     root = closest(root,octavateArray(adjustedScale, 12));
     var adjustedChords = adjustedChords.map(function(num) {
         return num + root });
-    return octavateArray(adjustedChords, octavation);
+    return removeArrayDuplicates(octavateArray(adjustedChords, octavation).sort((a, b) => a - b));
 };
 
 calculateHarmonicGrid(
