@@ -8,4 +8,4 @@ Elements defining a harmonic grid:
 - **scale**: subset of eligible pitches from the tuning system to construct chords.
 - **chord**: subset of eligible pitches from the scale to define the harmonic grid.
 - **root**: first pitch defining the transposition of the chord that will be used for the grid.
-- 
+- **octavation**: 
