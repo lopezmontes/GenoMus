@@ -27,7 +27,7 @@
 			\time 20/1
   			\once \override Staff.TimeSignature #'stencil = ##f 
 			\change Staff = "down" c,8 e g
-			\change Staff = "up" aih'''4		}
+			\change Staff = "up" c e g c e g		}
 	>>
 	\layout{ \hide Stem }
 	\midi{}

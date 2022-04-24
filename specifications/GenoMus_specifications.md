@@ -937,7 +937,7 @@ An identity function simply pass its arguments without any musical transformatio
 For the sake of simplicity, identity functions are named using only their corresponding function type identifiers. They serve primarily as wrappers and testing functions.
 
 Both function indexes, ordinal and encoded function index (smaller) are shown.
-Highest function index so far: 326
+Highest function index so far: 327 (hRnd)
 
 | function name | function type       | function index        | example decoded genotype &rarr; encoded phenotype
 | ------------- | ------------------- | --------------------- | -------------------------------------------------
@@ -1237,6 +1237,7 @@ Highest function index so far: 326
 | `aRnd`             | 314 <sub>.062672 in progress</sub> | returns a random articulation with with Gaussian (or normal) distribution
 | `iRnd`             | 315 <sub>.680706 in progress</sub> | returns a random intensity with with Gaussian (or normal) distribution
 | `zRnd`             | 316 <sub>.29874 in progress</sub>  | returns a random goldeninteger with with Gaussian (or normal) distribution
+| `hRnd`             | 327 <sub>.097114 in progress</sub> | returns a random harmonic grid
 | `qRnd`             | 317 <sub>.916774 in progress</sub> | returns a random quantized parameter with with Gaussian (or normal) distribution
 | `lRnd`             | 134 <sub>.816554 in progress</sub> | returns a complete random list with with Gaussian distribution of parameters
 | `lUniformRnd`      | 135 <sub>.434588 in progress</sub> | returns a complete random list with uniform distribution of values

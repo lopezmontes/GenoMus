@@ -36,7 +36,7 @@ var defaultEventExpression; // variable to store a default event when no autoref
 var validGenotype = true;
 var phenMinPolyphony = 1;
 var phenMaxPolyphony = 8;
-var phenMinLength = 1;
+var phenMinLength = 0;
 var phenMaxLength = 10000;
 var maxIterations = 2000;
 var maxIntervalPerSearch = 5000; // in milliseconds
@@ -268,8 +268,8 @@ var post = (message, monitoredVar) => {
     if (debugMode == "terminal") console.log(message + " " + monitoredVar);
     else if (debugMode == "max_console") maxAPI.post(message + " " + monitoredVar);
 }
-var debugMode = "terminal";
-// var debugMode = "max_console";
+// var debugMode = "terminal";
+var debugMode = "max_console";
 
 // find the right value to map a normalized parameter to an eligible function encIndex,
 // to guarantee reproducibility of evaluations when new functions are available
@@ -481,24 +481,59 @@ var octavateArray = (arr, numOctaves) => {
     return octavatedArr;
 };
 
-// calculates a harmonic grid
-var calculateHarmonicGrid = (tuning, scale, mode, chord, root, octavation) => {
-    console.log(tuning);
-    console.log(scale);
-    console.log(mode);
-    console.log(chord);
-    console.log(root);
-    console.log(octavation);
+// returns complement set of b, substracting elements in set b from set a
+function arrayDiff(a, b) {
+    return a.filter( 
+        function(el) {
+        return b.indexOf(el) < 0;
+        }
+    );
+}
 
-    var adjustedScale = removeArrayDuplicates(tuneArray(scale, tuning));
-    var adjustedMode = removeArrayDuplicates(tuneArray(mode, octavateArray(adjustedScale,20)));
-    var adjustedChords = removeArrayDuplicates(tuneArray(chord, octavateArray(adjustedMode,20))).sort((a, b) => a - b);
-    root = closest(root,octavateArray(adjustedScale, 12));
-    var adjustedChords = adjustedChords.map(function(num) {
-        return num + root });
-    var harmonicGrid = removeArrayDuplicates(octavateArray(adjustedChords, octavation).sort((a, b) => a - b));
-    console.log(harmonicGrid);
-    return harmonicGrid;
+// calculates a harmonic grid
+var calculateHarmonicGrid = (tuning, scale, mode, chord, root, chromaticism, octavation) => {
+    tuning = []; // temporary for testing
+    // remapping
+    scale = removeArrayDuplicates(scale.map(function(pitch) { return pitch % 12 }));
+    mode = removeArrayDuplicates(mode.map(function(pitch) { return pitch % 12 }));
+    scale = removeArrayDuplicates(tuneArray(scale, tuning));
+    mode = removeArrayDuplicates(tuneArray(mode, scale));
+
+    chord = removeArrayDuplicates(chord.map(function(pitch) { return pitch % 48 }));
+    var chordLength = chord.length;
+    // redefines chord according to chromaticism degree, from unison to panchromatic harmony
+    if (chromaticism == 0) { chord = [chord[0]] }
+    else if (chromaticism > 0 && chromaticism < 0.45 ) {
+        chord.splice(Math.ceil(chordLength*chromaticism/0.45));
+    }
+    else if (chromaticism > 0.55 && chromaticism < 0.75) {
+        var complementChord = arrayDiff(mode, chord);
+        var complementChordLength = complementChord.length;
+        complementChord.splice(Math.ceil(complementChordLength*(chromaticism-0.55)/0.2));
+        chord = chord.concat(complementChord);
+    }
+    else if (chromaticism == 0.75) {
+        chord = removeArrayDuplicates(chord.concat(mode));
+    }
+    else if (chromaticism > 0.75 && chromaticism < 1) {
+        var complementMode = arrayDiff(scale, mode);
+        var complementModeLength = complementMode.length;
+        complementMode.splice(Math.ceil(complementModeLength*(chromaticism-0.75)/0.25));
+        chord = removeArrayDuplicates(chord.concat(mode.concat(complementMode)));
+    }
+    else if (chromaticism >= 1) {
+        chord = removeArrayDuplicates(chord.concat(scale));
+    };
+    var chord = removeArrayDuplicates(tuneArray(chord, octavateArray(mode,20))).sort((a, b) => a - b);
+    //var adjustedChord = removeArrayDuplicates(tuneArray(chord, octavateArray(mode,20))).sort((a, b) => a - b);
+    console.log("chord sigue es", chord);
+
+    root = closest(root,octavateArray(scale, 16));
+    // var adjustedChord = adjustedChord.map(function(num) {
+    //    return num + root });
+    chord = chord.map(function(num) { return num + root });
+    chord = removeArrayDuplicates(octavateArray(chord, octavation).sort((a, b) => a - b));
+    return chord;
 };
 
 calculateHarmonicGrid(
@@ -1240,37 +1275,51 @@ var s = v => indexExprReturnSpecimen({
 });
 
 // harmony identity function
-var h = (tuning, scale, mode, chord, root, octavation) => {
-        convertedTuning = tuning.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) }),
-        convertedScale = scale.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) }),
-        convertedMode = mode.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) }),
-        convertedChord = chord.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) }),
-        convertedRoot = p2m(root.encPhen[0]),
-        convertedOctavation = p2q(octavation.encPhen[0])
-    var harmonicGrid = calculateHarmonicGrid(
-        convertedTuning,
-        convertedScale,
-        convertedMode,
-        convertedChord,
-        convertedRoot,
-        convertedOctavation);
-    return indexExprReturnSpecimen({
-        funcType: "harmonyF",
-        encGen: flattenDeep([1, 0.652476, tuning.encGen, scale.encGen, mode.encGen, chord.encGen, root.encGen, octavation.encGen, 0]),
-        decGen: "h("
-            + tuning.decGen + ","
-            + scale.decGen + ","
-            + mode.decGen + ","
-            + chord.decGen + ","
-            + root.decGen + ","
-            + octavation.decGen + ")",    
-        encPhen: harmonicGrid,
-        harmony: {
-        }
-    });
+var h = (tuning, scale, mode, chord, root, chromaticism, octavation) => {
+    convertedTuning = tuning.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) });
+    convertedScale = scale.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) });
+    convertedMode = mode.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) });
+    convertedChord = chord.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) });
+    convertedRoot = p2m(root.encPhen[0]);
+    convertedOctavation = p2q(octavation.encPhen[0]);
+var harmonicGrid = calculateHarmonicGrid(
+    convertedTuning,
+    convertedScale,
+    convertedMode,
+    convertedChord,
+    convertedRoot,
+    chromaticism.encPhen[0],
+    convertedOctavation);
+return indexExprReturnSpecimen({
+    funcType: "harmonyF",
+    encGen: flattenDeep([1, 0.652476, 
+        tuning.encGen, 
+        scale.encGen, 
+        mode.encGen, 
+        chord.encGen, 
+        root.encGen, 
+        chromaticism.encGen, 
+        octavation.encGen, 0]),
+    decGen: "h("
+        + tuning.decGen + ","
+        + scale.decGen + ","
+        + mode.decGen + ","
+        + chord.decGen + ","
+        + root.decGen + ","
+        + chromaticism.decGen + ","
+        + octavation.decGen + ")",    
+    encPhen: harmonicGrid.map(function(encodedPitch) { return m2p(encodedPitch) }),
+    harmony: {
+        tuning: convertedTuning,
+        scale: convertedScale,
+        mode: convertedMode,
+        chord: convertedChord,
+        root: convertedRoot,
+        chromaticism: chromaticism.encPhen[0],
+        octavation: convertedOctavation,
+    }
+});
 };
-
-// h(lm(0,1,2,3,4,5,6,7,8,9,10,11),lm(0,1,2,3,4,5,6,7,8,9,10,11),lm(0,2,4,7,9),lm(0,4,7),m(60),q(0))
 
 var e_piano = (notevalue, midiPitch, articulation, intensity) => indexExprReturnSpecimen({
     funcType: "eventF",
@@ -3947,6 +3996,12 @@ var wrapDecGen = specimen => {
             return [0.618034, 0.618034, defaultN, 0.618034, defaultM, defaultA, receivedData[0]];
         case "paramF": // uses the generic parameter for all event features
             return [0.618034, 0.618034, receivedData[0], 0.618034, receivedData[0], receivedData[0], receivedData[0]];
+        case "harmonyF": 
+            wrappedEncPhen = [0.618034, z2p(receivedDataLength)];
+            for (var it = 0; it < receivedDataLength; it++) {
+                wrappedEncPhen.push(n(0.1).encPhen, 0.618034, receivedData[it], a(300).encPhen, defaultI)
+            }
+            return wrappedEncPhen;
         default:
             maxAPI.post("Error: Genotype type not found");
             break;
@@ -4646,7 +4701,7 @@ var createGenotype = (
 }
 
 // functions groups for easy testing
-var minimalFunctions = [0,1,2,3,4,5,6,7,8,9,10,11,12];
+var minimalFunctions = [0,1,2,3,4,5,6,7,8,9,10,11,12,14];
 var randomFunctions = [131,134,310,311,312,313,314,315,316,317];
 var minimalLists = [135,199,15,16,17,18,19,20];
 var iterFuncs = [35,36,37];
@@ -4670,6 +4725,9 @@ var manyFuncsWithoutAutoRefs = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 1
     109, 110, 111, 131, 134, 135, 199, 200, 202, 277, 278, 279, 281, 282, 284, 286, 288, 290, 291,
     294, 296, 298, 299, 302, 304, 306, 307, 310, 311, 312, 313, 314, 315, 316, 317, 318, 201, 280,
 98, 99, 100, 101, 266 ];
+var findingErrors = [ 58, 63, 65, 66, 67, 68, 76, 77, 84,  
+     111, 278,
+    294, 296, 298, 299, 302, 304, 306, 307, 318, 266 ];
 
 // testing functions
 var eligibleFunctions = {
@@ -4687,8 +4745,10 @@ var eligibleFunctions = {
             .concat(multiplePitchesEventsFuncs)
             .concat(listConvertersFuncs)
             .concat(testingFuncs)
-            .concat(manyFuncs)
-            //.concat(manyFuncsWithoutAutoRefs)
+            //.concat(manyFuncs)
+            //.concat(manyFuncsWithoutAutoRefs) // da problemas con harmonyF
+            
+            //.concat(findingErrors)
         )],
     excludedFunctions: [] // 84,302,303,304,305,306,307,308,309] //  319,320,321,322,323,324] // [37,46,98,99,100,101]// 310,311,312,313,314,315,316,317,131,132,133,134,135] // 
 };
@@ -4707,8 +4767,11 @@ var createNewSpecimen = () => {
     var aleaSeed = parseInt(Math.random()*1e15);
     // aux variables
     var genotypeDepth;
+    var maxIterationPerSearch = maxIterations;
     var iterations = 0;
     var satisfiedConstraints = false;
+    if (outputType != "scoreF" && outputType != "voiceF") { 
+        maxIterationPerSearch = 1 }; // to avoid long searches for testing function types
     var fitness = 0;
     var bestFitness = -1;
     // searches a specimen
@@ -4742,7 +4805,7 @@ var createNewSpecimen = () => {
         };
     } while (
         satisfiedConstraints == false
-        && iterations < maxIterations
+        && iterations < maxIterationPerSearch
         && new Date() - searchStartdate <= maxIntervalPerSearch);
     // saves all genotypes as log file
     // genotypeLog["gen" + genCount++] = bestSpecimen.decGen;
@@ -4786,7 +4849,7 @@ var specimenFromInitialConditions = (
     specimenFromInitConds = createGenotype(
         outputType, eligibleFuncs, listMaxLength, aleaSeed, germinalVec);
     // saves last genotype created as log file
-    createJSON("from init conds: " + specimenFromInitConds.decGen, 'aux/lastGenotype.json');
+    createJSON(specimenFromInitConds.decGen, 'aux/lastGenotype.json');
     if (specimenFromInitConds == -1) {
         specimenFromInitConds = eval("s(v(" + defaultEventExpression + "))");
         specimenFromInitConds.data = {

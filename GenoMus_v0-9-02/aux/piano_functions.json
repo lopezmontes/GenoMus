@@ -1312,11 +1312,13 @@
                 "lmidipitchF",
                 "lmidipitchF",
                 "lmidipitchF",
+                "lmidipitchF",
                 "midipitchF",
+                "paramF",
                 "quantizedF"
             ],
             "metadata": {
-                "description": "harmony grid identity function",
+                "description": "harmonic grid identity function",
                 "date": 20220424,
                 "creator": "jlm"
             },

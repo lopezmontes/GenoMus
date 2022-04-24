@@ -9,6 +9,7 @@ Elements defining a harmonic grid:
 - **mode**: subset of eligible pitches from the scale to construct chords.
 - **chord**: subset of eligible pitches from the scale to define the harmonic grid.
 - **root**: first pitch defining the transposition of the chord that will be used for the grid.
+- **chromaticism**: tolerance to chromatic notes (higher means more chromatic results).
 - **octavation**: amount of octaves to replicate the transposed chord. It can be also negative and not integer. 0 means that only the original chord will be used, without transposition.
 
 The process of obtaining harmonic grids is tolerant to unordered arrays, duplications of number ouut of range. All this input arrays are remapped to allways make sense.
