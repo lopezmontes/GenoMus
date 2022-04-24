@@ -362,6 +362,24 @@ Linear conversion keeping encoded normalized data easily readable.
 
 Conversion formulae: normalized parameter _**p**_ to MIDI pitch _**m**_ and inverse ([graph](https://www.desmos.com/calculator/atupolxw6d)):
 
+**NEW**
+
+| [0, 1]  |  MIDI pitch   | Notation
+| ------  | ------------- | ----------
+| 0       | 0             | C<sub>-1</sub>
+| 0.034   | 21            | A<sub>0</sub> <sub>(lowest piano key)</sub>
+| 0.042   | 24            | C<sub>1</sub>
+| 0.1     | 36            | C<sub>2</sub>
+| 0.23    | 48            | C<sub>3</sub>
+| 0.43    | 60            | C<sub>4</sub> <sub>(middle C)</sub>
+| 0.66    | 72            | C<sub>5</sub>
+| 0.83    | 84            | C<sub>6</sub>
+| 0.93    | 96            | C<sub>7</sub>
+| 0.97    | 108           | C<sub>8</sub> <sub>(highest piano key)</sub>
+| 1.0     | 127           | E<sub>8</sub>
+ 
+**OLD**
+
 <img src="formulae/norm2midipitch.svg" width="125">
 <img src="formulae/midipitch2norm.svg" width="100">
 <img src="formulae/norm2midipitch_graph.png" width="250">
@@ -380,7 +398,7 @@ Conversion formulae: normalized parameter _**p**_ to MIDI pitch _**m**_ and inve
 | 0.84    | 96            | C<sub>7</sub>
 | 0.96    | 108           | C<sub>8</sub> <sub>(highest piano key)</sub>
 | 1.0     | 112           | E<sub>8</sub>
- 
+
 ### **frequencyF** (f)
 
 Conversion formulae: normalized parameter _**p**_ to frequency in hertz _**h**_ and inverse ([graph](https://www.desmos.com/calculator/ixocptnpba)):

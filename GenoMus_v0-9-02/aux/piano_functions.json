@@ -1304,6 +1304,25 @@
             }
         }
     },
+    "harmonyF": {
+        "h": {
+            "functionIndex": 14,
+            "functionType": "harmonyF",
+            "arguments": [
+                "lmidipitchF",
+                "lmidipitchF",
+                "lmidipitchF",
+                "midipitchF",
+                "quantizedF"
+            ],
+            "metadata": {
+                "description": "harmony grid identity function",
+                "date": 20220424,
+                "creator": "jlm"
+            },
+            "leafIdentifier": 0.5
+        }
+    },
     "operationF": {
         "oSum": {
             "functionIndex": 111,

@@ -84,6 +84,7 @@ var initSubexpressionsArrays = () => {
     subexpressions["goldenintegerF"] = [];
     subexpressions["lgoldenintegerF"] = [];
     subexpressions["quantizedF"] = [];
+    subexpressions["harmonyF"] = [];
     subexpressions["lquantizedF"] = [];
     subexpressions["operationF"] = [];
 }
@@ -199,8 +200,9 @@ var duration2norm = s => n2u(r6d((Math.log10(s) + 6 * Math.log10(2)) / (10 * Mat
 var d2p = duration2norm;
 
 // set temperament
-var norm2midipitch = p => Math.round(100 * u2n(p) + 12);
-var norm2microtonalmidipitch = p => r6d(100 * u2n(p) + 12);
+// var norm2midipitch = p => Math.round(100 * u2n(p) + 12); // OLD
+var norm2midipitch = p => Math.round(127 * u2n(p));
+var norm2microtonalmidipitch = p => r6d(127 * u2n(p));
 var p2m = norm2midipitch; // 12 semitones
 if (notesPerOctave == 12) var p2m = norm2midipitch;
 if (notesPerOctave == 0) var p2m = norm2microtonalmidipitch; 
@@ -210,7 +212,8 @@ if (notesPerOctave != 0 && notesPerOctave != 12) {
 };
 var p2mm = norm2microtonalmidipitch;
 
-var midipitch2norm = m => n2u(r6d((m - 12) / 100));
+// var midipitch2norm = m => n2u(r6d((m - 12) / 100)); // OLD
+var midipitch2norm = m => n2u(r6d(m / 127));
 var m2p = midipitch2norm;
 var norm2frequency = p => p < 0.003 ? 0.000001 : r6d(20000 * Math.pow(u2n(p), 4));
 var p2f = norm2frequency;
@@ -417,7 +420,22 @@ var testRepetitions = function (n) {
     return 1;
 };
 
-//// Aux functions for hamonic grid creation
+//// AUX FUNCTIONS FOR HARMONIC GRIDS
+
+/////// approaching the computation of a harmonic grid
+
+// takes a value and aproximate each number to the nearest value of an array of values
+var closest = (val, arr) => {
+    return arr.reduce((a, b) => {
+        let aDiff = Math.abs(a - val);
+        let bDiff = Math.abs(b - val);
+        if (aDiff == bDiff) {
+            return a > b ? a : b;
+        } else {
+            return bDiff < aDiff ? b : a;
+        }
+    });
+};
 
 // takes an array and aproximate each value to a second array (that will be the harmonic grid to adjust)
 // if gridArr is an empty array the first array is returned unchanged
@@ -465,13 +483,22 @@ var octavateArray = (arr, numOctaves) => {
 
 // calculates a harmonic grid
 var calculateHarmonicGrid = (tuning, scale, mode, chord, root, octavation) => {
+    console.log(tuning);
+    console.log(scale);
+    console.log(mode);
+    console.log(chord);
+    console.log(root);
+    console.log(octavation);
+
     var adjustedScale = removeArrayDuplicates(tuneArray(scale, tuning));
     var adjustedMode = removeArrayDuplicates(tuneArray(mode, octavateArray(adjustedScale,20)));
     var adjustedChords = removeArrayDuplicates(tuneArray(chord, octavateArray(adjustedMode,20))).sort((a, b) => a - b);
     root = closest(root,octavateArray(adjustedScale, 12));
     var adjustedChords = adjustedChords.map(function(num) {
         return num + root });
-    return removeArrayDuplicates(octavateArray(adjustedChords, octavation).sort((a, b) => a - b));
+    var harmonicGrid = removeArrayDuplicates(octavateArray(adjustedChords, octavation).sort((a, b) => a - b));
+    console.log(harmonicGrid);
+    return harmonicGrid;
 };
 
 calculateHarmonicGrid(
@@ -1210,6 +1237,62 @@ var s = v => indexExprReturnSpecimen({
     rhythm: v.rhythm,
     harmony: v.harmony,
     analysis: v.analysis
+});
+
+// harmony identity function
+var h = (tuning, scale, mode, chord, root, octavation) => {
+        convertedTuning = tuning.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) }),
+        convertedScale = scale.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) }),
+        convertedMode = mode.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) }),
+        convertedChord = chord.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) }),
+        convertedRoot = p2m(root.encPhen[0]),
+        convertedOctavation = p2q(octavation.encPhen[0])
+    var harmonicGrid = calculateHarmonicGrid(
+        convertedTuning,
+        convertedScale,
+        convertedMode,
+        convertedChord,
+        convertedRoot,
+        convertedOctavation);
+    return indexExprReturnSpecimen({
+        funcType: "harmonyF",
+        encGen: flattenDeep([1, 0.652476, tuning.encGen, scale.encGen, mode.encGen, chord.encGen, root.encGen, octavation.encGen, 0]),
+        decGen: "h("
+            + tuning.decGen + ","
+            + scale.decGen + ","
+            + mode.decGen + ","
+            + chord.decGen + ","
+            + root.decGen + ","
+            + octavation.decGen + ")",    
+        encPhen: harmonicGrid,
+        harmony: {
+        }
+    });
+};
+
+// h(lm(0,1,2,3,4,5,6,7,8,9,10,11),lm(0,1,2,3,4,5,6,7,8,9,10,11),lm(0,2,4,7,9),lm(0,4,7),m(60),q(0))
+
+var e_piano = (notevalue, midiPitch, articulation, intensity) => indexExprReturnSpecimen({
+    funcType: "eventF",
+    encGen: flattenDeep([1, 0.236068, notevalue.encGen, midiPitch.encGen, articulation.encGen, intensity.encGen, 0]),
+    decGen: "e("
+        + notevalue.decGen + ","
+        + midiPitch.decGen + ","
+        + articulation.decGen + ","
+        + intensity.decGen + ")",
+    encPhen: [notevalue.encPhen[0],
+        0.618034,
+        midiPitch.encPhen[0],
+        articulation.encPhen[0],
+        intensity.encPhen[0]],
+    phenLength: 1,
+    tempo: 0.6,
+    harmony: {
+        root: midiPitch.encPhen[0],
+        chord: [0],
+        mode: [0],
+        chromaticism: 0
+    }
 });
 
 // creates an event with two pitches
@@ -4254,6 +4337,7 @@ var specimenDataStructure = (specimenData) => ({
         lgoldenintegerF: subexpressions["lgoldenintegerF"],
         quantizedF: subexpressions["quantizedF"],
         lquantizedF: subexpressions["lquantizedF"],
+        harmonyF: subexpressions["harmonyF"],
         operationF: subexpressions["operationF"],
         booleanF: subexpressions["booleanF"]
     },
@@ -5238,20 +5322,7 @@ var currentSpecimen = specimenDataStructure(createNewSpecimen());
 
 
 
-/////// approaching the computation of a harmonic grid
 
-// takes a value and aproximate each number to the nearest value of an array of values
-var closest = (val, arr) => {
-    return arr.reduce((a, b) => {
-        let aDiff = Math.abs(a - val);
-        let bDiff = Math.abs(b - val);
-        if (aDiff == bDiff) {
-            return a > b ? a : b;
-        } else {
-            return bDiff < aDiff ? b : a;
-        }
-    });
-};
 
 
 
