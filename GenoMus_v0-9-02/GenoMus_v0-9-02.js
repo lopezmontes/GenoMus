@@ -498,54 +498,39 @@ var calculateHarmonicGrid = (tuning, scale, mode, chord, root, chromaticism, oct
     mode = removeArrayDuplicates(mode.map(function(pitch) { return pitch % 12 }));
     scale = removeArrayDuplicates(tuneArray(scale, tuning));
     mode = removeArrayDuplicates(tuneArray(mode, scale));
-
+    octavation = (octavation - 0.5) * 16;
     chord = removeArrayDuplicates(chord.map(function(pitch) { return pitch % 48 }));
     var chordLength = chord.length;
     // redefines chord according to chromaticism degree, from unison to panchromatic harmony
-    if (chromaticism == 0) { chord = [chord[0]] }
+    if (chromaticism == 0) { chord = [chord[0]] } // unison
     else if (chromaticism > 0 && chromaticism < 0.45 ) {
         chord.splice(Math.ceil(chordLength*chromaticism/0.45));
+        var chord = removeArrayDuplicates(tuneArray(chord, octavateArray(mode,10))).sort((a, b) => a - b);
     }
-    else if (chromaticism > 0.55 && chromaticism < 0.75) {
+    else if (chromaticism >= 0.45 && chromaticism < 0.55) {
+        var chord = removeArrayDuplicates(tuneArray(chord, octavateArray(mode,10))).sort((a, b) => a - b);
+    }
+    else if (chromaticism >= 0.55 && chromaticism < 0.75) { // filling the chord progressively
         var complementChord = arrayDiff(mode, chord);
         var complementChordLength = complementChord.length;
         complementChord.splice(Math.ceil(complementChordLength*(chromaticism-0.55)/0.2));
         chord = chord.concat(complementChord);
+        var chord = removeArrayDuplicates(tuneArray(chord, octavateArray(mode,10))).sort((a, b) => a - b);
     }
-    else if (chromaticism == 0.75) {
-        chord = removeArrayDuplicates(chord.concat(mode));
-    }
-    else if (chromaticism > 0.75 && chromaticism < 1) {
-        var complementMode = arrayDiff(scale, mode);
+    else if (chromaticism >= 0.75) {
+        var modeClon = [...mode];
+        var chord = removeArrayDuplicates(tuneArray(chord, octavateArray(modeClon,10))).sort((a, b) => a - b);
+        chord = removeArrayDuplicates(chord.concat(mode)).sort((a, b) => a - b);
+        var complementMode = arrayDiff(scale, chord);
         var complementModeLength = complementMode.length;
         complementMode.splice(Math.ceil(complementModeLength*(chromaticism-0.75)/0.25));
-        chord = removeArrayDuplicates(chord.concat(mode.concat(complementMode)));
-    }
-    else if (chromaticism >= 1) {
-        chord = removeArrayDuplicates(chord.concat(scale));
+        chord = removeArrayDuplicates(chord.concat(mode.concat(complementMode)));      
     };
-    var chord = removeArrayDuplicates(tuneArray(chord, octavateArray(mode,20))).sort((a, b) => a - b);
-    //var adjustedChord = removeArrayDuplicates(tuneArray(chord, octavateArray(mode,20))).sort((a, b) => a - b);
-    console.log("chord sigue es", chord);
-
     root = closest(root,octavateArray(scale, 16));
-    // var adjustedChord = adjustedChord.map(function(num) {
-    //    return num + root });
     chord = chord.map(function(num) { return num + root });
     chord = removeArrayDuplicates(octavateArray(chord, octavation).sort((a, b) => a - b));
     return chord;
 };
-
-calculateHarmonicGrid(
-    [],
-    [0,1,2,3,4,5,6,7,8,9,10,11],
-    [0,1,2,3,4,5,6,7,8,9,10,11],
-    [0,4,7],
-    48,
-    2);
-
-// calculateHarmonicGrid([],[0,1,2,3,4,5,6,7,8,9,10,11],[0,1,2,3,4,5,6,7,8,9,10,11],[0,4,7],48,2);
-// [48,52,55,60,64,67,72,76,79]
 
 
 //// RANDOM HANDLING
@@ -1210,7 +1195,7 @@ var e_csound = (duration, frequency, articulation, intensity,
     funcType: "eventF",
     encGen: flattenDeep([1, 0.236068, duration.encGen, frequency.encGen, articulation.encGen, intensity.encGen, 
         param5.encGen, param6.encGen, param7.encGen, param8.encGen, 
-        param9.encGen, param10.encGen, , param11.encGen, param12.encGen, 0]),
+        param9.encGen, param10.encGen, param11.encGen, param12.encGen, 0]),
     decGen: "e("
         + duration.decGen + ","
         + frequency.decGen + ","
@@ -1281,7 +1266,6 @@ var h = (tuning, scale, mode, chord, root, chromaticism, octavation) => {
     convertedMode = mode.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) });
     convertedChord = chord.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) });
     convertedRoot = p2m(root.encPhen[0]);
-    convertedOctavation = p2q(octavation.encPhen[0]);
 var harmonicGrid = calculateHarmonicGrid(
     convertedTuning,
     convertedScale,
@@ -1289,7 +1273,7 @@ var harmonicGrid = calculateHarmonicGrid(
     convertedChord,
     convertedRoot,
     chromaticism.encPhen[0],
-    convertedOctavation);
+    octavation.encPhen[0]);
 return indexExprReturnSpecimen({
     funcType: "harmonyF",
     encGen: flattenDeep([1, 0.652476, 
@@ -1316,7 +1300,7 @@ return indexExprReturnSpecimen({
         chord: convertedChord,
         root: convertedRoot,
         chromaticism: chromaticism.encPhen[0],
-        octavation: convertedOctavation,
+        octavation: octavation.encGen[0]
     }
 });
 };
