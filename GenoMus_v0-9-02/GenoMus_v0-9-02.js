@@ -1300,7 +1300,8 @@ return indexExprReturnSpecimen({
         chord: convertedChord,
         root: convertedRoot,
         chromaticism: chromaticism.encPhen[0],
-        octavation: octavation.encGen[0]
+        octavation: octavation.encGen[0], 
+        harmonicGrid: harmonicGrid
     }
 });
 };
