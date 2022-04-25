@@ -1110,7 +1110,7 @@ Highest function index so far: 327 (hRnd)
 | `vDiatonize`           | 170 <sub>not yet implemented</sub> | diatonizes a voice according to a harmonic grid
 | `sDiatonize`           | 171 <sub>not yet implemented</sub> | diatonizes a score according to a harmonic grid
 | `hChromaticScale`      | 172 <sub>not yet implemented</sub> | returns a complete chromatic scale
-| `hNaturalScale`        | 173 <sub>not yet implemented</sub> | returns modes derived from the natural scale
+| `hNaturalScale`        | 173 <sub>.91988 in progress</sub>  | returns modes derived from the natural scale
 | `hMelodicMinorScale`   | 174 <sub>not yet implemented</sub> | returns modes derived from the melodic minor scale
 | `hPentatonic`          | 175 <sub>not yet implemented</sub> | returns modes derived from the major pentatonic scale
 | `hBluesScale`          | 176 <sub>not yet implemented</sub> | returns a pentatonic scale with blue notes

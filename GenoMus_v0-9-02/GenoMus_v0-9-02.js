@@ -1306,6 +1306,33 @@ return indexExprReturnSpecimen({
 });
 };
 
+// harmonic grid of natural scale for a given root
+var hNaturalScale = (root) => {
+    convertedRoot = p2m(root.encPhen[0]) % 12 + 12;
+var harmonicGrid = calculateHarmonicGrid(
+    [0,1,2,3,4,5,6,7,8,9,10,11],
+    [0,1,2,3,4,5,6,7,8,9,10,11],
+    [0,2,4,5,7,9,11],
+    [0,2,4,5,7,9,11],
+    convertedRoot, 0.5, 1);
+return indexExprReturnSpecimen({
+    funcType: "harmonyF",
+    encGen: flattenDeep([1, 0.91988, root.encGen, 0]),
+    decGen: "hNaturalScale(" + root.decGen + ")",    
+    encPhen: harmonicGrid.map(function(encodedPitch) { return m2p(encodedPitch) }),
+    harmony: {
+        tuning: [0,1,2,3,4,5,6,7,8,9,10,11],
+        scale: [0,1,2,3,4,5,6,7,8,9,10,11],
+        mode: [0,2,4,5,7,9,11],
+        chord: [0,2,4,5,7,9,11],
+        root: convertedRoot,
+        chromaticism: 0.5,
+        octavation: 1, 
+        harmonicGrid: harmonicGrid
+    }
+});
+};
+
 var e_piano = (notevalue, midiPitch, articulation, intensity) => indexExprReturnSpecimen({
     funcType: "eventF",
     encGen: flattenDeep([1, 0.236068, notevalue.encGen, midiPitch.encGen, articulation.encGen, intensity.encGen, 0]),
@@ -4700,6 +4727,8 @@ var multiplePitchesEventsFuncs = [99, 100, 101];
 var listConvertersFuncs = [319,320,321,322,323,324];
 var testingFuncs = [25, 326]; // [326];
 
+var harmonyFuncs = [173];
+
 var manyFuncs = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19,
     20, 25, 26, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 48, 58, 63, 65, 66, 67, 68, 76, 77, 84, 104, 
     109, 110, 111, 131, 134, 135, 199, 200, 202, 277, 278, 279, 281, 282, 284, 286, 288, 290, 291,
@@ -4729,6 +4758,7 @@ var eligibleFunctions = {
             .concat(vmotifs)
             .concat(multiplePitchesEventsFuncs)
             .concat(listConvertersFuncs)
+            .concat(harmonyFuncs)
             .concat(testingFuncs)
             //.concat(manyFuncs)
             //.concat(manyFuncsWithoutAutoRefs) // da problemas con harmonyF

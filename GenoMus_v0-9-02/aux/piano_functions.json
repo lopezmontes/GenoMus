@@ -1321,8 +1321,19 @@
                 "description": "harmonic grid identity function",
                 "date": 20220424,
                 "creator": "jlm"
-            },
-            "leafIdentifier": 0.5
+            }
+        },
+        "hNaturalScale": {
+            "functionIndex": 173,
+            "functionType": "harmonyF",
+            "arguments": [
+                "midipitchF"
+            ],
+            "metadata": {
+                "description": "harmonic grid of natural scale for a given root",
+                "date": 20220425,
+                "creator": "jlm"
+            }
         }
     },
     "operationF": {
