@@ -307,7 +307,12 @@ musical sciences.}
 
 
 
-
+{\color{gray}
+\begin{itemize}
+\item Requerimientos previos deseados que han determinado el diseño
+\item Bases del desarrollo (capacidad de interactuar con los resultados musicales, etc.)
+\end{itemize}
+}
 
 
 
@@ -449,6 +454,15 @@ too \cite{Bod_thedata-oriented} -> para justificar el uso de arboles de funcione
 
 \subsection{Knowledge representation as one-dimensional arrays}
 % Genotypes, phenotypes, species and specimens
+
+{\color{gray}
+\begin{itemize}
+\item Vocabulario empleado en la analogía genética
+\item Detalles sobre los elementos codificados como vectores o como expresiones legibles
+\end{itemize}
+}
+
+
 Although its target is not only genetic algorithms but a variety of machine learning techniques, our framework uses the evolutionary analogy, similarly as many other automatic composition systems \cite{Sulyok2019, SnchezQuintana2013, add more...}. The Darwinian metaphor can be confusing, since each system has its particular application of the same terms, sometimes denoting even opposite concepts. 
 
 In our functional approach, the key idea is \emph{considering a piece of music as the product of a program} which encloses compositional procedures. Thereupon, the bio-inspired terms in the context of the GenoMus framework are defined as follows: 
@@ -525,66 +539,13 @@ phenotype.
 
 
 
-
-
-\subsection{Musical genotypes, phenotypes and germinal vectors}
-
-A \emph{germinal vector} determines a decision tree for the core algorithm that leads to an encoded genotype, a valid executable expression that represents musical procedures.
-
-Let $D_{gen}$ be the set of possible decoded genotypes for a given GenoMus species, using the available functions $E$. Let $dec$ be the conversion function that decodes an encoded genotype:
-
-$$dec:\ E_{gen}\to D_{gen}$$
-
-
-
-A germinal vector is a random sequence of $n$ numbers $\in [0, 1]$.  Let $G_{vec}$ be the multidimensional search space\footnote{Obviously, in a practical implementation, the theoretical infinite germinal vectors are reduced to a finite subset due to computability and memory limits, as well as the number of significant figures used to store and operate on the vectors.} of all possible of germinal vectors  $\vec{g} = (g_1, g_2, ..., g_n)$ of any cardinality $n$, and similarly let $E_{gen}$ be the set of all possible valid encoded genotypes $\vec{e_g} = (x_1, x_2, ..., x_m)$:
-
-$$ G_{vec} = \{\vec{g} \in \mathbb{R}^n \: | \: 0 \leq g_n \leq1, n \in \mathbb N_{> 0} \} $$
-$$ E_{gen} = \{\vec{e_g} \in \mathbb{R}^m \: | \: 0 \leq x_m \leq1, m \in \mathbb N_{> 0}, \exists \: \vec{d_g} = dec(\vec{e_g}) \} $$
-
-Each germinal vector in $G_{vec}$ is mapped to a valid encoded genotype (that is a valid functional expression which generates an excerpt of music). To create genotypes, the surjective map $f$ converts every germinal vector $\vec{g} = (g_1, g_2, ..., g_n) \in G_{vec}$ into an encoded genotype: 
-
-$$f:\ G_{vec}\twoheadrightarrow E_{gen}$$
-
-The application $f$ involves several subprocesses that we will cover next, in such a way that the vector $\vec{g}$ generates a deterministic decision tree that leads to the construction of a unique genotype. As the number of choices needed to build a valid encoded genotype $E_{gen}$ rarely match the number of items of a germinal vector $G_{vec}^n$, truncation and loops are employed:
-
-\begin{itemize}
-\item If $\vec{g}$ has more items than needed, they are ignored, effectively acting as a truncation of the remaining unused part of $\vec{g}$.
-
-\item If $f$ needs more items than those supplied by $\vec{g}$, $f$ reads $\vec{g}$ repeatedly from the beginning as a loop, until closing the valid encoded genotype. That implies that even vectors with a single value can be mapped to large functional expressions. 
-
-\end{itemize}
-
-
-
-
-\subsection{Overview of the model and complementary materials}
-
-{\color{gray} \textsl{[Specifications. Code, Max Patches, Examples of specimens, Music excerpts]}}
-
-
+\subsection{Formal definition of the GenoMus framework}\label{sec:formaldef}
 
 {\color{gray}
-
-
 \begin{itemize}
-\item Proposito de la codificacion en el marco del machine learning
-\item Codificacion como vectores unidimensionales normalizados
-\item Universal valid format
-\item Modularidad y posibilidad de manipulacion manual
-\item Encoding as safety filter
-
+\item Visión formal y general de los elementos necesarios para crear el modelo  operativo
 \end{itemize}
-
 }
-
-Nueva figura que ilustre como enlazan las diferentes estructuras descritas.
-
-
-
-
-
-\subsection{Formal definition of the GenoMus framework}\label{sec:formaldef}
 
 A GenoMus framework for a species $s$ is defined as the 10-tuple $G_s = \{P, \vec{e}, T, i, F, E, L, M, C, \vec{d}\}$, where
 
@@ -619,19 +580,69 @@ This data structure is what each genotype function expects for every argument, a
 The decoding of GenoMus encoded phenotypes into standard formats for any musical application can be seen as an external operation, not concerning directly this formal definition. 
 
 
-\subsection{Encoding and decoding strategies for data normalization}
 
+
+\subsection{Musical genotypes, phenotypes and germinal vectors}
 
 {\color{gray}
-
-Detalle del uso de golden angle para codificar enteros.
-Aplicaciones:
-- Espaciado equilibrado de punteros a funciones en el rango 0-1
-- Codificación de enteros en fenotipos (número de voces, de notas, etc.)
-
+\begin{itemize}
+\item Formalización matemática de la forma de los elementos y de cómo se relacionan entre sí
+\end{itemize}
 }
 
+A \emph{germinal vector} determines a decision tree for the core algorithm that leads to an encoded genotype, a valid executable expression that represents musical procedures.
+
+Let $D_{gen}$ be the set of possible decoded genotypes for a given GenoMus species, using the available functions $E$. Let $dec$ be the conversion function that decodes an encoded genotype:
+
+$$dec:\ E_{gen}\to D_{gen}$$
+
+
+
+A germinal vector is a random sequence of $n$ numbers $\in [0, 1]$.  Let $G_{vec}$ be the multidimensional search space\footnote{Obviously, in a practical implementation, the theoretical infinite germinal vectors are reduced to a finite subset due to computability and memory limits, as well as the number of significant figures used to store and operate on the vectors.} of all possible of germinal vectors  $\vec{g} = (g_1, g_2, ..., g_n)$ of any cardinality $n$, and similarly let $E_{gen}$ be the set of all possible valid encoded genotypes $\vec{e_g} = (x_1, x_2, ..., x_m)$:
+
+$$ G_{vec} = \{\vec{g} \in \mathbb{R}^n \: | \: 0 \leq g_n \leq1, n \in \mathbb N_{> 0} \} $$
+$$ E_{gen} = \{\vec{e_g} \in \mathbb{R}^m \: | \: 0 \leq x_m \leq1, m \in \mathbb N_{> 0}, \exists \: \vec{d_g} = dec(\vec{e_g}) \} $$
+
+Each germinal vector in $G_{vec}$ is mapped to a valid encoded genotype (that is a valid functional expression which generates an excerpt of music). To create genotypes, the surjective map $f$ converts every germinal vector $\vec{g} = (g_1, g_2, ..., g_n) \in G_{vec}$ into an encoded genotype: 
+
+$$f:\ G_{vec}\twoheadrightarrow E_{gen}$$
+
+The application $f$ involves several subprocesses that we will cover next, in such a way that the vector $\vec{g}$ generates a deterministic decision tree that leads to the construction of a unique genotype. As the number of choices needed to build a valid encoded genotype $E_{gen}$ rarely match the number of items of a germinal vector $G_{vec}^n$, truncation and loops are employed:
+
+\begin{itemize}
+\item If $\vec{g}$ has more items than needed, they are ignored, effectively acting as a truncation of the remaining unused part of $\vec{g}$.
+
+\item If $f$ needs more items than those supplied by $\vec{g}$, $f$ reads $\vec{g}$ repeatedly from the beginning as a loop, until closing the valid encoded genotype. That implies that even vectors with a single value can be mapped to large functional expressions. 
+
+\end{itemize}
+
+
+
+
+
+
+
+
+
+\subsection{Encoding and decoding strategies for data normalization}
+
+{\color{gray}
+\begin{itemize}
+\item Rangos de mapeo equuilibrados para los parámetros musicales
+\item Detalle del uso de golden angle para codificar enteros (Aplicaciones: Espaciado equilibrado de punteros a funciones en el rango 0-1, codificación de enteros en fenotipos (número de voces, de notas, etc.)
+\end{itemize}
+}
+
+
 \subsection{Germinal vectors as retrotranscription of decoded genotypes}
+
+{\color{gray}
+\begin{itemize}
+\item Explicación formal matemática y ejemplos
+\item Énfasis en la retrotranscripción como un elemento clave del sistema
+\end{itemize}
+}
+
 
 {\color{red}
 
@@ -699,6 +710,14 @@ Selected specimens are permanently saved as JSON files in the Specimen catalogue
 
 
 
+\subsection{Overview of the model and complementary materials}
+
+{\color{gray}
+\begin{itemize}
+\item Diagrama completo del sistema, incluyendo el proceso de interacción con el usuario
+\item Enlace a las especificaciiones detalladas y a ejemplos
+\end{itemize}
+}
 
 
 

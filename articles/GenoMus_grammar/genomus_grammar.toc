@@ -5,18 +5,18 @@
 \contentsline {section}{\numberline {3}Methods: The GenoMus framework}{4}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Foundations and requirements}{4}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Knowledge representation as one-dimensional arrays}{6}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Musical genotypes, phenotypes and germinal vectors}{7}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Overview of the model and complementary materials}{8}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Formal definition of the GenoMus framework}{8}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Encoding and decoding strategies for data normalization}{9}{subsection.3.6}%
-\contentsline {subsection}{\numberline {3.7}Germinal vectors as retrotranscription of decoded genotypes}{9}{subsection.3.7}%
-\contentsline {subsection}{\numberline {3.8}Anatomy of a genotype function}{9}{subsection.3.8}%
-\contentsline {subsection}{\numberline {3.9}Function types}{9}{subsection.3.9}%
-\contentsline {subsection}{\numberline {3.10}Leaves, parameter mapping and readability}{10}{subsection.3.10}%
-\contentsline {subsection}{\numberline {3.11}Function libraries}{10}{subsection.3.11}%
-\contentsline {subsection}{\numberline {3.12}Specimen data structure}{10}{subsection.3.12}%
-\contentsline {section}{\numberline {4}A minimal example: \textsl {Clapping Music}}{11}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Procedural representation}{11}{subsection.4.1}%
+\contentsline {subsection}{\numberline {3.3}Formal definition of the GenoMus framework}{7}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Musical genotypes, phenotypes and germinal vectors}{8}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Encoding and decoding strategies for data normalization}{9}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Germinal vectors as retrotranscription of decoded genotypes}{9}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Anatomy of a genotype function}{10}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Function types}{10}{subsection.3.8}%
+\contentsline {subsection}{\numberline {3.9}Leaves, parameter mapping and readability}{10}{subsection.3.9}%
+\contentsline {subsection}{\numberline {3.10}Function libraries}{10}{subsection.3.10}%
+\contentsline {subsection}{\numberline {3.11}Specimen data structure}{10}{subsection.3.11}%
+\contentsline {subsection}{\numberline {3.12}Overview of the model and complementary materials}{10}{subsection.3.12}%
+\contentsline {section}{\numberline {4}A minimal example: \textsl {Clapping Music}}{10}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Procedural representation}{10}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Extraction of new functions from music}{14}{subsection.4.2}%
 \contentsline {section}{\numberline {5}Evaluation and evolution}{15}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Evolutionary paradigm}{16}{subsection.5.1}%
