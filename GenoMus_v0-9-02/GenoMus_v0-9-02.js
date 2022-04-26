@@ -1132,6 +1132,121 @@ var li = (...pList) => listIdentityFunc("li", "lintensityF", 0.36068, 0.56, i2p,
 var lz = (...pList) => listIdentityFunc("lz", "lgoldenintegerF", 0.978714, 0.57, z2p, ...pList);
 var lq = (...pList) => listIdentityFunc("lq", "lquantizedF", 0.596748, 0.58, q2p, ...pList);
 
+
+//// Harmony functions
+
+// harmony identity function
+var h = (tuning, scale, mode, chord, root, chromaticism, octavation) => {
+    convertedTuning = tuning.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) });
+    convertedScale = scale.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) });
+    convertedMode = mode.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) });
+    convertedChord = chord.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) });
+    convertedRoot = p2m(root.encPhen[0]);
+    var harmonicGrid = calculateHarmonicGrid(
+        convertedTuning,
+        convertedScale,
+        convertedMode,
+        convertedChord,
+        convertedRoot,
+        chromaticism.encPhen[0],
+        octavation.encPhen[0]);
+    return indexExprReturnSpecimen({
+    funcType: "harmonyF",
+    encGen: flattenDeep([1, 0.652476, 
+        tuning.encGen, 
+        scale.encGen, 
+        mode.encGen, 
+        chord.encGen, 
+        root.encGen, 
+        chromaticism.encGen, 
+        octavation.encGen, 0]),
+    decGen: "h("
+        + tuning.decGen + ","
+        + scale.decGen + ","
+        + mode.decGen + ","
+        + chord.decGen + ","
+        + root.decGen + ","
+        + chromaticism.decGen + ","
+        + octavation.decGen + ")",    
+    encPhen: harmonicGrid.map(function(encodedPitch) { return m2p(encodedPitch) }),
+    harmony: {
+        tuning: convertedTuning,
+        scale: convertedScale,
+        mode: convertedMode,
+        chord: convertedChord,
+        root: convertedRoot,
+        chromaticism: chromaticism.encPhen[0],
+        octavation: octavation.encGen[0], 
+        harmonicGrid: harmonicGrid
+    }
+    });
+};
+
+// harmonic grid of any pitch class set for a given root
+var hPCSet = (pcset, root) => {
+    var chromaticScale = [0,1,2,3,4,5,6,7,8,9,10,11];
+    convertedPCSet = pcset.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) });
+    convertedRoot = p2m(root.encPhen[0]) % 12 + 12;
+    var harmonicGrid = calculateHarmonicGrid(
+        chromaticScale, chromaticScale,
+        convertedPCSet, convertedPCSet,
+        convertedRoot, 0.5, 1);
+    return indexExprReturnSpecimen({
+        funcType: "harmonyF",
+        encGen: flattenDeep([1, 0.864152, pcset.encGen, root.encGen, 0]),
+        decGen: "hPCSet(" + pcset.decGen + "," + root.decGen + ")",    
+        encPhen: harmonicGrid.map(function(encodedPitch) { return m2p(encodedPitch) }),
+        harmony: {
+            tuning: chromaticScale,
+            scale: chromaticScale,
+            mode: convertedPCSet,
+            chord: convertedPCSet,
+            root: convertedRoot,
+            chromaticism: 0.5,
+            octavation: 1, 
+            harmonicGrid: harmonicGrid
+        }
+    });
+};
+
+// generic function for basic important scales and chords 
+var harmonicGridFunction = (funcName, funcIndex, pcset, root) => {
+    var chromaticScale = [0,1,2,3,4,5,6,7,8,9,10,11];
+    convertedPCSet = pcset.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) });
+    convertedRoot = p2m(root.encPhen[0]) % 12 + 12;
+    var harmonicGrid = calculateHarmonicGrid(
+        chromaticScale, chromaticScale, convertedPCSet, convertedPCSet,
+        convertedRoot, 0.5, 1);
+    return indexExprReturnSpecimen({
+        funcType: "harmonyF",
+        encGen: flattenDeep([1, funcIndex, root.encGen, 0]),
+        decGen: funcName + "(" + root.decGen + ")",    
+        encPhen: harmonicGrid.map(function(encodedPitch) { return m2p(encodedPitch) }),
+        harmony: {
+            tuning: chromaticScale,
+            scale: chromaticScale,
+            mode: convertedPCSet,
+            chord: convertedPCSet,
+            root: convertedRoot,
+            chromaticism: 0.5,
+            octavation: 1, 
+            harmonicGrid: harmonicGrid
+        }
+    });
+};
+
+// harmonic grid for main harmonies
+var hMajorChord = (root) => harmonicGridFunction("hMajorChord", 0.954322, lm(0,4,7), root);
+var hMinorChord = (root) => harmonicGridFunction("hMinorChord", 0.572356, lm(0,3,7), root);
+var hNaturalScale = (root) => harmonicGridFunction("hNaturalScale", 0.91988, lm(0,2,4,5,7,9,11), root);
+var hMelodicMinorScale = (root) => harmonicGridFunction("hMelodicMinorScale", 0.537914, lm(0,2,3,5,7,9,11), root);
+var hPentatonic = (root) => harmonicGridFunction("hPentatonic", 0.155948, lm(0,2,4,7,9), root);
+var hBluesScale = (root) => harmonicGridFunction("hBluesScale", 0.773982, lm(0,3,5,6,7,10), root);
+var hJapanesePentatonic = (root) => harmonicGridFunction("hJapanesePentatonic", 0.392016, lm(0,1,5,7,8), root);
+var hHexatonicScale = (root) => harmonicGridFunction("hHexatonicScale", 0.01005, lm(0,2,4,6,8,10), root);
+var hOctatonicScale = (root) => harmonicGridFunction("hOctatonicScale", 0.628084, lm(0,1,3,4,6,7,9,10,11), root);
+
+
 // EVENT FUNCTIONS FOR EACH SPECIES
 // piano event identity function
 var e_piano = (notevalue, midiPitch, articulation, intensity) => indexExprReturnSpecimen({
@@ -1258,117 +1373,6 @@ var s = v => indexExprReturnSpecimen({
     harmony: v.harmony,
     analysis: v.analysis
 });
-
-// harmony identity function
-var h = (tuning, scale, mode, chord, root, chromaticism, octavation) => {
-    convertedTuning = tuning.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) });
-    convertedScale = scale.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) });
-    convertedMode = mode.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) });
-    convertedChord = chord.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) });
-    convertedRoot = p2m(root.encPhen[0]);
-    var harmonicGrid = calculateHarmonicGrid(
-        convertedTuning,
-        convertedScale,
-        convertedMode,
-        convertedChord,
-        convertedRoot,
-        chromaticism.encPhen[0],
-        octavation.encPhen[0]);
-    return indexExprReturnSpecimen({
-    funcType: "harmonyF",
-    encGen: flattenDeep([1, 0.652476, 
-        tuning.encGen, 
-        scale.encGen, 
-        mode.encGen, 
-        chord.encGen, 
-        root.encGen, 
-        chromaticism.encGen, 
-        octavation.encGen, 0]),
-    decGen: "h("
-        + tuning.decGen + ","
-        + scale.decGen + ","
-        + mode.decGen + ","
-        + chord.decGen + ","
-        + root.decGen + ","
-        + chromaticism.decGen + ","
-        + octavation.decGen + ")",    
-    encPhen: harmonicGrid.map(function(encodedPitch) { return m2p(encodedPitch) }),
-    harmony: {
-        tuning: convertedTuning,
-        scale: convertedScale,
-        mode: convertedMode,
-        chord: convertedChord,
-        root: convertedRoot,
-        chromaticism: chromaticism.encPhen[0],
-        octavation: octavation.encGen[0], 
-        harmonicGrid: harmonicGrid
-    }
-    });
-};
-
-// harmonic grid of any pitch class set for a given root
-var hPCSet = (pcset, root) => {
-    var chromaticScale = [0,1,2,3,4,5,6,7,8,9,10,11];
-    convertedPCSet = pcset.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) });
-    convertedRoot = p2m(root.encPhen[0]) % 12 + 12;
-    var harmonicGrid = calculateHarmonicGrid(
-        chromaticScale, chromaticScale,
-        convertedPCSet, convertedPCSet,
-        convertedRoot, 0.5, 1);
-    return indexExprReturnSpecimen({
-        funcType: "harmonyF",
-        encGen: flattenDeep([1, 0.864152, pcset.encGen, root.encGen, 0]),
-        decGen: "hPCSet(" + pcset.decGen + "," + root.decGen + ")",    
-        encPhen: harmonicGrid.map(function(encodedPitch) { return m2p(encodedPitch) }),
-        harmony: {
-            tuning: chromaticScale,
-            scale: chromaticScale,
-            mode: convertedPCSet,
-            chord: convertedPCSet,
-            root: convertedRoot,
-            chromaticism: 0.5,
-            octavation: 1, 
-            harmonicGrid: harmonicGrid
-        }
-    });
-};
-
-var harmonicGridFunction = (funcName, funcIndex, pcset, root) => {
-    var chromaticScale = [0,1,2,3,4,5,6,7,8,9,10,11];
-    convertedPCSet = pcset.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) });
-    convertedRoot = p2m(root.encPhen[0]) % 12 + 12;
-    var harmonicGrid = calculateHarmonicGrid(
-        chromaticScale, chromaticScale, convertedPCSet, convertedPCSet,
-        convertedRoot, 0.5, 1);
-    return indexExprReturnSpecimen({
-        funcType: "harmonyF",
-        encGen: flattenDeep([1, funcIndex, root.encGen, 0]),
-        decGen: funcName + "(" + root.decGen + ")",    
-        encPhen: harmonicGrid.map(function(encodedPitch) { return m2p(encodedPitch) }),
-        harmony: {
-            tuning: chromaticScale,
-            scale: chromaticScale,
-            mode: convertedPCSet,
-            chord: convertedPCSet,
-            root: convertedRoot,
-            chromaticism: 0.5,
-            octavation: 1, 
-            harmonicGrid: harmonicGrid
-        }
-    });
-};
-
-// harmonic grid for main harmonies
-var hMajorChord = (root) => harmonicGridFunction("hMajorChord", 0.954322, lm(0,4,7), root);
-var hMinorChord = (root) => harmonicGridFunction("hMinorChord", 0.572356, lm(0,3,7), root);
-var hNaturalScale = (root) => harmonicGridFunction("hNaturalScale", 0.91988, lm(0,2,4,5,7,9,11), root);
-var hMelodicMinorScale = (root) => harmonicGridFunction("hMelodicMinorScale", 0.537914, lm(0,2,3,5,7,9,11), root);
-var hPentatonic = (root) => harmonicGridFunction("hPentatonic", 0.155948, lm(0,2,4,7,9), root);
-var hBluesScale = (root) => harmonicGridFunction("hBluesScale", 0.773982, lm(0,3,5,6,7,10), root);
-var hJapanesePentatonic = (root) => harmonicGridFunction("hJapanesePentatonic", 0.392016, lm(0,1,5,7,8), root);
-var hHexatonicScale = (root) => harmonicGridFunction("hHexatonicScale", 0.01005, lm(0,2,4,6,8,10), root);
-var hOctatonicScale = (root) => harmonicGridFunction("hOctatonicScale", 0.628084, lm(0,1,3,4,6,7,9,10,11), root);
-
 
 
 var e_piano = (notevalue, midiPitch, articulation, intensity) => indexExprReturnSpecimen({
