@@ -1306,7 +1306,7 @@ var h = (tuning, scale, mode, chord, root, chromaticism, octavation) => {
     });
 };
 
-// harmonic grid of natural scale for a given root
+// harmonic grid of any pitch class set for a given root
 var hPCSet = (pcset, root) => {
     var chromaticScale = [0,1,2,3,4,5,6,7,8,9,10,11];
     convertedPCSet = pcset.encPhen.map(function(encodedPitch) { return p2m(encodedPitch) });
