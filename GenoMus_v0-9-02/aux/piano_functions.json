@@ -1323,6 +1323,43 @@
                 "creator": "jlm"
             }
         },
+        "hPCSet": {
+            "functionIndex": 181,
+            "functionType": "harmonyF",
+            "arguments": [
+                "lmidipitchF",
+                "midipitchF"
+            ],
+            "metadata": {
+                "description": "harmonic grid from any pitch class set for a given root",
+                "date": 20220427,
+                "creator": "jlm"
+            }
+        },
+        "hMajorChord": {
+            "functionIndex": 186,
+            "functionType": "harmonyF",
+            "arguments": [
+                "midipitchF"
+            ],
+            "metadata": {
+                "description": "harmonic grid from a major chord",
+                "date": 20220427,
+                "creator": "jlm"
+            }
+        },
+        "hMinorChord": {
+            "functionIndex": 187,
+            "functionType": "harmonyF",
+            "arguments": [
+                "midipitchF"
+            ],
+            "metadata": {
+                "description": "harmonic grid from a minor chord",
+                "date": 20220427,
+                "creator": "jlm"
+            }
+        },
         "hNaturalScale": {
             "functionIndex": 173,
             "functionType": "harmonyF",
@@ -1332,6 +1369,78 @@
             "metadata": {
                 "description": "harmonic grid of natural scale for a given root",
                 "date": 20220425,
+                "creator": "jlm"
+            }
+        },
+        "hMelodicMinorScale": {
+            "functionIndex": 174,
+            "functionType": "harmonyF",
+            "arguments": [
+                "midipitchF"
+            ],
+            "metadata": {
+                "description": "harmonic grid from a melodic minor scale",
+                "date": 20220427,
+                "creator": "jlm"
+            }
+        },
+        "hPentatonic": {
+            "functionIndex": 175,
+            "functionType": "harmonyF",
+            "arguments": [
+                "midipitchF"
+            ],
+            "metadata": {
+                "description": "harmonic grid from a pentatonic scale",
+                "date": 20220427,
+                "creator": "jlm"
+            }
+        },
+        "hBluesScale": {
+            "functionIndex": 176,
+            "functionType": "harmonyF",
+            "arguments": [
+                "midipitchF"
+            ],
+            "metadata": {
+                "description": "harmonic grid from a pentatonic scale",
+                "date": 20220427,
+                "creator": "jlm"
+            }
+        },
+        "hJapanesePentatonic": {
+            "functionIndex": 177,
+            "functionType": "harmonyF",
+            "arguments": [
+                "midipitchF"
+            ],
+            "metadata": {
+                "description": "harmonic grid from a japanese pentatonic scale",
+                "date": 20220427,
+                "creator": "jlm"
+            }
+        },
+        "hHexatonicScale": {
+            "functionIndex": 178,
+            "functionType": "harmonyF",
+            "arguments": [
+                "midipitchF"
+            ],
+            "metadata": {
+                "description": "harmonic grid from a hexatonic whole tone scale",
+                "date": 20220427,
+                "creator": "jlm"
+            }
+        },
+        "hOctatonicScale": {
+            "functionIndex": 179,
+            "functionType": "harmonyF",
+            "arguments": [
+                "midipitchF"
+            ],
+            "metadata": {
+                "description": "harmonic grid from a octatonic half-whole tone scale",
+                "date": 20220427,
                 "creator": "jlm"
             }
         }
