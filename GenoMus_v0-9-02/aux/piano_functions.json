@@ -267,6 +267,19 @@
                 "date": 20191007,
                 "creator": "jlm"
             }
+        },
+        "vHarmonize": {
+            "functionIndex": 170,
+            "functionType": "voiceF",
+            "arguments": [
+                "voiceF",
+                "harmonyF"
+            ],
+            "metadata": {
+                "description": "rewrites a voice according to a harmonic gridd",
+                "date": 20220427,
+                "creator": "jlm"
+            }
         }
     },
     "eventF": {

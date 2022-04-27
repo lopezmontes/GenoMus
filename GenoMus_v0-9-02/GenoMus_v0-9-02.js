@@ -1941,6 +1941,36 @@ var vConcatE = (e1, e2) => indexExprReturnSpecimen({
     }
 });
 
+
+// rewrites a voice according to a harmonic grid
+var vHarmonize = (v, h) => {
+    var newEncPhen = [v.encPhen[0]]; // writes first value, number of events
+    var encPhenLength = v.encPhen.length;
+    var pitchesInEvent;
+    for (var it = 1; it < encPhenLength; it++) { // 
+        newEncPhen.push(v.encPhen[it]); it++; // copy delta value    
+        pitchesInEvent = p2z(v.encPhen[it]);
+        newEncPhen.push(v.encPhen[it]); it++; // number of pitches
+        for (var pitch = 0; pitch < pitchesInEvent; pitch++){
+            // rewrites pitches according to harmonic grid
+            newEncPhen.push(closest(v.encPhen[it], h.encPhen)); pitch++; 
+        }
+        newEncPhen.push(v.encPhen[it]); it++; // copy articulation
+        newEncPhen.push(v.encPhen[it]); it++; // copy intensity
+    };
+    return indexExprReturnSpecimen({
+        funcType: "voiceF",
+        encGen: flattenDeep([1, 0.065778, v.encGen, h.encGen, 0]),
+        decGen: "vHarmonize(" + v.decGen + "," + h.decGen + ")",
+        encPhen: newEncPhen,
+        phenLength: v.phenLength,
+        tempo: v.tempo,
+        rhythm: v.rhythm,
+        harmony: h.harmony,
+        analysis: v.analysis
+    });
+};
+
 // returns a voice removing a number of events at the beginning or at the end
 // range of removed elements: 36 elements from the beginning (positive) or from the end (negative)
 var vSlice_piano = (voice, removedEvents) => {
@@ -4769,7 +4799,7 @@ var multiplePitchesEventsFuncs = [99, 100, 101];
 var listConvertersFuncs = [319,320,321,322,323,324];
 var testingFuncs = [25, 326]; // [326];
 
-var harmonyFuncs = [173, 174,175,176,177,178,179, 181, 186, 187];
+var harmonyFuncs = [ 173, 174,175,176,177,178,179, 181, 186, 187];
 
 var manyFuncs = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19,
     20, 25, 26, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 48, 58, 63, 65, 66, 67, 68, 76, 77, 84, 104, 

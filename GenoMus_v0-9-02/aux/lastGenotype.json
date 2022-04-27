@@ -1,1 +1,1 @@
-"hOctatonicScale(m(52))"
+"s(vHarmonize(vPerpetuumMobileLoop(n(0.2),lP2M(lIterL(lRemap(lTribonacci(pRnd(),p(0.340554),pAutoref(0),pUniformRnd(),pRnd(),z(60)),p(0.1),p(0.8)),q(0),pAutoref(0))),la(60),li(56,73,71,72)),hMelodicMinorScale(mRnd())))"
