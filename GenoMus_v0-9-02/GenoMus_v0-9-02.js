@@ -1947,17 +1947,18 @@ var vHarmonize = (v, h) => {
     var newEncPhen = [v.encPhen[0]]; // writes first value, number of events
     var encPhenLength = v.encPhen.length;
     var pitchesInEvent;
-    for (var it = 1; it < encPhenLength; it++) { // 
-        newEncPhen.push(v.encPhen[it]); it++; // copy delta value    
-        pitchesInEvent = p2z(v.encPhen[it]);
-        newEncPhen.push(v.encPhen[it]); it++; // number of pitches
+    var pos = 1;
+    do {
+        newEncPhen.push(v.encPhen[pos]); pos++; // copy delta value    
+        pitchesInEvent = p2z(v.encPhen[pos]);
+        newEncPhen.push(v.encPhen[pos]); pos++; // number of pitches
         for (var pitch = 0; pitch < pitchesInEvent; pitch++){
             // rewrites pitches according to harmonic grid
-            newEncPhen.push(closest(v.encPhen[it], h.encPhen)); pitch++; 
+            newEncPhen.push(closest(v.encPhen[pos], h.encPhen)); pos++; 
         }
-        newEncPhen.push(v.encPhen[it]); it++; // copy articulation
-        newEncPhen.push(v.encPhen[it]); it++; // copy intensity
-    };
+        newEncPhen.push(v.encPhen[pos]); pos++; // copy articulation
+        newEncPhen.push(v.encPhen[pos]); pos++; // copy intensity
+    } while (pos < encPhenLength);
     return indexExprReturnSpecimen({
         funcType: "voiceF",
         encGen: flattenDeep([1, 0.065778, v.encGen, h.encGen, 0]),
@@ -4799,7 +4800,7 @@ var multiplePitchesEventsFuncs = [99, 100, 101];
 var listConvertersFuncs = [319,320,321,322,323,324];
 var testingFuncs = [25, 326]; // [326];
 
-var harmonyFuncs = [ 173, 174,175,176,177,178,179, 181, 186, 187];
+var harmonyFuncs = [ 170, 173, 174,175,176,177,178,179, 181, 186, 187];
 
 var manyFuncs = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19,
     20, 25, 26, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 48, 58, 63, 65, 66, 67, 68, 76, 77, 84, 104, 
