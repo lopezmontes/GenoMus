@@ -75,7 +75,20 @@
                 "date": 20190915,
                 "creator": "jlm"
             }
-        }    
+        },
+        "sHarmonize": {
+            "functionIndex": 171,
+            "functionType": "scoreF",
+            "arguments": [
+                "scoreF",
+                "harmonyF"
+            ],
+            "metadata": {
+                "description": "rewrites a score according to a harmonic gridd",
+                "date": 20220427,
+                "creator": "jlm"
+            }
+        }  
     },
     "voiceF": {
         "v": {

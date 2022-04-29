@@ -1972,6 +1972,43 @@ var vHarmonize = (v, h) => {
     });
 };
 
+// rewrites a score according to a harmonic grid
+var sHarmonize = (s, h) => {
+    var newEncPhen = [s.encPhen[0]]; // writes first value, number of voices
+    // var encPhenLength = s.encPhen.length;
+    var voicesInScore = p2z(s.encPhen[0]);
+    var eventsInVoice;
+    var pitchesInEvent;
+    var pos = 1;
+    for (var numVoice = 0; numVoice < voicesInScore; numVoice++) {
+        eventsInVoice = p2z(s.encPhen[pos]);
+        newEncPhen.push(s.encPhen[pos]); pos++; // copy number of events in voice    
+        for (var numEvent = 0; numEvent < eventsInVoice; numEvent++) {
+            newEncPhen.push(s.encPhen[pos]); pos++; // copy delta value    
+            pitchesInEvent = p2z(s.encPhen[pos]);
+            newEncPhen.push(s.encPhen[pos]); pos++; // number of pitches
+            for (var pitch = 0; pitch < pitchesInEvent; pitch++){
+                // rewrites pitches according to harmonic grid
+                newEncPhen.push(closest(s.encPhen[pos], h.encPhen)); pos++; 
+            }
+            newEncPhen.push(s.encPhen[pos]); pos++; // copy articulation
+            newEncPhen.push(s.encPhen[pos]); pos++; // copy intensity
+        }
+    };
+    return indexExprReturnSpecimen({
+        funcType: "scoreF",
+        encGen: flattenDeep([1, 0.683812, s.encGen, h.encGen, 0]),
+        decGen: "sHarmonize(" + s.decGen + "," + h.decGen + ")",
+        encPhen: newEncPhen,
+        phenVoices: s.phenVoices,
+        phenLength: s.phenLength,
+        tempo: s.tempo,
+        rhythm: s.rhythm,
+        harmony: h.harmony,
+        analysis: s.analysis
+    });
+};
+
 // returns a voice removing a number of events at the beginning or at the end
 // range of removed elements: 36 elements from the beginning (positive) or from the end (negative)
 var vSlice_piano = (voice, removedEvents) => {
@@ -4800,7 +4837,7 @@ var multiplePitchesEventsFuncs = [99, 100, 101];
 var listConvertersFuncs = [319,320,321,322,323,324];
 var testingFuncs = [25, 326]; // [326];
 
-var harmonyFuncs = [ 170, 173, 174,175,176,177,178,179, 181, 186, 187];
+var harmonyFuncs = [ 170, 171, 173, 174,175,176,177,178,179, 181, 186, 187];
 
 var manyFuncs = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19,
     20, 25, 26, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 48, 58, 63, 65, 66, 67, 68, 76, 77, 84, 104, 
