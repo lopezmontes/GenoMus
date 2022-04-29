@@ -1245,8 +1245,6 @@ var hBluesScale = (root) => harmonicGridFunction("hBluesScale", 0.773982, lm(0,3
 var hJapanesePentatonicScale = (root) => harmonicGridFunction("hJapanesePentatonicScale", 0.392016, lm(0,1,5,7,8), root);
 var hHexatonicScale = (root) => harmonicGridFunction("hHexatonicScale", 0.01005, lm(0,2,4,6,8,10), root);
 var hOctatonicScale = (root) => harmonicGridFunction("hOctatonicScale", 0.628084, lm(0,1,3,4,6,7,9,10,11), root);
-var hPartiels = (root) => harmonicGridFunction("hPartiels", 0.415955, lm(0,12,19,24,28,31,34,36,38,40,42,43,45,46,47,48), root);
-
 
 // generic function for basic important scales and chords 
 var hHarmonicSeries = (root) => {
