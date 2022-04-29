@@ -1248,7 +1248,7 @@ var hOctatonicScale = (root) => harmonicGridFunction("hOctatonicScale", 0.628084
 
 // generic function for basic important scales and chords 
 var hHarmonicSeries = (root) => {
-    var partiels = [0,12,19,24,28,31,34,36,38,40,42,43,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60];
+    var partiels = [0,12,19,24,28,31,34,36,38,40,42,43,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72];
     var convertedRoot = p2m(root.encPhen[0]);
     var harmonicGrid = partiels.map(function(partiel) { return partiel + convertedRoot }) ;
     return indexExprReturnSpecimen({
