@@ -1107,8 +1107,8 @@ Highest function index so far: 327 (hRnd)
 ## Harmony
 | name                       | index                              | description
 | -------------------------- | ---------------------------------- | -----------
-| `vHarmonize`               | 170 <sub>.065778 in progress</sub> | rewrites a voice according to a harmonic grid
-| `sHarmonize`               | 171 <sub>not yet implemented</sub> | rewrites a score according to a harmonic grid
+| `vHarmonicGrid`            | 170 <sub>.065778 in progress</sub> | rewrites a voice according to a harmonic grid
+| `sHarmonicGrid`            | 171 <sub>not yet implemented</sub> | rewrites a score according to a harmonic grid
 | `hChromaticScale`          | 172 <sub>not yet implemented</sub> | returns a complete chromatic scale
 | `hNaturalScale`            | 173 <sub>.91988 in progress</sub>  | returns modes derived from the natural scale
 | `hMelodicMinorScale`       | 174 <sub>.537914 in progress</sub> | returns modes derived from the melodic minor scale

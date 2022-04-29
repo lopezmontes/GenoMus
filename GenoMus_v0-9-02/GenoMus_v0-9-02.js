@@ -1943,7 +1943,7 @@ var vConcatE = (e1, e2) => indexExprReturnSpecimen({
 
 
 // rewrites a voice according to a harmonic grid
-var vHarmonize = (v, h) => {
+var vHarmonicGrid = (v, h) => {
     var newEncPhen = [v.encPhen[0]]; // writes first value, number of events
     var encPhenLength = v.encPhen.length;
     var pitchesInEvent;
@@ -1962,7 +1962,7 @@ var vHarmonize = (v, h) => {
     return indexExprReturnSpecimen({
         funcType: "voiceF",
         encGen: flattenDeep([1, 0.065778, v.encGen, h.encGen, 0]),
-        decGen: "vHarmonize(" + v.decGen + "," + h.decGen + ")",
+        decGen: "vHarmonicGrid(" + v.decGen + "," + h.decGen + ")",
         encPhen: newEncPhen,
         phenLength: v.phenLength,
         tempo: v.tempo,
@@ -1973,7 +1973,7 @@ var vHarmonize = (v, h) => {
 };
 
 // rewrites a score according to a harmonic grid
-var sHarmonize = (s, h) => {
+var sHarmonicGrid = (s, h) => {
     var newEncPhen = [s.encPhen[0]]; // writes first value, number of voices
     // var encPhenLength = s.encPhen.length;
     var voicesInScore = p2z(s.encPhen[0]);
@@ -1998,7 +1998,7 @@ var sHarmonize = (s, h) => {
     return indexExprReturnSpecimen({
         funcType: "scoreF",
         encGen: flattenDeep([1, 0.683812, s.encGen, h.encGen, 0]),
-        decGen: "sHarmonize(" + s.decGen + "," + h.decGen + ")",
+        decGen: "sHarmonicGrid(" + s.decGen + "," + h.decGen + ")",
         encPhen: newEncPhen,
         phenVoices: s.phenVoices,
         phenLength: s.phenLength,
@@ -4869,7 +4869,7 @@ var eligibleFunctions = {
             .concat(multiplePitchesEventsFuncs)
             .concat(listConvertersFuncs)
             .concat(harmonyFuncs)
-            .concat(testingFuncs)
+            //.concat(testingFuncs)
             //.concat(manyFuncs)
             //.concat(manyFuncsWithoutAutoRefs) // da problemas con harmonyF
             

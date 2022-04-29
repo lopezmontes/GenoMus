@@ -76,7 +76,7 @@
                 "creator": "jlm"
             }
         },
-        "sHarmonize": {
+        "sHarmonicGrid": {
             "functionIndex": 171,
             "functionType": "scoreF",
             "arguments": [
@@ -281,7 +281,7 @@
                 "creator": "jlm"
             }
         },
-        "vHarmonize": {
+        "vHarmonicGrid": {
             "functionIndex": 170,
             "functionType": "voiceF",
             "arguments": [
