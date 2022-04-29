@@ -1469,6 +1469,18 @@
                 "date": 20220427,
                 "creator": "jlm"
             }
+        },
+        "hHarmonicSeries": {
+            "functionIndex": 262,
+            "functionType": "harmonyF",
+            "arguments": [
+                "midipitchF"
+            ],
+            "metadata": {
+                "description": "harmonic series adjusted to chromatic scale",
+                "date": 20220429,
+                "creator": "jlm"
+            }
         }
     },
     "operationF": {

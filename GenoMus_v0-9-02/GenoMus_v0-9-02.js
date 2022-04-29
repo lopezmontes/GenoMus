@@ -1245,7 +1245,31 @@ var hBluesScale = (root) => harmonicGridFunction("hBluesScale", 0.773982, lm(0,3
 var hJapanesePentatonicScale = (root) => harmonicGridFunction("hJapanesePentatonicScale", 0.392016, lm(0,1,5,7,8), root);
 var hHexatonicScale = (root) => harmonicGridFunction("hHexatonicScale", 0.01005, lm(0,2,4,6,8,10), root);
 var hOctatonicScale = (root) => harmonicGridFunction("hOctatonicScale", 0.628084, lm(0,1,3,4,6,7,9,10,11), root);
+var hPartiels = (root) => harmonicGridFunction("hPartiels", 0.415955, lm(0,12,19,24,28,31,34,36,38,40,42,43,45,46,47,48), root);
 
+
+// generic function for basic important scales and chords 
+var hHarmonicSeries = (root) => {
+    var partiels = [0,12,19,24,28,31,34,36,38,40,42,43,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60];
+    var convertedRoot = p2m(root.encPhen[0]);
+    var harmonicGrid = partiels.map(function(partiel) { return partiel + convertedRoot }) ;
+    return indexExprReturnSpecimen({
+        funcType: "harmonyF",
+        encGen: flattenDeep([1, 0.924905, root.encGen, 0]),
+        decGen: "hHarmonicSeries(" + root.decGen + ")",    
+        encPhen: harmonicGrid.map(function(encodedPitch) { return m2p(encodedPitch) }),
+        harmony: {
+            tuning: [0,1,2,3,4,5,6,7,8,9,10,11],
+            scale: partiels,
+            mode: partiels,
+            chord: partiels,
+            root: convertedRoot,
+            chromaticism: 0.5,
+            octavation: 0.5, 
+            harmonicGrid: harmonicGrid
+        }
+    });
+};
 
 // EVENT FUNCTIONS FOR EACH SPECIES
 // piano event identity function
@@ -4837,7 +4861,7 @@ var multiplePitchesEventsFuncs = [99, 100, 101];
 var listConvertersFuncs = [319,320,321,322,323,324];
 var testingFuncs = [25, 326]; // [326];
 
-var harmonyFuncs = [ 170, 171, 173, 174,175,176,177,178,179, 181, 186, 187];
+var harmonyFuncs = [170,171,173,174,175,176,177,178,179,181,186,187,262];
 
 var manyFuncs = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 18, 19,
     20, 25, 26, 28, 29, 35, 36, 37, 41, 42, 43, 44, 46, 48, 58, 63, 65, 66, 67, 68, 76, 77, 84, 104, 

@@ -1124,7 +1124,7 @@ Highest function index so far: 327 (hRnd)
 | `hBebopizer`               | 184 <sub>not yet implemented</sub> | takes a mode and returns it after inserting some chromatic steps
 | `hDefectiveMode`           | 185 <sub>not yet implemented</sub> | takes a mode and returns it after deleting some pitches 
 | `hMajorChord`              | 186 <sub>.954322 in progress</sub> | returns a major chord 
-| `hMinorChord`              | 187 <sub>.572356 in progress</sub>> | returns a minor chord 
+| `hMinorChord`              | 187 <sub>.572356 in progress</sub> | returns a minor chord 
 | `hDominantChord`           | 188 <sub>not yet implemented</sub> | returns a dominant seventh chord
 | `hSeventhChord`            | 189 <sub>not yet implemented</sub> | returns a four-note chord with triadic structure
 | `hNinthChord`              | 190 <sub>not yet implemented</sub> | returns a five-note chord with triadic structure
@@ -1188,7 +1188,7 @@ Highest function index so far: 327 (hRnd)
 ## Spectralism
 | name                | index                              | description
 | ------------------- | ---------------------------------- | -----------
-| `hHarmonicSeries`   | 262 <sub>not yet implemented</sub> | returns a harmonic series
+| `hHarmonicSeries`   | 262 <sub>.924905 in progress</sub> | returns a harmonic series as harmonic grid
 | `hSpectralMorphing` | 263 <sub>not yet implemented</sub> | returns a harmonic series with some manipulations
 | `vSpectralize`      | 264 <sub>not yet implemented</sub> | adjusts the pitches of a voice to a harmonic series
 | `sSpectralize`      | 265 <sub>not yet implemented</sub> | adjusts the pitches of a score to a harmonic series
