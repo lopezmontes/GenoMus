@@ -1240,9 +1240,9 @@ var hMajorChord = (root) => harmonicGridFunction("hMajorChord", 0.954322, lm(0,4
 var hMinorChord = (root) => harmonicGridFunction("hMinorChord", 0.572356, lm(0,3,7), root);
 var hNaturalScale = (root) => harmonicGridFunction("hNaturalScale", 0.91988, lm(0,2,4,5,7,9,11), root);
 var hMelodicMinorScale = (root) => harmonicGridFunction("hMelodicMinorScale", 0.537914, lm(0,2,3,5,7,9,11), root);
-var hPentatonic = (root) => harmonicGridFunction("hPentatonic", 0.155948, lm(0,2,4,7,9), root);
+var hPentatonicScale = (root) => harmonicGridFunction("hPentatonicScale", 0.155948, lm(0,2,4,7,9), root);
 var hBluesScale = (root) => harmonicGridFunction("hBluesScale", 0.773982, lm(0,3,5,6,7,10), root);
-var hJapanesePentatonic = (root) => harmonicGridFunction("hJapanesePentatonic", 0.392016, lm(0,1,5,7,8), root);
+var hJapanesePentatonicScale = (root) => harmonicGridFunction("hJapanesePentatonicScale", 0.392016, lm(0,1,5,7,8), root);
 var hHexatonicScale = (root) => harmonicGridFunction("hHexatonicScale", 0.01005, lm(0,2,4,6,8,10), root);
 var hOctatonicScale = (root) => harmonicGridFunction("hOctatonicScale", 0.628084, lm(0,1,3,4,6,7,9,10,11), root);
 

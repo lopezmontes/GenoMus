@@ -1410,7 +1410,7 @@
                 "creator": "jlm"
             }
         },
-        "hPentatonic": {
+        "hPentatonicScale": {
             "functionIndex": 175,
             "functionType": "harmonyF",
             "arguments": [
@@ -1434,7 +1434,7 @@
                 "creator": "jlm"
             }
         },
-        "hJapanesePentatonic": {
+        "hJapanesePentatonicScale": {
             "functionIndex": 177,
             "functionType": "harmonyF",
             "arguments": [
