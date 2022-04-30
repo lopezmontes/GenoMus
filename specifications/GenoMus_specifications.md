@@ -435,7 +435,7 @@ Conversion formulae: normalized parameter _**p**_ to relative articulation _**a*
 
 <img src="formulae/norm2articulation_new.svg" width="63">
 <img src="formulae/articulation2norm_new.svg" width="82">
-<img src="formulae/norm2articulation_graph.png" width="250">
+<img src="formulae/norm2articulation__new.png" width="250">
 
 | [0, 1]   |  proportion of event duration | notation
 | -------- | ----------------------------- | --------
