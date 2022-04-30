@@ -413,29 +413,31 @@ Articulation can be used in two modes:
 - relative articulation: the duration of the sound is a ratio of the event duration. 1 means that the sound will last the whole duration, 0.5 is the half of the event duration, and so on. For this proportional articulation the function type **articulationF** must be employed.
 
 ### **articulationF** (a)
-Conversion formulae: normalized parameter _**p**_ to relative articulation _**a**_, as a proportion of event duration ([graph](https://www.desmos.com/calculator/wtkqkcqws8)):
+Conversion formulae: normalized parameter _**p**_ to relative articulation _**a**_, as a proportion of event duration ([graph](https://www.desmos.com/calculator/eo1s80cg2j)):
 
 <img src="formulae/norm2articulation_new.svg" width="153">
 <img src="formulae/articulation2norm_new.svg" width="162">
 <img src="formulae/norm2articulation_new.png" width="250">
 
-| [0, 1]   |  proportion of event duration | notation
-| -------- | ----------------------------- | --------
-| 0        | 0                             | silence
-| 0.1      | 0.005739                      |
-| 0.2      | 0.037768                      | *staccatissimo*
-| 0.3      | 0.113708                      |
-| 0.4      | 0.248547                      | *staccato*
-| 0.5      | 0.455866                      |    
-| 0.51729  | 0.5                           | *non legato*
-| 0.6      | 0.748296                      |
-| 0.66     | 0.969596                      |
-| 0.667539 | 1                             | *legato*
-| 0.7      | 1.137769                      |
-| 0.8      | 1.635658                      | *legatissimo*
-| 0.861429 | 2                             |
-| 0.9      | 2.252888                      |
-| 1.0      | 3                             | *lasciare vibrare*
+Important: This conversion includes the internal remapping of values from an uniform distribution to a gaussian one.
+
+| [0, 1]   | % of event duration | notation
+| -------- | ------------------- | --------
+| 0        | 0                   | silence
+| 0.1      | 11                  | *staccatissimo*
+| 0.2      | 20                  | 
+| 0.3      | 29                  |
+| 0.4      | 39                  | *staccato*
+| 0.5      | 50                  | *non legato*
+| 0.6      | 65                  |
+| 0.7      | 86                  |
+| 0.746    | 1                   | *legato*
+| 0.7      | 1.137769            |
+| 0.8      | 123                 | *legatissimo*
+| 0.9      | 225                 |
+| 0.95     | 447                 | sustained notes
+| 0.97     | 89                  |
+| 1.0      | virtual infinite    | *lasciare vibrare*
 
 --------
 ## Intensity
