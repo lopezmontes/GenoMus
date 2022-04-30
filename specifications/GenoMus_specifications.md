@@ -414,7 +414,7 @@ Articulation can be used in two modes:
 - relative articulation: the duration of the sound is a ratio of the event duration. 1 means that the sound will last the whole duration, 0.5 is the half of the event duration, and so on. For this proportional articulation the function type **articulationF** must be employed.
 
 ### **articulationF** (a)
-Conversion formulae: normalized parameter _**p**_ to relative articulation _**a**_, as a proportion of event duration ([graph](https://www.desmos.com/calculator/eo1s80cg2j)):
+Conversion formulae: normalized parameter _**p**_ to relative articulation _**a**_, as a percentage of event duration ([graph](https://www.desmos.com/calculator/eo1s80cg2j)):
 
 <img src="formulae/norm2articulation_new.svg" width="170">
 <img src="formulae/articulation2norm_new.svg" width="240">
