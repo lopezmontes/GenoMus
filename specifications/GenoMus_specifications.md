@@ -380,6 +380,7 @@ Conversion formulae: normalized parameter _**p**_ to MIDI pitch _**m**_ and inve
 | 0.97    | 108           | C<sub>8</sub> <sub>(highest piano key)</sub>
 | 1.0     | 127           | E<sub>8</sub>
  
+Although low numbers for MIDI pitches are below normal register, it is important to have the numbers [0, 1, ... 11] to refer easyly to basic pitch classes. 
 
 ### **frequencyF** (f)
 
