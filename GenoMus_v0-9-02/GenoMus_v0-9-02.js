@@ -227,7 +227,7 @@ var f2p = frequency2norm;
 //var a2p = articulation2norm;
 
 // new articulation mapping
-var norm2articulation = p => Math.round((Math.tan(u2n(p) * Math.PI * 0.5) * 0.5 * 100));
+var norm2articulation = p => Math.round((Math.tan((u2n(p) * Math.PI * 0.5)) * 0.5 * 100));
 var p2a = norm2articulation;
 var articulation2norm = a => r6d(n2u((2 * Math.atan(a * 2 * 0.01))/Math.PI));
 var a2p = articulation2norm;
