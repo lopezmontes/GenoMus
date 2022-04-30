@@ -1,1 +1,1 @@
-"s(vPerpetuumMobileLoop(nRnd(),lP2M(lRnd(p(0.5),q(0))),lP2A(lConcatL(lIterL(lRnd(pRnd(),q(6)),q(16),pAutoref(0)),lUniformRnd(pAutoref(0),qRnd()))),li(60)))"
+"hPentatonicScale(mRnd())"

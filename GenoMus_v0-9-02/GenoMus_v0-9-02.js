@@ -219,10 +219,20 @@ var norm2frequency = p => p < 0.003 ? 0.000001 : r6d(20000 * Math.pow(u2n(p), 4)
 var p2f = norm2frequency;
 var frequency2norm = f => n2u(r6d(Math.pow((f / 20000), (1 / 4))));
 var f2p = frequency2norm;
-var norm2articulation = p => Math.round(300 * Math.pow(u2n(p), Math.E));
+
+// old articulation mapping
+//var norm2articulation = p => Math.round(300 * Math.pow(u2n(p), Math.E));
+//var p2a = norm2articulation;
+//var articulation2norm = a => n2u(r6d(Math.pow((a / 300), (1 / Math.E))));
+//var a2p = articulation2norm;
+
+// new articulation mapping
+var norm2articulation = p => Math.round((Math.tan(u2n(p) * Math.PI * 0.5) * 0.5 * 100));
 var p2a = norm2articulation;
-var articulation2norm = a => n2u(r6d(Math.pow((a / 300), (1 / Math.E))));
+var articulation2norm = a => r6d(n2u((2 * Math.atan(a * 2 * 0.01))/Math.PI));
 var a2p = articulation2norm;
+
+
 var norm2intensity = p => Math.round(100 * u2n(p));
 var p2i = norm2intensity;   
 var intensity2norm = i => n2u(r6d(i / 100));
