@@ -433,8 +433,8 @@ Articulation can be used in two modes:
 ### **articulationF** (a)
 Conversion formulae: normalized parameter _**p**_ to relative articulation _**a**_, as a proportion of event duration ([graph](https://www.desmos.com/calculator/i5jiq4k9ah)):
 
-<img src="formulae/norm2articulation_new.svg" width="163">
-<img src="formulae/articulation2norm_new.svg" width="182">
+<img src="formulae/norm2articulation_new.svg" width="153">
+<img src="formulae/articulation2norm_new.svg" width="162">
 <img src="formulae/norm2articulation_new.png" width="250">
 
 | [0, 1]   |  proportion of event duration | notation
