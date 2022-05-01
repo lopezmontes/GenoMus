@@ -430,7 +430,7 @@ Conversion formulae: normalized parameter _**p**_ to relative articulation _**a*
 
 <img src="formulae/norm2articulation_new.svg" width="170">
 <img src="formulae/articulation2norm_new.svg" width="240">
-<img src="formulae/norm2articulation_new.png" width="250">
+<img src="formulae/norm2articulation_graph.png" width="250">
 
 Important: This conversion includes the internal remapping of values from an uniform distribution to a gaussian one.
 
