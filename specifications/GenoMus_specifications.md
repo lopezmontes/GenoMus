@@ -399,8 +399,8 @@ Although low numbers for MIDI pitches are below normal register, it is important
 Conversion formulae: normalized parameter _**p**_ to frequency in hertz _**h**_ and inverse ([graph](https://www.desmos.com/calculator/ixocptnpba)):
 
 <img src="formulae/norm2hertz.svg" width="101">
-<img src="formulae/hertz2norm.svg" width="160">
-<img src="formulae/norm2hertz_graph.png" width="450">
+<img src="formulae/hertz2norm.svg" width="100">
+<img src="formulae/norm2hertz_graph.png" width="250">
 
 | [0, 1]   |  Hz      
 | -------- | -------- 
