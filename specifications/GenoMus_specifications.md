@@ -21,6 +21,7 @@
   - [Domain-specific formats](#domain-specific-formats)
   - [Manual manipulation of genotypes](#manual-manipulation-of-genotypes)
 - [Parameter mapping](#parameter-mapping)
+  - [Uniformal to normal distribution of random values](##Uniformal-to-normal-distribution-of-random-values)
   - [Duration](#duration)
     - [notevalueF (n)](#notevaluef-n)
       - [Reference table for main noteValues](#Reference-table-for-main-notevalues)
@@ -296,6 +297,17 @@ Parameter mapping is used in several contexts:
 - **To display decoded genotypes** in a more human-readable way, converting normalized values to domain-specific ranges when possible.
 - **To encode genotypes**, converting arguments entered manually using user-friendly function types to normalized values.
 - **To render phenotypes** (scores or soundfiles), converting normalized values to domain-specific ranges.
+
+--------
+## Uniformal to normal distribution of random values
+
+Before applying the conversions described below, random values generated in a uniform distribution within interval [0, 1] are remapped to a normal Gaussian-like distribution. The goal of this first remapping is to obtain more values in the medium spectrum of musical parameters. So, the most extrem the value, the less frequent this event will occur. 
+
+The conversion is made with the following equations (but avoiding infinite with a threshold).Conversion formulae: random value from a uniform ditribution _**u**_ mapped to a Gaussian-like distribution value _**n**_ and inverse ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
+
+<img src="formulae/uniform2normal.svg" width="100">
+<img src="formulae/normal2uniform.svg" width="175">
+<img src="formulae/uniform2normal_graph.png" width="250">
 
 --------
 ## Duration
@@ -1212,18 +1224,18 @@ Highest function index so far: 327 (hRnd)
 ## Aleatoric processes
 | name               | index                              | description
 | ------------------ | ---------------------------------- | -----------
-| `pRnd`             | 131 <sub>.962453 in progress</sub> | returns a random normalized parameter with Gaussian (or normal) distribution
-| `pUniformRnd`      | 132 <sub>.580487 in progress</sub> | returns a random normalized parameter with uniform distribution
+| `pRnd`             | 131 <sub>.962453 in progress</sub> | returns a random normalized parameter with uniform distribution
+| `pGaussianRnd`      | 132 <sub>.580487 in progress</sub> | returns a random normalized parameter with Gaussian distribution
 | `pWrappedGaussRnd` | 133 <sub>not yet implemented</sub> | returns a random normalized parameter with a wrapped normal distribution
-| `nRnd`             | 310 <sub>.590537 in progress</sub> | returns a random notevalue with with Gaussian (or normal) distribution
-| `dRnd`             | 311 <sub>.208571 in progress</sub> | returns a random duration with with Gaussian (or normal) distribution
-| `mRnd`             | 312 <sub>.826604 in progress</sub> | returns a random midipitch with with Gaussian (or normal) distribution
-| `fRnd`             | 313 <sub>.444638 in progress</sub> | returns a random frequency with with Gaussian (or normal) distribution
-| `aRnd`             | 314 <sub>.062672 in progress</sub> | returns a random articulation with with Gaussian (or normal) distribution
-| `iRnd`             | 315 <sub>.680706 in progress</sub> | returns a random intensity with with Gaussian (or normal) distribution
-| `zRnd`             | 316 <sub>.29874 in progress</sub>  | returns a random goldeninteger with with Gaussian (or normal) distribution
+| `nRnd`             | 310 <sub>.590537 in progress</sub> | returns a random notevalue with with uniform distribution
+| `dRnd`             | 311 <sub>.208571 in progress</sub> | returns a random duration with with uniform distribution
+| `mRnd`             | 312 <sub>.826604 in progress</sub> | returns a random midipitch with with uniform distribution
+| `fRnd`             | 313 <sub>.444638 in progress</sub> | returns a random frequency with with uniform distribution
+| `aRnd`             | 314 <sub>.062672 in progress</sub> | returns a random articulation with with uniform distribution
+| `iRnd`             | 315 <sub>.680706 in progress</sub> | returns a random intensity with with uniform distribution
+| `zRnd`             | 316 <sub>.29874 in progress</sub>  | returns a random goldeninteger with with uniform distribution
 | `hRnd`             | 327 <sub>.097114 in progress</sub> | returns a random harmonic grid
-| `qRnd`             | 317 <sub>.916774 in progress</sub> | returns a random quantized parameter with with Gaussian (or normal) distribution
+| `qRnd`             | 317 <sub>.916774 in progress</sub> | returns a random quantized parameter with with uniform distribution
 | `lRnd`             | 134 <sub>.816554 in progress</sub> | returns a complete random list with with Gaussian distribution of parameters
 | `lUniformRnd`      | 135 <sub>.434588 in progress</sub> | returns a complete random list with uniform distribution of values
 | `lWrappedGaussRnd` | 136 <sub>not yet implemented</sub> | returns a complete random list with a wrapped normal distribution of values

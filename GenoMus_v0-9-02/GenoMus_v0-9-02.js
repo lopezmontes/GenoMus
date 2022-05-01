@@ -164,17 +164,28 @@ var checkRange = x => {
 // homemade function to remap valor from a equal distribution to a normal (gaussian) distribution
 // adapting logit function (inverse of sigmoid)
 
+// var uniform2normal = (x) => {
+//     if (x < 0.006693) return 0;
+//     if (x > 0.993307) return 1;
+//     return r6d(0.5 + Math.log(x / (1 - x)) * 0.1);
+// }
+// var normal2uniform = (x) => {
+//     if (x == 0) return 0;
+//     if (x == 1) return 1;
+//     return r6d(-(Math.pow(Math.E,(10 * x)))/(-148.413 - Math.pow(Math.E,(10 * x))));
+// }
+
 var uniform2normal = (x) => {
-    if (x < 0.006693) return 0;
-    if (x > 0.993307) return 1;
-    return r6d(0.5 + Math.log(x / (1 - x)) * 0.1);
+    if (x < 0.000912) return 0;
+    if (x > 0.999088) return 1;
+    return r6d(0.5 + Math.log(x / (1 - x)) / 14);
 }
-var u2n = uniform2normal;
 var normal2uniform = (x) => {
     if (x == 0) return 0;
     if (x == 1) return 1;
-    return r6d(-(Math.pow(Math.E,(10 * x)))/(-148.413 - Math.pow(Math.E,(10 * x))));
-} 
+    return r6d(-(Math.pow(Math.E,(14 * x)))/(-1096.63 - Math.pow(Math.E,(14 * x))));
+}
+var u2n = uniform2normal;
 var n2u = normal2uniform;
 
 // test reversibility of gaussian conversions
@@ -227,9 +238,15 @@ var f2p = frequency2norm;
 //var a2p = articulation2norm;
 
 // new articulation mapping
-var norm2articulation = p => Math.round((Math.pow(Math.tan(u2n(p) * Math.PI * 0.5), 2) * 0.5 * 100));
+var norm2articulation = p => {
+    if (p < 0.998) return Math.round((Math.pow(Math.tan(u2n(p) * Math.PI * 0.5), 2) / 1.45 * 100));
+    return 10000;
+}; 
 var p2a = norm2articulation;
-var articulation2norm = a => r6d(n2u((2 * Math.atan(Math.sqrt(2) * Math.sqrt(a * 0.01)))/Math.PI));
+var articulation2norm = a => {
+    if (a <= 10000) return n2u(r6d(0.63662 * Math.atan(1.20416 * Math.sqrt(a * 0.01))));
+    return 0.998;
+}
 var a2p = articulation2norm;
 
 
@@ -1014,12 +1031,12 @@ var p = x => indexExprReturnSpecimen({
     encPhen: [x]
 });
 
-// returns a random normalized notevalue with normal distribution
+// returns a random normalized notevalue with uniform distribution
 var rndFramework = (fName, fTyp, fIndex) => indexExprReturnSpecimen({
     funcType: fTyp,
     encGen: [1, fIndex, 0],
     decGen: fName + "()",
-    encPhen: [r6d(uniform2normal(rand()))]
+    encPhen: [r6d(rand())]
 });
 var pRnd = () => rndFramework("pRnd", "paramF", .962453);
 var nRnd = () => rndFramework("nRnd", "notevalueF", .590537);
@@ -1031,12 +1048,12 @@ var iRnd = () => rndFramework("iRnd", "intensityF", .680706);
 var zRnd = () => rndFramework("zRnd", "goldenintegerF", .29874);
 var qRnd = () => rndFramework("qRnd", "quantizedF", .916774);
 
-// returns a random normalized parameter with uniform distribution
-var pUniformRnd = () => indexExprReturnSpecimen({
+// returns a random normalized parameter with gaussian distribution
+var pGaussianRnd = () => indexExprReturnSpecimen({
     funcType: "paramF",
     encGen: [1, 0.580487, 0],
-    decGen: "pUniformRnd()",
-    encPhen: [r6d(rand())]
+    decGen: "pGaussianRnd()",
+    encPhen: [r6d(uniform2normal(rand()))]
 });
 
 // notevalue identity function

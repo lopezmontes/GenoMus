@@ -743,19 +743,19 @@
                 "voidLeaf"
             ],
             "metadata": {
-                "description": "returns a random normalized parameter with Gaussian (or normal) distribution",
+                "description": "returns a random normalized parameter with uniform distribution",
                 "date": 20190914,
                 "creator": "jlm"
             }
         },
-        "pUniformRnd": {
+        "pGaussianRnd": {
             "functionIndex": 132,
             "functionType": "paramF",
             "arguments": [
                 "voidLeaf"
             ],
             "metadata": {
-                "description": "returns a random normalized parameter with uniform distribution",
+                "description": "returns a random normalized parameter with Gaussian distribution",
                 "date": 20190906,
                 "creator": "jlm"
             }
@@ -794,7 +794,7 @@
                 "voidLeaf"
             ],
             "metadata": {
-                "description": "returns a random notevalue with with Gaussian (or normal) distribution",
+                "description": "returns a random notevalue with with uniform distribution",
                 "date": 20191007,
                 "creator": "jlm"
             }
@@ -899,7 +899,7 @@
                 "voidLeaf"
             ],
             "metadata": {
-                "description": "returns a random duration with with Gaussian (or normal) distribution",
+                "description": "returns a random duration with with uniform distribution",
                 "date": 20210109,
                 "creator": "jlm"
             }
@@ -964,7 +964,7 @@
                 "voidLeaf"
             ],
             "metadata": {
-                "description": "returns a random midipitch with with Gaussian (or normal) distribution",
+                "description": "returns a random midipitch with with uniform distribution",
                 "date": 20191007,
                 "creator": "jlm"
             }
@@ -1069,7 +1069,7 @@
                 "voidLeaf"
             ],
             "metadata": {
-                "description": "returns a random frequency with with Gaussian (or normal) distribution",
+                "description": "returns a random frequency with with uniform distribution",
                 "date": 20210109,
                 "creator": "jlm"
             }
@@ -1134,7 +1134,7 @@
                 "voidLeaf"
             ],
             "metadata": {
-                "description": "returns a random articulation with with Gaussian (or normal) distribution",
+                "description": "returns a random articulation with with uniform distribution",
                 "date": 20191007,
                 "creator": "jlm"
             }
@@ -1239,7 +1239,7 @@
                 "voidLeaf"
             ],
             "metadata": {
-                "description": "returns a random intensity with with Gaussian (or normal) distribution",
+                "description": "returns a random intensity with with uniform distribution",
                 "date": 20191007,
                 "creator": "jlm"
             }
@@ -1332,7 +1332,7 @@
                 "voidLeaf"
             ],
             "metadata": {
-                "description": "returns a random golden integer with with Gaussian (or normal) distribution",
+                "description": "returns a random golden integer with with uniform distribution",
                 "date": 20191007,
                 "creator": "jlm"
             }
@@ -1371,7 +1371,7 @@
                 "voidLeaf"
             ],
             "metadata": {
-                "description": "returns a random quantized parameter with with Gaussian (or normal) distribution",
+                "description": "returns a random quantized parameter with with uniform distribution",
                 "date": 20191007,
                 "creator": "jlm"
             }
