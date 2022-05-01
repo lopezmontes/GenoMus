@@ -162,19 +162,6 @@ var checkRange = x => {
 };
 
 // homemade function to remap valor from a equal distribution to a normal (gaussian) distribution
-// adapting logit function (inverse of sigmoid)
-
-// var uniform2normal = (x) => {
-//     if (x < 0.006693) return 0;
-//     if (x > 0.993307) return 1;
-//     return r6d(0.5 + Math.log(x / (1 - x)) * 0.1);
-// }
-// var normal2uniform = (x) => {
-//     if (x == 0) return 0;
-//     if (x == 1) return 1;
-//     return r6d(-(Math.pow(Math.E,(10 * x)))/(-148.413 - Math.pow(Math.E,(10 * x))));
-// }
-
 var uniform2normal = (x) => {
     if (x < 0.000912) return 0;
     if (x > 0.999088) return 1;
@@ -194,7 +181,6 @@ var testReversibility = () => {
         console.log(a + " -> " + u2n(a) + " -> " + u2n(n2u(a)));       
     }
 }
-
 var p2p = p => p;
 
 // bypassing gaussian mapping
@@ -211,7 +197,6 @@ var duration2norm = s => n2u(r6d((Math.log10(s) + 6 * Math.log10(2)) / (10 * Mat
 var d2p = duration2norm;
 
 // set temperament
-// var norm2midipitch = p => Math.round(100 * u2n(p) + 12); // OLD
 var norm2midipitch = p => Math.round(127 * u2n(p));
 var norm2microtonalmidipitch = p => r6d(127 * u2n(p));
 var p2m = norm2midipitch; // 12 semitones
@@ -222,8 +207,6 @@ if (notesPerOctave != 0 && notesPerOctave != 12) {
     var p2m = norm2equalTemperamentDivisionMidipitch;
 };
 var p2mm = norm2microtonalmidipitch;
-
-// var midipitch2norm = m => n2u(r6d((m - 12) / 100)); // OLD
 var midipitch2norm = m => n2u(r6d(m / 127));
 var m2p = midipitch2norm;
 var norm2frequency = p => p < 0.003 ? 0.000001 : r6d(20000 * Math.pow(u2n(p), 4));
@@ -231,13 +214,6 @@ var p2f = norm2frequency;
 var frequency2norm = f => n2u(r6d(Math.pow((f / 20000), (1 / 4))));
 var f2p = frequency2norm;
 
-// old articulation mapping
-//var norm2articulation = p => Math.round(300 * Math.pow(u2n(p), Math.E));
-//var p2a = norm2articulation;
-//var articulation2norm = a => n2u(r6d(Math.pow((a / 300), (1 / Math.E))));
-//var a2p = articulation2norm;
-
-// new articulation mapping
 var norm2articulation = p => {
     if (p < 0.998) return Math.round((Math.pow(Math.tan(u2n(p) * Math.PI * 0.5), 2) / 1.45 * 100));
     return 10000;
@@ -248,7 +224,6 @@ var articulation2norm = a => {
     return 0.998;
 }
 var a2p = articulation2norm;
-
 
 var norm2intensity = p => Math.round(100 * u2n(p));
 var p2i = norm2intensity;   
