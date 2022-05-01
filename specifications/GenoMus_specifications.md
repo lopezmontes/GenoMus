@@ -399,7 +399,7 @@ Although low numbers for MIDI pitches are below normal register, it is important
 Conversion formulae: normalized parameter _**p**_ to frequency in hertz _**h**_ and inverse ([graph](https://www.desmos.com/calculator/ixocptnpba)):
 
 <img src="formulae/norm2hertz.svg" width="101">
-<img src="formulae/hertz2norm.svg" width="120">
+<img src="formulae/hertz2norm.svg" width="110">
 <img src="formulae/norm2hertz_graph.png" width="290">
 
 | [0, 1]   |  Hz      
@@ -431,8 +431,6 @@ Conversion formulae: normalized parameter _**p**_ to relative articulation _**a*
 <img src="formulae/norm2articulation_new.svg" width="170">
 <img src="formulae/articulation2norm_new.svg" width="300">
 <img src="formulae/norm2articulation_graph.png" width="350">
-
-Important: This conversion includes the internal remapping of values from an uniform distribution to a gaussian one.
 
 | [0, 1]   | % of event duration | notation
 | -------- | ------------------- | --------
