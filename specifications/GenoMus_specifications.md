@@ -429,8 +429,8 @@ Articulation can be used in two modes:
 Conversion formulae: normalized parameter _**p**_ to relative articulation _**a**_, as a percentage of event duration ([graph](https://www.desmos.com/calculator/eo1s80cg2j)):
 
 <img src="formulae/norm2articulation_new.svg" width="170">
-<img src="formulae/articulation2norm_new.svg" width="240">
-<img src="formulae/norm2articulation_graph.png" width="250">
+<img src="formulae/articulation2norm_new.svg" width="300">
+<img src="formulae/norm2articulation_graph.png" width="350">
 
 Important: This conversion includes the internal remapping of values from an uniform distribution to a gaussian one.
 
