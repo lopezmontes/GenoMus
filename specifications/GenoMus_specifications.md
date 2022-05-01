@@ -435,20 +435,20 @@ Conversion formulae: normalized parameter _**p**_ to relative articulation _**a*
 | [0, 1]   | % of event duration | notation
 | -------- | ------------------- | --------
 | 0        | 0                   | silence
-| 0.1      | 11                  | *staccatissimo*
-| 0.2      | 20                  | 
-| 0.3      | 29                  |
-| 0.4      | 39                  | *staccato*
-| 0.5      | 50                  | *non legato*
-| 0.6      | 65                  |
-| 0.7      | 86                  |
-| 0.746    | 1                   | *legato*
-| 0.7      | 1.137769            |
-| 0.8      | 123                 | *legatissimo*
-| 0.9      | 225                 |
-| 0.95     | 447                 | sustained notes
-| 0.97     | 89                  |
-| 1.0      | virtual infinite    | *lasciare vibrare*
+| 0.1      | 25                  | *staccatissimo*
+| 0.2      | 37                  | *staccato*
+| 0.3      | 47                  |
+| 0.4      | 57                  | *non legato*
+| 0.5      | 50                  | 
+| 0.6      | 83                  |
+| 0.7      | 101                 | *legato*
+| 0.8      | 130                 | *legatissimo*
+| 0.9      | 193                 |
+| 0.95     | 288                 | sustained notes
+| 0.97     | 396                 |
+| 0.99     | 902                 |
+| 0.998    | 10000               | *lasciare vibrare*
+| 1.0      | 10000               | 
 
 --------
 ## Intensity
