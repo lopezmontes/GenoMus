@@ -303,7 +303,7 @@ Parameter mapping is used in several contexts:
 
 Before applying the conversions described below, random values generated in a uniform distribution within interval [0, 1] are remapped to a normal Gaussian-like distribution. The goal of this first remapping is to obtain more values in the medium spectrum of musical parameters. So, the most extrem the value, the less frequent this event will occur. 
 
-The conversion is made with the following equations (but avoiding infinite with a threshold).Conversion formulae: random value from a uniform ditribution _**u**_ mapped to a Gaussian-like distribution value _**n**_ and inverse ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
+The conversion is made with the following equations (but avoiding infinite with a threshold). Conversion formulae: random value from a uniform ditribution _**u**_ mapped to a Gaussian-like distribution value _**n**_ and inverse ([graph](https://www.desmos.com/calculator/2r7jkgqced)):
 
 <img src="formulae/uniform2normal.svg" width="19s0">
 <img src="formulae/normal2uniform.svg" width="175">
