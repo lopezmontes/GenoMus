@@ -305,7 +305,7 @@ Before applying the conversions described below, random values generated in a un
 
 The conversion is made with the following equations (but avoiding infinite with a threshold).Conversion formulae: random value from a uniform ditribution _**u**_ mapped to a Gaussian-like distribution value _**n**_ and inverse ([graph](https://www.desmos.com/calculator/ysm8zt5rbl)):
 
-<img src="formulae/uniform2normal.svg" width="170">
+<img src="formulae/uniform2normal.svg" width="19s0">
 <img src="formulae/normal2uniform.svg" width="175">
 <img src="formulae/uniform2normal_graph.png" width="280">
 
