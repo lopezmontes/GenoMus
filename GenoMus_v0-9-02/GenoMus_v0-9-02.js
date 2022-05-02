@@ -47,7 +47,6 @@ var mandatoryFunction = "";
 var mutationProbability = .5;
 var mutationAmount = .3;
 
-
 var currentSpecimen; // stores the last specimen used
 var leaves = []; // stores all numeric parameters
 var genotypeLog = {};
@@ -327,7 +326,7 @@ var getFileDateName = (optionalName) => {
 }
 
 // greates common divisor, taken and adapted from https://gist.github.com/redteam-snippets/3934258. 
-// Still to refine to avoid too weird numbers
+// still to refine to avoid too weird numbers
 // functions to create an unique filaname depending on date
 var gcd = (a, b) => (b) ? gcd(b, a % b) : a;
 
@@ -423,8 +422,6 @@ var testRepetitions = function (n) {
 };
 
 //// AUX FUNCTIONS FOR HARMONIC GRIDS
-
-/////// approaching the computation of a harmonic grid
 
 // takes a value and aproximate each number to the nearest value of an array of values
 var closest = (val, arr) => {
@@ -533,7 +530,6 @@ var calculateHarmonicGrid = (tuning, scale, mode, chord, root, chromaticism, oct
     chord = removeArrayDuplicates(octavateArray(chord, octavation).sort((a, b) => a - b));
     return chord;
 };
-
 
 //// RANDOM HANDLING
 
@@ -740,8 +736,6 @@ var howNearToRange = (testedValue, rangeMin, rangeMax) => {
     if (testedValue > rangeMax) return rangeMax/testedValue;
     return 1;
 }
-
-
 
 //// GENETIC ALGORITHM FIRST APPROACH
 
@@ -993,8 +987,6 @@ var simpleBACHSearch = () => {
         maxAPI.post(numGeneration + " generations");
     }
 }
-    
-
 
 //// GENOTYPE FUNCTIONS CORPUS
 
@@ -1133,7 +1125,6 @@ var la = (...pList) => listIdentityFunc("la", "larticulationF", 0.742646, 0.55, 
 var li = (...pList) => listIdentityFunc("li", "lintensityF", 0.36068, 0.56, i2p, ...pList);
 var lz = (...pList) => listIdentityFunc("lz", "lgoldenintegerF", 0.978714, 0.57, z2p, ...pList);
 var lq = (...pList) => listIdentityFunc("lq", "lquantizedF", 0.596748, 0.58, q2p, ...pList);
-
 
 //// Harmony functions
 
@@ -1923,7 +1914,6 @@ var lRnd = (seqSeed, numItems) => {
 };
 
 // modifies randomly all values of a list according to a range, without exceeding interval [0, 1]
-
 var lJitter = (unchangedList, jitterRange, jitterSeed) => {
     var listToProcess = unchangedList.encPhen;
     var listLength = listToProcess.length;
@@ -1965,7 +1955,6 @@ var vConcatE = (e1, e2) => indexExprReturnSpecimen({
     }
 });
 
-
 // rewrites a voice according to a harmonic grid
 var vHarmonicGrid = (v, h) => {
     var newEncPhen = [v.encPhen[0]]; // writes first value, number of events
@@ -1999,7 +1988,6 @@ var vHarmonicGrid = (v, h) => {
 // rewrites a score according to a harmonic grid
 var sHarmonicGrid = (s, h) => {
     var newEncPhen = [s.encPhen[0]]; // writes first value, number of voices
-    // var encPhenLength = s.encPhen.length;
     var voicesInScore = p2z(s.encPhen[0]);
     var eventsInVoice;
     var pitchesInEvent;
@@ -2895,8 +2883,6 @@ var vMotif_piano_4xtra = (listNotevalues, listPitches, listArticulations, listIn
     /////////// if (seqLength > phenMaxLength) return -1;
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        // maxAPI.post("Aborted genotype due to exceeding the max length");
-        // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -2954,8 +2940,6 @@ var vMotif_csound = (listNotevalues, listPitches, listArticulations, listIntensi
     /////////// if (seqLength > phenMaxLength) return -1;
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        // maxAPI.post("Aborted genotype due to exceeding the max length");
-        // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -3016,8 +3000,6 @@ var vMotifLoop_piano = (listNotevalues, listPitches, listArticulations, listInte
     //////////// if (seqLength > phenMaxLength) return -1;
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        // maxAPI.post("Aborted genotype due to exceeding the max length");
-        // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -3060,8 +3042,6 @@ var vMotifLoop_piano_4xtra = (listNotevalues, listPitches, listArticulations, li
     //////////// if (seqLength > phenMaxLength) return -1;
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        // maxAPI.post("Aborted genotype due to exceeding the max length");
-        // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -3121,8 +3101,6 @@ var vMotifLoop_csound = (listNotevalues, listPitches, listArticulations, listInt
     //////////// if (seqLength > phenMaxLength) return -1;
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        // maxAPI.post("Aborted genotype due to exceeding the max length");
-        // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -3182,8 +3160,6 @@ var vPerpetuumMobile_piano = (noteval, listPitches, listArticulations, listInten
     /////////// if (seqLength > phenMaxLength) return -1;
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        // maxAPI.post("Aborted genotype due to exceeding the max length");
-        // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -3224,8 +3200,6 @@ var vPerpetuumMobile_piano_4xtra = (noteval, listPitches, listArticulations, lis
     /////////// if (seqLength > phenMaxLength) return -1;
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        // maxAPI.post("Aborted genotype due to exceeding the max length");
-        // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -3281,8 +3255,6 @@ var vPerpetuumMobile_csound = (noteval, listPitches, listArticulations, listInte
         listParam12.encPhen.length);
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        // maxAPI.post("Aborted genotype due to exceeding the max length");
-        // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -3341,8 +3313,6 @@ var vPerpetuumMobileLoop_piano = (noteval, listPitches, listArticulations, listI
     var seqLength = Math.max(totalPitches, totalArticulations, totalIntensities);
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        // maxAPI.post("Aborted genotype due to exceeding the max length");
-        // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -3383,8 +3353,6 @@ var vPerpetuumMobileLoop_piano_4xtra = (noteval, listPitches, listArticulations,
         totalParam5values, totalParam6values, totalParam7values, totalParam8values);
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        // maxAPI.post("Aborted genotype due to exceeding the max length");
-        // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -3442,8 +3410,6 @@ var vPerpetuumMobileLoop_csound = (noteval, listPitches, listArticulations, list
         totalParam9values, totalParam10values, totalParam11values, totalParam12values);
     if (seqLength > phenMaxLength) {
         validGenotype = false;
-        // maxAPI.post("Aborted genotype due to exceeding the max length");
-        // return eval("v(" + defaultEventExpression + ")");
     }
     var eventsSeq = [z2p(seqLength)];
     for (var ev = 0; ev < seqLength; ev++) {
@@ -3500,8 +3466,6 @@ var vRepeatV = (voice, times) => {
     var totalEvents = voice.phenLength * repeats;
     if (totalEvents > phenMaxLength) {
         validGenotype = false;
-        // maxAPI.post("vRepeatV aborted genotype due to exceeding the max length");
-        // return eval("v(" + defaultEventExpression + ")");
     }
     var repeatedVoice = [];
     for (var el = 0; el < repeats; el++) repeatedVoice = repeatedVoice.concat(voice.encPhen.slice(1));
@@ -3598,7 +3562,6 @@ var laAutoref = subexprIndex => autoref("laAutoref", "larticulationF", 0.229857,
 var liAutoref = subexprIndex => autoref("liAutoref", "lintensityF", 0.847891, subexprIndex, "li(60)");
 var lzAutoref = subexprIndex => autoref("lzAutoref", "lgoldenintegerF", 0.465925, subexprIndex, "lg(3)");
 var lqAutoRef = subexprIndex => autoref("lqAutoRef", "lquantizedF", 0.083959, subexprIndex, "lq(3)");
-
 
 //// FUNCTION LIBRARIES HANDLING
 
@@ -3738,8 +3701,6 @@ var GenoMusFunctionLibrary = createFunctionIndexesCatalogues("aux/" + currentSpe
 
 // exports the catalogues of function indexes, ordered by function name, encoded indexes and integer indexes
 createJSON(GenoMusFunctionLibrary, 'aux/GenoMus_function_library.json');
-
-
 
 //// GENOTYPES ENCODING, DECODING AND EVALUATION
 
@@ -3931,7 +3892,6 @@ var measureStringMaxDepth = (str) => {
     return total_max; 
 };
 
-
 // encodes and decodes a genotype to filter bad or dangerous expressions before being evaluated
 var evalDecGen = decGen => {
     var encodedGenotype = encodeGenotype(decGen);
@@ -3992,7 +3952,7 @@ var visualizeSpecimen = (normArray, filename) => {
     fs.writeFileSync(filename + '.svg', SVGcode);
 };
 
-// EXPRESSIONS PROCESSING
+//// EXPRESSIONS PROCESSING
 
 // compresses an expanded expression
 var compressExpr = expandedFormExpr => {
@@ -4079,7 +4039,6 @@ var expandExpr = compressedFormExpr => {
     // outlet(0, compressedFormExpr);
     // outlet(1, eval(compressedFormExpr)[0]);
 };
-
 
 //// PHENOTYPE DECODERS
 
@@ -4484,7 +4443,6 @@ var encPhen2csoundScore = encPhen => {
 
 // encPhen2bachRoll([ 0.618034, 0.618034, 0.6, 0.618034, 0.48, 1, 1 ]);
 // encPhen2bachRoll(evalDecGen("s(v(e(p(0.5),p(.5),p(.5),p(.5))))").encPhen);
-
 
 //// CORE FUNCTIONS FOR SPECIMEN CREATION AND EVOLUTION
 
