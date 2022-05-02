@@ -2,7 +2,7 @@
 ///////////////////
 
 // GOALS:
-// Testing Inital Conditons without branch depth limit (only with default set out of Initial Conditions) - DONE
+// Testing Initial Conditons without branch depth limit (only with default set out of Initial Conditions) - DONE
 // Considering add branch type (and maybe species) to the initial conditions, to be autocontained - DONE
 // Last redesign of data arquitecture, previous to GenoMus 1.0
 // Genetic algorithms
@@ -31,7 +31,7 @@ var defaultListsMaxCardinality = 16;
 var phenotypeSeed = Math.round(Math.random() * 1e14);
 var defaultGerminalVecMaxLength = 2000;
 
-var genMaxDepth = 35;
+var genMaxDepth = 60;
 var defaultEventExpression; // variable to store a default event when no autoreferences are possible
 var validGenotype = true;
 var phenMinPolyphony = 1;
@@ -818,10 +818,10 @@ var numMutatedSpecs = specimensPerGeneration - numEliteSpecs - numGraftedSpecime
 var bestResult = Infinity;
 var fitnessProgression = [];
 
-post("numEliteSpecs:", numEliteSpecs);
-post("numGraftedSpecs:", numGraftedSpecimens);
-post("numNewSpecs:", numNewSpecs);
-post("numMutatedSpecs:", numMutatedSpecs);
+// post("numEliteSpecs:", numEliteSpecs);
+// post("numGraftedSpecs:", numGraftedSpecimens);
+// post("numNewSpecs:", numNewSpecs);
+// post("numMutatedSpecs:", numMutatedSpecs);
 
 // var germinalVectorLength = 50;
 // var refineSearchRange = germinalVectorLength * 0.01;
@@ -5530,7 +5530,7 @@ var createSpeciesDependentFunctions = (speciesName) => {
 createSpeciesDependentFunctions(currentSpecies);
 
 // init currentSpecimen with a random default specimen
-var currentSpecimen = specimenDataStructure(createNewSpecimen());
+var currentSpecimen = currentSpecimen = evalDecGen(defaultEventExpression);
 
 
 
