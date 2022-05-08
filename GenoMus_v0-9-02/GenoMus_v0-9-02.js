@@ -4,6 +4,7 @@
 // GOALS:
 // Testing Initial Conditons without branch depth limit (only with default set out of Initial Conditions) - DONE
 // Considering add branch type (and maybe species) to the initial conditions, to be autocontained - DONE
+// Consistency across inital conditions among differente transformations
 // Last redesign of data arquitecture, previous to GenoMus 1.0
 // Genetic algorithms
 
@@ -5202,7 +5203,7 @@ maxAPI.addHandlers({
             specimenID: getFileDateName(currentUser),
             specimenType: currentSpecimen.funcType, // to be done: recognition of the first function entered typing
             localEligibleFunctions: [],
-            maxListCardinality: defaultListsMaxCardinality,
+            maxListCardinality: "unlimited",
             phenotypeSeed: phenotypeSeed,
             germinalVector: currentSpecimen.encGen,
             iterations: 0,
@@ -5488,10 +5489,8 @@ var createSpeciesDependentFunctions = (speciesName) => {
 createSpeciesDependentFunctions(currentSpecies);
 
 // init currentSpecimen with a random default specimen
-var currentSpecimen = currentSpecimen = evalDecGen(defaultEventExpression);
-
-
-
+// var currentSpecimen = evalDecGen(defaultEventExpression);
+var currentSpecimen = specimenDataStructure(createNewSpecimen());
 
 
 
