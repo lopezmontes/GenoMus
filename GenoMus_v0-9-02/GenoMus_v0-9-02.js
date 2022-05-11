@@ -3916,6 +3916,7 @@ var visualizeSpecimen = (normArray, filename) => {
     var roundedCornerRadius = lineWidth * 0.5;
     var specimenLength = normArray.length;
     var totalRows = Math.ceil(specimenLength / maxLinesPerRow);
+    var goldenNumbers = [...Array(100).keys()].map(z2p);
     if (specimenLength > maxLinesPerRow) {
         graphWidth = maxLinesPerRow * (lineWidth + lineOffset);
     } else {
@@ -3931,6 +3932,7 @@ var visualizeSpecimen = (normArray, filename) => {
     for (var i = 0; i < specimenLength; i++) {
         lineHeight = normArray[i] * (lineMaxHeight - lineWidth) + lineWidth;
         if (normArray[i] == 0 || normArray[i] == 1) lineColor = "black";
+        else if (goldenNumbers.includes(normArray[i])) lineColor = "red";
         else if (normArray[i] == 0.5) lineColor = "#999999";
         else if (normArray[i] == 0.51) lineColor = "#A0A0A0";
         else if (normArray[i] == 0.52) lineColor = "#AAAAAA";
@@ -3942,7 +3944,7 @@ var visualizeSpecimen = (normArray, filename) => {
         else if (normArray[i] == 0.58) lineColor = "#DDDDDD";
         else if (normArray[i] == 0.59) lineColor = "#E0E0E0";
         else if (normArray[i] == 0.6) lineColor = "#EEEEEE";
-        else lineColor = "hsl(" + (norm2goldeninteger(normArray[i]) % 360) + "," + 93 + "%," + 50 + "%)";
+        else lineColor = "hsl(" + (norm2goldeninteger(normArray[i]) % 220 + 60) + "," + 93 + "%," + 50 + "%)";
         lines = lines +
             "    <rect x='" + (i * (lineWidth + lineOffset) - Math.floor(i / maxLinesPerRow) * maxLinesPerRow * (lineWidth + lineOffset)) +
             "' y='" + (Math.floor(i / maxLinesPerRow) * (lineMaxHeight + rowOffset) + lineMaxHeight - lineHeight) +
