@@ -3932,7 +3932,7 @@ var visualizeSpecimen = (normArray, filename) => {
     for (var i = 0; i < specimenLength; i++) {
         lineHeight = normArray[i] * (lineMaxHeight - lineWidth) + lineWidth;
         if (normArray[i] == 0 || normArray[i] == 1) lineColor = "black"; // functions openings and ends
-        else if (goldenNumbers.includes(normArray[i])) lineColor = "orangered"; // golden numbers
+        else if (goldenNumbers.includes(normArray[i])) lineColor = "red"; // golden numbers
         else if (normArray[i] == 0.5) lineColor = "#999999"; // leaves identifiers
         else if (normArray[i] == 0.51) lineColor = "#A0A0A0";
         else if (normArray[i] == 0.52) lineColor = "#AAAAAA";
@@ -3944,7 +3944,7 @@ var visualizeSpecimen = (normArray, filename) => {
         else if (normArray[i] == 0.58) lineColor = "#DDDDDD";
         else if (normArray[i] == 0.59) lineColor = "#E0E0E0";
         else if (normArray[i] == 0.6) lineColor = "#EEEEEE";
-        else lineColor = "hsl(" + (norm2goldeninteger(normArray[i]) % 220 + 60) + "," + 93 + "%," + 56 + "%)"; // leaf values
+        else lineColor = "hsl(" + (norm2goldeninteger(normArray[i]) % 210 + 70) + "," + 93 + "%," + 56 + "%)"; // leaf values
         lines = lines +
             "    <rect x='" + (i * (lineWidth + lineOffset) - Math.floor(i / maxLinesPerRow) * maxLinesPerRow * (lineWidth + lineOffset)) +
             "' y='" + (Math.floor(i / maxLinesPerRow) * (lineMaxHeight + rowOffset) + lineMaxHeight - lineHeight) +
