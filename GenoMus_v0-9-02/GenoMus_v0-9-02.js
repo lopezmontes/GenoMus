@@ -3959,15 +3959,17 @@ var visualizeSpecimen = (normArray, filename) => {
 // test colorization with minimal steps
 var testColorization = () => {
     var coloredValues = [];
-    var firstValue = 0;
-    lastValue = 0.001;
+    var firstValue = 0.8;
+    var lastValue = 0.801;
     step = 0.000001;
-    for ( var i=0, l=0.001; i<l; i+=0.000001 ){
-        heights: coloredValues.push(i);
+    for ( var i=firstValue, l=lastValue; i<l; i+=step ){
+        coloredValues: coloredValues.push(r6d(i));
     };
+    console.log(coloredValues);
     visualizeSpecimen(coloredValues, "testcolors-000001");
 };
 
+testColorization();
 
 //// EXPRESSIONS PROCESSING
 
