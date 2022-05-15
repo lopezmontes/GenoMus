@@ -1,1 +1,1 @@
-"sHarmonicGrid(s(vRepeatV(vPerpetuumMobileLoop(n(0.079799),lP2M(lIterL(lConcatL(lIterP(p(0.654678),q(3),p(1)),lIterL(lConcatL(lRnd(pRnd(),q(2)),lIterL(l(1,0.936625,0.198329,0.223609),qAutoref(1),pRnd())),q(0),pAutoref(1))),q(27),pRnd())),la(58),lP2I(lRnd(pAutoref(2),q(4)))),q(2))),hMajorChord(m(43)))"
+"s(vRepeatV(vPerpetuumMobileLoop(nRnd(),lm(36),lP2A(lJitter(lJitter(lJitter(lJitter(l5P(pGaussianRnd(),p(0.36068),p(1),pRnd(),p(0.472136)),pRnd(),p(0.506578)),p(0.831798),pGaussianRnd()),pGaussianRnd(),pRnd()),p(0.36068),p(1))),lP2I(lRepeatP(pRnd(),pRnd()))),q(3)))"

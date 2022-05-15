@@ -30,7 +30,7 @@ var currentInitialConditionsCollection = "aux/current_population.json";
 var specimenMainFunctionType = "scoreF";
 var defaultListsMaxCardinality = 16;
 var phenotypeSeed = Math.round(Math.random() * 1e14);
-var defaultGerminalVecMaxLength = 2000;
+var defaultGerminalVecMaxLength = 20;
 
 var genMaxDepth = 60;
 var defaultEventExpression; // variable to store a default event when no autoreferences are possible
@@ -4872,7 +4872,7 @@ var eligibleFunctions = {
             .concat(harmonyFuncs)
             //.concat(testingFuncs)
             //.concat(manyFuncs)
-            //.concat(manyFuncsWithoutAutoRefs) // da problemas con harmonyF
+            .concat(manyFuncsWithoutAutoRefs) // da problemas con harmonyF
             
             //.concat(findingErrors)
         )],
