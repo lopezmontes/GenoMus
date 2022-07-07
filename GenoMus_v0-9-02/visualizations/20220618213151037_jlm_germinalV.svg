@@ -1,0 +1,20 @@
+<svg version='1.1'
+    baseProfile='full'
+    width='154' height='140'
+    xmlns='http://www.w3.org/2000/svg'>
+    <rect x='0' y='0' width=';154' height='140' style='fill:white;' />
+    <rect x='0' y='126.15230681775445' rx='5' ry='5' width='10' height='13.847693182245553' style='fill:hsl(143,80%,56%)' />
+    <rect x='11' y='96.11280487804878' rx='5' ry='5' width='10' height='43.88719512195122' style='fill:hsl(272,80%,56%)' />
+    <rect x='22' y='92.14939024390245' rx='5' ry='5' width='10' height='47.85060975609756' style='fill:hsl(104,80%,56%)' />
+    <rect x='33' y='79.0701219512195' rx='5' ry='5' width='10' height='60.92987804878049' style='fill:hsl(102,80%,56%)' />
+    <rect x='44' y='27.149390243902445' rx='5' ry='5' width='10' height='112.85060975609755' style='fill:hsl(175,80%,56%)' />
+    <rect x='55' y='3.084766156459011' rx='5' ry='5' width='10' height='136.915233843541' style='fill:hsl(153,80%,56%)' />
+    <rect x='66' y='76.64192033151366' rx='5' ry='5' width='10' height='63.35807966848634' style='fill:hsl(272,80%,56%)' />
+    <rect x='77' y='63.52386395094467' rx='5' ry='5' width='10' height='76.47613604905533' style='fill:hsl(102,80%,56%)' />
+    <rect x='88' y='3.4098044264767964' rx='5' ry='5' width='10' height='136.5901955735232' style='fill:hsl(144,80%,56%)' />
+    <rect x='99' y='113.92450019039505' rx='5' ry='5' width='10' height='26.075499809604946' style='fill:hsl(112,80%,56%)' />
+    <rect x='110' y='61.54028938343684' rx='5' ry='5' width='10' height='78.45971061656316' style='fill:hsl(256,80%,56%)' />
+    <rect x='121' y='65.99815310032481' rx='5' ry='5' width='10' height='74.00184689967519' style='fill:hsl(108,80%,56%)' />
+    <rect x='132' y='16.868659326218093' rx='5' ry='5' width='10' height='123.1313406737819' style='fill:hsl(244,80%,56%)' />
+    <rect x='143' y='0.27021993687003487' rx='5' ry='5' width='10' height='139.72978006312997' style='fill:hsl(259,80%,56%)' />
+</svg>

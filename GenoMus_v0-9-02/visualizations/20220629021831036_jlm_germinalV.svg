@@ -1,0 +1,11 @@
+<svg version='1.1'
+    baseProfile='full'
+    width='55' height='140'
+    xmlns='http://www.w3.org/2000/svg'>
+    <rect x='0' y='0' width=';55' height='140' style='fill:white;' />
+    <rect x='0' y='74.88156000000001' rx='5' ry='5' width='10' height='65.11843999999999' style='fill:hsl(102,80%,56%)' />
+    <rect x='11' y='88.90531' rx='5' ry='5' width='10' height='51.09469' style='fill:hsl(142,80%,56%)' />
+    <rect x='22' y='129.08974' rx='5' ry='5' width='10' height='10.910260000000001' style='fill:hsl(102,80%,56%)' />
+    <rect x='33' y='84.98711' rx='5' ry='5' width='10' height='55.01289' style='fill:hsl(244,80%,56%)' />
+    <rect x='44' y='60.21574' rx='5' ry='5' width='10' height='79.78426' style='fill:hsl(189,80%,56%)' />
+</svg>

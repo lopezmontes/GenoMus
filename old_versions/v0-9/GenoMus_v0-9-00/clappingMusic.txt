@@ -1,223 +1,0 @@
-Clapping music in GenoMus:
-
-NEW APPROACH:
-
-s2V ( // score L: joins the 2 voices verticallyvSlice ( // voice J: slices last cycle due to phase shiftvRepeatV ( // phase G: F 13 timesvRepeatV ( // cycle F: E 8 timesvConcatV ( // pattern E: C + DvConcatV ( // motif C: A + BvMotifLoop ( // core motif A: 3 8th - notes and a silenceln (1/8) , // note valueslm (65) , // pitch ( irrelevant for this piece )la (50) , // articulationli (60 ,60 ,90 ,0)), // intensities ( last note louder for clarity )vSlice ( // motif B: A with 1st note slicedvAutoref (0) ,q(1))),vSlice ( // motif D: C with first two notes slicedvAutoref (3) ,q(2))),q(8)),q (13) ),q( -12)),vConcatV ( // voice K: F + HvAutoref (7) ,vRepeatV ( // phase I: H 12 timesvSlice ( // cycle H: F without 1st note , for phase shiftvAutoref (10) ,q(1)),q (12) )))
-
-
-
-
-
-
-
-
-
-
-OLD:
-
-
-"s2V(
-   vRepeatV(
-      vRepeatV(
-         vConcatV(
-            vRepeatE(
-               e(
-                  n(0.04),
-                  m(63),
-                  a(0.6),
-                  i(50)),
-               q(2)),
-            vRepeatV(
-               vMotifLoop(
-                  ln(
-                     0.08,
-                     0.04,
-                     0.08),
-                  lm(
-                     63),
-                  la(
-                     0.6),
-                  li(
-                     100,
-                     50,
-                     50)),
-               q(2))),
-         q(8)),
-      q(13)),
-   vConcatV(
-      vConcatV(
-         vAutoref(4),
-         vRepeatV(
-            vConcatV(
-               vConcatV(
-                  v(
-                     eAutoref(0)),
-                  vAutoref(2)),
-               vRepeatV(
-                  vAutoref(3),
-                  q(7))),
-            q(12))),
-      vAutoref(3)))"
-
-
-s2V(vRepeatV(vRepeatV(vConcatV(vRepeatE(e(n(0.04),m(63),a(0.6),i(50)),q(2)),
-vRepeatV(vMotifLoop(ln(0.08,0.04,0.08),lm(63),la(0.6),li(100,50,50)),q(2))),
-q(8)),q(13)),vConcatV(vConcatV(vAutoref(4),vRepeatV(vConcatV(vConcatV(v(eAutoref(0)),
-vAutoref(2)),vRepeatV(vAutoref(3),q(7))),q(12))),vAutoref(3)))
-
-s2V(vRepV(vRepV(vConcV(vRepE(e(n(0.04),m(63),a(0.6),i(50)),q(2)),vRepV(vMotifLoop(
-ln(0.08,0.04,0.08),lm(63),la(0.6),li(100,50,50)),q(2))),q(8)),q(13)),vConcV(vConcV(
-vAuto(4),vRepV(vConcV(vConcV(v(eAuto(0)),vAuto(2)),vRepV(vAuto(3),q(7))),q(12))),vAuto(3)))
-
-
-"s2V(
-   vRepV(
-      vRepV(
-         vConcV(
-            vRepE(
-               e(
-                  n(0.04),
-                  m(63),
-                  a(0.6),
-                  i(50)),
-               q(2)),
-            vRepV(
-               vMotifLoop(
-                  ln(
-                     0.08,
-                     0.04,
-                     0.08),
-                  lm(
-                     63),
-                  la(
-                     0.6),
-                  li(
-                     100,
-                     50,
-                     50)),
-               q(2))),
-         q(8)),
-      q(13)),
-   vConcV(
-      vConcV(
-         vAuto(4),
-         vRepV(
-            vConcV(
-               vConcV(
-                  v(
-                     eAuto(0)),
-                  vAuto(2)),
-               vRepV(
-                  vAuto(3),
-                  q(7))),
-            q(12))),
-      vAuto(3)))"
-
-
-
-
-TESTING SLICE:
-
-s(
-   vRepeatV(
-      vConcatV(
-         vRepeatE(
-            e(
-               n(0.04),
-               m(47),
-               a(0.6),
-               i(50)),
-            q(2)),
-         vRepeatV(
-            vMotifLoop(
-               ln(
-                  0.08,
-                  0.04,
-                  0.08),
-               lm(
-                  63),
-               la(
-                  0.6),
-               li(
-                  100,
-                  50,
-                  50)),
-            q(2))),
-      q(5)))
-
-
-      s(
-   vSlice(
-      vRepeatV(
-         vConcatV(
-            vRepeatE(
-               e(
-                  n(0.04),
-                  m(47),
-                  a(0.6),
-                  i(50)),
-               q(2)),
-            vRepeatV(
-               vMotifLoop(
-                  ln(
-                     0.08,
-                     0.04,
-                     0.08),
-                  lm(
-                     63),
-                  la(
-                     0.6),
-                  li(
-                     100,
-                     50,
-                     50)),
-               q(2))),
-         q(5)),
-      q(2)))
-
-PROBLEMA:
-
-"s(
-   vABCABv(
-      vABAv(
-         v(
-            e(
-               p(0),
-               m(43),
-               p(0),
-               p(0))),
-         vSlice(
-            vRepeatV(
-               vRepeatE(
-                  e(
-                     nRnd(),
-                     mRnd(),
-                     aRnd(),
-                     iRnd()),
-                  p(0.637676)),
-               pRnd()),
-            q(-1))),
-      vMotif(
-         lnRemap(
-            lnLine(
-               nAutoref(0),
-               n(0.069535),
-               z(36)),
-            nRnd(),
-            n(0.086355)),
-         lm(
-            43),
-         laLine(
-            aRnd(),
-            aRnd(),
-            z(37)),
-         li(
-            67,
-            90,
-            83)),
-      v(
-         e(
-            n(0.062195),
-            mAutoref(1),
-            aRnd(),
-            iRnd()))))"
