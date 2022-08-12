@@ -1,8 +1,0 @@
-<svg version='1.1'
-    baseProfile='full'
-    width='22' height='140'
-    xmlns='http://www.w3.org/2000/svg'>
-    <rect x='0' y='0' width=';22' height='140' style='fill:white;' />
-    <rect x='0' y='3.7652439024390105' rx='5' ry='5' width='10' height='136.234756097561' style='fill:hsl(238,80%,56%)' />
-    <rect x='11' y='81.05182926829269' rx='5' ry='5' width='10' height='58.948170731707314' style='fill:hsl(136,80%,56%)' />
-</svg>
