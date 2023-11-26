@@ -30,7 +30,7 @@ var currentInitialConditionsCollection = "aux/current_population.json";
 var specimenMainFunctionType = "scoreF";
 var defaultListsMaxCardinality = 16;
 var phenotypeSeed = Math.round(Math.random() * 1e14);
-var defaultGerminalVecMaxLength = 20;
+var defaultGerminalVecMaxLength = 200;
 
 var genMaxDepth = 60;
 var defaultEventExpression; // variable to store a default event when no autoreferences are possible
